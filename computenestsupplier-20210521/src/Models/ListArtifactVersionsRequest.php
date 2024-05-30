@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactVersionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -16,11 +18,9 @@ class ListArtifactVersionsRequest extends Model
     public $artifactId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
-    public $maxResult;
+    public $maxResults;
 
     /**
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
@@ -30,7 +30,7 @@ class ListArtifactVersionsRequest extends Model
     public $nextToken;
     protected $_name = [
         'artifactId' => 'ArtifactId',
-        'maxResult'  => 'MaxResult',
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
     ];
 
@@ -44,8 +44,8 @@ class ListArtifactVersionsRequest extends Model
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
-        if (null !== $this->maxResult) {
-            $res['MaxResult'] = $this->maxResult;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -65,8 +65,8 @@ class ListArtifactVersionsRequest extends Model
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
-        if (isset($map['MaxResult'])) {
-            $model->maxResult = $map['MaxResult'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

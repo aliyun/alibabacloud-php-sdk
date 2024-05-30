@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class serviceInstances extends Model
 {
     /**
+     * @var string
+     */
+    public $bizStatus;
+
+    /**
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -156,6 +161,7 @@ class serviceInstances extends Model
      */
     public $userId;
     protected $_name = [
+        'bizStatus'                 => 'BizStatus',
         'createTime'                => 'CreateTime',
         'enableInstanceOps'         => 'EnableInstanceOps',
         'endTime'                   => 'EndTime',
@@ -187,6 +193,9 @@ class serviceInstances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizStatus) {
+            $res['BizStatus'] = $this->bizStatus;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -271,6 +280,9 @@ class serviceInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizStatus'])) {
+            $model->bizStatus = $map['BizStatus'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

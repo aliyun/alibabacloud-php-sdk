@@ -30,6 +30,8 @@ class ContinueDeployServiceInstanceRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +39,8 @@ class ContinueDeployServiceInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string

@@ -16,6 +16,8 @@ class DeployServiceInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class DeployServiceInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string

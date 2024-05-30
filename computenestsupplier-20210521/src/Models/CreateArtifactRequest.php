@@ -23,6 +23,8 @@ class CreateArtifactRequest extends Model
     public $artifactProperty;
 
     /**
+     * @description This parameter is required.
+     *
      * @example EcsImage
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateArtifactRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -55,6 +59,8 @@ class CreateArtifactRequest extends Model
     public $tag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1
      *
      * @var string

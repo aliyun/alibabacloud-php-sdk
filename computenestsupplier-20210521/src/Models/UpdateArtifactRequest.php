@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var artifactProperty
      */
     public $artifactProperty;
@@ -32,6 +36,8 @@ class UpdateArtifactRequest extends Model
     public $supportRegionIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1
      *
      * @var string

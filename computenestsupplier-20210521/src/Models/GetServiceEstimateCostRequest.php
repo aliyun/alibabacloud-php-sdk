@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostRequest\commodity;
 use AlibabaCloud\Tea\Model;
 
 class GetServiceEstimateCostRequest extends Model
@@ -16,7 +17,12 @@ class GetServiceEstimateCostRequest extends Model
     public $clientToken;
 
     /**
-     * @example {\"PayType\":\"PostPaid\",\"InstancePassword\":\"xxxxxxxxxx\",\"EcsInstanceType\":\"ecs.g6.large\",\"VSwitchId\":\"vsw-0jlueyydpuekoxxxxxxxx\",\"VpcId\":\"vpc-0jlps6mjbgvpqxxxxxxxx\",\"ZoneId\":\"cn-wulanchabu-a\",\"Enable\":false,\"RegionId\":\"cn-wulanchabu\"}
+     * @var commodity
+     */
+    public $commodity;
+
+    /**
+     * @example {\\"PayType\\":\\"PostPaid\\",\\"InstancePassword\\":\\"xxxxxxxxxx\\",\\"EcsInstanceType\\":\\"ecs.g6.large\\",\\"VSwitchId\\":\\"vsw-0jlueyydpuekoxxxxxxxx\\",\\"VpcId\\":\\"vpc-0jlps6mjbgvpqxxxxxxxx\\",\\"ZoneId\\":\\"cn-wulanchabu-a\\",\\"Enable\\":false,\\"RegionId\\":\\"cn-wulanchabu\\"}
      *
      * @var mixed[]
      */
@@ -30,6 +36,8 @@ class GetServiceEstimateCostRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-16fbd358d75e49xxxxxx
      *
      * @var string
@@ -63,6 +71,7 @@ class GetServiceEstimateCostRequest extends Model
     public $templateName;
     protected $_name = [
         'clientToken'       => 'ClientToken',
+        'commodity'         => 'Commodity',
         'parameters'        => 'Parameters',
         'regionId'          => 'RegionId',
         'serviceId'         => 'ServiceId',
@@ -81,6 +90,9 @@ class GetServiceEstimateCostRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->commodity) {
+            $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -117,6 +129,9 @@ class GetServiceEstimateCostRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Commodity'])) {
+            $model->commodity = commodity::fromMap($map['Commodity']);
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];

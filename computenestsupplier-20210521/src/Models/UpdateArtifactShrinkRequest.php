@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateArtifactShrinkRequest extends Model
     public $artifactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $artifactPropertyShrink;
@@ -31,6 +35,8 @@ class UpdateArtifactShrinkRequest extends Model
     public $supportRegionIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1
      *
      * @var string

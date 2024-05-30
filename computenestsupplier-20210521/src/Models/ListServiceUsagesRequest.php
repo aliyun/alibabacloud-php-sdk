@@ -27,10 +27,16 @@ class ListServiceUsagesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $supplierRole;
     protected $_name = [
-        'filter'     => 'Filter',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'filter'       => 'Filter',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'supplierRole' => 'SupplierRole',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class ListServiceUsagesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->supplierRole) {
+            $res['SupplierRole'] = $this->supplierRole;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class ListServiceUsagesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['SupplierRole'])) {
+            $model->supplierRole = $map['SupplierRole'];
         }
 
         return $model;

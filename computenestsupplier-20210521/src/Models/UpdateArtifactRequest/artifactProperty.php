@@ -23,7 +23,7 @@ class artifactProperty extends Model
     public $commodityVersion;
 
     /**
-     * @example {\"WorkDir\":\"/root\",\"CommandType\":\"RunShellScript\",\"Platform\":\"Linux\",\"Script\":\"echo hello\"}
+     * @example {\\"WorkDir\\":\\"/root\\",\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"echo hello\\"}
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class artifactProperty extends Model
     public $regionId;
 
     /**
-     * @example {"ScriptMetadata":"{\"CommandType\":\"RunShellScript\",\"Platform\":\"Linux\",\"Script\":\"ls\"}"}
+     * @example {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
      *
      * @var string
      */

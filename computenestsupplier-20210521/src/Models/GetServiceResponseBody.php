@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodityEntities;
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commoditySpecifications;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceInfos;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\statistic;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\tags;
@@ -26,6 +25,21 @@ class GetServiceResponseBody extends Model
     public $approvalType;
 
     /**
+     * @var string
+     */
+    public $buildInfo;
+
+    /**
+     * @var string
+     */
+    public $categories;
+
+    /**
+     * @var commodity
+     */
+    public $commodity;
+
+    /**
      * @example cmjj00xxxx
      *
      * @var string
@@ -33,21 +47,16 @@ class GetServiceResponseBody extends Model
     public $commodityCode;
 
     /**
-     * @var commodityEntities[]
-     */
-    public $commodityEntities;
-
-    /**
-     * @var commoditySpecifications[]
-     */
-    public $commoditySpecifications;
-
-    /**
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $crossRegionConnectionStatus;
 
     /**
      * @example 1
@@ -76,6 +85,11 @@ class GetServiceResponseBody extends Model
     public $duration;
 
     /**
+     * @var string[]
+     */
+    public $entitySource;
+
+    /**
      * @example false
      *
      * @var bool
@@ -93,7 +107,7 @@ class GetServiceResponseBody extends Model
     public $logMetadata;
 
     /**
-     * @example {\"PrometheusConfigMap\":{\"New_Vpc_Ack_And_Jumpserver\":{}}}
+     * @example {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
      *
      * @var string
      */
@@ -168,6 +182,16 @@ class GetServiceResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $serviceAuditDocumentUrl;
+
+    /**
+     * @var string
+     */
+    public $serviceDiscoverable;
+
+    /**
      * @example http://example1.com
      *
      * @var string
@@ -206,6 +230,11 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $shareType;
+
+    /**
+     * @var string
+     */
+    public $shareTypeStatus;
 
     /**
      * @var string
@@ -294,7 +323,7 @@ class GetServiceResponseBody extends Model
     public $updateTime;
 
     /**
-     * @example {\"Description\":\"xxx\",\"SupportRollback\":true,\"SupportUpgradeFromVersions\":[],\"UpgradeComponents\":[\"Configuration\"]}
+     * @example {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
      *
      * @var string
      */
@@ -318,55 +347,67 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $virtualInternetService;
+
+    /**
+     * @var string
+     */
+    public $virtualInternetServiceId;
     protected $_name = [
-        'alarmMetadata'           => 'AlarmMetadata',
-        'approvalType'            => 'ApprovalType',
-        'commodityCode'           => 'CommodityCode',
-        'commodityEntities'       => 'CommodityEntities',
-        'commoditySpecifications' => 'CommoditySpecifications',
-        'createTime'              => 'CreateTime',
-        'defaultLicenseDays'      => 'DefaultLicenseDays',
-        'deployMetadata'          => 'DeployMetadata',
-        'deployType'              => 'DeployType',
-        'duration'                => 'Duration',
-        'isSupportOperated'       => 'IsSupportOperated',
-        'licenseMetadata'         => 'LicenseMetadata',
-        'logMetadata'             => 'LogMetadata',
-        'operationMetadata'       => 'OperationMetadata',
-        'payFromType'             => 'PayFromType',
-        'payType'                 => 'PayType',
-        'permission'              => 'Permission',
-        'policyNames'             => 'PolicyNames',
-        'progress'                => 'Progress',
-        'publishTime'             => 'PublishTime',
-        'registrationId'          => 'RegistrationId',
-        'requestId'               => 'RequestId',
-        'resellable'              => 'Resellable',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'serviceDocUrl'           => 'ServiceDocUrl',
-        'serviceId'               => 'ServiceId',
-        'serviceInfos'            => 'ServiceInfos',
-        'serviceProductUrl'       => 'ServiceProductUrl',
-        'serviceType'             => 'ServiceType',
-        'shareType'               => 'ShareType',
-        'sourceServiceId'         => 'SourceServiceId',
-        'sourceServiceVersion'    => 'SourceServiceVersion',
-        'sourceSupplierName'      => 'SourceSupplierName',
-        'statistic'               => 'Statistic',
-        'status'                  => 'Status',
-        'statusDetail'            => 'StatusDetail',
-        'supplierName'            => 'SupplierName',
-        'supplierUrl'             => 'SupplierUrl',
-        'tags'                    => 'Tags',
-        'tenantType'              => 'TenantType',
-        'testStatus'              => 'TestStatus',
-        'trialDuration'           => 'TrialDuration',
-        'trialType'               => 'TrialType',
-        'updateTime'              => 'UpdateTime',
-        'upgradeMetadata'         => 'UpgradeMetadata',
-        'version'                 => 'Version',
-        'versionName'             => 'VersionName',
-        'virtualInternetService'  => 'VirtualInternetService',
+        'alarmMetadata'               => 'AlarmMetadata',
+        'approvalType'                => 'ApprovalType',
+        'buildInfo'                   => 'BuildInfo',
+        'categories'                  => 'Categories',
+        'commodity'                   => 'Commodity',
+        'commodityCode'               => 'CommodityCode',
+        'createTime'                  => 'CreateTime',
+        'crossRegionConnectionStatus' => 'CrossRegionConnectionStatus',
+        'defaultLicenseDays'          => 'DefaultLicenseDays',
+        'deployMetadata'              => 'DeployMetadata',
+        'deployType'                  => 'DeployType',
+        'duration'                    => 'Duration',
+        'entitySource'                => 'EntitySource',
+        'isSupportOperated'           => 'IsSupportOperated',
+        'licenseMetadata'             => 'LicenseMetadata',
+        'logMetadata'                 => 'LogMetadata',
+        'operationMetadata'           => 'OperationMetadata',
+        'payFromType'                 => 'PayFromType',
+        'payType'                     => 'PayType',
+        'permission'                  => 'Permission',
+        'policyNames'                 => 'PolicyNames',
+        'progress'                    => 'Progress',
+        'publishTime'                 => 'PublishTime',
+        'registrationId'              => 'RegistrationId',
+        'requestId'                   => 'RequestId',
+        'resellable'                  => 'Resellable',
+        'resourceGroupId'             => 'ResourceGroupId',
+        'serviceAuditDocumentUrl'     => 'ServiceAuditDocumentUrl',
+        'serviceDiscoverable'         => 'ServiceDiscoverable',
+        'serviceDocUrl'               => 'ServiceDocUrl',
+        'serviceId'                   => 'ServiceId',
+        'serviceInfos'                => 'ServiceInfos',
+        'serviceProductUrl'           => 'ServiceProductUrl',
+        'serviceType'                 => 'ServiceType',
+        'shareType'                   => 'ShareType',
+        'shareTypeStatus'             => 'ShareTypeStatus',
+        'sourceServiceId'             => 'SourceServiceId',
+        'sourceServiceVersion'        => 'SourceServiceVersion',
+        'sourceSupplierName'          => 'SourceSupplierName',
+        'statistic'                   => 'Statistic',
+        'status'                      => 'Status',
+        'statusDetail'                => 'StatusDetail',
+        'supplierName'                => 'SupplierName',
+        'supplierUrl'                 => 'SupplierUrl',
+        'tags'                        => 'Tags',
+        'tenantType'                  => 'TenantType',
+        'testStatus'                  => 'TestStatus',
+        'trialDuration'               => 'TrialDuration',
+        'trialType'                   => 'TrialType',
+        'updateTime'                  => 'UpdateTime',
+        'upgradeMetadata'             => 'UpgradeMetadata',
+        'version'                     => 'Version',
+        'versionName'                 => 'VersionName',
+        'virtualInternetService'      => 'VirtualInternetService',
+        'virtualInternetServiceId'    => 'VirtualInternetServiceId',
     ];
 
     public function validate()
@@ -382,29 +423,23 @@ class GetServiceResponseBody extends Model
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
         }
+        if (null !== $this->buildInfo) {
+            $res['BuildInfo'] = $this->buildInfo;
+        }
+        if (null !== $this->categories) {
+            $res['Categories'] = $this->categories;
+        }
+        if (null !== $this->commodity) {
+            $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->commodityEntities) {
-            $res['CommodityEntities'] = [];
-            if (null !== $this->commodityEntities && \is_array($this->commodityEntities)) {
-                $n = 0;
-                foreach ($this->commodityEntities as $item) {
-                    $res['CommodityEntities'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->commoditySpecifications) {
-            $res['CommoditySpecifications'] = [];
-            if (null !== $this->commoditySpecifications && \is_array($this->commoditySpecifications)) {
-                $n = 0;
-                foreach ($this->commoditySpecifications as $item) {
-                    $res['CommoditySpecifications'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossRegionConnectionStatus) {
+            $res['CrossRegionConnectionStatus'] = $this->crossRegionConnectionStatus;
         }
         if (null !== $this->defaultLicenseDays) {
             $res['DefaultLicenseDays'] = $this->defaultLicenseDays;
@@ -417,6 +452,9 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->entitySource) {
+            $res['EntitySource'] = $this->entitySource;
         }
         if (null !== $this->isSupportOperated) {
             $res['IsSupportOperated'] = $this->isSupportOperated;
@@ -460,6 +498,12 @@ class GetServiceResponseBody extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->serviceAuditDocumentUrl) {
+            $res['ServiceAuditDocumentUrl'] = $this->serviceAuditDocumentUrl;
+        }
+        if (null !== $this->serviceDiscoverable) {
+            $res['ServiceDiscoverable'] = $this->serviceDiscoverable;
+        }
         if (null !== $this->serviceDocUrl) {
             $res['ServiceDocUrl'] = $this->serviceDocUrl;
         }
@@ -483,6 +527,9 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->shareTypeStatus) {
+            $res['ShareTypeStatus'] = $this->shareTypeStatus;
         }
         if (null !== $this->sourceServiceId) {
             $res['SourceServiceId'] = $this->sourceServiceId;
@@ -544,6 +591,9 @@ class GetServiceResponseBody extends Model
         if (null !== $this->virtualInternetService) {
             $res['VirtualInternetService'] = $this->virtualInternetService;
         }
+        if (null !== $this->virtualInternetServiceId) {
+            $res['VirtualInternetServiceId'] = $this->virtualInternetServiceId;
+        }
 
         return $res;
     }
@@ -562,29 +612,23 @@ class GetServiceResponseBody extends Model
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
         }
+        if (isset($map['BuildInfo'])) {
+            $model->buildInfo = $map['BuildInfo'];
+        }
+        if (isset($map['Categories'])) {
+            $model->categories = $map['Categories'];
+        }
+        if (isset($map['Commodity'])) {
+            $model->commodity = commodity::fromMap($map['Commodity']);
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['CommodityEntities'])) {
-            if (!empty($map['CommodityEntities'])) {
-                $model->commodityEntities = [];
-                $n                        = 0;
-                foreach ($map['CommodityEntities'] as $item) {
-                    $model->commodityEntities[$n++] = null !== $item ? commodityEntities::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['CommoditySpecifications'])) {
-            if (!empty($map['CommoditySpecifications'])) {
-                $model->commoditySpecifications = [];
-                $n                              = 0;
-                foreach ($map['CommoditySpecifications'] as $item) {
-                    $model->commoditySpecifications[$n++] = null !== $item ? commoditySpecifications::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossRegionConnectionStatus'])) {
+            $model->crossRegionConnectionStatus = $map['CrossRegionConnectionStatus'];
         }
         if (isset($map['DefaultLicenseDays'])) {
             $model->defaultLicenseDays = $map['DefaultLicenseDays'];
@@ -597,6 +641,9 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['EntitySource'])) {
+            $model->entitySource = $map['EntitySource'];
         }
         if (isset($map['IsSupportOperated'])) {
             $model->isSupportOperated = $map['IsSupportOperated'];
@@ -640,6 +687,12 @@ class GetServiceResponseBody extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['ServiceAuditDocumentUrl'])) {
+            $model->serviceAuditDocumentUrl = $map['ServiceAuditDocumentUrl'];
+        }
+        if (isset($map['ServiceDiscoverable'])) {
+            $model->serviceDiscoverable = $map['ServiceDiscoverable'];
+        }
         if (isset($map['ServiceDocUrl'])) {
             $model->serviceDocUrl = $map['ServiceDocUrl'];
         }
@@ -663,6 +716,9 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['ShareTypeStatus'])) {
+            $model->shareTypeStatus = $map['ShareTypeStatus'];
         }
         if (isset($map['SourceServiceId'])) {
             $model->sourceServiceId = $map['SourceServiceId'];
@@ -723,6 +779,9 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['VirtualInternetService'])) {
             $model->virtualInternetService = $map['VirtualInternetService'];
+        }
+        if (isset($map['VirtualInternetServiceId'])) {
+            $model->virtualInternetServiceId = $map['VirtualInternetServiceId'];
         }
 
         return $model;

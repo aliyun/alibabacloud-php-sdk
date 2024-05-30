@@ -21,6 +21,8 @@ class GetServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-4ee86df83fd948******
      *
      * @var string

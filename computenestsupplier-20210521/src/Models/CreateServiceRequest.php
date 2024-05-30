@@ -23,6 +23,11 @@ class CreateServiceRequest extends Model
     public $approvalType;
 
     /**
+     * @var string
+     */
+    public $buildParameters;
+
+    /**
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -35,6 +40,8 @@ class CreateServiceRequest extends Model
     public $deployMetadata;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ros
      *
      * @var string
@@ -66,7 +73,7 @@ class CreateServiceRequest extends Model
     public $logMetadata;
 
     /**
-     * @example {\"PrometheusConfigMap\":{\"New_Vpc_Ack_And_Jumpserver\":{}}}
+     * @example {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
      *
      * @var string
      */
@@ -80,6 +87,8 @@ class CreateServiceRequest extends Model
     public $policyNames;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -152,7 +161,7 @@ class CreateServiceRequest extends Model
     public $trialDuration;
 
     /**
-     * @example {\"Description\":\"xxx\",\"SupportRollback\":true,\"SupportUpgradeFromVersions\":[],\"UpgradeComponents\":[\"Configuration\"]}
+     * @example {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
      *
      * @var string
      */
@@ -167,6 +176,7 @@ class CreateServiceRequest extends Model
     protected $_name = [
         'alarmMetadata'        => 'AlarmMetadata',
         'approvalType'         => 'ApprovalType',
+        'buildParameters'      => 'BuildParameters',
         'clientToken'          => 'ClientToken',
         'deployMetadata'       => 'DeployMetadata',
         'deployType'           => 'DeployType',
@@ -204,6 +214,9 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
+        }
+        if (null !== $this->buildParameters) {
+            $res['BuildParameters'] = $this->buildParameters;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -303,6 +316,9 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
+        }
+        if (isset($map['BuildParameters'])) {
+            $model->buildParameters = $map['BuildParameters'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

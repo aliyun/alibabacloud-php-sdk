@@ -16,6 +16,8 @@ class ModifyServiceInstanceResourcesRequest extends Model
     public $resources;
 
     /**
+     * @description This parameter is required.
+     *
      * @example si-d8a0cc2a1ee04dce****
      *
      * @var string

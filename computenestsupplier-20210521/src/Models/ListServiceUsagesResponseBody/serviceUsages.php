@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponseBody;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponseBody\serviceUsages\userInformation;
 use AlibabaCloud\Tea\Model;
 
 class serviceUsages extends Model
@@ -60,7 +59,7 @@ class serviceUsages extends Model
     public $userAliUid;
 
     /**
-     * @var userInformation
+     * @var string[]
      */
     public $userInformation;
     protected $_name = [
@@ -107,7 +106,7 @@ class serviceUsages extends Model
             $res['UserAliUid'] = $this->userAliUid;
         }
         if (null !== $this->userInformation) {
-            $res['UserInformation'] = null !== $this->userInformation ? $this->userInformation->toMap() : null;
+            $res['UserInformation'] = $this->userInformation;
         }
 
         return $res;
@@ -146,7 +145,7 @@ class serviceUsages extends Model
             $model->userAliUid = $map['UserAliUid'];
         }
         if (isset($map['UserInformation'])) {
-            $model->userInformation = userInformation::fromMap($map['UserInformation']);
+            $model->userInformation = $map['UserInformation'];
         }
 
         return $model;

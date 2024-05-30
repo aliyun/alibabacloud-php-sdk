@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactRepositoryCredentialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example File
      *
      * @var string

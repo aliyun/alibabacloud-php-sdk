@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class PushMeteringDataRequest extends Model
 {
     /**
-     * @example [{\"StartTime\":1681264800,\"EndTime\":1681268400,\"Entities\":[{\"Key\":\"Unit\",\"Value\":\"0\"}]}]
+     * @description This parameter is required.
+     *
+     * @example [{\\"StartTime\\":1681264800,\\"EndTime\\":1681268400,\\"Entities\\":[{\\"Key\\":\\"Unit\\",\\"Value\\":\\"0\\"}]}]
      *
      * @var string
      */
     public $metering;
 
     /**
+     * @description This parameter is required.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string

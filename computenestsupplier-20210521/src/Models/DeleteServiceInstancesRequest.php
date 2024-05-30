@@ -16,6 +16,8 @@ class DeleteServiceInstancesRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteServiceInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $serviceInstanceId;

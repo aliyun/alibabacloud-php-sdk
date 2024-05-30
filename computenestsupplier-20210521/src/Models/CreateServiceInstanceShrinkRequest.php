@@ -22,6 +22,13 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @example TestName
      *
      * @var string
@@ -36,6 +43,8 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $parametersShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +59,8 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -87,6 +98,7 @@ class CreateServiceInstanceShrinkRequest extends Model
     protected $_name = [
         'clientToken'       => 'ClientToken',
         'dryRun'            => 'DryRun',
+        'endTime'           => 'EndTime',
         'name'              => 'Name',
         'parametersShrink'  => 'Parameters',
         'regionId'          => 'RegionId',
@@ -111,6 +123,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -165,6 +180,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -16,7 +16,7 @@ class UpdateArtifactResponseBody extends Model
     public $artifactId;
 
     /**
-     * @example {\"CommodityCode\":\"cmjj0005xxxx\",\"CommodityVersion\":\"V2022xxxx\"}
+     * @example {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
      *
      * @var string
      */

@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest\serviceInfo\agreements;
 use AlibabaCloud\Tea\Model;
 
 class serviceInfo extends Model
 {
+    /**
+     * @var agreements[]
+     */
+    public $agreements;
+
     /**
      * @example http://img.tidb.oss.url
      *
@@ -16,6 +22,8 @@ class serviceInfo extends Model
     public $image;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh-CN
      *
      * @var string
@@ -28,6 +36,8 @@ class serviceInfo extends Model
     public $longDescriptionUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TiDB Database
      *
      * @var string
@@ -39,6 +49,7 @@ class serviceInfo extends Model
      */
     public $shortDescription;
     protected $_name = [
+        'agreements'         => 'Agreements',
         'image'              => 'Image',
         'locale'             => 'Locale',
         'longDescriptionUrl' => 'LongDescriptionUrl',
@@ -53,6 +64,15 @@ class serviceInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agreements) {
+            $res['Agreements'] = [];
+            if (null !== $this->agreements && \is_array($this->agreements)) {
+                $n = 0;
+                foreach ($this->agreements as $item) {
+                    $res['Agreements'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
@@ -80,6 +100,15 @@ class serviceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Agreements'])) {
+            if (!empty($map['Agreements'])) {
+                $model->agreements = [];
+                $n                 = 0;
+                foreach ($map['Agreements'] as $item) {
+                    $model->agreements[$n++] = null !== $item ? agreements::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }

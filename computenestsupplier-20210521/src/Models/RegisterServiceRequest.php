@@ -16,6 +16,8 @@ class RegisterServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class RegisterServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-f7024a22ea5149xxxxxx
      *
      * @var string

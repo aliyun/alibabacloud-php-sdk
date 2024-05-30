@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceEstimateCostResponseBody extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $commodity;
+
+    /**
      * @example E73F09DC-6C13-5CB1-A10F-7A4E125ABD2C
      *
      * @var string
@@ -22,6 +27,7 @@ class GetServiceEstimateCostResponseBody extends Model
      */
     public $resources;
     protected $_name = [
+        'commodity' => 'Commodity',
         'requestId' => 'RequestId',
         'resources' => 'Resources',
     ];
@@ -33,6 +39,9 @@ class GetServiceEstimateCostResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commodity) {
+            $res['Commodity'] = $this->commodity;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,6 +60,9 @@ class GetServiceEstimateCostResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Commodity'])) {
+            $model->commodity = $map['Commodity'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

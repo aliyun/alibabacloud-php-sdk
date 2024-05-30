@@ -5,12 +5,13 @@
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceInfo;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\updateOption;
 use AlibabaCloud\Tea\Model;
 
 class UpdateServiceRequest extends Model
 {
     /**
-     * @example {\"CmsTemplateId\":1162921,\"TemplateUrl\":\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\"}
+     * @example {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
      *
      * @var string
      */
@@ -24,7 +25,7 @@ class UpdateServiceRequest extends Model
     public $clientToken;
 
     /**
-     * @example {\"EstimateTime\":null,\"SupplierDeployMetadata\":{\"DeployTimeout\":7200},\"EnableVnc\":false}
+     * @example {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
      *
      * @var string
      */
@@ -62,7 +63,7 @@ class UpdateServiceRequest extends Model
     public $logMetadata;
 
     /**
-     * @example {\"PrometheusConfigMap\":{\"Custom_Image_Ecs\":{\"EnablePrometheus\":false}}}
+     * @example {\\"PrometheusConfigMap\\":{\\"Custom_Image_Ecs\\":{\\"EnablePrometheus\\":false}}}
      *
      * @var string
      */
@@ -76,6 +77,8 @@ class UpdateServiceRequest extends Model
     public $policyNames;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -88,6 +91,8 @@ class UpdateServiceRequest extends Model
     public $resellable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-1dda29c3eca648xxxxxx
      *
      * @var string
@@ -128,7 +133,12 @@ class UpdateServiceRequest extends Model
     public $trialDuration;
 
     /**
-     * @example {\"Description\":\"xxx\",\"SupportRollback\":true,\"SupportUpgradeFromVersions\":[],\"UpgradeComponents\":[\"Configuration\"]}
+     * @var updateOption
+     */
+    public $updateOption;
+
+    /**
+     * @example {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
      *
      * @var string
      */
@@ -159,6 +169,7 @@ class UpdateServiceRequest extends Model
         'serviceVersion'    => 'ServiceVersion',
         'tenantType'        => 'TenantType',
         'trialDuration'     => 'TrialDuration',
+        'updateOption'      => 'UpdateOption',
         'upgradeMetadata'   => 'UpgradeMetadata',
         'versionName'       => 'VersionName',
     ];
@@ -229,6 +240,9 @@ class UpdateServiceRequest extends Model
         }
         if (null !== $this->trialDuration) {
             $res['TrialDuration'] = $this->trialDuration;
+        }
+        if (null !== $this->updateOption) {
+            $res['UpdateOption'] = null !== $this->updateOption ? $this->updateOption->toMap() : null;
         }
         if (null !== $this->upgradeMetadata) {
             $res['UpgradeMetadata'] = $this->upgradeMetadata;
@@ -307,6 +321,9 @@ class UpdateServiceRequest extends Model
         }
         if (isset($map['TrialDuration'])) {
             $model->trialDuration = $map['TrialDuration'];
+        }
+        if (isset($map['UpdateOption'])) {
+            $model->updateOption = updateOption::fromMap($map['UpdateOption']);
         }
         if (isset($map['UpgradeMetadata'])) {
             $model->upgradeMetadata = $map['UpgradeMetadata'];

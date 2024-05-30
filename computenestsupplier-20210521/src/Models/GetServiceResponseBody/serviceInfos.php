@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceInfos\agreements;
 use AlibabaCloud\Tea\Model;
 
 class serviceInfos extends Model
 {
+    /**
+     * @var agreements[]
+     */
+    public $agreements;
+
     /**
      * @example https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
      *
@@ -37,6 +43,7 @@ class serviceInfos extends Model
      */
     public $shortDescription;
     protected $_name = [
+        'agreements'         => 'Agreements',
         'image'              => 'Image',
         'locale'             => 'Locale',
         'longDescriptionUrl' => 'LongDescriptionUrl',
@@ -51,6 +58,15 @@ class serviceInfos extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agreements) {
+            $res['Agreements'] = [];
+            if (null !== $this->agreements && \is_array($this->agreements)) {
+                $n = 0;
+                foreach ($this->agreements as $item) {
+                    $res['Agreements'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
@@ -78,6 +94,15 @@ class serviceInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Agreements'])) {
+            if (!empty($map['Agreements'])) {
+                $model->agreements = [];
+                $n                 = 0;
+                foreach ($map['Agreements'] as $item) {
+                    $model->agreements[$n++] = null !== $item ? agreements::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }

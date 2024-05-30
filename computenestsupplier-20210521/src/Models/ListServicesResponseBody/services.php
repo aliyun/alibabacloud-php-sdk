@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponseBody;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponseBody\services\commodity;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponseBody\services\serviceInfos;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponseBody\services\tags;
 use AlibabaCloud\Tea\Model;
@@ -32,6 +33,21 @@ class services extends Model
     public $artifactVersion;
 
     /**
+     * @var string
+     */
+    public $buildInfo;
+
+    /**
+     * @var string
+     */
+    public $categories;
+
+    /**
+     * @var commodity
+     */
+    public $commodity;
+
+    /**
      * @example cmjj00xxxx
      *
      * @var string
@@ -58,6 +74,16 @@ class services extends Model
      * @var string
      */
     public $deployType;
+
+    /**
+     * @var bool
+     */
+    public $hasBeta;
+
+    /**
+     * @var bool
+     */
+    public $hasDraft;
 
     /**
      * @var string
@@ -92,6 +118,11 @@ class services extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $serviceDiscoverable;
 
     /**
      * @example service-70a3b15bb62643xxxxxx
@@ -208,16 +239,22 @@ class services extends Model
         'approvalType'                     => 'ApprovalType',
         'artifactId'                       => 'ArtifactId',
         'artifactVersion'                  => 'ArtifactVersion',
+        'buildInfo'                        => 'BuildInfo',
+        'categories'                       => 'Categories',
+        'commodity'                        => 'Commodity',
         'commodityCode'                    => 'CommodityCode',
         'createTime'                       => 'CreateTime',
         'defaultVersion'                   => 'DefaultVersion',
         'deployType'                       => 'DeployType',
+        'hasBeta'                          => 'HasBeta',
+        'hasDraft'                         => 'HasDraft',
         'latestResellSourceServiceVersion' => 'LatestResellSourceServiceVersion',
         'publishTime'                      => 'PublishTime',
         'relationType'                     => 'RelationType',
         'resellApplyStatus'                => 'ResellApplyStatus',
         'resellServiceId'                  => 'ResellServiceId',
         'resourceGroupId'                  => 'ResourceGroupId',
+        'serviceDiscoverable'              => 'ServiceDiscoverable',
         'serviceId'                        => 'ServiceId',
         'serviceInfos'                     => 'ServiceInfos',
         'serviceType'                      => 'ServiceType',
@@ -254,6 +291,15 @@ class services extends Model
         if (null !== $this->artifactVersion) {
             $res['ArtifactVersion'] = $this->artifactVersion;
         }
+        if (null !== $this->buildInfo) {
+            $res['BuildInfo'] = $this->buildInfo;
+        }
+        if (null !== $this->categories) {
+            $res['Categories'] = $this->categories;
+        }
+        if (null !== $this->commodity) {
+            $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -265,6 +311,12 @@ class services extends Model
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
+        }
+        if (null !== $this->hasBeta) {
+            $res['HasBeta'] = $this->hasBeta;
+        }
+        if (null !== $this->hasDraft) {
+            $res['HasDraft'] = $this->hasDraft;
         }
         if (null !== $this->latestResellSourceServiceVersion) {
             $res['LatestResellSourceServiceVersion'] = $this->latestResellSourceServiceVersion;
@@ -283,6 +335,9 @@ class services extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serviceDiscoverable) {
+            $res['ServiceDiscoverable'] = $this->serviceDiscoverable;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -371,6 +426,15 @@ class services extends Model
         if (isset($map['ArtifactVersion'])) {
             $model->artifactVersion = $map['ArtifactVersion'];
         }
+        if (isset($map['BuildInfo'])) {
+            $model->buildInfo = $map['BuildInfo'];
+        }
+        if (isset($map['Categories'])) {
+            $model->categories = $map['Categories'];
+        }
+        if (isset($map['Commodity'])) {
+            $model->commodity = commodity::fromMap($map['Commodity']);
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -382,6 +446,12 @@ class services extends Model
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
+        }
+        if (isset($map['HasBeta'])) {
+            $model->hasBeta = $map['HasBeta'];
+        }
+        if (isset($map['HasDraft'])) {
+            $model->hasDraft = $map['HasDraft'];
         }
         if (isset($map['LatestResellSourceServiceVersion'])) {
             $model->latestResellSourceServiceVersion = $map['LatestResellSourceServiceVersion'];
@@ -400,6 +470,9 @@ class services extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServiceDiscoverable'])) {
+            $model->serviceDiscoverable = $map['ServiceDiscoverable'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];

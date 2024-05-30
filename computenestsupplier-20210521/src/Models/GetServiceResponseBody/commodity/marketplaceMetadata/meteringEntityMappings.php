@@ -2,32 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody;
+namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\marketplaceMetadata;
 
 use AlibabaCloud\Tea\Model;
 
-class commodityEntities extends Model
+class meteringEntityMappings extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
     public $entityIds;
 
     /**
      * @var string
      */
-    public $predefinedParameterName;
+    public $specificationName;
 
     /**
-     * @example Custom_Image_Ecs
-     *
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'entityIds'               => 'EntityIds',
-        'predefinedParameterName' => 'PredefinedParameterName',
-        'templateName'            => 'TemplateName',
+        'entityIds'         => 'EntityIds',
+        'specificationName' => 'SpecificationName',
+        'templateName'      => 'TemplateName',
     ];
 
     public function validate()
@@ -40,8 +38,8 @@ class commodityEntities extends Model
         if (null !== $this->entityIds) {
             $res['EntityIds'] = $this->entityIds;
         }
-        if (null !== $this->predefinedParameterName) {
-            $res['PredefinedParameterName'] = $this->predefinedParameterName;
+        if (null !== $this->specificationName) {
+            $res['SpecificationName'] = $this->specificationName;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -53,18 +51,16 @@ class commodityEntities extends Model
     /**
      * @param array $map
      *
-     * @return commodityEntities
+     * @return meteringEntityMappings
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityIds'])) {
-            if (!empty($map['EntityIds'])) {
-                $model->entityIds = $map['EntityIds'];
-            }
+            $model->entityIds = $map['EntityIds'];
         }
-        if (isset($map['PredefinedParameterName'])) {
-            $model->predefinedParameterName = $map['PredefinedParameterName'];
+        if (isset($map['SpecificationName'])) {
+            $model->specificationName = $map['SpecificationName'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];

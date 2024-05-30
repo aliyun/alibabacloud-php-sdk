@@ -16,7 +16,12 @@ class GetServiceEstimateCostShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @example {\"PayType\":\"PostPaid\",\"InstancePassword\":\"xxxxxxxxxx\",\"EcsInstanceType\":\"ecs.g6.large\",\"VSwitchId\":\"vsw-0jlueyydpuekoxxxxxxxx\",\"VpcId\":\"vpc-0jlps6mjbgvpqxxxxxxxx\",\"ZoneId\":\"cn-wulanchabu-a\",\"Enable\":false,\"RegionId\":\"cn-wulanchabu\"}
+     * @var string
+     */
+    public $commodityShrink;
+
+    /**
+     * @example {\\"PayType\\":\\"PostPaid\\",\\"InstancePassword\\":\\"xxxxxxxxxx\\",\\"EcsInstanceType\\":\\"ecs.g6.large\\",\\"VSwitchId\\":\\"vsw-0jlueyydpuekoxxxxxxxx\\",\\"VpcId\\":\\"vpc-0jlps6mjbgvpqxxxxxxxx\\",\\"ZoneId\\":\\"cn-wulanchabu-a\\",\\"Enable\\":false,\\"RegionId\\":\\"cn-wulanchabu\\"}
      *
      * @var string
      */
@@ -30,6 +35,8 @@ class GetServiceEstimateCostShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-16fbd358d75e49xxxxxx
      *
      * @var string
@@ -63,6 +70,7 @@ class GetServiceEstimateCostShrinkRequest extends Model
     public $templateName;
     protected $_name = [
         'clientToken'       => 'ClientToken',
+        'commodityShrink'   => 'Commodity',
         'parametersShrink'  => 'Parameters',
         'regionId'          => 'RegionId',
         'serviceId'         => 'ServiceId',
@@ -81,6 +89,9 @@ class GetServiceEstimateCostShrinkRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->commodityShrink) {
+            $res['Commodity'] = $this->commodityShrink;
         }
         if (null !== $this->parametersShrink) {
             $res['Parameters'] = $this->parametersShrink;
@@ -117,6 +128,9 @@ class GetServiceEstimateCostShrinkRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Commodity'])) {
+            $model->commodityShrink = $map['Commodity'];
         }
         if (isset($map['Parameters'])) {
             $model->parametersShrink = $map['Parameters'];

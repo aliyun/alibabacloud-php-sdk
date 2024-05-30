@@ -33,7 +33,7 @@ class GetServiceInstanceResponseBody extends Model
     /**
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $enableUserPrometheus;
 
@@ -43,6 +43,11 @@ class GetServiceInstanceResponseBody extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $grafanaDashBoardUrl;
 
     /**
      * @example true
@@ -226,6 +231,7 @@ class GetServiceInstanceResponseBody extends Model
         'enableInstanceOps'         => 'EnableInstanceOps',
         'enableUserPrometheus'      => 'EnableUserPrometheus',
         'endTime'                   => 'EndTime',
+        'grafanaDashBoardUrl'       => 'GrafanaDashBoardUrl',
         'isOperated'                => 'IsOperated',
         'licenseMetadata'           => 'LicenseMetadata',
         'name'                      => 'Name',
@@ -276,6 +282,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->grafanaDashBoardUrl) {
+            $res['GrafanaDashBoardUrl'] = $this->grafanaDashBoardUrl;
         }
         if (null !== $this->isOperated) {
             $res['IsOperated'] = $this->isOperated;
@@ -390,6 +399,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['GrafanaDashBoardUrl'])) {
+            $model->grafanaDashBoardUrl = $map['GrafanaDashBoardUrl'];
         }
         if (isset($map['IsOperated'])) {
             $model->isOperated = $map['IsOperated'];
