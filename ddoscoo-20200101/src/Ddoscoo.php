@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigNetworkRulesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigUdpReflectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigUdpReflectResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCRuleV2Request;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCRuleV2Response;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCTemplateRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebCCTemplateResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigWebIpSetRequest;
@@ -252,6 +254,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCcProtectSwitchRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCcProtectSwitchResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesV2Request;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesV2Response;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCustomPortsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCustomPortsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebInstanceRelationsRequest;
@@ -1044,6 +1048,59 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->configUdpReflectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 配置新版基于匹配条件的cc规则
+     *  *
+     * @param ConfigWebCCRuleV2Request $request ConfigWebCCRuleV2Request
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfigWebCCRuleV2Response ConfigWebCCRuleV2Response
+     */
+    public function configWebCCRuleV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->expires)) {
+            $query['Expires'] = $request->expires;
+        }
+        if (!Utils::isUnset($request->ruleList)) {
+            $query['RuleList'] = $request->ruleList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigWebCCRuleV2',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置新版基于匹配条件的cc规则
+     *  *
+     * @param ConfigWebCCRuleV2Request $request ConfigWebCCRuleV2Request
+     *
+     * @return ConfigWebCCRuleV2Response ConfigWebCCRuleV2Response
+     */
+    public function configWebCCRuleV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configWebCCRuleV2WithOptions($request, $runtime);
     }
 
     /**
@@ -7121,6 +7178,62 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWebCCRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询新版cc规则
+     *  *
+     * @param DescribeWebCCRulesV2Request $request DescribeWebCCRulesV2Request
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebCCRulesV2Response DescribeWebCCRulesV2Response
+     */
+    public function describeWebCCRulesV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCCRulesV2',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebCCRulesV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询新版cc规则
+     *  *
+     * @param DescribeWebCCRulesV2Request $request DescribeWebCCRulesV2Request
+     *
+     * @return DescribeWebCCRulesV2Response DescribeWebCCRulesV2Response
+     */
+    public function describeWebCCRulesV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWebCCRulesV2WithOptions($request, $runtime);
     }
 
     /**
