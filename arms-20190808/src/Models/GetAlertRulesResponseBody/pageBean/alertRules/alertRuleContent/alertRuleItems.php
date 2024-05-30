@@ -36,7 +36,7 @@ class alertRuleItems extends Model
      *
      * @example 1
      *
-     * @var float
+     * @var int
      */
     public $n;
 

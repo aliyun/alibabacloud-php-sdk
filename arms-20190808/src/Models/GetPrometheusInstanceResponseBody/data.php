@@ -10,7 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of days for automatic archiving after storage expiration (optional values: 60, 90, 180, 365). 0 means not archive.
+     * @description 权限类型：
+     * readWrite、readOnly、httpReadOnly
+     * @example readWrite
+     *
+     * @var string
+     */
+    public $accessType;
+
+    /**
+     * @description The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
      *
      * @example 60
      *
@@ -46,11 +55,11 @@ class data extends Model
     public $clusterName;
 
     /**
-     * @description *   remote-write: Prometheus instance for Remote Write
+     * @description *   remote-write: general-purpose Prometheus instance
      *   ecs: Prometheus instances for ECS
-     *   cloud-monitor: Prometheus instance for cloud services (Chinese mainland)
-     *   cloud-monitor: Prometheus instance for cloud services (regions outside the Chinese mainland)
-     *   global-view: Prometheus instance for GlobalView
+     *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
+     *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
+     *   global-view: global aggregation instance
      *   aliyun-cs: Prometheus instance for Container Service
      *
      * @example remote-write
@@ -115,11 +124,6 @@ class data extends Model
      * @var string
      */
     public $pushGatewayIntraUrl;
-
-    /**
-     * @var bool
-     */
-    public $readOnly;
 
     /**
      * @description The region ID.
@@ -194,7 +198,7 @@ class data extends Model
     public $securityGroupId;
 
     /**
-     * @description Storage duration (days).
+     * @description The data storage duration. Unit: days.
      *
      * @example 90
      *
@@ -245,6 +249,7 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accessType'          => 'AccessType',
         'archiveDuration'     => 'ArchiveDuration',
         'authToken'           => 'AuthToken',
         'clusterId'           => 'ClusterId',
@@ -256,7 +261,6 @@ class data extends Model
         'paymentType'         => 'PaymentType',
         'pushGatewayInterUrl' => 'PushGatewayInterUrl',
         'pushGatewayIntraUrl' => 'PushGatewayIntraUrl',
-        'readOnly'            => 'ReadOnly',
         'regionId'            => 'RegionId',
         'remoteReadInterUrl'  => 'RemoteReadInterUrl',
         'remoteReadIntraUrl'  => 'RemoteReadIntraUrl',
@@ -280,6 +284,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
         if (null !== $this->archiveDuration) {
             $res['ArchiveDuration'] = $this->archiveDuration;
         }
@@ -312,9 +319,6 @@ class data extends Model
         }
         if (null !== $this->pushGatewayIntraUrl) {
             $res['PushGatewayIntraUrl'] = $this->pushGatewayIntraUrl;
-        }
-        if (null !== $this->readOnly) {
-            $res['ReadOnly'] = $this->readOnly;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -376,6 +380,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
         if (isset($map['ArchiveDuration'])) {
             $model->archiveDuration = $map['ArchiveDuration'];
         }
@@ -408,9 +415,6 @@ class data extends Model
         }
         if (isset($map['PushGatewayIntraUrl'])) {
             $model->pushGatewayIntraUrl = $map['PushGatewayIntraUrl'];
-        }
-        if (isset($map['ReadOnly'])) {
-            $model->readOnly = $map['ReadOnly'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

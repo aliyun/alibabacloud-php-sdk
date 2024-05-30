@@ -28,6 +28,11 @@ class traceApp extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @description The timestamp generated when the task was created.
      *
      * @example 1576599253000
@@ -42,6 +47,11 @@ class traceApp extends Model
      * @var string[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $language;
 
     /**
      * @description The process identifier (PID) of the application.
@@ -130,8 +140,10 @@ class traceApp extends Model
     protected $_name = [
         'appId'           => 'AppId',
         'appName'         => 'AppName',
+        'clusterId'       => 'ClusterId',
         'createTime'      => 'CreateTime',
         'labels'          => 'Labels',
+        'language'        => 'Language',
         'pid'             => 'Pid',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -156,11 +168,17 @@ class traceApp extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -213,6 +231,9 @@ class traceApp extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -220,6 +241,9 @@ class traceApp extends Model
             if (!empty($map['Labels'])) {
                 $model->labels = $map['Labels'];
             }
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];

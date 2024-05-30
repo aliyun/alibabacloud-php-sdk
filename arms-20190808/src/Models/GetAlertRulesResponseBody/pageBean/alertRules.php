@@ -43,7 +43,7 @@ class alertRules extends Model
      *
      * @example 5730***
      *
-     * @var float
+     * @var int
      */
     public $alertId;
 

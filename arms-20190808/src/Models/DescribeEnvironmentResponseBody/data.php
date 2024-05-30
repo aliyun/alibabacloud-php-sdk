@@ -64,6 +64,31 @@ class data extends Model
     public $bindVpcCidr;
 
     /**
+     * @description The status of the database that is bound to the Prometheus instance.
+     *
+     * Valid values:
+     *
+     *   UNINSTALLING
+     *
+     * <!-- -->
+     *
+     *   INSTALLING
+     *
+     * <!-- -->
+     *
+     *   UNINSTALLED
+     *
+     * <!-- -->
+     *
+     *   RUNNING
+     *
+     * <!-- -->
+     *
+     *   MODIFYING
+     *
+     * <!-- -->
+     * @example RUNNING
+     *
      * @var string
      */
     public $dbInstanceStatus;
@@ -109,6 +134,13 @@ class data extends Model
     public $environmentType;
 
     /**
+     * @description The payable resource plan. Valid values:
+     *
+     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
+     *   Otherwise, leave the parameter empty.
+     *
+     * @example CS_Basic
+     *
      * @var string
      */
     public $feePackage;
@@ -157,6 +189,15 @@ class data extends Model
      * @var string
      */
     public $grafanaFolderUrl;
+
+    /**
+     * @description grafana工作区id
+     *
+     * @example grafana-cn-27a3m8eem0a
+     *
+     * @var string
+     */
+    public $grafanaWorkspaceId;
 
     /**
      * @description managed type:
@@ -245,6 +286,7 @@ class data extends Model
         'grafanaFolderTitle'        => 'GrafanaFolderTitle',
         'grafanaFolderUid'          => 'GrafanaFolderUid',
         'grafanaFolderUrl'          => 'GrafanaFolderUrl',
+        'grafanaWorkspaceId'        => 'GrafanaWorkspaceId',
         'managedType'               => 'ManagedType',
         'prometheusInstanceId'      => 'PrometheusInstanceId',
         'prometheusInstanceName'    => 'PrometheusInstanceName',
@@ -312,6 +354,9 @@ class data extends Model
         }
         if (null !== $this->grafanaFolderUrl) {
             $res['GrafanaFolderUrl'] = $this->grafanaFolderUrl;
+        }
+        if (null !== $this->grafanaWorkspaceId) {
+            $res['GrafanaWorkspaceId'] = $this->grafanaWorkspaceId;
         }
         if (null !== $this->managedType) {
             $res['ManagedType'] = $this->managedType;
@@ -405,6 +450,9 @@ class data extends Model
         }
         if (isset($map['GrafanaFolderUrl'])) {
             $model->grafanaFolderUrl = $map['GrafanaFolderUrl'];
+        }
+        if (isset($map['GrafanaWorkspaceId'])) {
+            $model->grafanaWorkspaceId = $map['GrafanaWorkspaceId'];
         }
         if (isset($map['ManagedType'])) {
             $model->managedType = $map['ManagedType'];

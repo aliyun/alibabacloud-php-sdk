@@ -2156,6 +2156,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->feePackage)) {
             $query['FeePackage'] = $request->feePackage;
         }
+        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
+            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
         if (!Utils::isUnset($request->managedType)) {
             $query['ManagedType'] = $request->managedType;
         }
@@ -11703,7 +11706,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+     * @summary Removes data sources from a global aggregation instance.
      *  *
      * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
      * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
@@ -11745,7 +11748,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+     * @summary Removes data sources from a global aggregation instance.
      *  *
      * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
      *

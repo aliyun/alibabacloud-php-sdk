@@ -88,6 +88,11 @@ class CreateEnvironmentRequest extends Model
     public $feePackage;
 
     /**
+     * @var string
+     */
+    public $grafanaWorkspaceId;
+
+    /**
      * @description Specifies whether agents or exporters are managed. Valid values:
      *
      *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
@@ -141,6 +146,7 @@ class CreateEnvironmentRequest extends Model
         'environmentSubType'   => 'EnvironmentSubType',
         'environmentType'      => 'EnvironmentType',
         'feePackage'           => 'FeePackage',
+        'grafanaWorkspaceId'   => 'GrafanaWorkspaceId',
         'managedType'          => 'ManagedType',
         'prometheusInstanceId' => 'PrometheusInstanceId',
         'regionId'             => 'RegionId',
@@ -172,6 +178,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (null !== $this->feePackage) {
             $res['FeePackage'] = $this->feePackage;
+        }
+        if (null !== $this->grafanaWorkspaceId) {
+            $res['GrafanaWorkspaceId'] = $this->grafanaWorkspaceId;
         }
         if (null !== $this->managedType) {
             $res['ManagedType'] = $this->managedType;
@@ -223,6 +232,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (isset($map['FeePackage'])) {
             $model->feePackage = $map['FeePackage'];
+        }
+        if (isset($map['GrafanaWorkspaceId'])) {
+            $model->grafanaWorkspaceId = $map['GrafanaWorkspaceId'];
         }
         if (isset($map['ManagedType'])) {
             $model->managedType = $map['ManagedType'];

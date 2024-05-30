@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveAliClusterIdsFromPrometheusGlobalViewResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -24,6 +26,8 @@ class RemoveAliClusterIdsFromPrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example success
      *
      * @var string
