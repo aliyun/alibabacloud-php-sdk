@@ -11,6 +11,8 @@ class level extends Model
     /**
      * @description The description of the table level.
      *
+     * @example test
+     *
      * @var string
      */
     public $description;

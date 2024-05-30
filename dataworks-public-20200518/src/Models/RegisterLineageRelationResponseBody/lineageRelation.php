@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class lineageRelation extends Model
 {
     /**
+     * @example custom-report.month_stat_user
+     *
      * @var string
      */
     public $destEntityQualifiedName;
 
     /**
+     * @example dfsldfdlsfdsaaaabbbb
+     *
      * @var string
      */
     public $relationshipGuid;
 
     /**
+     * @example maxcompute-table.project.table
+     *
      * @var string
      */
     public $srcEntityQualifiedName;

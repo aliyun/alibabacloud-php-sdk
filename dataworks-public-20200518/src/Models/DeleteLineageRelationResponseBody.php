@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteLineageRelationResponseBody extends Model
 {
     /**
+     * @example 1010040007
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example qualifiedName should be in format as entity-table.entity-guid
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 64B-587A-8CED-969E1973887FXXX-TT
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

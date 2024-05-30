@@ -22,6 +22,8 @@ class CreateTableThemeRequest extends Model
      * @description The name of the table folder.
      *
      * This parameter is required.
+     * @example test
+     *
      * @var string
      */
     public $name;

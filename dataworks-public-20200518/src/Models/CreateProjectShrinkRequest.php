@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
+     *
+     * @example ABFUOEUOTRTRJKE
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to disable the Development role. Valid values:
+     *
+     *   false: enables the Development role.
+     *   true: disables the Development role.
+     *   Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -21,6 +31,12 @@ class CreateProjectShrinkRequest extends Model
     public $disableDevelopment;
 
     /**
+     * @description Specifies whether query result download from DataStudio is allowed. Valid values:
+     *
+     *   1: allowed
+     *   0: not allowed
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,22 +44,32 @@ class CreateProjectShrinkRequest extends Model
     public $isAllowDownload;
 
     /**
-     * @description This parameter is required.
+     * @description The description of the workspace.
+     *
+     * This parameter is required.
+     * @example test_describe
      *
      * @var string
      */
     public $projectDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the workspace. The name can contain letters, digits, and underscores (_) and must start with a letter or digit.
      *
-     * @example test
+     * This parameter is required.
+     * @example test_project
      *
      * @var string
      */
     public $projectIdentifier;
 
     /**
+     * @description The mode of the workspace. For more information about the differences between the modes of workspaces, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html). Valid values:
+     *
+     *   2: basic mode
+     *   3: standard mode
+     *   Default value: 2.
+     *
      * @example 3
      *
      * @var int
@@ -51,20 +77,27 @@ class CreateProjectShrinkRequest extends Model
     public $projectMode;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the workspace.
+     *
+     * This parameter is required.
+     * @example test_project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example rg-acfmzbn7pti3***
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzbn7pti3****
      *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;

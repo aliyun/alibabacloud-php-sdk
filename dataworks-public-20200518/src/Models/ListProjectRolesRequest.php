@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRolesRequest extends Model
 {
     /**
-     * @description Dataworks ID of the region where the workspace is located.
+     * @description The ID of the DataWorks workspace.
      *
      * This parameter is required.
      * @example 27

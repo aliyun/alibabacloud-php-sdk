@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The size of the partition. Unit: bytes.
+     * @description The list of partitions.
      *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
-     * @description The total number of partitions.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The list of partitions.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The path of the partition.
+     * @description The total number of partitions.
      *
      * @example 100
      *

@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateBaselineRequest extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $alertMarginThreshold;
 
     /**
      * @description This parameter is required.
+     *
+     * @example BaselineName
      *
      * @var string
      */
@@ -24,11 +28,15 @@ class CreateBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example 210001233239,210001236482
+     *
      * @var string
      */
     public $nodeIds;
@@ -43,6 +51,8 @@ class CreateBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1000000000001
+     *
      * @var string
      */
     public $owner;
@@ -50,12 +60,16 @@ class CreateBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1,3,5,7,8
+     *
      * @var int
      */
     public $priority;
 
     /**
      * @description This parameter is required.
+     *
+     * @example 10000
      *
      * @var int
      */

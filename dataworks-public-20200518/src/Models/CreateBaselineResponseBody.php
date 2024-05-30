@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateBaselineResponseBody extends Model
 {
     /**
+     * @example 100003
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 401
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example F05080B0-CCE6-5D22-B284-34A51C5D4E28
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

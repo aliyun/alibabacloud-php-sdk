@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTablePartitionRequest extends Model
 {
     /**
-     * @description The name of the metatable in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      *
-     * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      * @example abc
      *
      * @var string
@@ -20,9 +20,8 @@ class GetMetaTablePartitionRequest extends Model
     public $clusterId;
 
     /**
-     * @description The field that is used to sort partitions in the metatable. Valid values: name and modify_time.
+     * @description The type of the data source. Valid values: odps and emr.
      *
-     * By default, partitions in the metatable are sorted based on their creation time.
      * @example emr
      *
      * @var string
@@ -30,8 +29,9 @@ class GetMetaTablePartitionRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description The name of the metadatabase. This parameter is required only if you set the DataSourceType parameter to emr.
      *
+     * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
      * @example abc
      *
      * @var string
@@ -39,7 +39,7 @@ class GetMetaTablePartitionRequest extends Model
     public $databaseName;
 
     /**
-     * @description The GUID of the metatable.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -48,9 +48,8 @@ class GetMetaTablePartitionRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
-     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      * @example 10
      *
      * @var int
@@ -58,16 +57,15 @@ class GetMetaTablePartitionRequest extends Model
     public $pageSize;
 
     /**
-     * @description The order in which partitions in the metatable are sorted. Valid values: asc and desc. Default value: desc.
+     * @description The logic for sorting partitions in the metatable.
      *
      * @var sortCriterion
      */
     public $sortCriterion;
 
     /**
-     * @description The name of the metadatabase. This parameter is required only if you set the DataSourceType parameter to emr.
+     * @description The GUID of the metatable.
      *
-     * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
      * @example odps.engine_name.table_name
      *
      * @var string
@@ -75,8 +73,9 @@ class GetMetaTablePartitionRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The logic for sorting partitions in the metatable.
+     * @description The name of the metatable in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
      *
+     * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
      * @example abc
      *
      * @var string

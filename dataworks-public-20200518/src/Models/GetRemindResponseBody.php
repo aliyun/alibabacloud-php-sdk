@@ -17,7 +17,7 @@ class GetRemindResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class GetRemindResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class GetRemindResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetRemindResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The unique ID of the request. You can troubleshoot issues based on the ID.
+     * @description The request ID. You can troubleshoot issues based on the ID.
      *
      * @example 0000-ABCD-EFGH-IJKLMNOPQ
      *
@@ -53,7 +53,7 @@ class GetRemindResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

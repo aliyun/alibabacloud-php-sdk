@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateBaselineRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alertEnabled;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $alertMarginThreshold;
@@ -28,26 +32,36 @@ class UpdateBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1000010800007
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example BaselineName
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $nodeIds;
@@ -58,11 +72,15 @@ class UpdateBaselineRequest extends Model
     public $overtimeSettings;
 
     /**
+     * @example 3726346****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $priority;
@@ -70,11 +88,15 @@ class UpdateBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 2043
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123,456
+     *
      * @var string
      */
     public $removeNodeIds;

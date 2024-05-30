@@ -36,6 +36,11 @@ class data extends Model
     public $connection;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description The environment of the workspace. Valid values: PROD and DEV.
      *
      * @example 00 00 00 * * ?
@@ -43,6 +48,11 @@ class data extends Model
      * @var string
      */
     public $cronExpress;
+
+    /**
+     * @var int
+     */
+    public $deployDate;
 
     /**
      * @description The name of the resource group.
@@ -74,7 +84,22 @@ class data extends Model
     /**
      * @var int
      */
+    public $fileId;
+
+    /**
+     * @var int
+     */
     public $fileType;
+
+    /**
+     * @var int
+     */
+    public $fileVersion;
+
+    /**
+     * @var int
+     */
+    public $modifyTime;
 
     /**
      * @description The HTTP status code returned.
@@ -197,11 +222,16 @@ class data extends Model
         'baselineId'         => 'BaselineId',
         'businessId'         => 'BusinessId',
         'connection'         => 'Connection',
+        'createTime'         => 'CreateTime',
         'cronExpress'        => 'CronExpress',
+        'deployDate'         => 'DeployDate',
         'description'        => 'Description',
         'dqcDescription'     => 'DqcDescription',
         'dqcType'            => 'DqcType',
+        'fileId'             => 'FileId',
         'fileType'           => 'FileType',
+        'fileVersion'        => 'FileVersion',
+        'modifyTime'         => 'ModifyTime',
         'nodeId'             => 'NodeId',
         'nodeName'           => 'NodeName',
         'ownerId'            => 'OwnerId',
@@ -233,8 +263,14 @@ class data extends Model
         if (null !== $this->connection) {
             $res['Connection'] = $this->connection;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->cronExpress) {
             $res['CronExpress'] = $this->cronExpress;
+        }
+        if (null !== $this->deployDate) {
+            $res['DeployDate'] = $this->deployDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -245,8 +281,17 @@ class data extends Model
         if (null !== $this->dqcType) {
             $res['DqcType'] = $this->dqcType;
         }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
+        }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->fileVersion) {
+            $res['FileVersion'] = $this->fileVersion;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -308,8 +353,14 @@ class data extends Model
         if (isset($map['Connection'])) {
             $model->connection = $map['Connection'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['CronExpress'])) {
             $model->cronExpress = $map['CronExpress'];
+        }
+        if (isset($map['DeployDate'])) {
+            $model->deployDate = $map['DeployDate'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -320,8 +371,17 @@ class data extends Model
         if (isset($map['DqcType'])) {
             $model->dqcType = $map['DqcType'];
         }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
+        }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['FileVersion'])) {
+            $model->fileVersion = $map['FileVersion'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];

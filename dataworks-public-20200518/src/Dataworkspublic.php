@@ -769,7 +769,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+     * @summary Adds an entity to a collection.
      *  *
      * @param AddMetaCollectionEntityRequest $request AddMetaCollectionEntityRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -808,7 +808,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+     * @summary Adds an entity to a collection.
      *  *
      * @param AddMetaCollectionEntityRequest $request AddMetaCollectionEntityRequest
      *
@@ -1732,7 +1732,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     * @summary Creates a data synchronization task.
      *  *
      * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1780,7 +1780,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     * @summary Creates a data synchronization task.
      *  *
      * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
      *
@@ -2641,7 +2641,7 @@ class Dataworkspublic extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2663,12 +2663,13 @@ class Dataworkspublic extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -3543,7 +3544,7 @@ class Dataworkspublic extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -3565,12 +3566,13 @@ class Dataworkspublic extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -3770,6 +3772,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Creates a table folder. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param CreateTableThemeRequest $request CreateTableThemeRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3810,6 +3814,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Creates a table folder. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param CreateTableThemeRequest $request CreateTableThemeRequest
      *
      * @return CreateTableThemeResponse CreateTableThemeResponse
@@ -8737,9 +8743,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
-     *  *
-     * @description ****
+     * @summary Queries the basic information about a metatable.
      *  *
      * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8769,9 +8773,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
-     *  *
-     * @description ****
+     * @summary Queries the basic information about a metatable.
      *  *
      * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
      *
@@ -9056,6 +9058,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries metatables in a specified category.
+     *  *
      * @param GetMetaTableListByCategoryRequest $request GetMetaTableListByCategoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -9084,6 +9088,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries metatables in a specified category.
+     *  *
      * @param GetMetaTableListByCategoryRequest $request GetMetaTableListByCategoryRequest
      *
      * @return GetMetaTableListByCategoryResponse GetMetaTableListByCategoryResponse
@@ -9154,9 +9160,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     * @summary Queries the partitions of a metatable.
      *  *
-     * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+     * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
      *  *
      * @param GetMetaTablePartitionRequest $tmpReq  GetMetaTablePartitionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9215,9 +9221,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     * @summary Queries the partitions of a metatable.
      *  *
-     * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+     * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
      *  *
      * @param GetMetaTablePartitionRequest $request GetMetaTablePartitionRequest
      *
@@ -9630,6 +9636,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ancestor nodes of a node.
+     *  *
      * @param GetNodeParentsRequest $request GetNodeParentsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -9664,6 +9672,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ancestor nodes of a node.
+     *  *
      * @param GetNodeParentsRequest $request GetNodeParentsRequest
      *
      * @return GetNodeParentsResponse GetNodeParentsResponse
@@ -10177,6 +10187,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a custom alert rule.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
+     *  *
      * @param GetRemindRequest $request GetRemindRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -10208,6 +10223,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a custom alert rule.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
+     *  *
      * @param GetRemindRequest $request GetRemindRequest
      *
      * @return GetRemindResponse GetRemindResponse
@@ -10787,6 +10807,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries compute engine instances.
+     *  *
      * @param ListCalcEnginesRequest $request ListCalcEnginesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -10833,6 +10855,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries compute engine instances.
+     *  *
      * @param ListCalcEnginesRequest $request ListCalcEnginesRequest
      *
      * @return ListCalcEnginesResponse ListCalcEnginesResponse
@@ -12535,7 +12559,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+     * @summary Queries the entities in a collection.
      *  *
      * @param ListMetaCollectionEntitiesRequest $request ListMetaCollectionEntitiesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -12580,7 +12604,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+     * @summary Queries the entities in a collection.
      *  *
      * @param ListMetaCollectionEntitiesRequest $request ListMetaCollectionEntitiesRequest
      *
@@ -12594,9 +12618,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     * @summary Queries information about collections. Collections include data albums that are displayed on the DataMap page and categories that are created in the data albums. You can call this API operation to query collections by type.
      *  *
-     * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+     * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
      *  *
      * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -12653,9 +12677,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     * @summary Queries information about collections. Collections include data albums that are displayed on the DataMap page and categories that are created in the data albums. You can call this API operation to query collections by type.
      *  *
-     * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+     * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
      *  *
      * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
      *
@@ -13208,6 +13232,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries members in a DataWorks workspace.
+     *  *
      * @param ListProjectMembersRequest $request ListProjectMembersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -13245,6 +13271,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries members in a DataWorks workspace.
+     *  *
      * @param ListProjectMembersRequest $request ListProjectMembersRequest
      *
      * @return ListProjectMembersResponse ListProjectMembersResponse
@@ -13257,7 +13285,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Dataworks ID of the workspace.
+     * @summary A topic is added to describe how to call the ListProjectRoles operation to query all roles in a workspace.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
      *  *
      * @param ListProjectRolesRequest $request ListProjectRolesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -13290,7 +13321,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Dataworks ID of the workspace.
+     * @summary A topic is added to describe how to call the ListProjectRoles operation to query all roles in a workspace.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
      *  *
      * @param ListProjectRolesRequest $request ListProjectRolesRequest
      *
@@ -13895,6 +13929,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries table levels. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param ListTableLevelRequest $request ListTableLevelRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -13923,6 +13959,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries table levels. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param ListTableLevelRequest $request ListTableLevelRequest
      *
      * @return ListTableLevelResponse ListTableLevelResponse
@@ -13935,6 +13973,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries table folders. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param ListTableThemeRequest $request ListTableThemeRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -13963,6 +14003,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries table folders. This API operation will be replaced soon. We recommend that you do not call this API operation.
+     *  *
      * @param ListTableThemeRequest $request ListTableThemeRequest
      *
      * @return ListTableThemeResponse ListTableThemeResponse
@@ -17450,6 +17492,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Updates the metadata information about a table.
+     *  *
      * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -17513,6 +17557,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Updates the metadata information about a table.
+     *  *
      * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
      *
      * @return UpdateMetaTableResponse UpdateMetaTableResponse

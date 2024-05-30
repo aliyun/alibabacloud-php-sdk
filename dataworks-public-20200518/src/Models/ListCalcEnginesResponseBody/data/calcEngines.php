@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class calcEngines extends Model
 {
     /**
+     * @description The ID of the workspace with which the compute engine instance is associated.
+     *
      * @example 27
      *
      * @var int
@@ -16,6 +18,8 @@ class calcEngines extends Model
     public $bindingProjectId;
 
     /**
+     * @description The name of the workspace with which the compute engine instance is associated.
+     *
      * @example abc
      *
      * @var string
@@ -23,6 +27,8 @@ class calcEngines extends Model
     public $bindingProjectName;
 
     /**
+     * @description The type of the compute engine instance. Valid values: `ODPS`, `EMR`, `BLINK`, `HOLO`, `MaxGraph`, `HYBRIDDB_FOR_POSTGRESQL`, `ADB_MYSQL`, and `HADOOP_CDH`.
+     *
      * @example ODPS
      *
      * @var string
@@ -30,6 +36,8 @@ class calcEngines extends Model
     public $calcEngineType;
 
     /**
+     * @description The region ID of the DataWorks workspace with which the compute engine instance is associated.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -37,6 +45,8 @@ class calcEngines extends Model
     public $dwRegion;
 
     /**
+     * @description The ID of the compute engine instance.
+     *
      * @example 35
      *
      * @var int
@@ -44,11 +54,53 @@ class calcEngines extends Model
     public $engineId;
 
     /**
+     * @description The details of the compute engine instance.
+     *
+     *   ODPS
+     *
+     * "resourceGroupType": "ODPS",
+     * "resourceGroupId": "361826516****",
+     * }
+     *
+     *   EMR
+     *
+     * }
+     *
+     *   BLINK
+     *
+     * }
+     *
+     *   HOLO
+     *
+     * }
+     *
+     *   MaxGraph
+     *
+     * }
+     *
+     *   HYBRIDDB_FOR_POSTGRESQL
+     *
+     * }
+     *
+     *   ADB_MYSQL
+     *
+     * }
+     *
+     *   HADOOP_CDH
+     *
+     * }
+     * @example {"pubEndpoint":"http://service.cn.maxcompute.aliyun.com/api","endpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","resourceGroupType":"ODPS","resourceGroupId":"361826516****","vpcEndpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","projectName":"onefall_test_zjk","taskSameAsOwner":"true"}
+     *
      * @var mixed[]
      */
     public $engineInfo;
 
     /**
+     * @description The environment in which the compute engine instance runs. Valid values:
+     *
+     *   DEV: development environment
+     *   PRD: production environment
+     *
      * @example PRD
      *
      * @var string
@@ -56,6 +108,8 @@ class calcEngines extends Model
     public $envType;
 
     /**
+     * @description The time when the compute engine instance was created. This value is a timestamp.
+     *
      * @example Oct 10, 2019 3:42:44 PM
      *
      * @var string
@@ -63,6 +117,8 @@ class calcEngines extends Model
     public $gmtCreate;
 
     /**
+     * @description Indicates whether the compute engine instance is the default instance of the current compute engine type.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +126,8 @@ class calcEngines extends Model
     public $isDefault;
 
     /**
+     * @description The display name of the compute engine instance.
+     *
      * @example abc
      *
      * @var string
@@ -77,6 +135,8 @@ class calcEngines extends Model
     public $name;
 
     /**
+     * @description The ID of the region in which the compute engine instance resides.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -84,6 +144,13 @@ class calcEngines extends Model
     public $region;
 
     /**
+     * @description The identity that is used to access the compute engine instance. Valid values:
+     *
+     *   USER: current user
+     *   PROJECT: workspace executor
+     *   SUBACCOUNT: RAM user
+     *   STS_ROLE: Security Token Service (STS) role
+     *
      * @example PROJECT
      *
      * @var string
@@ -91,6 +158,8 @@ class calcEngines extends Model
     public $taskAuthType;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example 1234567
      *
      * @var int

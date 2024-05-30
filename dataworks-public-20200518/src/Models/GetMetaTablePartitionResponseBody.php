@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTablePartitionResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The business data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The page number of the returned page.
+     * @description The error code returned.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetMetaTablePartitionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The error message returned.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class GetMetaTablePartitionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaTablePartitionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code returned.
+     * @description The ID of the request.
      *
      * @example 0bc1ec92159376
      *
@@ -53,7 +53,7 @@ class GetMetaTablePartitionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The business data returned.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

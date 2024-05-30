@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCalcEnginesResponseBody extends Model
 {
     /**
+     * @description The query results for compute engine instances that are returned on multiple pages.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCalcEnginesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0bc1ec92159376****
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCalcEnginesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

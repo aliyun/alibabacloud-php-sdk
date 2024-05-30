@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableBasicInfoResponseBody extends Model
 {
     /**
-     * @description The number of times the metatable was added to a favorite list. This parameter is returned only if you set the Extension parameter to true and takes effect only if you set the DataSourceType parameter to odps.
+     * @description The business data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The name of the metatable.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetMetaTableBasicInfoResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class GetMetaTableBasicInfoResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaTableBasicInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error code returned.
+     * @description The request ID.
      *
      * @example 0bc1411515937
      *
@@ -53,7 +53,7 @@ class GetMetaTableBasicInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The business data returned.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

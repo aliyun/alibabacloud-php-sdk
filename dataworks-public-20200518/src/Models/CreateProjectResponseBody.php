@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
-     * @example 25
+     * @description The workspace ID.
+     *
+     * @example 466230
      *
      * @var int
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateProjectResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string
@@ -30,6 +36,11 @@ class CreateProjectResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

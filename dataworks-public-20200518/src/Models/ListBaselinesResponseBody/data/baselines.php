@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class baselines extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alertEnabled;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $alertMarginThreshold;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example BaselineName
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
@@ -45,16 +57,22 @@ class baselines extends Model
     public $overTimeSettings;
 
     /**
+     * @example 952795****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 9527
+     *
      * @var int
      */
     public $projectId;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListCalcEnginesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the compute engine instance. Valid values: `ODPS`, `EMR`, `BLINK`, `HOLO`, `MaxGraph`, `HYBRIDDB_FOR_POSTGRESQL`, `ADB_MYSQL`, and `HADOOP_CDH`. The values are not case-sensitive.
      *
+     * This parameter is required.
      * @example ODPS
      *
      * @var string
@@ -18,6 +19,8 @@ class ListCalcEnginesRequest extends Model
     public $calcEngineType;
 
     /**
+     * @description The environment in which the compute engine instance runs. Valid values: DEV and PRD. The value DEV indicates the development environment, and the value PRD indicates the production environment.
+     *
      * @example PRD
      *
      * @var string
@@ -25,6 +28,8 @@ class ListCalcEnginesRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the compute engine instance that you want to query. Only exact match is supported.
+     *
      * @example abc
      *
      * @var string
@@ -32,6 +37,8 @@ class ListCalcEnginesRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +46,8 @@ class ListCalcEnginesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 100. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -46,8 +55,9 @@ class ListCalcEnginesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace with which the compute engine instances are associated.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int

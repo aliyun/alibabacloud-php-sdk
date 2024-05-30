@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteBaselineResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 1031203110000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Baseline deletion failed with nodes dependent on baseline
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 0000-ABCD-EF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

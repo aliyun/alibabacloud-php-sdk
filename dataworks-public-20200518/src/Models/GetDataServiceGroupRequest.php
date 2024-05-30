@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceGroupRequest extends Model
 {
     /**
-     * @description The ID of the business process.
+     * @description The business process ID.
      *
      * This parameter is required.
      * @example ds_123abc

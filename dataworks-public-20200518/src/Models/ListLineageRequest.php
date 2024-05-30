@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListLineageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The lineage type. Valid values:
      *
+     *   up: ancestor lineage
+     *   down: descendant lineage
+     *
+     * This parameter is required.
      * @example up
      *
      * @var string
@@ -18,8 +22,9 @@ class ListLineageRequest extends Model
     public $direction;
 
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the entity.
      *
+     * This parameter is required.
      * @example maxcompute-table.project.table
      *
      * @var string
@@ -27,6 +32,8 @@ class ListLineageRequest extends Model
     public $entityQualifiedName;
 
     /**
+     * @description The keyword of the entity name.
+     *
      * @example name-keyword
      *
      * @var string
@@ -34,6 +41,8 @@ class ListLineageRequest extends Model
     public $keyword;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example next-token-from-previous-request
      *
      * @var string
@@ -41,6 +50,8 @@ class ListLineageRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int

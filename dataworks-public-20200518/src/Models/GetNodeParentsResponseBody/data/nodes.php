@@ -105,6 +105,11 @@ class nodes extends Model
      * @var string
      */
     public $schedulerType;
+
+    /**
+     * @var string
+     */
+    public $stepType;
     protected $_name = [
         'baselineId'    => 'BaselineId',
         'cronExpress'   => 'CronExpress',
@@ -116,6 +121,7 @@ class nodes extends Model
         'projectId'     => 'ProjectId',
         'repeatability' => 'Repeatability',
         'schedulerType' => 'SchedulerType',
+        'stepType'      => 'StepType',
     ];
 
     public function validate()
@@ -154,6 +160,9 @@ class nodes extends Model
         }
         if (null !== $this->schedulerType) {
             $res['SchedulerType'] = $this->schedulerType;
+        }
+        if (null !== $this->stepType) {
+            $res['StepType'] = $this->stepType;
         }
 
         return $res;
@@ -196,6 +205,9 @@ class nodes extends Model
         }
         if (isset($map['SchedulerType'])) {
             $model->schedulerType = $map['SchedulerType'];
+        }
+        if (isset($map['StepType'])) {
+            $model->stepType = $map['StepType'];
         }
 
         return $model;

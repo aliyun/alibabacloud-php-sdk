@@ -46,7 +46,7 @@ class GetNodeParentsResponseBody extends Model
     /**
      * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
-     * @example asdfasdfas-adfasdf-asfas-dfasdf-asdf
+     * @example asfasdfs-adfasdf-asfas-dfasdf-asdf
      *
      * @var string
      */

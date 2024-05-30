@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDISyncTaskResponseBody extends Model
 {
     /**
+     * @description The information that indicates whether the data synchronization task is created.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 0bc1411515937635973****
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateDISyncTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

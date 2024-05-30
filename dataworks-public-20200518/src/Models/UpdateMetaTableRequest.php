@@ -20,6 +20,8 @@ class UpdateMetaTableRequest extends Model
     /**
      * @description The display name of the table.
      *
+     * @example test
+     *
      * @var string
      */
     public $caption;

@@ -38,6 +38,8 @@ class themeList extends Model
     /**
      * @description The name of the level of the table folder.
      *
+     * @example test
+     *
      * @var string
      */
     public $name;

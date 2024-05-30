@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateBaselineShrinkRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alertEnabled;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $alertMarginThreshold;
@@ -26,26 +30,36 @@ class UpdateBaselineShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1000010800007
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example BaselineName
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $nodeIds;
@@ -56,11 +70,15 @@ class UpdateBaselineShrinkRequest extends Model
     public $overtimeSettingsShrink;
 
     /**
+     * @example 3726346****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $priority;
@@ -68,11 +86,15 @@ class UpdateBaselineShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 2043
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example 123,456
+     *
      * @var string
      */
     public $removeNodeIds;

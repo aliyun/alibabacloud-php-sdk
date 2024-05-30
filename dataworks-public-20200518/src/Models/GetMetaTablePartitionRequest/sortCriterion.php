@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sortCriterion extends Model
 {
     /**
-     * @description The error message returned.
+     * @description The order in which partitions in the metatable are sorted. Valid values: asc and desc. Default value: desc.
      *
      * @example desc
      *
@@ -18,8 +18,9 @@ class sortCriterion extends Model
     public $order;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The field that is used to sort partitions in the metatable. Valid values: name and modify_time.
      *
+     * By default, partitions in the metatable are sorted based on their creation time.
      * @example name
      *
      * @var string

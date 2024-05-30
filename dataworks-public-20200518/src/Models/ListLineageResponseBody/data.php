@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of the entity structure.
+     *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example nextTokenFromRequest-xxxsd-ff
      *
      * @var string

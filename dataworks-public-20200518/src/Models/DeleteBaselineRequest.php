@@ -11,12 +11,16 @@ class DeleteBaselineRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1234
+     *
      * @var int
      */
     public $baselineId;
 
     /**
      * @description This parameter is required.
+     *
+     * @example 10000
      *
      * @var int
      */

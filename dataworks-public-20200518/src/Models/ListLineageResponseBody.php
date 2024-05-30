@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLineageResponseBody extends Model
 {
     /**
+     * @description The structure returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example 1010040007
      *
      * @var string
@@ -22,6 +26,8 @@ class ListLineageResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example qualifiedName should be in format as entity-table.entity-guid
      *
      * @var string
@@ -29,6 +35,8 @@ class ListLineageResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListLineageResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
+     *
      * @example 64B-587A-8CED-969E1973887FXXX-TT
      *
      * @var string
@@ -43,6 +53,11 @@ class ListLineageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

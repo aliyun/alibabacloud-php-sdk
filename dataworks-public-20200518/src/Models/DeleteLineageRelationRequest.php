@@ -11,17 +11,23 @@ class DeleteLineageRelationRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example custom-report.report123
+     *
      * @var string
      */
     public $destEntityQualifiedName;
 
     /**
+     * @example dfazcdfdfccdedd
+     *
      * @var string
      */
     public $relationshipGuid;
 
     /**
      * @description This parameter is required.
+     *
+     * @example maxcompute-table.project.table
      *
      * @var string
      */

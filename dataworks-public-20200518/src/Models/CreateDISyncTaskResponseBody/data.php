@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the data synchronization task that is created.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,11 +18,17 @@ class data extends Model
     public $fileId;
 
     /**
+     * @description The error message that is returned if the data synchronization task fails to be created. If the data synchronization task is successfully created, this parameter is not returned. If the data synchronization task fails to be created, an error message in the "Invalid path: Business Flow/xxxx/Data Integration" format is returned.
+     *
+     * @example Invalid path: Business Flow/xxxx/Data Integration
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The creation status of the data synchronization task. Valid values:
+     * - fail
      * @example success
      *
      * @var string

@@ -18,6 +18,8 @@ class dataEntityList extends Model
     public $createTimestamp;
 
     /**
+     * @description The array of the entity structure.
+     *
      * @var Entity
      */
     public $entity;

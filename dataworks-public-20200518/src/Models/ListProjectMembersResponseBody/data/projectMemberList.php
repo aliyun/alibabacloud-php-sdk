@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class projectMemberList extends Model
 {
     /**
-     * @description The type of the member. Valid values:
-     *
-     *   1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
-     *   5: USER_UBACCOUNT, which indicates that the member is a RAM user.
-     *   6: USER_STS_ROLE, which indicates that the member is a RAM role.
+     * @description The nickname of the member.
      *
      * @example zhangsan
      *
@@ -23,7 +19,7 @@ class projectMemberList extends Model
     public $nick;
 
     /**
-     * @description The name of the member.
+     * @description The member ID.
      *
      * @example 121
      *
@@ -32,14 +28,20 @@ class projectMemberList extends Model
     public $projectMemberId;
 
     /**
-     * @description The roles that are assigned to the member.
+     * @description The name of the member.
+     *
+     * @example zhangsan
      *
      * @var string
      */
     public $projectMemberName;
 
     /**
-     * @description The ID of the role.
+     * @description The type of the member. Valid values:
+     *
+     *   1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
+     *   5: USER_UBACCOUNT, which indicates that the member is a RAM user.
+     *   6: USER_STS_ROLE, which indicates that the member is a RAM role.
      *
      * @example 1
      *
@@ -48,17 +50,18 @@ class projectMemberList extends Model
     public $projectMemberType;
 
     /**
-     * @description The type of the role. Valid values:
-     *
-     *   0: SYSTEM, which indicates that the role is a built-in role.
-     *   2: USER_CUSTOM, which indicates that the role is a custom role.
+     * @description The roles that are assigned to the member.
      *
      * @var projectRoleList[]
      */
     public $projectRoleList;
 
     /**
-     * @description The nickname of the member.
+     * @description The status of the member. Valid values:
+     *
+     *   0: NORMAL, which indicates that the member is in a normal state.
+     *   1: FORBIDDEN, which indicates that the member is disabled.
+     *   2: DELETED, which indicates that the member is deleted.
      *
      * @example 0
      *

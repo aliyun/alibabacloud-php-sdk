@@ -15,26 +15,36 @@ class ListBaselinesResponseBody extends Model
     public $data;
 
     /**
+     * @example 103630001
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The user does not exist. 276571706358178756
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 952795279527ab****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

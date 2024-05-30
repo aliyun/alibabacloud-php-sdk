@@ -15,16 +15,22 @@ class data extends Model
     public $baselines;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $totalCount;

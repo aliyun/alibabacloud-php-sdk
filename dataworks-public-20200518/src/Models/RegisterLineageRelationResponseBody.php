@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class RegisterLineageRelationResponseBody extends Model
 {
     /**
+     * @example 1010210001
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The entity of lineage not exist, xxx
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,11 +36,15 @@ class RegisterLineageRelationResponseBody extends Model
     public $lineageRelation;
 
     /**
+     * @example EE50E05E-028C-182B-9xxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

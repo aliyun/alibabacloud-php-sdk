@@ -11,6 +11,8 @@ class levelList extends Model
     /**
      * @description The description of the table level.
      *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -35,6 +37,8 @@ class levelList extends Model
 
     /**
      * @description The name of the table level.
+     *
+     * @example test
      *
      * @var string
      */

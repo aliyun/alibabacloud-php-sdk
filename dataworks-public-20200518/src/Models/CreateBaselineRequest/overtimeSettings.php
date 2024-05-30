@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class overtimeSettings extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cycle;
 
     /**
+     * @example 00:00
+     *
      * @var string
      */
     public $time;

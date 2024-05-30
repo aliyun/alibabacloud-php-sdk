@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,11 +27,15 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The returned result.
+     *
      * @var string[]
      */
     public $tableGuidList;
 
     /**
+     * @description The total number of metatables.
+     *
      * @example 20
      *
      * @var int
