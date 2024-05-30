@@ -18,7 +18,7 @@ class ModifyContainerDefenseRuleSwitchResponseBody extends Model
     public $code;
 
     /**
-     * @description The total number of rules whose status was changed.
+     * @description The number of entries returned.
      *
      * @example 30
      *
@@ -36,7 +36,7 @@ class ModifyContainerDefenseRuleSwitchResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example successful
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOpaStrategyNewShrinkRequest extends Model
 {
     /**
-     * @description The rule configuration.
+     * @description The risks that you want to detect by using the rule.
      *
      * @var string
      */

@@ -30,6 +30,11 @@ class data extends Model
     public $configStatus;
 
     /**
+     * @description Bucket decompression configuration status, valid values:
+     * - **0**: Decompression not configured.
+     * - **1**: Decompression configured.
+     * @example 0
+     *
      * @var int
      */
     public $decompressStatus;

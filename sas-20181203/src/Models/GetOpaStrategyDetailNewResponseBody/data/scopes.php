@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scopes extends Model
 {
     /**
-     * @description The ID of the cluster node to which the rule is applied.
+     * @description The rule instance ID of the cluster.
      *
      * @example ack-0
      *
@@ -20,8 +20,8 @@ class scopes extends Model
     /**
      * @description Indicates whether all namespaces are included. Valid values:
      *
-     *   **1**: All namespaces are included.
-     *   **0**: Not all namespaces are included.
+     *   **1**: yes
+     *   **0**: no
      *
      * @example 1
      *

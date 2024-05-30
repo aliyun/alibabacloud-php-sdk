@@ -18,14 +18,14 @@ class list_ extends Model
     public $advice;
 
     /**
-     * @description The list of the baseline categories of attribution.
+     * @description The types of the baselines to which the check item belongs.
      *
      * @var string[]
      */
     public $affiliatedRiskTypes;
 
     /**
-     * @description The list of baselines attribution.
+     * @description The baselines to which the check item belongs.
      *
      * @var string[]
      */
@@ -102,6 +102,8 @@ class list_ extends Model
     public $description;
 
     /**
+     * @description The baselines in which the check item is enabled.
+     *
      * @var string[]
      */
     public $enableRisks;

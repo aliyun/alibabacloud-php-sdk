@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerDefenseRuleSwitchRequest extends Model
 {
     /**
-     * @description The IDs of rules.
+     * @description The IDs of the rules.
      *
      * @var int[]
      */

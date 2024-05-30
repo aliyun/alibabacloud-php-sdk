@@ -25,7 +25,7 @@ class ListOssScanConfigResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example E10BAF1C-A6C5-51E2-866C-76D5922E****
      *

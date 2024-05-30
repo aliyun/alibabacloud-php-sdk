@@ -29,8 +29,8 @@ class relationTypeList extends Model
     /**
      * @description The direction of the relationship. Valid values:
      *
-     *   **1**: forward
-     *   **0**: reverse
+     *   **1**: forward.
+     *   **0**: reverse.
      *
      * @example in
      *

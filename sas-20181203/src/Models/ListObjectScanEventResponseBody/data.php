@@ -74,6 +74,8 @@ class data extends Model
     public $firstTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasSubEvent;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 恶意样本类型显示名称。
+     * @description The display name of the malicious image sample type.
      *
      * @example displayname
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $displayName;
 
     /**
-     * @description 恶意样本类型Key。
+     * @description The key of the malicious image sample type.
      *
      * @example key
      *

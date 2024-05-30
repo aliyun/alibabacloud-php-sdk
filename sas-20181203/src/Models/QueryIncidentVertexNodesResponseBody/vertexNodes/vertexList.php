@@ -20,14 +20,14 @@ class vertexList extends Model
     public $aliuid;
 
     /**
-     * @description The display information about the node.
+     * @description The display information of the node.
      *
      * @var displayInfo[]
      */
     public $displayInfo;
 
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example 225
      *
@@ -38,8 +38,8 @@ class vertexList extends Model
     /**
      * @description The display language of the neighboring node. Valid values:
      *
-     *   **zh**: Chinese
-     *   **en**: English
+     *   **zh**: Chinese.
+     *   **en**: English.
      *
      * @example zh
      *
@@ -48,7 +48,7 @@ class vertexList extends Model
     public $lang;
 
     /**
-     * @description The node name.
+     * @description The name of the node.
      *
      * @example zabbix
      *
@@ -64,7 +64,7 @@ class vertexList extends Model
     public $neighborList;
 
     /**
-     * @description The node properties. The value is in the text format.
+     * @description The properties of the node. The value is in the text format.
      *
      * @example {\\"bandWidth\\":\\"5120\\",\\"internetIp\\":\\"47.242.191.206\\",\\"changeReason\\":\\"EIP_BIND\\",\\"bindInstanceId\\":\\"eci-j6ci7lvci50rore7dkv8\\",\\"bindType\\":\\"EIP_ECS\\"}
      *
@@ -73,14 +73,14 @@ class vertexList extends Model
     public $properties;
 
     /**
-     * @description The node property.
+     * @description The property of the node.
      *
      * @var mixed[]
      */
     public $property;
 
     /**
-     * @description The ID of the rule for which the node was created.
+     * @description The ID of the rule based on which the node was created.
      *
      * @example 171
      *
@@ -98,7 +98,7 @@ class vertexList extends Model
     public $time;
 
     /**
-     * @description The UNIX timestamp when the node was created. Unit: milliseconds.
+     * @description The time when the node was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1645179073
      *
@@ -107,7 +107,7 @@ class vertexList extends Model
     public $timestamp;
 
     /**
-     * @description The node type. Valid values include but are not limited to:
+     * @description The type of the node. Valid values include but are not limited to:
      *
      *   **process**
      *   **file**
@@ -131,7 +131,7 @@ class vertexList extends Model
     public $updateTime;
 
     /**
-     * @description The node UUID.
+     * @description The UUID of the node.
      *
      * @example 02ca8614-ecdb-44d3-b3d0-158655080e4f
      *

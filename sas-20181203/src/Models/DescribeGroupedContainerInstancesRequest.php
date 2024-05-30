@@ -28,12 +28,13 @@ class DescribeGroupedContainerInstancesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The keyword that you want to use to query containers. You must specify this parameter based on the value of the GroupField parameter.
+     * @description The keyword that you want to use to query containers. This parameter depends on the value of the GroupField parameter.
      *
      *   If the **GroupField** parameter is set to **pod**, set this parameter to the name of the pod that you want to query.
      *   If the **GroupField** parameter is set to **appName**, set this parameter to the name of the application that you want to query.
      *   If the **GroupField** parameter is set to **namespace**, set this parameter to the namespace that you want to query.
      *   If the **GroupField** parameter is set to **clusterId**, set this parameter to the ID of the cluster that you want to query.
+     *   If the **GroupField** parameter is set to **image**, set this parameter to the name of the image that you want to query.
      *
      * >  Fuzzy match is supported.
      * @example cas-adad-qeqwe
@@ -49,6 +50,7 @@ class DescribeGroupedContainerInstancesRequest extends Model
      *   **appName**
      *   **namespace**
      *   **clusterId**
+     *   **image**
      *
      * This parameter is required.
      * @example pod

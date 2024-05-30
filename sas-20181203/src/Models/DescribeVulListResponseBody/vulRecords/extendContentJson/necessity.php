@@ -11,9 +11,9 @@ class necessity extends Model
     /**
      * @description The asset importance score. Valid values:
      *
-     *   **2**: important asset
-     *   **1**: common asset
-     *   **0**: test asset
+     *   **2**: important asset.
+     *   **1**: common asset.
+     *   **0**: test asset.
      *
      * @example 1
      *
@@ -42,8 +42,8 @@ class necessity extends Model
     /**
      * @description Indicates whether the vulnerability priority score is calculated. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: no.
+     *   **1**: yes.
      *
      * @example 1
      *

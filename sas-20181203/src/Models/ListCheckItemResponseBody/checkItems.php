@@ -43,6 +43,10 @@ class checkItems extends Model
     public $description;
 
     /**
+     * @description The estimated number of authorizations that will be consumed by this check item.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $estimatedCount;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteOssScanConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFixUsedCountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CB1CE824-7F80-546D-8AF8-4A5209F9B698
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeFixUsedCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of vulnerabilities that are fixed by the vulnerability fixing feature.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeFixUsedCountResponseBody extends Model
     public $usedCount;
 
     /**
+     * @description The number of vulnerabilities that are fixed by the vulnerability fixing feature in China.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeFixUsedCountResponseBody extends Model
     public $usedCountCn;
 
     /**
+     * @description The number of vulnerabilities that are fixed by the vulnerability fixing feature outside China.
+     *
      * @example 5
      *
      * @var int

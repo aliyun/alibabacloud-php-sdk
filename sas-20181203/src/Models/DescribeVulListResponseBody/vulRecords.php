@@ -21,12 +21,12 @@ class vulRecords extends Model
     /**
      * @description The edition of Security Center that is authorized to scan the asset. Valid values:
      *
-     *   **1**: Basic
-     *   **6**: Anti-virus
-     *   **5**: Advanced
-     *   **3**: Enterprise
-     *   **7**: Ultimate
-     *   **10**: Value-added Plan
+     *   **1**: Basic.
+     *   **6**: Anti-virus.
+     *   **5**: Advanced.
+     *   **3**: Enterprise.
+     *   **7**: Ultimate.
+     *   **10**: Value-added Plan.
      *
      * @example 3
      *
@@ -182,9 +182,9 @@ class vulRecords extends Model
     /**
      * @description The priority to fix the vulnerability. Valid values:
      *
-     *   **asap**: high
-     *   **later**: medium
-     *   **nntf**: low
+     *   **asap**: high.
+     *   **later**: medium.
+     *   **nntf**: low.
      *
      * >  We recommend that you fix **high-risk** vulnerabilities at the earliest opportunity.
      * @example asap
@@ -235,10 +235,10 @@ class vulRecords extends Model
     /**
      * @description Indicates whether the application protection feature is supported. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: no.
+     *   **1**: yes.
      *
-     * >  If this parameter is not returned, the application protection is not supported.
+     * >  If this parameter is not returned, the application protection feature is not supported.
      * @example 1
      *
      * @var int
@@ -248,10 +248,10 @@ class vulRecords extends Model
     /**
      * @description The protection mode of the application protection feature. Valid values:
      *
-     *   **0**: unprotected
-     *   **1**: the Monitor mode
-     *   **2**: the Block mode
-     *   **3**: disabled
+     *   **0**: unprotected.
+     *   **1**: the Monitor mode.
+     *   **2**: the Block mode.
+     *   **3**: disabled.
      *
      * @example 1
      *
@@ -278,7 +278,7 @@ class vulRecords extends Model
     public $related;
 
     /**
-     * @description The timestamp when the vulnerability was fixed. Unit: milliseconds.
+     * @description The timestamp when the vulnerability was fixed. Unit: milliseconds. This parameter is returned only if you fix vulnerabilities in the Security Center console.
      *
      * @example 1541207563000
      *
@@ -307,19 +307,19 @@ class vulRecords extends Model
     /**
      * @description The status of the vulnerability. Valid values:
      *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   **3**: rollback failed
-     *   **4**: being fixed
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     *   **1**: unfixed.
+     *   **2**: fix failed.
+     *   **3**: rollback failed.
+     *   **4**: being fixed.
+     *   **5**: being rolled back.
+     *   **6**: being verified.
+     *   **7**: fixed.
+     *   **8**: fixed and to be restarted.
+     *   **9**: rolled back.
+     *   **10**: ignored.
+     *   **11**: rolled back and to be restarted.
+     *   **12**: not found.
+     *   **20**: expired.
      *
      * @example 1
      *
@@ -339,12 +339,12 @@ class vulRecords extends Model
     /**
      * @description The type of the vulnerability. Valid values:
      *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **emg**: urgent vulnerability
-     *   **app**: application vulnerability
-     *   **sca**: application vulnerability that is detected by using software component analysis
+     *   **cve**: Linux software vulnerability.
+     *   **sys**: Windows system vulnerability.
+     *   **cms**: Web-CMS vulnerability.
+     *   **emg**: urgent vulnerability.
+     *   **app**: application vulnerability.
+     *   **sca**: application vulnerability that is detected by using software component analysis.
      *
      * @example cve
      *

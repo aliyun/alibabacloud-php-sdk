@@ -39,7 +39,7 @@ class list_ extends Model
     public $bind;
 
     /**
-     * @description The container ID.
+     * @description The ID of the container.
      *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f9215570********
      *
@@ -183,7 +183,7 @@ class list_ extends Model
     public $targetId;
 
     /**
-     * @description The name of the asset that is scanned.
+     * @description The name of the asset on which the malicious image sample is detected.
      *
      * @example jenkins****
      *

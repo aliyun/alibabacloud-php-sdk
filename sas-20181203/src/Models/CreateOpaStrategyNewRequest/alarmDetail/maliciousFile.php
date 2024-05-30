@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class maliciousFile extends Model
 {
     /**
-     * @description The information about the malicious sample.
+     * @description The malicious samples.
      *
      * @var item[]
      */

@@ -19,17 +19,17 @@ class subTypes extends Model
     public $alias;
 
     /**
-     * @description The details about the custom check item.
+     * @description The details of custom check items.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description Indicates whether the sub-risk item is selected. Valid values:
+     * @description Indicates whether the sub-check item is selected. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *

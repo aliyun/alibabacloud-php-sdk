@@ -37,6 +37,11 @@ class DescribeAccesskeyLeakListRequest extends Model
     public $query;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

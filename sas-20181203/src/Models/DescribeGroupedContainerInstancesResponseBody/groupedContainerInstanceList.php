@@ -58,7 +58,7 @@ class groupedContainerInstanceList extends Model
     public $clusterType;
 
     /**
-     * @description The time when the cluster was created. Unit: milliseconds.
+     * @description The timestamp when the cluster was created. Unit: milliseconds.
      *
      * @example 1600076893000
      *
@@ -232,8 +232,8 @@ class groupedContainerInstanceList extends Model
     /**
      * @description Indicates whether risks were detected. Valid values:
      *
-     *   **NO**: No risks were detected.
-     *   **YES**: Risks were detected.
+     *   **NO**
+     *   **YES**
      *
      * @example NO
      *

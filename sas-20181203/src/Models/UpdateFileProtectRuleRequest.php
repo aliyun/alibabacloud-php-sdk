@@ -23,7 +23,7 @@ class UpdateFileProtectRuleRequest extends Model
     public $alertLevel;
 
     /**
-     * @description The operations performed on the files.
+     * @description The operations that you want to perform on the files.
      *
      * This parameter is required.
      * @var string[]

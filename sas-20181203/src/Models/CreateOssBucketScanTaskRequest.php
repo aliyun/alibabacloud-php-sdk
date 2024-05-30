@@ -26,11 +26,19 @@ class CreateOssBucketScanTaskRequest extends Model
     public $bucketNameList;
 
     /**
+     * @description The maximum number of files for decompression. The minimum value is 1, and the maximum value is 1000. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $decompressMaxFileCount;
 
     /**
+     * @description The maximum level of decompression when dealing with nested compressed files with multiple levels. The minimum value is 1, and the maximum value is 5. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $decompressMaxLayer;

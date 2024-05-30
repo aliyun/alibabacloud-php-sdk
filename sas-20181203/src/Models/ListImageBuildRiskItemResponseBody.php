@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListImageBuildRiskItemResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The response parameters.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example A3D7C47D-3F11-57BB-90E8-E5C20C619F37
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OperateSwitchStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 8AE9D3DA-406B-51FA-AA1C-89440C1459BF
      *

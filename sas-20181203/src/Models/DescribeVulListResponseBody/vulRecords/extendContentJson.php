@@ -108,19 +108,19 @@ class extendContentJson extends Model
     /**
      * @description The status of the vulnerability. Valid values:
      *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   3: rollback failed
-     *   **4**: being fixed
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     *   **1**: unfixed.
+     *   **2**: fix failed.
+     *   3: rollback failed.
+     *   **4**: being fixed.
+     *   **5**: being rolled back.
+     *   **6**: being verified.
+     *   **7**: fixed.
+     *   **8**: fixed and to be restarted.
+     *   **9**: rolled back.
+     *   **10**: ignored.
+     *   **11**: rolled back and to be restarted.
+     *   **12**: not found.
+     *   **20**: expired.
      *
      * @example 1
      *

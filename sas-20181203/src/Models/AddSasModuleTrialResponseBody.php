@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddSasModuleTrialResponseBody extends Model
 {
     /**
-     * @description The response parameters.
+     * @description The returned data.
      *
      * @var data
      */

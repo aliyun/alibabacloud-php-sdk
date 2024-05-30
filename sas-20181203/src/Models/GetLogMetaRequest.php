@@ -17,8 +17,14 @@ class GetLogMetaRequest extends Model
      * @var string
      */
     public $logStore;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
-        'logStore' => 'LogStore',
+        'logStore'                   => 'LogStore',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class GetLogMetaRequest extends Model
         $res = [];
         if (null !== $this->logStore) {
             $res['LogStore'] = $this->logStore;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class GetLogMetaRequest extends Model
         $model = new self();
         if (isset($map['LogStore'])) {
             $model->logStore = $map['LogStore'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

@@ -45,6 +45,11 @@ class imageInfos extends Model
     public $digest;
 
     /**
+     * @var int
+     */
+    public $firstScanTime;
+
+    /**
      * @description The number of images on which **high** baseline risks are detected.
      *
      * @example 1
@@ -304,6 +309,7 @@ class imageInfos extends Model
         'clusterName'     => 'ClusterName',
         'containerId'     => 'ContainerId',
         'digest'          => 'Digest',
+        'firstScanTime'   => 'FirstScanTime',
         'highRiskImage'   => 'HighRiskImage',
         'image'           => 'Image',
         'imageCreate'     => 'ImageCreate',
@@ -352,6 +358,9 @@ class imageInfos extends Model
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
+        }
+        if (null !== $this->firstScanTime) {
+            $res['FirstScanTime'] = $this->firstScanTime;
         }
         if (null !== $this->highRiskImage) {
             $res['HighRiskImage'] = $this->highRiskImage;
@@ -460,6 +469,9 @@ class imageInfos extends Model
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
+        }
+        if (isset($map['FirstScanTime'])) {
+            $model->firstScanTime = $map['FirstScanTime'];
         }
         if (isset($map['HighRiskImage'])) {
             $model->highRiskImage = $map['HighRiskImage'];

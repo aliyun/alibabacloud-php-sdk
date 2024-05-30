@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class BindAuthToMachineRequest extends Model
 {
     /**
-     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     * @description The edition of Security Center that is authorized to scan the asset. Valid values:
      *
-     *   **6**: Anti-virus edition
-     *   **5**: Advanced edition
-     *   **3**: Enterprise edition
-     *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
+     *   **6**: Anti-virus
+     *   **5**: Advanced
+     *   **3**: Enterprise
+     *   **7**: Ultimate
+     *   **10**: Value-added Plan
      *
      * @example 6
      *
@@ -66,6 +66,14 @@ class BindAuthToMachineRequest extends Model
     public $criteria;
 
     /**
+     * @description Specifies whether to specify servers for protection when you purchase Security Center. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * >  If you specify servers, the servers are automatically added to Security Center for protection after the purchase order is complete.
+     * @example 1
+     *
      * @var int
      */
     public $isPreBind;
@@ -83,11 +91,25 @@ class BindAuthToMachineRequest extends Model
     public $logicalExp;
 
     /**
+     * @description The edition of Security Center that you purchase in the order. Valid values:
+     *
+     *   **level7**: Anti-virus
+     *   **level3**: Advanced
+     *   **level2**: Enterprise
+     *   **level8**: Ultimate
+     *   **level10**: Value-added Plan
+     *
+     * @example level2
+     *
      * @var string
      */
     public $ntmVersion;
 
     /**
+     * @description The ID of the order in which Security Center is purchased and servers are specified for protection.
+     *
+     * @example 233016**0482
+     *
      * @var int
      */
     public $preBindOrderId;

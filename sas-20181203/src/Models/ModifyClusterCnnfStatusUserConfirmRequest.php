@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterCnnfStatusUserConfirmRequest extends Model
 {
     /**
-     * @description The IDs of the clusters.
+     * @description The cluster IDs.
      *
      * @var string[]
      */

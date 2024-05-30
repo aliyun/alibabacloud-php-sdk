@@ -82,7 +82,7 @@ class strategy extends Model
     public $riskSubTypeName;
 
     /**
-     * @description The whitelist of risk items.
+     * @description The information about the whitelist of risk items.
      *
      * @var riskTypeWhiteListQueryResultList[]
      */

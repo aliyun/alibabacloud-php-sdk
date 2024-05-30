@@ -46,7 +46,7 @@ class vertexNodes extends Model
     public $relationTypeList;
 
     /**
-     * @description The detailed information about the node.
+     * @description The information about the node.
      *
      * @var vertexList[]
      */

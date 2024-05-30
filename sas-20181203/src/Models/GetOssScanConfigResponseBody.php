@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetOssScanConfigResponseBody extends Model
 {
     /**
-     * @description The response parameters.
+     * @description The data returned.
      *
      * @var data
      */

@@ -184,11 +184,11 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $source;
 
     /**
-     * @description The validity of the key associated with the AK. Value:
+     * @description The validity of the key that is associated with the AccessKey pair. Valid values:
      *
-     * 0: to be confirmed
-     * 1: Valid
-     * 2: Invalid
+     *   **0**: to be confirmed.
+     *   **1**: valid.
+     *   **2**: invalid.
      *
      * @example 2
      *
@@ -218,7 +218,7 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $whitelistStatus;
 
     /**
-     * @description The time when the AK whitelist was added. Unit: milliseconds.
+     * @description The time when the AccessKey pair was added to the whitelist. Unit: milliseconds.
      *
      * @example 1689172004478
      *

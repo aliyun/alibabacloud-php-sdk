@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOpaStrategyNewRequest extends Model
 {
     /**
-     * @description The rule configuration.
+     * @description The risks that you want to detect by using the rule.
      *
      * @var alarmDetail
      */

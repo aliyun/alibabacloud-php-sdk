@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteOssScanConfigRequest extends Model
 {
     /**
-     * @description The ID of the policy.
+     * @description The configuration ID.
      *
-     * >  You can call the [ListOssScanConfig](~~ListOssScanConfig~~) operation to query the IDs of rules.
+     * >  You can call the [ListOssScanConfig](~~ListOssScanConfig~~) operation to query configuration IDs.
      * @example 1589
      *
      * @var int

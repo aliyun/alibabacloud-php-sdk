@@ -77,7 +77,7 @@ class DescribeCheckWarningsRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  To obtain the Alibaba Cloud account ID, call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation.
      * @example 127608589417****
      *
      * @var int

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class vul extends Model
 {
     /**
-     * @description The information about the vulnerability.
+     * @description The vulnerabilities.
      *
      * @var item[]
      */

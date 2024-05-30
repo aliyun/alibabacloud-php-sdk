@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OperateSwitchStatusRequest extends Model
 {
     /**
-     * @description The rule ID.
+     * @description The ID of the rule.
      *
      * This parameter is required.
      * @example 900001
@@ -19,9 +19,7 @@ class OperateSwitchStatusRequest extends Model
     public $ruleId;
 
     /**
-     * @description The rule status for container tamper-proofing. Valid values:
-     * - **on**
-     * - **off**
+     * @description The status of the rule. Valid values: on and off.
      *
      * This parameter is required.
      * @example on

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fixList extends Model
 {
     /**
-     * @description The baseline ID.
+     * @description The ID of the baseline.
      *
      * @example 72
      *

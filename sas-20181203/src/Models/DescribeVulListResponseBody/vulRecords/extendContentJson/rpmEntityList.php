@@ -18,6 +18,10 @@ class rpmEntityList extends Model
     public $containerName;
 
     /**
+     * @description The extended information about the software package that has the vulnerability.
+     *
+     * @example {"msg_no_lookups_configured_CVE_2021_44228": "false", "jndi_class_not_exist": "false"}
+     *
      * @var string
      */
     public $extendField;

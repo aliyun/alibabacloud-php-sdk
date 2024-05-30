@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpaStrategyNewRequest extends Model
 {
     /**
-     * @description The rule configuration.
+     * @description The risks that you want to detect by using the rule.
      *
      * @var alarmDetail
      */
@@ -93,9 +93,9 @@ class UpdateOpaStrategyNewRequest extends Model
     public $scopes;
 
     /**
-     * @description The rule ID.
+     * @description The ID of the rule.
      *
-     * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+     * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the ID.
      * @example 1003
      *
      * @var int

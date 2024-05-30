@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class StartHoneypotResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The information about the honeypot.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20456DD5-5CBF-5015-9173-12CA4246B***
      *

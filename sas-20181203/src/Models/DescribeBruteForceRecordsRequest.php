@@ -27,6 +27,10 @@ class DescribeBruteForceRecordsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the server.
+     *
+     * @example i-bp1g6wxdwps7s9dz****
+     *
      * @var string
      */
     public $instanceId;
@@ -41,6 +45,10 @@ class DescribeBruteForceRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name or IP address of the server to query.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $remark;

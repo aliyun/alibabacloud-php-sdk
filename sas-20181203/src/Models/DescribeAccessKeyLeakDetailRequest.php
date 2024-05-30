@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessKeyLeakDetailRequest extends Model
 {
     /**
-     * @description The ID of the AccessKey pair leak.
+     * @description The ID of the AccessKey pair leak event.
      *
      * This parameter is required.
      * @example 389357
@@ -19,6 +19,11 @@ class DescribeAccessKeyLeakDetailRequest extends Model
     public $id;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

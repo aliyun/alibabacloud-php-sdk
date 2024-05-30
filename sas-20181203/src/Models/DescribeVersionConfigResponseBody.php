@@ -214,6 +214,13 @@ class DescribeVersionConfigResponseBody extends Model
     public $MVUnusedAuthCount;
 
     /**
+     * @description Indicates whether the new version of the threat analysis and response feature is enabled. With the new version, you can purchase the amount of log data that you want to add to the feature and log storage capacity. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $newThreatAnalysis;
@@ -278,7 +285,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $raspCapacity;
 
     /**
-     * @description The timestamp when Security Center was expired. Unit: milliseconds.
+     * @description The timestamp when the Security Center subscription ends. Unit: milliseconds.
      *
      * >  If you do not renew the subscription within seven days after the expiration date, Security Center of a paid edition is automatically downgraded to Security Center Basic. In this case, you can no longer use the features of the paid edition or view the existing configurations or statistics such as DDoS alerts in Security Center. You must purchase Security Center of a paid edition to use relevant features. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
      * @example 1625846400000
@@ -348,6 +355,10 @@ class DescribeVersionConfigResponseBody extends Model
     public $threatAnalysisCapacity;
 
     /**
+     * @description The amount of log data that you purchase for the threat analysis and response feature. Unit: GB-day.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $threatAnalysisFlow;

@@ -59,6 +59,10 @@ class DescribeVulListRequest extends Model
     public $groupId;
 
     /**
+     * @description The IDs of vulnerabilities. You can specify up to 50 IDs. Separate multiple IDs with commas (,).
+     *
+     * @example 282,281,283
+     *
      * @var string
      */
     public $ids;

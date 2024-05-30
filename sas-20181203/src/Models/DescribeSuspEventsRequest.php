@@ -309,6 +309,10 @@ class DescribeSuspEventsRequest extends Model
     public $status;
 
     /**
+     * @description Whether it is strictly a mode flag.
+     * - Y: Yes
+     * @example Y
+     *
      * @var string
      */
     public $strictMode;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The key of the name for the image build risk item.
+     * @description The type key of the risky build command.
      *
      * @example key
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $itemKey;
 
     /**
-     * @description The name of the name for the image build risk item.
+     * @description The type name of the risky build command.
      *
      * @example itemName.
      *

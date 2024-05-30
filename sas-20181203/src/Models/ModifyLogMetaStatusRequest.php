@@ -38,6 +38,11 @@ class ModifyLogMetaStatusRequest extends Model
     public $project;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The status of the log analysis feature. Valid values:
      *
      *   **enabled**
@@ -50,10 +55,11 @@ class ModifyLogMetaStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'from'     => 'From',
-        'logStore' => 'LogStore',
-        'project'  => 'Project',
-        'status'   => 'Status',
+        'from'                       => 'From',
+        'logStore'                   => 'LogStore',
+        'project'                    => 'Project',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'status'                     => 'Status',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class ModifyLogMetaStatusRequest extends Model
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -95,6 +104,9 @@ class ModifyLogMetaStatusRequest extends Model
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -18,6 +18,11 @@ class resultList extends Model
     public $code;
 
     /**
+     * @description Whether to identify as a compressed package. Valid values:
+     * - **true**: Yes.
+     * - **false**: No.
+     * @example false
+     *
      * @var bool
      */
     public $compress;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartHoneypotRequest extends Model
 {
     /**
-     * @description The honeypot ID.
+     * @description The ID of the honeypot.
      *
      * This parameter is required.
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
@@ -19,7 +19,7 @@ class StartHoneypotRequest extends Model
     public $honeypotId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     * @description The language of the content in the request and response messages. Default value: **zh**. Valid values:
      *
      *   **zh**: Chinese
      *   **en**: English

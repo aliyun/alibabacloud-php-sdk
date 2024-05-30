@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ResetHoneypotResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The information about the honeypot.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example A57C711B-AA15-55B2-8F61-4D09CEXXXXX
      *

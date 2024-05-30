@@ -34,7 +34,7 @@ class data extends Model
     public $moduleCode;
 
     /**
-     * @description The trial use record.
+     * @description The information about the trial use.
      *
      * @var trialRecordList[]
      */

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectRequest extends Model
 {
     /**
+     * @description Whether to decompress or not. Valid values:
+     *
+     * - false: Not to decompress.
+     * @example false
+     *
      * @var bool
      */
     public $decompress;
 
     /**
+     * @description The maximum number of files for decompression. The minimum value is 1, and the maximum value is 1000. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $decompressMaxFileCount;
 
     /**
+     * @description The maximum level of decompression when dealing with nested compressed files with multiple levels. The minimum value is 1, and the maximum value is 5. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $decompressMaxLayer;
@@ -43,7 +56,7 @@ class CreateFileDetectRequest extends Model
     public $hashKey;
 
     /**
-     * @description The key of the file that is stored in the Object Storage Service (OSS) bucket. If you specify the DownloadUrl parameter, you can leave this parameter empty. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
+     * @description The key of the file that is stored in the Object Storage Service (OSS) bucket. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
      *
      * @example 1/2022/06/23/15/41/16559701077444693a0c6-33b2-4cc2-a99f-9f38b8b8****
      *

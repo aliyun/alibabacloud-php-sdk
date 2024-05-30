@@ -130,8 +130,9 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $source;
 
     /**
-     * @description The UUID array of the servers.
+     * @description The UUIDs of the servers.
      *
+     * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of the servers.
      * @var string[]
      */
     public $uuidList;

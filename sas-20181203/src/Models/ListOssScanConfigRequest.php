@@ -18,7 +18,7 @@ class ListOssScanConfigRequest extends Model
     public $currentPage;
 
     /**
-     * @description The name of the config.
+     * @description The policy name.
      *
      * @example testName
      *
@@ -27,7 +27,7 @@ class ListOssScanConfigRequest extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 20
      *

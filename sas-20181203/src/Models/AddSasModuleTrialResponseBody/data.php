@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The trial use record.
+     * @description The information about the trial use.
      *
      * @var trialRecordList[]
      */

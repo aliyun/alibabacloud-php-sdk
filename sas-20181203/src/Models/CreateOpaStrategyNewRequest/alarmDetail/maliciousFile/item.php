@@ -11,7 +11,7 @@ class item extends Model
     /**
      * @description The ID of the malicious sample.
      *
-     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID of the malicious sample.
+     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
      * @example 3685699
      *
      * @var string
@@ -21,7 +21,7 @@ class item extends Model
     /**
      * @description The name of the malicious sample.
      *
-     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name of the malicious sample.
+     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
      * @example abnormal binary file
      *
      * @var string

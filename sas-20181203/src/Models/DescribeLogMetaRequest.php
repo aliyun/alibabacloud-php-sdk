@@ -34,6 +34,11 @@ class DescribeLogMetaRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 123.168.XX.XX
@@ -42,9 +47,10 @@ class DescribeLogMetaRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'from'     => 'From',
-        'lang'     => 'Lang',
-        'sourceIp' => 'SourceIp',
+        'from'                       => 'From',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sourceIp'                   => 'SourceIp',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class DescribeLogMetaRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -80,6 +89,9 @@ class DescribeLogMetaRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

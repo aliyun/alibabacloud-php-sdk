@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description The vulnerability ID.
+     * @description The ID of the vulnerability.
      *
-     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the vulnerability ID.
+     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
      * @example CVE-2023-36034
      *
      * @var string
@@ -19,9 +19,9 @@ class item extends Model
     public $id;
 
     /**
-     * @description The vulnerability name.
+     * @description The name of the vulnerability.
      *
-     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the vulnerability name.
+     * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
      * @example oval:com.redhat.rhsa:def:20227002
      *
      * @var string

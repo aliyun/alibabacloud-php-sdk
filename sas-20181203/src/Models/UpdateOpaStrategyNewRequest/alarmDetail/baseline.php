@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class baseline extends Model
 {
     /**
-     * @description The baseline check configuration.
+     * @description The baseline check items.
      *
      * @var item[]
      */

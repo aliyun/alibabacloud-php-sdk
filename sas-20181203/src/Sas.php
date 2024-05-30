@@ -1339,50 +1339,45 @@ class Sas extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'tds.aliyuncs.com',
-            'cn-shanghai'                 => 'tds.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1'              => 'tds.ap-southeast-1.aliyuncs.com',
-            'eu-central-1'                => 'tds.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'sas.aliyuncs.com',
-            'ap-south-1'                  => 'tds-vpc.ap-south-1.aliyuncs.com',
-            'ap-southeast-3'              => 'tds.ap-southeast-3.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'sas.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'sas.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'sas.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'sas.aliyuncs.com',
-            'cn-edge-1'                   => 'sas.aliyuncs.com',
-            'cn-fujian'                   => 'sas.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'sas.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'sas.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'sas.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'sas.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'sas.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'sas.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'sas.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'sas.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'sas.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'sas.aliyuncs.com',
-            'cn-shanghai-inner'           => 'sas.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'sas.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'sas.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'sas.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'sas.aliyuncs.com',
-            'cn-wuhan'                    => 'sas.aliyuncs.com',
-            'cn-wulanchabu'               => 'sas.aliyuncs.com',
-            'cn-yushanfang'               => 'sas.aliyuncs.com',
-            'cn-zhangbei'                 => 'sas.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'sas.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'sas.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'sas.aliyuncs.com',
-            'eu-west-1-oxs'               => 'sas.aliyuncs.com',
-            'me-east-1'                   => 'sas.aliyuncs.com',
-            'rus-west-1-pop'              => 'sas.aliyuncs.com',
-            'us-east-1'                   => 'tds-vpc.us-east-1.aliyuncs.com',
-            'us-west-1'                   => 'tds.us-west-1.aliyuncs.com',
+            'cn-qingdao'            => 'tds.aliyuncs.com',
+            'cn-beijing'            => 'tds.aliyuncs.com',
+            'cn-zhangjiakou'        => 'tds.aliyuncs.com',
+            'cn-huhehaote'          => 'tds.aliyuncs.com',
+            'cn-wulanchabu'         => 'tds.aliyuncs.com',
+            'cn-hangzhou'           => 'tds.aliyuncs.com',
+            'cn-shanghai'           => 'tds.aliyuncs.com',
+            'cn-nanjing'            => 'tds.aliyuncs.com',
+            'cn-fuzhou'             => 'tds.aliyuncs.com',
+            'cn-shenzhen'           => 'tds.aliyuncs.com',
+            'cn-heyuan'             => 'tds.aliyuncs.com',
+            'cn-guangzhou'          => 'tds.aliyuncs.com',
+            'ap-southeast-2'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-6'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-7'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'cn-chengdu'            => 'tds.aliyuncs.com',
+            'ap-southeast-1'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5'        => 'tds.ap-southeast-1.aliyuncs.com',
+            'cn-hongkong'           => 'tds.aliyuncs.com',
+            'eu-central-1'          => 'tds.ap-southeast-1.aliyuncs.com',
+            'us-east-1'             => 'tds.ap-southeast-1.aliyuncs.com',
+            'us-west-1'             => 'tds.ap-southeast-1.aliyuncs.com',
+            'eu-west-1'             => 'tds.ap-southeast-1.aliyuncs.com',
+            'me-east-1'             => 'tds.ap-southeast-1.aliyuncs.com',
+            'me-central-1'          => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-south-1'            => 'tds.ap-southeast-1.aliyuncs.com',
+            'cn-beijing-finance-1'  => 'tds.aliyuncs.com',
+            'cn-hangzhou-finance'   => 'tds.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'tds.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'tds.aliyuncs.com',
+            'cn-heyuan-acdr-1'      => 'tds.aliyuncs.com',
+            'cn-north-2-gov-1'      => 'tds.aliyuncs.com',
+            'cn-qingdao-acdr-ut-1'  => 'tds.aliyuncs.com',
+            'cn-shanghai-mybk'      => 'tds.aliyuncs.com',
+            'cn-wuhan-lr'           => 'tds.aliyuncs.com',
+            'cn-zhengzhou-jva'      => 'tds.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -3678,10 +3673,7 @@ class Sas extends OpenApiClient
      * @summary Pushes a file to the cloud for detection.
      *  *
      * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *  *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3738,10 +3730,7 @@ class Sas extends OpenApiClient
      * @summary Pushes a file to the cloud for detection.
      *  *
      * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *  *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      *
@@ -6825,7 +6814,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Delete oss scan policy.
+     * @summary Deletes the configuration of an Object Storage Service (OSS) file detection policy.
      *  *
      * @param DeleteOssScanConfigRequest $request DeleteOssScanConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6858,7 +6847,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Delete oss scan policy.
+     * @summary Deletes the configuration of an Object Storage Service (OSS) file detection policy.
      *  *
      * @param DeleteOssScanConfigRequest $request DeleteOssScanConfigRequest
      *
@@ -7689,7 +7678,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant. You can call this operation to query the installation status only if the installation request is initiated within 2 minutes.
      *  *
      * @param DescribeAgentInstallStatusRequest $request DescribeAgentInstallStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7728,7 +7717,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+     * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant. You can call this operation to query the installation status only if the installation request is initiated within 2 minutes.
      *  *
      * @param DescribeAgentInstallStatusRequest $request DescribeAgentInstallStatusRequest
      *
@@ -11684,7 +11673,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查看漏洞修复使用次数
+     * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -11709,7 +11698,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查看漏洞修复使用次数
+     * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
      *  *
      * @return DescribeFixUsedCountResponse DescribeFixUsedCountResponse
      */
@@ -14428,6 +14417,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
         }
@@ -14704,7 +14696,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询恶意文件类型列表。
+     * @summary Queries a list of malicious image sample types.
      *  *
      * @param DescribeMatchedMaliciousNamesRequest $request DescribeMatchedMaliciousNamesRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -14740,7 +14732,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询恶意文件类型列表。
+     * @summary Queries a list of malicious image sample types.
      *  *
      * @param DescribeMatchedMaliciousNamesRequest $request DescribeMatchedMaliciousNamesRequest
      *
@@ -24132,6 +24124,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->logStore)) {
             $query['LogStore'] = $request->logStore;
         }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -28784,7 +28779,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary List image risk items.
+     * @summary Queries the types of risky image build commands.
      *  *
      * @param ListImageBuildRiskItemRequest $request ListImageBuildRiskItemRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -28817,7 +28812,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary List image risk items.
+     * @summary Queries the types of risky image build commands.
      *  *
      * @param ListImageBuildRiskItemRequest $request ListImageBuildRiskItemRequest
      *
@@ -29651,7 +29646,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries oss scan policies.
+     * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
      *  *
      * @param ListOssScanConfigRequest $request ListOssScanConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -29681,7 +29676,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries oss scan policies.
+     * @summary Queries the configuration of an Object Storage Service (OSS) file detection policy.
      *  *
      * @param ListOssScanConfigRequest $request ListOssScanConfigRequest
      *
@@ -31749,7 +31744,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of rules for non-image program defense.
+     * @summary Changes the status of non-image program defense rules.
      *  *
      * @param ModifyContainerDefenseRuleSwitchRequest $request ModifyContainerDefenseRuleSwitchRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -31785,7 +31780,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of rules for non-image program defense.
+     * @summary Changes the status of non-image program defense rules.
      *  *
      * @param ModifyContainerDefenseRuleSwitchRequest $request ModifyContainerDefenseRuleSwitchRequest
      *
@@ -32585,6 +32580,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->project)) {
             $query['Project'] = $request->project;
         }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -32795,6 +32793,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -35089,7 +35090,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Change the rule status for non-image program defense.
+     * @summary Changes the status of a rule for container tamper-proofing.
      *  *
      * @param OperateSwitchStatusRequest $request OperateSwitchStatusRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -35125,7 +35126,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Change the rule status for non-image program defense.
+     * @summary Changes the status of a rule for container tamper-proofing.
      *  *
      * @param OperateSwitchStatusRequest $request OperateSwitchStatusRequest
      *
@@ -36697,7 +36698,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Reset the honeypot.
+     * @summary Resets a honeypot.
      *  *
      * @param ResetHoneypotRequest $request ResetHoneypotRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -36733,7 +36734,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Reset the honeypot.
+     * @summary Resets a honeypot.
      *  *
      * @param ResetHoneypotRequest $request ResetHoneypotRequest
      *
@@ -37354,7 +37355,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Start the honeypot.
+     * @summary Starts a honeypot.
      *  *
      * @param StartHoneypotRequest $request StartHoneypotRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -37390,7 +37391,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Start the honeypot.
+     * @summary Starts a honeypot.
      *  *
      * @param StartHoneypotRequest $request StartHoneypotRequest
      *

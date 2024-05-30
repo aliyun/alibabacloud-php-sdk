@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Whether to match all file prefixes.
+     * @description Indicates whether the prefixes of all objects are matched.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $allKeyPrefix;
 
     /**
-     * @description The number of the buckets.
+     * @description The number of buckets.
      *
      * @example 10
      *
@@ -27,27 +27,35 @@ class data extends Model
     public $bucketCount;
 
     /**
-     * @description The name of the bucket.
+     * @description The names of the buckets.
      *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
+     * @description The maximum number of files for decompression. The minimum value is 1, and the maximum value is 1000. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $decompressMaxFileCount;
 
     /**
+     * @description The maximum level of decompression when dealing with nested compressed files with multiple levels. The minimum value is 1, and the maximum value is 5. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $decompressMaxLayer;
 
     /**
-     * @description Indicates whether the check policy is enabled. Valid values:
+     * @description Indicates whether the policy is enabled. Valid values:
      *
-     *   **1**: enabled.
-     *   **0**: disabled.
+     *   **1**: yes
+     *   **0**: no
      *
      * @example 1
      *
@@ -56,7 +64,7 @@ class data extends Model
     public $enable;
 
     /**
-     * @description The end time of the check. The time is in the HH:mm:ss format.
+     * @description The time when the scan ends. The time is in the HH:mm:ss format.
      *
      * @example 06:00:00
      *
@@ -65,7 +73,7 @@ class data extends Model
     public $endTime;
 
     /**
-     * @description The ID of the policy.
+     * @description The configuration ID.
      *
      * @example 443496
      *
@@ -74,21 +82,21 @@ class data extends Model
     public $id;
 
     /**
-     * @description The prefix of the object that you want to check.
+     * @description The prefixes of the objects that are scanned.
      *
      * @var string[]
      */
     public $keyPrefixList;
 
     /**
-     * @description The suffix of the object that is checked.
+     * @description The suffixes of the objects that are scanned.
      *
      * @var string[]
      */
     public $keySuffixList;
 
     /**
-     * @description The time when the policy last update.
+     * @description The timestamp when the configuration was last modified.
      *
      * @example 1698388233883
      *
@@ -97,7 +105,7 @@ class data extends Model
     public $lastUpdateTime;
 
     /**
-     * @description The name of the policy.
+     * @description The configuration name.
      *
      * @example test****
      *
@@ -106,14 +114,14 @@ class data extends Model
     public $name;
 
     /**
-     * @description The day when the check is performed. The value indicates the day of the week.
+     * @description The days on which the scan is executed in a week.
      *
      * @var int[]
      */
     public $scanDayList;
 
     /**
-     * @description The start time of the check. The time is in the HH:mm:ss format.
+     * @description The time when the scan starts. The time is in the HH:mm:ss format.
      *
      * @example 00:00:00
      *

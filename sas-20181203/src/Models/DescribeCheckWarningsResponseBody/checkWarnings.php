@@ -18,7 +18,7 @@ class checkWarnings extends Model
     public $checkId;
 
     /**
-     * @description The ID of the alert that is triggered by the check item.
+     * @description The ID of the alert that is generated for the baseline check result.
      *
      * @example 212251441
      *
@@ -54,10 +54,10 @@ class checkWarnings extends Model
     public $execErrorMessage;
 
     /**
-     * @description Indicates whether the fix is supported. Valid values:
+     * @description Indicates whether fixing is supported. Valid values:
      *
-     *   **0**: The fix is not supported.
-     *   **1**: The fix is supported.
+     *   **0**: Fixing is not supported.
+     *   **1**: Fixing is supported.
      *
      * @example 0
      *
@@ -84,7 +84,7 @@ class checkWarnings extends Model
     public $lastHandleTime;
 
     /**
-     * @description The severity level of a risk item. Valid values:
+     * @description The risk level of the risk item. Valid values:
      *
      *   **high**
      *   **medium**
@@ -97,7 +97,7 @@ class checkWarnings extends Model
     public $level;
 
     /**
-     * @description The remarks.
+     * @description The description.
      *
      * @example ignore
      *
@@ -108,11 +108,11 @@ class checkWarnings extends Model
     /**
      * @description The status of the check item. Valid values:
      *
-     *   **1**: failed
-     *   **2**: verifying
-     *   **3**: passed
-     *   **5**: expired
-     *   **6**: ignored
+     *   **1**: failed.
+     *   **2**: verifying.
+     *   **3**: passed.
+     *   **5**: expired.
+     *   **6**: ignored.
      *
      * @example 1
      *
@@ -130,7 +130,7 @@ class checkWarnings extends Model
     public $type;
 
     /**
-     * @description The UUID of the server on which the baseline check is performed.
+     * @description The ID of the server on which the baseline check is performed.
      *
      * @example d42f938c-d962-48a0-90f9-****
      *

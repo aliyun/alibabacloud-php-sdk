@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class IgnoreCheckItemsRequest extends Model
 {
     /**
-     * @description The risk items.
+     * @description The information about check items.
      *
      * @var checkAndRiskTypeList[]
      */

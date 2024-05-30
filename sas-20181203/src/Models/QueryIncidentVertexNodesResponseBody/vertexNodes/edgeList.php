@@ -60,7 +60,7 @@ class edgeList extends Model
     public $origin;
 
     /**
-     * @description The edge properties. The value is in the text format.
+     * @description The properties of the edge. The value is in the text format.
      *
      * @example {\\"bandWidth\\":\\"7810048\\",\\"internetIp\\":\\"47.57.13.255\\",\\"changeReason\\":\\"MODIFY_SPEC\\",\\"bindInstanceId\\":\\"i-j6chvo01tle7qfnhewr3\\",\\"bindType\\":\\"EIP_ECS\\"}
      *
@@ -76,7 +76,7 @@ class edgeList extends Model
     public $property;
 
     /**
-     * @description The ID of the rule for which the edge was created.
+     * @description The ID of the rule based on which the edge was created.
      *
      * @example 368
      *
@@ -127,7 +127,7 @@ class edgeList extends Model
     public $time;
 
     /**
-     * @description The UNIX timestamp when the edge was created. Unit: milliseconds.
+     * @description The time when the edge was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1645168444
      *

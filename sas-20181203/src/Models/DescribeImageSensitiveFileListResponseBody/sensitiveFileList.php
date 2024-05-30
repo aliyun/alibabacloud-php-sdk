@@ -196,6 +196,11 @@ class sensitiveFileList extends Model
      * @var string
      */
     public $sensitiveFileName;
+
+    /**
+     * @var int
+     */
+    public $unprocessedNum;
     protected $_name = [
         'classKey'          => 'ClassKey',
         'className'         => 'ClassName',
@@ -205,6 +210,7 @@ class sensitiveFileList extends Model
         'riskLevel'         => 'RiskLevel',
         'sensitiveFileKey'  => 'SensitiveFileKey',
         'sensitiveFileName' => 'SensitiveFileName',
+        'unprocessedNum'    => 'UnprocessedNum',
     ];
 
     public function validate()
@@ -237,6 +243,9 @@ class sensitiveFileList extends Model
         }
         if (null !== $this->sensitiveFileName) {
             $res['SensitiveFileName'] = $this->sensitiveFileName;
+        }
+        if (null !== $this->unprocessedNum) {
+            $res['UnprocessedNum'] = $this->unprocessedNum;
         }
 
         return $res;
@@ -273,6 +282,9 @@ class sensitiveFileList extends Model
         }
         if (isset($map['SensitiveFileName'])) {
             $model->sensitiveFileName = $map['SensitiveFileName'];
+        }
+        if (isset($map['UnprocessedNum'])) {
+            $model->unprocessedNum = $map['UnprocessedNum'];
         }
 
         return $model;
