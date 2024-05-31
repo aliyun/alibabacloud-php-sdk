@@ -10,8 +10,12 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
@@ -27,6 +31,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -179,6 +185,75 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 使用session运行SQL
+     *  *
+     * @param string                    $workspaceId
+     * @param CreateSqlStatementRequest $request     CreateSqlStatementRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateSqlStatementResponse CreateSqlStatementResponse
+     */
+    public function createSqlStatementWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->codeContent)) {
+            $body['codeContent'] = $request->codeContent;
+        }
+        if (!Utils::isUnset($request->defaultCatalog)) {
+            $body['defaultCatalog'] = $request->defaultCatalog;
+        }
+        if (!Utils::isUnset($request->defaultDatabase)) {
+            $body['defaultDatabase'] = $request->defaultDatabase;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->sqlComputeId)) {
+            $body['sqlComputeId'] = $request->sqlComputeId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSqlStatement',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/interactive/v1/workspace/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/statement',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 使用session运行SQL
+     *  *
+     * @param string                    $workspaceId
+     * @param CreateSqlStatementRequest $request     CreateSqlStatementRequest
+     *
+     * @return CreateSqlStatementResponse CreateSqlStatementResponse
+     */
+    public function createSqlStatement($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSqlStatementWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取任务
      *  *
      * @param string           $workspaceId
@@ -230,6 +305,60 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Sql Statement状态
+     *  *
+     * @param string                 $workspaceId
+     * @param string                 $statementId
+     * @param GetSqlStatementRequest $request     GetSqlStatementRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetSqlStatementResponse GetSqlStatementResponse
+     */
+    public function getSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSqlStatement',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/interactive/v1/workspace/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/statement/' . OpenApiUtilClient::getEncodeParam($statementId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Sql Statement状态
+     *  *
+     * @param string                 $workspaceId
+     * @param string                 $statementId
+     * @param GetSqlStatementRequest $request     GetSqlStatementRequest
+     *
+     * @return GetSqlStatementResponse GetSqlStatementResponse
+     */
+    public function getSqlStatement($workspaceId, $statementId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
     }
 
     /**
@@ -323,6 +452,9 @@ class Emrserverlessspark extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTimeShrink)) {
             $query['endTime'] = $request->endTimeShrink;
+        }
+        if (!Utils::isUnset($request->jobRunDeploymentId)) {
+            $query['jobRunDeploymentId'] = $request->jobRunDeploymentId;
         }
         if (!Utils::isUnset($request->jobRunId)) {
             $query['jobRunId'] = $request->jobRunId;
@@ -708,5 +840,59 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->startJobRunWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 终止 session statement
+     *  *
+     * @param string                       $workspaceId
+     * @param string                       $statementId
+     * @param TerminateSqlStatementRequest $request     TerminateSqlStatementRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return TerminateSqlStatementResponse TerminateSqlStatementResponse
+     */
+    public function terminateSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TerminateSqlStatement',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/interactive/v1/workspace/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/statement/' . OpenApiUtilClient::getEncodeParam($statementId) . '/terminate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TerminateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 终止 session statement
+     *  *
+     * @param string                       $workspaceId
+     * @param string                       $statementId
+     * @param TerminateSqlStatementRequest $request     TerminateSqlStatementRequest
+     *
+     * @return TerminateSqlStatementResponse TerminateSqlStatementResponse
+     */
+    public function terminateSqlStatement($workspaceId, $statementId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->terminateSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
     }
 }

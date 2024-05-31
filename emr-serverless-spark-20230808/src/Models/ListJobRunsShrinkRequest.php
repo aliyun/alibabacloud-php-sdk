@@ -23,6 +23,11 @@ class ListJobRunsShrinkRequest extends Model
     public $endTimeShrink;
 
     /**
+     * @var string
+     */
+    public $jobRunDeploymentId;
+
+    /**
      * @description 作业id。
      *
      * @example j-xxx
@@ -93,17 +98,18 @@ class ListJobRunsShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
-        'creator'         => 'creator',
-        'endTimeShrink'   => 'endTime',
-        'jobRunId'        => 'jobRunId',
-        'maxResults'      => 'maxResults',
-        'name'            => 'name',
-        'nextToken'       => 'nextToken',
-        'regionId'        => 'regionId',
-        'resourceQueueId' => 'resourceQueueId',
-        'startTimeShrink' => 'startTime',
-        'statesShrink'    => 'states',
-        'tagsShrink'      => 'tags',
+        'creator'            => 'creator',
+        'endTimeShrink'      => 'endTime',
+        'jobRunDeploymentId' => 'jobRunDeploymentId',
+        'jobRunId'           => 'jobRunId',
+        'maxResults'         => 'maxResults',
+        'name'               => 'name',
+        'nextToken'          => 'nextToken',
+        'regionId'           => 'regionId',
+        'resourceQueueId'    => 'resourceQueueId',
+        'startTimeShrink'    => 'startTime',
+        'statesShrink'       => 'states',
+        'tagsShrink'         => 'tags',
     ];
 
     public function validate()
@@ -118,6 +124,9 @@ class ListJobRunsShrinkRequest extends Model
         }
         if (null !== $this->endTimeShrink) {
             $res['endTime'] = $this->endTimeShrink;
+        }
+        if (null !== $this->jobRunDeploymentId) {
+            $res['jobRunDeploymentId'] = $this->jobRunDeploymentId;
         }
         if (null !== $this->jobRunId) {
             $res['jobRunId'] = $this->jobRunId;
@@ -163,6 +172,9 @@ class ListJobRunsShrinkRequest extends Model
         }
         if (isset($map['endTime'])) {
             $model->endTimeShrink = $map['endTime'];
+        }
+        if (isset($map['jobRunDeploymentId'])) {
+            $model->jobRunDeploymentId = $map['jobRunDeploymentId'];
         }
         if (isset($map['jobRunId'])) {
             $model->jobRunId = $map['jobRunId'];

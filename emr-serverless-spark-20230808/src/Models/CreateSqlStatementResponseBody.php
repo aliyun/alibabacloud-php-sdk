@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
+
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponseBody\data;
+use AlibabaCloud\Tea\Model;
+
+class CreateSqlStatementResponseBody extends Model
+{
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
+     *
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'data'      => 'data',
+        'requestId' => 'requestId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return CreateSqlStatementResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+
+        return $model;
+    }
+}

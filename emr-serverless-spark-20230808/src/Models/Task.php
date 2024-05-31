@@ -63,6 +63,11 @@ class Task extends Model
     public $defaultSqlComputeId;
 
     /**
+     * @var string
+     */
+    public $deploymentId;
+
+    /**
      * @var string[]
      */
     public $extraArtifactIds;
@@ -102,6 +107,11 @@ class Task extends Model
      * @var bool
      */
     public $hasCommited;
+
+    /**
+     * @var bool
+     */
+    public $isStreaming;
 
     /**
      * @var string[]
@@ -192,6 +202,11 @@ class Task extends Model
     public $sparkLogPath;
 
     /**
+     * @var string
+     */
+    public $sparkSubmitClause;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -220,6 +235,7 @@ class Task extends Model
         'defaultDatabase'        => 'defaultDatabase',
         'defaultResourceQueueId' => 'defaultResourceQueueId',
         'defaultSqlComputeId'    => 'defaultSqlComputeId',
+        'deploymentId'           => 'deploymentId',
         'extraArtifactIds'       => 'extraArtifactIds',
         'extraSparkSubmitParams' => 'extraSparkSubmitParams',
         'files'                  => 'files',
@@ -227,6 +243,7 @@ class Task extends Model
         'gmtModified'            => 'gmtModified',
         'hasChanged'             => 'hasChanged',
         'hasCommited'            => 'hasCommited',
+        'isStreaming'            => 'isStreaming',
         'jars'                   => 'jars',
         'lastRunResourceQueueId' => 'lastRunResourceQueueId',
         'modifier'               => 'modifier',
@@ -241,6 +258,7 @@ class Task extends Model
         'sparkExecutorMemory'    => 'sparkExecutorMemory',
         'sparkLogLevel'          => 'sparkLogLevel',
         'sparkLogPath'           => 'sparkLogPath',
+        'sparkSubmitClause'      => 'sparkSubmitClause',
         'sparkVersion'           => 'sparkVersion',
         'tags'                   => 'tags',
         'type'                   => 'type',
@@ -283,6 +301,9 @@ class Task extends Model
         if (null !== $this->defaultSqlComputeId) {
             $res['defaultSqlComputeId'] = $this->defaultSqlComputeId;
         }
+        if (null !== $this->deploymentId) {
+            $res['deploymentId'] = $this->deploymentId;
+        }
         if (null !== $this->extraArtifactIds) {
             $res['extraArtifactIds'] = $this->extraArtifactIds;
         }
@@ -303,6 +324,9 @@ class Task extends Model
         }
         if (null !== $this->hasCommited) {
             $res['hasCommited'] = $this->hasCommited;
+        }
+        if (null !== $this->isStreaming) {
+            $res['isStreaming'] = $this->isStreaming;
         }
         if (null !== $this->jars) {
             $res['jars'] = $this->jars;
@@ -351,6 +375,9 @@ class Task extends Model
         }
         if (null !== $this->sparkLogPath) {
             $res['sparkLogPath'] = $this->sparkLogPath;
+        }
+        if (null !== $this->sparkSubmitClause) {
+            $res['sparkSubmitClause'] = $this->sparkSubmitClause;
         }
         if (null !== $this->sparkVersion) {
             $res['sparkVersion'] = $this->sparkVersion;
@@ -405,6 +432,9 @@ class Task extends Model
         if (isset($map['defaultSqlComputeId'])) {
             $model->defaultSqlComputeId = $map['defaultSqlComputeId'];
         }
+        if (isset($map['deploymentId'])) {
+            $model->deploymentId = $map['deploymentId'];
+        }
         if (isset($map['extraArtifactIds'])) {
             if (!empty($map['extraArtifactIds'])) {
                 $model->extraArtifactIds = $map['extraArtifactIds'];
@@ -429,6 +459,9 @@ class Task extends Model
         }
         if (isset($map['hasCommited'])) {
             $model->hasCommited = $map['hasCommited'];
+        }
+        if (isset($map['isStreaming'])) {
+            $model->isStreaming = $map['isStreaming'];
         }
         if (isset($map['jars'])) {
             if (!empty($map['jars'])) {
@@ -481,6 +514,9 @@ class Task extends Model
         }
         if (isset($map['sparkLogPath'])) {
             $model->sparkLogPath = $map['sparkLogPath'];
+        }
+        if (isset($map['sparkSubmitClause'])) {
+            $model->sparkSubmitClause = $map['sparkSubmitClause'];
         }
         if (isset($map['sparkVersion'])) {
             $model->sparkVersion = $map['sparkVersion'];
