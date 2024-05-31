@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest;
 
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceApacheKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceDTSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceMNSParameters;
@@ -16,6 +17,11 @@ use AlibabaCloud\Tea\Model;
 
 class source extends Model
 {
+    /**
+     * @var sourceApacheKafkaParameters
+     */
+    public $sourceApacheKafkaParameters;
+
     /**
      * @description The parameters that are configured if you specify Data Transmission Service (DTS) as the event source.
      *
@@ -72,14 +78,15 @@ class source extends Model
      */
     public $sourceSLSParameters;
     protected $_name = [
-        'sourceDTSParameters'        => 'SourceDTSParameters',
-        'sourceKafkaParameters'      => 'SourceKafkaParameters',
-        'sourceMNSParameters'        => 'SourceMNSParameters',
-        'sourceMQTTParameters'       => 'SourceMQTTParameters',
-        'sourcePrometheusParameters' => 'SourcePrometheusParameters',
-        'sourceRabbitMQParameters'   => 'SourceRabbitMQParameters',
-        'sourceRocketMQParameters'   => 'SourceRocketMQParameters',
-        'sourceSLSParameters'        => 'SourceSLSParameters',
+        'sourceApacheKafkaParameters' => 'SourceApacheKafkaParameters',
+        'sourceDTSParameters'         => 'SourceDTSParameters',
+        'sourceKafkaParameters'       => 'SourceKafkaParameters',
+        'sourceMNSParameters'         => 'SourceMNSParameters',
+        'sourceMQTTParameters'        => 'SourceMQTTParameters',
+        'sourcePrometheusParameters'  => 'SourcePrometheusParameters',
+        'sourceRabbitMQParameters'    => 'SourceRabbitMQParameters',
+        'sourceRocketMQParameters'    => 'SourceRocketMQParameters',
+        'sourceSLSParameters'         => 'SourceSLSParameters',
     ];
 
     public function validate()
@@ -89,6 +96,9 @@ class source extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceApacheKafkaParameters) {
+            $res['SourceApacheKafkaParameters'] = null !== $this->sourceApacheKafkaParameters ? $this->sourceApacheKafkaParameters->toMap() : null;
+        }
         if (null !== $this->sourceDTSParameters) {
             $res['SourceDTSParameters'] = null !== $this->sourceDTSParameters ? $this->sourceDTSParameters->toMap() : null;
         }
@@ -125,6 +135,9 @@ class source extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceApacheKafkaParameters'])) {
+            $model->sourceApacheKafkaParameters = sourceApacheKafkaParameters::fromMap($map['SourceApacheKafkaParameters']);
+        }
         if (isset($map['SourceDTSParameters'])) {
             $model->sourceDTSParameters = sourceDTSParameters::fromMap($map['SourceDTSParameters']);
         }

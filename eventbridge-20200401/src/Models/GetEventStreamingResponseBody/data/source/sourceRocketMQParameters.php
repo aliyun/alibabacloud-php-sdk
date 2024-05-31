@@ -16,6 +16,11 @@ class sourceRocketMQParameters extends Model
     public $authType;
 
     /**
+     * @var string
+     */
+    public $bodyDataType;
+
+    /**
      * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
      *
      * @example GID_group1
@@ -135,6 +140,7 @@ class sourceRocketMQParameters extends Model
     public $topic;
     protected $_name = [
         'authType'                => 'AuthType',
+        'bodyDataType'            => 'BodyDataType',
         'groupID'                 => 'GroupID',
         'instanceEndpoint'        => 'InstanceEndpoint',
         'instanceId'              => 'InstanceId',
@@ -161,6 +167,9 @@ class sourceRocketMQParameters extends Model
         $res = [];
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
+        }
+        if (null !== $this->bodyDataType) {
+            $res['BodyDataType'] = $this->bodyDataType;
         }
         if (null !== $this->groupID) {
             $res['GroupID'] = $this->groupID;
@@ -221,6 +230,9 @@ class sourceRocketMQParameters extends Model
         $model = new self();
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
+        }
+        if (isset($map['BodyDataType'])) {
+            $model->bodyDataType = $map['BodyDataType'];
         }
         if (isset($map['GroupID'])) {
             $model->groupID = $map['GroupID'];

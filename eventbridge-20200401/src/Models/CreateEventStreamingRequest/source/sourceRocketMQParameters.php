@@ -18,6 +18,11 @@ class sourceRocketMQParameters extends Model
     public $authType;
 
     /**
+     * @var string
+     */
+    public $bodyDataType;
+
+    /**
      * @description The SQL statement that you want to use to filter messages.
      *
      * @example index > 10
@@ -215,6 +220,7 @@ class sourceRocketMQParameters extends Model
     public $vpcId;
     protected $_name = [
         'authType'                => 'AuthType',
+        'bodyDataType'            => 'BodyDataType',
         'filterSql'               => 'FilterSql',
         'filterType'              => 'FilterType',
         'groupID'                 => 'GroupID',
@@ -247,6 +253,9 @@ class sourceRocketMQParameters extends Model
         $res = [];
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
+        }
+        if (null !== $this->bodyDataType) {
+            $res['BodyDataType'] = $this->bodyDataType;
         }
         if (null !== $this->filterSql) {
             $res['FilterSql'] = $this->filterSql;
@@ -325,6 +334,9 @@ class sourceRocketMQParameters extends Model
         $model = new self();
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
+        }
+        if (isset($map['BodyDataType'])) {
+            $model->bodyDataType = $map['BodyDataType'];
         }
         if (isset($map['FilterSql'])) {
             $model->filterSql = $map['FilterSql'];
