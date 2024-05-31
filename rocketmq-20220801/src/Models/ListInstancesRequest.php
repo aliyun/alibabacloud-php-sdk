@@ -20,7 +20,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * This parameter is required.
+     * If the value that you specify for this parameter is less than 1, the system uses 1 as the value. If the value that you specify for this parameter is greater than 100000000, the system uses 100000000 as the value.
      * @example 1
      *
      * @var int
@@ -30,7 +30,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The number of entries returned on each page.
      *
-     * This parameter is required.
+     * If the value that you specify for this parameter is less than 10, the system uses 10 as the value. If the value that you specify for this parameter is greater than 200, the system uses 200 as the value.
      * @example 10
      *
      * @var int
