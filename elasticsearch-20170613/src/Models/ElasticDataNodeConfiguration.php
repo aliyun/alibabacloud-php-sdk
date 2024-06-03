@@ -34,6 +34,8 @@ class ElasticDataNodeConfiguration extends Model
     public $performanceLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $spec;

@@ -11,6 +11,7 @@ class tags extends Model
     /**
      * @description The returned object.
      *
+     * This parameter is required.
      * @example env
      *
      * @var string
@@ -23,6 +24,7 @@ class tags extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example IT
      *
      * @var string

@@ -23,6 +23,8 @@ class body extends Model
     public $batchSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example input { } filter { } output { }
      *
      * @var string
@@ -37,6 +39,8 @@ class body extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pipeline-test
      *
      * @var string

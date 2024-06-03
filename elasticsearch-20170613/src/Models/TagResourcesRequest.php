@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description A tag.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceIds;
@@ -19,6 +20,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The request ID.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -28,6 +30,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The value of the tag.
      *
+     * This parameter is required.
      * @var tags[]
      */
     public $tags;

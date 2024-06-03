@@ -16,6 +16,7 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @description Verify whether the zone node can be migrated. true indicates that the data is only verified and the migration task is not executed. false indicates that the migration task is executed after the verification is successful.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool

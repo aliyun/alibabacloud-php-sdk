@@ -20,6 +20,7 @@ class ListDiagnoseReportRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 1595174399999
      *
      * @var int
@@ -56,6 +57,7 @@ class ListDiagnoseReportRequest extends Model
     /**
      * @description 1595174399999
      *
+     * This parameter is required.
      * @example 1594569600000
      *
      * @var int

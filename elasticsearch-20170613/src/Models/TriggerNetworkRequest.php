@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TriggerNetworkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example OPEN
      *
      * @var string
@@ -16,6 +18,8 @@ class TriggerNetworkRequest extends Model
     public $actionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PUBLIC
      *
      * @var string
@@ -23,6 +27,8 @@ class TriggerNetworkRequest extends Model
     public $networkType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example KIBANA
      *
      * @var string

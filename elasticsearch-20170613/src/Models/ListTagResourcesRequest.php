@@ -18,7 +18,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description 1d2db86sca4384811e0b5e8707e\*\*\*\*\*\*
+     * @description 1d2db86sca4384811e0b5e8707e\\*\\*\\*\\*\\*\\*
      *
      * @example 1
      *
@@ -38,8 +38,9 @@ class ListTagResourcesRequest extends Model
     public $resourceIds;
 
     /**
-     * @description \[{"key":"env","value","dev"},{"key":"dev", "value":"IT"}]
+     * @description [{"key":"env","value","dev"},{"key":"dev", "value":"IT"}]
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -47,7 +48,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description \["es-cn-aaa","es-cn-bbb"]
+     * @description ["es-cn-aaa","es-cn-bbb"]
      *
      * @example 10
      *

@@ -20,6 +20,7 @@ class CancelTaskRequest extends Model
     /**
      * @description The type of the data migration task. Set the value to MigrateData.
      *
+     * This parameter is required.
      * @example MigrateData
      *
      * @var string

@@ -40,6 +40,11 @@ class result extends Model
     public $aliwsDicts;
 
     /**
+     * @var string
+     */
+    public $archType;
+
+    /**
      * @var clientNodeConfiguration
      */
     public $clientNodeConfiguration;
@@ -352,6 +357,7 @@ class result extends Model
         'advancedDedicateMaster'       => 'advancedDedicateMaster',
         'advancedSetting'              => 'advancedSetting',
         'aliwsDicts'                   => 'aliwsDicts',
+        'archType'                     => 'archType',
         'clientNodeConfiguration'      => 'clientNodeConfiguration',
         'createdAt'                    => 'createdAt',
         'dedicateMaster'               => 'dedicateMaster',
@@ -425,6 +431,9 @@ class result extends Model
                     $res['aliwsDicts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->archType) {
+            $res['archType'] = $this->archType;
         }
         if (null !== $this->clientNodeConfiguration) {
             $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
@@ -632,6 +641,9 @@ class result extends Model
                     $model->aliwsDicts[$n++] = null !== $item ? aliwsDicts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['archType'])) {
+            $model->archType = $map['archType'];
         }
         if (isset($map['clientNodeConfiguration'])) {
             $model->clientNodeConfiguration = clientNodeConfiguration::fromMap($map['clientNodeConfiguration']);

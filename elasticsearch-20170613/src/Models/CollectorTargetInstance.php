@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CollectorTargetInstance extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example collectorTargetInstance
      *
      * @var string
@@ -16,6 +18,8 @@ class CollectorTargetInstance extends Model
     public $configType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +32,8 @@ class CollectorTargetInstance extends Model
     public $hosts;
 
     /**
+     * @description This parameter is required.
+     *
      * @example es-cn-ks8x****
      *
      * @var string
@@ -35,6 +41,8 @@ class CollectorTargetInstance extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example elasticsearch
      *
      * @var string
@@ -42,6 +50,8 @@ class CollectorTargetInstance extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string
@@ -49,6 +59,8 @@ class CollectorTargetInstance extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HTTP
      *
      * @var string
@@ -56,6 +68,8 @@ class CollectorTargetInstance extends Model
     public $protocol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

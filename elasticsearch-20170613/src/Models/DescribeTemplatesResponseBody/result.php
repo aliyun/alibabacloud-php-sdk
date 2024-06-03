@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example {\n\t\"persistent\":{\n\t\t\"search\":{\n\t\t\t\"max_buckets\":\"10000\"\n\t\t}\n\t}\n}
+     * @example {\\n\\t\\"persistent\\":{\\n\\t\\t\\"search\\":{\\n\\t\\t\\t\\"max_buckets\\":\\"10000\\"\\n\\t\\t}\\n\\t}\\n}
      *
      * @var string
      */

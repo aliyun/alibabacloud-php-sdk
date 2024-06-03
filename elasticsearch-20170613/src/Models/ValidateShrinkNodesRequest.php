@@ -36,6 +36,7 @@ class ValidateShrinkNodesRequest extends Model
      *   true: can be scaled in
      *   false: cannot be scaled in.
      *
+     * This parameter is required.
      * @example WORKER
      *
      * @var string

@@ -16,6 +16,8 @@ class ListDictInformationRequest extends Model
     public $analyzerType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example search-cloud-test-cn-****
      *
      * @var string
@@ -23,6 +25,8 @@ class ListDictInformationRequest extends Model
     public $bucketName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss/dic_0.dic
      *
      * @var string

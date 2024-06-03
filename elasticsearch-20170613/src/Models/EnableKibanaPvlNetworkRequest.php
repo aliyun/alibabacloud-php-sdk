@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EnableKibanaPvlNetworkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example es-cn-27a3mul6l000xxx-kibana-endpoint
      *
      * @var string
@@ -17,16 +19,22 @@ class EnableKibanaPvlNetworkRequest extends Model
     public $endpointName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $securityGroups;
 
     /**
+     * @description This parameter is required.
+     *
      * @var vSwitchIdsZone[]
      */
     public $vSwitchIdsZone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-xxx
      *
      * @var string

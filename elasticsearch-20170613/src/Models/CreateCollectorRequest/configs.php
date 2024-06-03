@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example "filebeat.inputs:xxx"
      *
      * @var string
@@ -16,6 +18,8 @@ class configs extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example filebeat.yml
      *
      * @var string

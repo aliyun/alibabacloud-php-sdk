@@ -16,6 +16,8 @@ class networkConfig extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp16k1dvzxtmagcva****
      *
      * @var string
@@ -23,6 +25,8 @@ class networkConfig extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -30,6 +34,8 @@ class networkConfig extends Model
     public $vsArea;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-bp1k4ec6s7sjdbudw****
      *
      * @var string

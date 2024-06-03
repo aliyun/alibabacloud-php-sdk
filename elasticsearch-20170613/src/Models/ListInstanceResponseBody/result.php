@@ -28,7 +28,7 @@ class result extends Model
     public $advancedDedicateMaster;
 
     /**
-     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @var clientNodeConfiguration
      */
@@ -94,7 +94,7 @@ class result extends Model
     public $extendConfigs;
 
     /**
-     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @example es-cn-v641a0ta3000g****
      *
@@ -112,7 +112,7 @@ class result extends Model
     public $isNewDeployment;
 
     /**
-     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @var kibanaConfiguration
      */
@@ -136,7 +136,7 @@ class result extends Model
     public $masterConfiguration;
 
     /**
-     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @var networkConfig
      */

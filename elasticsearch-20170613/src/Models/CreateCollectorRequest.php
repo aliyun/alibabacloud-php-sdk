@@ -15,11 +15,15 @@ class CreateCollectorRequest extends Model
     public $collectorPaths;
 
     /**
+     * @description This parameter is required.
+     *
      * @var configs[]
      */
     public $configs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -27,11 +31,15 @@ class CreateCollectorRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[][]
      */
     public $extendConfigs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ct-test
      *
      * @var string
@@ -39,6 +47,8 @@ class CreateCollectorRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fileBeat
      *
      * @var string
@@ -46,6 +56,8 @@ class CreateCollectorRequest extends Model
     public $resType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6.8.5_with_community
      *
      * @var string
@@ -53,6 +65,8 @@ class CreateCollectorRequest extends Model
     public $resVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp12nu14urf0upaf*****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CollectorDeployMachine extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example collectorDeployMachine
      *
      * @var string
@@ -50,6 +52,8 @@ class CollectorDeployMachine extends Model
     public $totalPodsCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ACKCluster
      *
      * @var string

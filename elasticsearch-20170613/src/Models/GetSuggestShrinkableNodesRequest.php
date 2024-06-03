@@ -11,6 +11,7 @@ class GetSuggestShrinkableNodesRequest extends Model
     /**
      * @description The number of nodes that you want to remove.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class GetSuggestShrinkableNodesRequest extends Model
     /**
      * @description The type of removing nodes. WORKER indicates hot node and WORKER_WARM indicates warm node.
      *
+     * This parameter is required.
      * @example WORKER
      *
      * @var string

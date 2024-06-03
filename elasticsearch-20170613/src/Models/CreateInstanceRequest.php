@@ -27,6 +27,8 @@ class CreateInstanceRequest extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example es_password
      *
      * @var string
@@ -34,6 +36,8 @@ class CreateInstanceRequest extends Model
     public $esAdminPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5.5.3_with_X-Pack
      *
      * @var string
@@ -58,11 +62,15 @@ class CreateInstanceRequest extends Model
     public $masterConfiguration;
 
     /**
+     * @description This parameter is required.
+     *
      * @var NetworkConfig
      */
     public $networkConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int

@@ -17,6 +17,8 @@ class CreateIndexTemplateRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $dataStream;
@@ -29,11 +31,15 @@ class CreateIndexTemplateRequest extends Model
     public $ilmPolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $indexPatterns;
 
     /**
+     * @description This parameter is required.
+     *
      * @example index-template
      *
      * @var string

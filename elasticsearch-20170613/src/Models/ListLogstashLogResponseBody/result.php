@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @description The IP address of the node that generates the log.
      *
-     * @example [logstash.outputs.fileextend] Opening file {:path=>\"/ssd/1/ls-cn-v0h1kzca****\/logstash/logs/debug/test\"}
+     * @example [logstash.outputs.fileextend] Opening file {:path=>\\"/ssd/1/ls-cn-v0h1kzca****\/logstash/logs/debug/test\\"}
      *
      * @var string
      */

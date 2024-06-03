@@ -10,7 +10,7 @@ class RecommendTemplatesRequest extends Model
 {
     /**
      * @description *
-     ****
+     * This parameter is required.
      * @example general
      *
      * @var string

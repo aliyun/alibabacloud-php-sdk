@@ -19,11 +19,15 @@ class CreateLogstashRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -31,6 +35,8 @@ class CreateLogstashRequest extends Model
     public $nodeAmount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var nodeSpec
      */
     public $nodeSpec;
@@ -53,6 +59,8 @@ class CreateLogstashRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6.7_with_X-Pack
      *
      * @var string

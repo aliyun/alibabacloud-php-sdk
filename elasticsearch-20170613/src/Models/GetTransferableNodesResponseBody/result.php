@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @description The IP address of the node.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */

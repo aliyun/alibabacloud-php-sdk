@@ -11,7 +11,7 @@ class endpointList extends Model
     /**
      * @description The tags added to the ALB instance.
      *
-     * @example 172.16.**.**
+     * @example 172.16.\*\*.**
      *
      * @var string
      */

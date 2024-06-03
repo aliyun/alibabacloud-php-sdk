@@ -45,7 +45,7 @@ class elasticDataNodeConfiguration extends Model
     public $diskType;
 
     /**
-     * @description The instance type of the node. For more information, see [Specifications](~~271718~~).
+     * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @example elasticsearch.sn2ne.large
      *

@@ -11,6 +11,7 @@ class ListDiagnoseReportIdsRequest extends Model
     /**
      * @description The end of the time range to query. The value must be a UNIX timestamp.
      *
+     * This parameter is required.
      * @example 1595174399999
      *
      * @var int
@@ -47,6 +48,7 @@ class ListDiagnoseReportIdsRequest extends Model
     /**
      * @description The beginning of the time range to query. The value must be a UNIX timestamp.
      *
+     * This parameter is required.
      * @example 1595088000000
      *
      * @var int

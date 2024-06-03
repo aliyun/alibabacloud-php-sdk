@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MasterNodeConfiguration extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $spec;

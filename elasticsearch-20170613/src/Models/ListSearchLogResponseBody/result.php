@@ -18,7 +18,7 @@ class result extends Model
     public $content;
 
     /**
-     * @example {"level": "info", "host": "192.168.**.**", "time": "2019-03-18T08:16:12.741Z","content": "[o.e.c.r.a.AllocationService] [MnNASM_] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[my_index][3]] ...])."}
+     * @example {"level": "info", "host": "192.168.\*\*.**", "time": "2019-03-18T08:16:12.741Z","content": "[o.e.c.r.a.AllocationService] [MnNASM_] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[my_index][3]] ...])."}
      *
      * @var mixed[]
      */
@@ -27,7 +27,7 @@ class result extends Model
     /**
      * @description Details of the log entry. Different content fields are returned for different log types.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */

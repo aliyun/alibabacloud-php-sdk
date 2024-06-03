@@ -45,7 +45,7 @@ class ListInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description \[{"tagKey":"key1","tagValue":"value1"}]
+     * @description [{"tagKey":"key1","tagValue":"value1"}]
      *
      * @example 1
      *
@@ -75,7 +75,7 @@ class ListInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description vpc-bp16k1dvzxtmagcva\*\*\*\*
+     * @description vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
      *
      * @example 10
      *

@@ -19,6 +19,8 @@ class KibanaNodeConfiguration extends Model
     public $disk;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $spec;

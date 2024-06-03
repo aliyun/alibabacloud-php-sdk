@@ -20,6 +20,7 @@ class DeleteConnectedClusterRequest extends Model
     /**
      * @description The ID of the remote instance for which the network connection is established.
      *
+     * This parameter is required.
      * @example es-cn-09k1rgid9000g****
      *
      * @var string

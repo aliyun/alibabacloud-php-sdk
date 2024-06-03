@@ -25,7 +25,7 @@ class metaInfo extends Model
     /**
      * @description The Mapping configuration of the cluster.
      *
-     * @example {\"_doc\":{\"properties\":{\"user\":{\"properties\":{\"last\":{\"type\":\"text\",...}}}}}}
+     * @example {\\"_doc\\":{\\"properties\\":{\\"user\\":{\\"properties\\":{\\"last\\":{\\"type\\":\\"text\\",...}}}}}}
      *
      * @var string
      */
@@ -34,7 +34,7 @@ class metaInfo extends Model
     /**
      * @description The Settings of the cluster.
      *
-     * @example {\n  \"index\": {\n    \"replication\": {\n}.....}}
+     * @example {\\n  \\"index\\": {\\n    \\"replication\\": {\\n}.....}}
      *
      * @var string
      */

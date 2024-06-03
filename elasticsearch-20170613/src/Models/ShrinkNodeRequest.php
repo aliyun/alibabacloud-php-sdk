@@ -36,6 +36,8 @@ class ShrinkNodeRequest extends Model
     public $ignoreStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @example WORKER
      *
      * @var string

@@ -98,8 +98,8 @@ class result extends Model
     /**
      * @description The version of the shipper. The version of a shipper depends on the type of the machine on which the shipper is deployed.
      *
-     *   Elastic Compute Service (ECS) instance: 6.8.5\_with_community
-     *   Container Service for Kubernetes (ACK) cluster: 6.8.13\_with_community
+     *   Elastic Compute Service (ECS) instance: 6.8.5_with_community
+     *   Container Service for Kubernetes (ACK) cluster: 6.8.13_with_community
      *
      * @example 6.8.5_with_community
      *

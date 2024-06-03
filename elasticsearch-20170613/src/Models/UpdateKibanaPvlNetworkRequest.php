@@ -21,6 +21,8 @@ class UpdateKibanaPvlNetworkRequest extends Model
     public $securityGroups;
 
     /**
+     * @description This parameter is required.
+     *
      * @example es-cn-27a3mul6l0***-kibana-internal
      *
      * @var string

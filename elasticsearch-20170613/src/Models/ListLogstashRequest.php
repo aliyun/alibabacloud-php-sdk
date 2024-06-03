@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListLogstashRequest extends Model
 {
     /**
-     * @description rg-acfm2h5vbzd\*\*\*\*
+     * @description rg-acfm2h5vbzd\\*\\*\\*\\*
      *
      * @example ls-cn-abc
      *
@@ -18,7 +18,7 @@ class ListLogstashRequest extends Model
     public $description;
 
     /**
-     * @description \[{"tagKey":"key1","tagValue":"value1"}]
+     * @description [{"tagKey":"key1","tagValue":"value1"}]
      *
      * @example ls-cn-n6w1o5jq****
      *
@@ -27,7 +27,7 @@ class ListLogstashRequest extends Model
     public $instanceId;
 
     /**
-     * @description ls-cn-n6w1o5jq\*\*\*\*
+     * @description ls-cn-n6w1o5jq\\*\\*\\*\\*
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class ListLogstashRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 5.5.3\_with_X-Pack
+     * @description 5.5.3_with_X-Pack
      *
      * @example 10
      *

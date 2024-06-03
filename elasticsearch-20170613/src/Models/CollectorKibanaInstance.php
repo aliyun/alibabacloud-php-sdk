@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CollectorKibanaInstance extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example collectorElasticsearchForKibana
      *
      * @var string
@@ -16,6 +18,8 @@ class CollectorKibanaInstance extends Model
     public $configType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example es-cn-*****-kibana.internal.elasticsearch.aliyuncs.com:5601
      *
      * @var string
@@ -23,6 +27,8 @@ class CollectorKibanaInstance extends Model
     public $host;
 
     /**
+     * @description This parameter is required.
+     *
      * @example es-cn-45dfy****
      *
      * @var string
@@ -30,6 +36,8 @@ class CollectorKibanaInstance extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://es-cn-****.kibana.elasticsearch.aliyuncs.com:5601
      *
      * @var string
@@ -37,6 +45,8 @@ class CollectorKibanaInstance extends Model
     public $kibanaHost;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string
@@ -44,6 +54,8 @@ class CollectorKibanaInstance extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HTTP
      *
      * @var string
@@ -51,6 +63,8 @@ class CollectorKibanaInstance extends Model
     public $protocol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

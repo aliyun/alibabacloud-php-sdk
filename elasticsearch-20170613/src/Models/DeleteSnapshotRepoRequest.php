@@ -20,6 +20,7 @@ class DeleteSnapshotRepoRequest extends Model
     /**
      * @description Reference instance ID.
      *
+     * This parameter is required.
      * @example es-cn-n6w1rux8i000w****
      *
      * @var string

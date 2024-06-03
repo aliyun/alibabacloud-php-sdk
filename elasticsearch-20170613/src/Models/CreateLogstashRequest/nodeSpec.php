@@ -23,6 +23,8 @@ class nodeSpec extends Model
     public $diskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example logstash.n4.small
      *
      * @var string

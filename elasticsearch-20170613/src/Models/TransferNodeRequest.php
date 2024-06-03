@@ -22,6 +22,8 @@ class TransferNodeRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example WORKER
      *
      * @var string

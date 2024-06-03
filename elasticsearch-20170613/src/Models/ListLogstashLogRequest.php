@@ -38,6 +38,7 @@ class ListLogstashLogRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example host:10.7.xx.xx AND level:info AND content:opening
      *
      * @var string
@@ -56,6 +57,7 @@ class ListLogstashLogRequest extends Model
     /**
      * @description 1531910852074
      *
+     * This parameter is required.
      * @example LOGSTASH_INSTANCE_LOG
      *
      * @var string

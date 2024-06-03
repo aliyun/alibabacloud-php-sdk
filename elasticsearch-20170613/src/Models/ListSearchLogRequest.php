@@ -38,7 +38,8 @@ class ListSearchLogRequest extends Model
     /**
      * @description 1
      *
-     * @example host:172.16.**.** AND content:netty
+     * This parameter is required.
+     * @example host:172.16.\*\*.** AND content:netty
      *
      * @var string
      */
@@ -56,6 +57,7 @@ class ListSearchLogRequest extends Model
     /**
      * @description 1531910852074
      *
+     * This parameter is required.
      * @example INSTANCELOG
      *
      * @var string

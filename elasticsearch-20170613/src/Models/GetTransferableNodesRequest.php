@@ -11,6 +11,7 @@ class GetTransferableNodesRequest extends Model
     /**
      * @description The number of nodes to be migrated.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class GetTransferableNodesRequest extends Model
     /**
      * @description The type of nodes.**WORKER**represents a hot node,**WORKER_WARM** represents a warm node.
      *
+     * This parameter is required.
      * @example WORKER
      *
      * @var string

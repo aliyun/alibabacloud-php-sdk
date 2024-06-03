@@ -11,7 +11,7 @@ class configs extends Model
     /**
      * @description The name of the file.
      *
-     * @example - key: log\n title: Log file content\n description: >\n Contains log file lines.\n ....
+     * @example - key: log\\n title: Log file content\\n description: >\\n Contains log file lines.\\n ....
      *
      * @var string
      */

@@ -18,7 +18,7 @@ class ListEcsInstancesRequest extends Model
     public $ecsInstanceIds;
 
     /**
-     * @description \[{ "tagKey":"a","tagValue":"b"}]
+     * @description [{ "tagKey":"a","tagValue":"b"}]
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class ListEcsInstancesRequest extends Model
     public $page;
 
     /**
-     * @description \["i-bp13y63575oypr9d\*\*\*\*","i-bp1gyhphjaj73jsr\*\*\*\*"]
+     * @description ["i-bp13y63575oypr9d\\*\\*\\*\\*","i-bp1gyhphjaj73jsr\\*\\*\\*\\*"]
      *
      * @example 10
      *
@@ -45,7 +45,7 @@ class ListEcsInstancesRequest extends Model
     public $size;
 
     /**
-     * @description vpc-bp16k1dvzxtmagcva\*\*\*\*
+     * @description vpc-bp16k1dvzxtmagcva\\*\\*\\*\\*
      *
      * @example [{ "tagKey":"a","tagValue":"b"}]
      *

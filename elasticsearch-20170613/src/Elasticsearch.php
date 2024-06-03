@@ -408,12 +408,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+     *  *
      * @param string               $InstanceId
-     * @param ActivateZonesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ActivateZonesRequest $request    ActivateZonesRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ActivateZonesResponse
+     * @return ActivateZonesResponse ActivateZonesResponse
      */
     public function activateZonesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -443,10 +445,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+     *  *
      * @param string               $InstanceId
-     * @param ActivateZonesRequest $request
+     * @param ActivateZonesRequest $request    ActivateZonesRequest
      *
-     * @return ActivateZonesResponse
+     * @return ActivateZonesResponse ActivateZonesResponse
      */
     public function activateZones($InstanceId, $request)
     {
@@ -458,11 +462,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                       $InstanceId
-     * @param AddConnectableClusterRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param AddConnectableClusterRequest $request    AddConnectableClusterRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AddConnectableClusterResponse
+     * @return AddConnectableClusterResponse AddConnectableClusterResponse
      */
     public function addConnectableClusterWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -493,9 +497,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                       $InstanceId
-     * @param AddConnectableClusterRequest $request
+     * @param AddConnectableClusterRequest $request    AddConnectableClusterRequest
      *
-     * @return AddConnectableClusterResponse
+     * @return AddConnectableClusterResponse AddConnectableClusterResponse
      */
     public function addConnectableCluster($InstanceId, $request)
     {
@@ -506,12 +510,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+     *  *
      * @param string                 $InstanceId
-     * @param AddSnapshotRepoRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param AddSnapshotRepoRequest $request    AddSnapshotRepoRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AddSnapshotRepoResponse
+     * @return AddSnapshotRepoResponse AddSnapshotRepoResponse
      */
     public function addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -536,10 +542,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+     *  *
      * @param string                 $InstanceId
-     * @param AddSnapshotRepoRequest $request
+     * @param AddSnapshotRepoRequest $request    AddSnapshotRepoRequest
      *
-     * @return AddSnapshotRepoResponse
+     * @return AddSnapshotRepoResponse AddSnapshotRepoResponse
      */
     public function addSnapshotRepo($InstanceId, $request)
     {
@@ -550,12 +558,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+     *  *
      * @param string                $InstanceId
-     * @param CancelDeletionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CancelDeletionRequest $request    CancelDeletionRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CancelDeletionResponse
+     * @return CancelDeletionResponse CancelDeletionResponse
      */
     public function cancelDeletionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -584,10 +594,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores an Elasticsearch cluster that is frozen after it is released.
+     *  *
      * @param string                $InstanceId
-     * @param CancelDeletionRequest $request
+     * @param CancelDeletionRequest $request    CancelDeletionRequest
      *
-     * @return CancelDeletionResponse
+     * @return CancelDeletionResponse CancelDeletionResponse
      */
     public function cancelDeletion($InstanceId, $request)
     {
@@ -598,12 +610,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores a Logstash cluster that is frozen after it is released.
+     *  *
      * @param string                        $InstanceId
-     * @param CancelLogstashDeletionRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CancelLogstashDeletionRequest $request    CancelLogstashDeletionRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CancelLogstashDeletionResponse
+     * @return CancelLogstashDeletionResponse CancelLogstashDeletionResponse
      */
     public function cancelLogstashDeletionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -632,10 +646,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restores a Logstash cluster that is frozen after it is released.
+     *  *
      * @param string                        $InstanceId
-     * @param CancelLogstashDeletionRequest $request
+     * @param CancelLogstashDeletionRequest $request    CancelLogstashDeletionRequest
      *
-     * @return CancelLogstashDeletionResponse
+     * @return CancelLogstashDeletionResponse CancelLogstashDeletionResponse
      */
     public function cancelLogstashDeletion($InstanceId, $request)
     {
@@ -647,11 +663,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string            $InstanceId
-     * @param CancelTaskRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CancelTaskRequest $request    CancelTaskRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -684,9 +700,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string            $InstanceId
-     * @param CancelTaskRequest $request
+     * @param CancelTaskRequest $request    CancelTaskRequest
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($InstanceId, $request)
     {
@@ -697,11 +713,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CapacityPlanRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 容量规划
+     *  *
+     * @param CapacityPlanRequest $request CapacityPlanRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CapacityPlanResponse
+     * @return CapacityPlanResponse CapacityPlanResponse
      */
     public function capacityPlanWithOptions($request, $headers, $runtime)
     {
@@ -739,9 +757,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CapacityPlanRequest $request
+     * @summary 容量规划
+     *  *
+     * @param CapacityPlanRequest $request CapacityPlanRequest
      *
-     * @return CapacityPlanResponse
+     * @return CapacityPlanResponse CapacityPlanResponse
      */
     public function capacityPlan($request)
     {
@@ -752,12 +772,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭实例的智能运维功能
+     *  *
      * @param string                $InstanceId
-     * @param CloseDiagnosisRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CloseDiagnosisRequest $request    CloseDiagnosisRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CloseDiagnosisResponse
+     * @return CloseDiagnosisResponse CloseDiagnosisResponse
      */
     public function closeDiagnosisWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -789,10 +811,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭实例的智能运维功能
+     *  *
      * @param string                $InstanceId
-     * @param CloseDiagnosisRequest $request
+     * @param CloseDiagnosisRequest $request    CloseDiagnosisRequest
      *
-     * @return CloseDiagnosisResponse
+     * @return CloseDiagnosisResponse CloseDiagnosisResponse
      */
     public function closeDiagnosis($InstanceId, $request)
     {
@@ -804,11 +828,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string            $InstanceId
-     * @param CloseHttpsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CloseHttpsRequest $request    CloseHttpsRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CloseHttpsResponse
+     * @return CloseHttpsResponse CloseHttpsResponse
      */
     public function closeHttpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -838,9 +862,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string            $InstanceId
-     * @param CloseHttpsRequest $request
+     * @param CloseHttpsRequest $request    CloseHttpsRequest
      *
-     * @return CloseHttpsResponse
+     * @return CloseHttpsResponse CloseHttpsResponse
      */
     public function closeHttps($InstanceId, $request)
     {
@@ -851,13 +875,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭索引托管
+     *  *
      * @param string                   $InstanceId
      * @param string                   $Index
-     * @param CloseManagedIndexRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CloseManagedIndexRequest $request    CloseManagedIndexRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CloseManagedIndexResponse
+     * @return CloseManagedIndexResponse CloseManagedIndexResponse
      */
     public function closeManagedIndexWithOptions($InstanceId, $Index, $request, $headers, $runtime)
     {
@@ -886,11 +912,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭索引托管
+     *  *
      * @param string                   $InstanceId
      * @param string                   $Index
-     * @param CloseManagedIndexRequest $request
+     * @param CloseManagedIndexRequest $request    CloseManagedIndexRequest
      *
-     * @return CloseManagedIndexResponse
+     * @return CloseManagedIndexResponse CloseManagedIndexResponse
      */
     public function closeManagedIndex($InstanceId, $Index, $request)
     {
@@ -901,11 +929,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateCollectorRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 创建收集器
+     *  *
+     * @param CreateCollectorRequest $request CreateCollectorRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCollectorResponse
+     * @return CreateCollectorResponse CreateCollectorResponse
      */
     public function createCollectorWithOptions($request, $headers, $runtime)
     {
@@ -960,9 +990,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateCollectorRequest $request
+     * @summary 创建收集器
+     *  *
+     * @param CreateCollectorRequest $request CreateCollectorRequest
      *
-     * @return CreateCollectorResponse
+     * @return CreateCollectorResponse CreateCollectorResponse
      */
     public function createCollector($request)
     {
@@ -973,13 +1005,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建Elasticsearch组合模板
+     *  *
      * @param string                      $InstanceId
      * @param string                      $name
-     * @param CreateComponentIndexRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateComponentIndexRequest $request    CreateComponentIndexRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateComponentIndexResponse
+     * @return CreateComponentIndexResponse CreateComponentIndexResponse
      */
     public function createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
@@ -1011,11 +1045,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建Elasticsearch组合模板
+     *  *
      * @param string                      $InstanceId
      * @param string                      $name
-     * @param CreateComponentIndexRequest $request
+     * @param CreateComponentIndexRequest $request    CreateComponentIndexRequest
      *
-     * @return CreateComponentIndexResponse
+     * @return CreateComponentIndexResponse CreateComponentIndexResponse
      */
     public function createComponentIndex($InstanceId, $name, $request)
     {
@@ -1026,12 +1062,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据流
+     *  *
      * @param string                  $InstanceId
-     * @param CreateDataStreamRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateDataStreamRequest $request    CreateDataStreamRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateDataStreamResponse
+     * @return CreateDataStreamResponse CreateDataStreamResponse
      */
     public function createDataStreamWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1061,10 +1099,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据流
+     *  *
      * @param string                  $InstanceId
-     * @param CreateDataStreamRequest $request
+     * @param CreateDataStreamRequest $request    CreateDataStreamRequest
      *
-     * @return CreateDataStreamResponse
+     * @return CreateDataStreamResponse CreateDataStreamResponse
      */
     public function createDataStream($InstanceId, $request)
     {
@@ -1075,12 +1115,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引生命周期策略
+     *  *
      * @param string                 $InstanceId
-     * @param CreateILMPolicyRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateILMPolicyRequest $request    CreateILMPolicyRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateILMPolicyResponse
+     * @return CreateILMPolicyResponse CreateILMPolicyResponse
      */
     public function createILMPolicyWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1110,10 +1152,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引生命周期策略
+     *  *
      * @param string                 $InstanceId
-     * @param CreateILMPolicyRequest $request
+     * @param CreateILMPolicyRequest $request    CreateILMPolicyRequest
      *
-     * @return CreateILMPolicyResponse
+     * @return CreateILMPolicyResponse CreateILMPolicyResponse
      */
     public function createILMPolicy($InstanceId, $request)
     {
@@ -1124,12 +1168,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引模版
+     *  *
      * @param string                     $InstanceId
-     * @param CreateIndexTemplateRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateIndexTemplateRequest $request    CreateIndexTemplateRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateIndexTemplateResponse
+     * @return CreateIndexTemplateResponse CreateIndexTemplateResponse
      */
     public function createIndexTemplateWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1178,10 +1224,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引模版
+     *  *
      * @param string                     $InstanceId
-     * @param CreateIndexTemplateRequest $request
+     * @param CreateIndexTemplateRequest $request    CreateIndexTemplateRequest
      *
-     * @return CreateIndexTemplateResponse
+     * @return CreateIndexTemplateResponse CreateIndexTemplateResponse
      */
     public function createIndexTemplate($InstanceId, $request)
     {
@@ -1192,11 +1240,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateLogstashRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 创建logstash实例
+     *  *
+     * @param CreateLogstashRequest $request CreateLogstashRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLogstashResponse
+     * @return CreateLogstashResponse CreateLogstashResponse
      */
     public function createLogstashWithOptions($request, $headers, $runtime)
     {
@@ -1251,9 +1301,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param CreateLogstashRequest $request
+     * @summary 创建logstash实例
+     *  *
+     * @param CreateLogstashRequest $request CreateLogstashRequest
      *
-     * @return CreateLogstashResponse
+     * @return CreateLogstashResponse CreateLogstashResponse
      */
     public function createLogstash($request)
     {
@@ -1264,12 +1316,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建Logstash管道任务
+     *  *
      * @param string                 $InstanceId
-     * @param CreatePipelinesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreatePipelinesRequest $request    CreatePipelinesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreatePipelinesResponse
+     * @return CreatePipelinesResponse CreatePipelinesResponse
      */
     public function createPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1302,10 +1356,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 创建Logstash管道任务
+     *  *
      * @param string                 $InstanceId
-     * @param CreatePipelinesRequest $request
+     * @param CreatePipelinesRequest $request    CreatePipelinesRequest
      *
-     * @return CreatePipelinesResponse
+     * @return CreatePipelinesResponse CreatePipelinesResponse
      */
     public function createPipelines($InstanceId, $request)
     {
@@ -1317,11 +1373,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param CreateSnapshotRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateSnapshotRequest $request    CreateSnapshotRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1352,9 +1408,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param CreateSnapshotRequest $request
+     * @param CreateSnapshotRequest $request    CreateSnapshotRequest
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshot($InstanceId, $request)
     {
@@ -1365,8 +1421,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*.
-     *   *
+     * @summary 创建私网链接VPC终端节点
+     *  *
+     * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+     *  *
      * @param string                   $InstanceId
      * @param CreateVpcEndpointRequest $request    CreateVpcEndpointRequest
      * @param string[]                 $headers    map
@@ -1412,8 +1470,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*.
-     *   *
+     * @summary 创建私网链接VPC终端节点
+     *  *
+     * @description 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+     *  *
      * @param string                   $InstanceId
      * @param CreateVpcEndpointRequest $request    CreateVpcEndpointRequest
      *
@@ -1428,12 +1488,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+     *  *
      * @param string                 $InstanceId
-     * @param DeactivateZonesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeactivateZonesRequest $request    DeactivateZonesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeactivateZonesResponse
+     * @return DeactivateZonesResponse DeactivateZonesResponse
      */
     public function deactivateZonesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1463,10 +1525,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+     *  *
      * @param string                 $InstanceId
-     * @param DeactivateZonesRequest $request
+     * @param DeactivateZonesRequest $request    DeactivateZonesRequest
      *
-     * @return DeactivateZonesResponse
+     * @return DeactivateZonesResponse DeactivateZonesResponse
      */
     public function deactivateZones($InstanceId, $request)
     {
@@ -1477,12 +1541,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a shipper.
+     *  *
      * @param string                 $ResId
-     * @param DeleteCollectorRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteCollectorRequest $request DeleteCollectorRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCollectorResponse
+     * @return DeleteCollectorResponse DeleteCollectorResponse
      */
     public function deleteCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -1511,10 +1577,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a shipper.
+     *  *
      * @param string                 $ResId
-     * @param DeleteCollectorRequest $request
+     * @param DeleteCollectorRequest $request DeleteCollectorRequest
      *
-     * @return DeleteCollectorResponse
+     * @return DeleteCollectorResponse DeleteCollectorResponse
      */
     public function deleteCollector($ResId, $request)
     {
@@ -1525,12 +1593,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除组合索引模板
+     *  *
      * @param string         $InstanceId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteComponentIndexResponse
+     * @return DeleteComponentIndexResponse DeleteComponentIndexResponse
      */
     public function deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
     {
@@ -1553,10 +1623,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除组合索引模板
+     *  *
      * @param string $InstanceId
      * @param string $name
      *
-     * @return DeleteComponentIndexResponse
+     * @return DeleteComponentIndexResponse DeleteComponentIndexResponse
      */
     public function deleteComponentIndex($InstanceId, $name)
     {
@@ -1568,11 +1640,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                        $InstanceId
-     * @param DeleteConnectedClusterRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DeleteConnectedClusterRequest $request    DeleteConnectedClusterRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteConnectedClusterResponse
+     * @return DeleteConnectedClusterResponse DeleteConnectedClusterResponse
      */
     public function deleteConnectedClusterWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1605,9 +1677,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                        $InstanceId
-     * @param DeleteConnectedClusterRequest $request
+     * @param DeleteConnectedClusterRequest $request    DeleteConnectedClusterRequest
      *
-     * @return DeleteConnectedClusterResponse
+     * @return DeleteConnectedClusterResponse DeleteConnectedClusterResponse
      */
     public function deleteConnectedCluster($InstanceId, $request)
     {
@@ -1618,13 +1690,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据流
+     *  *
      * @param string                  $InstanceId
      * @param string                  $DataStream
-     * @param DeleteDataStreamRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param DeleteDataStreamRequest $request    DeleteDataStreamRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataStreamResponse
+     * @return DeleteDataStreamResponse DeleteDataStreamResponse
      */
     public function deleteDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime)
     {
@@ -1653,11 +1727,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据流
+     *  *
      * @param string                  $InstanceId
      * @param string                  $DataStream
-     * @param DeleteDataStreamRequest $request
+     * @param DeleteDataStreamRequest $request    DeleteDataStreamRequest
      *
-     * @return DeleteDataStreamResponse
+     * @return DeleteDataStreamResponse DeleteDataStreamResponse
      */
     public function deleteDataStream($InstanceId, $DataStream, $request)
     {
@@ -1669,11 +1745,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param DeleteDataTaskRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteDataTaskRequest $request    DeleteDataTaskRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataTaskResponse
+     * @return DeleteDataTaskResponse DeleteDataTaskResponse
      */
     public function deleteDataTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1706,9 +1782,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param DeleteDataTaskRequest $request
+     * @param DeleteDataTaskRequest $request    DeleteDataTaskRequest
      *
-     * @return DeleteDataTaskResponse
+     * @return DeleteDataTaskResponse DeleteDataTaskResponse
      */
     public function deleteDataTask($InstanceId, $request)
     {
@@ -1719,12 +1795,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除历史索引模板
+     *  *
      * @param string         $InstanceId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeprecatedTemplateResponse
+     * @return DeleteDeprecatedTemplateResponse DeleteDeprecatedTemplateResponse
      */
     public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
     {
@@ -1747,10 +1825,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除历史索引模板
+     *  *
      * @param string $InstanceId
      * @param string $name
      *
-     * @return DeleteDeprecatedTemplateResponse
+     * @return DeleteDeprecatedTemplateResponse DeleteDeprecatedTemplateResponse
      */
     public function deleteDeprecatedTemplate($InstanceId, $name)
     {
@@ -1763,10 +1843,10 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string         $InstanceId
      * @param string         $PolicyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteILMPolicyResponse
+     * @return DeleteILMPolicyResponse DeleteILMPolicyResponse
      */
     public function deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
     {
@@ -1792,7 +1872,7 @@ class Elasticsearch extends OpenApiClient
      * @param string $InstanceId
      * @param string $PolicyName
      *
-     * @return DeleteILMPolicyResponse
+     * @return DeleteILMPolicyResponse DeleteILMPolicyResponse
      */
     public function deleteILMPolicy($InstanceId, $PolicyName)
     {
@@ -1803,12 +1883,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除ES集群索引模版
+     *  *
      * @param string         $InstanceId
      * @param string         $IndexTemplate
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteIndexTemplateResponse
+     * @return DeleteIndexTemplateResponse DeleteIndexTemplateResponse
      */
     public function deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
     {
@@ -1831,10 +1913,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除ES集群索引模版
+     *  *
      * @param string $InstanceId
      * @param string $IndexTemplate
      *
-     * @return DeleteIndexTemplateResponse
+     * @return DeleteIndexTemplateResponse DeleteIndexTemplateResponse
      */
     public function deleteIndexTemplate($InstanceId, $IndexTemplate)
     {
@@ -1846,11 +1930,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param DeleteInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteInstanceRequest $request    DeleteInstanceRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1883,9 +1967,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                $InstanceId
-     * @param DeleteInstanceRequest $request
+     * @param DeleteInstanceRequest $request    DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($InstanceId, $request)
     {
@@ -1896,8 +1980,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
-     *   *
+     * @summary Releases a Logstash cluster.
+     *  *
+     * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     *  *
      * @param string                $InstanceId
      * @param DeleteLogstashRequest $request    DeleteLogstashRequest
      * @param string[]              $headers    map
@@ -1935,8 +2021,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
-     *   *
+     * @summary Releases a Logstash cluster.
+     *  *
+     * @description Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     *  *
      * @param string                $InstanceId
      * @param DeleteLogstashRequest $request    DeleteLogstashRequest
      *
@@ -1951,12 +2039,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a pipeline that is configured for a Logstash cluster.
+     *  *
      * @param string                 $InstanceId
-     * @param DeletePipelinesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeletePipelinesRequest $request    DeletePipelinesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelinesResponse
+     * @return DeletePipelinesResponse DeletePipelinesResponse
      */
     public function deletePipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1988,10 +2078,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a pipeline that is configured for a Logstash cluster.
+     *  *
      * @param string                 $InstanceId
-     * @param DeletePipelinesRequest $request
+     * @param DeletePipelinesRequest $request    DeletePipelinesRequest
      *
-     * @return DeletePipelinesResponse
+     * @return DeletePipelinesResponse DeletePipelinesResponse
      */
     public function deletePipelines($InstanceId, $request)
     {
@@ -2003,11 +2095,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param DeleteSnapshotRepoRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteSnapshotRepoRequest $request    DeleteSnapshotRepoRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnapshotRepoResponse
+     * @return DeleteSnapshotRepoResponse DeleteSnapshotRepoResponse
      */
     public function deleteSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -2040,9 +2132,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param DeleteSnapshotRepoRequest $request
+     * @param DeleteSnapshotRepoRequest $request    DeleteSnapshotRepoRequest
      *
-     * @return DeleteSnapshotRepoResponse
+     * @return DeleteSnapshotRepoResponse DeleteSnapshotRepoResponse
      */
     public function deleteSnapshotRepo($InstanceId, $request)
     {
@@ -2053,13 +2145,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除服务账号vpc下的终端节点
+     *  *
      * @param string                   $InstanceId
      * @param string                   $EndpointId
-     * @param DeleteVpcEndpointRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteVpcEndpointRequest $request    DeleteVpcEndpointRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcEndpointResponse
+     * @return DeleteVpcEndpointResponse DeleteVpcEndpointResponse
      */
     public function deleteVpcEndpointWithOptions($InstanceId, $EndpointId, $request, $headers, $runtime)
     {
@@ -2088,11 +2182,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 删除服务账号vpc下的终端节点
+     *  *
      * @param string                   $InstanceId
      * @param string                   $EndpointId
-     * @param DeleteVpcEndpointRequest $request
+     * @param DeleteVpcEndpointRequest $request    DeleteVpcEndpointRequest
      *
-     * @return DeleteVpcEndpointResponse
+     * @return DeleteVpcEndpointResponse DeleteVpcEndpointResponse
      */
     public function deleteVpcEndpoint($InstanceId, $EndpointId, $request)
     {
@@ -2103,8 +2199,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
-     *   *
+     * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     *  *
      * @param string         $ClusterId
      * @param string[]       $headers   map
      * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
@@ -2132,8 +2230,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
-     *   *
+     * @summary Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     *  *
      * @param string $ClusterId
      *
      * @return DescribeAckOperatorResponse DescribeAckOperatorResponse
@@ -2147,11 +2247,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary DescribeApm
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeApmResponse
+     * @return DescribeApmResponse DescribeApmResponse
      */
     public function describeApmWithOptions($instanceId, $headers, $runtime)
     {
@@ -2174,9 +2276,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary DescribeApm
+     *  *
      * @param string $instanceId
      *
-     * @return DescribeApmResponse
+     * @return DescribeApmResponse DescribeApmResponse
      */
     public function describeApm($instanceId)
     {
@@ -2187,11 +2291,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a shipper.
+     *  *
      * @param string         $ResId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCollectorResponse
+     * @return DescribeCollectorResponse DescribeCollectorResponse
      */
     public function describeCollectorWithOptions($ResId, $headers, $runtime)
     {
@@ -2214,9 +2320,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a shipper.
+     *  *
      * @param string $ResId
      *
-     * @return DescribeCollectorResponse
+     * @return DescribeCollectorResponse DescribeCollectorResponse
      */
     public function describeCollector($ResId)
     {
@@ -2227,12 +2335,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看组合索引模板详情
+     *  *
      * @param string         $InstanceId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentIndexResponse
+     * @return DescribeComponentIndexResponse DescribeComponentIndexResponse
      */
     public function describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
     {
@@ -2255,10 +2365,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看组合索引模板详情
+     *  *
      * @param string $InstanceId
      * @param string $name
      *
-     * @return DescribeComponentIndexResponse
+     * @return DescribeComponentIndexResponse DescribeComponentIndexResponse
      */
     public function describeComponentIndex($InstanceId, $name)
     {
@@ -2270,11 +2382,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                             $InstanceId
-     * @param DescribeConnectableClustersRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeConnectableClustersRequest $request    DescribeConnectableClustersRequest
+     * @param string[]                           $headers    map
+     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeConnectableClustersResponse
+     * @return DescribeConnectableClustersResponse DescribeConnectableClustersResponse
      */
     public function describeConnectableClustersWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -2304,9 +2416,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                             $InstanceId
-     * @param DescribeConnectableClustersRequest $request
+     * @param DescribeConnectableClustersRequest $request    DescribeConnectableClustersRequest
      *
-     * @return DescribeConnectableClustersResponse
+     * @return DescribeConnectableClustersResponse DescribeConnectableClustersResponse
      */
     public function describeConnectableClusters($InstanceId, $request)
     {
@@ -2317,12 +2429,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary DescribeDeprecatedTemplate
+     *  *
      * @param string         $InstanceId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeprecatedTemplateResponse
+     * @return DescribeDeprecatedTemplateResponse DescribeDeprecatedTemplateResponse
      */
     public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
     {
@@ -2345,10 +2459,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary DescribeDeprecatedTemplate
+     *  *
      * @param string $InstanceId
      * @param string $name
      *
-     * @return DescribeDeprecatedTemplateResponse
+     * @return DescribeDeprecatedTemplateResponse DescribeDeprecatedTemplateResponse
      */
     public function describeDeprecatedTemplate($InstanceId, $name)
     {
@@ -2361,11 +2477,11 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                        $InstanceId
      * @param string                        $ReportId
-     * @param DescribeDiagnoseReportRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DescribeDiagnoseReportRequest $request    DescribeDiagnoseReportRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnoseReportResponse
+     * @return DescribeDiagnoseReportResponse DescribeDiagnoseReportResponse
      */
     public function describeDiagnoseReportWithOptions($InstanceId, $ReportId, $request, $headers, $runtime)
     {
@@ -2396,9 +2512,9 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                        $InstanceId
      * @param string                        $ReportId
-     * @param DescribeDiagnoseReportRequest $request
+     * @param DescribeDiagnoseReportRequest $request    DescribeDiagnoseReportRequest
      *
-     * @return DescribeDiagnoseReportResponse
+     * @return DescribeDiagnoseReportResponse DescribeDiagnoseReportResponse
      */
     public function describeDiagnoseReport($InstanceId, $ReportId, $request)
     {
@@ -2410,11 +2526,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                           $InstanceId
-     * @param DescribeDiagnosisSettingsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeDiagnosisSettingsRequest $request    DescribeDiagnosisSettingsRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisSettingsResponse
+     * @return DescribeDiagnosisSettingsResponse DescribeDiagnosisSettingsResponse
      */
     public function describeDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -2444,9 +2560,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                           $InstanceId
-     * @param DescribeDiagnosisSettingsRequest $request
+     * @param DescribeDiagnosisSettingsRequest $request    DescribeDiagnosisSettingsRequest
      *
-     * @return DescribeDiagnosisSettingsResponse
+     * @return DescribeDiagnosisSettingsResponse DescribeDiagnosisSettingsResponse
      */
     public function describeDiagnosisSettings($InstanceId, $request)
     {
@@ -2457,11 +2573,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取集群动态指标
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDynamicSettingsResponse
+     * @return DescribeDynamicSettingsResponse DescribeDynamicSettingsResponse
      */
     public function describeDynamicSettingsWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2484,9 +2602,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取集群动态指标
+     *  *
      * @param string $InstanceId
      *
-     * @return DescribeDynamicSettingsResponse
+     * @return DescribeDynamicSettingsResponse DescribeDynamicSettingsResponse
      */
     public function describeDynamicSettings($InstanceId)
     {
@@ -2497,11 +2617,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-     *   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-     *   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-     *   * *   RED: Primary shards are not normally allocated.
-     *   *
+     * @summary Queries the health status of an Elasticsearch cluster.
+     *  *
+     * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+     * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+     * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+     * *   RED: Primary shards are not normally allocated.
+     *  *
      * @param string         $InstanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -2529,11 +2651,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-     *   * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-     *   * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-     *   * *   RED: Primary shards are not normally allocated.
-     *   *
+     * @summary Queries the health status of an Elasticsearch cluster.
+     *  *
+     * @description An Elasticsearch cluster can be in a health state indicated by one of the following colors:
+     * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
+     * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
+     * *   RED: Primary shards are not normally allocated.
+     *  *
      * @param string $InstanceId
      *
      * @return DescribeElasticsearchHealthResponse DescribeElasticsearchHealthResponse
@@ -2549,10 +2673,10 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string         $InstanceId
      * @param string         $PolicyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeILMPolicyResponse
+     * @return DescribeILMPolicyResponse DescribeILMPolicyResponse
      */
     public function describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
     {
@@ -2578,7 +2702,7 @@ class Elasticsearch extends OpenApiClient
      * @param string $InstanceId
      * @param string $PolicyName
      *
-     * @return DescribeILMPolicyResponse
+     * @return DescribeILMPolicyResponse DescribeILMPolicyResponse
      */
     public function describeILMPolicy($InstanceId, $PolicyName)
     {
@@ -2591,10 +2715,10 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string         $InstanceId
      * @param string         $IndexTemplate
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DescribeIndexTemplateResponse
+     * @return DescribeIndexTemplateResponse DescribeIndexTemplateResponse
      */
     public function describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
     {
@@ -2620,7 +2744,7 @@ class Elasticsearch extends OpenApiClient
      * @param string $InstanceId
      * @param string $IndexTemplate
      *
-     * @return DescribeIndexTemplateResponse
+     * @return DescribeIndexTemplateResponse DescribeIndexTemplateResponse
      */
     public function describeIndexTemplate($InstanceId, $IndexTemplate)
     {
@@ -2631,11 +2755,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary The name of the dictionary file.
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2658,9 +2784,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary The name of the dictionary file.
+     *  *
      * @param string $InstanceId
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($InstanceId)
     {
@@ -2671,11 +2799,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取Elasticsearch集群Kibana节点settings配置
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeKibanaSettingsResponse
+     * @return DescribeKibanaSettingsResponse DescribeKibanaSettingsResponse
      */
     public function describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2698,9 +2828,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取Elasticsearch集群Kibana节点settings配置
+     *  *
      * @param string $InstanceId
      *
-     * @return DescribeKibanaSettingsResponse
+     * @return DescribeKibanaSettingsResponse DescribeKibanaSettingsResponse
      */
     public function describeKibanaSettings($InstanceId)
     {
@@ -2711,11 +2843,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看Logstash实例详情
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogstashResponse
+     * @return DescribeLogstashResponse DescribeLogstashResponse
      */
     public function describeLogstashWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2738,9 +2872,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看Logstash实例详情
+     *  *
      * @param string $InstanceId
      *
-     * @return DescribeLogstashResponse
+     * @return DescribeLogstashResponse DescribeLogstashResponse
      */
     public function describeLogstash($InstanceId)
     {
@@ -2753,10 +2889,10 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string         $InstanceId
      * @param string         $PipelineId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribePipelineResponse
+     * @return DescribePipelineResponse DescribePipelineResponse
      */
     public function describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime)
     {
@@ -2782,7 +2918,7 @@ class Elasticsearch extends OpenApiClient
      * @param string $InstanceId
      * @param string $PipelineId
      *
-     * @return DescribePipelineResponse
+     * @return DescribePipelineResponse DescribePipelineResponse
      */
     public function describePipeline($InstanceId, $PipelineId)
     {
@@ -2793,12 +2929,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the management configurations of pipelines in a Logstash cluster.
+     *  *
      * @param string                                  $InstanceId
-     * @param DescribePipelineManagementConfigRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @param DescribePipelineManagementConfigRequest $request    DescribePipelineManagementConfigRequest
+     * @param string[]                                $headers    map
+     * @param RuntimeOptions                          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribePipelineManagementConfigResponse
+     * @return DescribePipelineManagementConfigResponse DescribePipelineManagementConfigResponse
      */
     public function describePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -2827,10 +2965,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the management configurations of pipelines in a Logstash cluster.
+     *  *
      * @param string                                  $InstanceId
-     * @param DescribePipelineManagementConfigRequest $request
+     * @param DescribePipelineManagementConfigRequest $request    DescribePipelineManagementConfigRequest
      *
-     * @return DescribePipelineManagementConfigResponse
+     * @return DescribePipelineManagementConfigResponse DescribePipelineManagementConfigResponse
      */
     public function describePipelineManagementConfig($InstanceId, $request)
     {
@@ -2841,10 +2981,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -2867,7 +3007,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2879,10 +3019,10 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnapshotSettingResponse
+     * @return DescribeSnapshotSettingResponse DescribeSnapshotSettingResponse
      */
     public function describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2907,7 +3047,7 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeSnapshotSettingResponse
+     * @return DescribeSnapshotSettingResponse DescribeSnapshotSettingResponse
      */
     public function describeSnapshotSetting($InstanceId)
     {
@@ -2919,10 +3059,10 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplatesWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2947,7 +3087,7 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplates($InstanceId)
     {
@@ -2958,11 +3098,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeXpackMonitorConfigResponse
+     * @return DescribeXpackMonitorConfigResponse DescribeXpackMonitorConfigResponse
      */
     public function describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2985,9 +3127,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the configurations of the X-Pack Monitoring feature of a Logstash cluster.
+     *  *
      * @param string $InstanceId
      *
-     * @return DescribeXpackMonitorConfigResponse
+     * @return DescribeXpackMonitorConfigResponse DescribeXpackMonitorConfigResponse
      */
     public function describeXpackMonitorConfig($InstanceId)
     {
@@ -2998,12 +3142,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 触发ES实例智能诊断
+     *  *
      * @param string                  $InstanceId
-     * @param DiagnoseInstanceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param DiagnoseInstanceRequest $request    DiagnoseInstanceRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DiagnoseInstanceResponse
+     * @return DiagnoseInstanceResponse DiagnoseInstanceResponse
      */
     public function diagnoseInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3046,10 +3192,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 触发ES实例智能诊断
+     *  *
      * @param string                  $InstanceId
-     * @param DiagnoseInstanceRequest $request
+     * @param DiagnoseInstanceRequest $request    DiagnoseInstanceRequest
      *
-     * @return DiagnoseInstanceResponse
+     * @return DiagnoseInstanceResponse DiagnoseInstanceResponse
      */
     public function diagnoseInstance($InstanceId, $request)
     {
@@ -3060,11 +3208,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭kibana私网
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DisableKibanaPvlNetworkResponse
+     * @return DisableKibanaPvlNetworkResponse DisableKibanaPvlNetworkResponse
      */
     public function disableKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime)
     {
@@ -3087,9 +3237,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 关闭kibana私网
+     *  *
      * @param string $InstanceId
      *
-     * @return DisableKibanaPvlNetworkResponse
+     * @return DisableKibanaPvlNetworkResponse DisableKibanaPvlNetworkResponse
      */
     public function disableKibanaPvlNetwork($InstanceId)
     {
@@ -3100,12 +3252,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 开启v3 kibana私网
+     *  *
      * @param string                        $InstanceId
-     * @param EnableKibanaPvlNetworkRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param EnableKibanaPvlNetworkRequest $request    EnableKibanaPvlNetworkRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return EnableKibanaPvlNetworkResponse
+     * @return EnableKibanaPvlNetworkResponse EnableKibanaPvlNetworkResponse
      */
     public function enableKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3143,10 +3297,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 开启v3 kibana私网
+     *  *
      * @param string                        $InstanceId
-     * @param EnableKibanaPvlNetworkRequest $request
+     * @param EnableKibanaPvlNetworkRequest $request    EnableKibanaPvlNetworkRequest
      *
-     * @return EnableKibanaPvlNetworkResponse
+     * @return EnableKibanaPvlNetworkResponse EnableKibanaPvlNetworkResponse
      */
     public function enableKibanaPvlNetwork($InstanceId, $request)
     {
@@ -3157,12 +3313,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the estimated time that is required to restart a Logstash cluster.
+     *  *
      * @param string                              $InstanceId
-     * @param EstimatedLogstashRestartTimeRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param EstimatedLogstashRestartTimeRequest $request    EstimatedLogstashRestartTimeRequest
+     * @param string[]                            $headers    map
+     * @param RuntimeOptions                      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return EstimatedLogstashRestartTimeResponse
+     * @return EstimatedLogstashRestartTimeResponse EstimatedLogstashRestartTimeResponse
      */
     public function estimatedLogstashRestartTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3192,10 +3350,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the estimated time that is required to restart a Logstash cluster.
+     *  *
      * @param string                              $InstanceId
-     * @param EstimatedLogstashRestartTimeRequest $request
+     * @param EstimatedLogstashRestartTimeRequest $request    EstimatedLogstashRestartTimeRequest
      *
-     * @return EstimatedLogstashRestartTimeResponse
+     * @return EstimatedLogstashRestartTimeResponse EstimatedLogstashRestartTimeResponse
      */
     public function estimatedLogstashRestartTime($InstanceId, $request)
     {
@@ -3206,12 +3366,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+     *  *
      * @param string                      $InstanceId
-     * @param EstimatedRestartTimeRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param EstimatedRestartTimeRequest $request    EstimatedRestartTimeRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return EstimatedRestartTimeResponse
+     * @return EstimatedRestartTimeResponse EstimatedRestartTimeResponse
      */
     public function estimatedRestartTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3241,10 +3403,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the estimated time that is required to restart an Elasticsearch cluster.
+     *  *
      * @param string                      $InstanceId
-     * @param EstimatedRestartTimeRequest $request
+     * @param EstimatedRestartTimeRequest $request    EstimatedRestartTimeRequest
      *
-     * @return EstimatedRestartTimeResponse
+     * @return EstimatedRestartTimeResponse EstimatedRestartTimeResponse
      */
     public function estimatedRestartTime($InstanceId, $request)
     {
@@ -3255,11 +3419,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetClusterDataInformationRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+     *  *
+     * @param GetClusterDataInformationRequest $request GetClusterDataInformationRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterDataInformationResponse
+     * @return GetClusterDataInformationResponse GetClusterDataInformationResponse
      */
     public function getClusterDataInformationWithOptions($request, $headers, $runtime)
     {
@@ -3284,9 +3450,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetClusterDataInformationRequest $request
+     * @summary Call GetClusterDataInformation to obtain the data information about the cluster.
+     *  *
+     * @param GetClusterDataInformationRequest $request GetClusterDataInformationRequest
      *
-     * @return GetClusterDataInformationResponse
+     * @return GetClusterDataInformationResponse GetClusterDataInformationResponse
      */
     public function getClusterDataInformation($request)
     {
@@ -3298,10 +3466,10 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetElastictaskResponse
+     * @return GetElastictaskResponse GetElastictaskResponse
      */
     public function getElastictaskWithOptions($InstanceId, $headers, $runtime)
     {
@@ -3326,7 +3494,7 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return GetElastictaskResponse
+     * @return GetElastictaskResponse GetElastictaskResponse
      */
     public function getElastictask($InstanceId)
     {
@@ -3337,12 +3505,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取高级监控报警自定义Grafana监控报警项
+     *  *
      * @param string                      $ProjectId
-     * @param GetEmonGrafanaAlertsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetEmonGrafanaAlertsRequest $request   GetEmonGrafanaAlertsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetEmonGrafanaAlertsResponse
+     * @return GetEmonGrafanaAlertsResponse GetEmonGrafanaAlertsResponse
      */
     public function getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime)
     {
@@ -3367,10 +3537,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取高级监控报警自定义Grafana监控报警项
+     *  *
      * @param string                      $ProjectId
-     * @param GetEmonGrafanaAlertsRequest $request
+     * @param GetEmonGrafanaAlertsRequest $request   GetEmonGrafanaAlertsRequest
      *
-     * @return GetEmonGrafanaAlertsResponse
+     * @return GetEmonGrafanaAlertsResponse GetEmonGrafanaAlertsResponse
      */
     public function getEmonGrafanaAlerts($ProjectId, $request)
     {
@@ -3381,12 +3553,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取高级监控报警自定义Grafana监控大盘列表
+     *  *
      * @param string                          $ProjectId
-     * @param GetEmonGrafanaDashboardsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param GetEmonGrafanaDashboardsRequest $request   GetEmonGrafanaDashboardsRequest
+     * @param string[]                        $headers   map
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetEmonGrafanaDashboardsResponse
+     * @return GetEmonGrafanaDashboardsResponse GetEmonGrafanaDashboardsResponse
      */
     public function getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime)
     {
@@ -3411,10 +3585,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取高级监控报警自定义Grafana监控大盘列表
+     *  *
      * @param string                          $ProjectId
-     * @param GetEmonGrafanaDashboardsRequest $request
+     * @param GetEmonGrafanaDashboardsRequest $request   GetEmonGrafanaDashboardsRequest
      *
-     * @return GetEmonGrafanaDashboardsResponse
+     * @return GetEmonGrafanaDashboardsResponse GetEmonGrafanaDashboardsResponse
      */
     public function getEmonGrafanaDashboards($ProjectId, $request)
     {
@@ -3426,11 +3602,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $ProjectId
-     * @param GetEmonMonitorDataRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetEmonMonitorDataRequest $request   GetEmonMonitorDataRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetEmonMonitorDataResponse
+     * @return GetEmonMonitorDataResponse GetEmonMonitorDataResponse
      */
     public function getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime)
     {
@@ -3456,9 +3632,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $ProjectId
-     * @param GetEmonMonitorDataRequest $request
+     * @param GetEmonMonitorDataRequest $request   GetEmonMonitorDataRequest
      *
-     * @return GetEmonMonitorDataResponse
+     * @return GetEmonMonitorDataResponse GetEmonMonitorDataResponse
      */
     public function getEmonMonitorData($ProjectId, $request)
     {
@@ -3469,11 +3645,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 统计OpenStore实例的存储容量和使用情况
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetOpenStoreUsageResponse
+     * @return GetOpenStoreUsageResponse GetOpenStoreUsageResponse
      */
     public function getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime)
     {
@@ -3496,9 +3674,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 统计OpenStore实例的存储容量和使用情况
+     *  *
      * @param string $InstanceId
      *
-     * @return GetOpenStoreUsageResponse
+     * @return GetOpenStoreUsageResponse GetOpenStoreUsageResponse
      */
     public function getOpenStoreUsage($InstanceId)
     {
@@ -3509,11 +3689,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetRegionConfigurationRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary The maximum number of nodes.
+     *  *
+     * @param GetRegionConfigurationRequest $request GetRegionConfigurationRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRegionConfigurationResponse
+     * @return GetRegionConfigurationResponse GetRegionConfigurationResponse
      */
     public function getRegionConfigurationWithOptions($request, $headers, $runtime)
     {
@@ -3542,9 +3724,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param GetRegionConfigurationRequest $request
+     * @summary The maximum number of nodes.
+     *  *
+     * @param GetRegionConfigurationRequest $request GetRegionConfigurationRequest
      *
-     * @return GetRegionConfigurationResponse
+     * @return GetRegionConfigurationResponse GetRegionConfigurationResponse
      */
     public function getRegionConfiguration($request)
     {
@@ -3555,10 +3739,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 实例区域商品化配置
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRegionalInstanceConfigResponse
+     * @return GetRegionalInstanceConfigResponse GetRegionalInstanceConfigResponse
      */
     public function getRegionalInstanceConfigWithOptions($headers, $runtime)
     {
@@ -3581,7 +3767,9 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @return GetRegionalInstanceConfigResponse
+     * @summary 实例区域商品化配置
+     *  *
+     * @return GetRegionalInstanceConfigResponse GetRegionalInstanceConfigResponse
      */
     public function getRegionalInstanceConfig()
     {
@@ -3592,12 +3780,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群可缩容节点
+     *  *
      * @param string                           $InstanceId
-     * @param GetSuggestShrinkableNodesRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetSuggestShrinkableNodesRequest $request    GetSuggestShrinkableNodesRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetSuggestShrinkableNodesResponse
+     * @return GetSuggestShrinkableNodesResponse GetSuggestShrinkableNodesResponse
      */
     public function getSuggestShrinkableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3632,10 +3822,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群可缩容节点
+     *  *
      * @param string                           $InstanceId
-     * @param GetSuggestShrinkableNodesRequest $request
+     * @param GetSuggestShrinkableNodesRequest $request    GetSuggestShrinkableNodesRequest
      *
-     * @return GetSuggestShrinkableNodesResponse
+     * @return GetSuggestShrinkableNodesResponse GetSuggestShrinkableNodesResponse
      */
     public function getSuggestShrinkableNodes($InstanceId, $request)
     {
@@ -3646,12 +3838,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取可数据迁移节点
+     *  *
      * @param string                      $InstanceId
-     * @param GetTransferableNodesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetTransferableNodesRequest $request    GetTransferableNodesRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTransferableNodesResponse
+     * @return GetTransferableNodesResponse GetTransferableNodesResponse
      */
     public function getTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3683,10 +3877,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取可数据迁移节点
+     *  *
      * @param string                      $InstanceId
-     * @param GetTransferableNodesRequest $request
+     * @param GetTransferableNodesRequest $request    GetTransferableNodesRequest
      *
-     * @return GetTransferableNodesResponse
+     * @return GetTransferableNodesResponse GetTransferableNodesResponse
      */
     public function getTransferableNodes($InstanceId, $request)
     {
@@ -3697,8 +3893,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
-     *   *
+     * @summary Creates a service-linked role.
+     *  *
+     * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     *  *
      * @param InitializeOperationRoleRequest $request InitializeOperationRoleRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3733,8 +3931,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
-     *   *
+     * @summary Creates a service-linked role.
+     *  *
+     * @description > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     *  *
      * @param InitializeOperationRoleRequest $request InitializeOperationRoleRequest
      *
      * @return InitializeOperationRoleResponse InitializeOperationRoleResponse
@@ -3748,8 +3948,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
-     *   *
+     * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     *  *
      * @param string                    $ClusterId
      * @param InstallAckOperatorRequest $request   InstallAckOperatorRequest
      * @param string[]                  $headers   map
@@ -3785,8 +3987,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
-     *   *
+     * @summary Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     *  *
      * @param string                    $ClusterId
      * @param InstallAckOperatorRequest $request   InstallAckOperatorRequest
      *
@@ -3801,12 +4005,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+     *  *
      * @param string                           $InstanceId
-     * @param InstallKibanaSystemPluginRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param InstallKibanaSystemPluginRequest $request    InstallKibanaSystemPluginRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InstallKibanaSystemPluginResponse
+     * @return InstallKibanaSystemPluginResponse InstallKibanaSystemPluginResponse
      */
     public function installKibanaSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3836,10 +4042,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+     *  *
      * @param string                           $InstanceId
-     * @param InstallKibanaSystemPluginRequest $request
+     * @param InstallKibanaSystemPluginRequest $request    InstallKibanaSystemPluginRequest
      *
-     * @return InstallKibanaSystemPluginResponse
+     * @return InstallKibanaSystemPluginResponse InstallKibanaSystemPluginResponse
      */
     public function installKibanaSystemPlugin($InstanceId, $request)
     {
@@ -3850,8 +4058,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ls-cn-oew1qbgl\\*\\*\\*\\*.
-     *   *
+     * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+     *  *
+     * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+     *  *
      * @param string                             $InstanceId
      * @param InstallLogstashSystemPluginRequest $request    InstallLogstashSystemPluginRequest
      * @param string[]                           $headers    map
@@ -3887,8 +4097,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ls-cn-oew1qbgl\\*\\*\\*\\*.
-     *   *
+     * @summary The returned data also contains **Headers** parameters, indicating that header information is returned.
+     *  *
+     * @description ls-cn-oew1qbgl\\*\\*\\*\\*
+     *  *
      * @param string                             $InstanceId
      * @param InstallLogstashSystemPluginRequest $request    InstallLogstashSystemPluginRequest
      *
@@ -3903,12 +4115,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call InstallSystemPlugin to install a system preset plug-in.
+     *  *
      * @param string                     $InstanceId
-     * @param InstallSystemPluginRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param InstallSystemPluginRequest $request    InstallSystemPluginRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InstallSystemPluginResponse
+     * @return InstallSystemPluginResponse InstallSystemPluginResponse
      */
     public function installSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3938,10 +4152,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call InstallSystemPlugin to install a system preset plug-in.
+     *  *
      * @param string                     $InstanceId
-     * @param InstallSystemPluginRequest $request
+     * @param InstallSystemPluginRequest $request    InstallSystemPluginRequest
      *
-     * @return InstallSystemPluginResponse
+     * @return InstallSystemPluginResponse InstallSystemPluginResponse
      */
     public function installSystemPlugin($InstanceId, $request)
     {
@@ -3952,12 +4168,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+     *  *
      * @param string                    $InstanceId
-     * @param InstallUserPluginsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param InstallUserPluginsRequest $request    InstallUserPluginsRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InstallUserPluginsResponse
+     * @return InstallUserPluginsResponse InstallUserPluginsResponse
      */
     public function installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3982,10 +4200,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Installs custom plug-ins that are uploaded to the Elasticsearch console.
+     *  *
      * @param string                    $InstanceId
-     * @param InstallUserPluginsRequest $request
+     * @param InstallUserPluginsRequest $request    InstallUserPluginsRequest
      *
-     * @return InstallUserPluginsResponse
+     * @return InstallUserPluginsResponse InstallUserPluginsResponse
      */
     public function installUserPlugins($InstanceId, $request)
     {
@@ -3997,11 +4217,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                            $InstanceId
-     * @param InterruptElasticsearchTaskRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param InterruptElasticsearchTaskRequest $request    InterruptElasticsearchTaskRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InterruptElasticsearchTaskResponse
+     * @return InterruptElasticsearchTaskResponse InterruptElasticsearchTaskResponse
      */
     public function interruptElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4031,9 +4251,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                            $InstanceId
-     * @param InterruptElasticsearchTaskRequest $request
+     * @param InterruptElasticsearchTaskRequest $request    InterruptElasticsearchTaskRequest
      *
-     * @return InterruptElasticsearchTaskResponse
+     * @return InterruptElasticsearchTaskResponse InterruptElasticsearchTaskResponse
      */
     public function interruptElasticsearchTask($InstanceId, $request)
     {
@@ -4044,12 +4264,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+     *  *
      * @param string                       $InstanceId
-     * @param InterruptLogstashTaskRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param InterruptLogstashTaskRequest $request    InterruptLogstashTaskRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InterruptLogstashTaskResponse
+     * @return InterruptLogstashTaskResponse InterruptLogstashTaskResponse
      */
     public function interruptLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4078,10 +4300,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary After the task is suspended, the Logstash cluster is in the suspended state.
+     *  *
      * @param string                       $InstanceId
-     * @param InterruptLogstashTaskRequest $request
+     * @param InterruptLogstashTaskRequest $request    InterruptLogstashTaskRequest
      *
-     * @return InterruptLogstashTaskResponse
+     * @return InterruptLogstashTaskResponse InterruptLogstashTaskResponse
      */
     public function interruptLogstashTask($InstanceId, $request)
     {
@@ -4092,11 +4316,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListAckClustersRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param ListAckClustersRequest $request ListAckClustersRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAckClustersResponse
+     * @return ListAckClustersResponse ListAckClustersResponse
      */
     public function listAckClustersWithOptions($request, $headers, $runtime)
     {
@@ -4131,9 +4357,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListAckClustersRequest $request
+     * @summary Queries a list of Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param ListAckClustersRequest $request ListAckClustersRequest
      *
-     * @return ListAckClustersResponse
+     * @return ListAckClustersResponse ListAckClustersResponse
      */
     public function listAckClusters($request)
     {
@@ -4144,8 +4372,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
-     *   *
+     * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     *  *
      * @param string                   $ClusterId
      * @param ListAckNamespacesRequest $request   ListAckNamespacesRequest
      * @param string[]                 $headers   map
@@ -4183,8 +4413,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
-     *   *
+     * @summary Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     *  *
      * @param string                   $ClusterId
      * @param ListAckNamespacesRequest $request   ListAckNamespacesRequest
      *
@@ -4199,12 +4431,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 变更记录 变更详情
+     *  *
      * @param string                   $InstanceId
-     * @param ListActionRecordsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListActionRecordsRequest $request    ListActionRecordsRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListActionRecordsResponse
+     * @return ListActionRecordsResponse ListActionRecordsResponse
      */
     public function listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4254,10 +4488,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 变更记录 变更详情
+     *  *
      * @param string                   $InstanceId
-     * @param ListActionRecordsRequest $request
+     * @param ListActionRecordsRequest $request    ListActionRecordsRequest
      *
-     * @return ListActionRecordsResponse
+     * @return ListActionRecordsResponse ListActionRecordsResponse
      */
     public function listActionRecords($InstanceId, $request)
     {
@@ -4268,12 +4504,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+     *  *
      * @param string             $InstanceId
-     * @param ListAllNodeRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListAllNodeRequest $request    ListAllNodeRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListAllNodeResponse
+     * @return ListAllNodeResponse ListAllNodeResponse
      */
     public function listAllNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4302,10 +4540,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary es-cn-tl32cpgwa002l\\*\\*\\*\\*
+     *  *
      * @param string             $InstanceId
-     * @param ListAllNodeRequest $request
+     * @param ListAllNodeRequest $request    ListAllNodeRequest
      *
-     * @return ListAllNodeResponse
+     * @return ListAllNodeResponse ListAllNodeResponse
      */
     public function listAllNode($InstanceId, $request)
     {
@@ -4316,12 +4556,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 实例可添加的OSS引用仓库
+     *  *
      * @param string                              $InstanceId
-     * @param ListAlternativeSnapshotReposRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param ListAlternativeSnapshotReposRequest $request    ListAlternativeSnapshotReposRequest
+     * @param string[]                            $headers    map
+     * @param RuntimeOptions                      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListAlternativeSnapshotReposResponse
+     * @return ListAlternativeSnapshotReposResponse ListAlternativeSnapshotReposResponse
      */
     public function listAlternativeSnapshotReposWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4350,10 +4592,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 实例可添加的OSS引用仓库
+     *  *
      * @param string                              $InstanceId
-     * @param ListAlternativeSnapshotReposRequest $request
+     * @param ListAlternativeSnapshotReposRequest $request    ListAlternativeSnapshotReposRequest
      *
-     * @return ListAlternativeSnapshotReposResponse
+     * @return ListAlternativeSnapshotReposResponse ListAlternativeSnapshotReposResponse
      */
     public function listAlternativeSnapshotRepos($InstanceId, $request)
     {
@@ -4364,11 +4608,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListApmRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary ListApm
+     *  *
+     * @param ListApmRequest $request ListApmRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApmResponse
+     * @return ListApmResponse ListApmResponse
      */
     public function listApmWithOptions($request, $headers, $runtime)
     {
@@ -4409,9 +4655,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListApmRequest $request
+     * @summary ListApm
+     *  *
+     * @param ListApmRequest $request ListApmRequest
      *
-     * @return ListApmResponse
+     * @return ListApmResponse ListApmResponse
      */
     public function listApm($request)
     {
@@ -4422,11 +4670,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListAvailableEsInstanceIdsResponse
+     * @return ListAvailableEsInstanceIdsResponse ListAvailableEsInstanceIdsResponse
      */
     public function listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime)
     {
@@ -4449,9 +4699,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     *  *
      * @param string $InstanceId
      *
-     * @return ListAvailableEsInstanceIdsResponse
+     * @return ListAvailableEsInstanceIdsResponse ListAvailableEsInstanceIdsResponse
      */
     public function listAvailableEsInstanceIds($InstanceId)
     {
@@ -4462,11 +4714,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListCollectorsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries shippers.
+     *  *
+     * @param ListCollectorsRequest $request ListCollectorsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCollectorsResponse
+     * @return ListCollectorsResponse ListCollectorsResponse
      */
     public function listCollectorsWithOptions($request, $headers, $runtime)
     {
@@ -4510,9 +4764,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListCollectorsRequest $request
+     * @summary Queries shippers.
+     *  *
+     * @param ListCollectorsRequest $request ListCollectorsRequest
      *
-     * @return ListCollectorsResponse
+     * @return ListCollectorsResponse ListCollectorsResponse
      */
     public function listCollectors($request)
     {
@@ -4523,12 +4779,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群组合索引列表
+     *  *
      * @param string                      $InstanceId
-     * @param ListComponentIndicesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListComponentIndicesRequest $request    ListComponentIndicesRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListComponentIndicesResponse
+     * @return ListComponentIndicesResponse ListComponentIndicesResponse
      */
     public function listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4563,10 +4821,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群组合索引列表
+     *  *
      * @param string                      $InstanceId
-     * @param ListComponentIndicesRequest $request
+     * @param ListComponentIndicesRequest $request    ListComponentIndicesRequest
      *
-     * @return ListComponentIndicesResponse
+     * @return ListComponentIndicesResponse ListComponentIndicesResponse
      */
     public function listComponentIndices($InstanceId, $request)
     {
@@ -4577,11 +4837,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取与当前实例进行网络互通的实例列表
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListConnectedClustersResponse
+     * @return ListConnectedClustersResponse ListConnectedClustersResponse
      */
     public function listConnectedClustersWithOptions($InstanceId, $headers, $runtime)
     {
@@ -4604,9 +4866,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取与当前实例进行网络互通的实例列表
+     *  *
      * @param string $InstanceId
      *
-     * @return ListConnectedClustersResponse
+     * @return ListConnectedClustersResponse ListConnectedClustersResponse
      */
     public function listConnectedClusters($InstanceId)
     {
@@ -4618,11 +4882,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param ListDataStreamsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListDataStreamsRequest $request    ListDataStreamsRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataStreamsResponse
+     * @return ListDataStreamsResponse ListDataStreamsResponse
      */
     public function listDataStreamsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4655,9 +4919,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param ListDataStreamsRequest $request
+     * @param ListDataStreamsRequest $request    ListDataStreamsRequest
      *
-     * @return ListDataStreamsResponse
+     * @return ListDataStreamsResponse ListDataStreamsResponse
      */
     public function listDataStreams($InstanceId, $request)
     {
@@ -4669,10 +4933,10 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataTasksResponse
+     * @return ListDataTasksResponse ListDataTasksResponse
      */
     public function listDataTasksWithOptions($InstanceId, $headers, $runtime)
     {
@@ -4697,7 +4961,7 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return ListDataTasksResponse
+     * @return ListDataTasksResponse ListDataTasksResponse
      */
     public function listDataTasks($InstanceId)
     {
@@ -4708,11 +4972,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListDefaultCollectorConfigurationsRequest $request
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the default configuration files of shippers.
+     *  *
+     * @param ListDefaultCollectorConfigurationsRequest $request ListDefaultCollectorConfigurationsRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDefaultCollectorConfigurationsResponse
+     * @return ListDefaultCollectorConfigurationsResponse ListDefaultCollectorConfigurationsResponse
      */
     public function listDefaultCollectorConfigurationsWithOptions($request, $headers, $runtime)
     {
@@ -4747,9 +5013,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListDefaultCollectorConfigurationsRequest $request
+     * @summary Queries the default configuration files of shippers.
+     *  *
+     * @param ListDefaultCollectorConfigurationsRequest $request ListDefaultCollectorConfigurationsRequest
      *
-     * @return ListDefaultCollectorConfigurationsResponse
+     * @return ListDefaultCollectorConfigurationsResponse ListDefaultCollectorConfigurationsResponse
      */
     public function listDefaultCollectorConfigurations($request)
     {
@@ -4760,12 +5028,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ListDeprecatedTemplates
+     *  *
      * @param string                         $InstanceId
-     * @param ListDeprecatedTemplatesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListDeprecatedTemplatesRequest $request    ListDeprecatedTemplatesRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDeprecatedTemplatesResponse
+     * @return ListDeprecatedTemplatesResponse ListDeprecatedTemplatesResponse
      */
     public function listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4800,10 +5070,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ListDeprecatedTemplates
+     *  *
      * @param string                         $InstanceId
-     * @param ListDeprecatedTemplatesRequest $request
+     * @param ListDeprecatedTemplatesRequest $request    ListDeprecatedTemplatesRequest
      *
-     * @return ListDeprecatedTemplatesResponse
+     * @return ListDeprecatedTemplatesResponse ListDeprecatedTemplatesResponse
      */
     public function listDeprecatedTemplates($InstanceId, $request)
     {
@@ -4814,12 +5086,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+     *  *
      * @param string                     $InstanceId
-     * @param ListDiagnoseIndicesRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListDiagnoseIndicesRequest $request    ListDiagnoseIndicesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnoseIndicesResponse
+     * @return ListDiagnoseIndicesResponse ListDiagnoseIndicesResponse
      */
     public function listDiagnoseIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4848,10 +5122,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+     *  *
      * @param string                     $InstanceId
-     * @param ListDiagnoseIndicesRequest $request
+     * @param ListDiagnoseIndicesRequest $request    ListDiagnoseIndicesRequest
      *
-     * @return ListDiagnoseIndicesResponse
+     * @return ListDiagnoseIndicesResponse ListDiagnoseIndicesResponse
      */
     public function listDiagnoseIndices($InstanceId, $request)
     {
@@ -4862,12 +5138,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取集群诊断报告列表
+     *  *
      * @param string                    $InstanceId
-     * @param ListDiagnoseReportRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListDiagnoseReportRequest $request    ListDiagnoseReportRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnoseReportResponse
+     * @return ListDiagnoseReportResponse ListDiagnoseReportResponse
      */
     public function listDiagnoseReportWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4914,10 +5192,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取集群诊断报告列表
+     *  *
      * @param string                    $InstanceId
-     * @param ListDiagnoseReportRequest $request
+     * @param ListDiagnoseReportRequest $request    ListDiagnoseReportRequest
      *
-     * @return ListDiagnoseReportResponse
+     * @return ListDiagnoseReportResponse ListDiagnoseReportResponse
      */
     public function listDiagnoseReport($InstanceId, $request)
     {
@@ -4928,12 +5208,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+     *  *
      * @param string                       $InstanceId
-     * @param ListDiagnoseReportIdsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListDiagnoseReportIdsRequest $request    ListDiagnoseReportIdsRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnoseReportIdsResponse
+     * @return ListDiagnoseReportIdsResponse ListDiagnoseReportIdsResponse
      */
     public function listDiagnoseReportIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -4977,10 +5259,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the IDs of the historical intelligent O&M reports of an Elasticsearch cluster.
+     *  *
      * @param string                       $InstanceId
-     * @param ListDiagnoseReportIdsRequest $request
+     * @param ListDiagnoseReportIdsRequest $request    ListDiagnoseReportIdsRequest
      *
-     * @return ListDiagnoseReportIdsResponse
+     * @return ListDiagnoseReportIdsResponse ListDiagnoseReportIdsResponse
      */
     public function listDiagnoseReportIds($InstanceId, $request)
     {
@@ -4991,11 +5275,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnosisItemsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+     *  *
+     * @param ListDiagnosisItemsRequest $request ListDiagnosisItemsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnosisItemsResponse
+     * @return ListDiagnosisItemsResponse ListDiagnosisItemsResponse
      */
     public function listDiagnosisItemsWithOptions($request, $headers, $runtime)
     {
@@ -5024,9 +5310,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnosisItemsRequest $request
+     * @summary The diagnostic item is used to check whether data write requests of a cluster are accumulated. If data write requests are accumulated, a bulk rejection occurs. This may cause data loss and severely consume system resources.
+     *  *
+     * @param ListDiagnosisItemsRequest $request ListDiagnosisItemsRequest
      *
-     * @return ListDiagnosisItemsResponse
+     * @return ListDiagnosisItemsResponse ListDiagnosisItemsResponse
      */
     public function listDiagnosisItems($request)
     {
@@ -5038,11 +5326,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                     $InstanceId
-     * @param ListDictInformationRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListDictInformationRequest $request    ListDictInformationRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDictInformationResponse
+     * @return ListDictInformationResponse ListDictInformationResponse
      */
     public function listDictInformationWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5078,9 +5366,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                     $InstanceId
-     * @param ListDictInformationRequest $request
+     * @param ListDictInformationRequest $request    ListDictInformationRequest
      *
-     * @return ListDictInformationResponse
+     * @return ListDictInformationResponse ListDictInformationResponse
      */
     public function listDictInformation($InstanceId, $request)
     {
@@ -5091,12 +5379,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a specified type of dictionary.
+     *  *
      * @param string           $InstanceId
-     * @param ListDictsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListDictsRequest $request    ListDictsRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDictsResponse
+     * @return ListDictsResponse ListDictsResponse
      */
     public function listDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5128,10 +5418,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a specified type of dictionary.
+     *  *
      * @param string           $InstanceId
-     * @param ListDictsRequest $request
+     * @param ListDictsRequest $request    ListDictsRequest
      *
-     * @return ListDictsResponse
+     * @return ListDictsResponse ListDictsResponse
      */
     public function listDicts($InstanceId, $request)
     {
@@ -5142,8 +5434,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
-     *   *
+     * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     *  *
      * @param ListEcsInstancesRequest $request ListEcsInstancesRequest
      * @param string[]                $headers map
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -5192,8 +5484,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](~~146446~~).
-     *   *
+     * @description **Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     *  *
      * @param ListEcsInstancesRequest $request ListEcsInstancesRequest
      *
      * @return ListEcsInstancesResponse ListEcsInstancesResponse
@@ -5207,11 +5499,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the driver files of a Logstash cluster.
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListExtendfilesResponse
+     * @return ListExtendfilesResponse ListExtendfilesResponse
      */
     public function listExtendfilesWithOptions($InstanceId, $headers, $runtime)
     {
@@ -5234,9 +5528,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the driver files of a Logstash cluster.
+     *  *
      * @param string $InstanceId
      *
-     * @return ListExtendfilesResponse
+     * @return ListExtendfilesResponse ListExtendfilesResponse
      */
     public function listExtendfiles($InstanceId)
     {
@@ -5248,11 +5544,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param ListILMPoliciesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListILMPoliciesRequest $request    ListILMPoliciesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListILMPoliciesResponse
+     * @return ListILMPoliciesResponse ListILMPoliciesResponse
      */
     public function listILMPoliciesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5282,9 +5578,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                 $InstanceId
-     * @param ListILMPoliciesRequest $request
+     * @param ListILMPoliciesRequest $request    ListILMPoliciesRequest
      *
-     * @return ListILMPoliciesResponse
+     * @return ListILMPoliciesResponse ListILMPoliciesResponse
      */
     public function listILMPolicies($InstanceId, $request)
     {
@@ -5296,11 +5592,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param ListIndexTemplatesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListIndexTemplatesRequest $request    ListIndexTemplatesRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListIndexTemplatesResponse
+     * @return ListIndexTemplatesResponse ListIndexTemplatesResponse
      */
     public function listIndexTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5336,9 +5632,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param ListIndexTemplatesRequest $request
+     * @param ListIndexTemplatesRequest $request    ListIndexTemplatesRequest
      *
-     * @return ListIndexTemplatesResponse
+     * @return ListIndexTemplatesResponse ListIndexTemplatesResponse
      */
     public function listIndexTemplates($InstanceId, $request)
     {
@@ -5349,11 +5645,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询Elasticsearch实例列表
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $headers, $runtime)
     {
@@ -5412,9 +5710,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
+     * @summary 查询Elasticsearch实例列表
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -5425,11 +5725,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceHistoryEventsRequest $tmpReq
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 集群触发的硬件运维事件列表
+     *  *
+     * @param ListInstanceHistoryEventsRequest $tmpReq  ListInstanceHistoryEventsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceHistoryEventsResponse
+     * @return ListInstanceHistoryEventsResponse ListInstanceHistoryEventsResponse
      */
     public function listInstanceHistoryEventsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -5506,9 +5808,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceHistoryEventsRequest $request
+     * @summary 集群触发的硬件运维事件列表
+     *  *
+     * @param ListInstanceHistoryEventsRequest $request ListInstanceHistoryEventsRequest
      *
-     * @return ListInstanceHistoryEventsResponse
+     * @return ListInstanceHistoryEventsResponse ListInstanceHistoryEventsResponse
      */
     public function listInstanceHistoryEvents($request)
     {
@@ -5519,12 +5823,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取当前实例先特定的索引列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListInstanceIndicesRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListInstanceIndicesRequest $request    ListInstanceIndicesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceIndicesResponse
+     * @return ListInstanceIndicesResponse ListInstanceIndicesResponse
      */
     public function listInstanceIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5568,10 +5874,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取当前实例先特定的索引列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListInstanceIndicesRequest $request
+     * @param ListInstanceIndicesRequest $request    ListInstanceIndicesRequest
      *
-     * @return ListInstanceIndicesResponse
+     * @return ListInstanceIndicesResponse ListInstanceIndicesResponse
      */
     public function listInstanceIndices($InstanceId, $request)
     {
@@ -5582,12 +5890,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of Kibana plug-ins.
+     *  *
      * @param string                   $InstanceId
-     * @param ListKibanaPluginsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListKibanaPluginsRequest $request    ListKibanaPluginsRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListKibanaPluginsResponse
+     * @return ListKibanaPluginsResponse ListKibanaPluginsResponse
      */
     public function listKibanaPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5619,10 +5929,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of Kibana plug-ins.
+     *  *
      * @param string                   $InstanceId
-     * @param ListKibanaPluginsRequest $request
+     * @param ListKibanaPluginsRequest $request    ListKibanaPluginsRequest
      *
-     * @return ListKibanaPluginsResponse
+     * @return ListKibanaPluginsResponse ListKibanaPluginsResponse
      */
     public function listKibanaPlugins($InstanceId, $request)
     {
@@ -5633,11 +5945,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查询kibana私网连接信息
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListKibanaPvlNetworkResponse
+     * @return ListKibanaPvlNetworkResponse ListKibanaPvlNetworkResponse
      */
     public function listKibanaPvlNetworkWithOptions($InstanceId, $headers, $runtime)
     {
@@ -5660,9 +5974,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查询kibana私网连接信息
+     *  *
      * @param string $InstanceId
      *
-     * @return ListKibanaPvlNetworkResponse
+     * @return ListKibanaPvlNetworkResponse ListKibanaPvlNetworkResponse
      */
     public function listKibanaPvlNetwork($InstanceId)
     {
@@ -5673,11 +5989,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListLogstashRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Logstash集群列表
+     *  *
+     * @param ListLogstashRequest $request ListLogstashRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogstashResponse
+     * @return ListLogstashResponse ListLogstashResponse
      */
     public function listLogstashWithOptions($request, $headers, $runtime)
     {
@@ -5724,9 +6042,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListLogstashRequest $request
+     * @summary Logstash集群列表
+     *  *
+     * @param ListLogstashRequest $request ListLogstashRequest
      *
-     * @return ListLogstashResponse
+     * @return ListLogstashResponse ListLogstashResponse
      */
     public function listLogstash($request)
     {
@@ -5737,12 +6057,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取Logstash日志
+     *  *
      * @param string                 $InstanceId
-     * @param ListLogstashLogRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListLogstashLogRequest $request    ListLogstashLogRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListLogstashLogResponse
+     * @return ListLogstashLogResponse ListLogstashLogResponse
      */
     public function listLogstashLogWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5786,10 +6108,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取Logstash日志
+     *  *
      * @param string                 $InstanceId
-     * @param ListLogstashLogRequest $request
+     * @param ListLogstashLogRequest $request    ListLogstashLogRequest
      *
-     * @return ListLogstashLogResponse
+     * @return ListLogstashLogResponse ListLogstashLogResponse
      */
     public function listLogstashLog($InstanceId, $request)
     {
@@ -5800,12 +6124,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Logstash插件列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListLogstashPluginsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListLogstashPluginsRequest $request    ListLogstashPluginsRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListLogstashPluginsResponse
+     * @return ListLogstashPluginsResponse ListLogstashPluginsResponse
      */
     public function listLogstashPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5843,10 +6169,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Logstash插件列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListLogstashPluginsRequest $request
+     * @param ListLogstashPluginsRequest $request    ListLogstashPluginsRequest
      *
-     * @return ListLogstashPluginsResponse
+     * @return ListLogstashPluginsResponse ListLogstashPluginsResponse
      */
     public function listLogstashPlugins($InstanceId, $request)
     {
@@ -5857,12 +6185,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+     *  *
      * @param string           $ResId
-     * @param ListNodesRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -5903,10 +6233,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statuses of Elastic Compute Service (ECS) instances on which a shipper is installed.
+     *  *
      * @param string           $ResId
-     * @param ListNodesRequest $request
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($ResId, $request)
     {
@@ -5918,11 +6250,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string              $InstanceId
-     * @param ListPipelineRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListPipelineRequest $request    ListPipelineRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineResponse
+     * @return ListPipelineResponse ListPipelineResponse
      */
     public function listPipelineWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -5958,9 +6290,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string              $InstanceId
-     * @param ListPipelineRequest $request
+     * @param ListPipelineRequest $request    ListPipelineRequest
      *
-     * @return ListPipelineResponse
+     * @return ListPipelineResponse ListPipelineResponse
      */
     public function listPipeline($InstanceId, $request)
     {
@@ -5971,12 +6303,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary The error message returned.
+     *  *
      * @param string                 $InstanceId
-     * @param ListPipelineIdsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListPipelineIdsRequest $request    ListPipelineIdsRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineIdsResponse
+     * @return ListPipelineIdsResponse ListPipelineIdsResponse
      */
     public function listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6001,10 +6335,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary The error message returned.
+     *  *
      * @param string                 $InstanceId
-     * @param ListPipelineIdsRequest $request
+     * @param ListPipelineIdsRequest $request    ListPipelineIdsRequest
      *
-     * @return ListPipelineIdsResponse
+     * @return ListPipelineIdsResponse ListPipelineIdsResponse
      */
     public function listPipelineIds($InstanceId, $request)
     {
@@ -6015,12 +6351,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES系统插件列表
+     *  *
      * @param string             $InstanceId
-     * @param ListPluginsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListPluginsRequest $request    ListPluginsRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListPluginsResponse
+     * @return ListPluginsResponse ListPluginsResponse
      */
     public function listPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6058,10 +6396,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES系统插件列表
+     *  *
      * @param string             $InstanceId
-     * @param ListPluginsRequest $request
+     * @param ListPluginsRequest $request    ListPluginsRequest
      *
-     * @return ListPluginsResponse
+     * @return ListPluginsResponse ListPluginsResponse
      */
     public function listPlugins($InstanceId, $request)
     {
@@ -6072,12 +6412,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看Elasticsearch集群各种类型的日志
+     *  *
      * @param string               $InstanceId
-     * @param ListSearchLogRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListSearchLogRequest $request    ListSearchLogRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSearchLogResponse
+     * @return ListSearchLogResponse ListSearchLogResponse
      */
     public function listSearchLogWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6121,10 +6463,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 查看Elasticsearch集群各种类型的日志
+     *  *
      * @param string               $InstanceId
-     * @param ListSearchLogRequest $request
+     * @param ListSearchLogRequest $request    ListSearchLogRequest
      *
-     * @return ListSearchLogResponse
+     * @return ListSearchLogResponse ListSearchLogResponse
      */
     public function listSearchLog($InstanceId, $request)
     {
@@ -6135,8 +6479,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
-     *   *
+     * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+     *  *
+     * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     *  *
      * @param string                     $InstanceId
      * @param ListShardRecoveriesRequest $request    ListShardRecoveriesRequest
      * @param string[]                   $headers    map
@@ -6171,8 +6517,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
-     *   *
+     * @summary Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+     *  *
+     * @description > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     *  *
      * @param string                     $InstanceId
      * @param ListShardRecoveriesRequest $request    ListShardRecoveriesRequest
      *
@@ -6187,11 +6535,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取跨集群索引仓库列表
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSnapshotReposByInstanceIdResponse
+     * @return ListSnapshotReposByInstanceIdResponse ListSnapshotReposByInstanceIdResponse
      */
     public function listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime)
     {
@@ -6214,9 +6564,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 获取跨集群索引仓库列表
+     *  *
      * @param string $InstanceId
      *
-     * @return ListSnapshotReposByInstanceIdResponse
+     * @return ListSnapshotReposByInstanceIdResponse ListSnapshotReposByInstanceIdResponse
      */
     public function listSnapshotReposByInstanceId($InstanceId)
     {
@@ -6227,11 +6579,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 查看资源和标签关系
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -6275,9 +6629,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary 查看资源和标签关系
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -6288,11 +6644,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 查看所有已常见的标签
+     *  *
+     * @param ListTagsRequest $request ListTagsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTagsWithOptions($request, $headers, $runtime)
     {
@@ -6324,9 +6682,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * @summary 查看所有已常见的标签
+     *  *
+     * @param ListTagsRequest $request ListTagsRequest
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTags($request)
     {
@@ -6337,12 +6697,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+     *  *
      * @param string                  $InstanceId
-     * @param ListVpcEndpointsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListVpcEndpointsRequest $request    ListVpcEndpointsRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListVpcEndpointsResponse
+     * @return ListVpcEndpointsResponse ListVpcEndpointsResponse
      */
     public function listVpcEndpointsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6374,10 +6736,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+     *  *
      * @param string                  $InstanceId
-     * @param ListVpcEndpointsRequest $request
+     * @param ListVpcEndpointsRequest $request    ListVpcEndpointsRequest
      *
-     * @return ListVpcEndpointsResponse
+     * @return ListVpcEndpointsResponse ListVpcEndpointsResponse
      */
     public function listVpcEndpoints($InstanceId, $request)
     {
@@ -6388,12 +6752,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-     *   * *   The error message returned because the current account is in a zone that has sufficient resources.
-     *   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-     *   * *   The cluster is in the healthy state.
-     *   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
-     *   *
+     * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+     *  *
+     * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+     * *   The error message returned because the current account is in a zone that has sufficient resources.
+     *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+     * *   The cluster is in the healthy state.
+     *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     *  *
      * @param string                    $InstanceId
      * @param MigrateToOtherZoneRequest $request    MigrateToOtherZoneRequest
      * @param string[]                  $headers    map
@@ -6429,12 +6795,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-     *   * *   The error message returned because the current account is in a zone that has sufficient resources.
-     *   *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-     *   * *   The cluster is in the healthy state.
-     *   *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
-     *   *
+     * @summary Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+     *  *
+     * @description If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
+     * *   The error message returned because the current account is in a zone that has sufficient resources.
+     *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+     * *   The cluster is in the healthy state.
+     *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     *  *
      * @param string                    $InstanceId
      * @param MigrateToOtherZoneRequest $request    MigrateToOtherZoneRequest
      *
@@ -6449,12 +6817,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+     *  *
      * @param string                     $ResId
-     * @param ModifyDeployMachineRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ModifyDeployMachineRequest $request ModifyDeployMachineRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeployMachineResponse
+     * @return ModifyDeployMachineResponse ModifyDeployMachineResponse
      */
     public function modifyDeployMachineWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -6484,10 +6854,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+     *  *
      * @param string                     $ResId
-     * @param ModifyDeployMachineRequest $request
+     * @param ModifyDeployMachineRequest $request ModifyDeployMachineRequest
      *
-     * @return ModifyDeployMachineResponse
+     * @return ModifyDeployMachineResponse ModifyDeployMachineResponse
      */
     public function modifyDeployMachine($ResId, $request)
     {
@@ -6499,11 +6871,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                   $InstanceId
-     * @param ModifyElastictaskRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ModifyElastictaskRequest $request    ModifyElastictaskRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyElastictaskResponse
+     * @return ModifyElastictaskResponse ModifyElastictaskResponse
      */
     public function modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6529,9 +6901,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                   $InstanceId
-     * @param ModifyElastictaskRequest $request
+     * @param ModifyElastictaskRequest $request    ModifyElastictaskRequest
      *
-     * @return ModifyElastictaskResponse
+     * @return ModifyElastictaskResponse ModifyElastictaskResponse
      */
     public function modifyElastictask($InstanceId, $request)
     {
@@ -6542,8 +6914,24 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*.
-     *   *
+     * @summary ## RequestBody
+     * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.
+     * | Parameter | Type | Required | Example | Description |
+     * | --------- | ---- | -------- | ------- | ----------- |
+     * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
+     * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
+     * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
+     * Examples:
+     * ```
+     * {
+     *     "openMaintainTime": true,
+     *     "maintainStartTime": "03:00Z",
+     *     "maintainEndTime": "04:00Z"
+     * }
+     * ```
+     *  *
+     * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+     *  *
      * @param string                            $InstanceId
      * @param ModifyInstanceMaintainTimeRequest $request    ModifyInstanceMaintainTimeRequest
      * @param string[]                          $headers    map
@@ -6579,8 +6967,24 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*.
-     *   *
+     * @summary ## RequestBody
+     * You must also specify the following parameters in the RequestBody parameter to specify the maintenance window information.
+     * | Parameter | Type | Required | Example | Description |
+     * | --------- | ---- | -------- | ------- | ----------- |
+     * | maintainStartTime | String | No | 02:00Z | The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC. |
+     * | maintainEndTime | String | No | 06:00Z | The end time of the maintenance window. Specify the time in the HH:mmZ format. The time must be displayed in UTC. |
+     * | openMaintainTime | boolean | Yes | true | Specifies whether to enable the maintenance window feature. Only **true** is supported, indicating that the feature is enabled. |
+     * Examples:
+     * ```
+     * {
+     *     "openMaintainTime": true,
+     *     "maintainStartTime": "03:00Z",
+     *     "maintainEndTime": "04:00Z"
+     * }
+     * ```
+     *  *
+     * @description es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+     *  *
      * @param string                            $InstanceId
      * @param ModifyInstanceMaintainTimeRequest $request    ModifyInstanceMaintainTimeRequest
      *
@@ -6595,8 +6999,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The ID of the cluster.
-     *   *
+     * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+     * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+     * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+     * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+     *  *
+     * @description The ID of the cluster.
+     *  *
      * @param string                $InstanceId
      * @param ModifyWhiteIpsRequest $request    ModifyWhiteIpsRequest
      * @param string[]              $headers    map
@@ -6648,8 +7057,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The ID of the cluster.
-     *   *
+     * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+     * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+     * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+     * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+     *  *
+     * @description The ID of the cluster.
+     *  *
      * @param string                $InstanceId
      * @param ModifyWhiteIpsRequest $request    ModifyWhiteIpsRequest
      *
@@ -6664,12 +7078,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Migrates an Elasticsearch cluster to a specified resource group.
+     *  *
      * @param string                   $InstanceId
-     * @param MoveResourceGroupRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param MoveResourceGroupRequest $request    MoveResourceGroupRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6699,10 +7115,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Migrates an Elasticsearch cluster to a specified resource group.
+     *  *
      * @param string                   $InstanceId
-     * @param MoveResourceGroupRequest $request
+     * @param MoveResourceGroupRequest $request    MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($InstanceId, $request)
     {
@@ -6714,11 +7132,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string               $InstanceId
-     * @param OpenDiagnosisRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param OpenDiagnosisRequest $request    OpenDiagnosisRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return OpenDiagnosisResponse
+     * @return OpenDiagnosisResponse OpenDiagnosisResponse
      */
     public function openDiagnosisWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6751,9 +7169,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string               $InstanceId
-     * @param OpenDiagnosisRequest $request
+     * @param OpenDiagnosisRequest $request    OpenDiagnosisRequest
      *
-     * @return OpenDiagnosisResponse
+     * @return OpenDiagnosisResponse OpenDiagnosisResponse
      */
     public function openDiagnosis($InstanceId, $request)
     {
@@ -6764,8 +7182,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  To ensure data security, we recommend that you enable HTTPS.
-     *   *
+     * @description >  To ensure data security, we recommend that you enable HTTPS.
+     *  *
      * @param string           $InstanceId
      * @param OpenHttpsRequest $request    OpenHttpsRequest
      * @param string[]         $headers    map
@@ -6800,8 +7218,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  To ensure data security, we recommend that you enable HTTPS.
-     *   *
+     * @description >  To ensure data security, we recommend that you enable HTTPS.
+     *  *
      * @param string           $InstanceId
      * @param OpenHttpsRequest $request    OpenHttpsRequest
      *
@@ -6818,11 +7236,11 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                      $ProjectId
      * @param string                      $AlarmGroupId
-     * @param PostEmonTryAlarmRuleRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param PostEmonTryAlarmRuleRequest $request      PostEmonTryAlarmRuleRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PostEmonTryAlarmRuleResponse
+     * @return PostEmonTryAlarmRuleResponse PostEmonTryAlarmRuleResponse
      */
     public function postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime)
     {
@@ -6849,9 +7267,9 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                      $ProjectId
      * @param string                      $AlarmGroupId
-     * @param PostEmonTryAlarmRuleRequest $request
+     * @param PostEmonTryAlarmRuleRequest $request      PostEmonTryAlarmRuleRequest
      *
-     * @return PostEmonTryAlarmRuleResponse
+     * @return PostEmonTryAlarmRuleResponse PostEmonTryAlarmRuleResponse
      */
     public function postEmonTryAlarmRule($ProjectId, $AlarmGroupId, $request)
     {
@@ -6863,11 +7281,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param RecommendTemplatesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param RecommendTemplatesRequest $request    RecommendTemplatesRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RecommendTemplatesResponse
+     * @return RecommendTemplatesResponse RecommendTemplatesResponse
      */
     public function recommendTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -6897,9 +7315,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param RecommendTemplatesRequest $request
+     * @param RecommendTemplatesRequest $request    RecommendTemplatesRequest
      *
-     * @return RecommendTemplatesResponse
+     * @return RecommendTemplatesResponse RecommendTemplatesResponse
      */
     public function recommendTemplates($InstanceId, $request)
     {
@@ -6910,12 +7328,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Installs a shipper that failed to be installed when you create the shipper.
+     *  *
      * @param string                    $ResId
-     * @param ReinstallCollectorRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ReinstallCollectorRequest $request ReinstallCollectorRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReinstallCollectorResponse
+     * @return ReinstallCollectorResponse ReinstallCollectorResponse
      */
     public function reinstallCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -6945,10 +7365,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Installs a shipper that failed to be installed when you create the shipper.
+     *  *
      * @param string                    $ResId
-     * @param ReinstallCollectorRequest $request
+     * @param ReinstallCollectorRequest $request ReinstallCollectorRequest
      *
-     * @return ReinstallCollectorResponse
+     * @return ReinstallCollectorResponse ReinstallCollectorResponse
      */
     public function reinstallCollector($ResId, $request)
     {
@@ -6959,11 +7381,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary RemoveApm
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RemoveApmResponse
+     * @return RemoveApmResponse RemoveApmResponse
      */
     public function removeApmWithOptions($instanceId, $headers, $runtime)
     {
@@ -6986,9 +7410,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary RemoveApm
+     *  *
      * @param string $instanceId
      *
-     * @return RemoveApmResponse
+     * @return RemoveApmResponse RemoveApmResponse
      */
     public function removeApm($instanceId)
     {
@@ -6999,12 +7425,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call RenewInstance to renew a subscription instance.
+     *  *
      * @param string               $InstanceId
-     * @param RenewInstanceRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param RenewInstanceRequest $request    RenewInstanceRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7034,10 +7462,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call RenewInstance to renew a subscription instance.
+     *  *
      * @param string               $InstanceId
-     * @param RenewInstanceRequest $request
+     * @param RenewInstanceRequest $request    RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($InstanceId, $request)
     {
@@ -7048,12 +7478,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Renews a Logstash cluster.
+     *  *
      * @param string               $InstanceId
-     * @param RenewLogstashRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param RenewLogstashRequest $request    RenewLogstashRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RenewLogstashResponse
+     * @return RenewLogstashResponse RenewLogstashResponse
      */
     public function renewLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7083,10 +7515,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Renews a Logstash cluster.
+     *  *
      * @param string               $InstanceId
-     * @param RenewLogstashRequest $request
+     * @param RenewLogstashRequest $request    RenewLogstashRequest
      *
-     * @return RenewLogstashResponse
+     * @return RenewLogstashResponse RenewLogstashResponse
      */
     public function renewLogstash($InstanceId, $request)
     {
@@ -7097,12 +7531,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restarts a shipper.
+     *  *
      * @param string                  $ResId
-     * @param RestartCollectorRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param RestartCollectorRequest $request RestartCollectorRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartCollectorResponse
+     * @return RestartCollectorResponse RestartCollectorResponse
      */
     public function restartCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -7131,10 +7567,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Restarts a shipper.
+     *  *
      * @param string                  $ResId
-     * @param RestartCollectorRequest $request
+     * @param RestartCollectorRequest $request RestartCollectorRequest
      *
-     * @return RestartCollectorResponse
+     * @return RestartCollectorResponse RestartCollectorResponse
      */
     public function restartCollector($ResId, $request)
     {
@@ -7145,8 +7583,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
-     *   *
+     * @summary You can call this operation to restart a specified Elasticsearch instance.
+     *  *
+     * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     *  *
      * @param string                 $InstanceId
      * @param RestartInstanceRequest $request    RestartInstanceRequest
      * @param string[]               $headers    map
@@ -7185,8 +7625,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
-     *   *
+     * @summary You can call this operation to restart a specified Elasticsearch instance.
+     *  *
+     * @description >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     *  *
      * @param string                 $InstanceId
      * @param RestartInstanceRequest $request    RestartInstanceRequest
      *
@@ -7201,12 +7643,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 重启Logstash集群
+     *  *
      * @param string                 $InstanceId
-     * @param RestartLogstashRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param RestartLogstashRequest $request    RestartLogstashRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RestartLogstashResponse
+     * @return RestartLogstashResponse RestartLogstashResponse
      */
     public function restartLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7255,10 +7699,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 重启Logstash集群
+     *  *
      * @param string                 $InstanceId
-     * @param RestartLogstashRequest $request
+     * @param RestartLogstashRequest $request    RestartLogstashRequest
      *
-     * @return RestartLogstashResponse
+     * @return RestartLogstashResponse RestartLogstashResponse
      */
     public function restartLogstash($InstanceId, $request)
     {
@@ -7270,11 +7716,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                         $InstanceId
-     * @param ResumeElasticsearchTaskRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ResumeElasticsearchTaskRequest $request    ResumeElasticsearchTaskRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ResumeElasticsearchTaskResponse
+     * @return ResumeElasticsearchTaskResponse ResumeElasticsearchTaskResponse
      */
     public function resumeElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7304,9 +7750,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                         $InstanceId
-     * @param ResumeElasticsearchTaskRequest $request
+     * @param ResumeElasticsearchTaskRequest $request    ResumeElasticsearchTaskRequest
      *
-     * @return ResumeElasticsearchTaskResponse
+     * @return ResumeElasticsearchTaskResponse ResumeElasticsearchTaskResponse
      */
     public function resumeElasticsearchTask($InstanceId, $request)
     {
@@ -7317,12 +7763,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+     *  *
      * @param string                    $InstanceId
-     * @param ResumeLogstashTaskRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ResumeLogstashTaskRequest $request    ResumeLogstashTaskRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ResumeLogstashTaskResponse
+     * @return ResumeLogstashTaskResponse ResumeLogstashTaskResponse
      */
     public function resumeLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7351,10 +7799,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+     *  *
      * @param string                    $InstanceId
-     * @param ResumeLogstashTaskRequest $request
+     * @param ResumeLogstashTaskRequest $request    ResumeLogstashTaskRequest
      *
-     * @return ResumeLogstashTaskResponse
+     * @return ResumeLogstashTaskResponse ResumeLogstashTaskResponse
      */
     public function resumeLogstashTask($InstanceId, $request)
     {
@@ -7365,13 +7815,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 滚动数据流，生成新索引
+     *  *
      * @param string                    $InstanceId
      * @param string                    $DataStream
-     * @param RolloverDataStreamRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param RolloverDataStreamRequest $request    RolloverDataStreamRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RolloverDataStreamResponse
+     * @return RolloverDataStreamResponse RolloverDataStreamResponse
      */
     public function rolloverDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime)
     {
@@ -7400,11 +7852,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 滚动数据流，生成新索引
+     *  *
      * @param string                    $InstanceId
      * @param string                    $DataStream
-     * @param RolloverDataStreamRequest $request
+     * @param RolloverDataStreamRequest $request    RolloverDataStreamRequest
      *
-     * @return RolloverDataStreamResponse
+     * @return RolloverDataStreamResponse RolloverDataStreamResponse
      */
     public function rolloverDataStream($InstanceId, $DataStream, $request)
     {
@@ -7415,12 +7869,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Runs pipelines in a Logstash cluster.
+     *  *
      * @param string              $InstanceId
-     * @param RunPipelinesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param RunPipelinesRequest $request    RunPipelinesRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RunPipelinesResponse
+     * @return RunPipelinesResponse RunPipelinesResponse
      */
     public function runPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7450,10 +7906,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Runs pipelines in a Logstash cluster.
+     *  *
      * @param string              $InstanceId
-     * @param RunPipelinesRequest $request
+     * @param RunPipelinesRequest $request    RunPipelinesRequest
      *
-     * @return RunPipelinesResponse
+     * @return RunPipelinesResponse RunPipelinesResponse
      */
     public function runPipelines($InstanceId, $request)
     {
@@ -7464,12 +7922,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群缩节点
+     *  *
      * @param string            $InstanceId
-     * @param ShrinkNodeRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ShrinkNodeRequest $request    ShrinkNodeRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ShrinkNodeResponse
+     * @return ShrinkNodeResponse ShrinkNodeResponse
      */
     public function shrinkNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7508,10 +7968,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary ES集群缩节点
+     *  *
      * @param string            $InstanceId
-     * @param ShrinkNodeRequest $request
+     * @param ShrinkNodeRequest $request    ShrinkNodeRequest
      *
-     * @return ShrinkNodeResponse
+     * @return ShrinkNodeResponse ShrinkNodeResponse
      */
     public function shrinkNode($InstanceId, $request)
     {
@@ -7522,11 +7984,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary StartApm
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StartApmResponse
+     * @return StartApmResponse StartApmResponse
      */
     public function startApmWithOptions($instanceId, $headers, $runtime)
     {
@@ -7549,9 +8013,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary StartApm
+     *  *
      * @param string $instanceId
      *
-     * @return StartApmResponse
+     * @return StartApmResponse StartApmResponse
      */
     public function startApm($instanceId)
     {
@@ -7562,12 +8028,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Starts a collector to collect data.
+     *  *
      * @param string                $ResId
-     * @param StartCollectorRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param StartCollectorRequest $request StartCollectorRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartCollectorResponse
+     * @return StartCollectorResponse StartCollectorResponse
      */
     public function startCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -7596,10 +8064,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Starts a collector to collect data.
+     *  *
      * @param string                $ResId
-     * @param StartCollectorRequest $request
+     * @param StartCollectorRequest $request StartCollectorRequest
      *
-     * @return StartCollectorResponse
+     * @return StartCollectorResponse StartCollectorResponse
      */
     public function startCollector($ResId, $request)
     {
@@ -7610,11 +8080,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary StopApm
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopApmResponse
+     * @return StopApmResponse StopApmResponse
      */
     public function stopApmWithOptions($instanceId, $headers, $runtime)
     {
@@ -7637,9 +8109,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary StopApm
+     *  *
      * @param string $instanceId
      *
-     * @return StopApmResponse
+     * @return StopApmResponse StopApmResponse
      */
     public function stopApm($instanceId)
     {
@@ -7650,12 +8124,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Stops a shipper.
+     *  *
      * @param string               $ResId
-     * @param StopCollectorRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param StopCollectorRequest $request StopCollectorRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopCollectorResponse
+     * @return StopCollectorResponse StopCollectorResponse
      */
     public function stopCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -7684,10 +8160,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Stops a shipper.
+     *  *
      * @param string               $ResId
-     * @param StopCollectorRequest $request
+     * @param StopCollectorRequest $request StopCollectorRequest
      *
-     * @return StopCollectorResponse
+     * @return StopCollectorResponse StopCollectorResponse
      */
     public function stopCollector($ResId, $request)
     {
@@ -7698,12 +8176,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Stops pipelines in a Logstash cluster.
+     *  *
      * @param string               $InstanceId
-     * @param StopPipelinesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param StopPipelinesRequest $request    StopPipelinesRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopPipelinesResponse
+     * @return StopPipelinesResponse StopPipelinesResponse
      */
     public function stopPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7733,10 +8213,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Stops pipelines in a Logstash cluster.
+     *  *
      * @param string               $InstanceId
-     * @param StopPipelinesRequest $request
+     * @param StopPipelinesRequest $request    StopPipelinesRequest
      *
-     * @return StopPipelinesResponse
+     * @return StopPipelinesResponse StopPipelinesResponse
      */
     public function stopPipelines($InstanceId, $request)
     {
@@ -7747,11 +8229,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary The information about the clusters and tags.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -7786,9 +8270,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary The information about the clusters and tags.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7799,12 +8285,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 缩节点，数据迁移
+     *  *
      * @param string              $InstanceId
-     * @param TransferNodeRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param TransferNodeRequest $request    TransferNodeRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return TransferNodeResponse
+     * @return TransferNodeResponse TransferNodeResponse
      */
     public function transferNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7837,10 +8325,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 缩节点，数据迁移
+     *  *
      * @param string              $InstanceId
-     * @param TransferNodeRequest $request
+     * @param TransferNodeRequest $request    TransferNodeRequest
      *
-     * @return TransferNodeResponse
+     * @return TransferNodeResponse TransferNodeResponse
      */
     public function transferNode($InstanceId, $request)
     {
@@ -7851,12 +8341,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 开关ES集群及Kibana节点公私网访问
+     *  *
      * @param string                $InstanceId
-     * @param TriggerNetworkRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param TriggerNetworkRequest $request    TriggerNetworkRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return TriggerNetworkResponse
+     * @return TriggerNetworkResponse TriggerNetworkResponse
      */
     public function triggerNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7896,10 +8388,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 开关ES集群及Kibana节点公私网访问
+     *  *
      * @param string                $InstanceId
-     * @param TriggerNetworkRequest $request
+     * @param TriggerNetworkRequest $request    TriggerNetworkRequest
      *
-     * @return TriggerNetworkResponse
+     * @return TriggerNetworkResponse TriggerNetworkResponse
      */
     public function triggerNetwork($InstanceId, $request)
     {
@@ -7910,12 +8404,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+     *  *
      * @param string                       $InstanceId
-     * @param UninstallKibanaPluginRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UninstallKibanaPluginRequest $request    UninstallKibanaPluginRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UninstallKibanaPluginResponse
+     * @return UninstallKibanaPluginResponse UninstallKibanaPluginResponse
      */
     public function uninstallKibanaPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7945,10 +8441,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+     *  *
      * @param string                       $InstanceId
-     * @param UninstallKibanaPluginRequest $request
+     * @param UninstallKibanaPluginRequest $request    UninstallKibanaPluginRequest
      *
-     * @return UninstallKibanaPluginResponse
+     * @return UninstallKibanaPluginResponse UninstallKibanaPluginResponse
      */
     public function uninstallKibanaPlugin($InstanceId, $request)
     {
@@ -7959,12 +8457,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 卸载Logstash实例已安装的插件
+     *  *
      * @param string                         $InstanceId
-     * @param UninstallLogstashPluginRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UninstallLogstashPluginRequest $request    UninstallLogstashPluginRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UninstallLogstashPluginResponse
+     * @return UninstallLogstashPluginResponse UninstallLogstashPluginResponse
      */
     public function uninstallLogstashPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -7994,10 +8494,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 卸载Logstash实例已安装的插件
+     *  *
      * @param string                         $InstanceId
-     * @param UninstallLogstashPluginRequest $request
+     * @param UninstallLogstashPluginRequest $request    UninstallLogstashPluginRequest
      *
-     * @return UninstallLogstashPluginResponse
+     * @return UninstallLogstashPluginResponse UninstallLogstashPluginResponse
      */
     public function uninstallLogstashPlugin($InstanceId, $request)
     {
@@ -8008,12 +8510,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UninstallPlugin to uninstall the preset plug-in.
+     *  *
      * @param string                 $InstanceId
-     * @param UninstallPluginRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UninstallPluginRequest $request    UninstallPluginRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UninstallPluginResponse
+     * @return UninstallPluginResponse UninstallPluginResponse
      */
     public function uninstallPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8046,10 +8550,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UninstallPlugin to uninstall the preset plug-in.
+     *  *
      * @param string                 $InstanceId
-     * @param UninstallPluginRequest $request
+     * @param UninstallPluginRequest $request    UninstallPluginRequest
      *
-     * @return UninstallPluginResponse
+     * @return UninstallPluginResponse UninstallPluginResponse
      */
     public function uninstallPlugin($InstanceId, $request)
     {
@@ -8060,11 +8566,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can only delete user tags.
-     *   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-     *   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
-     *   *
+     * @summary 删除ES集群实例的用户可见标签
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can only delete user tags.
+     * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+     * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8108,11 +8616,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can only delete user tags.
-     *   * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-     *   * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
-     *   *
+     * @summary 删除ES集群实例的用户可见标签
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can only delete user tags.
+     * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
+     * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -8126,8 +8636,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
-     *   *
+     * @summary 修改ES集群密码
+     *  *
+     * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     *  *
      * @param string                     $InstanceId
      * @param UpdateAdminPasswordRequest $request    UpdateAdminPasswordRequest
      * @param string[]                   $headers    map
@@ -8167,8 +8679,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
-     *   *
+     * @summary 修改ES集群密码
+     *  *
+     * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     *  *
      * @param string                     $InstanceId
      * @param UpdateAdminPasswordRequest $request    UpdateAdminPasswordRequest
      *
@@ -8183,12 +8697,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateAdvancedSettingRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateAdvancedSettingRequest $request    UpdateAdvancedSettingRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateAdvancedSettingResponse
+     * @return UpdateAdvancedSettingResponse UpdateAdvancedSettingResponse
      */
     public function updateAdvancedSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8218,10 +8734,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateAdvancedSettingRequest $request
+     * @param UpdateAdvancedSettingRequest $request    UpdateAdvancedSettingRequest
      *
-     * @return UpdateAdvancedSettingResponse
+     * @return UpdateAdvancedSettingResponse UpdateAdvancedSettingResponse
      */
     public function updateAdvancedSetting($InstanceId, $request)
     {
@@ -8232,11 +8750,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates the dictionary file of the analysis-aliws plug-in.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                 $InstanceId
      * @param UpdateAliwsDictRequest $request    UpdateAliwsDictRequest
      * @param string[]               $headers    map
@@ -8272,11 +8792,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates the dictionary file of the analysis-aliws plug-in.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                 $InstanceId
      * @param UpdateAliwsDictRequest $request    UpdateAliwsDictRequest
      *
@@ -8291,12 +8813,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改APM实规格配置
+     *  *
      * @param string           $instanceId
-     * @param UpdateApmRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param UpdateApmRequest $request    UpdateApmRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateApmResponse
+     * @return UpdateApmResponse UpdateApmResponse
      */
     public function updateApmWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -8337,10 +8861,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改APM实规格配置
+     *  *
      * @param string           $instanceId
-     * @param UpdateApmRequest $request
+     * @param UpdateApmRequest $request    UpdateApmRequest
      *
-     * @return UpdateApmResponse
+     * @return UpdateApmResponse UpdateApmResponse
      */
     public function updateApm($instanceId, $request)
     {
@@ -8351,8 +8877,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI UpdateBlackIps is deprecated
+     *  *
+     * @summary 修改ES实例访问黑名单，已废弃
+     *  *
      * Deprecated
      *
      * @param string                $InstanceId
@@ -8389,8 +8917,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI UpdateBlackIps is deprecated
+     *  *
+     * @summary 修改ES实例访问黑名单，已废弃
+     *  *
      * Deprecated
      *
      * @param string                $InstanceId
@@ -8407,12 +8937,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a shipper.
+     *  *
      * @param string                 $ResId
-     * @param UpdateCollectorRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateCollectorRequest $request UpdateCollectorRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCollectorResponse
+     * @return UpdateCollectorResponse UpdateCollectorResponse
      */
     public function updateCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -8442,10 +8974,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a shipper.
+     *  *
      * @param string                 $ResId
-     * @param UpdateCollectorRequest $request
+     * @param UpdateCollectorRequest $request UpdateCollectorRequest
      *
-     * @return UpdateCollectorResponse
+     * @return UpdateCollectorResponse UpdateCollectorResponse
      */
     public function updateCollector($ResId, $request)
     {
@@ -8456,12 +8990,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Changes the name of a shipper.
+     *  *
      * @param string                     $ResId
-     * @param UpdateCollectorNameRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateCollectorNameRequest $request UpdateCollectorNameRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCollectorNameResponse
+     * @return UpdateCollectorNameResponse UpdateCollectorNameResponse
      */
     public function updateCollectorNameWithOptions($ResId, $request, $headers, $runtime)
     {
@@ -8491,10 +9027,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Changes the name of a shipper.
+     *  *
      * @param string                     $ResId
-     * @param UpdateCollectorNameRequest $request
+     * @param UpdateCollectorNameRequest $request UpdateCollectorNameRequest
      *
-     * @return UpdateCollectorNameResponse
+     * @return UpdateCollectorNameResponse UpdateCollectorNameResponse
      */
     public function updateCollectorName($ResId, $request)
     {
@@ -8505,13 +9043,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群动态索引
+     *  *
      * @param string                      $InstanceId
      * @param string                      $name
-     * @param UpdateComponentIndexRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateComponentIndexRequest $request    UpdateComponentIndexRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateComponentIndexResponse
+     * @return UpdateComponentIndexResponse UpdateComponentIndexResponse
      */
     public function updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
@@ -8543,11 +9083,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群动态索引
+     *  *
      * @param string                      $InstanceId
      * @param string                      $name
-     * @param UpdateComponentIndexRequest $request
+     * @param UpdateComponentIndexRequest $request    UpdateComponentIndexRequest
      *
-     * @return UpdateComponentIndexResponse
+     * @return UpdateComponentIndexResponse UpdateComponentIndexResponse
      */
     public function updateComponentIndex($InstanceId, $name, $request)
     {
@@ -8558,12 +9100,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改elasticsearch实例名称名称
+     *  *
      * @param string                   $InstanceId
-     * @param UpdateDescriptionRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateDescriptionRequest $request    UpdateDescriptionRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateDescriptionResponse
+     * @return UpdateDescriptionResponse UpdateDescriptionResponse
      */
     public function updateDescriptionWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8597,10 +9141,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改elasticsearch实例名称名称
+     *  *
      * @param string                   $InstanceId
-     * @param UpdateDescriptionRequest $request
+     * @param UpdateDescriptionRequest $request    UpdateDescriptionRequest
      *
-     * @return UpdateDescriptionResponse
+     * @return UpdateDescriptionResponse UpdateDescriptionResponse
      */
     public function updateDescription($InstanceId, $request)
     {
@@ -8611,12 +9157,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+     *  *
      * @param string                         $InstanceId
-     * @param UpdateDiagnosisSettingsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateDiagnosisSettingsRequest $request    UpdateDiagnosisSettingsRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateDiagnosisSettingsResponse
+     * @return UpdateDiagnosisSettingsResponse UpdateDiagnosisSettingsResponse
      */
     public function updateDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8649,10 +9197,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateDiagnosisSettings to update the instance of intelligent operation&maintenance (O&M) scene settings.
+     *  *
      * @param string                         $InstanceId
-     * @param UpdateDiagnosisSettingsRequest $request
+     * @param UpdateDiagnosisSettingsRequest $request    UpdateDiagnosisSettingsRequest
      *
-     * @return UpdateDiagnosisSettingsResponse
+     * @return UpdateDiagnosisSettingsResponse UpdateDiagnosisSettingsResponse
      */
     public function updateDiagnosisSettings($InstanceId, $request)
     {
@@ -8663,10 +9213,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates a dictionary of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string            $InstanceId
      * @param UpdateDictRequest $request    UpdateDictRequest
      * @param string[]          $headers    map
@@ -8702,10 +9254,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates a dictionary of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string            $InstanceId
      * @param UpdateDictRequest $request    UpdateDictRequest
      *
@@ -8720,12 +9274,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改集群动态配置
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateDynamicSettingsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateDynamicSettingsRequest $request    UpdateDynamicSettingsRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateDynamicSettingsResponse
+     * @return UpdateDynamicSettingsResponse UpdateDynamicSettingsResponse
      */
     public function updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8761,10 +9317,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改集群动态配置
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateDynamicSettingsRequest $request
+     * @param UpdateDynamicSettingsRequest $request    UpdateDynamicSettingsRequest
      *
-     * @return UpdateDynamicSettingsResponse
+     * @return UpdateDynamicSettingsResponse UpdateDynamicSettingsResponse
      */
     public function updateDynamicSettings($InstanceId, $request)
     {
@@ -8776,11 +9334,11 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param UpdateExtendConfigRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateExtendConfigRequest $request    UpdateExtendConfigRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateExtendConfigResponse
+     * @return UpdateExtendConfigResponse UpdateExtendConfigResponse
      */
     public function updateExtendConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -8811,9 +9369,9 @@ class Elasticsearch extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param UpdateExtendConfigRequest $request
+     * @param UpdateExtendConfigRequest $request    UpdateExtendConfigRequest
      *
-     * @return UpdateExtendConfigResponse
+     * @return UpdateExtendConfigResponse UpdateExtendConfigResponse
      */
     public function updateExtendConfig($InstanceId, $request)
     {
@@ -8824,8 +9382,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
-     *   *
+     * @summary Updates the driver files of a Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     *  *
      * @param string                   $InstanceId
      * @param UpdateExtendfilesRequest $request    UpdateExtendfilesRequest
      * @param string[]                 $headers    map
@@ -8861,8 +9421,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
-     *   *
+     * @summary Updates the driver files of a Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     *  *
      * @param string                   $InstanceId
      * @param UpdateExtendfilesRequest $request    UpdateExtendfilesRequest
      *
@@ -8877,10 +9439,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                  $InstanceId
      * @param UpdateHotIkDictsRequest $request    UpdateHotIkDictsRequest
      * @param string[]                $headers    map
@@ -8916,10 +9480,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Performs a rolling update for the IK dictionaries of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                  $InstanceId
      * @param UpdateHotIkDictsRequest $request    UpdateHotIkDictsRequest
      *
@@ -8934,13 +9500,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群索引生命周期策略
+     *  *
      * @param string                 $InstanceId
      * @param string                 $PolicyName
-     * @param UpdateILMPolicyRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateILMPolicyRequest $request    UpdateILMPolicyRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateILMPolicyResponse
+     * @return UpdateILMPolicyResponse UpdateILMPolicyResponse
      */
     public function updateILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
     {
@@ -8970,11 +9538,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群索引生命周期策略
+     *  *
      * @param string                 $InstanceId
      * @param string                 $PolicyName
-     * @param UpdateILMPolicyRequest $request
+     * @param UpdateILMPolicyRequest $request    UpdateILMPolicyRequest
      *
-     * @return UpdateILMPolicyResponse
+     * @return UpdateILMPolicyResponse UpdateILMPolicyResponse
      */
     public function updateILMPolicy($InstanceId, $PolicyName, $request)
     {
@@ -8985,13 +9555,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群索引模版配置
+     *  *
      * @param string                     $InstanceId
      * @param string                     $IndexTemplate
-     * @param UpdateIndexTemplateRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateIndexTemplateRequest $request       UpdateIndexTemplateRequest
+     * @param string[]                   $headers       map
+     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
      *
-     * @return UpdateIndexTemplateResponse
+     * @return UpdateIndexTemplateResponse UpdateIndexTemplateResponse
      */
     public function updateIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
     {
@@ -9021,11 +9593,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改ES集群索引模版配置
+     *  *
      * @param string                     $InstanceId
      * @param string                     $IndexTemplate
-     * @param UpdateIndexTemplateRequest $request
+     * @param UpdateIndexTemplateRequest $request       UpdateIndexTemplateRequest
      *
-     * @return UpdateIndexTemplateResponse
+     * @return UpdateIndexTemplateResponse UpdateIndexTemplateResponse
      */
     public function updateIndexTemplate($InstanceId, $IndexTemplate, $request)
     {
@@ -9036,8 +9610,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * es-cn-n6w1ptcb30009\\*\\*\\*\\*.
-     *   *
+     * @summary 修改ES集群节点配置
+     *  *
+     * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+     *  *
      * @param string                $InstanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      * @param string[]              $headers    map
@@ -9104,8 +9680,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * es-cn-n6w1ptcb30009\\*\\*\\*\\*.
-     *   *
+     * @summary 修改ES集群节点配置
+     *  *
+     * @description es-cn-n6w1ptcb30009\\*\\*\\*\\*
+     *  *
      * @param string                $InstanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *
@@ -9120,12 +9698,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateInstanceChargeTypeRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateInstanceChargeTypeRequest $request    UpdateInstanceChargeTypeRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceChargeTypeResponse
+     * @return UpdateInstanceChargeTypeResponse UpdateInstanceChargeTypeResponse
      */
     public function updateInstanceChargeTypeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9155,10 +9735,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateInstanceChargeType to change the billing method of a pay-as-you-go instance to subscription.
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateInstanceChargeTypeRequest $request
+     * @param UpdateInstanceChargeTypeRequest $request    UpdateInstanceChargeTypeRequest
      *
-     * @return UpdateInstanceChargeTypeResponse
+     * @return UpdateInstanceChargeTypeResponse UpdateInstanceChargeTypeResponse
      */
     public function updateInstanceChargeType($InstanceId, $request)
     {
@@ -9169,9 +9751,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
-     *   *
+     * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     *  *
      * @param string                        $InstanceId
      * @param UpdateInstanceSettingsRequest $request    UpdateInstanceSettingsRequest
      * @param string[]                      $headers    map
@@ -9207,9 +9791,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
-     *   *
+     * @summary Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     *  *
      * @param string                        $InstanceId
      * @param UpdateInstanceSettingsRequest $request    UpdateInstanceSettingsRequest
      *
@@ -9224,12 +9810,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 更新kibana私网链接
+     *  *
      * @param string                        $InstanceId
-     * @param UpdateKibanaPvlNetworkRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateKibanaPvlNetworkRequest $request    UpdateKibanaPvlNetworkRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateKibanaPvlNetworkResponse
+     * @return UpdateKibanaPvlNetworkResponse UpdateKibanaPvlNetworkResponse
      */
     public function updateKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9266,10 +9854,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 更新kibana私网链接
+     *  *
      * @param string                        $InstanceId
-     * @param UpdateKibanaPvlNetworkRequest $request
+     * @param UpdateKibanaPvlNetworkRequest $request    UpdateKibanaPvlNetworkRequest
      *
-     * @return UpdateKibanaPvlNetworkResponse
+     * @return UpdateKibanaPvlNetworkResponse UpdateKibanaPvlNetworkResponse
      */
     public function updateKibanaPvlNetwork($InstanceId, $request)
     {
@@ -9280,12 +9870,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+     *  *
      * @param string                      $InstanceId
-     * @param UpdateKibanaSettingsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateKibanaSettingsRequest $request    UpdateKibanaSettingsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateKibanaSettingsResponse
+     * @return UpdateKibanaSettingsResponse UpdateKibanaSettingsResponse
      */
     public function updateKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9315,10 +9907,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+     *  *
      * @param string                      $InstanceId
-     * @param UpdateKibanaSettingsRequest $request
+     * @param UpdateKibanaSettingsRequest $request    UpdateKibanaSettingsRequest
      *
-     * @return UpdateKibanaSettingsResponse
+     * @return UpdateKibanaSettingsResponse UpdateKibanaSettingsResponse
      */
     public function updateKibanaSettings($InstanceId, $request)
     {
@@ -9329,12 +9923,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-     *   * *   You can update an IP address whitelist by using the following parameters:
-     *   *     *   kibanaIPWhitelist
-     *   *     *   modifyMode and whiteIpGroup
-     *   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
-     *   *
+     * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+     *  *
+     * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+     * *   You can update an IP address whitelist by using the following parameters:
+     *     *   kibanaIPWhitelist
+     *     *   modifyMode and whiteIpGroup
+     * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     *  *
      * @param string                      $InstanceId
      * @param UpdateKibanaWhiteIpsRequest $request    UpdateKibanaWhiteIpsRequest
      * @param string[]                    $headers    map
@@ -9380,12 +9976,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-     *   * *   You can update an IP address whitelist by using the following parameters:
-     *   *     *   kibanaIPWhitelist
-     *   *     *   modifyMode and whiteIpGroup
-     *   * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
-     *   *
+     * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+     *  *
+     * @description *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
+     * *   You can update an IP address whitelist by using the following parameters:
+     *     *   kibanaIPWhitelist
+     *     *   modifyMode and whiteIpGroup
+     * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     *  *
      * @param string                      $InstanceId
      * @param UpdateKibanaWhiteIpsRequest $request    UpdateKibanaWhiteIpsRequest
      *
@@ -9400,12 +9998,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash节点规格磁盘配置
+     *  *
      * @param string                $InstanceId
-     * @param UpdateLogstashRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateLogstashRequest $request    UpdateLogstashRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateLogstashResponse
+     * @return UpdateLogstashResponse UpdateLogstashResponse
      */
     public function updateLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9442,10 +10042,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash节点规格磁盘配置
+     *  *
      * @param string                $InstanceId
-     * @param UpdateLogstashRequest $request
+     * @param UpdateLogstashRequest $request    UpdateLogstashRequest
      *
-     * @return UpdateLogstashResponse
+     * @return UpdateLogstashResponse UpdateLogstashResponse
      */
     public function updateLogstash($InstanceId, $request)
     {
@@ -9456,12 +10058,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateLogstashChargeTypeRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateLogstashChargeTypeRequest $request    UpdateLogstashChargeTypeRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateLogstashChargeTypeResponse
+     * @return UpdateLogstashChargeTypeResponse UpdateLogstashChargeTypeResponse
      */
     public function updateLogstashChargeTypeWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9491,10 +10095,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateLogstashChargeTypeRequest $request
+     * @param UpdateLogstashChargeTypeRequest $request    UpdateLogstashChargeTypeRequest
      *
-     * @return UpdateLogstashChargeTypeResponse
+     * @return UpdateLogstashChargeTypeResponse UpdateLogstashChargeTypeResponse
      */
     public function updateLogstashChargeType($InstanceId, $request)
     {
@@ -9505,8 +10111,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
-     *   *
+     * @summary Changes the name of a specified Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     *  *
      * @param string                           $InstanceId
      * @param UpdateLogstashDescriptionRequest $request    UpdateLogstashDescriptionRequest
      * @param string[]                         $headers    map
@@ -9546,8 +10154,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
-     *   *
+     * @summary Changes the name of a specified Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     *  *
      * @param string                           $InstanceId
      * @param UpdateLogstashDescriptionRequest $request    UpdateLogstashDescriptionRequest
      *
@@ -9562,9 +10172,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
-     *   *
+     * @summary Updates the configuration of a specified Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     *  *
      * @param string                        $InstanceId
      * @param UpdateLogstashSettingsRequest $request    UpdateLogstashSettingsRequest
      * @param string[]                      $headers    map
@@ -9600,9 +10212,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
-     *   *
+     * @summary Updates the configuration of a specified Logstash cluster.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     *  *
      * @param string                        $InstanceId
      * @param UpdateLogstashSettingsRequest $request    UpdateLogstashSettingsRequest
      *
@@ -9617,12 +10231,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash管道配置
+     *  *
      * @param string                                $InstanceId
-     * @param UpdatePipelineManagementConfigRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param UpdatePipelineManagementConfigRequest $request    UpdatePipelineManagementConfigRequest
+     * @param string[]                              $headers    map
+     * @param RuntimeOptions                        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineManagementConfigResponse
+     * @return UpdatePipelineManagementConfigResponse UpdatePipelineManagementConfigResponse
      */
     public function updatePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9668,10 +10284,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash管道配置
+     *  *
      * @param string                                $InstanceId
-     * @param UpdatePipelineManagementConfigRequest $request
+     * @param UpdatePipelineManagementConfigRequest $request    UpdatePipelineManagementConfigRequest
      *
-     * @return UpdatePipelineManagementConfigResponse
+     * @return UpdatePipelineManagementConfigResponse UpdatePipelineManagementConfigResponse
      */
     public function updatePipelineManagementConfig($InstanceId, $request)
     {
@@ -9682,12 +10300,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates a pipeline of a Logstash cluster.
+     *  *
      * @param string                 $InstanceId
-     * @param UpdatePipelinesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdatePipelinesRequest $request    UpdatePipelinesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelinesResponse
+     * @return UpdatePipelinesResponse UpdatePipelinesResponse
      */
     public function updatePipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9720,10 +10340,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Updates a pipeline of a Logstash cluster.
+     *  *
      * @param string                 $InstanceId
-     * @param UpdatePipelinesRequest $request
+     * @param UpdatePipelinesRequest $request    UpdatePipelinesRequest
      *
-     * @return UpdatePipelinesResponse
+     * @return UpdatePipelinesResponse UpdatePipelinesResponse
      */
     public function updatePipelines($InstanceId, $request)
     {
@@ -9734,8 +10356,21 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-     *   *
+     * @summary ## RequestBody
+     * | Property | Type | Required | Example | Description |
+     * | -------- | ---- | -------- | ------- | ----------- |
+     * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.
+     * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+     * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.
+     * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+     * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+     * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+     * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+     *  *
+     * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     *  *
      * @param string                              $InstanceId
      * @param UpdatePrivateNetworkWhiteIpsRequest $request    UpdatePrivateNetworkWhiteIpsRequest
      * @param string[]                            $headers    map
@@ -9774,8 +10409,21 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-     *   *
+     * @summary ## RequestBody
+     * | Property | Type | Required | Example | Description |
+     * | -------- | ---- | -------- | ------- | ----------- |
+     * | privateNetworkIpWhiteList | List<String> | No | ["0.0.XX.XX","10.2.XX.XX","192.168.XX.XX/25"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.
+     * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+     * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.
+     * You cannot configure both privateNetworkIpWhiteList and whiteIpGroup. |
+     * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+     * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+     * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+     *  *
+     * @description >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     *  *
      * @param string                              $InstanceId
      * @param UpdatePrivateNetworkWhiteIpsRequest $request    UpdatePrivateNetworkWhiteIpsRequest
      *
@@ -9790,9 +10438,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
-     *   *
+     * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     *  *
      * @param string                     $InstanceId
      * @param UpdatePublicNetworkRequest $request    UpdatePublicNetworkRequest
      * @param string[]                   $headers    map
@@ -9828,9 +10478,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
-     *   *
+     * @summary Call UpdatePublicNetwork to open or close the public network address of the specified elasticsearch instance.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     *  *
      * @param string                     $InstanceId
      * @param UpdatePublicNetworkRequest $request    UpdatePublicNetworkRequest
      *
@@ -9845,8 +10497,21 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-     *   *
+     * @summary ## RequestBody
+     * | Property | Type | Required | Example | Description |
+     * | -------- | ---- | -------- | ------- | ----------- |
+     * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.
+     * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+     * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.
+     * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+     * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+     * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+     * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+     *  *
+     * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     *  *
      * @param string                      $InstanceId
      * @param UpdatePublicWhiteIpsRequest $request    UpdatePublicWhiteIpsRequest
      * @param string[]                    $headers    map
@@ -9885,8 +10550,21 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). You cannot force a dependency in a program to get these parameters.
-     *   *
+     * @summary ## RequestBody
+     * | Property | Type | Required | Example | Description |
+     * | -------- | ---- | -------- | ------- | ----------- |
+     * | publicIpWhitelist | List<String> | Yes | ["0.0.0.0/0","0.0.0.0/1"] | The list of IP address whitelists. This parameter is available if whiteIpGroup is left empty. The value of this parameter updates the IP address whitelist configurations in the Default whitelist group.
+     * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+     * | whiteIpGroup | Object | No |  | You can update the whitelist configurations of an instance by using a whitelist group. You can update only one whitelist group.
+     * You cannot configure both publicIpWhitelist and whiteIpGroup. |
+     * | └ groupName | String | No | test_group_name | The group name of the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * | └ ips | List<String> | No | ["0.0.0.0", "10.2.XX.XX"] | The list of IP addresses in the whitelist group. This parameter is required if the whiteIpGroup parameter is optional. |
+     * > **Notice**  The addition and deletion of whitelist groups are implemented by calling modifyMode to Cover. Delete and Append cannot add or delete whitelist groups at the same time. You can only modify the IP address list in the whitelist group. Take note of the following items: - If the modifyMode parameter is set to Cover, the whitelist group is deleted if ips is empty. If groupName is not in the list of existing whitelist group names, a whitelist group is created.
+     * - If the modifyMode parameter is set to Delete, you must retain at least one IP address for the deleted ips.
+     * - If the modifyMode parameter is set to Append, make sure that the whitelist group name has been created. Otherwise, the NotFound error message appears.
+     *  *
+     * @description >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     *  *
      * @param string                      $InstanceId
      * @param UpdatePublicWhiteIpsRequest $request    UpdatePublicWhiteIpsRequest
      *
@@ -9901,12 +10579,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 更改ES集群高可用策略
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateReadWritePolicyRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateReadWritePolicyRequest $request    UpdateReadWritePolicyRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateReadWritePolicyResponse
+     * @return UpdateReadWritePolicyResponse UpdateReadWritePolicyResponse
      */
     public function updateReadWritePolicyWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9936,10 +10616,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 更改ES集群高可用策略
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateReadWritePolicyRequest $request
+     * @param UpdateReadWritePolicyRequest $request    UpdateReadWritePolicyRequest
      *
-     * @return UpdateReadWritePolicyResponse
+     * @return UpdateReadWritePolicyResponse UpdateReadWritePolicyResponse
      */
     public function updateReadWritePolicy($InstanceId, $request)
     {
@@ -9950,12 +10632,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateSnapshotSettingRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateSnapshotSettingRequest $request    UpdateSnapshotSettingRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateSnapshotSettingResponse
+     * @return UpdateSnapshotSettingResponse UpdateSnapshotSettingResponse
      */
     public function updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -9980,10 +10664,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+     *  *
      * @param string                       $InstanceId
-     * @param UpdateSnapshotSettingRequest $request
+     * @param UpdateSnapshotSettingRequest $request    UpdateSnapshotSettingRequest
      *
-     * @return UpdateSnapshotSettingResponse
+     * @return UpdateSnapshotSettingResponse UpdateSnapshotSettingResponse
      */
     public function updateSnapshotSetting($InstanceId, $request)
     {
@@ -9994,10 +10680,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                     $InstanceId
      * @param UpdateSynonymsDictsRequest $request    UpdateSynonymsDictsRequest
      * @param string[]                   $headers    map
@@ -10033,10 +10721,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, take note of the following items:
-     *   * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     *   * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
-     *   *
+     * @summary Updates the synonym dictionaries of an Elasticsearch cluster.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
+     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     *  *
      * @param string                     $InstanceId
      * @param UpdateSynonymsDictsRequest $request    UpdateSynonymsDictsRequest
      *
@@ -10053,11 +10743,11 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                $InstanceId
      * @param string                $TemplateName
-     * @param UpdateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateTemplateRequest $request      UpdateTemplateRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($InstanceId, $TemplateName, $request, $headers, $runtime)
     {
@@ -10089,9 +10779,9 @@ class Elasticsearch extends OpenApiClient
     /**
      * @param string                $InstanceId
      * @param string                $TemplateName
-     * @param UpdateTemplateRequest $request
+     * @param UpdateTemplateRequest $request      UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($InstanceId, $TemplateName, $request)
     {
@@ -10102,8 +10792,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
-     *   *
+     * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+     * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+     * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+     * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+     *  *
+     * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+     *  *
      * @param string                $InstanceId
      * @param UpdateWhiteIpsRequest $request    UpdateWhiteIpsRequest
      * @param string[]              $headers    map
@@ -10149,8 +10844,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](~~142230~~). You cannot force your program to obtain these parameters.
-     *   *
+     * @summary >  If you want to add an IP address whitelist, you can set the modifyMode parameter only to Cover. If you set this parameter to Delete or Append, you can only update an IP address whitelist.
+     * *   If you set the modifyMode parameter to Cover and leave the ips parameter empty, the system deletes the specified whitelist. If the whitelist specified by using the groupName parameter does not exist, the system creates such a whitelist.
+     * *   If you set the modifyMode parameter to Delete, at least one IP address must be retained for the specified whitelist.
+     * *   If you set the modifyMode parameter to Append, you must make sure that the specified whitelist exists. Otherwise, the system reports the NotFound error.
+     *  *
+     * @description > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+     *  *
      * @param string                $InstanceId
      * @param UpdateWhiteIpsRequest $request    UpdateWhiteIpsRequest
      *
@@ -10165,12 +10865,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash实例的X-Pack监控报警配置。
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateXpackMonitorConfigRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateXpackMonitorConfigRequest $request    UpdateXpackMonitorConfigRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateXpackMonitorConfigResponse
+     * @return UpdateXpackMonitorConfigResponse UpdateXpackMonitorConfigResponse
      */
     public function updateXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -10213,10 +10915,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 修改Logstash实例的X-Pack监控报警配置。
+     *  *
      * @param string                          $InstanceId
-     * @param UpdateXpackMonitorConfigRequest $request
+     * @param UpdateXpackMonitorConfigRequest $request    UpdateXpackMonitorConfigRequest
      *
-     * @return UpdateXpackMonitorConfigResponse
+     * @return UpdateXpackMonitorConfigResponse UpdateXpackMonitorConfigResponse
      */
     public function updateXpackMonitorConfig($InstanceId, $request)
     {
@@ -10227,8 +10931,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
-     *   *
+     * @summary ES集群版本升级
+     *  *
+     * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     *  *
      * @param string                      $InstanceId
      * @param UpgradeEngineVersionRequest $request    UpgradeEngineVersionRequest
      * @param string[]                    $headers    map
@@ -10274,8 +10980,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*.
-     *   *
+     * @summary ES集群版本升级
+     *  *
+     * @description 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     *  *
      * @param string                      $InstanceId
      * @param UpgradeEngineVersionRequest $request    UpgradeEngineVersionRequest
      *
@@ -10290,8 +10998,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
-     *   *
+     * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     *  *
+     * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     *  *
      * @param string                    $InstanceId
      * @param ValidateConnectionRequest $request    ValidateConnectionRequest
      * @param string[]                  $headers    map
@@ -10327,8 +11037,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
-     *   *
+     * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     *  *
+     * @description > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     *  *
      * @param string                    $InstanceId
      * @param ValidateConnectionRequest $request    ValidateConnectionRequest
      *
@@ -10343,12 +11055,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 校验缩节点合法性
+     *  *
      * @param string                     $InstanceId
-     * @param ValidateShrinkNodesRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ValidateShrinkNodesRequest $request    ValidateShrinkNodesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ValidateShrinkNodesResponse
+     * @return ValidateShrinkNodesResponse ValidateShrinkNodesResponse
      */
     public function validateShrinkNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -10384,10 +11098,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 校验缩节点合法性
+     *  *
      * @param string                     $InstanceId
-     * @param ValidateShrinkNodesRequest $request
+     * @param ValidateShrinkNodesRequest $request    ValidateShrinkNodesRequest
      *
-     * @return ValidateShrinkNodesResponse
+     * @return ValidateShrinkNodesResponse ValidateShrinkNodesResponse
      */
     public function validateShrinkNodes($InstanceId, $request)
     {
@@ -10398,11 +11114,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ValidateSlrPermissionRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ValidateSlrPermissionRequest $request ValidateSlrPermissionRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateSlrPermissionResponse
+     * @return ValidateSlrPermissionResponse ValidateSlrPermissionResponse
      */
     public function validateSlrPermissionWithOptions($request, $headers, $runtime)
     {
@@ -10434,9 +11150,9 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param ValidateSlrPermissionRequest $request
+     * @param ValidateSlrPermissionRequest $request ValidateSlrPermissionRequest
      *
-     * @return ValidateSlrPermissionResponse
+     * @return ValidateSlrPermissionResponse ValidateSlrPermissionResponse
      */
     public function validateSlrPermission($request)
     {
@@ -10447,12 +11163,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 缩节点校验数据迁移合法性
+     *  *
      * @param string                           $InstanceId
-     * @param ValidateTransferableNodesRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ValidateTransferableNodesRequest $request    ValidateTransferableNodesRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ValidateTransferableNodesResponse
+     * @return ValidateTransferableNodesResponse ValidateTransferableNodesResponse
      */
     public function validateTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -10482,10 +11200,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * @summary 缩节点校验数据迁移合法性
+     *  *
      * @param string                           $InstanceId
-     * @param ValidateTransferableNodesRequest $request
+     * @param ValidateTransferableNodesRequest $request    ValidateTransferableNodesRequest
      *
-     * @return ValidateTransferableNodesResponse
+     * @return ValidateTransferableNodesResponse ValidateTransferableNodesResponse
      */
     public function validateTransferableNodes($InstanceId, $request)
     {
@@ -10496,8 +11216,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The configurations of warm nodes.
-     *   *
+     * @summary The configurations of dedicated master nodes.
+     *  *
+     * @description The configurations of warm nodes.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -10584,8 +11306,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The configurations of warm nodes.
-     *   *
+     * @summary The configurations of dedicated master nodes.
+     *  *
+     * @description The configurations of warm nodes.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse

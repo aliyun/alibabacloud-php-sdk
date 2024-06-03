@@ -16,6 +16,7 @@ class ListDictsRequest extends Model
      *   SYNONYMS: synonym dictionary
      *   ALIWS: Alibaba Cloud dictionary
      *
+     * This parameter is required.
      * @example IK
      *
      * @var string

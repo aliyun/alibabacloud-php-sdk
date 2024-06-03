@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @example {\"index.number_of_shards\":\"1\"}
+     * @example {\\"index.number_of_shards\\":\\"1\\"}
      *
      * @var string
      */
     public $aliases;
 
     /**
-     * @example {\"properties\":{\"created_at\":{\"format\":\"EEE MMM dd HH:mm:ss Z yyyy\",\"type\":\"date\"},\"host_name\":{\"type\":\"keyword\"}}}
+     * @example {\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}
      *
      * @var string
      */
     public $mappings;
 
     /**
-     * @example {\"mydata\":{}}
+     * @example {\\"mydata\\":{}}
      *
      * @var string
      */

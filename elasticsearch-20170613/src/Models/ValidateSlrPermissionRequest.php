@@ -16,6 +16,8 @@ class ValidateSlrPermissionRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AliyunServiceRoleForElasticsearchCollector
      *
      * @var string
