@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody\module\applyIntentionInfoDo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody\module\applyIntentionInfoDoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody\module\applyRecommendFlights;
 use AlibabaCloud\Tea\Model;
 
@@ -21,6 +22,11 @@ class module extends Model
      * @var applyIntentionInfoDo
      */
     public $applyIntentionInfoDo;
+
+    /**
+     * @var applyIntentionInfoDoList[]
+     */
+    public $applyIntentionInfoDoList;
 
     /**
      * @var applyRecommendFlights
@@ -91,19 +97,20 @@ class module extends Model
      */
     public $userId;
     protected $_name = [
-        'applyId'               => 'apply_id',
-        'applyIntentionInfoDo'  => 'apply_intention_info_do',
-        'applyRecommendFlights' => 'apply_recommend_flights',
-        'btripCause'            => 'btrip_cause',
-        'corpId'                => 'corp_id',
-        'exceedReason'          => 'exceed_reason',
-        'exceedType'            => 'exceed_type',
-        'originStandard'        => 'origin_standard',
-        'status'                => 'status',
-        'submitTime'            => 'submit_time',
-        'thirdpartApplyId'      => 'thirdpart_apply_id',
-        'thirdpartCorpId'       => 'thirdpart_corp_id',
-        'userId'                => 'user_id',
+        'applyId'                  => 'apply_id',
+        'applyIntentionInfoDo'     => 'apply_intention_info_do',
+        'applyIntentionInfoDoList' => 'apply_intention_info_do_list',
+        'applyRecommendFlights'    => 'apply_recommend_flights',
+        'btripCause'               => 'btrip_cause',
+        'corpId'                   => 'corp_id',
+        'exceedReason'             => 'exceed_reason',
+        'exceedType'               => 'exceed_type',
+        'originStandard'           => 'origin_standard',
+        'status'                   => 'status',
+        'submitTime'               => 'submit_time',
+        'thirdpartApplyId'         => 'thirdpart_apply_id',
+        'thirdpartCorpId'          => 'thirdpart_corp_id',
+        'userId'                   => 'user_id',
     ];
 
     public function validate()
@@ -118,6 +125,15 @@ class module extends Model
         }
         if (null !== $this->applyIntentionInfoDo) {
             $res['apply_intention_info_do'] = null !== $this->applyIntentionInfoDo ? $this->applyIntentionInfoDo->toMap() : null;
+        }
+        if (null !== $this->applyIntentionInfoDoList) {
+            $res['apply_intention_info_do_list'] = [];
+            if (null !== $this->applyIntentionInfoDoList && \is_array($this->applyIntentionInfoDoList)) {
+                $n = 0;
+                foreach ($this->applyIntentionInfoDoList as $item) {
+                    $res['apply_intention_info_do_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->applyRecommendFlights) {
             $res['apply_recommend_flights'] = null !== $this->applyRecommendFlights ? $this->applyRecommendFlights->toMap() : null;
@@ -169,6 +185,15 @@ class module extends Model
         }
         if (isset($map['apply_intention_info_do'])) {
             $model->applyIntentionInfoDo = applyIntentionInfoDo::fromMap($map['apply_intention_info_do']);
+        }
+        if (isset($map['apply_intention_info_do_list'])) {
+            if (!empty($map['apply_intention_info_do_list'])) {
+                $model->applyIntentionInfoDoList = [];
+                $n                               = 0;
+                foreach ($map['apply_intention_info_do_list'] as $item) {
+                    $model->applyIntentionInfoDoList[$n++] = null !== $item ? applyIntentionInfoDoList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['apply_recommend_flights'])) {
             $model->applyRecommendFlights = applyRecommendFlights::fromMap($map['apply_recommend_flights']);

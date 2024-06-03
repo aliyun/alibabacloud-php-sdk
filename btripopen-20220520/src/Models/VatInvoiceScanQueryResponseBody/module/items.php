@@ -130,6 +130,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $pdfOssUrl;
+
+    /**
+     * @var string
+     */
     public $purchaserBankAccountInfo;
 
     /**
@@ -235,6 +240,7 @@ class items extends Model
         'machineCode'              => 'machine_code',
         'ossUrl'                   => 'oss_url',
         'passwordArea'             => 'password_area',
+        'pdfOssUrl'                => 'pdf_oss_url',
         'purchaserBankAccountInfo' => 'purchaser_bank_account_info',
         'purchaserContactInfo'     => 'purchaser_contact_info',
         'purchaserName'            => 'purchaser_name',
@@ -319,6 +325,9 @@ class items extends Model
         }
         if (null !== $this->passwordArea) {
             $res['password_area'] = $this->passwordArea;
+        }
+        if (null !== $this->pdfOssUrl) {
+            $res['pdf_oss_url'] = $this->pdfOssUrl;
         }
         if (null !== $this->purchaserBankAccountInfo) {
             $res['purchaser_bank_account_info'] = $this->purchaserBankAccountInfo;
@@ -439,6 +448,9 @@ class items extends Model
         }
         if (isset($map['password_area'])) {
             $model->passwordArea = $map['password_area'];
+        }
+        if (isset($map['pdf_oss_url'])) {
+            $model->pdfOssUrl = $map['pdf_oss_url'];
         }
         if (isset($map['purchaser_bank_account_info'])) {
             $model->purchaserBankAccountInfo = $map['purchaser_bank_account_info'];
