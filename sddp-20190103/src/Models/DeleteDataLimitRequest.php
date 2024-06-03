@@ -20,7 +20,7 @@ class DeleteDataLimitRequest extends Model
     /**
      * @description The ID of the data asset.
      *
-     * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
+     * This parameter is required.
      * @example 12033
      *
      * @var int

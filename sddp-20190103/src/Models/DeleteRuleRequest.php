@@ -20,6 +20,7 @@ class DeleteRuleRequest extends Model
     /**
      * @description The ID of the sensitive data detection rule.
      *
+     * This parameter is required.
      * @example 122300
      *
      * @var int

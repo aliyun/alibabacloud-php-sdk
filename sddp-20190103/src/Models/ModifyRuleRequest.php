@@ -24,7 +24,8 @@ class ModifyRuleRequest extends Model
     /**
      * @description The content of the sensitive data detection rule. You can specify a regular expression, an algorithm, or keywords that are used to match sensitive fields or text.
      *
-     * @example (?:\\D|^)((?:(?:25[0-4]|2[0-4]\\d|1\\d{2}|[1-9]\\d{1})\\.)(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){2}(?:25[0-5]|2[0-4]\\d|1[0-9]\\d|[1-9]\\d|[1-9]))(?:\\D|$)
+     * This parameter is required.
+     * @example (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
      *
      * @var string
      */
@@ -33,7 +34,7 @@ class ModifyRuleRequest extends Model
     /**
      * @description The ID of the sensitive data detection rule.
      *
-     * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
+     * This parameter is required.
      * @example 1****
      *
      * @var int
@@ -67,7 +68,7 @@ class ModifyRuleRequest extends Model
     /**
      * @description The name of the sensitive data detection rule.
      *
-     * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule name.
+     * This parameter is required.
      * @example esw
      *
      * @var string

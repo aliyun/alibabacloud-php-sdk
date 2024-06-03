@@ -21,7 +21,7 @@ class eventTypeList extends Model
     /**
      * @description The description of the anomalous event type.
      *
-     * @example Anomalous permission usage,\*\*\*\*
+     * @example Anomalous permission usage,\\*\\*\\*\\*
      *
      * @var string
      */

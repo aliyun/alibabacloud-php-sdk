@@ -12,6 +12,8 @@ class DescribeEventDetailRequest extends Model
      * @description The ID of the anomalous event.
      *
      * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
+     *
+     * This parameter is required.
      * @example 13456723343
      *
      * @var int

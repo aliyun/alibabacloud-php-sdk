@@ -37,6 +37,11 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $lastModifiedTime;
+
+    /**
      * @example 1687676649830
      *
      * @var int
@@ -123,6 +128,7 @@ class items extends Model
         'id'                  => 'Id',
         'instanceDescription' => 'InstanceDescription',
         'instanceId'          => 'InstanceId',
+        'lastModifiedTime'    => 'LastModifiedTime',
         'lastScanTime'        => 'LastScanTime',
         'memberAccount'       => 'MemberAccount',
         'modelTags'           => 'ModelTags',
@@ -156,6 +162,9 @@ class items extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->lastModifiedTime) {
+            $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
@@ -233,6 +242,9 @@ class items extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LastModifiedTime'])) {
+            $model->lastModifiedTime = $map['LastModifiedTime'];
         }
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];

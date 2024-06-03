@@ -46,6 +46,7 @@ class ModifyRuleStatusRequest extends Model
      *   **0**: disables the sensitive data detection rule.
      *   **1**: enables the sensitive data detection rule.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

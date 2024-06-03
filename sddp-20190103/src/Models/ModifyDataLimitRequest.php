@@ -57,7 +57,7 @@ class ModifyDataLimitRequest extends Model
     /**
      * @description The unique ID of the data asset for which you want to modify configuration items.
      *
-     * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+     * This parameter is required.
      * @example 11
      *
      * @var int
@@ -129,6 +129,7 @@ class ModifyDataLimitRequest extends Model
      *   **4**: Tablestore
      *   **5**: ApsaraDB RDS
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int

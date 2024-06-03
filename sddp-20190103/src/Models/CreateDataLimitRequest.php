@@ -165,6 +165,7 @@ class CreateDataLimitRequest extends Model
      *   **4** :Tablestore
      *   **5**: ApsaraDB RDS
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

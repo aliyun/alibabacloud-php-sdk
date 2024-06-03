@@ -68,7 +68,7 @@ class subTypeList extends Model
     /**
      * @description The description of the anomalous event subtype.
      *
-     * @example Inappropriate configuration-No protection for the MaxCompute sensitive project, \*\*\*\*
+     * @example Inappropriate configuration-No protection for the MaxCompute sensitive project, \\*\\*\\*\\*
      *
      * @var string
      */

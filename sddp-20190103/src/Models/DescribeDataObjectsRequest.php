@@ -109,6 +109,8 @@ class DescribeDataObjectsRequest extends Model
     public $serviceRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

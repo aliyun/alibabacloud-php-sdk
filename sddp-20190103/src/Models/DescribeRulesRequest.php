@@ -108,7 +108,7 @@ class DescribeRulesRequest extends Model
     /**
      * @description The name of the sensitive data detection rule. Fuzzy match is supported.
      *
-     * @example \*\*\* rule
+     * @example \\*\\*\\* rule
      *
      * @var string
      */

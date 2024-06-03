@@ -61,7 +61,7 @@ class ruleList extends Model
     /**
      * @description The name of the sensitive data detection rule.
      *
-     * @example \*\*\* rule
+     * @example \\*\\*\\* rule
      *
      * @var string
      */

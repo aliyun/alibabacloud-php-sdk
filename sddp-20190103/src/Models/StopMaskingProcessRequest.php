@@ -11,6 +11,7 @@ class StopMaskingProcessRequest extends Model
     /**
      * @description The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int

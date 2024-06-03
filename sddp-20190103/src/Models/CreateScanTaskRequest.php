@@ -11,6 +11,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -59,6 +61,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -68,6 +71,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The time when the scan task is executed next time. Unit: hours.
      *
+     * This parameter is required.
      * @example 12
      *
      * @var int
@@ -77,6 +81,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The time when the scan task is executed next time. Unit: minutes.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -91,6 +96,7 @@ class CreateScanTaskRequest extends Model
      *   **2**: suffix match
      *   **3**: regular expression match
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -100,6 +106,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
      *
+     * This parameter is required.
      * @example datamask/
      *
      * @var string
@@ -118,6 +125,7 @@ class CreateScanTaskRequest extends Model
     /**
      * @description The name of the scan task.
      *
+     * This parameter is required.
      * @example scan-test-sample****
      *
      * @var string

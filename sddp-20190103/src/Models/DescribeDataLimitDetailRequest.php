@@ -20,7 +20,7 @@ class DescribeDataLimitDetailRequest extends Model
     /**
      * @description The unique ID of the data asset that you want to query.
      *
-     * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+     * This parameter is required.
      * @example 12300
      *
      * @var int

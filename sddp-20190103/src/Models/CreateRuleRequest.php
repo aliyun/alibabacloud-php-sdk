@@ -23,7 +23,8 @@ class CreateRuleRequest extends Model
     /**
      * @description The content of the sensitive data detection rule. You can specify a regular expression or keywords that are used to match sensitive fields or text.
      *
-     * @example (?:\\D|^)((?:(?:25[0-4]|2[0-4]\\d|1\\d{2}|[1-9]\\d{1})\\.)(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){2}(?:25[0-5]|2[0-4]\\d|1[0-9]\\d|[1-9]\\d|[1-9]))(?:\\D|$)
+     * This parameter is required.
+     * @example (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
      *
      * @var string
      */
@@ -74,6 +75,7 @@ class CreateRuleRequest extends Model
     /**
      * @description The name of the sensitive data detection rule.
      *
+     * This parameter is required.
      * @example rule-tst
      *
      * @var string

@@ -21,6 +21,8 @@ class DescribeDataObjectColumnDetailV2Request extends Model
     public $featureType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 13456723343
      *
      * @var string
@@ -49,6 +51,8 @@ class DescribeDataObjectColumnDetailV2Request extends Model
     public $productId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

@@ -172,7 +172,7 @@ class items extends Model
     /**
      * @description The name of the sensitive data detection rule that data in the column of the table hits.
      *
-     * @example \*\* rule
+     * @example \\*\\* rule
      *
      * @var string
      */

@@ -11,7 +11,7 @@ class DescribeOssObjectDetailRequest extends Model
     /**
      * @description The ID of the OSS object.
      *
-     * >  You can call the [DescribeOssObjects](~~410152~~) operation to obtain the ID of the OSS object.
+     * This parameter is required.
      * @example 12345213
      *
      * @var int

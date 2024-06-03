@@ -145,10 +145,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a common configuration item for alerts.
+     *  *
+     * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateConfigRequest $request CreateConfigRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -195,10 +197,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a common configuration item for alerts.
+     *  *
+     * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateConfigRequest $request CreateConfigRequest
      *
      * @return CreateConfigResponse CreateConfigResponse
@@ -211,10 +215,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+     *  *
+     * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateDataLimitRequest $request CreateDataLimitRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -297,10 +303,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
+     *  *
+     * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateDataLimitRequest $request CreateDataLimitRequest
      *
      * @return CreateDataLimitResponse CreateDataLimitResponse
@@ -313,10 +321,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a custom sensitive data detection rule.
+     *  *
+     * @param CreateRuleRequest $request CreateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
@@ -392,9 +402,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
+     * @summary Creates a custom sensitive data detection rule.
+     *  *
+     * @param CreateRuleRequest $request CreateRuleRequest
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -404,10 +416,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+     *  *
+     * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateScanTaskRequest $request CreateScanTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -475,10 +489,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+     *  *
+     * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateScanTaskRequest $request CreateScanTaskRequest
      *
      * @return CreateScanTaskResponse CreateScanTaskResponse
@@ -491,10 +507,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+     *  *
+     * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateSlrRoleRequest $request CreateSlrRoleRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -532,10 +550,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+     *  *
+     * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateSlrRoleRequest $request CreateSlrRoleRequest
      *
      * @return CreateSlrRoleResponse CreateSlrRoleResponse
@@ -548,10 +568,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+     *  *
+     * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDataLimitRequest $request DeleteDataLimitRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -592,10 +614,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+     *  *
+     * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDataLimitRequest $request DeleteDataLimitRequest
      *
      * @return DeleteDataLimitResponse DeleteDataLimitResponse
@@ -608,10 +632,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+     *  *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
@@ -648,9 +674,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
+     * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
+     *  *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -660,10 +688,10 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryTemplateListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeCategoryTemplateListRequest $request DescribeCategoryTemplateListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCategoryTemplateListResponse
+     * @return DescribeCategoryTemplateListResponse DescribeCategoryTemplateListResponse
      */
     public function describeCategoryTemplateListWithOptions($request, $runtime)
     {
@@ -703,9 +731,9 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryTemplateListRequest $request
+     * @param DescribeCategoryTemplateListRequest $request DescribeCategoryTemplateListRequest
      *
-     * @return DescribeCategoryTemplateListResponse
+     * @return DescribeCategoryTemplateListResponse DescribeCategoryTemplateListResponse
      */
     public function describeCategoryTemplateList($request)
     {
@@ -715,10 +743,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query rules in a classification template.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries rules in a classification template by page.
+     *  *
+     * @description You can call this operation to query rules in a classification template.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeCategoryTemplateRuleListRequest $request DescribeCategoryTemplateRuleListRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -765,10 +795,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query rules in a classification template.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries rules in a classification template by page.
+     *  *
+     * @description You can call this operation to query rules in a classification template.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeCategoryTemplateRuleListRequest $request DescribeCategoryTemplateRuleListRequest
      *
      * @return DescribeCategoryTemplateRuleListResponse DescribeCategoryTemplateRuleListResponse
@@ -781,12 +813,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-     *   * ## [](#)Precautions
-     *   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-     *   * ## [](#qps)Limits
-     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+     *  *
+     * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+     * ## [](#)Precautions
+     * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+     * ## [](#qps)Limits
+     * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeColumnsRequest $request DescribeColumnsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -854,12 +888,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-     *   * ## [](#)Precautions
-     *   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
-     *   * ## [](#qps)Limits
-     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+     *  *
+     * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+     * ## [](#)Precautions
+     * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+     * ## [](#qps)Limits
+     * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeColumnsRequest $request DescribeColumnsRequest
      *
      * @return DescribeColumnsResponse DescribeColumnsResponse
@@ -872,10 +908,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsV2Request $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+     *  *
+     * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColumnsV2Response
+     * @return DescribeColumnsV2Response DescribeColumnsV2Response
      */
     public function describeColumnsV2WithOptions($request, $runtime)
     {
@@ -939,9 +977,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsV2Request $request
+     * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+     *  *
+     * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
      *
-     * @return DescribeColumnsV2Response
+     * @return DescribeColumnsV2Response DescribeColumnsV2Response
      */
     public function describeColumnsV2($request)
     {
@@ -951,10 +991,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries common configuration items for alerts.
+     *  *
+     * @param DescribeConfigsRequest $request DescribeConfigsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConfigsResponse
+     * @return DescribeConfigsResponse DescribeConfigsResponse
      */
     public function describeConfigsWithOptions($request, $runtime)
     {
@@ -982,9 +1024,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigsRequest $request
+     * @summary Queries common configuration items for alerts.
+     *  *
+     * @param DescribeConfigsRequest $request DescribeConfigsRequest
      *
-     * @return DescribeConfigsResponse
+     * @return DescribeConfigsResponse DescribeConfigsResponse
      */
     public function describeConfigs($request)
     {
@@ -994,10 +1038,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataAssetsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @param DescribeDataAssetsRequest $request DescribeDataAssetsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataAssetsResponse
+     * @return DescribeDataAssetsResponse DescribeDataAssetsResponse
      */
     public function describeDataAssetsWithOptions($request, $runtime)
     {
@@ -1043,9 +1089,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataAssetsRequest $request
+     * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @param DescribeDataAssetsRequest $request DescribeDataAssetsRequest
      *
-     * @return DescribeDataAssetsResponse
+     * @return DescribeDataAssetsResponse DescribeDataAssetsResponse
      */
     public function describeDataAssets($request)
     {
@@ -1055,10 +1103,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataLimitDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param DescribeDataLimitDetailRequest $request DescribeDataLimitDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataLimitDetailResponse
+     * @return DescribeDataLimitDetailResponse DescribeDataLimitDetailResponse
      */
     public function describeDataLimitDetailWithOptions($request, $runtime)
     {
@@ -1095,9 +1145,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataLimitDetailRequest $request
+     * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param DescribeDataLimitDetailRequest $request DescribeDataLimitDetailRequest
      *
-     * @return DescribeDataLimitDetailResponse
+     * @return DescribeDataLimitDetailResponse DescribeDataLimitDetailResponse
      */
     public function describeDataLimitDetail($request)
     {
@@ -1107,10 +1159,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     *  *
+     * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataLimitSetRequest $request DescribeDataLimitSetRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1151,10 +1205,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     *  *
+     * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataLimitSetRequest $request DescribeDataLimitSetRequest
      *
      * @return DescribeDataLimitSetResponse DescribeDataLimitSetResponse
@@ -1167,10 +1223,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataLimitsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @param DescribeDataLimitsRequest $request DescribeDataLimitsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataLimitsResponse
+     * @return DescribeDataLimitsResponse DescribeDataLimitsResponse
      */
     public function describeDataLimitsWithOptions($request, $runtime)
     {
@@ -1240,9 +1298,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataLimitsRequest $request
+     * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @param DescribeDataLimitsRequest $request DescribeDataLimitsRequest
      *
-     * @return DescribeDataLimitsResponse
+     * @return DescribeDataLimitsResponse DescribeDataLimitsResponse
      */
     public function describeDataLimits($request)
     {
@@ -1252,10 +1312,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the execution information about a de-identification task.
+     *  *
+     * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataMaskingRunHistoryRequest $request DescribeDataMaskingRunHistoryRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1317,10 +1379,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the execution information about a de-identification task.
+     *  *
+     * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataMaskingRunHistoryRequest $request DescribeDataMaskingRunHistoryRequest
      *
      * @return DescribeDataMaskingRunHistoryResponse DescribeDataMaskingRunHistoryResponse
@@ -1333,10 +1397,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries de-identification tasks.
+     *  *
+     * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataMaskingTasksRequest $request DescribeDataMaskingTasksRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1386,10 +1452,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries de-identification tasks.
+     *  *
+     * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataMaskingTasksRequest $request DescribeDataMaskingTasksRequest
      *
      * @return DescribeDataMaskingTasksResponse DescribeDataMaskingTasksResponse
@@ -1402,10 +1470,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectColumnDetailRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 查看数据对象列详情
+     *  *
+     * @param DescribeDataObjectColumnDetailRequest $request DescribeDataObjectColumnDetailRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataObjectColumnDetailResponse
+     * @return DescribeDataObjectColumnDetailResponse DescribeDataObjectColumnDetailResponse
      */
     public function describeDataObjectColumnDetailWithOptions($request, $runtime)
     {
@@ -1451,9 +1521,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectColumnDetailRequest $request
+     * @summary 查看数据对象列详情
+     *  *
+     * @param DescribeDataObjectColumnDetailRequest $request DescribeDataObjectColumnDetailRequest
      *
-     * @return DescribeDataObjectColumnDetailResponse
+     * @return DescribeDataObjectColumnDetailResponse DescribeDataObjectColumnDetailResponse
      */
     public function describeDataObjectColumnDetail($request)
     {
@@ -1463,10 +1535,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectColumnDetailV2Request $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 查看数据对象列详情V2
+     *  *
+     * @param DescribeDataObjectColumnDetailV2Request $request DescribeDataObjectColumnDetailV2Request
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataObjectColumnDetailV2Response
+     * @return DescribeDataObjectColumnDetailV2Response DescribeDataObjectColumnDetailV2Response
      */
     public function describeDataObjectColumnDetailV2WithOptions($request, $runtime)
     {
@@ -1512,9 +1586,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectColumnDetailV2Request $request
+     * @summary 查看数据对象列详情V2
+     *  *
+     * @param DescribeDataObjectColumnDetailV2Request $request DescribeDataObjectColumnDetailV2Request
      *
-     * @return DescribeDataObjectColumnDetailV2Response
+     * @return DescribeDataObjectColumnDetailV2Response DescribeDataObjectColumnDetailV2Response
      */
     public function describeDataObjectColumnDetailV2($request)
     {
@@ -1524,10 +1600,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 分页查询数据目录对象
+     *  *
+     * @param DescribeDataObjectsRequest $request DescribeDataObjectsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataObjectsResponse
+     * @return DescribeDataObjectsResponse DescribeDataObjectsResponse
      */
     public function describeDataObjectsWithOptions($request, $runtime)
     {
@@ -1603,9 +1681,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataObjectsRequest $request
+     * @summary 分页查询数据目录对象
+     *  *
+     * @param DescribeDataObjectsRequest $request DescribeDataObjectsRequest
      *
-     * @return DescribeDataObjectsResponse
+     * @return DescribeDataObjectsResponse DescribeDataObjectsResponse
      */
     public function describeDataObjects($request)
     {
@@ -1615,10 +1695,10 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocTypesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeDocTypesRequest $request DescribeDocTypesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDocTypesResponse
+     * @return DescribeDocTypesResponse DescribeDocTypesResponse
      */
     public function describeDocTypesWithOptions($request, $runtime)
     {
@@ -1646,9 +1726,9 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocTypesRequest $request
+     * @param DescribeDocTypesRequest $request DescribeDocTypesRequest
      *
-     * @return DescribeDocTypesResponse
+     * @return DescribeDocTypesResponse DescribeDocTypesResponse
      */
     public function describeDocTypes($request)
     {
@@ -1658,10 +1738,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventDetailRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+     *  *
+     * @param DescribeEventDetailRequest $request DescribeEventDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventDetailResponse
+     * @return DescribeEventDetailResponse DescribeEventDetailResponse
      */
     public function describeEventDetailWithOptions($request, $runtime)
     {
@@ -1692,9 +1774,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventDetailRequest $request
+     * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
+     *  *
+     * @param DescribeEventDetailRequest $request DescribeEventDetailRequest
      *
-     * @return DescribeEventDetailResponse
+     * @return DescribeEventDetailResponse DescribeEventDetailResponse
      */
     public function describeEventDetail($request)
     {
@@ -1704,10 +1788,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventTypesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the types of anomalous events.
+     *  *
+     * @param DescribeEventTypesRequest $request DescribeEventTypesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventTypesResponse
+     * @return DescribeEventTypesResponse DescribeEventTypesResponse
      */
     public function describeEventTypesWithOptions($request, $runtime)
     {
@@ -1747,9 +1833,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventTypesRequest $request
+     * @summary Queries the types of anomalous events.
+     *  *
+     * @param DescribeEventTypesRequest $request DescribeEventTypesRequest
      *
-     * @return DescribeEventTypesResponse
+     * @return DescribeEventTypesResponse DescribeEventTypesResponse
      */
     public function describeEventTypes($request)
     {
@@ -1759,10 +1847,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries anomalous events.
+     *  *
+     * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1839,10 +1929,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries anomalous events.
+     *  *
+     * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      *
      * @return DescribeEventsResponse DescribeEventsResponse
@@ -1855,11 +1947,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-     *   * This operation is no longer used for the KMS console of the new version.
-     *   * # [](#qps-)QPS limits
-     *   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of data assets.
+     *  *
+     * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+     * This operation is no longer used for the KMS console of the new version.
+     * # [](#qps-)QPS limits
+     * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstanceSourcesRequest $request DescribeInstanceSourcesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1927,11 +2021,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
-     *   * This operation is no longer used for the KMS console of the new version.
-     *   * # [](#qps-)QPS limits
-     *   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of data assets.
+     *  *
+     * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+     * This operation is no longer used for the KMS console of the new version.
+     * # [](#qps-)QPS limits
+     * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstanceSourcesRequest $request DescribeInstanceSourcesRequest
      *
      * @return DescribeInstanceSourcesResponse DescribeInstanceSourcesResponse
@@ -1944,10 +2040,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2006,10 +2104,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
      * @return DescribeInstancesResponse DescribeInstancesResponse
@@ -2022,12 +2122,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-     *   * ## [](#)Precautions
-     *   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-     *   * ## [](#qps)Limits
-     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     * ## [](#)Precautions
+     * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+     * ## [](#qps)Limits
+     * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2062,12 +2164,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
-     *   * ## [](#)Precautions
-     *   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
-     *   * ## [](#qps)Limits
-     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+     *  *
+     * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     * ## [](#)Precautions
+     * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+     * ## [](#qps)Limits
+     * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
      *
      * @return DescribeOssObjectDetailResponse DescribeOssObjectDetailResponse
@@ -2080,10 +2184,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeOssObjectDetailV2Request $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+     *  *
+     * @param DescribeOssObjectDetailV2Request $request DescribeOssObjectDetailV2Request
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOssObjectDetailV2Response
+     * @return DescribeOssObjectDetailV2Response DescribeOssObjectDetailV2Response
      */
     public function describeOssObjectDetailV2WithOptions($request, $runtime)
     {
@@ -2114,9 +2220,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeOssObjectDetailV2Request $request
+     * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
+     *  *
+     * @param DescribeOssObjectDetailV2Request $request DescribeOssObjectDetailV2Request
      *
-     * @return DescribeOssObjectDetailV2Response
+     * @return DescribeOssObjectDetailV2Response DescribeOssObjectDetailV2Response
      */
     public function describeOssObjectDetailV2($request)
     {
@@ -2126,10 +2234,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeOssObjectsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param DescribeOssObjectsRequest $request DescribeOssObjectsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOssObjectsResponse
+     * @return DescribeOssObjectsResponse DescribeOssObjectsResponse
      */
     public function describeOssObjectsWithOptions($request, $runtime)
     {
@@ -2190,9 +2300,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeOssObjectsRequest $request
+     * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param DescribeOssObjectsRequest $request DescribeOssObjectsRequest
      *
-     * @return DescribeOssObjectsResponse
+     * @return DescribeOssObjectsResponse DescribeOssObjectsResponse
      */
     public function describeOssObjects($request)
     {
@@ -2202,10 +2314,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+     *  *
+     * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePackagesRequest $request DescribePackagesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2258,10 +2372,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+     *  *
+     * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePackagesRequest $request DescribePackagesRequest
      *
      * @return DescribePackagesResponse DescribePackagesResponse
@@ -2274,10 +2390,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取一级授权列表
+     *  *
+     * @param DescribeParentInstanceRequest $request DescribeParentInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParentInstanceResponse
+     * @return DescribeParentInstanceResponse DescribeParentInstanceResponse
      */
     public function describeParentInstanceWithOptions($request, $runtime)
     {
@@ -2338,9 +2456,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentInstanceRequest $request
+     * @summary 获取一级授权列表
+     *  *
+     * @param DescribeParentInstanceRequest $request DescribeParentInstanceRequest
      *
-     * @return DescribeParentInstanceResponse
+     * @return DescribeParentInstanceResponse DescribeParentInstanceResponse
      */
     public function describeParentInstance($request)
     {
@@ -2350,10 +2470,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+     *  *
+     * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRiskLevelsRequest $request DescribeRiskLevelsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2391,10 +2513,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+     *  *
+     * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRiskLevelsRequest $request DescribeRiskLevelsRequest
      *
      * @return DescribeRiskLevelsResponse DescribeRiskLevelsResponse
@@ -2407,10 +2531,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeRulesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries sensitive data detection rules.
+     *  *
+     * @param DescribeRulesRequest $request DescribeRulesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRulesResponse
+     * @return DescribeRulesResponse DescribeRulesResponse
      */
     public function describeRulesWithOptions($request, $runtime)
     {
@@ -2489,9 +2615,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeRulesRequest $request
+     * @summary Queries sensitive data detection rules.
+     *  *
+     * @param DescribeRulesRequest $request DescribeRulesRequest
      *
-     * @return DescribeRulesResponse
+     * @return DescribeRulesResponse DescribeRulesResponse
      */
     public function describeRules($request)
     {
@@ -2501,10 +2629,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-     *   * # Limits
-     *   * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-     *   *
+     * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+     * # Limits
+     * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+     *  *
      * @param DescribeTablesRequest $request DescribeTablesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2569,10 +2699,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
-     *   * # Limits
-     *   * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-     *   *
+     * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+     * # Limits
+     * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
+     *  *
      * @param DescribeTablesRequest $request DescribeTablesRequest
      *
      * @return DescribeTablesResponse DescribeTablesResponse
@@ -2585,10 +2717,10 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateAllRulesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeTemplateAllRulesRequest $request DescribeTemplateAllRulesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateAllRulesResponse
+     * @return DescribeTemplateAllRulesResponse DescribeTemplateAllRulesResponse
      */
     public function describeTemplateAllRulesWithOptions($request, $runtime)
     {
@@ -2622,9 +2754,9 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateAllRulesRequest $request
+     * @param DescribeTemplateAllRulesRequest $request DescribeTemplateAllRulesRequest
      *
-     * @return DescribeTemplateAllRulesResponse
+     * @return DescribeTemplateAllRulesResponse DescribeTemplateAllRulesResponse
      */
     public function describeTemplateAllRules($request)
     {
@@ -2634,10 +2766,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about an account.
+     *  *
+     * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeUserStatusRequest $request DescribeUserStatusRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2672,10 +2806,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about an account.
+     *  *
+     * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeUserStatusRequest $request DescribeUserStatusRequest
      *
      * @return DescribeUserStatusResponse DescribeUserStatusResponse
@@ -2688,10 +2824,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+     *  *
+     * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DisableUserConfigRequest $request DisableUserConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2729,10 +2867,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+     *  *
+     * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DisableUserConfigRequest $request DisableUserConfigRequest
      *
      * @return DisableUserConfigResponse DisableUserConfigResponse
@@ -2745,10 +2885,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ExecDatamaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Dynamically de-identifies sensitive data.
+     *  *
+     * @param ExecDatamaskRequest $request ExecDatamaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecDatamaskResponse
+     * @return ExecDatamaskResponse ExecDatamaskResponse
      */
     public function execDatamaskWithOptions($request, $runtime)
     {
@@ -2785,9 +2927,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ExecDatamaskRequest $request
+     * @summary Dynamically de-identifies sensitive data.
+     *  *
+     * @param ExecDatamaskRequest $request ExecDatamaskRequest
      *
-     * @return ExecDatamaskResponse
+     * @return ExecDatamaskResponse ExecDatamaskResponse
      */
     public function execDatamask($request)
     {
@@ -2797,10 +2941,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ManualTriggerMaskingProcessRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Triggers a de-identification task.
+     *  *
+     * @param ManualTriggerMaskingProcessRequest $request ManualTriggerMaskingProcessRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ManualTriggerMaskingProcessResponse
+     * @return ManualTriggerMaskingProcessResponse ManualTriggerMaskingProcessResponse
      */
     public function manualTriggerMaskingProcessWithOptions($request, $runtime)
     {
@@ -2831,9 +2977,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ManualTriggerMaskingProcessRequest $request
+     * @summary Triggers a de-identification task.
+     *  *
+     * @param ManualTriggerMaskingProcessRequest $request ManualTriggerMaskingProcessRequest
      *
-     * @return ManualTriggerMaskingProcessResponse
+     * @return ManualTriggerMaskingProcessResponse ManualTriggerMaskingProcessResponse
      */
     public function manualTriggerMaskingProcess($request)
     {
@@ -2843,10 +2991,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataLimitRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param ModifyDataLimitRequest $request ModifyDataLimitRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataLimitResponse
+     * @return ModifyDataLimitResponse ModifyDataLimitResponse
      */
     public function modifyDataLimitWithOptions($request, $runtime)
     {
@@ -2922,9 +3072,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataLimitRequest $request
+     * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
+     *  *
+     * @param ModifyDataLimitRequest $request ModifyDataLimitRequest
      *
-     * @return ModifyDataLimitResponse
+     * @return ModifyDataLimitResponse ModifyDataLimitResponse
      */
     public function modifyDataLimit($request)
     {
@@ -2934,10 +3086,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+     *  *
+     * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDefaultLevelRequest $request ModifyDefaultLevelRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2975,10 +3129,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+     *  *
+     * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDefaultLevelRequest $request ModifyDefaultLevelRequest
      *
      * @return ModifyDefaultLevelResponse ModifyDefaultLevelResponse
@@ -2991,10 +3147,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Handles an anomalous event.
+     *  *
+     * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3038,10 +3196,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Handles an anomalous event.
+     *  *
+     * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
      *
      * @return ModifyEventStatusResponse ModifyEventStatusResponse
@@ -3054,10 +3214,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyEventTypeStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Enables the detection of anomalous events of subtypes.
+     *  *
+     * @param ModifyEventTypeStatusRequest $request ModifyEventTypeStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEventTypeStatusResponse
+     * @return ModifyEventTypeStatusResponse ModifyEventTypeStatusResponse
      */
     public function modifyEventTypeStatusWithOptions($request, $runtime)
     {
@@ -3091,9 +3253,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyEventTypeStatusRequest $request
+     * @summary Enables the detection of anomalous events of subtypes.
+     *  *
+     * @param ModifyEventTypeStatusRequest $request ModifyEventTypeStatusRequest
      *
-     * @return ModifyEventTypeStatusResponse
+     * @return ModifyEventTypeStatusResponse ModifyEventTypeStatusResponse
      */
     public function modifyEventTypeStatus($request)
     {
@@ -3103,10 +3267,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables the report task.
+     *  *
+     * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyReportTaskStatusRequest $request ModifyReportTaskStatusRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3144,10 +3310,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables the report task.
+     *  *
+     * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyReportTaskStatusRequest $request ModifyReportTaskStatusRequest
      *
      * @return ModifyReportTaskStatusResponse ModifyReportTaskStatusResponse
@@ -3160,10 +3328,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+     *  *
+     * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyRuleRequest $request ModifyRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -3228,10 +3398,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+     *  *
+     * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyRuleRequest $request ModifyRuleRequest
      *
      * @return ModifyRuleResponse ModifyRuleResponse
@@ -3244,10 +3416,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyRuleStatusRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Enables or disables a sensitive data detection rule.
+     *  *
+     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRuleStatusResponse
+     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
      */
     public function modifyRuleStatusWithOptions($request, $runtime)
     {
@@ -3284,9 +3458,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param ModifyRuleStatusRequest $request
+     * @summary Enables or disables a sensitive data detection rule.
+     *  *
+     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
      *
-     * @return ModifyRuleStatusResponse
+     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
      */
     public function modifyRuleStatus($request)
     {
@@ -3296,10 +3472,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+     *  *
+     * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param StopMaskingProcessRequest $request StopMaskingProcessRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3334,10 +3512,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+     *  *
+     * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param StopMaskingProcessRequest $request StopMaskingProcessRequest
      *
      * @return StopMaskingProcessResponse StopMaskingProcessResponse

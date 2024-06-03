@@ -82,6 +82,11 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $lastModifiedTime;
+
+    /**
      * @description The name of the OSS object.
      *
      * @example obj_id
@@ -165,6 +170,7 @@ class items extends Model
         'fileId'           => 'FileId',
         'id'               => 'Id',
         'instanceId'       => 'InstanceId',
+        'lastModifiedTime' => 'LastModifiedTime',
         'name'             => 'Name',
         'regionId'         => 'RegionId',
         'riskLevelId'      => 'RiskLevelId',
@@ -205,6 +211,9 @@ class items extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->lastModifiedTime) {
+            $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -271,6 +280,9 @@ class items extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LastModifiedTime'])) {
+            $model->lastModifiedTime = $map['LastModifiedTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

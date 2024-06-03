@@ -171,7 +171,7 @@ class items extends Model
     /**
      * @description The name of the sensitive data detection rule that the data asset hits.
      *
-     * @example \*\*\* rule
+     * @example \\*\\*\\* rule
      *
      * @var string
      */

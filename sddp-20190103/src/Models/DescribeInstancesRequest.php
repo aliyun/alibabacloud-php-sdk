@@ -57,7 +57,7 @@ class DescribeInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](~~212906~~).
+     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
      *
      * @example RDS
      *
@@ -105,7 +105,7 @@ class DescribeInstancesRequest extends Model
     public $ruleId;
 
     /**
-     * @description The region where the data asset resides. For more information, see [Supported regions](~~214257~~).
+     * @description The region where the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
      *
      * @example cn-hangzhou
      *

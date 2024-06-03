@@ -101,7 +101,7 @@ class items extends Model
     public $owner;
 
     /**
-     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets that DSC can scan to detect sensitive data, see [Supported data assets](~~212906~~).
+     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets that DSC can scan to detect sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
      *
      * @example RDS
      *
@@ -163,7 +163,7 @@ class items extends Model
     /**
      * @description The name of the sensitive data detection rule that the data asset hits.
      *
-     * @example \*\*\* rule
+     * @example \\*\\*\\* rule
      *
      * @var string
      */

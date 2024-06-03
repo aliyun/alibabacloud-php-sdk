@@ -11,7 +11,7 @@ class ManualTriggerMaskingProcessRequest extends Model
     /**
      * @description The ID of the de-identification task.
      *
-     * The ID of the de-identification task is a string. You can call the DescribeDataMaskingTasks operation to query the ID.
+     * This parameter is required.
      * @example 1
      *
      * @var int

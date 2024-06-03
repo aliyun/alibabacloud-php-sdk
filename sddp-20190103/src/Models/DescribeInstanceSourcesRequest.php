@@ -130,7 +130,7 @@ class DescribeInstanceSourcesRequest extends Model
     public $searchType;
 
     /**
-     * @description The region in which the data asset resides. For more information, see [Supported regions](~~214257~~).
+     * @description The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
      *
      * @example cn-hangzhou
      *
