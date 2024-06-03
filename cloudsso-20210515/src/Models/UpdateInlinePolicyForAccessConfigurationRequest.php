@@ -38,7 +38,7 @@ class UpdateInlinePolicyForAccessConfigurationRequest extends Model
     /**
      * @description The new configurations of the inline policy.
      *
-     * For more information about the syntax and structure of RAM policies, see [Policy syntax and structure](~~93739~~).
+     * For more information about the syntax and structure of RAM policies, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
      * @example {"Statement": [{"Action": "*","Effect": "Allow","Resource": "*"}],"Version": "1"}
      *
      * @var string

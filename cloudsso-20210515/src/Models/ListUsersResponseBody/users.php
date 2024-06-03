@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The time when the user was created.
+     * @description The time when the user was created. The value is displayed in UTC.
      *
      * @example 2021-06-30T09:20:08Z
      *
@@ -46,6 +46,8 @@ class users extends Model
     public $email;
 
     /**
+     * @description The identifier information about the user synchronized from an external IdP.
+     *
      * @var externalId
      */
     public $externalId;
@@ -93,7 +95,7 @@ class users extends Model
     public $status;
 
     /**
-     * @description The time when the information about the user was modified.
+     * @description The time when the information about the user was modified. The value is displayed in UTC.
      *
      * @example 2021-06-30T09:20:08Z
      *

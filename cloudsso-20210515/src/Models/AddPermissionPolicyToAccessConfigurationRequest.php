@@ -29,7 +29,7 @@ class AddPermissionPolicyToAccessConfigurationRequest extends Model
     /**
      * @description The configurations of the inline policy.
      *
-     * If you set `PermissionPolicyType` to `Inline`, you must specify this parameter. For more information about the syntax and structure of RAM policies, see [Policy syntax and structure](~~93739~~).
+     * If you set `PermissionPolicyType` to `Inline`, you must specify this parameter. For more information about the syntax and structure of RAM policies, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
      * @example {"Statement": [{"Action": "*","Effect": "Allow","Resource": "*"}],"Version": "1"}
      *
      * @var string

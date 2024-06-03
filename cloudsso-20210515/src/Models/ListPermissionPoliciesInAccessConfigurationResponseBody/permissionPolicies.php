@@ -21,7 +21,7 @@ class permissionPolicies extends Model
      * @description The configurations of the inline policy.
      *
      * >  This parameter is returned only when the value of the PermissionPolicyType parameter is Inline.
-     * @example {\"Statement\": [{\"Action\": \"*\",\"Effect\": \"Allow\",\"Resource\": \"*\"}],\"Version\": \"1\"}
+     * @example {\\"Statement\\": [{\\"Action\\": \\"*\\",\\"Effect\\": \\"Allow\\",\\"Resource\\": \\"*\\"}],\\"Version\\": \\"1\\"}
      *
      * @var string
      */

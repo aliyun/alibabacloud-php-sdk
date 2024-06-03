@@ -11,7 +11,7 @@ class RemoveExternalSAMLIdPCertificateRequest extends Model
     /**
      * @description The ID of the certificate.
      *
-     * You can call the [ListExternalSAMLIdPCertificates](~~341629~~) operation to query the IDs of certificates.
+     * You can call the [ListExternalSAMLIdPCertificates](https://help.aliyun.com/document_detail/341629.html) operation to query the IDs of certificates.
      * @example idp-c-00dt9gnl7fmjaw9c****
      *
      * @var string

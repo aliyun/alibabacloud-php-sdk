@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A3A41736-A050-50B6-ABC5-590F376A0044
      *
      * @var string
@@ -16,6 +18,8 @@ class GetUserIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the CloudSSO user.
+     *
      * @example u-d8d1iox****
      *
      * @var string

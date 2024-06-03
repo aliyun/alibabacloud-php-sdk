@@ -4,29 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserResponseBody\user;
 use AlibabaCloud\Tea\Model;
 
-class GetUserResponseBody extends Model
+class DisableDelegateAccountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EE42D2C4-A30A-59B7-ACEB-6D22FB44174A
+     * @example 12B3E332-DD16-515B-B695-39BA233AA172
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The information about the user.
-     *
-     * @var user
-     */
-    public $user;
     protected $_name = [
         'requestId' => 'RequestId',
-        'user'      => 'User',
     ];
 
     public function validate()
@@ -39,9 +28,6 @@ class GetUserResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
-        }
 
         return $res;
     }
@@ -49,16 +35,13 @@ class GetUserResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetUserResponseBody
+     * @return DisableDelegateAccountResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['User'])) {
-            $model->user = user::fromMap($map['User']);
         }
 
         return $model;

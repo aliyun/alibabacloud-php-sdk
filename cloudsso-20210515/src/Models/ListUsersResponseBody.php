@@ -12,8 +12,8 @@ class ListUsersResponseBody extends Model
     /**
      * @description Indicates whether the queried entries are truncated. Valid values:
      *
-     *   true: The queried entries are truncated.
-     *   false: The queried entries are not truncated.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -22,7 +22,7 @@ class ListUsersResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -31,9 +31,9 @@ class ListUsersResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is returned for the next page.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
-     * >  This parameter is returned only when the value of `IsTruncated` is `true`.
+     * >  This parameter is returned only when the `IsTruncated` parameter is `true`.
      * @example K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
      *
      * @var string
@@ -41,7 +41,7 @@ class ListUsersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 734D9AAC-9A8E-5DF6-A633-ADE70FF2A9B1
      *

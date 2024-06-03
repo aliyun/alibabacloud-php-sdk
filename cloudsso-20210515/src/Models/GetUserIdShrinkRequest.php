@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdShrinkRequest extends Model
 {
     /**
+     * @description The ID of the resource directory.
+     *
      * @example d-00fc2p61****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetUserIdShrinkRequest extends Model
     public $directoryId;
 
     /**
+     * @description The identifier information about the user that is synchronized from an external identity provider (IdP).
+     *
      * @var string
      */
     public $externalIdShrink;

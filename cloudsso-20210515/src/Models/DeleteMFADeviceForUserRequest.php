@@ -20,7 +20,7 @@ class DeleteMFADeviceForUserRequest extends Model
     /**
      * @description The ID of the MFA device.
      *
-     * You can call the [ListMFADevicesForUser](~~333531~~) operation to query the IDs of MFA devices.
+     * You can call the [ListMFADevicesForUser](https://help.aliyun.com/document_detail/333531.html) operation to query the IDs of MFA devices.
      * @example mfa-00ujhet8pycljj7j****
      *
      * @var string

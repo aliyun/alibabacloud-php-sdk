@@ -48,7 +48,11 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeprovisionAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeprovisionAccessConfigurationResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DisableDelegateAccountRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DisableDelegateAccountResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DisableServiceResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\EnableDelegateAccountRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\EnableDelegateAccountResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\EnableServiceResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAccessConfigurationResponse;
@@ -209,9 +213,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can add up to two SAML signing certificates.
-     *   * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
-     *   *
+     * @summary Adds a Security Assertion Markup Language (SAML) signing certificate.
+     *  *
+     * @description You can add up to two SAML signing certificates.
+     * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     *  *
      * @param AddExternalSAMLIdPCertificateRequest $request AddExternalSAMLIdPCertificateRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -246,9 +252,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can add up to two SAML signing certificates.
-     *   * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
-     *   *
+     * @summary Adds a Security Assertion Markup Language (SAML) signing certificate.
+     *  *
+     * @description You can add up to two SAML signing certificates.
+     * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     *  *
      * @param AddExternalSAMLIdPCertificateRequest $request AddExternalSAMLIdPCertificateRequest
      *
      * @return AddExternalSAMLIdPCertificateResponse AddExternalSAMLIdPCertificateResponse
@@ -261,8 +269,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Adds a policy to an access configuration.
+     *  *
+     * @description This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param AddPermissionPolicyToAccessConfigurationRequest $request AddPermissionPolicyToAccessConfigurationRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
@@ -306,8 +316,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Adds a policy to an access configuration.
+     *  *
+     * @description This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param AddPermissionPolicyToAccessConfigurationRequest $request AddPermissionPolicyToAccessConfigurationRequest
      *
      * @return AddPermissionPolicyToAccessConfigurationResponse AddPermissionPolicyToAccessConfigurationResponse
@@ -320,9 +332,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
-     *   * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
-     *   *
+     * @summary Adds a user to a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
+     * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     *  *
      * @param AddUserToGroupRequest $request AddUserToGroupRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -360,9 +374,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
-     *   * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
-     *   *
+     * @summary Adds a user to a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
+     * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     *  *
      * @param AddUserToGroupRequest $request AddUserToGroupRequest
      *
      * @return AddUserToGroupResponse AddUserToGroupResponse
@@ -375,9 +391,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
-     *   * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
+     * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *  *
      * @param ClearExternalSAMLIdentityProviderRequest $request ClearExternalSAMLIdentityProviderRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -409,9 +427,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
-     *   * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
+     * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *  *
      * @param ClearExternalSAMLIdentityProviderRequest $request ClearExternalSAMLIdentityProviderRequest
      *
      * @return ClearExternalSAMLIdentityProviderResponse ClearExternalSAMLIdentityProviderResponse
@@ -424,10 +444,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
-     *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
-     *   *
+     * @summary Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+     *  *
+     * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
+     * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     *  *
      * @param CreateAccessAssignmentRequest $request CreateAccessAssignmentRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -474,10 +496,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
-     *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
-     *   *
+     * @summary Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+     *  *
+     * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
+     * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     *  *
      * @param CreateAccessAssignmentRequest $request CreateAccessAssignmentRequest
      *
      * @return CreateAccessAssignmentResponse CreateAccessAssignmentResponse
@@ -490,9 +514,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * For more information about access configurations, see [Overview of access configurations](~~266737~~).
-     *   * This topic provides an example on how to create an access configuration named `ECS-Admin`.
-     *   *
+     * @summary Creates an access configuration.
+     *  *
+     * @description For more information about access configurations, see [Overview of access configurations](https://help.aliyun.com/document_detail/266737.html).
+     * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     *  *
      * @param CreateAccessConfigurationRequest $request CreateAccessConfigurationRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -536,9 +562,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * For more information about access configurations, see [Overview of access configurations](~~266737~~).
-     *   * This topic provides an example on how to create an access configuration named `ECS-Admin`.
-     *   *
+     * @summary Creates an access configuration.
+     *  *
+     * @description For more information about access configurations, see [Overview of access configurations](https://help.aliyun.com/document_detail/266737.html).
+     * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     *  *
      * @param CreateAccessConfigurationRequest $request CreateAccessConfigurationRequest
      *
      * @return CreateAccessConfigurationResponse CreateAccessConfigurationResponse
@@ -551,13 +579,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
-     *   * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
-     *   * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
-     *   * ## Limits
-     *   * - You can create only one directory for a management account.
-     *   * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
-     *   *
+     * @summary Creates a directory.
+     *  *
+     * @description A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
+     * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
+     * ## Limits
+     * - You can create only one directory for a management account.
+     * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     *  *
      * @param CreateDirectoryRequest $request CreateDirectoryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -589,13 +619,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
-     *   * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
-     *   * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
-     *   * ## Limits
-     *   * - You can create only one directory for a management account.
-     *   * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
-     *   *
+     * @summary Creates a directory.
+     *  *
+     * @description A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
+     * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
+     * ## Limits
+     * - You can create only one directory for a management account.
+     * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     *  *
      * @param CreateDirectoryRequest $request CreateDirectoryRequest
      *
      * @return CreateDirectoryResponse CreateDirectoryResponse
@@ -608,8 +640,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a group named `TestGroup`.
-     *   *
+     * @summary Creates a group.
+     *  *
+     * @description This topic provides an example on how to create a group named `TestGroup`.
+     *  *
      * @param CreateGroupRequest $request CreateGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -647,8 +681,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a group named `TestGroup`.
-     *   *
+     * @summary Creates a group.
+     *  *
+     * @description This topic provides an example on how to create a group named `TestGroup`.
+     *  *
      * @param CreateGroupRequest $request CreateGroupRequest
      *
      * @return CreateGroupResponse CreateGroupResponse
@@ -661,9 +697,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
-     *   * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Creates a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     *  *
      * @param CreateSCIMServerCredentialRequest $request CreateSCIMServerCredentialRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -695,9 +733,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
-     *   * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Creates a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     *  *
      * @param CreateSCIMServerCredentialRequest $request CreateSCIMServerCredentialRequest
      *
      * @return CreateSCIMServerCredentialResponse CreateSCIMServerCredentialResponse
@@ -710,8 +750,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a user named `Alice`.
-     *   *
+     * @summary Creates a user.
+     *  *
+     * @description This topic provides an example on how to create a user named `Alice`.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -764,8 +806,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a user named `Alice`.
-     *   *
+     * @summary Creates a user.
+     *  *
+     * @description This topic provides an example on how to create a user named `Alice`.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      *
      * @return CreateUserResponse CreateUserResponse
@@ -778,10 +822,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateUserProvisioningRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param CreateUserProvisioningRequest $request CreateUserProvisioningRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserProvisioningResponse
+     * @return CreateUserProvisioningResponse CreateUserProvisioningResponse
      */
     public function createUserProvisioningWithOptions($request, $runtime)
     {
@@ -830,9 +876,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateUserProvisioningRequest $request
+     * @summary Creates a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param CreateUserProvisioningRequest $request CreateUserProvisioningRequest
      *
-     * @return CreateUserProvisioningResponse
+     * @return CreateUserProvisioningResponse CreateUserProvisioningResponse
      */
     public function createUserProvisioning($request)
     {
@@ -842,9 +890,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Removes the access permissions on an account in a resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param DeleteAccessAssignmentRequest $request DeleteAccessAssignmentRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -894,9 +944,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Removes the access permissions on an account in a resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param DeleteAccessAssignmentRequest $request DeleteAccessAssignmentRequest
      *
      * @return DeleteAccessAssignmentResponse DeleteAccessAssignmentResponse
@@ -909,10 +961,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
-     *   * ## Prerequisites
-     *   * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](~~338352~~).
-     *   *
+     * @summary Deletes an access configuration.
+     *  *
+     * @description This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     * ## Prerequisites
+     * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+     *  *
      * @param DeleteAccessConfigurationRequest $request DeleteAccessConfigurationRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -950,10 +1004,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
-     *   * ## Prerequisites
-     *   * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](~~338352~~).
-     *   *
+     * @summary Deletes an access configuration.
+     *  *
+     * @description This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     * ## Prerequisites
+     * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+     *  *
      * @param DeleteAccessConfigurationRequest $request DeleteAccessConfigurationRequest
      *
      * @return DeleteAccessConfigurationResponse DeleteAccessConfigurationResponse
@@ -966,16 +1022,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
-     *   * ## Prerequisites
-     *   * No resources are contained in the directory that you want to delete.
-     *   * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   * *   Users are deleted. For more information, see [DeleteUser](~~341671~~).
-     *   * *   Groups are deleted. For more information, see [DeleteGroup](~~341821~~).
-     *   * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](~~336907~~).
-     *   * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](~~341842~~).
-     *   * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](~~341573~~).
-     *   *
+     * @summary Deletes a directory.
+     *  *
+     * @description This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     * ## Prerequisites
+     * No resources are contained in the directory that you want to delete.
+     * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+     * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+     * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+     * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+     * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+     *  *
      * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1007,16 +1065,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
-     *   * ## Prerequisites
-     *   * No resources are contained in the directory that you want to delete.
-     *   * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   * *   Users are deleted. For more information, see [DeleteUser](~~341671~~).
-     *   * *   Groups are deleted. For more information, see [DeleteGroup](~~341821~~).
-     *   * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](~~336907~~).
-     *   * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](~~341842~~).
-     *   * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](~~341573~~).
-     *   *
+     * @summary Deletes a directory.
+     *  *
+     * @description This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     * ## Prerequisites
+     * No resources are contained in the directory that you want to delete.
+     * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+     * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+     * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+     * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+     * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+     *  *
      * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
      *
      * @return DeleteDirectoryResponse DeleteDirectoryResponse
@@ -1029,12 +1089,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
-     *   * ## Prerequisites
-     *   * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-     *   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](~~335116~~).
-     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   *
+     * @summary Deletes a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
+     * ## Prerequisites
+     * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
+     * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1069,12 +1131,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
-     *   * ## Prerequisites
-     *   * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-     *   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](~~335116~~).
-     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   *
+     * @summary Deletes a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
+     * ## Prerequisites
+     * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
+     * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      *
      * @return DeleteGroupResponse DeleteGroupResponse
@@ -1087,8 +1151,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Unbinds a multi-factor authentication (MFA) device from a user.
+     *  *
+     * @description This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
+     *  *
      * @param DeleteMFADeviceForUserRequest $request DeleteMFADeviceForUserRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1126,8 +1192,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Unbinds a multi-factor authentication (MFA) device from a user.
+     *  *
+     * @description This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
+     *  *
      * @param DeleteMFADeviceForUserRequest $request DeleteMFADeviceForUserRequest
      *
      * @return DeleteMFADeviceForUserResponse DeleteMFADeviceForUserResponse
@@ -1140,9 +1208,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
-     *   * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
-     *   *
+     * @summary Deletes a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
+     * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     *  *
      * @param DeleteSCIMServerCredentialRequest $request DeleteSCIMServerCredentialRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1177,9 +1247,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
-     *   * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
-     *   *
+     * @summary Deletes a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
+     * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     *  *
      * @param DeleteSCIMServerCredentialRequest $request DeleteSCIMServerCredentialRequest
      *
      * @return DeleteSCIMServerCredentialResponse DeleteSCIMServerCredentialResponse
@@ -1192,13 +1264,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
-     *   * ## Prerequisites
-     *   * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
-     *   * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](~~341675~~).
-     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](~~335116~~).
-     *   *
+     * @summary Deletes a user.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
+     * ## Prerequisites
+     * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
+     * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     *  *
      * @param DeleteUserRequest $request DeleteUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1233,13 +1307,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
-     *   * ## Prerequisites
-     *   * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
-     *   * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](~~341675~~).
-     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](~~338350~~).
-     *   * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](~~335116~~).
-     *   *
+     * @summary Deletes a user.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
+     * ## Prerequisites
+     * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
+     * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     *  *
      * @param DeleteUserRequest $request DeleteUserRequest
      *
      * @return DeleteUserResponse DeleteUserResponse
@@ -1252,10 +1328,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserProvisioningRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param DeleteUserProvisioningRequest $request DeleteUserProvisioningRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserProvisioningResponse
+     * @return DeleteUserProvisioningResponse DeleteUserProvisioningResponse
      */
     public function deleteUserProvisioningWithOptions($request, $runtime)
     {
@@ -1289,9 +1367,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserProvisioningRequest $request
+     * @summary Deletes a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param DeleteUserProvisioningRequest $request DeleteUserProvisioningRequest
      *
-     * @return DeleteUserProvisioningResponse
+     * @return DeleteUserProvisioningResponse DeleteUserProvisioningResponse
      */
     public function deleteUserProvisioning($request)
     {
@@ -1301,10 +1381,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserProvisioningEventRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param DeleteUserProvisioningEventRequest $request DeleteUserProvisioningEventRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserProvisioningEventResponse
+     * @return DeleteUserProvisioningEventResponse DeleteUserProvisioningEventResponse
      */
     public function deleteUserProvisioningEventWithOptions($request, $runtime)
     {
@@ -1338,9 +1420,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserProvisioningEventRequest $request
+     * @summary Deletes a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param DeleteUserProvisioningEventRequest $request DeleteUserProvisioningEventRequest
      *
-     * @return DeleteUserProvisioningEventResponse
+     * @return DeleteUserProvisioningEventResponse DeleteUserProvisioningEventResponse
      */
     public function deleteUserProvisioningEvent($request)
     {
@@ -1350,9 +1434,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
-     *   *
+     * @summary De-provisions an access configuration from an account in your resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     *  *
      * @param DeprovisionAccessConfigurationRequest $request DeprovisionAccessConfigurationRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1393,9 +1479,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
-     *   *
+     * @summary De-provisions an access configuration from an account in your resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     *  *
      * @param DeprovisionAccessConfigurationRequest $request DeprovisionAccessConfigurationRequest
      *
      * @return DeprovisionAccessConfigurationResponse DeprovisionAccessConfigurationResponse
@@ -1408,8 +1496,57 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
-     *   *
+     * @summary DisableDelegateAccount
+     *  *
+     * @param DisableDelegateAccountRequest $request DisableDelegateAccountRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableDelegateAccountResponse DisableDelegateAccountResponse
+     */
+    public function disableDelegateAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDelegateAccount',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDelegateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DisableDelegateAccount
+     *  *
+     * @param DisableDelegateAccountRequest $request DisableDelegateAccountRequest
+     *
+     * @return DisableDelegateAccountResponse DisableDelegateAccountResponse
+     */
+    public function disableDelegateAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDelegateAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Disables CloudSSO.
+     *  *
+     * @description If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return DisableServiceResponse DisableServiceResponse
@@ -1433,8 +1570,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
-     *   *
+     * @summary Disables CloudSSO.
+     *  *
+     * @description If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+     *  *
      * @return DisableServiceResponse DisableServiceResponse
      */
     public function disableService()
@@ -1445,9 +1584,58 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](~~262819~~).
-     *   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
-     *   *
+     * @summary EnableDelegateAccount
+     *  *
+     * @param EnableDelegateAccountRequest $request EnableDelegateAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableDelegateAccountResponse EnableDelegateAccountResponse
+     */
+    public function enableDelegateAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDelegateAccount',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDelegateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EnableDelegateAccount
+     *  *
+     * @param EnableDelegateAccountRequest $request EnableDelegateAccountRequest
+     *
+     * @return EnableDelegateAccountResponse EnableDelegateAccountResponse
+     */
+    public function enableDelegateAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDelegateAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Enables CloudSSO.
+     *  *
+     * @description You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
+     * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return EnableServiceResponse EnableServiceResponse
@@ -1471,9 +1659,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](~~262819~~).
-     *   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
-     *   *
+     * @summary Enables CloudSSO.
+     *  *
+     * @description You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
+     * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+     *  *
      * @return EnableServiceResponse EnableServiceResponse
      */
     public function enableService()
@@ -1484,8 +1674,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
-     *   *
+     * @summary Queries information about an access configuration.
+     *  *
+     * @description This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+     *  *
      * @param GetAccessConfigurationRequest $request GetAccessConfigurationRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1520,8 +1712,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
-     *   *
+     * @summary Queries information about an access configuration.
+     *  *
+     * @description This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+     *  *
      * @param GetAccessConfigurationRequest $request GetAccessConfigurationRequest
      *
      * @return GetAccessConfigurationResponse GetAccessConfigurationResponse
@@ -1534,8 +1728,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a directory.
+     *  *
+     * @description This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     *  *
      * @param GetDirectoryRequest $request GetDirectoryRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1567,8 +1763,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a directory.
+     *  *
+     * @description This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     *  *
      * @param GetDirectoryRequest $request GetDirectoryRequest
      *
      * @return GetDirectoryResponse GetDirectoryResponse
@@ -1581,9 +1779,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
-     *   * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a Security Assertion Markup Language (SAML) service provider (SP).
+     *  *
+     * @description During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
+     * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
+     *  *
      * @param GetDirectorySAMLServiceProviderInfoRequest $request GetDirectorySAMLServiceProviderInfoRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -1615,9 +1815,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
-     *   * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a Security Assertion Markup Language (SAML) service provider (SP).
+     *  *
+     * @description During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
+     * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
+     *  *
      * @param GetDirectorySAMLServiceProviderInfoRequest $request GetDirectorySAMLServiceProviderInfoRequest
      *
      * @return GetDirectorySAMLServiceProviderInfoResponse GetDirectorySAMLServiceProviderInfoResponse
@@ -1630,11 +1832,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
-     *   * ### [](#qps)Limit
-     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Queries the statistics of a directory.
+     *  *
+     * @description ### [](#)
+     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
+     * ### [](#qps)Limit
+     * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1666,11 +1870,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
-     *   * ### [](#qps)Limit
-     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Queries the statistics of a directory.
+     *  *
+     * @description ### [](#)
+     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
+     * ### [](#qps)Limit
+     * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
      *
      * @return GetDirectoryStatisticsResponse GetDirectoryStatisticsResponse
@@ -1683,8 +1889,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *  *
      * @param GetExternalSAMLIdentityProviderRequest $request GetExternalSAMLIdentityProviderRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1716,8 +1924,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *  *
      * @param GetExternalSAMLIdentityProviderRequest $request GetExternalSAMLIdentityProviderRequest
      *
      * @return GetExternalSAMLIdentityProviderResponse GetExternalSAMLIdentityProviderResponse
@@ -1730,8 +1940,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a group.
+     *  *
+     * @description This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
+     *  *
      * @param GetGroupRequest $request GetGroupRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -1766,8 +1978,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
-     *   *
+     * @summary Queries information about a group.
+     *  *
+     * @description This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
+     *  *
      * @param GetGroupRequest $request GetGroupRequest
      *
      * @return GetGroupResponse GetGroupResponse
@@ -1780,10 +1994,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetLoginPreferenceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the logon preference of CloudSSO users.
+     *  *
+     * @param GetLoginPreferenceRequest $request GetLoginPreferenceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoginPreferenceResponse
+     * @return GetLoginPreferenceResponse GetLoginPreferenceResponse
      */
     public function getLoginPreferenceWithOptions($request, $runtime)
     {
@@ -1811,9 +2027,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetLoginPreferenceRequest $request
+     * @summary Queries the logon preference of CloudSSO users.
+     *  *
+     * @param GetLoginPreferenceRequest $request GetLoginPreferenceRequest
      *
-     * @return GetLoginPreferenceResponse
+     * @return GetLoginPreferenceResponse GetLoginPreferenceResponse
      */
     public function getLoginPreference($request)
     {
@@ -1823,9 +2041,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-     *   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
+     *  *
      * @param GetMFAAuthenticationSettingInfoRequest $request GetMFAAuthenticationSettingInfoRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1857,9 +2077,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-     *   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
+     *  *
      * @param GetMFAAuthenticationSettingInfoRequest $request GetMFAAuthenticationSettingInfoRequest
      *
      * @return GetMFAAuthenticationSettingInfoResponse GetMFAAuthenticationSettingInfoResponse
@@ -1872,9 +2094,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](~~611286~~) operation to query more detailed information.
-     *   * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](https://help.aliyun.com/document_detail/611286.html) operation to query more detailed information.
+     * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
+     *  *
      * @param GetMFAAuthenticationSettingsRequest $request GetMFAAuthenticationSettingsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1906,9 +2130,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](~~611286~~) operation to query more detailed information.
-     *   * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](https://help.aliyun.com/document_detail/611286.html) operation to query more detailed information.
+     * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
+     *  *
      * @param GetMFAAuthenticationSettingsRequest $request GetMFAAuthenticationSettingsRequest
      *
      * @return GetMFAAuthenticationSettingsResponse GetMFAAuthenticationSettingsResponse
@@ -1921,8 +2147,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
-     *   *
+     * @summary Checks whether multi-factor authentication (MFA) is enabled for users.
+     *  *
+     * @description This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
+     *  *
      * @param GetMFAAuthenticationStatusRequest $request GetMFAAuthenticationStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1954,8 +2182,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
-     *   *
+     * @summary Checks whether multi-factor authentication (MFA) is enabled for users.
+     *  *
+     * @description This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
+     *  *
      * @param GetMFAAuthenticationStatusRequest $request GetMFAAuthenticationStatusRequest
      *
      * @return GetMFAAuthenticationStatusResponse GetMFAAuthenticationStatusResponse
@@ -1968,10 +2198,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordPolicyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the password policy of CloudSSO users.
+     *  *
+     * @param GetPasswordPolicyRequest $request GetPasswordPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicyWithOptions($request, $runtime)
     {
@@ -1999,9 +2231,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordPolicyRequest $request
+     * @summary Queries the password policy of CloudSSO users.
+     *  *
+     * @param GetPasswordPolicyRequest $request GetPasswordPolicyRequest
      *
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicy($request)
     {
@@ -2011,8 +2245,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
-     *   *
+     * @summary Queries the status of System for Cross-domain Identity Management (SCIM) synchronization.
+     *  *
+     * @description This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
+     *  *
      * @param GetSCIMSynchronizationStatusRequest $request GetSCIMSynchronizationStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2044,8 +2280,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
-     *   *
+     * @summary Queries the status of System for Cross-domain Identity Management (SCIM) synchronization.
+     *  *
+     * @description This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
+     *  *
      * @param GetSCIMSynchronizationStatusRequest $request GetSCIMSynchronizationStatusRequest
      *
      * @return GetSCIMSynchronizationStatusResponse GetSCIMSynchronizationStatusResponse
@@ -2058,9 +2296,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the status of CloudSSO.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceStatusResponse
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatusWithOptions($runtime)
     {
@@ -2081,7 +2321,9 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @return GetServiceStatusResponse
+     * @summary Queries the status of CloudSSO.
+     *  *
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatus()
     {
@@ -2091,8 +2333,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
-     *   *
+     * @summary Queries information about an asynchronous task.
+     *  *
+     * @description This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *  *
      * @param GetTaskRequest $request GetTaskRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2127,8 +2371,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
-     *   *
+     * @summary Queries information about an asynchronous task.
+     *  *
+     * @description This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *  *
      * @param GetTaskRequest $request GetTaskRequest
      *
      * @return GetTaskResponse GetTaskResponse
@@ -2141,9 +2387,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](~~340670~~) operation.
-     *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
-     *   *
+     * @summary Queries the status of an asynchronous task.
+     *  *
+     * @description You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation.
+     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *  *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2178,9 +2426,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](~~340670~~) operation.
-     *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
-     *   *
+     * @summary Queries the status of an asynchronous task.
+     *  *
+     * @description You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation.
+     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *  *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
      *
      * @return GetTaskStatusResponse GetTaskStatusResponse
@@ -2193,8 +2443,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
-     *   *
+     * @summary Queries information about a user.
+     *  *
+     * @description This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *  *
      * @param GetUserRequest $request GetUserRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2229,8 +2481,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
-     *   *
+     * @summary Queries information about a user.
+     *  *
+     * @description This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *  *
      * @param GetUserRequest $request GetUserRequest
      *
      * @return GetUserResponse GetUserResponse
@@ -2243,10 +2497,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserIdRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the ID of a user in a resource directory by using the ExternalId parameter.
+     *  *
+     * @param GetUserIdRequest $tmpReq  GetUserIdRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserIdResponse
+     * @return GetUserIdResponse GetUserIdResponse
      */
     public function getUserIdWithOptions($tmpReq, $runtime)
     {
@@ -2282,9 +2538,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserIdRequest $request
+     * @summary Queries the ID of a user in a resource directory by using the ExternalId parameter.
+     *  *
+     * @param GetUserIdRequest $request GetUserIdRequest
      *
-     * @return GetUserIdResponse
+     * @return GetUserIdResponse GetUserIdResponse
      */
     public function getUserId($request)
     {
@@ -2294,8 +2552,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of a single user.
+     *  *
+     * @description This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
+     *  *
      * @param GetUserMFAAuthenticationSettingsRequest $request GetUserMFAAuthenticationSettingsRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -2330,8 +2590,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) setting of a single user.
+     *  *
+     * @description This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
+     *  *
      * @param GetUserMFAAuthenticationSettingsRequest $request GetUserMFAAuthenticationSettingsRequest
      *
      * @return GetUserMFAAuthenticationSettingsResponse GetUserMFAAuthenticationSettingsResponse
@@ -2344,10 +2606,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningRequest $request GetUserProvisioningRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserProvisioningResponse
+     * @return GetUserProvisioningResponse GetUserProvisioningResponse
      */
     public function getUserProvisioningWithOptions($request, $runtime)
     {
@@ -2378,9 +2642,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningRequest $request
+     * @summary Queries a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningRequest $request GetUserProvisioningRequest
      *
-     * @return GetUserProvisioningResponse
+     * @return GetUserProvisioningResponse GetUserProvisioningResponse
      */
     public function getUserProvisioning($request)
     {
@@ -2390,10 +2656,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningConfigurationRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the global configurations of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningConfigurationRequest $request GetUserProvisioningConfigurationRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserProvisioningConfigurationResponse
+     * @return GetUserProvisioningConfigurationResponse GetUserProvisioningConfigurationResponse
      */
     public function getUserProvisioningConfigurationWithOptions($request, $runtime)
     {
@@ -2421,9 +2689,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningConfigurationRequest $request
+     * @summary Queries the global configurations of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningConfigurationRequest $request GetUserProvisioningConfigurationRequest
      *
-     * @return GetUserProvisioningConfigurationResponse
+     * @return GetUserProvisioningConfigurationResponse GetUserProvisioningConfigurationResponse
      */
     public function getUserProvisioningConfiguration($request)
     {
@@ -2433,10 +2703,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningEventRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param GetUserProvisioningEventRequest $request GetUserProvisioningEventRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserProvisioningEventResponse
+     * @return GetUserProvisioningEventResponse GetUserProvisioningEventResponse
      */
     public function getUserProvisioningEventWithOptions($request, $runtime)
     {
@@ -2467,9 +2739,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningEventRequest $request
+     * @summary Queries a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param GetUserProvisioningEventRequest $request GetUserProvisioningEventRequest
      *
-     * @return GetUserProvisioningEventResponse
+     * @return GetUserProvisioningEventResponse GetUserProvisioningEventResponse
      */
     public function getUserProvisioningEvent($request)
     {
@@ -2479,10 +2753,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningRdAccountStatisticsRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries statistics of Resource Access Management (RAM) user provisioning events that are created for the member in a resource directory.
+     *  *
+     * @param GetUserProvisioningRdAccountStatisticsRequest $request GetUserProvisioningRdAccountStatisticsRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserProvisioningRdAccountStatisticsResponse
+     * @return GetUserProvisioningRdAccountStatisticsResponse GetUserProvisioningRdAccountStatisticsResponse
      */
     public function getUserProvisioningRdAccountStatisticsWithOptions($request, $runtime)
     {
@@ -2513,9 +2789,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningRdAccountStatisticsRequest $request
+     * @summary Queries statistics of Resource Access Management (RAM) user provisioning events that are created for the member in a resource directory.
+     *  *
+     * @param GetUserProvisioningRdAccountStatisticsRequest $request GetUserProvisioningRdAccountStatisticsRequest
      *
-     * @return GetUserProvisioningRdAccountStatisticsResponse
+     * @return GetUserProvisioningRdAccountStatisticsResponse GetUserProvisioningRdAccountStatisticsResponse
      */
     public function getUserProvisioningRdAccountStatistics($request)
     {
@@ -2525,10 +2803,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningStatisticsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the statistics of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningStatisticsRequest $request GetUserProvisioningStatisticsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserProvisioningStatisticsResponse
+     * @return GetUserProvisioningStatisticsResponse GetUserProvisioningStatisticsResponse
      */
     public function getUserProvisioningStatisticsWithOptions($request, $runtime)
     {
@@ -2559,9 +2839,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserProvisioningStatisticsRequest $request
+     * @summary Queries the statistics of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param GetUserProvisioningStatisticsRequest $request GetUserProvisioningStatisticsRequest
      *
-     * @return GetUserProvisioningStatisticsResponse
+     * @return GetUserProvisioningStatisticsResponse GetUserProvisioningStatisticsResponse
      */
     public function getUserProvisioningStatistics($request)
     {
@@ -2571,8 +2853,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
-     *   *
+     * @summary Queries the access permissions that are assigned.
+     *  *
+     * @description This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     *  *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2625,8 +2909,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
-     *   *
+     * @summary Queries the access permissions that are assigned.
+     *  *
+     * @description This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     *  *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      *
      * @return ListAccessAssignmentsResponse ListAccessAssignmentsResponse
@@ -2639,8 +2925,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
-     *   *
+     * @summary Queries the access configurations that are provisioned.
+     *  *
+     * @description This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     *  *
      * @param ListAccessConfigurationProvisioningsRequest $request ListAccessConfigurationProvisioningsRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -2690,8 +2978,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
-     *   *
+     * @summary Queries the access configurations that are provisioned.
+     *  *
+     * @description This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     *  *
      * @param ListAccessConfigurationProvisioningsRequest $request ListAccessConfigurationProvisioningsRequest
      *
      * @return ListAccessConfigurationProvisioningsResponse ListAccessConfigurationProvisioningsResponse
@@ -2704,8 +2994,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
-     *   *
+     * @summary Queries access configurations.
+     *  *
+     * @description This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+     *  *
      * @param ListAccessConfigurationsRequest $request ListAccessConfigurationsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2749,8 +3041,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
-     *   *
+     * @summary Queries access configurations.
+     *  *
+     * @description This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+     *  *
      * @param ListAccessConfigurationsRequest $request ListAccessConfigurationsRequest
      *
      * @return ListAccessConfigurationsResponse ListAccessConfigurationsResponse
@@ -2763,8 +3057,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
-     *   *
+     * @summary Queries directories.
+     *  *
+     * @description This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListDirectoriesResponse ListDirectoriesResponse
@@ -2788,8 +3084,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
-     *   *
+     * @summary Queries directories.
+     *  *
+     * @description This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
+     *  *
      * @return ListDirectoriesResponse ListDirectoriesResponse
      */
     public function listDirectories()
@@ -2800,8 +3098,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
-     *   *
+     * @summary Queries Security Assertion Markup Language (SAML) signing certificates.
+     *  *
+     * @description This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
+     *  *
      * @param ListExternalSAMLIdPCertificatesRequest $request ListExternalSAMLIdPCertificatesRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2833,8 +3133,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
-     *   *
+     * @summary Queries Security Assertion Markup Language (SAML) signing certificates.
+     *  *
+     * @description This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
+     *  *
      * @param ListExternalSAMLIdPCertificatesRequest $request ListExternalSAMLIdPCertificatesRequest
      *
      * @return ListExternalSAMLIdPCertificatesResponse ListExternalSAMLIdPCertificatesResponse
@@ -2847,8 +3149,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
-     *   *
+     * @summary Queries the users in a group.
+     *  *
+     * @description This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
+     *  *
      * @param ListGroupMembersRequest $request ListGroupMembersRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2889,8 +3193,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
-     *   *
+     * @summary Queries the users in a group.
+     *  *
+     * @description This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
+     *  *
      * @param ListGroupMembersRequest $request ListGroupMembersRequest
      *
      * @return ListGroupMembersResponse ListGroupMembersResponse
@@ -2903,8 +3209,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
-     *   *
+     * @summary Queries groups.
+     *  *
+     * @description This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
+     *  *
      * @param ListGroupsRequest $request ListGroupsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -2948,8 +3256,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
-     *   *
+     * @summary Queries groups.
+     *  *
+     * @description This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
+     *  *
      * @param ListGroupsRequest $request ListGroupsRequest
      *
      * @return ListGroupsResponse ListGroupsResponse
@@ -2962,8 +3272,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
-     *   *
+     * @summary Queries the groups to which a user is added.
+     *  *
+     * @description This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
+     *  *
      * @param ListJoinedGroupsForUserRequest $request ListJoinedGroupsForUserRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3004,8 +3316,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
-     *   *
+     * @summary Queries the groups to which a user is added.
+     *  *
+     * @description This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
+     *  *
      * @param ListJoinedGroupsForUserRequest $request ListJoinedGroupsForUserRequest
      *
      * @return ListJoinedGroupsForUserResponse ListJoinedGroupsForUserResponse
@@ -3018,8 +3332,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) devices that are bound to a user. Up to two MFA devices can be bound to a user.
+     *  *
+     * @description This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+     *  *
      * @param ListMFADevicesForUserRequest $request ListMFADevicesForUserRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3054,8 +3370,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
-     *   *
+     * @summary Queries the multi-factor authentication (MFA) devices that are bound to a user. Up to two MFA devices can be bound to a user.
+     *  *
+     * @description This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+     *  *
      * @param ListMFADevicesForUserRequest $request ListMFADevicesForUserRequest
      *
      * @return ListMFADevicesForUserResponse ListMFADevicesForUserResponse
@@ -3068,8 +3386,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
-     *   *
+     * @summary Queries the policies that are created for an access configuration.
+     *  *
+     * @description This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
+     *  *
      * @param ListPermissionPoliciesInAccessConfigurationRequest $request ListPermissionPoliciesInAccessConfigurationRequest
      * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3107,8 +3427,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
-     *   *
+     * @summary Queries the policies that are created for an access configuration.
+     *  *
+     * @description This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
+     *  *
      * @param ListPermissionPoliciesInAccessConfigurationRequest $request ListPermissionPoliciesInAccessConfigurationRequest
      *
      * @return ListPermissionPoliciesInAccessConfigurationResponse ListPermissionPoliciesInAccessConfigurationResponse
@@ -3121,8 +3443,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
-     *   *
+     * @summary Queries Cross-domain Identity Management (SCIM) credentials.
+     *  *
+     * @description This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
+     *  *
      * @param ListSCIMServerCredentialsRequest $request ListSCIMServerCredentialsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3154,8 +3478,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
-     *   *
+     * @summary Queries Cross-domain Identity Management (SCIM) credentials.
+     *  *
+     * @description This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
+     *  *
      * @param ListSCIMServerCredentialsRequest $request ListSCIMServerCredentialsRequest
      *
      * @return ListSCIMServerCredentialsResponse ListSCIMServerCredentialsResponse
@@ -3168,9 +3494,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
-     *   * This topic provides an example on how to query the tasks within the previous 24 hours.
-     *   *
+     * @summary Queries asynchronous tasks.
+     *  *
+     * @description By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
+     * This topic provides an example on how to query the tasks within the previous 24 hours.
+     *  *
      * @param ListTasksRequest $request ListTasksRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -3232,9 +3560,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
-     *   * This topic provides an example on how to query the tasks within the previous 24 hours.
-     *   *
+     * @summary Queries asynchronous tasks.
+     *  *
+     * @description By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
+     * This topic provides an example on how to query the tasks within the previous 24 hours.
+     *  *
      * @param ListTasksRequest $request ListTasksRequest
      *
      * @return ListTasksResponse ListTasksResponse
@@ -3247,10 +3577,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUserProvisioningEventsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries Resource Access Management (RAM) user provisioning events.
+     *  *
+     * @param ListUserProvisioningEventsRequest $request ListUserProvisioningEventsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserProvisioningEventsResponse
+     * @return ListUserProvisioningEventsResponse ListUserProvisioningEventsResponse
      */
     public function listUserProvisioningEventsWithOptions($request, $runtime)
     {
@@ -3287,9 +3619,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUserProvisioningEventsRequest $request
+     * @summary Queries Resource Access Management (RAM) user provisioning events.
+     *  *
+     * @param ListUserProvisioningEventsRequest $request ListUserProvisioningEventsRequest
      *
-     * @return ListUserProvisioningEventsResponse
+     * @return ListUserProvisioningEventsResponse ListUserProvisioningEventsResponse
      */
     public function listUserProvisioningEvents($request)
     {
@@ -3299,10 +3633,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUserProvisioningsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries Resource Access Management (RAM) user provisionings.
+     *  *
+     * @param ListUserProvisioningsRequest $request ListUserProvisioningsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserProvisioningsResponse
+     * @return ListUserProvisioningsResponse ListUserProvisioningsResponse
      */
     public function listUserProvisioningsWithOptions($request, $runtime)
     {
@@ -3348,9 +3684,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUserProvisioningsRequest $request
+     * @summary Queries Resource Access Management (RAM) user provisionings.
+     *  *
+     * @param ListUserProvisioningsRequest $request ListUserProvisioningsRequest
      *
-     * @return ListUserProvisioningsResponse
+     * @return ListUserProvisioningsResponse ListUserProvisioningsResponse
      */
     public function listUserProvisionings($request)
     {
@@ -3360,8 +3698,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
-     *   *
+     * @summary Queries users.
+     *  *
+     * @description This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+     *  *
      * @param ListUsersRequest $request ListUsersRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -3408,8 +3748,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
-     *   *
+     * @summary Queries users.
+     *  *
+     * @description This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+     *  *
      * @param ListUsersRequest $request ListUsersRequest
      *
      * @return ListUsersResponse ListUsersResponse
@@ -3422,9 +3764,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
-     *   *
+     * @summary Provisions an access configuration for an account in your resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     *  *
      * @param ProvisionAccessConfigurationRequest $request ProvisionAccessConfigurationRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3465,9 +3809,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     *   * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
-     *   *
+     * @summary Provisions an access configuration for an account in your resource directory.
+     *  *
+     * @description When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     *  *
      * @param ProvisionAccessConfigurationRequest $request ProvisionAccessConfigurationRequest
      *
      * @return ProvisionAccessConfigurationResponse ProvisionAccessConfigurationResponse
@@ -3480,8 +3826,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
-     *   *
+     * @summary Removes a Security Assertion Markup Language (SAML) signing certificate.
+     *  *
+     * @description This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
+     *  *
      * @param RemoveExternalSAMLIdPCertificateRequest $request RemoveExternalSAMLIdPCertificateRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -3516,8 +3864,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
-     *   *
+     * @summary Removes a Security Assertion Markup Language (SAML) signing certificate.
+     *  *
+     * @description This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
+     *  *
      * @param RemoveExternalSAMLIdPCertificateRequest $request RemoveExternalSAMLIdPCertificateRequest
      *
      * @return RemoveExternalSAMLIdPCertificateResponse RemoveExternalSAMLIdPCertificateResponse
@@ -3530,9 +3880,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After you remove an inline policy from an access configuration, the policy cannot be restored.
-     *   * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Removes a policy from an access configuration.
+     *  *
+     * @description After you remove an inline policy from an access configuration, the policy cannot be restored.
+     * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param RemovePermissionPolicyFromAccessConfigurationRequest $request RemovePermissionPolicyFromAccessConfigurationRequest
      * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3573,9 +3925,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After you remove an inline policy from an access configuration, the policy cannot be restored.
-     *   * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Removes a policy from an access configuration.
+     *  *
+     * @description After you remove an inline policy from an access configuration, the policy cannot be restored.
+     * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param RemovePermissionPolicyFromAccessConfigurationRequest $request RemovePermissionPolicyFromAccessConfigurationRequest
      *
      * @return RemovePermissionPolicyFromAccessConfigurationResponse RemovePermissionPolicyFromAccessConfigurationResponse
@@ -3588,9 +3942,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
-     *   * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
-     *   *
+     * @summary Removes a user from a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
+     * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
+     *  *
      * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3628,9 +3984,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
-     *   * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
-     *   *
+     * @summary Removes a user from a group.
+     *  *
+     * @description If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
+     * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
+     *  *
      * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      *
      * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
@@ -3643,10 +4001,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
-     *   * >  After you enable SSO logon, your password cannot be reset.
-     *   * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
-     *   *
+     * @summary Resets the password of a user.
+     *  *
+     * @description If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
+     * >  After you enable SSO logon, your password cannot be reset.
+     * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     *  *
      * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3690,10 +4050,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
-     *   * >  After you enable SSO logon, your password cannot be reset.
-     *   * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
-     *   *
+     * @summary Resets the password of a user.
+     *  *
+     * @description If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
+     * >  After you enable SSO logon, your password cannot be reset.
+     * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     *  *
      * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
      *
      * @return ResetUserPasswordResponse ResetUserPasswordResponse
@@ -3706,10 +4068,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RetryUserProvisioningEventRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Retries a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param RetryUserProvisioningEventRequest $request RetryUserProvisioningEventRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryUserProvisioningEventResponse
+     * @return RetryUserProvisioningEventResponse RetryUserProvisioningEventResponse
      */
     public function retryUserProvisioningEventWithOptions($request, $runtime)
     {
@@ -3743,9 +4107,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RetryUserProvisioningEventRequest $request
+     * @summary Retries a Resource Access Management (RAM) user provisioning event.
+     *  *
+     * @param RetryUserProvisioningEventRequest $request RetryUserProvisioningEventRequest
      *
-     * @return RetryUserProvisioningEventResponse
+     * @return RetryUserProvisioningEventResponse RetryUserProvisioningEventResponse
      */
     public function retryUserProvisioningEvent($request)
     {
@@ -3755,16 +4121,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
-     *   * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
-     *   * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
-     *   * *   Manually configure the IdP. You can manually specify the following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
-     *   * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
-     *   * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
-     *   * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
-     *   * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
-     *   * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Configures a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
+     * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
+     * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
+     * *   Manually configure the IdP. You can manually specify the following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
+     * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
+     * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
+     * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
+     * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
+     * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
+     *  *
      * @param SetExternalSAMLIdentityProviderRequest $request SetExternalSAMLIdentityProviderRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -3814,16 +4182,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
-     *   * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
-     *   * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
-     *   * *   Manually configure the IdP. You can manually specify the following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
-     *   * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
-     *   * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
-     *   * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
-     *   * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
-     *   * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Configures a Security Assertion Markup Language (SAML) identity provider (IdP).
+     *  *
+     * @description During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
+     * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
+     * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
+     * *   Manually configure the IdP. You can manually specify the following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
+     * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
+     * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
+     * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
+     * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
+     * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
+     *  *
      * @param SetExternalSAMLIdentityProviderRequest $request SetExternalSAMLIdentityProviderRequest
      *
      * @return SetExternalSAMLIdentityProviderResponse SetExternalSAMLIdentityProviderResponse
@@ -3836,10 +4206,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetLoginPreferenceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Configures the logon preference of CloudSSO users.
+     *  *
+     * @param SetLoginPreferenceRequest $request SetLoginPreferenceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoginPreferenceResponse
+     * @return SetLoginPreferenceResponse SetLoginPreferenceResponse
      */
     public function setLoginPreferenceWithOptions($request, $runtime)
     {
@@ -3870,9 +4242,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetLoginPreferenceRequest $request
+     * @summary Configures the logon preference of CloudSSO users.
+     *  *
+     * @param SetLoginPreferenceRequest $request SetLoginPreferenceRequest
      *
-     * @return SetLoginPreferenceResponse
+     * @return SetLoginPreferenceResponse SetLoginPreferenceResponse
      */
     public function setLoginPreference($request)
     {
@@ -3882,9 +4256,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
-     *   * This topic provides an example on how to enable MFA for users.
-     *   *
+     * @summary Enables or disables multi-factor authentication (MFA) for users in a directory.
+     *  *
+     * @description If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
+     * This topic provides an example on how to enable MFA for users.
+     *  *
      * @param SetMFAAuthenticationStatusRequest $request SetMFAAuthenticationStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3919,9 +4295,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
-     *   * This topic provides an example on how to enable MFA for users.
-     *   *
+     * @summary Enables or disables multi-factor authentication (MFA) for users in a directory.
+     *  *
+     * @description If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
+     * This topic provides an example on how to enable MFA for users.
+     *  *
      * @param SetMFAAuthenticationStatusRequest $request SetMFAAuthenticationStatusRequest
      *
      * @return SetMFAAuthenticationStatusResponse SetMFAAuthenticationStatusResponse
@@ -3934,10 +4312,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Configures a password policy for CloudSSO users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
@@ -3983,9 +4363,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
+     * @summary Configures a password policy for CloudSSO users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicy($request)
     {
@@ -3995,11 +4377,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
-     *   * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
-     *   * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
-     *   * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Enables or disables Cross-domain Identity Management (SCIM) synchronization.
+     *  *
+     * @description You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
+     * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
+     * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
+     * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
+     *  *
      * @param SetSCIMSynchronizationStatusRequest $request SetSCIMSynchronizationStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -4034,11 +4418,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
-     *   * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
-     *   * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
-     *   * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
-     *   *
+     * @summary Enables or disables Cross-domain Identity Management (SCIM) synchronization.
+     *  *
+     * @description You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
+     * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
+     * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
+     * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
+     *  *
      * @param SetSCIMSynchronizationStatusRequest $request SetSCIMSynchronizationStatusRequest
      *
      * @return SetSCIMSynchronizationStatusResponse SetSCIMSynchronizationStatusResponse
@@ -4051,9 +4437,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
-     *   * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
-     *   *
+     * @summary Modifies information about an access configuration.
+     *  *
+     * @description You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
+     * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
+     *  *
      * @param UpdateAccessConfigurationRequest $request UpdateAccessConfigurationRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4097,9 +4485,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
-     *   * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
-     *   *
+     * @summary Modifies information about an access configuration.
+     *  *
+     * @description You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
+     * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
+     *  *
      * @param UpdateAccessConfigurationRequest $request UpdateAccessConfigurationRequest
      *
      * @return UpdateAccessConfigurationResponse UpdateAccessConfigurationResponse
@@ -4112,9 +4502,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
-     *   * This topic provides an example on how to change the name of a directory to `new-example`.
-     *   *
+     * @summary Changes the name of a directory.
+     *  *
+     * @description After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
+     * This topic provides an example on how to change the name of a directory to `new-example`.
+     *  *
      * @param UpdateDirectoryRequest $request UpdateDirectoryRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4149,9 +4541,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
-     *   * This topic provides an example on how to change the name of a directory to `new-example`.
-     *   *
+     * @summary Changes the name of a directory.
+     *  *
+     * @description After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
+     * This topic provides an example on how to change the name of a directory to `new-example`.
+     *  *
      * @param UpdateDirectoryRequest $request UpdateDirectoryRequest
      *
      * @return UpdateDirectoryResponse UpdateDirectoryResponse
@@ -4164,10 +4558,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify `GroupName` and `Description` for a group.
-     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
-     *   * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
-     *   *
+     * @summary Modifies information about a group.
+     *  *
+     * @description You can modify `GroupName` and `Description` for a group.
+     * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
+     * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
+     *  *
      * @param UpdateGroupRequest $request UpdateGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -4208,10 +4604,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify `GroupName` and `Description` for a group.
-     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
-     *   * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
-     *   *
+     * @summary Modifies information about a group.
+     *  *
+     * @description You can modify `GroupName` and `Description` for a group.
+     * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
+     * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
+     *  *
      * @param UpdateGroupRequest $request UpdateGroupRequest
      *
      * @return UpdateGroupResponse UpdateGroupResponse
@@ -4224,8 +4622,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Modifies an inline policy that is created for an access configuration.
+     *  *
+     * @description This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param UpdateInlinePolicyForAccessConfigurationRequest $request UpdateInlinePolicyForAccessConfigurationRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4266,8 +4666,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
-     *   *
+     * @summary Modifies an inline policy that is created for an access configuration.
+     *  *
+     * @description This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
+     *  *
      * @param UpdateInlinePolicyForAccessConfigurationRequest $request UpdateInlinePolicyForAccessConfigurationRequest
      *
      * @return UpdateInlinePolicyForAccessConfigurationResponse UpdateInlinePolicyForAccessConfigurationResponse
@@ -4280,9 +4682,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-     *   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
-     *   *
+     * @summary Modifies the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+     *  *
      * @param UpdateMFAAuthenticationSettingsRequest $request UpdateMFAAuthenticationSettingsRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -4320,9 +4724,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-     *   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
-     *   *
+     * @summary Modifies the multi-factor authentication (MFA) setting of all users.
+     *  *
+     * @description If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+     *  *
      * @param UpdateMFAAuthenticationSettingsRequest $request UpdateMFAAuthenticationSettingsRequest
      *
      * @return UpdateMFAAuthenticationSettingsResponse UpdateMFAAuthenticationSettingsResponse
@@ -4335,8 +4741,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
-     *   *
+     * @summary Enables or disables a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     *  *
      * @param UpdateSCIMServerCredentialStatusRequest $request UpdateSCIMServerCredentialStatusRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -4374,8 +4782,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
-     *   *
+     * @summary Enables or disables a Cross-domain Identity Management (SCIM) credential.
+     *  *
+     * @description This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     *  *
      * @param UpdateSCIMServerCredentialStatusRequest $request UpdateSCIMServerCredentialStatusRequest
      *
      * @return UpdateSCIMServerCredentialStatusResponse UpdateSCIMServerCredentialStatusResponse
@@ -4388,10 +4798,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
-     *   * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
-     *   *
+     * @summary Modifies information about a user.
+     *  *
+     * @description You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
+     * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
+     * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
+     *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -4441,10 +4853,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
-     *   * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
-     *   *
+     * @summary Modifies information about a user.
+     *  *
+     * @description You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
+     * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
+     * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
+     *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      *
      * @return UpdateUserResponse UpdateUserResponse
@@ -4457,10 +4871,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you call the [UpdateMFAAuthenticationSettings](~~450134~~) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
-     *   * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
-     *   * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Modifies the multi-factor authentication (MFA) setting of a single user.
+     *  *
+     * @description If you call the [UpdateMFAAuthenticationSettings](https://help.aliyun.com/document_detail/450134.html) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
+     * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
+     * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
+     *  *
      * @param UpdateUserMFAAuthenticationSettingsRequest $request UpdateUserMFAAuthenticationSettingsRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -4498,10 +4914,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * If you call the [UpdateMFAAuthenticationSettings](~~450134~~) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
-     *   * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
-     *   * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
-     *   *
+     * @summary Modifies the multi-factor authentication (MFA) setting of a single user.
+     *  *
+     * @description If you call the [UpdateMFAAuthenticationSettings](https://help.aliyun.com/document_detail/450134.html) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
+     * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
+     * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
+     *  *
      * @param UpdateUserMFAAuthenticationSettingsRequest $request UpdateUserMFAAuthenticationSettingsRequest
      *
      * @return UpdateUserMFAAuthenticationSettingsResponse UpdateUserMFAAuthenticationSettingsResponse
@@ -4514,10 +4932,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserProvisioningRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param UpdateUserProvisioningRequest $request UpdateUserProvisioningRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserProvisioningResponse
+     * @return UpdateUserProvisioningResponse UpdateUserProvisioningResponse
      */
     public function updateUserProvisioningWithOptions($request, $runtime)
     {
@@ -4557,9 +4977,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserProvisioningRequest $request
+     * @summary Modifies a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param UpdateUserProvisioningRequest $request UpdateUserProvisioningRequest
      *
-     * @return UpdateUserProvisioningResponse
+     * @return UpdateUserProvisioningResponse UpdateUserProvisioningResponse
      */
     public function updateUserProvisioning($request)
     {
@@ -4569,10 +4991,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserProvisioningConfigurationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Modifies the global configurations of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param UpdateUserProvisioningConfigurationRequest $request UpdateUserProvisioningConfigurationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserProvisioningConfigurationResponse
+     * @return UpdateUserProvisioningConfigurationResponse UpdateUserProvisioningConfigurationResponse
      */
     public function updateUserProvisioningConfigurationWithOptions($request, $runtime)
     {
@@ -4606,9 +5030,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserProvisioningConfigurationRequest $request
+     * @summary Modifies the global configurations of a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @param UpdateUserProvisioningConfigurationRequest $request UpdateUserProvisioningConfigurationRequest
      *
-     * @return UpdateUserProvisioningConfigurationResponse
+     * @return UpdateUserProvisioningConfigurationResponse UpdateUserProvisioningConfigurationResponse
      */
     public function updateUserProvisioningConfiguration($request)
     {
@@ -4618,8 +5044,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
-     *   *
+     * @summary Changes the status of a user.
+     *  *
+     * @description This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
+     *  *
      * @param UpdateUserStatusRequest $request UpdateUserStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4657,8 +5085,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
-     *   *
+     * @summary Changes the status of a user.
+     *  *
+     * @description This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
+     *  *
      * @param UpdateUserStatusRequest $request UpdateUserStatusRequest
      *
      * @return UpdateUserStatusResponse UpdateUserStatusResponse

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class externalId extends Model
 {
     /**
+     * @description The identifier of the user that is synchronized from an external IdP.
+     *
      * @example c73******a5fdd5
      *
      * @var string
@@ -16,6 +18,8 @@ class externalId extends Model
     public $id;
 
     /**
+     * @description The method for external identity synchronization. Only System for Cross-domain Identity Management (SCIM) synchronization is supported.
+     *
      * @example SCIM
      *
      * @var string
