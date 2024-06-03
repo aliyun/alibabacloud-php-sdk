@@ -11,6 +11,7 @@ class GetAutoScalingActivityRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetAutoScalingActivityRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class GetAutoScalingActivityRequest extends Model
     /**
      * @description The ID of the scaling activity.
      *
+     * This parameter is required.
      * @example asa-36373b084d6b4b13aa50f4129a9e****
      *
      * @var string

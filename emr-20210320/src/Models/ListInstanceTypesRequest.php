@@ -19,7 +19,7 @@ class ListInstanceTypesRequest extends Model
 
     /**
      * @description 创建的EMR集群类型。取值范围：
-     * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+     * This parameter is required.
      * @example DATALAKE
      *
      * @var string
@@ -64,7 +64,7 @@ class ListInstanceTypesRequest extends Model
 
     /**
      * @description 节点组类型。取值范围：
-     * - TASK：计算类型节点组。
+     * This parameter is required.
      * @example CORE
      *
      * @var string
@@ -73,7 +73,7 @@ class ListInstanceTypesRequest extends Model
 
     /**
      * @description 集群的付费类型。取值范围：
-     * 默认值：PayAsYouGo。
+     * This parameter is required.
      * @example PayAsYouGo
      *
      * @var string
@@ -83,6 +83,7 @@ class ListInstanceTypesRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -101,6 +102,7 @@ class ListInstanceTypesRequest extends Model
     /**
      * @description 可用区ID。
      *
+     * This parameter is required.
      * @example cn-beijing-h
      *
      * @var string

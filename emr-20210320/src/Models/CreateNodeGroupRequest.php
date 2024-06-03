@@ -11,6 +11,7 @@ class CreateNodeGroupRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example C-E525E04F3914****
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateNodeGroupRequest extends Model
     /**
      * @description The information about a machine group.
      *
+     * This parameter is required.
      * @var NodeGroupConfig
      */
     public $nodeGroup;
@@ -27,6 +29,7 @@ class CreateNodeGroupRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -29,6 +29,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The list of resource IDs. Number of array elements N Valid values: 1 to 1
      *
+     * This parameter is required.
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
      * @var string[]
@@ -47,6 +49,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to cluster.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

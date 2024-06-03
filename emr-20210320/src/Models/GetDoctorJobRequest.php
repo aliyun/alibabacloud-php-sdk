@@ -11,6 +11,7 @@ class GetDoctorJobRequest extends Model
     /**
      * @description The ID of the job that is submitted to YARN.
      *
+     * This parameter is required.
      * @example application_1542620905989_****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDoctorJobRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDoctorJobRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

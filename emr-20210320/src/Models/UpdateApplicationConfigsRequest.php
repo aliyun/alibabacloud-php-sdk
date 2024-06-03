@@ -11,6 +11,7 @@ class UpdateApplicationConfigsRequest extends Model
     /**
      * @description The application configurations.
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var UpdateApplicationConfig[]
@@ -20,6 +21,7 @@ class UpdateApplicationConfigsRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example HDFS
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateApplicationConfigsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-e6a9d46e9267****
      *
      * @var string
@@ -90,6 +93,7 @@ class UpdateApplicationConfigsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

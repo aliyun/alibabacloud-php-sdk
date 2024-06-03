@@ -11,6 +11,7 @@ class ListAutoScalingActivitiesRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -56,6 +57,7 @@ class ListAutoScalingActivitiesRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

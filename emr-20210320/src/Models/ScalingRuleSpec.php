@@ -13,6 +13,7 @@ class ScalingRuleSpec extends Model
     /**
      * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -36,6 +37,7 @@ class ScalingRuleSpec extends Model
     /**
      * @description 冷却时间。单位为秒，取值范围在30~10800秒之间。
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -45,6 +47,7 @@ class ScalingRuleSpec extends Model
     /**
      * @description 伸缩活动类型。
      *
+     * This parameter is required.
      * @example SCALE_IN
      *
      * @var string
@@ -54,6 +57,7 @@ class ScalingRuleSpec extends Model
     /**
      * @description 规则名称。
      *
+     * This parameter is required.
      * @example scale-out-memory
      *
      * @var string
@@ -63,6 +67,7 @@ class ScalingRuleSpec extends Model
     /**
      * @description 伸缩规则类型。
      *
+     * This parameter is required.
      * @example BY_TIME
      *
      * @var string

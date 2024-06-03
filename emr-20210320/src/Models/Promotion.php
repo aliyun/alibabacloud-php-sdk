@@ -47,6 +47,7 @@ class Promotion extends Model
     /**
      * @description 优惠券号。
      *
+     * This parameter is required.
      * @example ABC123
      *
      * @var string

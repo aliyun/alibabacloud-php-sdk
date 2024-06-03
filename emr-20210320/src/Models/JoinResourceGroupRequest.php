@@ -11,6 +11,7 @@ class JoinResourceGroupRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,6 +21,7 @@ class JoinResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group.
      *
+     * This parameter is required.
      * @example rg-acfmzabjyop****
      *
      * @var string
@@ -29,6 +31,7 @@ class JoinResourceGroupRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example c-c95f0a39d8ff****
      *
      * @var string
@@ -40,6 +43,7 @@ class JoinResourceGroupRequest extends Model
      *
      *   cluster: cluster
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

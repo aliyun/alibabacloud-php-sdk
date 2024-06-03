@@ -11,6 +11,7 @@ class DecreaseNodesRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -29,6 +30,7 @@ class DecreaseNodesRequest extends Model
     /**
      * @description The ID of the node group.
      *
+     * This parameter is required.
      * @example ng-869471354ecd****
      *
      * @var string
@@ -47,6 +49,7 @@ class DecreaseNodesRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

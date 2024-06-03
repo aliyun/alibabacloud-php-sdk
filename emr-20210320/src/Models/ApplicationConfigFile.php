@@ -11,6 +11,7 @@ class ApplicationConfigFile extends Model
     /**
      * @description 应用名称。
      *
+     * This parameter is required.
      * @example HDFS
      *
      * @var string
@@ -20,6 +21,7 @@ class ApplicationConfigFile extends Model
     /**
      * @description 配置文件名称。
      *
+     * This parameter is required.
      * @example core-site.xml
      *
      * @var string

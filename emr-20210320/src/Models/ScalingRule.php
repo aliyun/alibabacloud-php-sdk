@@ -10,7 +10,7 @@ class ScalingRule extends Model
 {
     /**
      * @description 伸缩活动类型。取值范围：
-     * - SCALE_IN：缩容。
+     * This parameter is required.
      * @example SCALE_IN
      *
      * @var string
@@ -20,6 +20,7 @@ class ScalingRule extends Model
     /**
      * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -34,13 +35,9 @@ class ScalingRule extends Model
     public $metricsTrigger;
 
     /**
-     * @var int
-     */
-    public $minAdjustmentValue;
-
-    /**
      * @description 规则名称。
      *
+     * This parameter is required.
      * @example scale-out-memory
      *
      * @var string
@@ -56,20 +53,19 @@ class ScalingRule extends Model
 
     /**
      * @description 伸缩规则类型。 取值范围：
-     * - METRICS_TRIGGER: 按负载伸缩。
+     * This parameter is required.
      * @example TIME_TRIGGER
      *
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'activityType'       => 'ActivityType',
-        'adjustmentValue'    => 'AdjustmentValue',
-        'metricsTrigger'     => 'MetricsTrigger',
-        'minAdjustmentValue' => 'MinAdjustmentValue',
-        'ruleName'           => 'RuleName',
-        'timeTrigger'        => 'TimeTrigger',
-        'triggerType'        => 'TriggerType',
+        'activityType'    => 'ActivityType',
+        'adjustmentValue' => 'AdjustmentValue',
+        'metricsTrigger'  => 'MetricsTrigger',
+        'ruleName'        => 'RuleName',
+        'timeTrigger'     => 'TimeTrigger',
+        'triggerType'     => 'TriggerType',
     ];
 
     public function validate()
@@ -87,9 +83,6 @@ class ScalingRule extends Model
         }
         if (null !== $this->metricsTrigger) {
             $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toMap() : null;
-        }
-        if (null !== $this->minAdjustmentValue) {
-            $res['MinAdjustmentValue'] = $this->minAdjustmentValue;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -120,9 +113,6 @@ class ScalingRule extends Model
         }
         if (isset($map['MetricsTrigger'])) {
             $model->metricsTrigger = MetricsTrigger::fromMap($map['MetricsTrigger']);
-        }
-        if (isset($map['MinAdjustmentValue'])) {
-            $model->minAdjustmentValue = $map['MinAdjustmentValue'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConvertNodeGroupParam extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $paymentDuration;
@@ -24,6 +28,8 @@ class ConvertNodeGroupParam extends Model
     public $paymentDurationUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $paymentType;

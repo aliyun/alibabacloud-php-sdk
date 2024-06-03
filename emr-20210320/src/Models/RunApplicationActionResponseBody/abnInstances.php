@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class abnInstances extends Model
 {
     /**
+     * @example i-bp1cudc25w2bfwl5****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example core1-1
+     *
      * @var string
      */
     public $nodeName;

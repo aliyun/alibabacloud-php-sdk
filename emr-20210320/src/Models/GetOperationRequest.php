@@ -11,6 +11,7 @@ class GetOperationRequest extends Model
     /**
      * @description The ID of the cluster that you want to query.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetOperationRequest extends Model
     /**
      * @description The ID of the operation.
      *
+     * This parameter is required.
      * @example op-13c37a77c505****
      *
      * @var string
@@ -29,6 +31,7 @@ class GetOperationRequest extends Model
     /**
      * @description The district ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

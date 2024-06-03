@@ -11,6 +11,7 @@ class PutAutoScalingPolicyRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -27,6 +28,7 @@ class PutAutoScalingPolicyRequest extends Model
     /**
      * @description 节点组ID。节点组 Id-针对 ACK 集群，此字段为空。
      *
+     * This parameter is required.
      * @example ng-869471354ecd****
      *
      * @var string
@@ -36,6 +38,7 @@ class PutAutoScalingPolicyRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

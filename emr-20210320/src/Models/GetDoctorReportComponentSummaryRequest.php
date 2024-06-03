@@ -11,6 +11,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     /**
      * @description component type
      *
+     * This parameter is required.
      * @example compute
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     /**
      * @description dateTime for specify report
      *
+     * This parameter is required.
      * @example 2023-01-01
      *
      * @var string
@@ -38,6 +41,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

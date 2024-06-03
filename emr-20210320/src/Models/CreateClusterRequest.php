@@ -9,21 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The configurations of the applications. Valid values of N: 1 to 1000.
+     * @description The application configurations. You can specify a maximum of 1,000 items.
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description The applications that you want to add to the cluster. Valid values of N: 1 to 100.
+     * @description The applications. You can specify a maximum of 100 items.
      *
+     * This parameter is required.
      * @var Application[]
      */
     public $applications;
 
     /**
-     * @description The array of scripts for the bootstrap actions. Valid values of N: 1 to 10.
+     * @description The bootstrap actions. You can specify a maximum of 10 items.
      *
      * @var Script[]
      */
@@ -39,8 +40,9 @@ class CreateClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
+     * This parameter is required.
      * @example emrtest
      *
      * @var string
@@ -57,7 +59,7 @@ class CreateClusterRequest extends Model
      *   CUSTOM: a custom hybrid cluster.
      *   HADOOP: the old data lake. We recommend that you use the new data lake.
      *
-     * If you create an EMR cluster for the first time after 17:00 (UTC +8) on December 19, 2022, you cannot select the HADOOP, DATA_SCIENCE, PRESTO, or ZOOKEEPER cluster type.
+     * This parameter is required.
      * @example DATALAKE
      *
      * @var string
@@ -65,10 +67,10 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description The deployment mode of applications in the cluster. Valid values:
+     * @description The deployment mode of master nodes in the cluster. Valid values:
      *
-     *   NORMAL: regular mode. A master node is deployed in the cluster.
-     *   HA: high availability mode. At least three master nodes are deployed in the cluster.
+     *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
+     *   HA: high availability (HA) mode. A cluster that contains three master nodes is created.
      *
      * @example HA
      *
@@ -77,15 +79,17 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
-     * @description The attributes of all Elastic Compute Service (ECS) nodes in the cluster. The basic attributes of all ECS nodes in the cluster.
+     * @description The attributes of all ECS instances.
      *
+     * This parameter is required.
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
-     * @description The array of configurations of the node groups. Valid values of N: 1 to 100.
+     * @description The node groups. You can specify a maximum of 100 items.
      *
+     * This parameter is required.
      * @example NORMAL
      *
      * @var NodeGroupConfig[]
@@ -106,8 +110,9 @@ class CreateClusterRequest extends Model
     public $paymentType;
 
     /**
-     * @description The ID of the region in which you want to create the instance.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -117,6 +122,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
      *
+     * This parameter is required.
      * @example EMR-5.8.0
      *
      * @var string
@@ -135,8 +141,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The security mode of the cluster. Valid values:
      *
-     *   NORMAL: regular mode. Kerberos is not enabled.
-     *   KERBEROS: Kerberos mode. Kerberos is enabled.
+     *   NORMAL: disables Kerberos authentication for the cluster. This is the default value.
+     *   KERBEROS: enables Kerberos authentication for the cluster.
      *
      * @example NORMAL
      *
@@ -145,14 +151,14 @@ class CreateClusterRequest extends Model
     public $securityMode;
 
     /**
-     * @description The subscription configurations. This parameter is required when the PaymentType parameter is set to Subscription.
+     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
      *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description The tag that you want to add to the cloud desktop. Valid values of N: 0 to 20.
+     * @description The tags. You can specify a maximum of 20 items.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *

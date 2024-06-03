@@ -11,6 +11,7 @@ class GetApiTemplateRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,6 +21,7 @@ class GetApiTemplateRequest extends Model
     /**
      * @description 集群模板id。
      *
+     * This parameter is required.
      * @example at-41b4c6a0fc63****
      *
      * @var string

@@ -29,6 +29,7 @@ class ByTimeScalingRule extends Model
     /**
      * @description 启动时间戳。单位为毫秒。
      *
+     * This parameter is required.
      * @example 1639714634819
      *
      * @var int

@@ -11,6 +11,7 @@ class UpdateApiTemplateRequest extends Model
     /**
      * @description 接口名。
      *
+     * This parameter is required.
      * @example CreateCluster
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateApiTemplateRequest extends Model
     /**
      * @description 接口request内容。
      *
+     * This parameter is required.
      * @example CreateCluster
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateApiTemplateRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +50,7 @@ class UpdateApiTemplateRequest extends Model
     /**
      * @description 集群模板id。
      *
+     * This parameter is required.
      * @example AT-****
      *
      * @var string
@@ -56,6 +60,7 @@ class UpdateApiTemplateRequest extends Model
     /**
      * @description 集群模板名字。
      *
+     * This parameter is required.
      * @example DATALAKE模板
      *
      * @var string

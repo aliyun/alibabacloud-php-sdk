@@ -11,6 +11,7 @@ class ListScriptsRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -38,6 +39,7 @@ class ListScriptsRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +49,7 @@ class ListScriptsRequest extends Model
     /**
      * @description 集群脚本类型。
      *
+     * This parameter is required.
      * @example BOOTSTRAP
      *
      * @var string

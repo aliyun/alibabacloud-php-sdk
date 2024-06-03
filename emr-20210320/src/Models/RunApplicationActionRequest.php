@@ -16,7 +16,9 @@ class RunApplicationActionRequest extends Model
      *   config
      *   restart
      *   refresh_queues
+     *   refresh_labels
      *
+     * This parameter is required.
      * @example start
      *
      * @var string
@@ -35,6 +37,7 @@ class RunApplicationActionRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example C-C95F0A39D8FF****
      *
      * @var string
@@ -44,6 +47,7 @@ class RunApplicationActionRequest extends Model
     /**
      * @description The operation object.
      *
+     * This parameter is required.
      * @var ComponentInstanceSelector
      */
     public $componentInstanceSelector;
@@ -81,6 +85,7 @@ class RunApplicationActionRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

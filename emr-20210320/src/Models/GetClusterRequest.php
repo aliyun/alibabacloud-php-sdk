@@ -11,6 +11,7 @@ class GetClusterRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetClusterRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

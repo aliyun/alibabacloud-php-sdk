@@ -36,6 +36,7 @@ class MetricsTrigger extends Model
     /**
      * @description 统计次数。
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -52,6 +53,7 @@ class MetricsTrigger extends Model
     /**
      * @description 统计窗口。单位为秒。
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

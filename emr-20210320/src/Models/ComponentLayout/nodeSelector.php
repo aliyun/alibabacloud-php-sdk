@@ -65,6 +65,7 @@ class nodeSelector extends Model
     /**
      * @description 节点选择类型。
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string

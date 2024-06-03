@@ -141,15 +141,48 @@ class Emr extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'cn-beijing'            => 'emr.aliyuncs.com',
-            'cn-hangzhou'           => 'emr.aliyuncs.com',
-            'cn-shanghai'           => 'emr.aliyuncs.com',
-            'cn-shenzhen'           => 'emr.aliyuncs.com',
-            'ap-southeast-1'        => 'emr.aliyuncs.com',
-            'us-west-1'             => 'emr.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'emr.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'emr.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'emr.aliyuncs.com',
+            'cn-beijing'                  => 'emr.aliyuncs.com',
+            'cn-hangzhou'                 => 'emr.aliyuncs.com',
+            'cn-shanghai'                 => 'emr.aliyuncs.com',
+            'cn-shenzhen'                 => 'emr.aliyuncs.com',
+            'ap-southeast-1'              => 'emr.aliyuncs.com',
+            'us-west-1'                   => 'emr.aliyuncs.com',
+            'cn-shanghai-finance-1'       => 'emr.aliyuncs.com',
+            'cn-shenzhen-finance-1'       => 'emr.aliyuncs.com',
+            'cn-north-2-gov-1'            => 'emr.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'emr.aliyuncs.com',
+            'cn-beijing-finance-1'        => 'emr.aliyuncs.com',
+            'cn-beijing-finance-pop'      => 'emr.aliyuncs.com',
+            'cn-beijing-gov-1'            => 'emr.aliyuncs.com',
+            'cn-beijing-nu16-b01'         => 'emr.aliyuncs.com',
+            'cn-edge-1'                   => 'emr.aliyuncs.com',
+            'cn-fujian'                   => 'emr.aliyuncs.com',
+            'cn-haidian-cm12-c01'         => 'emr.aliyuncs.com',
+            'cn-hangzhou-bj-b01'          => 'emr.aliyuncs.com',
+            'cn-hangzhou-finance'         => 'emr.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'emr.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'emr.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'emr.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'emr.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'emr.aliyuncs.com',
+            'cn-hongkong-finance-pop'     => 'emr.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'emr.aliyuncs.com',
+            'cn-qingdao-nebula'           => 'emr.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'emr.aliyuncs.com',
+            'cn-shanghai-et2-b01'         => 'emr.aliyuncs.com',
+            'cn-shanghai-inner'           => 'emr.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'emr.aliyuncs.com',
+            'cn-shenzhen-inner'           => 'emr.aliyuncs.com',
+            'cn-shenzhen-st4-d01'         => 'emr.aliyuncs.com',
+            'cn-shenzhen-su18-b01'        => 'emr.aliyuncs.com',
+            'cn-wuhan'                    => 'emr.aliyuncs.com',
+            'cn-yushanfang'               => 'emr.aliyuncs.com',
+            'cn-zhangbei'                 => 'emr.aliyuncs.com',
+            'cn-zhangbei-na61-b01'        => 'emr.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01'     => 'emr.aliyuncs.com',
+            'cn-zhengzhou-nebula-1'       => 'emr.aliyuncs.com',
+            'eu-west-1-oxs'               => 'emr.aliyuncs.com',
+            'rus-west-1-pop'              => 'emr.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -179,10 +212,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateApiTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApiTemplateResponse
+     * @return CreateApiTemplateResponse CreateApiTemplateResponse
      */
     public function createApiTemplateWithOptions($request, $runtime)
     {
@@ -222,9 +255,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateApiTemplateRequest $request
+     * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
      *
-     * @return CreateApiTemplateResponse
+     * @return CreateApiTemplateResponse CreateApiTemplateResponse
      */
     public function createApiTemplate($request)
     {
@@ -234,10 +267,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a pay-as-you-go or subscription cluster.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -310,9 +345,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @summary Creates a pay-as-you-go or subscription cluster.
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -322,8 +359,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 创建节点组。
-     *   *
+     * @summary Creates a node group.
+     *  *
+     * @description 创建节点组。
+     *  *
      * @param CreateNodeGroupRequest $request CreateNodeGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -361,8 +400,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 创建节点组。
-     *   *
+     * @summary Creates a node group.
+     *  *
+     * @description 创建节点组。
+     *  *
      * @param CreateNodeGroupRequest $request CreateNodeGroupRequest
      *
      * @return CreateNodeGroupResponse CreateNodeGroupResponse
@@ -375,8 +416,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 缩容节点。
-     *   *
+     * @summary Perform a scale-out operation on the target node group.
+     *  *
+     * @description 缩容节点。
+     *  *
      * @param DecreaseNodesRequest $request DecreaseNodesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -420,8 +463,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 缩容节点。
-     *   *
+     * @summary Perform a scale-out operation on the target node group.
+     *  *
+     * @description 缩容节点。
+     *  *
      * @param DecreaseNodesRequest $request DecreaseNodesRequest
      *
      * @return DecreaseNodesResponse DecreaseNodesResponse
@@ -434,8 +479,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 创建集群模板
-     *   *
+     * @description 创建集群模板
+     *  *
      * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -476,8 +521,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 创建集群模板
-     *   *
+     * @description 创建集群模板
+     *  *
      * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
      *
      * @return DeleteApiTemplateResponse DeleteApiTemplateResponse
@@ -490,10 +535,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -524,9 +569,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -536,10 +581,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetApiTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获取API模板详情
+     *  *
+     * @param GetApiTemplateRequest $request GetApiTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApiTemplateResponse
+     * @return GetApiTemplateResponse GetApiTemplateResponse
      */
     public function getApiTemplateWithOptions($request, $runtime)
     {
@@ -570,9 +617,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetApiTemplateRequest $request
+     * @summary 获取API模板详情
+     *  *
+     * @param GetApiTemplateRequest $request GetApiTemplateRequest
      *
-     * @return GetApiTemplateResponse
+     * @return GetApiTemplateResponse GetApiTemplateResponse
      */
     public function getApiTemplate($request)
     {
@@ -582,8 +631,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用详情。
-     *   *
+     * @description 查询应用详情。
+     *  *
      * @param GetApplicationRequest $request GetApplicationRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -621,8 +670,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用详情。
-     *   *
+     * @description 查询应用详情。
+     *  *
      * @param GetApplicationRequest $request GetApplicationRequest
      *
      * @return GetApplicationResponse GetApplicationResponse
@@ -635,8 +684,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取弹性伸缩活动详情。
-     *   *
+     * @description 获取弹性伸缩活动详情。
+     *  *
      * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -674,8 +723,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取弹性伸缩活动详情。
-     *   *
+     * @description 获取弹性伸缩活动详情。
+     *  *
      * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
      *
      * @return GetAutoScalingActivityResponse GetAutoScalingActivityResponse
@@ -688,10 +737,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetAutoScalingPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicyWithOptions($request, $runtime)
     {
@@ -725,9 +774,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetAutoScalingPolicyRequest $request
+     * @param GetAutoScalingPolicyRequest $request GetAutoScalingPolicyRequest
      *
-     * @return GetAutoScalingPolicyResponse
+     * @return GetAutoScalingPolicyResponse GetAutoScalingPolicyResponse
      */
     public function getAutoScalingPolicy($request)
     {
@@ -737,10 +786,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetClusterRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Obtains the details of a cluster.
+     *  *
+     * @param GetClusterRequest $request GetClusterRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterResponse
+     * @return GetClusterResponse GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
@@ -771,9 +822,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param GetClusterRequest $request
+     * @summary Obtains the details of a cluster.
+     *  *
+     * @param GetClusterRequest $request GetClusterRequest
      *
-     * @return GetClusterResponse
+     * @return GetClusterResponse GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -783,8 +836,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get one doctor analysis app.
-     *   *
+     * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one doctor analysis app
+     *  *
      * @param GetDoctorApplicationRequest $request GetDoctorApplicationRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -825,8 +880,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get one doctor analysis app.
-     *   *
+     * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one doctor analysis app
+     *  *
      * @param GetDoctorApplicationRequest $request GetDoctorApplicationRequest
      *
      * @return GetDoctorApplicationResponse GetDoctorApplicationResponse
@@ -839,8 +896,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get one specific luster engine queue by <type, name>.
-     *   *
+     * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one specific luster engine queue by <type, name>
+     *  *
      * @param GetDoctorComputeSummaryRequest $request GetDoctorComputeSummaryRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -881,8 +940,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get one specific luster engine queue by <type, name>.
-     *   *
+     * @summary Obtains the information about resource usage in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get one specific luster engine queue by <type, name>
+     *  *
      * @param GetDoctorComputeSummaryRequest $request GetDoctorComputeSummaryRequest
      *
      * @return GetDoctorComputeSummaryResponse GetDoctorComputeSummaryResponse
@@ -895,8 +956,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseCluster.
-     *   *
+     * @summary Obtains the metrics of an HBase cluster.
+     *  *
+     * @description get Doctor HBaseCluster
+     *  *
      * @param GetDoctorHBaseClusterRequest $request GetDoctorHBaseClusterRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -934,8 +997,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseCluster.
-     *   *
+     * @summary Obtains the metrics of an HBase cluster.
+     *  *
+     * @description get Doctor HBaseCluster
+     *  *
      * @param GetDoctorHBaseClusterRequest $request GetDoctorHBaseClusterRequest
      *
      * @return GetDoctorHBaseClusterResponse GetDoctorHBaseClusterResponse
@@ -948,8 +1013,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseRegions.
-     *   *
+     * @description list Doctor HBaseRegions
+     *  *
      * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -990,8 +1055,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseRegions.
-     *   *
+     * @description list Doctor HBaseRegions
+     *  *
      * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
      *
      * @return GetDoctorHBaseRegionResponse GetDoctorHBaseRegionResponse
@@ -1004,8 +1069,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseRegionServer.
-     *   *
+     * @summary Obtains the information about an HBase region server.
+     *  *
+     * @description get Doctor HBaseRegionServer
+     *  *
      * @param GetDoctorHBaseRegionServerRequest $request GetDoctorHBaseRegionServerRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1046,8 +1113,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseRegionServer.
-     *   *
+     * @summary Obtains the information about an HBase region server.
+     *  *
+     * @description get Doctor HBaseRegionServer
+     *  *
      * @param GetDoctorHBaseRegionServerRequest $request GetDoctorHBaseRegionServerRequest
      *
      * @return GetDoctorHBaseRegionServerResponse GetDoctorHBaseRegionServerResponse
@@ -1060,8 +1129,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseTable.
-     *   *
+     * @description get Doctor HBaseTable
+     *  *
      * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1102,8 +1171,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HBaseTable.
-     *   *
+     * @description get Doctor HBaseTable
+     *  *
      * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
      *
      * @return GetDoctorHBaseTableResponse GetDoctorHBaseTableResponse
@@ -1116,8 +1185,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseTableRegions.
-     *   *
+     * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HBaseTableRegions
+     *  *
      * @param GetDoctorHDFSClusterRequest $request GetDoctorHDFSClusterRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1155,8 +1226,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseTableRegions.
-     *   *
+     * @summary Obtains the analysis results of the Hadoop Distributed File System (HDFS) storage resources of a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HBaseTableRegions
+     *  *
      * @param GetDoctorHDFSClusterRequest $request GetDoctorHDFSClusterRequest
      *
      * @return GetDoctorHDFSClusterResponse GetDoctorHDFSClusterResponse
@@ -1169,8 +1242,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HDFSNode.
-     *   *
+     * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     *  *
+     * @description get Doctor HDFSNode
+     *  *
      * @param GetDoctorHDFSDirectoryRequest $request GetDoctorHDFSDirectoryRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1211,8 +1286,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HDFSNode.
-     *   *
+     * @summary Obtains the analysis results of a specific Hadoop Distributed File System (HDFS) directory of a cluster. The depth of the directory is not greater than five.
+     *  *
+     * @description get Doctor HDFSNode
+     *  *
      * @param GetDoctorHDFSDirectoryRequest $request GetDoctorHDFSDirectoryRequest
      *
      * @return GetDoctorHDFSDirectoryResponse GetDoctorHDFSDirectoryResponse
@@ -1225,8 +1302,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HDFS UGI.
-     *   *
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor HDFS UGI
+     *  *
      * @param GetDoctorHDFSUGIRequest $request GetDoctorHDFSUGIRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1270,8 +1349,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor HDFS UGI.
-     *   *
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for a specific owner or group on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor HDFS UGI
+     *  *
      * @param GetDoctorHDFSUGIRequest $request GetDoctorHDFSUGIRequest
      *
      * @return GetDoctorHDFSUGIResponse GetDoctorHDFSUGIResponse
@@ -1284,8 +1365,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Cluster.
-     *   *
+     * @summary Obtains the analysis results of a Hive cluster.
+     *  *
+     * @description list Doctor Hive Cluster
+     *  *
      * @param GetDoctorHiveClusterRequest $request GetDoctorHiveClusterRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1323,8 +1406,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Cluster.
-     *   *
+     * @summary Obtains the analysis results of a Hive cluster.
+     *  *
+     * @description list Doctor Hive Cluster
+     *  *
      * @param GetDoctorHiveClusterRequest $request GetDoctorHiveClusterRequest
      *
      * @return GetDoctorHiveClusterResponse GetDoctorHiveClusterResponse
@@ -1337,8 +1422,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor Hive Database.
-     *   *
+     * @summary Obtains the analysis results of a Hive database.
+     *  *
+     * @description get Doctor Hive Database
+     *  *
      * @param GetDoctorHiveDatabaseRequest $request GetDoctorHiveDatabaseRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1379,8 +1466,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor Hive Database.
-     *   *
+     * @summary Obtains the analysis results of a Hive database.
+     *  *
+     * @description get Doctor Hive Database
+     *  *
      * @param GetDoctorHiveDatabaseRequest $request GetDoctorHiveDatabaseRequest
      *
      * @return GetDoctorHiveDatabaseResponse GetDoctorHiveDatabaseResponse
@@ -1393,8 +1482,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor Hive Table.
-     *   *
+     * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor Hive Table
+     *  *
      * @param GetDoctorHiveTableRequest $request GetDoctorHiveTableRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1435,8 +1526,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get Doctor Hive Table.
-     *   *
+     * @summary Obtains the analysis results of a specific Hive table in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description get Doctor Hive Table
+     *  *
      * @param GetDoctorHiveTableRequest $request GetDoctorHiveTableRequest
      *
      * @return GetDoctorHiveTableResponse GetDoctorHiveTableResponse
@@ -1449,8 +1542,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get realtime job by yarn.
-     *   *
+     * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description Get realtime job by yarn
+     *  *
      * @param GetDoctorJobRequest $request GetDoctorJobRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1488,8 +1583,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Get realtime job by yarn.
-     *   *
+     * @summary Obtains the basic running information about a job on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description Get realtime job by yarn
+     *  *
      * @param GetDoctorJobRequest $request GetDoctorJobRequest
      *
      * @return GetDoctorJobResponse GetDoctorJobResponse
@@ -1502,8 +1599,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get specify component's report analysis by emr doctor.
-     *   *
+     * @description get specify component's report analysis by emr doctor
+     *  *
      * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1544,8 +1641,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * get specify component's report analysis by emr doctor.
-     *   *
+     * @description get specify component's report analysis by emr doctor
+     *  *
      * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
      *
      * @return GetDoctorReportComponentSummaryResponse GetDoctorReportComponentSummaryResponse
@@ -1558,8 +1655,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取节点组详情。
-     *   *
+     * @summary You can call this operation to obtain the details of a node group.
+     *  *
+     * @description 获取节点组详情。
+     *  *
      * @param GetNodeGroupRequest $request GetNodeGroupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1597,8 +1696,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取节点组详情。
-     *   *
+     * @summary You can call this operation to obtain the details of a node group.
+     *  *
+     * @description 获取节点组详情。
+     *  *
      * @param GetNodeGroupRequest $request GetNodeGroupRequest
      *
      * @return GetNodeGroupResponse GetNodeGroupResponse
@@ -1611,8 +1712,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取操作详情。
-     *   *
+     * @summary Gets the details of an asynchronous operation.
+     *  *
+     * @description 获取操作详情。
+     *  *
      * @param GetOperationRequest $request GetOperationRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1650,8 +1753,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 获取操作详情。
-     *   *
+     * @summary Gets the details of an asynchronous operation.
+     *  *
+     * @description 获取操作详情。
+     *  *
      * @param GetOperationRequest $request GetOperationRequest
      *
      * @return GetOperationResponse GetOperationResponse
@@ -1664,10 +1769,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param IncreaseNodesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Scale out the node group.
+     *  *
+     * @param IncreaseNodesRequest $request IncreaseNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return IncreaseNodesResponse
+     * @return IncreaseNodesResponse IncreaseNodesResponse
      */
     public function increaseNodesWithOptions($request, $runtime)
     {
@@ -1719,9 +1826,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param IncreaseNodesRequest $request
+     * @summary Scale out the node group.
+     *  *
+     * @param IncreaseNodesRequest $request IncreaseNodesRequest
      *
-     * @return IncreaseNodesResponse
+     * @return IncreaseNodesResponse IncreaseNodesResponse
      */
     public function increaseNodes($request)
     {
@@ -1731,10 +1840,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param JoinResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+     *  *
+     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse JoinResourceGroupResponse
      */
     public function joinResourceGroupWithOptions($request, $runtime)
     {
@@ -1771,9 +1882,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param JoinResourceGroupRequest $request
+     * @summary Add an EMR resource to the target resource group. A resource can belong to only one resource group.
+     *  *
+     * @param JoinResourceGroupRequest $request JoinResourceGroupRequest
      *
-     * @return JoinResourceGroupResponse
+     * @return JoinResourceGroupResponse JoinResourceGroupResponse
      */
     public function joinResourceGroup($request)
     {
@@ -1783,10 +1896,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListApiTemplatesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询API模板
+     *  *
+     * @param ListApiTemplatesRequest $request ListApiTemplatesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApiTemplatesResponse
+     * @return ListApiTemplatesResponse ListApiTemplatesResponse
      */
     public function listApiTemplatesWithOptions($request, $runtime)
     {
@@ -1835,9 +1950,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListApiTemplatesRequest $request
+     * @summary 查询API模板
+     *  *
+     * @param ListApiTemplatesRequest $request ListApiTemplatesRequest
      *
-     * @return ListApiTemplatesResponse
+     * @return ListApiTemplatesResponse ListApiTemplatesResponse
      */
     public function listApiTemplates($request)
     {
@@ -1847,8 +1964,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用配置。
-     *   *
+     * @description 查询应用配置。
+     *  *
      * @param ListApplicationConfigsRequest $request ListApplicationConfigsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1907,8 +2024,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用配置。
-     *   *
+     * @description 查询应用配置。
+     *  *
      * @param ListApplicationConfigsRequest $request ListApplicationConfigsRequest
      *
      * @return ListApplicationConfigsResponse ListApplicationConfigsResponse
@@ -1921,8 +2038,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用列表。
-     *   *
+     * @description 查询应用列表。
+     *  *
      * @param ListApplicationsRequest $request ListApplicationsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1966,8 +2083,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询应用列表。
-     *   *
+     * @description 查询应用列表。
+     *  *
      * @param ListApplicationsRequest $request ListApplicationsRequest
      *
      * @return ListApplicationsResponse ListApplicationsResponse
@@ -1980,8 +2097,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询弹性伸缩活动列表。
-     *   *
+     * @description 查询弹性伸缩活动列表。
+     *  *
      * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2040,8 +2157,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询弹性伸缩活动列表。
-     *   *
+     * @description 查询弹性伸缩活动列表。
+     *  *
      * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
      *
      * @return ListAutoScalingActivitiesResponse ListAutoScalingActivitiesResponse
@@ -2054,10 +2171,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries E-MapReduce (EMR) clusters.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
@@ -2112,9 +2231,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
+     * @summary Queries E-MapReduce (EMR) clusters.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -2124,8 +2245,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询组件实例列表。
-     *   *
+     * @description 查询组件实例列表。
+     *  *
      * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2181,8 +2302,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询组件实例列表。
-     *   *
+     * @description 查询组件实例列表。
+     *  *
      * @param ListComponentInstancesRequest $request ListComponentInstancesRequest
      *
      * @return ListComponentInstancesResponse ListComponentInstancesResponse
@@ -2195,8 +2316,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询组件列表。
-     *   *
+     * @description 查询组件列表。
+     *  *
      * @param ListComponentsRequest $request ListComponentsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2249,8 +2370,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询组件列表。
-     *   *
+     * @description 查询组件列表。
+     *  *
      * @param ListComponentsRequest $request ListComponentsRequest
      *
      * @return ListComponentsResponse ListComponentsResponse
@@ -2263,8 +2384,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list all doctor analysis apps.
-     *   *
+     * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list all doctor analysis apps
+     *  *
      * @param ListDoctorApplicationsRequest $request ListDoctorApplicationsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2326,8 +2449,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list all doctor analysis apps.
-     *   *
+     * @summary Obtains the analysis results of multiple jobs on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list all doctor analysis apps
+     *  *
      * @param ListDoctorApplicationsRequest $request ListDoctorApplicationsRequest
      *
      * @return ListDoctorApplicationsResponse ListDoctorApplicationsResponse
@@ -2340,8 +2465,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor analysis result of cluster engine queue view.
-     *   *
+     * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor analysis result of cluster engine queue view
+     *  *
      * @param ListDoctorComputeSummaryRequest $request ListDoctorComputeSummaryRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2394,8 +2521,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor analysis result of cluster engine queue view.
-     *   *
+     * @summary Obtains the information about resource usage by resource type in a cluster on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor analysis result of cluster engine queue view
+     *  *
      * @param ListDoctorComputeSummaryRequest $request ListDoctorComputeSummaryRequest
      *
      * @return ListDoctorComputeSummaryResponse ListDoctorComputeSummaryResponse
@@ -2408,8 +2537,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseRegionServers.
-     *   *
+     * @summary Obtains the information about multiple HBase RegionServers at a time.
+     *  *
+     * @description list Doctor HBaseRegionServers
+     *  *
      * @param ListDoctorHBaseRegionServersRequest $request ListDoctorHBaseRegionServersRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2462,8 +2593,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseRegionServers.
-     *   *
+     * @summary Obtains the information about multiple HBase RegionServers at a time.
+     *  *
+     * @description list Doctor HBaseRegionServers
+     *  *
      * @param ListDoctorHBaseRegionServersRequest $request ListDoctorHBaseRegionServersRequest
      *
      * @return ListDoctorHBaseRegionServersResponse ListDoctorHBaseRegionServersResponse
@@ -2476,8 +2609,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseTables.
-     *   *
+     * @summary Obtains the information about multiple HBase tables at a time.
+     *  *
+     * @description list Doctor HBaseTables
+     *  *
      * @param ListDoctorHBaseTablesRequest $request ListDoctorHBaseTablesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2530,8 +2665,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HBaseTables.
-     *   *
+     * @summary Obtains the information about multiple HBase tables at a time.
+     *  *
+     * @description list Doctor HBaseTables
+     *  *
      * @param ListDoctorHBaseTablesRequest $request ListDoctorHBaseTablesRequest
      *
      * @return ListDoctorHBaseTablesResponse ListDoctorHBaseTablesResponse
@@ -2544,8 +2681,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HDFSNodes.
-     *   *
+     * @description list Doctor HDFSNodes
+     *  *
      * @param ListDoctorHDFSDirectoriesRequest $request ListDoctorHDFSDirectoriesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2598,8 +2735,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HDFSNodes.
-     *   *
+     * @description list Doctor HDFSNodes
+     *  *
      * @param ListDoctorHDFSDirectoriesRequest $request ListDoctorHDFSDirectoriesRequest
      *
      * @return ListDoctorHDFSDirectoriesResponse ListDoctorHDFSDirectoriesResponse
@@ -2612,8 +2749,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HDFS UGIs.
-     *   *
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HDFS UGIs
+     *  *
      * @param ListDoctorHDFSUGIRequest $request ListDoctorHDFSUGIRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2666,8 +2805,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor HDFS UGIs.
-     *   *
+     * @summary Obtains the analysis results of Hadoop Distributed File System (HDFS) storage resources for multiple owners or groups at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor HDFS UGIs
+     *  *
      * @param ListDoctorHDFSUGIRequest $request ListDoctorHDFSUGIRequest
      *
      * @return ListDoctorHDFSUGIResponse ListDoctorHDFSUGIResponse
@@ -2680,8 +2821,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Databases.
-     *   *
+     * @summary Obtains the analysis results of multiple Hive databases at a time.
+     *  *
+     * @description list Doctor Hive Databases
+     *  *
      * @param ListDoctorHiveDatabasesRequest $request ListDoctorHiveDatabasesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2734,8 +2877,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Databases.
-     *   *
+     * @summary Obtains the analysis results of multiple Hive databases at a time.
+     *  *
+     * @description list Doctor Hive Databases
+     *  *
      * @param ListDoctorHiveDatabasesRequest $request ListDoctorHiveDatabasesRequest
      *
      * @return ListDoctorHiveDatabasesResponse ListDoctorHiveDatabasesResponse
@@ -2748,8 +2893,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Tables.
-     *   *
+     * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor Hive Tables
+     *  *
      * @param ListDoctorHiveTablesRequest $request ListDoctorHiveTablesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2802,8 +2949,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list Doctor Hive Tables.
-     *   *
+     * @summary Obtains the analysis results of multiple Hive tables at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list Doctor Hive Tables
+     *  *
      * @param ListDoctorHiveTablesRequest $request ListDoctorHiveTablesRequest
      *
      * @return ListDoctorHiveTablesResponse ListDoctorHiveTablesResponse
@@ -2816,8 +2965,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list realtime jobs by yarn.
-     *   *
+     * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list realtime jobs by yarn
+     *  *
      * @param ListDoctorJobsRequest $request ListDoctorJobsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2882,8 +3033,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list realtime jobs by yarn.
-     *   *
+     * @summary Obtains the basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list realtime jobs by yarn
+     *  *
      * @param ListDoctorJobsRequest $request ListDoctorJobsRequest
      *
      * @return ListDoctorJobsResponse ListDoctorJobsResponse
@@ -2896,8 +3049,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list stats groupBy jobs by yarn.
-     *   *
+     * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list stats groupBy jobs by yarn
+     *  *
      * @param ListDoctorJobsStatsRequest $request ListDoctorJobsStatsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2953,8 +3108,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list stats groupBy jobs by yarn.
-     *   *
+     * @summary Obtains the summary of basic running information about multiple jobs at a time on E-MapReduce (EMR) Doctor.
+     *  *
+     * @description list stats groupBy jobs by yarn
+     *  *
      * @param ListDoctorJobsStatsRequest $request ListDoctorJobsStatsRequest
      *
      * @return ListDoctorJobsStatsResponse ListDoctorJobsStatsResponse
@@ -2967,8 +3124,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list all reports analysis by emr doctor.
-     *   *
+     * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     *  *
+     * @description list all reports analysis by emr doctor
+     *  *
      * @param ListDoctorReportsRequest $request ListDoctorReportsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3009,8 +3168,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * list all reports analysis by emr doctor.
-     *   *
+     * @summary Obtains the overall analysis result reports of E-MapReduce (EMR) Doctor at a time.
+     *  *
+     * @description list all reports analysis by emr doctor
+     *  *
      * @param ListDoctorReportsRequest $request ListDoctorReportsRequest
      *
      * @return ListDoctorReportsResponse ListDoctorReportsResponse
@@ -3023,10 +3184,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceTypesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceTypesResponse
+     * @return ListInstanceTypesResponse ListInstanceTypesResponse
      */
     public function listInstanceTypesWithOptions($request, $runtime)
     {
@@ -3084,9 +3245,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceTypesRequest $request
+     * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
      *
-     * @return ListInstanceTypesResponse
+     * @return ListInstanceTypesResponse ListInstanceTypesResponse
      */
     public function listInstanceTypes($request)
     {
@@ -3096,10 +3257,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListNodeGroupsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the list of node groups in an EMR cluster.
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
      */
     public function listNodeGroupsWithOptions($request, $runtime)
     {
@@ -3148,9 +3311,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListNodeGroupsRequest $request
+     * @summary Queries the list of node groups in an EMR cluster.
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
      *
-     * @return ListNodeGroupsResponse
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
      */
     public function listNodeGroups($request)
     {
@@ -3160,10 +3325,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the node list of an EMR cluster.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
@@ -3221,9 +3388,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $request
+     * @summary Queries the node list of an EMR cluster.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -3233,8 +3402,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询主版本。
-     *   *
+     * @summary Queries the major E-MapReduce (EMR) versions.
+     *  *
+     * @description 查询主版本。
+     *  *
      * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3272,8 +3443,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询主版本。
-     *   *
+     * @summary Queries the major E-MapReduce (EMR) versions.
+     *  *
+     * @description 查询主版本。
+     *  *
      * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
      *
      * @return ListReleaseVersionsResponse ListReleaseVersionsResponse
@@ -3286,8 +3459,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询集群脚本。
-     *   *
+     * @description 查询集群脚本。
+     *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -3331,8 +3504,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询集群脚本。
-     *   *
+     * @description 查询集群脚本。
+     *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      *
      * @return ListScriptsResponse ListScriptsResponse
@@ -3345,10 +3518,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are bound to an EMR cluster.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -3391,9 +3566,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are bound to an EMR cluster.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3403,8 +3580,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to configure auto scaling policies.
-     *   *
+     * @summary Configures auto scaling rules.
+     *  *
+     * @description You can call this operation to configure auto scaling policies.
+     *  *
      * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3448,8 +3627,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to configure auto scaling policies.
-     *   *
+     * @summary Configures auto scaling rules.
+     *  *
+     * @description You can call this operation to configure auto scaling policies.
+     *  *
      * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
      *
      * @return PutAutoScalingPolicyResponse PutAutoScalingPolicyResponse
@@ -3462,10 +3643,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RemoveAutoScalingPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param RemoveAutoScalingPolicyRequest $request RemoveAutoScalingPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveAutoScalingPolicyResponse
+     * @return RemoveAutoScalingPolicyResponse RemoveAutoScalingPolicyResponse
      */
     public function removeAutoScalingPolicyWithOptions($request, $runtime)
     {
@@ -3499,9 +3680,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RemoveAutoScalingPolicyRequest $request
+     * @param RemoveAutoScalingPolicyRequest $request RemoveAutoScalingPolicyRequest
      *
-     * @return RemoveAutoScalingPolicyResponse
+     * @return RemoveAutoScalingPolicyResponse RemoveAutoScalingPolicyResponse
      */
     public function removeAutoScalingPolicy($request)
     {
@@ -3511,8 +3692,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 执行集群模板
-     *   *
+     * @description 执行集群模板
+     *  *
      * @param RunApiTemplateRequest $request RunApiTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3553,8 +3734,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 执行集群模板
-     *   *
+     * @description 执行集群模板
+     *  *
      * @param RunApiTemplateRequest $request RunApiTemplateRequest
      *
      * @return RunApiTemplateResponse RunApiTemplateResponse
@@ -3567,10 +3748,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RunApplicationActionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationActionWithOptions($request, $runtime)
     {
@@ -3622,9 +3803,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RunApplicationActionRequest $request
+     * @param RunApplicationActionRequest $request RunApplicationActionRequest
      *
-     * @return RunApplicationActionResponse
+     * @return RunApplicationActionResponse RunApplicationActionResponse
      */
     public function runApplicationAction($request)
     {
@@ -3634,10 +3815,12 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Bind tags to a specified EMR cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -3674,9 +3857,11 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Bind tags to a specified EMR cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3686,8 +3871,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 删除指定资源标签。
-     *   *
+     * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     *  *
+     * @description 删除指定资源标签。
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3731,8 +3918,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 删除指定资源标签。
-     *   *
+     * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
+     *  *
+     * @description 删除指定资源标签。
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -3745,8 +3934,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 修改集群模板
-     *   *
+     * @description 修改集群模板
+     *  *
      * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3793,8 +3982,8 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 修改集群模板
-     *   *
+     * @description 修改集群模板
+     *  *
      * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
      *
      * @return UpdateApiTemplateResponse UpdateApiTemplateResponse
@@ -3807,10 +3996,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationConfigsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateApplicationConfigsRequest $request UpdateApplicationConfigsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationConfigsResponse
+     * @return UpdateApplicationConfigsResponse UpdateApplicationConfigsResponse
      */
     public function updateApplicationConfigsWithOptions($request, $runtime)
     {
@@ -3862,9 +4051,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationConfigsRequest $request
+     * @param UpdateApplicationConfigsRequest $request UpdateApplicationConfigsRequest
      *
-     * @return UpdateApplicationConfigsResponse
+     * @return UpdateApplicationConfigsResponse UpdateApplicationConfigsResponse
      */
     public function updateApplicationConfigs($request)
     {

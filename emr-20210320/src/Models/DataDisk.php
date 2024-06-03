@@ -11,6 +11,7 @@ class DataDisk extends Model
     /**
      * @description 磁盘类型。
      *
+     * This parameter is required.
      * @example cloud_essd
      *
      * @var string
@@ -38,6 +39,7 @@ class DataDisk extends Model
     /**
      * @description 单位GB。
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int

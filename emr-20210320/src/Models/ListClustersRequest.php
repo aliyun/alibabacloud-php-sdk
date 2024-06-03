@@ -102,6 +102,7 @@ class ListClustersRequest extends Model
      *   eu-west-1
      *   cn-north-2-gov-1
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -24,6 +24,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -33,6 +34,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The list of resource IDs.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string[]
@@ -42,6 +44,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to cluster.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

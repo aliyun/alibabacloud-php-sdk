@@ -11,6 +11,7 @@ class Application extends Model
     /**
      * @description 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
      *
+     * This parameter is required.
      * @example HDFS
      *
      * @var string

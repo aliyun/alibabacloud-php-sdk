@@ -11,6 +11,7 @@ class DiskSize extends Model
     /**
      * @description 磁盘类型。
      *
+     * This parameter is required.
      * @example cloud_essd
      *
      * @var string

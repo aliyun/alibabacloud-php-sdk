@@ -29,6 +29,7 @@ class RenewInstance extends Model
     /**
      * @description 节点ID。
      *
+     * This parameter is required.
      * @example i-bp1cudc25w2bfwl5****
      *
      * @var string

@@ -10,7 +10,7 @@ class TriggerCondition extends Model
 {
     /**
      * @description 比较符。取值范围：
-     * - LE:小于等于。
+     * This parameter is required.
      * @example LT
      *
      * @var string
@@ -20,6 +20,7 @@ class TriggerCondition extends Model
     /**
      * @description 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
      *
+     * This parameter is required.
      * @example yarn_resourcemanager_root_availablememoryusage
      *
      * @var string
@@ -28,7 +29,7 @@ class TriggerCondition extends Model
 
     /**
      * @description 统计量名称。取值范围：
-     * - AVG：平均值。
+     * This parameter is required.
      * @example AVG
      *
      * @var string
@@ -45,6 +46,7 @@ class TriggerCondition extends Model
     /**
      * @description 阈值。
      *
+     * This parameter is required.
      * @example 12.5
      *
      * @var float

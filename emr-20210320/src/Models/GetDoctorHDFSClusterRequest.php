@@ -11,6 +11,7 @@ class GetDoctorHDFSClusterRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDoctorHDFSClusterRequest extends Model
     /**
      * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
      *
+     * This parameter is required.
      * @example 2023-01-01
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDoctorHDFSClusterRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

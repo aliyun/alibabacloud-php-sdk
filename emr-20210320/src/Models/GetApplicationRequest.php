@@ -11,6 +11,7 @@ class GetApplicationRequest extends Model
     /**
      * @description 应用名称。
      *
+     * This parameter is required.
      * @example HDFS
      *
      * @var string
@@ -20,6 +21,7 @@ class GetApplicationRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -29,6 +31,7 @@ class GetApplicationRequest extends Model
     /**
      * @description 地域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

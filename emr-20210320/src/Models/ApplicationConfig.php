@@ -11,6 +11,7 @@ class ApplicationConfig extends Model
     /**
      * @description 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
      *
+     * This parameter is required.
      * @example HDFS
      *
      * @var string
@@ -20,6 +21,7 @@ class ApplicationConfig extends Model
     /**
      * @description 应用配置文件名。
      *
+     * This parameter is required.
      * @example hdfs-site.xml
      *
      * @var string
@@ -29,6 +31,7 @@ class ApplicationConfig extends Model
     /**
      * @description 配置项键。
      *
+     * This parameter is required.
      * @example dfs.namenode.checkpoint.period
      *
      * @var string

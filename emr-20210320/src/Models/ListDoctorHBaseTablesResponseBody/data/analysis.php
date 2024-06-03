@@ -20,7 +20,7 @@ class analysis extends Model
     /**
      * @description The description of read imbalance.
      *
-     * @example read request unbalance is <p class=\"report-detail-topic\">
+     * @example read request unbalance is <p class=\\"report-detail-topic\\">
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class analysis extends Model
     /**
      * @description The description of read/write imbalance.
      *
-     * @example read request unbalance is <p class=\"report-detail-topic\">
+     * @example read request unbalance is <p class=\\"report-detail-topic\\">
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class analysis extends Model
     /**
      * @description The description of write imbalance.
      *
-     * @example write request unbalance is <p class=\"report-detail-topic\">
+     * @example write request unbalance is <p class=\\"report-detail-topic\\">
      *
      * @var string
      */

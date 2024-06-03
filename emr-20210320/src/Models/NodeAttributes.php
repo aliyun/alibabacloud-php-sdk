@@ -38,6 +38,7 @@ class NodeAttributes extends Model
     /**
      * @description 安全组ID。EMR只支持普通安全组，不支持企业安全组。
      *
+     * This parameter is required.
      * @example sg-hp3abbae8lb6lmb1****
      *
      * @var string
@@ -47,6 +48,7 @@ class NodeAttributes extends Model
     /**
      * @description 专有网络ID。
      *
+     * This parameter is required.
      * @example vpc-bp1tgey2p0ytxmdo5****
      *
      * @var string
@@ -56,6 +58,7 @@ class NodeAttributes extends Model
     /**
      * @description 可用区ID。
      *
+     * This parameter is required.
      * @example cn-beijing-h
      *
      * @var string

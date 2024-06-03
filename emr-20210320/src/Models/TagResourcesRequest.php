@@ -11,6 +11,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,6 +21,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of resource IDs. Valid values of N: 1 to 1.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string[]
@@ -31,6 +33,7 @@ class TagResourcesRequest extends Model
      *
      *   cluster: cluster
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string
@@ -40,6 +43,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of tags to be bound.
      *
+     * This parameter is required.
      * @example [null]
      *
      * @var Tag[]

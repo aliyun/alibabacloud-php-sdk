@@ -20,6 +20,7 @@ class IncreaseNodeGroup extends Model
     /**
      * @description 节点数量。
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -29,6 +30,7 @@ class IncreaseNodeGroup extends Model
     /**
      * @description 节点组ID。
      *
+     * This parameter is required.
      * @example ng-869471354ecd****
      *
      * @var string

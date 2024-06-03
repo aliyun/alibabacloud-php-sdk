@@ -29,7 +29,7 @@ class tableSizeDayGrowthRatio extends Model
     /**
      * @description The unit of the metric.
      *
-     * @example \""
+     * @example \\""
      *
      * @var string
      */

@@ -29,6 +29,7 @@ class TimeTrigger extends Model
     /**
      * @description 启动时间。
      *
+     * This parameter is required.
      * @var string
      */
     public $launchTime;

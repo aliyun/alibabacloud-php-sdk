@@ -20,6 +20,7 @@ class ListComponentInstancesRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -81,6 +82,7 @@ class ListComponentInstancesRequest extends Model
     /**
      * @description 地域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,6 +23,8 @@ class NodeCountConstraint extends Model
     public $min;
 
     /**
+     * @description This parameter is required.
+     *
      * @example range
      *
      * @var string

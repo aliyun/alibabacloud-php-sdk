@@ -20,6 +20,7 @@ class ListApplicationsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-e6a9d46e92675****
      *
      * @var string
@@ -47,6 +48,7 @@ class ListApplicationsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

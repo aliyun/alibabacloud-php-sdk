@@ -11,6 +11,7 @@ class ListReleaseVersionsRequest extends Model
     /**
      * @description The type of the cluster.
      *
+     * This parameter is required.
      * @example DATALAKE
      *
      * @var string
@@ -29,6 +30,7 @@ class ListReleaseVersionsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

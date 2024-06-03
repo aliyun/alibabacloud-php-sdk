@@ -31,6 +31,7 @@ class IncreaseNodesRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -40,6 +41,7 @@ class IncreaseNodesRequest extends Model
     /**
      * @description The number of nodes. The number of incremental nodes for this scale-out. Valid values: 1 to 500.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -54,6 +56,7 @@ class IncreaseNodesRequest extends Model
     /**
      * @description The ID of the node group. The target node group to which you want to scale out the cluster.
      *
+     * This parameter is required.
      * @example ng-869471354ecd****
      *
      * @var string
@@ -83,6 +86,7 @@ class IncreaseNodesRequest extends Model
     /**
      * @description The ID of the region in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

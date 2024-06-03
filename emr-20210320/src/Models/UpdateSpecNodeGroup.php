@@ -11,6 +11,7 @@ class UpdateSpecNodeGroup extends Model
     /**
      * @description 新实例类型。
      *
+     * This parameter is required.
      * @example ecs.g7.xlarge
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateSpecNodeGroup extends Model
     /**
      * @description 节点组ID。
      *
+     * This parameter is required.
      * @example ng-869471354ecd****
      *
      * @var string

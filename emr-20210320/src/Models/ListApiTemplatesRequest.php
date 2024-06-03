@@ -11,6 +11,7 @@ class ListApiTemplatesRequest extends Model
     /**
      * @description 接口名。
      *
+     * This parameter is required.
      * @example CreateCluster
      *
      * @var string
@@ -38,6 +39,7 @@ class ListApiTemplatesRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

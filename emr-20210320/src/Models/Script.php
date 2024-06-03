@@ -29,6 +29,7 @@ class Script extends Model
     /**
      * @description 节点选择器。
      *
+     * This parameter is required.
      * @var NodeSelector
      */
     public $nodeSelector;
@@ -56,6 +57,7 @@ class Script extends Model
     /**
      * @description 脚本名称。长度为1~64个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）
      *
+     * This parameter is required.
      * @example 脚本名-1
      *
      * @var string
@@ -65,6 +67,7 @@ class Script extends Model
     /**
      * @description 脚本所在OSS路径。
      *
+     * This parameter is required.
      * @example oss://bucket1/update_hosts.sh
      *
      * @var string

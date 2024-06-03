@@ -38,6 +38,7 @@ class SubscriptionConfig extends Model
     /**
      * @description 付费时长。PaymentDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
      *
+     * This parameter is required.
      * @example 12
      *
      * @var int
@@ -46,7 +47,7 @@ class SubscriptionConfig extends Model
 
     /**
      * @description 付费时长单位。取值范围：
-     * - Month：月。
+     * This parameter is required.
      * @example Month
      *
      * @var string

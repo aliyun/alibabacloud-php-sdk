@@ -11,6 +11,7 @@ class GetDoctorHBaseTableRequest extends Model
     /**
      * @description 集群ID。
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -18,6 +19,8 @@ class GetDoctorHBaseTableRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -27,6 +30,7 @@ class GetDoctorHBaseTableRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -34,6 +38,8 @@ class GetDoctorHBaseTableRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example namespace1:tb_item
      *
      * @var string

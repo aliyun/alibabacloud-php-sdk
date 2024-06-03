@@ -42,7 +42,7 @@ class ComponentInstanceSelector extends Model
 
     /**
      * @description 动作执行范围。取值范围：
-     * - COMPONENT_INSTANCE：组件实例级别。
+     * This parameter is required.
      * @example APPLICATION
      *
      * @var string

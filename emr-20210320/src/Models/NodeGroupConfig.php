@@ -83,7 +83,7 @@ class NodeGroupConfig extends Model
 
     /**
      * @description 节点组类型。取值范围：
-     * - TASK：计算类型节点组。
+     * This parameter is required.
      * @example CORE
      *
      * @var string

@@ -11,6 +11,7 @@ class GetDoctorHiveDatabaseRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDoctorHiveDatabaseRequest extends Model
     /**
      * @description The database name.
      *
+     * This parameter is required.
      * @example db1
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDoctorHiveDatabaseRequest extends Model
     /**
      * @description The query date.
      *
+     * This parameter is required.
      * @example 2023-01-01
      *
      * @var string
@@ -38,6 +41,7 @@ class GetDoctorHiveDatabaseRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

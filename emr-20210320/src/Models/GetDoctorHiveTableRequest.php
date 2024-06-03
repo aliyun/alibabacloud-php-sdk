@@ -11,6 +11,7 @@ class GetDoctorHiveTableRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c-b933c5aac8fe****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDoctorHiveTableRequest extends Model
     /**
      * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
      *
+     * This parameter is required.
      * @example 2023-01-01
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDoctorHiveTableRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +41,7 @@ class GetDoctorHiveTableRequest extends Model
     /**
      * @description The table name. The table name must follow the rule in Hive. A name in the {database name.table identifier} format uniquely identifies a table.
      *
+     * This parameter is required.
      * @example dw.dwd_creta_service_order_long_renew_long_da
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunApiTemplateResponseBody extends Model
 {
     /**
-     * @example {\"clusterId\":\"c-b7be171f1928****\",\"operationId\":\"op-61126efe629d****\"}
+     * @example {\\"clusterId\\":\\"c-b7be171f1928****\\",\\"operationId\\":\\"op-61126efe629d****\\"}
      *
      * @var string
      */

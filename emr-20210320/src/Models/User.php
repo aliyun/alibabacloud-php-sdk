@@ -20,6 +20,7 @@ class User extends Model
     /**
      * @description 用户密码。
      *
+     * This parameter is required.
      * @example 12345****
      *
      * @var string
@@ -29,6 +30,7 @@ class User extends Model
     /**
      * @description 用户ID。
      *
+     * This parameter is required.
      * @example 1238539****
      *
      * @var string
@@ -38,6 +40,7 @@ class User extends Model
     /**
      * @description 用户名称。
      *
+     * This parameter is required.
      * @example 王五
      *
      * @var string

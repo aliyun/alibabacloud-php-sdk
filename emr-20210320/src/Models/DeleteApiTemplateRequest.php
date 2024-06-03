@@ -11,6 +11,7 @@ class DeleteApiTemplateRequest extends Model
     /**
      * @description 接口名。
      *
+     * This parameter is required.
      * @example CreateCluster
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteApiTemplateRequest extends Model
     /**
      * @description 区域ID。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +40,7 @@ class DeleteApiTemplateRequest extends Model
     /**
      * @description 集群模板id。
      *
+     * This parameter is required.
      * @example at-****
      *
      * @var string
