@@ -290,6 +290,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByAILabelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByHybridRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByHybridResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceRequest;
@@ -4817,7 +4819,7 @@ class ICE extends OpenApiClient
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
             'method'      => 'POST',
-            'authType'    => 'AK',
+            'authType'    => 'Anonymous',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
@@ -8147,6 +8149,68 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchMediaByFaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 混合搜索
+     *  *
+     * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchMediaByHybridResponse SearchMediaByHybridResponse
+     */
+    public function searchMediaByHybridWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchLibName)) {
+            $query['SearchLibName'] = $request->searchLibName;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaByHybrid',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchMediaByHybridResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 混合搜索
+     *  *
+     * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
+     *
+     * @return SearchMediaByHybridResponse SearchMediaByHybridResponse
+     */
+    public function searchMediaByHybrid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaByHybridWithOptions($request, $runtime);
     }
 
     /**
