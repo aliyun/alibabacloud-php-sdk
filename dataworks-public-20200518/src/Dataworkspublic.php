@@ -9389,7 +9389,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform.
+     * @summary Queries the information about a migration task.
      *  *
      * @param GetMigrationSummaryRequest $request GetMigrationSummaryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9425,7 +9425,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform.
+     * @summary Queries the information about a migration task.
      *  *
      * @param GetMigrationSummaryRequest $request GetMigrationSummaryRequest
      *

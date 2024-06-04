@@ -10,26 +10,27 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationSummaryResponseBody extends Model
 {
     /**
-     * @description The ID of the migration task.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails. You can locate the error based on the request ID.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description The ID of the migration task.
      *
-     *   true: The request is successful.
-     *   false: The request fails. You can locate the error based on the request ID.
-     *
-     * @example 19999A96-71BA-1845-B455-ED620EF4E37F
+     * You can call the [CreateImportMigration](~~CreateImportMigration~~) operation to obtain the ID of the import task and call the [CreateExportMigration](~~CreateImportMigration~~) operation to obtain the ID of the export task.
+     * @example 19999A96-71BA-2845-B455-ED620EF4E37F
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the migration task.
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example true
      *

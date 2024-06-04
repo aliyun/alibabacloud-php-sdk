@@ -19,9 +19,15 @@ class resourceSettings extends Model
      * @var realtimeResourceSettings
      */
     public $realtimeResourceSettings;
+
+    /**
+     * @var float
+     */
+    public $requestedCu;
     protected $_name = [
         'offlineResourceSettings'  => 'OfflineResourceSettings',
         'realtimeResourceSettings' => 'RealtimeResourceSettings',
+        'requestedCu'              => 'RequestedCu',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class resourceSettings extends Model
         }
         if (null !== $this->realtimeResourceSettings) {
             $res['RealtimeResourceSettings'] = null !== $this->realtimeResourceSettings ? $this->realtimeResourceSettings->toMap() : null;
+        }
+        if (null !== $this->requestedCu) {
+            $res['RequestedCu'] = $this->requestedCu;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class resourceSettings extends Model
         }
         if (isset($map['RealtimeResourceSettings'])) {
             $model->realtimeResourceSettings = realtimeResourceSettings::fromMap($map['RealtimeResourceSettings']);
+        }
+        if (isset($map['RequestedCu'])) {
+            $model->requestedCu = $map['RequestedCu'];
         }
 
         return $model;
