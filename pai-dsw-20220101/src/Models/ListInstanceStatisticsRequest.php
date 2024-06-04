@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 27218,34956
      *
      * @var string

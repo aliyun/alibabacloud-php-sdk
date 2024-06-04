@@ -22,7 +22,7 @@ class CreateInstanceSnapshotRequest extends Model
     public $imageUrl;
 
     /**
-     * @example {\"foo\": \"bar\"}
+     * @example {\\"foo\\": \\"bar\\"}
      *
      * @var labels[]
      */

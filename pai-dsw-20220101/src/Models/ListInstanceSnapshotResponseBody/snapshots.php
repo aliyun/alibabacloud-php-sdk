@@ -52,7 +52,7 @@ class snapshots extends Model
     public $instanceId;
 
     /**
-     * @example {\"foo\": \"bar\"}
+     * @example {\\"foo\\": \\"bar\\"}
      *
      * @var labels[]
      */

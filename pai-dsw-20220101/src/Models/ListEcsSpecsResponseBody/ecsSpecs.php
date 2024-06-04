@@ -66,7 +66,7 @@ class ecsSpecs extends Model
     public $isAvailable;
 
     /**
-     * @example {\"foo\": \"bar\"}
+     * @example {\\"foo\\": \\"bar\\"}
      *
      * @var labels[]
      */

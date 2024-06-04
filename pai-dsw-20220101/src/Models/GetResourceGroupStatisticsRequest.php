@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-11-08T15:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class GetResourceGroupStatisticsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rg-123456789
      *
      * @var string
@@ -23,6 +27,8 @@ class GetResourceGroupStatisticsRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-11-08T15:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class GetResourceGroupStatisticsRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 27218,34956
      *
      * @var string

@@ -16,6 +16,8 @@ class GetTokenRequest extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dsw-730xxxxxxxxxx
      *
      * @var string

@@ -39,6 +39,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StartInstanceResponse;
@@ -87,11 +88,11 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                          $InstanceId
-     * @param CreateIdleInstanceCullerRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateIdleInstanceCullerRequest $request    CreateIdleInstanceCullerRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateIdleInstanceCullerResponse
+     * @return CreateIdleInstanceCullerResponse CreateIdleInstanceCullerResponse
      */
     public function createIdleInstanceCullerWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -127,9 +128,9 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                          $InstanceId
-     * @param CreateIdleInstanceCullerRequest $request
+     * @param CreateIdleInstanceCullerRequest $request    CreateIdleInstanceCullerRequest
      *
-     * @return CreateIdleInstanceCullerResponse
+     * @return CreateIdleInstanceCullerResponse CreateIdleInstanceCullerResponse
      */
     public function createIdleInstanceCuller($InstanceId, $request)
     {
@@ -140,11 +141,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 创建实例
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
@@ -221,9 +224,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary 创建实例
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -234,12 +239,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 创建定时关机任务
+     *  *
      * @param string                             $InstanceId
-     * @param CreateInstanceShutdownTimerRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param CreateInstanceShutdownTimerRequest $request    CreateInstanceShutdownTimerRequest
+     * @param string[]                           $headers    map
+     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceShutdownTimerResponse
+     * @return CreateInstanceShutdownTimerResponse CreateInstanceShutdownTimerResponse
      */
     public function createInstanceShutdownTimerWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -271,10 +278,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 创建定时关机任务
+     *  *
      * @param string                             $InstanceId
-     * @param CreateInstanceShutdownTimerRequest $request
+     * @param CreateInstanceShutdownTimerRequest $request    CreateInstanceShutdownTimerRequest
      *
-     * @return CreateInstanceShutdownTimerResponse
+     * @return CreateInstanceShutdownTimerResponse CreateInstanceShutdownTimerResponse
      */
     public function createInstanceShutdownTimer($InstanceId, $request)
     {
@@ -285,12 +294,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 创建实例快照
+     *  *
      * @param string                        $InstanceId
-     * @param CreateInstanceSnapshotRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateInstanceSnapshotRequest $request    CreateInstanceSnapshotRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceSnapshotResponse
+     * @return CreateInstanceSnapshotResponse CreateInstanceSnapshotResponse
      */
     public function createInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -334,10 +345,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 创建实例快照
+     *  *
      * @param string                        $InstanceId
-     * @param CreateInstanceSnapshotRequest $request
+     * @param CreateInstanceSnapshotRequest $request    CreateInstanceSnapshotRequest
      *
-     * @return CreateInstanceSnapshotResponse
+     * @return CreateInstanceSnapshotResponse CreateInstanceSnapshotResponse
      */
     public function createInstanceSnapshot($InstanceId, $request)
     {
@@ -349,10 +362,10 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteIdleInstanceCullerResponse
+     * @return DeleteIdleInstanceCullerResponse DeleteIdleInstanceCullerResponse
      */
     public function deleteIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime)
     {
@@ -377,7 +390,7 @@ class Paidsw extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return DeleteIdleInstanceCullerResponse
+     * @return DeleteIdleInstanceCullerResponse DeleteIdleInstanceCullerResponse
      */
     public function deleteIdleInstanceCuller($InstanceId)
     {
@@ -388,11 +401,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 删除实例
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -415,9 +430,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 删除实例
+     *  *
      * @param string $InstanceId
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($InstanceId)
     {
@@ -428,11 +445,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 删除定时关机任务
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceShutdownTimerResponse
+     * @return DeleteInstanceShutdownTimerResponse DeleteInstanceShutdownTimerResponse
      */
     public function deleteInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
     {
@@ -455,9 +474,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 删除定时关机任务
+     *  *
      * @param string $InstanceId
      *
-     * @return DeleteInstanceShutdownTimerResponse
+     * @return DeleteInstanceShutdownTimerResponse DeleteInstanceShutdownTimerResponse
      */
     public function deleteInstanceShutdownTimer($InstanceId)
     {
@@ -468,12 +489,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例快照详情
+     *  *
      * @param string         $InstanceId
      * @param string         $SnapshotId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceSnapshotResponse
+     * @return DeleteInstanceSnapshotResponse DeleteInstanceSnapshotResponse
      */
     public function deleteInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
     {
@@ -496,10 +519,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例快照详情
+     *  *
      * @param string $InstanceId
      * @param string $SnapshotId
      *
-     * @return DeleteInstanceSnapshotResponse
+     * @return DeleteInstanceSnapshotResponse DeleteInstanceSnapshotResponse
      */
     public function deleteInstanceSnapshot($InstanceId, $SnapshotId)
     {
@@ -511,10 +536,10 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetIdleInstanceCullerResponse
+     * @return GetIdleInstanceCullerResponse GetIdleInstanceCullerResponse
      */
     public function getIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime)
     {
@@ -539,7 +564,7 @@ class Paidsw extends OpenApiClient
     /**
      * @param string $InstanceId
      *
-     * @return GetIdleInstanceCullerResponse
+     * @return GetIdleInstanceCullerResponse GetIdleInstanceCullerResponse
      */
     public function getIdleInstanceCuller($InstanceId)
     {
@@ -550,11 +575,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例详情
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -577,9 +604,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例详情
+     *  *
      * @param string $InstanceId
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($InstanceId)
     {
@@ -591,11 +620,11 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                   $InstanceId
-     * @param GetInstanceEventsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetInstanceEventsRequest $request    GetInstanceEventsRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceEventsResponse
+     * @return GetInstanceEventsResponse GetInstanceEventsResponse
      */
     public function getInstanceEventsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -631,9 +660,9 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                   $InstanceId
-     * @param GetInstanceEventsRequest $request
+     * @param GetInstanceEventsRequest $request    GetInstanceEventsRequest
      *
-     * @return GetInstanceEventsResponse
+     * @return GetInstanceEventsResponse GetInstanceEventsResponse
      */
     public function getInstanceEvents($InstanceId, $request)
     {
@@ -645,11 +674,11 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param GetInstanceMetricsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetInstanceMetricsRequest $request    GetInstanceMetricsRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceMetricsResponse
+     * @return GetInstanceMetricsResponse GetInstanceMetricsResponse
      */
     public function getInstanceMetricsWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -688,9 +717,9 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string                    $InstanceId
-     * @param GetInstanceMetricsRequest $request
+     * @param GetInstanceMetricsRequest $request    GetInstanceMetricsRequest
      *
-     * @return GetInstanceMetricsResponse
+     * @return GetInstanceMetricsResponse GetInstanceMetricsResponse
      */
     public function getInstanceMetrics($InstanceId, $request)
     {
@@ -701,11 +730,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取定时关机任务
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceShutdownTimerResponse
+     * @return GetInstanceShutdownTimerResponse GetInstanceShutdownTimerResponse
      */
     public function getInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
     {
@@ -728,9 +759,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取定时关机任务
+     *  *
      * @param string $InstanceId
      *
-     * @return GetInstanceShutdownTimerResponse
+     * @return GetInstanceShutdownTimerResponse GetInstanceShutdownTimerResponse
      */
     public function getInstanceShutdownTimer($InstanceId)
     {
@@ -741,12 +774,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例快照详情
+     *  *
      * @param string         $InstanceId
      * @param string         $SnapshotId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceSnapshotResponse
+     * @return GetInstanceSnapshotResponse GetInstanceSnapshotResponse
      */
     public function getInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
     {
@@ -769,10 +804,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例快照详情
+     *  *
      * @param string $InstanceId
      * @param string $SnapshotId
      *
-     * @return GetInstanceSnapshotResponse
+     * @return GetInstanceSnapshotResponse GetInstanceSnapshotResponse
      */
     public function getInstanceSnapshot($InstanceId, $SnapshotId)
     {
@@ -784,11 +821,11 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string              $InstanceId
-     * @param GetLifecycleRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetLifecycleRequest $request    GetLifecycleRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetLifecycleResponse
+     * @return GetLifecycleResponse GetLifecycleResponse
      */
     public function getLifecycleWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -830,9 +867,9 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string              $InstanceId
-     * @param GetLifecycleRequest $request
+     * @param GetLifecycleRequest $request    GetLifecycleRequest
      *
-     * @return GetLifecycleResponse
+     * @return GetLifecycleResponse GetLifecycleResponse
      */
     public function getLifecycle($InstanceId, $request)
     {
@@ -843,11 +880,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupStatisticsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param GetResourceGroupStatisticsRequest $request GetResourceGroupStatisticsRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupStatisticsResponse
+     * @return GetResourceGroupStatisticsResponse GetResourceGroupStatisticsResponse
      */
     public function getResourceGroupStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -885,9 +922,9 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupStatisticsRequest $request
+     * @param GetResourceGroupStatisticsRequest $request GetResourceGroupStatisticsRequest
      *
-     * @return GetResourceGroupStatisticsResponse
+     * @return GetResourceGroupStatisticsResponse GetResourceGroupStatisticsResponse
      */
     public function getResourceGroupStatistics($request)
     {
@@ -898,11 +935,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getTokenWithOptions($request, $headers, $runtime)
     {
@@ -934,9 +971,9 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
+     * @param GetTokenRequest $request GetTokenRequest
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getToken($request)
     {
@@ -947,10 +984,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 获取用户配置
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserConfigResponse
+     * @return GetUserConfigResponse GetUserConfigResponse
      */
     public function getUserConfigWithOptions($headers, $runtime)
     {
@@ -973,7 +1012,9 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @return GetUserConfigResponse
+     * @summary 获取用户配置
+     *  *
+     * @return GetUserConfigResponse GetUserConfigResponse
      */
     public function getUserConfig()
     {
@@ -984,11 +1025,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListEcsSpecsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 获取ECS规格列表
+     *  *
+     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEcsSpecsResponse
+     * @return ListEcsSpecsResponse ListEcsSpecsResponse
      */
     public function listEcsSpecsWithOptions($request, $headers, $runtime)
     {
@@ -1029,9 +1072,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListEcsSpecsRequest $request
+     * @summary 获取ECS规格列表
+     *  *
+     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
      *
-     * @return ListEcsSpecsResponse
+     * @return ListEcsSpecsResponse ListEcsSpecsResponse
      */
     public function listEcsSpecs($request)
     {
@@ -1042,12 +1087,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 查询实例快照列表
+     *  *
      * @param string                      $InstanceId
-     * @param ListInstanceSnapshotRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListInstanceSnapshotRequest $request    ListInstanceSnapshotRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceSnapshotResponse
+     * @return ListInstanceSnapshotResponse ListInstanceSnapshotResponse
      */
     public function listInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1085,10 +1132,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 查询实例快照列表
+     *  *
      * @param string                      $InstanceId
-     * @param ListInstanceSnapshotRequest $request
+     * @param ListInstanceSnapshotRequest $request    ListInstanceSnapshotRequest
      *
-     * @return ListInstanceSnapshotResponse
+     * @return ListInstanceSnapshotResponse ListInstanceSnapshotResponse
      */
     public function listInstanceSnapshot($InstanceId, $request)
     {
@@ -1099,11 +1148,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStatisticsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 获取实例统计信息
+     *  *
+     * @param ListInstanceStatisticsRequest $request ListInstanceStatisticsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceStatisticsResponse
+     * @return ListInstanceStatisticsResponse ListInstanceStatisticsResponse
      */
     public function listInstanceStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -1132,9 +1183,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStatisticsRequest $request
+     * @summary 获取实例统计信息
+     *  *
+     * @param ListInstanceStatisticsRequest $request ListInstanceStatisticsRequest
      *
-     * @return ListInstanceStatisticsResponse
+     * @return ListInstanceStatisticsResponse ListInstanceStatisticsResponse
      */
     public function listInstanceStatistics($request)
     {
@@ -1145,15 +1198,20 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listInstancesWithOptions($request, $headers, $runtime)
+    public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labels)) {
+            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceleratorType)) {
             $query['AcceleratorType'] = $request->acceleratorType;
@@ -1166,6 +1224,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->labelsShrink)) {
+            $query['Labels'] = $request->labelsShrink;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -1211,9 +1272,9 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1224,11 +1285,13 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 启动实例
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -1251,9 +1314,11 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 启动实例
+     *  *
      * @param string $InstanceId
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstance($InstanceId)
     {
@@ -1264,12 +1329,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 停止实例
+     *  *
      * @param string              $InstanceId
-     * @param StopInstanceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param StopInstanceRequest $request    StopInstanceRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1298,10 +1365,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 停止实例
+     *  *
      * @param string              $InstanceId
-     * @param StopInstanceRequest $request
+     * @param StopInstanceRequest $request    StopInstanceRequest
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($InstanceId, $request)
     {
@@ -1312,12 +1381,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 更新实例
+     *  *
      * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1394,10 +1465,12 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @summary 更新实例
+     *  *
      * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
+     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($InstanceId, $request)
     {

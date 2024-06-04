@@ -16,6 +16,8 @@ class GetInstanceMetricsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example GpuCoreUsage
      *
      * @var string

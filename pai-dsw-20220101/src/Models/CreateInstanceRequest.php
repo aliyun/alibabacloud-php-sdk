@@ -75,7 +75,7 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @example {\"foo\": \"bar\"}
+     * @example {\\"foo\\": \\"bar\\"}
      *
      * @var labels[]
      */

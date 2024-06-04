@@ -156,7 +156,7 @@ class instances extends Model
     public $jupyterlabUrl;
 
     /**
-     * @example {\"foo\": \"bar\"}
+     * @example {\\"foo\\": \\"bar\\"}
      *
      * @var labels[]
      */

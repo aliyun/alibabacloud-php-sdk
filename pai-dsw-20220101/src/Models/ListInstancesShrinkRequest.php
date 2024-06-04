@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesRequest extends Model
+class ListInstancesShrinkRequest extends Model
 {
     /**
      * @example AcceleratorType
@@ -37,9 +37,9 @@ class ListInstancesRequest extends Model
     public $instanceName;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $labels;
+    public $labelsShrink;
 
     /**
      * @example DESC
@@ -101,7 +101,7 @@ class ListInstancesRequest extends Model
         'accessibility'   => 'Accessibility',
         'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
-        'labels'          => 'Labels',
+        'labelsShrink'    => 'Labels',
         'order'           => 'Order',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -131,8 +131,8 @@ class ListInstancesRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+        if (null !== $this->labelsShrink) {
+            $res['Labels'] = $this->labelsShrink;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -165,7 +165,7 @@ class ListInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesRequest
+     * @return ListInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -183,7 +183,7 @@ class ListInstancesRequest extends Model
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            $model->labelsShrink = $map['Labels'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

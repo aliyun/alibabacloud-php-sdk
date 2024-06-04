@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEcsSpecsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example PRIVATE
      *
      * @var string
