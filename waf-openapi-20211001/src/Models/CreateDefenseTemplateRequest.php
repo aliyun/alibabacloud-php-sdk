@@ -11,6 +11,7 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @description The scenario in which you want to use the protection rule template. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
+     * This parameter is required.
      * @example waf_group
      *
      * @var string
@@ -29,7 +30,7 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -60,6 +61,7 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @description The name of the protection rule template.
      *
+     * This parameter is required.
      * @example test221
      *
      * @var string
@@ -69,6 +71,7 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @description The origin of the protection rule template that you want to create. Set the value to **custom**. The value specifies that the protection rule template is a custom template.
      *
+     * This parameter is required.
      * @example custom
      *
      * @var string
@@ -81,6 +84,7 @@ class CreateDefenseTemplateRequest extends Model
      *   **0:** disabled.
      *   **1:** enabled.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -93,6 +97,7 @@ class CreateDefenseTemplateRequest extends Model
      *   **user_default:** default template.
      *   **user_custom:** custom template.
      *
+     * This parameter is required.
      * @example user_default
      *
      * @var string

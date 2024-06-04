@@ -11,6 +11,7 @@ class ModifyDomainPunishStatusRequest extends Model
     /**
      * @description The domain name that is penalized for failing to obtain an ICP filing.
      *
+     * This parameter is required.
      * @example demo.xxxxaliyundoc.com
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDomainPunishStatusRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * > You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v2_public_cn-zxu****0g02
      *
      * @var string

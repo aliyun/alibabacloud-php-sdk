@@ -11,7 +11,7 @@ class CreateMemberAccountsRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateMemberAccountsRequest extends Model
     /**
      * @description The Alibaba Cloud account IDs of the members that you want to add. You can add up to 10 members at the same time.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $memberAccountIds;

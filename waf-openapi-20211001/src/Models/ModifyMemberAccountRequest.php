@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyMemberAccountRequest extends Model
 {
     /**
-     * @description The description of the member. The description must be 1 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), hyphens (-), and asterisks (\*).
+     * @description The description of the member. The description must be 1 to 256 characters in length, and can contain letters, digits, periods (.), underscores (_), hyphens (-), and asterisks (\\*).
      *
+     * This parameter is required.
      * @example account1
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyMemberAccountRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_elasticity**-*******021
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyMemberAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the managed member.
      *
+     * This parameter is required.
      * @example 131**********39
      *
      * @var string

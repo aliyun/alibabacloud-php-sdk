@@ -20,7 +20,7 @@ class DescribePeakTrendRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -30,6 +30,7 @@ class DescribePeakTrendRequest extends Model
     /**
      * @description The time interval. Unit: seconds. The value must be an integral multiple of 60.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -69,6 +70,7 @@ class DescribePeakTrendRequest extends Model
     /**
      * @description The beginning of the time range to query. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1665331200
      *
      * @var string

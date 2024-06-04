@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
-     * @description The maximum number of IP addresses that can be added to the match content of a match condition. For more information, see [Match conditions](~~374354~~).
+     * @description The maximum number of IP addresses that can be added to the match content of a match condition. For more information, see [Match conditions](https://help.aliyun.com/document_detail/374354.html).
      *
      * @example 100
      *
@@ -309,7 +309,7 @@ class details extends Model
     public $gslb;
 
     /**
-     * @description The HTTP port range that is supported. For more information, see [View supported ports](~~385578~~).
+     * @description The HTTP port range that is supported. For more information, see [View supported ports](https://help.aliyun.com/document_detail/385578.html).
      *
      * @example 80
      *
@@ -318,7 +318,7 @@ class details extends Model
     public $httpPorts;
 
     /**
-     * @description The HTTPS port range that is supported. For more information, see [View supported ports](~~385578~~).
+     * @description The HTTPS port range that is supported. For more information, see [View supported ports](https://help.aliyun.com/document_detail/385578.html).
      *
      * @example 443
      *

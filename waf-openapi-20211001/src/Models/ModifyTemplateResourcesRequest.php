@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyTemplateResourcesRequest extends Model
 {
     /**
-     * @description The protected object groups that you want to associate with the protection rule template. Specify the value of this parameter in the \["group1","group2",...] format.
+     * @description The protected object groups that you want to associate with the protection rule template. Specify the value of this parameter in the ["group1","group2",...] format.
      *
      * @var string[]
      */
     public $bindResourceGroups;
 
     /**
-     * @description The protected objects that you want to associate with the protection rule template. Specify the value of this parameter in the \["XX1","XX2",...] format.
+     * @description The protected objects that you want to associate with the protection rule template. Specify the value of this parameter in the ["XX1","XX2",...] format.
      *
      * @var string[]
      */
@@ -25,7 +25,7 @@ class ModifyTemplateResourcesRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -56,6 +56,7 @@ class ModifyTemplateResourcesRequest extends Model
     /**
      * @description The ID of the protection rule template.
      *
+     * This parameter is required.
      * @example 2291
      *
      * @var int
@@ -63,14 +64,14 @@ class ModifyTemplateResourcesRequest extends Model
     public $templateId;
 
     /**
-     * @description The protected object groups that you want to disassociate from the protection rule template. Specify the value of this parameter in the \["group1","group2",...] format.
+     * @description The protected object groups that you want to disassociate from the protection rule template. Specify the value of this parameter in the ["group1","group2",...] format.
      *
      * @var string[]
      */
     public $unbindResourceGroups;
 
     /**
-     * @description The protected objects that you want to disassociate from the protection rule template. Specify the value of this parameter in the \["XX1","XX2",...] format.
+     * @description The protected objects that you want to disassociate from the protection rule template. Specify the value of this parameter in the ["XX1","XX2",...] format.
      *
      * @var string[]
      */

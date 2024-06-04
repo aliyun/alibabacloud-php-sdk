@@ -20,7 +20,7 @@ class ModifyDefenseTemplateRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -51,6 +51,7 @@ class ModifyDefenseTemplateRequest extends Model
     /**
      * @description The ID of the protection rule template whose configurations you want to modify.
      *
+     * This parameter is required.
      * @example 7392
      *
      * @var int
@@ -60,6 +61,7 @@ class ModifyDefenseTemplateRequest extends Model
     /**
      * @description The name of the protection rule template whose configurations you want to modify.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -20,7 +20,7 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -51,6 +51,7 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     /**
      * @description The start point of the time period for which to query. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1665331200
      *
      * @var string

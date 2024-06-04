@@ -22,6 +22,7 @@ class CreateDefenseRuleRequest extends Model
      *   **tamperproof:** the website tamper-proofing module.
      *   **dlp:** the data leakage prevention module.
      *
+     * This parameter is required.
      * @example waf_group
      *
      * @var string
@@ -31,7 +32,7 @@ class CreateDefenseRuleRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v2_public_cn-****
      *
      * @var string
@@ -63,6 +64,8 @@ class CreateDefenseRuleRequest extends Model
      * @description The configurations of the protection rule. Specify a string that contains multiple parameters in the JSON format.
      *
      * >  The parameters vary based on the value of the **DefenseScene** parameter. For more information, see the "**Protection rule parameters**" section in this topic.
+     *
+     * This parameter is required.
      * @example For more information, see the following section.
      *
      * @var string
@@ -72,6 +75,7 @@ class CreateDefenseRuleRequest extends Model
     /**
      * @description The ID of the protection rule template for which you want to create a protection rule.
      *
+     * This parameter is required.
      * @example 1122
      *
      * @var int

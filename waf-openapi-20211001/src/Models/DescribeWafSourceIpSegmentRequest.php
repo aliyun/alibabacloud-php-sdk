@@ -11,7 +11,7 @@ class DescribeWafSourceIpSegmentRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v2_public_cn-*****
      *
      * @var string

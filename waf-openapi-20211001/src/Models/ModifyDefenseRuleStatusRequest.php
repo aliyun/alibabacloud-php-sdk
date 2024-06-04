@@ -11,7 +11,7 @@ class ModifyDefenseRuleStatusRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -42,6 +42,7 @@ class ModifyDefenseRuleStatusRequest extends Model
     /**
      * @description The ID of the protection rule whose status you want to change.
      *
+     * This parameter is required.
      * @example 20002615
      *
      * @var int
@@ -54,6 +55,7 @@ class ModifyDefenseRuleStatusRequest extends Model
      *   **0:** disabled.
      *   **1:** enabled.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -63,6 +65,7 @@ class ModifyDefenseRuleStatusRequest extends Model
     /**
      * @description The ID of the protection rule template to which the protection rule whose status you want to change belongs.
      *
+     * This parameter is required.
      * @example 7239
      *
      * @var int

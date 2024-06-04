@@ -55,7 +55,7 @@ class ModifyDefenseResourceXffRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v2_public_cn-wwo3c****07
      *
      * @var string
@@ -77,6 +77,7 @@ class ModifyDefenseResourceXffRequest extends Model
     /**
      * @description The name of the protected object.
      *
+     * This parameter is required.
      * @example alb-4pxu81fgagx3****mz-alb
      *
      * @var string
@@ -98,6 +99,7 @@ class ModifyDefenseResourceXffRequest extends Model
      *   **0**: No Layer 7 proxies are deployed. This is the default value.
      *   **1**: A Layer 7 proxy is deployed.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

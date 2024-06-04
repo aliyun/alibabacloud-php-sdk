@@ -30,6 +30,7 @@ class DescribeDomainsRequest extends Model
     /**
      * @description The page number of the page to return. Default value: 1.
      *
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -37,7 +38,7 @@ class DescribeDomainsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The HTTPS address of the origin server.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -46,7 +47,7 @@ class DescribeDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Queries the list of a domain name that is added to Web Application Firewall (WAF).
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 10
      *

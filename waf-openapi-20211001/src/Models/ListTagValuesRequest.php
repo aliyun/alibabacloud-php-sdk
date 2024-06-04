@@ -11,6 +11,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The tag key.
      *
+     * This parameter is required.
      * @example demoKey
      *
      * @var string
@@ -32,6 +33,7 @@ class ListTagValuesRequest extends Model
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +43,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
      *
+     * This parameter is required.
      * @example ALIYUN::WAF::DEFENSERESOURCE
      *
      * @var string

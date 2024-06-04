@@ -11,7 +11,7 @@ class DescribeTemplateResourceCountRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v3prepaid_public_cn-lbj****gx08
      *
      * @var string
@@ -42,6 +42,7 @@ class DescribeTemplateResourceCountRequest extends Model
     /**
      * @description The IDs of the protection templates that you want to query. Separate multiple template IDs with commas (,).
      *
+     * This parameter is required.
      * @example 12345,12346
      *
      * @var string

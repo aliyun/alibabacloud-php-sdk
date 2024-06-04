@@ -21,6 +21,8 @@ class ModifyMajorProtectionBlackIpRequest extends Model
      * @description The time after which the IP address blacklist becomes invalid. Unit: seconds.
      *
      * >  If you set this parameter to **0**, the blacklist is permanently valid.
+     *
+     * This parameter is required.
      * @example 1662603328
      *
      * @var int
@@ -30,7 +32,7 @@ class ModifyMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -38,8 +40,9 @@ class ModifyMajorProtectionBlackIpRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP addresses that you want to add to the IP address blacklist. You can specify multiple CIDR blocks or IP addresses. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](~~425591~~).
+     * @description The IP addresses that you want to add to the IP address blacklist. You can specify multiple CIDR blocks or IP addresses. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](https://help.aliyun.com/document_detail/425591.html).
      *
+     * This parameter is required.
      * @example 12.XX.XX.2,3.XX.XX.3/24
      *
      * @var string
@@ -70,6 +73,7 @@ class ModifyMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the IP address blacklist rule for major event protection.
      *
+     * This parameter is required.
      * @example 20012033
      *
      * @var int
@@ -79,6 +83,7 @@ class ModifyMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the IP address blacklist rule template for major event protection.
      *
+     * This parameter is required.
      * @example 5132
      *
      * @var int

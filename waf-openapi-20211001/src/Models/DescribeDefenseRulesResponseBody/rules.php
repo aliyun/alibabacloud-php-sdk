@@ -11,7 +11,7 @@ class rules extends Model
     /**
      * @description The details of the protection rule. The value is a string that contains multiple parameters in the JSON format. For more information, see the "**Rule parameters**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
-     * @example {\"policyId\":1012,\"action\":\"block\"}
+     * @example {\\"policyId\\":1012,\\"action\\":\\"block\\"}
      *
      * @var string
      */

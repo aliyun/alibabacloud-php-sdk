@@ -11,7 +11,7 @@ class ListTagKeysRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
      * @example waf_v3prepaid_public_cn-wwo****iw02
      *
      * @var string
@@ -33,6 +33,7 @@ class ListTagKeysRequest extends Model
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +43,7 @@ class ListTagKeysRequest extends Model
     /**
      * @description The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
      *
+     * This parameter is required.
      * @example ALIYUN::WAF::DEFENSERESOURCE
      *
      * @var string

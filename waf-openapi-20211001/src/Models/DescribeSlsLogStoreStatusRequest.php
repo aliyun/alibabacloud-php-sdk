@@ -11,7 +11,7 @@ class DescribeSlsLogStoreStatusRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * > You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v2_public_cn-uqm35****02
      *
      * @var string

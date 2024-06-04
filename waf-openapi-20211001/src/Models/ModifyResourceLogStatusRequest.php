@@ -11,7 +11,7 @@ class ModifyResourceLogStatusRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf-cn-zz11zcl****
      *
      * @var string
@@ -33,6 +33,7 @@ class ModifyResourceLogStatusRequest extends Model
     /**
      * @description The protected object on which you want to manage the log collection feature.
      *
+     * This parameter is required.
      * @example alb-wewbb23dfsetetcic1242-0****
      *
      * @var string
@@ -54,6 +55,7 @@ class ModifyResourceLogStatusRequest extends Model
      *   **true:** enables the log collection feature.
      *   **false:** disables the log collection feature.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

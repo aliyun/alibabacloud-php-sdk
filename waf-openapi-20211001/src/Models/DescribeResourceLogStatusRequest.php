@@ -11,7 +11,7 @@ class DescribeResourceLogStatusRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf-cn-zz11zcl****
      *
      * @var string
@@ -42,6 +42,7 @@ class DescribeResourceLogStatusRequest extends Model
     /**
      * @description The protected object that you want to query. You can specify multiple protected objects. Separate the protected objects with commas (,).
      *
+     * This parameter is required.
      * @example alb-wewbb23dfsetetcic1242-0****,alb-wewbb23dfsetetcic1242-1****
      *
      * @var string

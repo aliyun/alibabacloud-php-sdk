@@ -22,6 +22,7 @@ class ModifyDomainShrinkRequest extends Model
     /**
      * @description The domain name whose access configurations you want to modify.
      *
+     * This parameter is required.
      * @example www.aliyundoc.com
      *
      * @var string
@@ -31,7 +32,7 @@ class ModifyDomainShrinkRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -41,6 +42,7 @@ class ModifyDomainShrinkRequest extends Model
     /**
      * @description The configurations of the listeners.
      *
+     * This parameter is required.
      * @var string
      */
     public $listenShrink;
@@ -48,6 +50,7 @@ class ModifyDomainShrinkRequest extends Model
     /**
      * @description The configurations of the forwarding rule.
      *
+     * This parameter is required.
      * @var string
      */
     public $redirectShrink;
@@ -58,6 +61,7 @@ class ModifyDomainShrinkRequest extends Model
      *   **cn-hangzhou:** the Chinese mainland.
      *   **ap-southeast-1:** outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

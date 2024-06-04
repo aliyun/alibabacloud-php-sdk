@@ -11,7 +11,7 @@ class DeleteMemberAccountRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_esasdf3****
      *
      * @var string
@@ -21,6 +21,7 @@ class DeleteMemberAccountRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the managed member.
      *
+     * This parameter is required.
      * @example 131***********39
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
     /**
      * @description The ID of the hybrid cloud cluster.
      *
+     * This parameter is required.
      * @example hdbc_cluster_****
      *
      * @var string
@@ -22,8 +23,9 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
      *
      **
      *
-     **You can call the **DescribeInstanceInfo[ operation to obtain the ID of the WAF instance.](~~140857~~)
+     **You can call the **DescribeInstanceInfo[ operation to obtain the ID of the WAF instance.](https://help.aliyun.com/document_detail/140857.html)
      *
+     * This parameter is required.
      * @example waf_elasticity-cn-0xldbqt****
      *
      * @var string
@@ -36,6 +38,7 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
      *   **on**: enabled.
      *   **off**: disabled. This is the default value.
      *
+     * This parameter is required.
      * @example on
      *
      * @var string

@@ -11,7 +11,7 @@ class ModifyDefenseRuleCacheRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_v3prepaid_public_cn-zvp****xm2r
      *
      * @var string
@@ -42,6 +42,7 @@ class ModifyDefenseRuleCacheRequest extends Model
     /**
      * @description The ID of the protection rule.
      *
+     * This parameter is required.
      * @example 12345678
      *
      * @var int
@@ -51,6 +52,7 @@ class ModifyDefenseRuleCacheRequest extends Model
     /**
      * @description The ID of the protection template.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

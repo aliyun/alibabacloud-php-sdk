@@ -100,10 +100,10 @@ class redirect extends Model
     public $requestHeaders;
 
     /**
-     * @description Indicates whether WAF retries to forward requests when requests fail to be forwarded to the origin server. Valid values:
+     * @description Indicates whether WAF retries when requests fail to be forwarded to the origin server. Valid values:
      *
-     *   **true:** WAF retries to forward requests. This is the default value.
-     *   **false:** WAF does not retry to forward requests.
+     *   **true:** WAF retries. This is the default value.
+     *   **false:** WAF does not retry.
      *
      * @example true
      *

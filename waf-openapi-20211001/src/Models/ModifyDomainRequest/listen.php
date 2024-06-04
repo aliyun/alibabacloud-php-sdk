@@ -86,14 +86,14 @@ class listen extends Model
     public $http2Enabled;
 
     /**
-     * @description An array of HTTP listener ports. Specify the value of this parameter in the \[port1,port2,...] format.
+     * @description An array of HTTP listener ports. Specify the value of this parameter in the [port1,port2,...] format.
      *
      * @var int[]
      */
     public $httpPorts;
 
     /**
-     * @description An array of HTTPS listener ports. Specify the value of this parameter in the \[port1,port2,...] format.
+     * @description An array of HTTPS listener ports. Specify the value of this parameter in the [port1,port2,...] format.
      *
      * @var int[]
      */
@@ -183,7 +183,7 @@ class listen extends Model
     public $xffHeaderMode;
 
     /**
-     * @description The custom header fields that you want to use to obtain the actual IP address of a client. Specify the value of this parameter in the \["header1","header2",...] format.
+     * @description The custom header fields that you want to use to obtain the actual IP address of a client. Specify the value of this parameter in the ["header1","header2",...] format.
      *
      * >  If you set the **XffHeaderMode** parameter to 2, this parameter is required.
      * @var string[]

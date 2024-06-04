@@ -11,7 +11,7 @@ class DescribeTemplateResourcesRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -45,6 +45,7 @@ class DescribeTemplateResourcesRequest extends Model
      *   **single:** protected object.
      *   **group:** protected object group.
      *
+     * This parameter is required.
      * @example single
      *
      * @var string
@@ -54,6 +55,7 @@ class DescribeTemplateResourcesRequest extends Model
     /**
      * @description The ID of the protection rule template.
      *
+     * This parameter is required.
      * @example 1020
      *
      * @var int

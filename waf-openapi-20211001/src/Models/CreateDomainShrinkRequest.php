@@ -23,6 +23,7 @@ class CreateDomainShrinkRequest extends Model
     /**
      * @description The domain name that you want to add to WAF.
      *
+     * This parameter is required.
      * @example www.aliyundoc.com
      *
      * @var string
@@ -32,7 +33,7 @@ class CreateDomainShrinkRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * > You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -42,6 +43,7 @@ class CreateDomainShrinkRequest extends Model
     /**
      * @description The configurations of the listeners.
      *
+     * This parameter is required.
      * @var string
      */
     public $listenShrink;
@@ -49,6 +51,7 @@ class CreateDomainShrinkRequest extends Model
     /**
      * @description The configurations of the forwarding rule.
      *
+     * This parameter is required.
      * @var string
      */
     public $redirectShrink;
@@ -59,6 +62,7 @@ class CreateDomainShrinkRequest extends Model
      *   **cn-hangzhou**: the Chinese mainland
      *   **ap-southeast-1**: outside the Chinese mainland
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

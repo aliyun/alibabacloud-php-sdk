@@ -25,6 +25,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
@@ -39,6 +43,14 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalDomainStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
@@ -252,10 +264,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ClearMajorProtectionBlackIpRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Clears an IP address blacklist for major event protection.
+     *  *
+     * @param ClearMajorProtectionBlackIpRequest $request ClearMajorProtectionBlackIpRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearMajorProtectionBlackIpResponse
+     * @return ClearMajorProtectionBlackIpResponse ClearMajorProtectionBlackIpResponse
      */
     public function clearMajorProtectionBlackIpWithOptions($request, $runtime)
     {
@@ -295,9 +309,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ClearMajorProtectionBlackIpRequest $request
+     * @summary Clears an IP address blacklist for major event protection.
+     *  *
+     * @param ClearMajorProtectionBlackIpRequest $request ClearMajorProtectionBlackIpRequest
      *
-     * @return ClearMajorProtectionBlackIpResponse
+     * @return ClearMajorProtectionBlackIpResponse ClearMajorProtectionBlackIpResponse
      */
     public function clearMajorProtectionBlackIp($request)
     {
@@ -307,10 +323,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CopyDefenseTemplateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a new protection template from the copy.
+     *  *
+     * @param CopyDefenseTemplateRequest $request CopyDefenseTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyDefenseTemplateResponse
+     * @return CopyDefenseTemplateResponse CopyDefenseTemplateResponse
      */
     public function copyDefenseTemplateWithOptions($request, $runtime)
     {
@@ -347,9 +365,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CopyDefenseTemplateRequest $request
+     * @summary Creates a new protection template from the copy.
+     *  *
+     * @param CopyDefenseTemplateRequest $request CopyDefenseTemplateRequest
      *
-     * @return CopyDefenseTemplateResponse
+     * @return CopyDefenseTemplateResponse CopyDefenseTemplateResponse
      */
     public function copyDefenseTemplate($request)
     {
@@ -359,10 +379,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseResourceGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates a protected object group.
+     *  *
+     * @param CreateDefenseResourceGroupRequest $request CreateDefenseResourceGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDefenseResourceGroupResponse
+     * @return CreateDefenseResourceGroupResponse CreateDefenseResourceGroupResponse
      */
     public function createDefenseResourceGroupWithOptions($request, $runtime)
     {
@@ -405,9 +427,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseResourceGroupRequest $request
+     * @summary Creates a protected object group.
+     *  *
+     * @param CreateDefenseResourceGroupRequest $request CreateDefenseResourceGroupRequest
      *
-     * @return CreateDefenseResourceGroupResponse
+     * @return CreateDefenseResourceGroupResponse CreateDefenseResourceGroupResponse
      */
     public function createDefenseResourceGroup($request)
     {
@@ -417,10 +441,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates a protection rule.
+     *  *
+     * @param CreateDefenseRuleRequest $request CreateDefenseRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDefenseRuleResponse
+     * @return CreateDefenseRuleResponse CreateDefenseRuleResponse
      */
     public function createDefenseRuleWithOptions($request, $runtime)
     {
@@ -463,9 +489,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseRuleRequest $request
+     * @summary Creates a protection rule.
+     *  *
+     * @param CreateDefenseRuleRequest $request CreateDefenseRuleRequest
      *
-     * @return CreateDefenseRuleResponse
+     * @return CreateDefenseRuleResponse CreateDefenseRuleResponse
      */
     public function createDefenseRule($request)
     {
@@ -475,10 +503,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseTemplateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a protection rule template.
+     *  *
+     * @param CreateDefenseTemplateRequest $request CreateDefenseTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDefenseTemplateResponse
+     * @return CreateDefenseTemplateResponse CreateDefenseTemplateResponse
      */
     public function createDefenseTemplateWithOptions($request, $runtime)
     {
@@ -530,9 +560,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDefenseTemplateRequest $request
+     * @summary Creates a protection rule template.
+     *  *
+     * @param CreateDefenseTemplateRequest $request CreateDefenseTemplateRequest
      *
-     * @return CreateDefenseTemplateResponse
+     * @return CreateDefenseTemplateResponse CreateDefenseTemplateResponse
      */
     public function createDefenseTemplate($request)
     {
@@ -542,10 +574,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Adds a domain name to Web Application Firewall (WAF).
+     *  *
+     * @param CreateDomainRequest $tmpReq  CreateDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomainWithOptions($tmpReq, $runtime)
     {
@@ -599,9 +633,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
+     * @summary Adds a domain name to Web Application Firewall (WAF).
+     *  *
+     * @param CreateDomainRequest $request CreateDomainRequest
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -611,8 +647,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * This operation is available only on the China site (aliyun.com).
-     *   *
+     * @summary Creates an IP address blacklist for major event protection.
+     *  *
+     * @description This operation is available only on the China site (aliyun.com).
+     *  *
      * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -665,8 +703,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * This operation is available only on the China site (aliyun.com).
-     *   *
+     * @summary Creates an IP address blacklist for major event protection.
+     *  *
+     * @description This operation is available only on the China site (aliyun.com).
+     *  *
      * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
      *
      * @return CreateMajorProtectionBlackIpResponse CreateMajorProtectionBlackIpResponse
@@ -679,10 +719,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateMemberAccountsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+     *  *
+     * @param CreateMemberAccountsRequest $request CreateMemberAccountsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMemberAccountsResponse
+     * @return CreateMemberAccountsResponse CreateMemberAccountsResponse
      */
     public function createMemberAccountsWithOptions($request, $runtime)
     {
@@ -722,9 +764,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreateMemberAccountsRequest $request
+     * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+     *  *
+     * @param CreateMemberAccountsRequest $request CreateMemberAccountsRequest
      *
-     * @return CreateMemberAccountsResponse
+     * @return CreateMemberAccountsResponse CreateMemberAccountsResponse
      */
     public function createMemberAccounts($request)
     {
@@ -734,10 +778,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePostpaidInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+     *  *
+     * @param CreatePostpaidInstanceRequest $request CreatePostpaidInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePostpaidInstanceResponse
+     * @return CreatePostpaidInstanceResponse CreatePostpaidInstanceResponse
      */
     public function createPostpaidInstanceWithOptions($request, $runtime)
     {
@@ -768,9 +814,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePostpaidInstanceRequest $request
+     * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+     *  *
+     * @param CreatePostpaidInstanceRequest $request CreatePostpaidInstanceRequest
      *
-     * @return CreatePostpaidInstanceResponse
+     * @return CreatePostpaidInstanceResponse CreatePostpaidInstanceResponse
      */
     public function createPostpaidInstance($request)
     {
@@ -780,10 +828,136 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseResourceGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 删除API安全风险
+     *  *
+     * @param DeleteApisecAbnormalRequest $request DeleteApisecAbnormalRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDefenseResourceGroupResponse
+     * @return DeleteApisecAbnormalResponse DeleteApisecAbnormalResponse
+     */
+    public function deleteApisecAbnormalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abnormalId)) {
+            $query['AbnormalId'] = $request->abnormalId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApisecAbnormal',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApisecAbnormalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除API安全风险
+     *  *
+     * @param DeleteApisecAbnormalRequest $request DeleteApisecAbnormalRequest
+     *
+     * @return DeleteApisecAbnormalResponse DeleteApisecAbnormalResponse
+     */
+    public function deleteApisecAbnormal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApisecAbnormalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除API安全事件
+     *  *
+     * @param DeleteApisecEventRequest $request DeleteApisecEventRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteApisecEventResponse DeleteApisecEventResponse
+     */
+    public function deleteApisecEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApisecEvent',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApisecEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除API安全事件
+     *  *
+     * @param DeleteApisecEventRequest $request DeleteApisecEventRequest
+     *
+     * @return DeleteApisecEventResponse DeleteApisecEventResponse
+     */
+    public function deleteApisecEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApisecEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a protected object group.
+     *  *
+     * @param DeleteDefenseResourceGroupRequest $request DeleteDefenseResourceGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDefenseResourceGroupResponse DeleteDefenseResourceGroupResponse
      */
     public function deleteDefenseResourceGroupWithOptions($request, $runtime)
     {
@@ -820,9 +994,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseResourceGroupRequest $request
+     * @summary Deletes a protected object group.
+     *  *
+     * @param DeleteDefenseResourceGroupRequest $request DeleteDefenseResourceGroupRequest
      *
-     * @return DeleteDefenseResourceGroupResponse
+     * @return DeleteDefenseResourceGroupResponse DeleteDefenseResourceGroupResponse
      */
     public function deleteDefenseResourceGroup($request)
     {
@@ -832,10 +1008,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a protection rule.
+     *  *
+     * @param DeleteDefenseRuleRequest $request DeleteDefenseRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDefenseRuleResponse
+     * @return DeleteDefenseRuleResponse DeleteDefenseRuleResponse
      */
     public function deleteDefenseRuleWithOptions($request, $runtime)
     {
@@ -875,9 +1053,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseRuleRequest $request
+     * @summary Deletes a protection rule.
+     *  *
+     * @param DeleteDefenseRuleRequest $request DeleteDefenseRuleRequest
      *
-     * @return DeleteDefenseRuleResponse
+     * @return DeleteDefenseRuleResponse DeleteDefenseRuleResponse
      */
     public function deleteDefenseRule($request)
     {
@@ -887,10 +1067,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseTemplateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a protection rule template.
+     *  *
+     * @param DeleteDefenseTemplateRequest $request DeleteDefenseTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDefenseTemplateResponse
+     * @return DeleteDefenseTemplateResponse DeleteDefenseTemplateResponse
      */
     public function deleteDefenseTemplateWithOptions($request, $runtime)
     {
@@ -927,9 +1109,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDefenseTemplateRequest $request
+     * @summary Deletes a protection rule template.
+     *  *
+     * @param DeleteDefenseTemplateRequest $request DeleteDefenseTemplateRequest
      *
-     * @return DeleteDefenseTemplateResponse
+     * @return DeleteDefenseTemplateResponse DeleteDefenseTemplateResponse
      */
     public function deleteDefenseTemplate($request)
     {
@@ -939,10 +1123,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -982,9 +1168,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -994,10 +1182,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMajorProtectionBlackIpRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Deletes an IP address blacklist for major event protection.
+     *  *
+     * @param DeleteMajorProtectionBlackIpRequest $request DeleteMajorProtectionBlackIpRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMajorProtectionBlackIpResponse
+     * @return DeleteMajorProtectionBlackIpResponse DeleteMajorProtectionBlackIpResponse
      */
     public function deleteMajorProtectionBlackIpWithOptions($request, $runtime)
     {
@@ -1040,9 +1230,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMajorProtectionBlackIpRequest $request
+     * @summary Deletes an IP address blacklist for major event protection.
+     *  *
+     * @param DeleteMajorProtectionBlackIpRequest $request DeleteMajorProtectionBlackIpRequest
      *
-     * @return DeleteMajorProtectionBlackIpResponse
+     * @return DeleteMajorProtectionBlackIpResponse DeleteMajorProtectionBlackIpResponse
      */
     public function deleteMajorProtectionBlackIp($request)
     {
@@ -1052,10 +1244,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMemberAccountRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+     *  *
+     * @param DeleteMemberAccountRequest $request DeleteMemberAccountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMemberAccountResponse
+     * @return DeleteMemberAccountResponse DeleteMemberAccountResponse
      */
     public function deleteMemberAccountWithOptions($request, $runtime)
     {
@@ -1095,9 +1289,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMemberAccountRequest $request
+     * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+     *  *
+     * @param DeleteMemberAccountRequest $request DeleteMemberAccountRequest
      *
-     * @return DeleteMemberAccountResponse
+     * @return DeleteMemberAccountResponse DeleteMemberAccountResponse
      */
     public function deleteMemberAccount($request)
     {
@@ -1107,10 +1303,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountDelegatedStatusRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeAccountDelegatedStatusRequest $request DescribeAccountDelegatedStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountDelegatedStatusResponse
+     * @return DescribeAccountDelegatedStatusResponse DescribeAccountDelegatedStatusResponse
      */
     public function describeAccountDelegatedStatusWithOptions($request, $runtime)
     {
@@ -1144,9 +1342,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountDelegatedStatusRequest $request
+     * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeAccountDelegatedStatusRequest $request DescribeAccountDelegatedStatusRequest
      *
-     * @return DescribeAccountDelegatedStatusResponse
+     * @return DescribeAccountDelegatedStatusResponse DescribeAccountDelegatedStatusResponse
      */
     public function describeAccountDelegatedStatus($request)
     {
@@ -1156,10 +1356,302 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询API安全风险站点统计
+     *  *
+     * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCertDetailResponse
+     * @return DescribeApisecAbnormalDomainStatisticResponse DescribeApisecAbnormalDomainStatisticResponse
+     */
+    public function describeApisecAbnormalDomainStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecAbnormalDomainStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询API安全风险站点统计
+     *  *
+     * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
+     *
+     * @return DescribeApisecAbnormalDomainStatisticResponse DescribeApisecAbnormalDomainStatisticResponse
+     */
+    public function describeApisecAbnormalDomainStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecAbnormalDomainStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询API安全资产趋势图
+     *  *
+     * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecAssetTrendResponse DescribeApisecAssetTrendResponse
+     */
+    public function describeApisecAssetTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecAssetTrend',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询API安全资产趋势图
+     *  *
+     * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
+     *
+     * @return DescribeApisecAssetTrendResponse DescribeApisecAssetTrendResponse
+     */
+    public function describeApisecAssetTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecAssetTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询API安全事件站点统计
+     *  *
+     * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecEventDomainStatisticResponse DescribeApisecEventDomainStatisticResponse
+     */
+    public function describeApisecEventDomainStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecEventDomainStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询API安全事件站点统计
+     *  *
+     * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
+     *
+     * @return DescribeApisecEventDomainStatisticResponse DescribeApisecEventDomainStatisticResponse
+     */
+    public function describeApisecEventDomainStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecEventDomainStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询API安全敏感数据类型统计
+     *  *
+     * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecSensitiveDomainStatisticResponse DescribeApisecSensitiveDomainStatisticResponse
+     */
+    public function describeApisecSensitiveDomainStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecSensitiveDomainStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询API安全敏感数据类型统计
+     *  *
+     * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
+     *
+     * @return DescribeApisecSensitiveDomainStatisticResponse DescribeApisecSensitiveDomainStatisticResponse
+     */
+    public function describeApisecSensitiveDomainStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecSensitiveDomainStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
+     *  *
+     * @param DescribeCertDetailRequest $request DescribeCertDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCertDetailResponse DescribeCertDetailResponse
      */
     public function describeCertDetailWithOptions($request, $runtime)
     {
@@ -1196,9 +1688,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertDetailRequest $request
+     * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
+     *  *
+     * @param DescribeCertDetailRequest $request DescribeCertDetailRequest
      *
-     * @return DescribeCertDetailResponse
+     * @return DescribeCertDetailResponse DescribeCertDetailResponse
      */
     public function describeCertDetail($request)
     {
@@ -1208,10 +1702,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeCertsRequest $request DescribeCertsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCertsResponse
+     * @return DescribeCertsResponse DescribeCertsResponse
      */
     public function describeCertsWithOptions($request, $runtime)
     {
@@ -1257,9 +1753,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertsRequest $request
+     * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeCertsRequest $request DescribeCertsRequest
      *
-     * @return DescribeCertsResponse
+     * @return DescribeCertsResponse DescribeCertsResponse
      */
     public function describeCerts($request)
     {
@@ -1269,10 +1767,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudResourcesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeCloudResourcesRequest $request DescribeCloudResourcesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudResourcesResponse
+     * @return DescribeCloudResourcesResponse DescribeCloudResourcesResponse
      */
     public function describeCloudResourcesWithOptions($request, $runtime)
     {
@@ -1336,9 +1836,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudResourcesRequest $request
+     * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeCloudResourcesRequest $request DescribeCloudResourcesRequest
      *
-     * @return DescribeCloudResourcesResponse
+     * @return DescribeCloudResourcesResponse DescribeCloudResourcesResponse
      */
     public function describeCloudResources($request)
     {
@@ -1348,10 +1850,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a protected object.
+     *  *
+     * @param DescribeDefenseResourceRequest $request DescribeDefenseResourceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceResponse
+     * @return DescribeDefenseResourceResponse DescribeDefenseResourceResponse
      */
     public function describeDefenseResourceWithOptions($request, $runtime)
     {
@@ -1388,9 +1892,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceRequest $request
+     * @summary Queries the information about a protected object.
+     *  *
+     * @param DescribeDefenseResourceRequest $request DescribeDefenseResourceRequest
      *
-     * @return DescribeDefenseResourceResponse
+     * @return DescribeDefenseResourceResponse DescribeDefenseResourceResponse
      */
     public function describeDefenseResource($request)
     {
@@ -1400,10 +1906,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the information about a protected object group.
+     *  *
+     * @param DescribeDefenseResourceGroupRequest $request DescribeDefenseResourceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceGroupResponse
+     * @return DescribeDefenseResourceGroupResponse DescribeDefenseResourceGroupResponse
      */
     public function describeDefenseResourceGroupWithOptions($request, $runtime)
     {
@@ -1440,9 +1948,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupRequest $request
+     * @summary Queries the information about a protected object group.
+     *  *
+     * @param DescribeDefenseResourceGroupRequest $request DescribeDefenseResourceGroupRequest
      *
-     * @return DescribeDefenseResourceGroupResponse
+     * @return DescribeDefenseResourceGroupResponse DescribeDefenseResourceGroupResponse
      */
     public function describeDefenseResourceGroup($request)
     {
@@ -1452,10 +1962,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupNamesRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the names of protected object groups.
+     *  *
+     * @param DescribeDefenseResourceGroupNamesRequest $request DescribeDefenseResourceGroupNamesRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceGroupNamesResponse
+     * @return DescribeDefenseResourceGroupNamesResponse DescribeDefenseResourceGroupNamesResponse
      */
     public function describeDefenseResourceGroupNamesWithOptions($request, $runtime)
     {
@@ -1498,9 +2010,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupNamesRequest $request
+     * @summary Queries the names of protected object groups.
+     *  *
+     * @param DescribeDefenseResourceGroupNamesRequest $request DescribeDefenseResourceGroupNamesRequest
      *
-     * @return DescribeDefenseResourceGroupNamesResponse
+     * @return DescribeDefenseResourceGroupNamesResponse DescribeDefenseResourceGroupNamesResponse
      */
     public function describeDefenseResourceGroupNames($request)
     {
@@ -1510,10 +2024,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Performs a pagination query to retrieve the information about protected object groups.
+     *  *
+     * @param DescribeDefenseResourceGroupsRequest $request DescribeDefenseResourceGroupsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceGroupsResponse
+     * @return DescribeDefenseResourceGroupsResponse DescribeDefenseResourceGroupsResponse
      */
     public function describeDefenseResourceGroupsWithOptions($request, $runtime)
     {
@@ -1559,9 +2075,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceGroupsRequest $request
+     * @summary Performs a pagination query to retrieve the information about protected object groups.
+     *  *
+     * @param DescribeDefenseResourceGroupsRequest $request DescribeDefenseResourceGroupsRequest
      *
-     * @return DescribeDefenseResourceGroupsResponse
+     * @return DescribeDefenseResourceGroupsResponse DescribeDefenseResourceGroupsResponse
      */
     public function describeDefenseResourceGroups($request)
     {
@@ -1571,10 +2089,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceNamesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Performs a pagination query to retrieve the names of protected objects.
+     *  *
+     * @param DescribeDefenseResourceNamesRequest $request DescribeDefenseResourceNamesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceNamesResponse
+     * @return DescribeDefenseResourceNamesResponse DescribeDefenseResourceNamesResponse
      */
     public function describeDefenseResourceNamesWithOptions($request, $runtime)
     {
@@ -1617,9 +2137,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceNamesRequest $request
+     * @summary Performs a pagination query to retrieve the names of protected objects.
+     *  *
+     * @param DescribeDefenseResourceNamesRequest $request DescribeDefenseResourceNamesRequest
      *
-     * @return DescribeDefenseResourceNamesResponse
+     * @return DescribeDefenseResourceNamesResponse DescribeDefenseResourceNamesResponse
      */
     public function describeDefenseResourceNames($request)
     {
@@ -1629,10 +2151,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceTemplatesRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the protection templates that are associated with a protected object or protected object group.
+     *  *
+     * @param DescribeDefenseResourceTemplatesRequest $request DescribeDefenseResourceTemplatesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourceTemplatesResponse
+     * @return DescribeDefenseResourceTemplatesResponse DescribeDefenseResourceTemplatesResponse
      */
     public function describeDefenseResourceTemplatesWithOptions($request, $runtime)
     {
@@ -1678,9 +2202,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourceTemplatesRequest $request
+     * @summary Queries the protection templates that are associated with a protected object or protected object group.
+     *  *
+     * @param DescribeDefenseResourceTemplatesRequest $request DescribeDefenseResourceTemplatesRequest
      *
-     * @return DescribeDefenseResourceTemplatesResponse
+     * @return DescribeDefenseResourceTemplatesResponse DescribeDefenseResourceTemplatesResponse
      */
     public function describeDefenseResourceTemplates($request)
     {
@@ -1690,10 +2216,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourcesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries protected objects by page.
+     *  *
+     * @param DescribeDefenseResourcesRequest $request DescribeDefenseResourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseResourcesResponse
+     * @return DescribeDefenseResourcesResponse DescribeDefenseResourcesResponse
      */
     public function describeDefenseResourcesWithOptions($request, $runtime)
     {
@@ -1739,9 +2267,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseResourcesRequest $request
+     * @summary Queries protected objects by page.
+     *  *
+     * @param DescribeDefenseResourcesRequest $request DescribeDefenseResourcesRequest
      *
-     * @return DescribeDefenseResourcesResponse
+     * @return DescribeDefenseResourcesResponse DescribeDefenseResourcesResponse
      */
     public function describeDefenseResources($request)
     {
@@ -1751,10 +2281,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a protection rule.
+     *  *
+     * @param DescribeDefenseRuleRequest $request DescribeDefenseRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseRuleResponse
+     * @return DescribeDefenseRuleResponse DescribeDefenseRuleResponse
      */
     public function describeDefenseRuleWithOptions($request, $runtime)
     {
@@ -1794,9 +2326,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRuleRequest $request
+     * @summary Queries a protection rule.
+     *  *
+     * @param DescribeDefenseRuleRequest $request DescribeDefenseRuleRequest
      *
-     * @return DescribeDefenseRuleResponse
+     * @return DescribeDefenseRuleResponse DescribeDefenseRuleResponse
      */
     public function describeDefenseRule($request)
     {
@@ -1806,10 +2340,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRulesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries protection rules by page.
+     *  *
+     * @param DescribeDefenseRulesRequest $request DescribeDefenseRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseRulesResponse
+     * @return DescribeDefenseRulesResponse DescribeDefenseRulesResponse
      */
     public function describeDefenseRulesWithOptions($request, $runtime)
     {
@@ -1855,9 +2391,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseRulesRequest $request
+     * @summary Queries protection rules by page.
+     *  *
+     * @param DescribeDefenseRulesRequest $request DescribeDefenseRulesRequest
      *
-     * @return DescribeDefenseRulesResponse
+     * @return DescribeDefenseRulesResponse DescribeDefenseRulesResponse
      */
     public function describeDefenseRules($request)
     {
@@ -1867,10 +2405,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries a protection rule template.
+     *  *
+     * @param DescribeDefenseTemplateRequest $request DescribeDefenseTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseTemplateResponse
+     * @return DescribeDefenseTemplateResponse DescribeDefenseTemplateResponse
      */
     public function describeDefenseTemplateWithOptions($request, $runtime)
     {
@@ -1907,9 +2447,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplateRequest $request
+     * @summary Queries a protection rule template.
+     *  *
+     * @param DescribeDefenseTemplateRequest $request DescribeDefenseTemplateRequest
      *
-     * @return DescribeDefenseTemplateResponse
+     * @return DescribeDefenseTemplateResponse DescribeDefenseTemplateResponse
      */
     public function describeDefenseTemplate($request)
     {
@@ -1919,10 +2461,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplateValidGroupsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the names of protected object groups for which a protection template can take effect.
+     *  *
+     * @param DescribeDefenseTemplateValidGroupsRequest $request DescribeDefenseTemplateValidGroupsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseTemplateValidGroupsResponse
+     * @return DescribeDefenseTemplateValidGroupsResponse DescribeDefenseTemplateValidGroupsResponse
      */
     public function describeDefenseTemplateValidGroupsWithOptions($request, $runtime)
     {
@@ -1971,9 +2515,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplateValidGroupsRequest $request
+     * @summary Queries the names of protected object groups for which a protection template can take effect.
+     *  *
+     * @param DescribeDefenseTemplateValidGroupsRequest $request DescribeDefenseTemplateValidGroupsRequest
      *
-     * @return DescribeDefenseTemplateValidGroupsResponse
+     * @return DescribeDefenseTemplateValidGroupsResponse DescribeDefenseTemplateValidGroupsResponse
      */
     public function describeDefenseTemplateValidGroups($request)
     {
@@ -1983,10 +2529,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplatesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Performs a paging query to retrieve protection templates.
+     *  *
+     * @param DescribeDefenseTemplatesRequest $request DescribeDefenseTemplatesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseTemplatesResponse
+     * @return DescribeDefenseTemplatesResponse DescribeDefenseTemplatesResponse
      */
     public function describeDefenseTemplatesWithOptions($request, $runtime)
     {
@@ -2044,9 +2592,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseTemplatesRequest $request
+     * @summary Performs a paging query to retrieve protection templates.
+     *  *
+     * @param DescribeDefenseTemplatesRequest $request DescribeDefenseTemplatesRequest
      *
-     * @return DescribeDefenseTemplatesResponse
+     * @return DescribeDefenseTemplatesResponse DescribeDefenseTemplatesResponse
      */
     public function describeDefenseTemplates($request)
     {
@@ -2056,10 +2606,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDNSRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+     *  *
+     * @param DescribeDomainDNSRecordRequest $request DescribeDomainDNSRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainDNSRecordResponse
+     * @return DescribeDomainDNSRecordResponse DescribeDomainDNSRecordResponse
      */
     public function describeDomainDNSRecordWithOptions($request, $runtime)
     {
@@ -2096,9 +2648,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDNSRecordRequest $request
+     * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+     *  *
+     * @param DescribeDomainDNSRecordRequest $request DescribeDomainDNSRecordRequest
      *
-     * @return DescribeDomainDNSRecordResponse
+     * @return DescribeDomainDNSRecordResponse DescribeDomainDNSRecordResponse
      */
     public function describeDomainDNSRecord($request)
     {
@@ -2108,10 +2662,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDetailRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainDetailResponse
+     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
      */
     public function describeDomainDetailWithOptions($request, $runtime)
     {
@@ -2145,9 +2701,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDetailRequest $request
+     * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
      *
-     * @return DescribeDomainDetailResponse
+     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
      */
     public function describeDomainDetail($request)
     {
@@ -2157,10 +2715,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the domain names that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
@@ -2209,9 +2769,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
+     * @summary Queries the domain names that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeDomainsRequest $request DescribeDomainsRequest
      *
-     * @return DescribeDomainsResponse
+     * @return DescribeDomainsResponse DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -2221,10 +2783,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowChartRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeFlowChartRequest $request DescribeFlowChartRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowChartResponse
+     * @return DescribeFlowChartResponse DescribeFlowChartResponse
      */
     public function describeFlowChartWithOptions($request, $runtime)
     {
@@ -2270,9 +2834,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowChartRequest $request
+     * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeFlowChartRequest $request DescribeFlowChartRequest
      *
-     * @return DescribeFlowChartResponse
+     * @return DescribeFlowChartResponse DescribeFlowChartResponse
      */
     public function describeFlowChart($request)
     {
@@ -2282,10 +2848,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowTopResourceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the top 10 protected objects that receive requests.
+     *  *
+     * @param DescribeFlowTopResourceRequest $request DescribeFlowTopResourceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowTopResourceResponse
+     * @return DescribeFlowTopResourceResponse DescribeFlowTopResourceResponse
      */
     public function describeFlowTopResourceWithOptions($request, $runtime)
     {
@@ -2325,9 +2893,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowTopResourceRequest $request
+     * @summary Queries the top 10 protected objects that receive requests.
+     *  *
+     * @param DescribeFlowTopResourceRequest $request DescribeFlowTopResourceRequest
      *
-     * @return DescribeFlowTopResourceResponse
+     * @return DescribeFlowTopResourceResponse DescribeFlowTopResourceResponse
      */
     public function describeFlowTopResource($request)
     {
@@ -2337,10 +2907,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowTopUrlRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the top 10 URLs that are used to initiate requests.
+     *  *
+     * @param DescribeFlowTopUrlRequest $request DescribeFlowTopUrlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowTopUrlResponse
+     * @return DescribeFlowTopUrlResponse DescribeFlowTopUrlResponse
      */
     public function describeFlowTopUrlWithOptions($request, $runtime)
     {
@@ -2383,9 +2955,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowTopUrlRequest $request
+     * @summary Queries the top 10 URLs that are used to initiate requests.
+     *  *
+     * @param DescribeFlowTopUrlRequest $request DescribeFlowTopUrlRequest
      *
-     * @return DescribeFlowTopUrlResponse
+     * @return DescribeFlowTopUrlResponse DescribeFlowTopUrlResponse
      */
     public function describeFlowTopUrl($request)
     {
@@ -2395,10 +2969,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudGroupsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeHybridCloudGroupsRequest $request DescribeHybridCloudGroupsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridCloudGroupsResponse
+     * @return DescribeHybridCloudGroupsResponse DescribeHybridCloudGroupsResponse
      */
     public function describeHybridCloudGroupsWithOptions($request, $runtime)
     {
@@ -2450,9 +3026,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudGroupsRequest $request
+     * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeHybridCloudGroupsRequest $request DescribeHybridCloudGroupsRequest
      *
-     * @return DescribeHybridCloudGroupsResponse
+     * @return DescribeHybridCloudGroupsResponse DescribeHybridCloudGroupsResponse
      */
     public function describeHybridCloudGroups($request)
     {
@@ -2462,10 +3040,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudResourcesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+     *  *
+     * @param DescribeHybridCloudResourcesRequest $request DescribeHybridCloudResourcesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridCloudResourcesResponse
+     * @return DescribeHybridCloudResourcesResponse DescribeHybridCloudResourcesResponse
      */
     public function describeHybridCloudResourcesWithOptions($request, $runtime)
     {
@@ -2514,9 +3094,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudResourcesRequest $request
+     * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+     *  *
+     * @param DescribeHybridCloudResourcesRequest $request DescribeHybridCloudResourcesRequest
      *
-     * @return DescribeHybridCloudResourcesResponse
+     * @return DescribeHybridCloudResourcesResponse DescribeHybridCloudResourcesResponse
      */
     public function describeHybridCloudResources($request)
     {
@@ -2526,10 +3108,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudUserRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+     *  *
+     * @param DescribeHybridCloudUserRequest $request DescribeHybridCloudUserRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridCloudUserResponse
+     * @return DescribeHybridCloudUserResponse DescribeHybridCloudUserResponse
      */
     public function describeHybridCloudUserWithOptions($request, $runtime)
     {
@@ -2563,9 +3147,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridCloudUserRequest $request
+     * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+     *  *
+     * @param DescribeHybridCloudUserRequest $request DescribeHybridCloudUserRequest
      *
-     * @return DescribeHybridCloudUserResponse
+     * @return DescribeHybridCloudUserResponse DescribeHybridCloudUserResponse
      */
     public function describeHybridCloudUser($request)
     {
@@ -2575,10 +3161,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -2609,9 +3197,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2621,10 +3211,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeMajorProtectionBlackIpsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
+     *  *
+     * @param DescribeMajorProtectionBlackIpsRequest $request DescribeMajorProtectionBlackIpsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMajorProtectionBlackIpsResponse
+     * @return DescribeMajorProtectionBlackIpsResponse DescribeMajorProtectionBlackIpsResponse
      */
     public function describeMajorProtectionBlackIpsWithOptions($request, $runtime)
     {
@@ -2676,9 +3268,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeMajorProtectionBlackIpsRequest $request
+     * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
+     *  *
+     * @param DescribeMajorProtectionBlackIpsRequest $request DescribeMajorProtectionBlackIpsRequest
      *
-     * @return DescribeMajorProtectionBlackIpsResponse
+     * @return DescribeMajorProtectionBlackIpsResponse DescribeMajorProtectionBlackIpsResponse
      */
     public function describeMajorProtectionBlackIps($request)
     {
@@ -2688,10 +3282,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeMemberAccountsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about members.
+     *  *
+     * @param DescribeMemberAccountsRequest $request DescribeMemberAccountsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMemberAccountsResponse
+     * @return DescribeMemberAccountsResponse DescribeMemberAccountsResponse
      */
     public function describeMemberAccountsWithOptions($request, $runtime)
     {
@@ -2731,9 +3327,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeMemberAccountsRequest $request
+     * @summary Queries information about members.
+     *  *
+     * @param DescribeMemberAccountsRequest $request DescribeMemberAccountsRequest
      *
-     * @return DescribeMemberAccountsResponse
+     * @return DescribeMemberAccountsResponse DescribeMemberAccountsResponse
      */
     public function describeMemberAccounts($request)
     {
@@ -2743,10 +3341,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePeakTrendRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the queries per second (QPS) statistics of a WAF instance.
+     *  *
+     * @param DescribePeakTrendRequest $request DescribePeakTrendRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePeakTrendResponse
+     * @return DescribePeakTrendResponse DescribePeakTrendResponse
      */
     public function describePeakTrendWithOptions($request, $runtime)
     {
@@ -2792,9 +3392,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePeakTrendRequest $request
+     * @summary Queries the queries per second (QPS) statistics of a WAF instance.
+     *  *
+     * @param DescribePeakTrendRequest $request DescribePeakTrendRequest
      *
-     * @return DescribePeakTrendResponse
+     * @return DescribePeakTrendResponse DescribePeakTrendResponse
      */
     public function describePeakTrend($request)
     {
@@ -2804,10 +3406,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+     *  *
+     * @param DescribeProductInstancesRequest $request DescribeProductInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductInstancesResponse
+     * @return DescribeProductInstancesResponse DescribeProductInstancesResponse
      */
     public function describeProductInstancesWithOptions($request, $runtime)
     {
@@ -2865,9 +3469,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductInstancesRequest $request
+     * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+     *  *
+     * @param DescribeProductInstancesRequest $request DescribeProductInstancesRequest
      *
-     * @return DescribeProductInstancesResponse
+     * @return DescribeProductInstancesResponse DescribeProductInstancesResponse
      */
     public function describeProductInstances($request)
     {
@@ -2877,10 +3483,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePunishedDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+     *  *
+     * @param DescribePunishedDomainsRequest $request DescribePunishedDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePunishedDomainsResponse
+     * @return DescribePunishedDomainsResponse DescribePunishedDomainsResponse
      */
     public function describePunishedDomainsWithOptions($request, $runtime)
     {
@@ -2917,9 +3525,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePunishedDomainsRequest $request
+     * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+     *  *
+     * @param DescribePunishedDomainsRequest $request DescribePunishedDomainsRequest
      *
-     * @return DescribePunishedDomainsResponse
+     * @return DescribePunishedDomainsResponse DescribePunishedDomainsResponse
      */
     public function describePunishedDomains($request)
     {
@@ -2929,10 +3539,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceInstanceCertsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+     *  *
+     * @param DescribeResourceInstanceCertsRequest $request DescribeResourceInstanceCertsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceInstanceCertsResponse
+     * @return DescribeResourceInstanceCertsResponse DescribeResourceInstanceCertsResponse
      */
     public function describeResourceInstanceCertsWithOptions($request, $runtime)
     {
@@ -2975,9 +3587,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceInstanceCertsRequest $request
+     * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+     *  *
+     * @param DescribeResourceInstanceCertsRequest $request DescribeResourceInstanceCertsRequest
      *
-     * @return DescribeResourceInstanceCertsResponse
+     * @return DescribeResourceInstanceCertsResponse DescribeResourceInstanceCertsResponse
      */
     public function describeResourceInstanceCerts($request)
     {
@@ -2987,10 +3601,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceLogStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries whether the log collection feature is enabled for a protected object.
+     *  *
+     * @param DescribeResourceLogStatusRequest $request DescribeResourceLogStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceLogStatusResponse
+     * @return DescribeResourceLogStatusResponse DescribeResourceLogStatusResponse
      */
     public function describeResourceLogStatusWithOptions($request, $runtime)
     {
@@ -3027,9 +3643,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceLogStatusRequest $request
+     * @summary Queries whether the log collection feature is enabled for a protected object.
+     *  *
+     * @param DescribeResourceLogStatusRequest $request DescribeResourceLogStatusRequest
      *
-     * @return DescribeResourceLogStatusResponse
+     * @return DescribeResourceLogStatusResponse DescribeResourceLogStatusResponse
      */
     public function describeResourceLogStatus($request)
     {
@@ -3039,10 +3657,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourcePortRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeResourcePortRequest $request DescribeResourcePortRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourcePortResponse
+     * @return DescribeResourcePortResponse DescribeResourcePortResponse
      */
     public function describeResourcePortWithOptions($request, $runtime)
     {
@@ -3079,9 +3699,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourcePortRequest $request
+     * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
+     *  *
+     * @param DescribeResourcePortRequest $request DescribeResourcePortRequest
      *
-     * @return DescribeResourcePortResponse
+     * @return DescribeResourcePortResponse DescribeResourcePortResponse
      */
     public function describeResourcePort($request)
     {
@@ -3091,10 +3713,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceRegionIdRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+     *  *
+     * @param DescribeResourceRegionIdRequest $request DescribeResourceRegionIdRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceRegionIdResponse
+     * @return DescribeResourceRegionIdResponse DescribeResourceRegionIdResponse
      */
     public function describeResourceRegionIdWithOptions($request, $runtime)
     {
@@ -3128,9 +3752,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceRegionIdRequest $request
+     * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+     *  *
+     * @param DescribeResourceRegionIdRequest $request DescribeResourceRegionIdRequest
      *
-     * @return DescribeResourceRegionIdResponse
+     * @return DescribeResourceRegionIdResponse DescribeResourceRegionIdResponse
      */
     public function describeResourceRegionId($request)
     {
@@ -3140,10 +3766,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceSupportRegionsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+     *  *
+     * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceSupportRegionsResponse
+     * @return DescribeResourceSupportRegionsResponse DescribeResourceSupportRegionsResponse
      */
     public function describeResourceSupportRegionsWithOptions($request, $runtime)
     {
@@ -3177,9 +3805,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceSupportRegionsRequest $request
+     * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+     *  *
+     * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
      *
-     * @return DescribeResourceSupportRegionsResponse
+     * @return DescribeResourceSupportRegionsResponse DescribeResourceSupportRegionsResponse
      */
     public function describeResourceSupportRegions($request)
     {
@@ -3189,10 +3819,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResponseCodeTrendGraphRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+     *  *
+     * @param DescribeResponseCodeTrendGraphRequest $request DescribeResponseCodeTrendGraphRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResponseCodeTrendGraphResponse
+     * @return DescribeResponseCodeTrendGraphResponse DescribeResponseCodeTrendGraphResponse
      */
     public function describeResponseCodeTrendGraphWithOptions($request, $runtime)
     {
@@ -3241,9 +3873,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeResponseCodeTrendGraphRequest $request
+     * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+     *  *
+     * @param DescribeResponseCodeTrendGraphRequest $request DescribeResponseCodeTrendGraphRequest
      *
-     * @return DescribeResponseCodeTrendGraphResponse
+     * @return DescribeResponseCodeTrendGraphResponse DescribeResponseCodeTrendGraphResponse
      */
     public function describeResponseCodeTrendGraph($request)
     {
@@ -3253,10 +3887,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleGroupsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries regular expression rule groups by page.
+     *  *
+     * @param DescribeRuleGroupsRequest $request DescribeRuleGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleGroupsResponse
+     * @return DescribeRuleGroupsResponse DescribeRuleGroupsResponse
      */
     public function describeRuleGroupsWithOptions($request, $runtime)
     {
@@ -3302,9 +3938,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleGroupsRequest $request
+     * @summary Queries regular expression rule groups by page.
+     *  *
+     * @param DescribeRuleGroupsRequest $request DescribeRuleGroupsRequest
      *
-     * @return DescribeRuleGroupsResponse
+     * @return DescribeRuleGroupsResponse DescribeRuleGroupsResponse
      */
     public function describeRuleGroups($request)
     {
@@ -3314,10 +3952,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopClientIpRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the top 10 IP addresses from which attacks are initiated.
+     *  *
+     * @param DescribeRuleHitsTopClientIpRequest $request DescribeRuleHitsTopClientIpRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopClientIpResponse
+     * @return DescribeRuleHitsTopClientIpResponse DescribeRuleHitsTopClientIpResponse
      */
     public function describeRuleHitsTopClientIpWithOptions($request, $runtime)
     {
@@ -3363,9 +4003,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopClientIpRequest $request
+     * @summary Queries the top 10 IP addresses from which attacks are initiated.
+     *  *
+     * @param DescribeRuleHitsTopClientIpRequest $request DescribeRuleHitsTopClientIpRequest
      *
-     * @return DescribeRuleHitsTopClientIpResponse
+     * @return DescribeRuleHitsTopClientIpResponse DescribeRuleHitsTopClientIpResponse
      */
     public function describeRuleHitsTopClientIp($request)
     {
@@ -3375,10 +4017,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopResourceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the top 10 protected objects that trigger protection rules.
+     *  *
+     * @param DescribeRuleHitsTopResourceRequest $request DescribeRuleHitsTopResourceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopResourceResponse
+     * @return DescribeRuleHitsTopResourceResponse DescribeRuleHitsTopResourceResponse
      */
     public function describeRuleHitsTopResourceWithOptions($request, $runtime)
     {
@@ -3421,9 +4065,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopResourceRequest $request
+     * @summary Queries the top 10 protected objects that trigger protection rules.
+     *  *
+     * @param DescribeRuleHitsTopResourceRequest $request DescribeRuleHitsTopResourceRequest
      *
-     * @return DescribeRuleHitsTopResourceResponse
+     * @return DescribeRuleHitsTopResourceResponse DescribeRuleHitsTopResourceResponse
      */
     public function describeRuleHitsTopResource($request)
     {
@@ -3433,10 +4079,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopRuleIdRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
+     *  *
+     * @param DescribeRuleHitsTopRuleIdRequest $request DescribeRuleHitsTopRuleIdRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopRuleIdResponse
+     * @return DescribeRuleHitsTopRuleIdResponse DescribeRuleHitsTopRuleIdResponse
      */
     public function describeRuleHitsTopRuleIdWithOptions($request, $runtime)
     {
@@ -3485,9 +4133,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopRuleIdRequest $request
+     * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
+     *  *
+     * @param DescribeRuleHitsTopRuleIdRequest $request DescribeRuleHitsTopRuleIdRequest
      *
-     * @return DescribeRuleHitsTopRuleIdResponse
+     * @return DescribeRuleHitsTopRuleIdResponse DescribeRuleHitsTopRuleIdResponse
      */
     public function describeRuleHitsTopRuleId($request)
     {
@@ -3497,10 +4147,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopTuleTypeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the top 10 protection modules that are matched.
+     *  *
+     * @param DescribeRuleHitsTopTuleTypeRequest $request DescribeRuleHitsTopTuleTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopTuleTypeResponse
+     * @return DescribeRuleHitsTopTuleTypeResponse DescribeRuleHitsTopTuleTypeResponse
      */
     public function describeRuleHitsTopTuleTypeWithOptions($request, $runtime)
     {
@@ -3540,9 +4192,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopTuleTypeRequest $request
+     * @summary Queries the top 10 protection modules that are matched.
+     *  *
+     * @param DescribeRuleHitsTopTuleTypeRequest $request DescribeRuleHitsTopTuleTypeRequest
      *
-     * @return DescribeRuleHitsTopTuleTypeResponse
+     * @return DescribeRuleHitsTopTuleTypeResponse DescribeRuleHitsTopTuleTypeResponse
      */
     public function describeRuleHitsTopTuleType($request)
     {
@@ -3552,10 +4206,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopUaRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the top 10 user agents that are used to initiate attacks.
+     *  *
+     * @param DescribeRuleHitsTopUaRequest $request DescribeRuleHitsTopUaRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopUaResponse
+     * @return DescribeRuleHitsTopUaResponse DescribeRuleHitsTopUaResponse
      */
     public function describeRuleHitsTopUaWithOptions($request, $runtime)
     {
@@ -3598,9 +4254,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopUaRequest $request
+     * @summary Queries the top 10 user agents that are used to initiate attacks.
+     *  *
+     * @param DescribeRuleHitsTopUaRequest $request DescribeRuleHitsTopUaRequest
      *
-     * @return DescribeRuleHitsTopUaResponse
+     * @return DescribeRuleHitsTopUaResponse DescribeRuleHitsTopUaResponse
      */
     public function describeRuleHitsTopUa($request)
     {
@@ -3610,10 +4268,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopUrlRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the top 10 URLs that trigger protection rules.
+     *  *
+     * @param DescribeRuleHitsTopUrlRequest $request DescribeRuleHitsTopUrlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleHitsTopUrlResponse
+     * @return DescribeRuleHitsTopUrlResponse DescribeRuleHitsTopUrlResponse
      */
     public function describeRuleHitsTopUrlWithOptions($request, $runtime)
     {
@@ -3659,9 +4319,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleHitsTopUrlRequest $request
+     * @summary Queries the top 10 URLs that trigger protection rules.
+     *  *
+     * @param DescribeRuleHitsTopUrlRequest $request DescribeRuleHitsTopUrlRequest
      *
-     * @return DescribeRuleHitsTopUrlResponse
+     * @return DescribeRuleHitsTopUrlResponse DescribeRuleHitsTopUrlResponse
      */
     public function describeRuleHitsTopUrl($request)
     {
@@ -3671,10 +4333,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsAuthStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+     *  *
+     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsAuthStatusResponse
+     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatusWithOptions($request, $runtime)
     {
@@ -3708,9 +4372,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsAuthStatusRequest $request
+     * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+     *  *
+     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
      *
-     * @return DescribeSlsAuthStatusResponse
+     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatus($request)
     {
@@ -3720,10 +4386,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogStoreRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+     *  *
+     * @param DescribeSlsLogStoreRequest $request DescribeSlsLogStoreRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsLogStoreResponse
+     * @return DescribeSlsLogStoreResponse DescribeSlsLogStoreResponse
      */
     public function describeSlsLogStoreWithOptions($request, $runtime)
     {
@@ -3757,9 +4425,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogStoreRequest $request
+     * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+     *  *
+     * @param DescribeSlsLogStoreRequest $request DescribeSlsLogStoreRequest
      *
-     * @return DescribeSlsLogStoreResponse
+     * @return DescribeSlsLogStoreResponse DescribeSlsLogStoreResponse
      */
     public function describeSlsLogStore($request)
     {
@@ -3769,10 +4439,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogStoreStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the status of a Simple Log Service Logstore.
+     *  *
+     * @param DescribeSlsLogStoreStatusRequest $request DescribeSlsLogStoreStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsLogStoreStatusResponse
+     * @return DescribeSlsLogStoreStatusResponse DescribeSlsLogStoreStatusResponse
      */
     public function describeSlsLogStoreStatusWithOptions($request, $runtime)
     {
@@ -3806,9 +4478,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogStoreStatusRequest $request
+     * @summary Queries the status of a Simple Log Service Logstore.
+     *  *
+     * @param DescribeSlsLogStoreStatusRequest $request DescribeSlsLogStoreStatusRequest
      *
-     * @return DescribeSlsLogStoreStatusResponse
+     * @return DescribeSlsLogStoreStatusResponse DescribeSlsLogStoreStatusResponse
      */
     public function describeSlsLogStoreStatus($request)
     {
@@ -3818,10 +4492,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateResourceCountRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the number of protected resources for which a protection template takes effect.
+     *  *
+     * @param DescribeTemplateResourceCountRequest $request DescribeTemplateResourceCountRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateResourceCountResponse
+     * @return DescribeTemplateResourceCountResponse DescribeTemplateResourceCountResponse
      */
     public function describeTemplateResourceCountWithOptions($request, $runtime)
     {
@@ -3858,9 +4534,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateResourceCountRequest $request
+     * @summary Queries the number of protected resources for which a protection template takes effect.
+     *  *
+     * @param DescribeTemplateResourceCountRequest $request DescribeTemplateResourceCountRequest
      *
-     * @return DescribeTemplateResourceCountResponse
+     * @return DescribeTemplateResourceCountResponse DescribeTemplateResourceCountResponse
      */
     public function describeTemplateResourceCount($request)
     {
@@ -3870,10 +4548,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateResourcesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the resources that are associated to a protection rule template.
+     *  *
+     * @param DescribeTemplateResourcesRequest $request DescribeTemplateResourcesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateResourcesResponse
+     * @return DescribeTemplateResourcesResponse DescribeTemplateResourcesResponse
      */
     public function describeTemplateResourcesWithOptions($request, $runtime)
     {
@@ -3913,9 +4593,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateResourcesRequest $request
+     * @summary Queries the resources that are associated to a protection rule template.
+     *  *
+     * @param DescribeTemplateResourcesRequest $request DescribeTemplateResourcesRequest
      *
-     * @return DescribeTemplateResourcesResponse
+     * @return DescribeTemplateResourcesResponse DescribeTemplateResourcesResponse
      */
     public function describeTemplateResources($request)
     {
@@ -3925,10 +4607,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserSlsLogRegionsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries available regions for log storage.
+     *  *
+     * @param DescribeUserSlsLogRegionsRequest $request DescribeUserSlsLogRegionsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserSlsLogRegionsResponse
+     * @return DescribeUserSlsLogRegionsResponse DescribeUserSlsLogRegionsResponse
      */
     public function describeUserSlsLogRegionsWithOptions($request, $runtime)
     {
@@ -3962,9 +4646,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserSlsLogRegionsRequest $request
+     * @summary Queries available regions for log storage.
+     *  *
+     * @param DescribeUserSlsLogRegionsRequest $request DescribeUserSlsLogRegionsRequest
      *
-     * @return DescribeUserSlsLogRegionsResponse
+     * @return DescribeUserSlsLogRegionsResponse DescribeUserSlsLogRegionsResponse
      */
     public function describeUserSlsLogRegions($request)
     {
@@ -3974,10 +4660,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserWafLogStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
+     *  *
+     * @param DescribeUserWafLogStatusRequest $request DescribeUserWafLogStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserWafLogStatusResponse
+     * @return DescribeUserWafLogStatusResponse DescribeUserWafLogStatusResponse
      */
     public function describeUserWafLogStatusWithOptions($request, $runtime)
     {
@@ -4011,9 +4699,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserWafLogStatusRequest $request
+     * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
+     *  *
+     * @param DescribeUserWafLogStatusRequest $request DescribeUserWafLogStatusRequest
      *
-     * @return DescribeUserWafLogStatusResponse
+     * @return DescribeUserWafLogStatusResponse DescribeUserWafLogStatusResponse
      */
     public function describeUserWafLogStatus($request)
     {
@@ -4023,10 +4713,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeVisitTopIpRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the top 10 IP addresses from which requests are sent.
+     *  *
+     * @param DescribeVisitTopIpRequest $request DescribeVisitTopIpRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVisitTopIpResponse
+     * @return DescribeVisitTopIpResponse DescribeVisitTopIpResponse
      */
     public function describeVisitTopIpWithOptions($request, $runtime)
     {
@@ -4069,9 +4761,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeVisitTopIpRequest $request
+     * @summary Queries the top 10 IP addresses from which requests are sent.
+     *  *
+     * @param DescribeVisitTopIpRequest $request DescribeVisitTopIpRequest
      *
-     * @return DescribeVisitTopIpResponse
+     * @return DescribeVisitTopIpResponse DescribeVisitTopIpResponse
      */
     public function describeVisitTopIp($request)
     {
@@ -4081,10 +4775,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeVisitUasRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the top 10 user agents that are used to initiate requests.
+     *  *
+     * @param DescribeVisitUasRequest $request DescribeVisitUasRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVisitUasResponse
+     * @return DescribeVisitUasResponse DescribeVisitUasResponse
      */
     public function describeVisitUasWithOptions($request, $runtime)
     {
@@ -4124,9 +4820,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeVisitUasRequest $request
+     * @summary Queries the top 10 user agents that are used to initiate requests.
+     *  *
+     * @param DescribeVisitUasRequest $request DescribeVisitUasRequest
      *
-     * @return DescribeVisitUasResponse
+     * @return DescribeVisitUasResponse DescribeVisitUasResponse
      */
     public function describeVisitUas($request)
     {
@@ -4136,10 +4834,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeWafSourceIpSegmentRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeWafSourceIpSegmentRequest $request DescribeWafSourceIpSegmentRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWafSourceIpSegmentResponse
+     * @return DescribeWafSourceIpSegmentResponse DescribeWafSourceIpSegmentResponse
      */
     public function describeWafSourceIpSegmentWithOptions($request, $runtime)
     {
@@ -4173,9 +4873,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeWafSourceIpSegmentRequest $request
+     * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeWafSourceIpSegmentRequest $request DescribeWafSourceIpSegmentRequest
      *
-     * @return DescribeWafSourceIpSegmentResponse
+     * @return DescribeWafSourceIpSegmentResponse DescribeWafSourceIpSegmentResponse
      */
     public function describeWafSourceIpSegment($request)
     {
@@ -4185,10 +4887,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries tag keys.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -4225,9 +4929,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * @summary Queries tag keys.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -4237,10 +4943,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are added to a resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -4280,9 +4988,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are added to a resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4292,10 +5002,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -4332,9 +5044,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -4344,10 +5058,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseResourceGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the configurations of a protected object group.
+     *  *
+     * @param ModifyDefenseResourceGroupRequest $request ModifyDefenseResourceGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseResourceGroupResponse
+     * @return ModifyDefenseResourceGroupResponse ModifyDefenseResourceGroupResponse
      */
     public function modifyDefenseResourceGroupWithOptions($request, $runtime)
     {
@@ -4393,9 +5109,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseResourceGroupRequest $request
+     * @summary Modifies the configurations of a protected object group.
+     *  *
+     * @param ModifyDefenseResourceGroupRequest $request ModifyDefenseResourceGroupRequest
      *
-     * @return ModifyDefenseResourceGroupResponse
+     * @return ModifyDefenseResourceGroupResponse ModifyDefenseResourceGroupResponse
      */
     public function modifyDefenseResourceGroup($request)
     {
@@ -4405,10 +5123,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseResourceXffRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+     *  *
+     * @param ModifyDefenseResourceXffRequest $request ModifyDefenseResourceXffRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseResourceXffResponse
+     * @return ModifyDefenseResourceXffResponse ModifyDefenseResourceXffResponse
      */
     public function modifyDefenseResourceXffWithOptions($request, $runtime)
     {
@@ -4460,9 +5180,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseResourceXffRequest $request
+     * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+     *  *
+     * @param ModifyDefenseResourceXffRequest $request ModifyDefenseResourceXffRequest
      *
-     * @return ModifyDefenseResourceXffResponse
+     * @return ModifyDefenseResourceXffResponse ModifyDefenseResourceXffResponse
      */
     public function modifyDefenseResourceXff($request)
     {
@@ -4472,10 +5194,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the configurations of a protection rule.
+     *  *
+     * @param ModifyDefenseRuleRequest $request ModifyDefenseRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseRuleResponse
+     * @return ModifyDefenseRuleResponse ModifyDefenseRuleResponse
      */
     public function modifyDefenseRuleWithOptions($request, $runtime)
     {
@@ -4518,9 +5242,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleRequest $request
+     * @summary Modifies the configurations of a protection rule.
+     *  *
+     * @param ModifyDefenseRuleRequest $request ModifyDefenseRuleRequest
      *
-     * @return ModifyDefenseRuleResponse
+     * @return ModifyDefenseRuleResponse ModifyDefenseRuleResponse
      */
     public function modifyDefenseRule($request)
     {
@@ -4530,10 +5256,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleCacheRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+     *  *
+     * @param ModifyDefenseRuleCacheRequest $request ModifyDefenseRuleCacheRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseRuleCacheResponse
+     * @return ModifyDefenseRuleCacheResponse ModifyDefenseRuleCacheResponse
      */
     public function modifyDefenseRuleCacheWithOptions($request, $runtime)
     {
@@ -4573,9 +5301,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleCacheRequest $request
+     * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+     *  *
+     * @param ModifyDefenseRuleCacheRequest $request ModifyDefenseRuleCacheRequest
      *
-     * @return ModifyDefenseRuleCacheResponse
+     * @return ModifyDefenseRuleCacheResponse ModifyDefenseRuleCacheResponse
      */
     public function modifyDefenseRuleCache($request)
     {
@@ -4585,10 +5315,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Changes the status of a protection rule.
+     *  *
+     * @param ModifyDefenseRuleStatusRequest $request ModifyDefenseRuleStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseRuleStatusResponse
+     * @return ModifyDefenseRuleStatusResponse ModifyDefenseRuleStatusResponse
      */
     public function modifyDefenseRuleStatusWithOptions($request, $runtime)
     {
@@ -4631,9 +5363,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseRuleStatusRequest $request
+     * @summary Changes the status of a protection rule.
+     *  *
+     * @param ModifyDefenseRuleStatusRequest $request ModifyDefenseRuleStatusRequest
      *
-     * @return ModifyDefenseRuleStatusResponse
+     * @return ModifyDefenseRuleStatusResponse ModifyDefenseRuleStatusResponse
      */
     public function modifyDefenseRuleStatus($request)
     {
@@ -4643,10 +5377,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseTemplateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the configurations of a protection rule template.
+     *  *
+     * @param ModifyDefenseTemplateRequest $request ModifyDefenseTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseTemplateResponse
+     * @return ModifyDefenseTemplateResponse ModifyDefenseTemplateResponse
      */
     public function modifyDefenseTemplateWithOptions($request, $runtime)
     {
@@ -4689,9 +5425,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseTemplateRequest $request
+     * @summary Modifies the configurations of a protection rule template.
+     *  *
+     * @param ModifyDefenseTemplateRequest $request ModifyDefenseTemplateRequest
      *
-     * @return ModifyDefenseTemplateResponse
+     * @return ModifyDefenseTemplateResponse ModifyDefenseTemplateResponse
      */
     public function modifyDefenseTemplate($request)
     {
@@ -4701,10 +5439,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseTemplateStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Changes the status of a protection rule template.
+     *  *
+     * @param ModifyDefenseTemplateStatusRequest $request ModifyDefenseTemplateStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefenseTemplateStatusResponse
+     * @return ModifyDefenseTemplateStatusResponse ModifyDefenseTemplateStatusResponse
      */
     public function modifyDefenseTemplateStatusWithOptions($request, $runtime)
     {
@@ -4744,9 +5484,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefenseTemplateStatusRequest $request
+     * @summary Changes the status of a protection rule template.
+     *  *
+     * @param ModifyDefenseTemplateStatusRequest $request ModifyDefenseTemplateStatusRequest
      *
-     * @return ModifyDefenseTemplateStatusResponse
+     * @return ModifyDefenseTemplateStatusResponse ModifyDefenseTemplateStatusResponse
      */
     public function modifyDefenseTemplateStatus($request)
     {
@@ -4756,10 +5498,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDomainRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+     *  *
+     * @param ModifyDomainRequest $tmpReq  ModifyDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDomainResponse
+     * @return ModifyDomainResponse ModifyDomainResponse
      */
     public function modifyDomainWithOptions($tmpReq, $runtime)
     {
@@ -4810,9 +5554,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDomainRequest $request
+     * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+     *  *
+     * @param ModifyDomainRequest $request ModifyDomainRequest
      *
-     * @return ModifyDomainResponse
+     * @return ModifyDomainResponse ModifyDomainResponse
      */
     public function modifyDomain($request)
     {
@@ -4822,10 +5568,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDomainPunishStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+     *  *
+     * @param ModifyDomainPunishStatusRequest $request ModifyDomainPunishStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDomainPunishStatusResponse
+     * @return ModifyDomainPunishStatusResponse ModifyDomainPunishStatusResponse
      */
     public function modifyDomainPunishStatusWithOptions($request, $runtime)
     {
@@ -4862,9 +5610,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDomainPunishStatusRequest $request
+     * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+     *  *
+     * @param ModifyDomainPunishStatusRequest $request ModifyDomainPunishStatusRequest
      *
-     * @return ModifyDomainPunishStatusResponse
+     * @return ModifyDomainPunishStatusResponse ModifyDomainPunishStatusResponse
      */
     public function modifyDomainPunishStatus($request)
     {
@@ -4874,10 +5624,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridCloudClusterBypassStatusRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+     *  *
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHybridCloudClusterBypassStatusResponse
+     * @return ModifyHybridCloudClusterBypassStatusResponse ModifyHybridCloudClusterBypassStatusResponse
      */
     public function modifyHybridCloudClusterBypassStatusWithOptions($request, $runtime)
     {
@@ -4911,9 +5663,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridCloudClusterBypassStatusRequest $request
+     * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+     *  *
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
      *
-     * @return ModifyHybridCloudClusterBypassStatusResponse
+     * @return ModifyHybridCloudClusterBypassStatusResponse ModifyHybridCloudClusterBypassStatusResponse
      */
     public function modifyHybridCloudClusterBypassStatus($request)
     {
@@ -4923,10 +5677,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyMajorProtectionBlackIpRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies an IP address blacklist for major event protection.
+     *  *
+     * @param ModifyMajorProtectionBlackIpRequest $request ModifyMajorProtectionBlackIpRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMajorProtectionBlackIpResponse
+     * @return ModifyMajorProtectionBlackIpResponse ModifyMajorProtectionBlackIpResponse
      */
     public function modifyMajorProtectionBlackIpWithOptions($request, $runtime)
     {
@@ -4975,9 +5731,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyMajorProtectionBlackIpRequest $request
+     * @summary Modifies an IP address blacklist for major event protection.
+     *  *
+     * @param ModifyMajorProtectionBlackIpRequest $request ModifyMajorProtectionBlackIpRequest
      *
-     * @return ModifyMajorProtectionBlackIpResponse
+     * @return ModifyMajorProtectionBlackIpResponse ModifyMajorProtectionBlackIpResponse
      */
     public function modifyMajorProtectionBlackIp($request)
     {
@@ -4987,10 +5745,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyMemberAccountRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the information about members that are added for multi-account management.
+     *  *
+     * @param ModifyMemberAccountRequest $request ModifyMemberAccountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMemberAccountResponse
+     * @return ModifyMemberAccountResponse ModifyMemberAccountResponse
      */
     public function modifyMemberAccountWithOptions($request, $runtime)
     {
@@ -5033,9 +5793,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyMemberAccountRequest $request
+     * @summary Modifies the information about members that are added for multi-account management.
+     *  *
+     * @param ModifyMemberAccountRequest $request ModifyMemberAccountRequest
      *
-     * @return ModifyMemberAccountResponse
+     * @return ModifyMemberAccountResponse ModifyMemberAccountResponse
      */
     public function modifyMemberAccount($request)
     {
@@ -5045,10 +5807,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyResourceLogStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables or disables the log collection feature for a protected object.
+     *  *
+     * @param ModifyResourceLogStatusRequest $request ModifyResourceLogStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyResourceLogStatusResponse
+     * @return ModifyResourceLogStatusResponse ModifyResourceLogStatusResponse
      */
     public function modifyResourceLogStatusWithOptions($request, $runtime)
     {
@@ -5088,9 +5852,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyResourceLogStatusRequest $request
+     * @summary Enables or disables the log collection feature for a protected object.
+     *  *
+     * @param ModifyResourceLogStatusRequest $request ModifyResourceLogStatusRequest
      *
-     * @return ModifyResourceLogStatusResponse
+     * @return ModifyResourceLogStatusResponse ModifyResourceLogStatusResponse
      */
     public function modifyResourceLogStatus($request)
     {
@@ -5100,10 +5866,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyTemplateResourcesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
+     *  *
+     * @param ModifyTemplateResourcesRequest $request ModifyTemplateResourcesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTemplateResourcesResponse
+     * @return ModifyTemplateResourcesResponse ModifyTemplateResourcesResponse
      */
     public function modifyTemplateResourcesWithOptions($request, $runtime)
     {
@@ -5152,9 +5920,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyTemplateResourcesRequest $request
+     * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
+     *  *
+     * @param ModifyTemplateResourcesRequest $request ModifyTemplateResourcesRequest
      *
-     * @return ModifyTemplateResourcesResponse
+     * @return ModifyTemplateResourcesResponse ModifyTemplateResourcesResponse
      */
     public function modifyTemplateResources($request)
     {
@@ -5164,8 +5934,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
-     *   *
+     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+     *  *
+     * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+     *  *
      * @param SyncProductInstanceRequest $request SyncProductInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -5203,8 +5975,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
-     *   *
+     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+     *  *
+     * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+     *  *
      * @param SyncProductInstanceRequest $request SyncProductInstanceRequest
      *
      * @return SyncProductInstanceResponse SyncProductInstanceResponse
@@ -5217,10 +5991,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -5257,9 +6033,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5269,10 +6047,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources and then deletes the tags.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -5312,9 +6092,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from resources and then deletes the tags.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

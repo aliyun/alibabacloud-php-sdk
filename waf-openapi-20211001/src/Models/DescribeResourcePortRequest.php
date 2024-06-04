@@ -11,7 +11,7 @@ class DescribeResourcePortRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -33,6 +33,7 @@ class DescribeResourcePortRequest extends Model
     /**
      * @description The ID of the cloud service instance.
      *
+     * This parameter is required.
      * @example 8vb40vj87znu3ai7l5lv4-80****
      *
      * @var string

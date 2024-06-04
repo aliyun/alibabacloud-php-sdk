@@ -11,7 +11,7 @@ class DescribeDefenseRulesRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -40,7 +40,7 @@ class DescribeDefenseRulesRequest extends Model
      * @description The query conditions. Specify a string that contains multiple parameters in the JSON format.
      *
      * >  The results vary based on the query conditions. For more information, see the "**Query parameters**" section in this topic.
-     * @example {\\"name\\":\\"IP address blocking\_20220822\_10\\",\\"scene\\":\\"custom_acl\\",\\"templateId\\":5327}
+     * @example {\\\\"name\\\\":\\\\"IP address blocking_20220822_10\\\\",\\\\"scene\\\\":\\\\"custom_acl\\\\",\\\\"templateId\\\\":5327}
      *
      * @var string
      */

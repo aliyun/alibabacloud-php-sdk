@@ -15,6 +15,7 @@ class TagResourcesRequest extends Model
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -24,6 +25,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The IDs of the resources. You can specify up to 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -31,6 +33,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
      *
+     * This parameter is required.
      * @example ALIYUN::WAF::DEFENSERESOURCE
      *
      * @var string
@@ -40,6 +43,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags to add to the resource.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

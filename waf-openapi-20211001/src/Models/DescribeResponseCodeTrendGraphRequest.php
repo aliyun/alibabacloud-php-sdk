@@ -20,7 +20,7 @@ class DescribeResponseCodeTrendGraphRequest extends Model
     /**
      * @description The ID of the WAF instance.
      *
-     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -30,6 +30,7 @@ class DescribeResponseCodeTrendGraphRequest extends Model
     /**
      * @description The time interval. Unit: seconds. The value must be an integral multiple of 60.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -69,6 +70,7 @@ class DescribeResponseCodeTrendGraphRequest extends Model
     /**
      * @description The beginning of the time range to query. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1665331200
      *
      * @var string
@@ -81,6 +83,7 @@ class DescribeResponseCodeTrendGraphRequest extends Model
      *   **waf:** error codes that are returned to clients from WAF.
      *   **upstream:** error codes that are returned to WAF from the origin server.
      *
+     * This parameter is required.
      * @example waf
      *
      * @var string

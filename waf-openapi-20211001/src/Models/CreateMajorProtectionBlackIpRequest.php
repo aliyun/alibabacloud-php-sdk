@@ -21,6 +21,8 @@ class CreateMajorProtectionBlackIpRequest extends Model
      * @description The time after which the IP address blacklist becomes invalid. Unit: seconds.
      *
      * >  If you set the value to **0**, the blacklist is permanently valid.
+     *
+     * This parameter is required.
      * @example 1716528465
      *
      * @var int
@@ -30,6 +32,7 @@ class CreateMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * This parameter is required.
      * @example waf_v3prepaid_public_cn-2r42s6y****
      *
      * @var string
@@ -37,8 +40,9 @@ class CreateMajorProtectionBlackIpRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP addresses that you want to add to the IP address blacklist. CIDR blocks and IP addresses are supported. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](~~425591~~).
+     * @description The IP addresses that you want to add to the IP address blacklist. CIDR blocks and IP addresses are supported. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](https://help.aliyun.com/document_detail/425591.html).
      *
+     * This parameter is required.
      * @example 192.0.XX.XX,192.0.XX.XX/24
      *
      * @var string
@@ -69,6 +73,7 @@ class CreateMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the IP address blacklist rule for major event protection.
      *
+     * This parameter is required.
      * @example 232324
      *
      * @var int
@@ -78,6 +83,7 @@ class CreateMajorProtectionBlackIpRequest extends Model
     /**
      * @description The ID of the IP address blacklist rule template for major event protection.
      *
+     * This parameter is required.
      * @example 2221
      *
      * @var int

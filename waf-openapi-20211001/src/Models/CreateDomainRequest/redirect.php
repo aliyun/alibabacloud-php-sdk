@@ -88,6 +88,7 @@ class redirect extends Model
      *   **roundRobin**
      *   **leastTime** You can set the parameter to this value only if you set **ProtectionResource** to **gslb**.
      *
+     * This parameter is required.
      * @example roundRobin
      *
      * @var string
