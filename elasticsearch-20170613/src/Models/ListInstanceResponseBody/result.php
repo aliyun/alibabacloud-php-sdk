@@ -28,6 +28,11 @@ class result extends Model
     public $advancedDedicateMaster;
 
     /**
+     * @var string
+     */
+    public $archType;
+
+    /**
      * @description The instance type of the node. For more information, see [Specifications](https://help.aliyun.com/document_detail/271718.html).
      *
      * @var clientNodeConfiguration
@@ -237,6 +242,7 @@ class result extends Model
     public $vpcInstanceId;
     protected $_name = [
         'advancedDedicateMaster'       => 'advancedDedicateMaster',
+        'archType'                     => 'archType',
         'clientNodeConfiguration'      => 'clientNodeConfiguration',
         'createdAt'                    => 'createdAt',
         'dedicateMaster'               => 'dedicateMaster',
@@ -275,6 +281,9 @@ class result extends Model
         $res = [];
         if (null !== $this->advancedDedicateMaster) {
             $res['advancedDedicateMaster'] = $this->advancedDedicateMaster;
+        }
+        if (null !== $this->archType) {
+            $res['archType'] = $this->archType;
         }
         if (null !== $this->clientNodeConfiguration) {
             $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
@@ -377,6 +386,9 @@ class result extends Model
         $model = new self();
         if (isset($map['advancedDedicateMaster'])) {
             $model->advancedDedicateMaster = $map['advancedDedicateMaster'];
+        }
+        if (isset($map['archType'])) {
+            $model->archType = $map['archType'];
         }
         if (isset($map['clientNodeConfiguration'])) {
             $model->clientNodeConfiguration = clientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
