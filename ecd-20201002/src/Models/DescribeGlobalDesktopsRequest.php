@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDesktopsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c213150d-7ac3-432c-b749-6e1e090b****
      *
      * @var string
@@ -65,6 +67,8 @@ class DescribeGlobalDesktopsRequest extends Model
     public $loginRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v147c9114a180489f89691663893169****
      *
      * @var string

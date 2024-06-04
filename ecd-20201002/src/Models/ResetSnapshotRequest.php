@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetSnapshotRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example b9d8ddfd-65d4-4857-9e97-56477d1f****
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetSnapshotRequest extends Model
     public $clientId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1fdef51b727aa91d6c881658978508114d3f5680fa99a66b2a631d17d5bb4860cccf1173be24d77d5ef1423c83aea****
      *
      * @var string
@@ -23,6 +27,8 @@ class ResetSnapshotRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +43,8 @@ class ResetSnapshotRequest extends Model
     public $sessionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example s-2zeipxmnhej803x7****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindUserDesktopRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 58f96f67-7944-4f97-9342-****
      *
      * @var string
@@ -30,6 +32,8 @@ class UnbindUserDesktopRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v12307f5e0****
      *
      * @var string
@@ -37,6 +41,8 @@ class UnbindUserDesktopRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +50,8 @@ class UnbindUserDesktopRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3b053331-dc98-43d8-b247-****
      *
      * @var string
@@ -51,6 +59,8 @@ class UnbindUserDesktopRequest extends Model
     public $sessionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ud-sdfs****
      *
      * @var string

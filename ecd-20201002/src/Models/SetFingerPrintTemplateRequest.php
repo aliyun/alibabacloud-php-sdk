@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetFingerPrintTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 347431a9-90f6-448e-82c4-42bc84a9****
      *
      * @var string
@@ -51,6 +53,8 @@ class SetFingerPrintTemplateRequest extends Model
     public $fingerPrintTemplate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v11c73e7af0cb43ff39301651142485099ffb447085d76c4147519dbaa21c3bd90d53045e327c1f525ee6331c52556****
      *
      * @var string
@@ -58,6 +62,8 @@ class SetFingerPrintTemplateRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example As53328794
      *
      * @var string
@@ -65,6 +71,8 @@ class SetFingerPrintTemplateRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +80,8 @@ class SetFingerPrintTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8b42538a-246e-45a1-95ea-e5c65b09****
      *
      * @var string

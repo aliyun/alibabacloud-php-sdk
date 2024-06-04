@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopRecordContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clientId;
@@ -24,21 +26,29 @@ class StopRecordContentRequest extends Model
     public $clientVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sessionId;

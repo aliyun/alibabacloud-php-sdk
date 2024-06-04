@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 16dad2b6-3c6d-4e4c-b057-78ecb13c****
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeSnapshotsRequest extends Model
     public $desktopId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v16abfb945208fc5745061668654680853da4a25202d1a394fcad57bba484e9827ad43ea7d10fb6bf13d44a4adc0e9****
      *
      * @var string
@@ -44,6 +48,8 @@ class DescribeSnapshotsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

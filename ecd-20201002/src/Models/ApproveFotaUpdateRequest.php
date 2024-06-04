@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApproveFotaUpdateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0.0.1-D-20220513.14****
      *
      * @var string
@@ -16,6 +18,8 @@ class ApproveFotaUpdateRequest extends Model
     public $appVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example d4452bd7-88df-4b90-a409-806da674****
      *
      * @var string
@@ -30,6 +34,8 @@ class ApproveFotaUpdateRequest extends Model
     public $desktopId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v18390c954ce59e2915ef16663205371721e0db9a46179ac89249a203320459523cb54ad08efe324784dd0eba25950****
      *
      * @var string
@@ -37,6 +43,8 @@ class ApproveFotaUpdateRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

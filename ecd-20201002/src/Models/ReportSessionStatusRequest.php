@@ -16,6 +16,8 @@ class ReportSessionStatusRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example i-bp167fcodoa90ixn****
      *
      * @var string
@@ -23,6 +25,8 @@ class ReportSessionStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -30,6 +34,8 @@ class ReportSessionStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1642909143781
      *
      * @var int
@@ -37,6 +43,8 @@ class ReportSessionStatusRequest extends Model
     public $sessionChangeTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -44,6 +52,8 @@ class ReportSessionStatusRequest extends Model
     public $sessionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SessionLogOn
      *
      * @var string

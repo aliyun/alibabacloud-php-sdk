@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
+use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenResponseBody\passwordStrategy;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenResponseBody\riskVerifyInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -77,6 +78,11 @@ class GetLoginTokenResponseBody extends Model
     public $nextStage;
 
     /**
+     * @var passwordStrategy
+     */
+    public $passwordStrategy;
+
+    /**
      * @description Enter the mobile number of the convenience user. For an AD user, null is returned.
      *
      * @example 1381111****
@@ -101,6 +107,11 @@ class GetLoginTokenResponseBody extends Model
      * @var string
      */
     public $qrCodePng;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @description The ID of the request.
@@ -161,9 +172,11 @@ class GetLoginTokenResponseBody extends Model
         'label'             => 'Label',
         'loginToken'        => 'LoginToken',
         'nextStage'         => 'NextStage',
+        'passwordStrategy'  => 'PasswordStrategy',
         'phone'             => 'Phone',
         'props'             => 'Props',
         'qrCodePng'         => 'QrCodePng',
+        'reason'            => 'Reason',
         'requestId'         => 'RequestId',
         'riskVerifyInfo'    => 'RiskVerifyInfo',
         'secret'            => 'Secret',
@@ -200,6 +213,9 @@ class GetLoginTokenResponseBody extends Model
         if (null !== $this->nextStage) {
             $res['NextStage'] = $this->nextStage;
         }
+        if (null !== $this->passwordStrategy) {
+            $res['PasswordStrategy'] = null !== $this->passwordStrategy ? $this->passwordStrategy->toMap() : null;
+        }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
@@ -208,6 +224,9 @@ class GetLoginTokenResponseBody extends Model
         }
         if (null !== $this->qrCodePng) {
             $res['QrCodePng'] = $this->qrCodePng;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -260,6 +279,9 @@ class GetLoginTokenResponseBody extends Model
         if (isset($map['NextStage'])) {
             $model->nextStage = $map['NextStage'];
         }
+        if (isset($map['PasswordStrategy'])) {
+            $model->passwordStrategy = passwordStrategy::fromMap($map['PasswordStrategy']);
+        }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
@@ -268,6 +290,9 @@ class GetLoginTokenResponseBody extends Model
         }
         if (isset($map['QrCodePng'])) {
             $model->qrCodePng = $map['QrCodePng'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

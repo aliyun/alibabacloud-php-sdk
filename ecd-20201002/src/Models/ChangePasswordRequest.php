@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangePasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 42f6645a-9c3c-4772-be2a-cc5f5732****
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangePasswordRequest extends Model
     public $clientId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example liming
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangePasswordRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
      *
      * @var string
@@ -30,6 +36,8 @@ class ChangePasswordRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 67436290
      *
      * @var string
@@ -37,6 +45,8 @@ class ChangePasswordRequest extends Model
     public $newPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai+dir-227468****
      *
      * @var string
@@ -44,6 +54,8 @@ class ChangePasswordRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12345678
      *
      * @var string
@@ -51,6 +63,8 @@ class ChangePasswordRequest extends Model
     public $oldPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

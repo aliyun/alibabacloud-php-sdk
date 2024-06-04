@@ -11,6 +11,7 @@ class StartDesktopsRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client). The system generates a unique ID for each client.
      *
+     * This parameter is required.
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
      * @var string
@@ -27,7 +28,7 @@ class StartDesktopsRequest extends Model
     public $clientOS;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 21e7be12-aa4f-4389-b3e1-82f4a1b5****
      *
@@ -47,6 +48,7 @@ class StartDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
      *
+     * This parameter is required.
      * @example ecd-cg27ufmapab08****
      *
      * @var string[]
@@ -56,6 +58,7 @@ class StartDesktopsRequest extends Model
     /**
      * @description The logon token.
      *
+     * This parameter is required.
      * @example v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
      *
      * @var string
@@ -63,8 +66,9 @@ class StartDesktopsRequest extends Model
     public $loginToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

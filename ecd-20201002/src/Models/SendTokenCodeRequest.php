@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendTokenCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
      * @var string

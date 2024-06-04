@@ -107,10 +107,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApproveFotaUpdateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 允许桌面FOTA升级
+     *  *
+     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveFotaUpdateResponse
+     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
      */
     public function approveFotaUpdateWithOptions($request, $runtime)
     {
@@ -156,9 +158,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApproveFotaUpdateRequest $request
+     * @summary 允许桌面FOTA升级
+     *  *
+     * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
      *
-     * @return ApproveFotaUpdateResponse
+     * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
      */
     public function approveFotaUpdate($request)
     {
@@ -168,10 +172,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ChangePasswordRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ChangePasswordRequest $request ChangePasswordRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePasswordWithOptions($request, $runtime)
     {
@@ -220,9 +224,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ChangePasswordRequest $request
+     * @param ChangePasswordRequest $request ChangePasswordRequest
      *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePassword($request)
     {
@@ -232,10 +236,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteFingerPrintTemplateRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DeleteFingerPrintTemplateRequest $request DeleteFingerPrintTemplateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFingerPrintTemplateResponse
+     * @return DeleteFingerPrintTemplateResponse DeleteFingerPrintTemplateResponse
      */
     public function deleteFingerPrintTemplateWithOptions($request, $runtime)
     {
@@ -278,9 +282,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteFingerPrintTemplateRequest $request
+     * @param DeleteFingerPrintTemplateRequest $request DeleteFingerPrintTemplateRequest
      *
-     * @return DeleteFingerPrintTemplateResponse
+     * @return DeleteFingerPrintTemplateResponse DeleteFingerPrintTemplateResponse
      */
     public function deleteFingerPrintTemplate($request)
     {
@@ -290,10 +294,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectoriesWithOptions($request, $runtime)
     {
@@ -327,9 +331,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectories($request)
     {
@@ -339,10 +343,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFingerPrintTemplatesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeFingerPrintTemplatesRequest $request DescribeFingerPrintTemplatesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFingerPrintTemplatesResponse
+     * @return DescribeFingerPrintTemplatesResponse DescribeFingerPrintTemplatesResponse
      */
     public function describeFingerPrintTemplatesWithOptions($request, $runtime)
     {
@@ -379,9 +383,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFingerPrintTemplatesRequest $request
+     * @param DescribeFingerPrintTemplatesRequest $request DescribeFingerPrintTemplatesRequest
      *
-     * @return DescribeFingerPrintTemplatesResponse
+     * @return DescribeFingerPrintTemplatesResponse DescribeFingerPrintTemplatesResponse
      */
     public function describeFingerPrintTemplates($request)
     {
@@ -391,10 +395,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDesktopsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeGlobalDesktopsRequest $request DescribeGlobalDesktopsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalDesktopsResponse
+     * @return DescribeGlobalDesktopsResponse DescribeGlobalDesktopsResponse
      */
     public function describeGlobalDesktopsWithOptions($request, $runtime)
     {
@@ -476,9 +480,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDesktopsRequest $request
+     * @param DescribeGlobalDesktopsRequest $request DescribeGlobalDesktopsRequest
      *
-     * @return DescribeGlobalDesktopsResponse
+     * @return DescribeGlobalDesktopsResponse DescribeGlobalDesktopsResponse
      */
     public function describeGlobalDesktops($request)
     {
@@ -488,10 +492,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOfficeSitesResponse
+     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
      */
     public function describeOfficeSitesWithOptions($request, $runtime)
     {
@@ -525,9 +529,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request
+     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
      *
-     * @return DescribeOfficeSitesResponse
+     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
      */
     public function describeOfficeSites($request)
     {
@@ -537,10 +541,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -571,9 +575,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -583,10 +587,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 列举快照
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
@@ -635,9 +641,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
+     * @summary 列举快照
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -647,10 +655,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param EncryptPasswordRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param EncryptPasswordRequest $request EncryptPasswordRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return EncryptPasswordResponse
+     * @return EncryptPasswordResponse EncryptPasswordResponse
      */
     public function encryptPasswordWithOptions($request, $runtime)
     {
@@ -696,9 +704,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param EncryptPasswordRequest $request
+     * @param EncryptPasswordRequest $request EncryptPasswordRequest
      *
-     * @return EncryptPasswordResponse
+     * @return EncryptPasswordResponse EncryptPasswordResponse
      */
     public function encryptPassword($request)
     {
@@ -708,10 +716,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetCloudDriveServiceMountTokenRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取无影云盘的免密token
+     *  *
+     * @param GetCloudDriveServiceMountTokenRequest $request GetCloudDriveServiceMountTokenRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCloudDriveServiceMountTokenResponse
+     * @return GetCloudDriveServiceMountTokenResponse GetCloudDriveServiceMountTokenResponse
      */
     public function getCloudDriveServiceMountTokenWithOptions($request, $runtime)
     {
@@ -751,9 +761,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetCloudDriveServiceMountTokenRequest $request
+     * @summary 获取无影云盘的免密token
+     *  *
+     * @param GetCloudDriveServiceMountTokenRequest $request GetCloudDriveServiceMountTokenRequest
      *
-     * @return GetCloudDriveServiceMountTokenResponse
+     * @return GetCloudDriveServiceMountTokenResponse GetCloudDriveServiceMountTokenResponse
      */
     public function getCloudDriveServiceMountToken($request)
     {
@@ -763,10 +775,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
@@ -833,9 +845,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -845,10 +857,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetLoginTokenRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Obtains logon credentials.
+     *  *
+     * @param GetLoginTokenRequest $request GetLoginTokenRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoginTokenResponse
+     * @return GetLoginTokenResponse GetLoginTokenResponse
      */
     public function getLoginTokenWithOptions($request, $runtime)
     {
@@ -927,9 +941,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetLoginTokenRequest $request
+     * @summary Obtains logon credentials.
+     *  *
+     * @param GetLoginTokenRequest $request GetLoginTokenRequest
      *
-     * @return GetLoginTokenResponse
+     * @return GetLoginTokenResponse GetLoginTokenResponse
      */
     public function getLoginToken($request)
     {
@@ -939,10 +955,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param IsKeepAliveRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 是否保持登录判断接口
+     *  *
+     * @param IsKeepAliveRequest $request IsKeepAliveRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return IsKeepAliveResponse
+     * @return IsKeepAliveResponse IsKeepAliveResponse
      */
     public function isKeepAliveWithOptions($request, $runtime)
     {
@@ -976,9 +994,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param IsKeepAliveRequest $request
+     * @summary 是否保持登录判断接口
+     *  *
+     * @param IsKeepAliveRequest $request IsKeepAliveRequest
      *
-     * @return IsKeepAliveResponse
+     * @return IsKeepAliveResponse IsKeepAliveResponse
      */
     public function isKeepAlive($request)
     {
@@ -988,10 +1008,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param QueryEdsAgentReportConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询Agent需要上报的配置信息
+     *  *
+     * @param QueryEdsAgentReportConfigRequest $request QueryEdsAgentReportConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEdsAgentReportConfigResponse
+     * @return QueryEdsAgentReportConfigResponse QueryEdsAgentReportConfigResponse
      */
     public function queryEdsAgentReportConfigWithOptions($request, $runtime)
     {
@@ -1025,9 +1047,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param QueryEdsAgentReportConfigRequest $request
+     * @summary 查询Agent需要上报的配置信息
+     *  *
+     * @param QueryEdsAgentReportConfigRequest $request QueryEdsAgentReportConfigRequest
      *
-     * @return QueryEdsAgentReportConfigResponse
+     * @return QueryEdsAgentReportConfigResponse QueryEdsAgentReportConfigResponse
      */
     public function queryEdsAgentReportConfig($request)
     {
@@ -1037,10 +1061,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RebootDesktopsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Restart cloud computers.
+     *  *
+     * @param RebootDesktopsRequest $request RebootDesktopsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootDesktopsResponse
+     * @return RebootDesktopsResponse RebootDesktopsResponse
      */
     public function rebootDesktopsWithOptions($request, $runtime)
     {
@@ -1095,9 +1121,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RebootDesktopsRequest $request
+     * @summary Restart cloud computers.
+     *  *
+     * @param RebootDesktopsRequest $request RebootDesktopsRequest
      *
-     * @return RebootDesktopsResponse
+     * @return RebootDesktopsResponse RebootDesktopsResponse
      */
     public function rebootDesktops($request)
     {
@@ -1107,10 +1135,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshLoginTokenResponse
+     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
      */
     public function refreshLoginTokenWithOptions($request, $runtime)
     {
@@ -1156,9 +1184,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request
+     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
      *
-     * @return RefreshLoginTokenResponse
+     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
      */
     public function refreshLoginToken($request)
     {
@@ -1168,10 +1196,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ReportEdsAgentInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 上报edsAgent的信息
+     *  *
+     * @param ReportEdsAgentInfoRequest $request ReportEdsAgentInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReportEdsAgentInfoResponse
+     * @return ReportEdsAgentInfoResponse ReportEdsAgentInfoResponse
      */
     public function reportEdsAgentInfoWithOptions($request, $runtime)
     {
@@ -1208,9 +1238,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ReportEdsAgentInfoRequest $request
+     * @summary 上报edsAgent的信息
+     *  *
+     * @param ReportEdsAgentInfoRequest $request ReportEdsAgentInfoRequest
      *
-     * @return ReportEdsAgentInfoResponse
+     * @return ReportEdsAgentInfoResponse ReportEdsAgentInfoResponse
      */
     public function reportEdsAgentInfo($request)
     {
@@ -1220,10 +1252,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ReportSessionStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ReportSessionStatusRequest $request ReportSessionStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReportSessionStatusResponse
+     * @return ReportSessionStatusResponse ReportSessionStatusResponse
      */
     public function reportSessionStatusWithOptions($request, $runtime)
     {
@@ -1266,9 +1298,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ReportSessionStatusRequest $request
+     * @param ReportSessionStatusRequest $request ReportSessionStatusRequest
      *
-     * @return ReportSessionStatusResponse
+     * @return ReportSessionStatusResponse ReportSessionStatusResponse
      */
     public function reportSessionStatus($request)
     {
@@ -1278,10 +1310,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetPasswordRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ResetPasswordRequest $request ResetPasswordRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetPasswordResponse
+     * @return ResetPasswordResponse ResetPasswordResponse
      */
     public function resetPasswordWithOptions($request, $runtime)
     {
@@ -1327,9 +1359,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetPasswordRequest $request
+     * @param ResetPasswordRequest $request ResetPasswordRequest
      *
-     * @return ResetPasswordResponse
+     * @return ResetPasswordResponse ResetPasswordResponse
      */
     public function resetPassword($request)
     {
@@ -1339,10 +1371,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetSnapshotRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 还原快照
+     *  *
+     * @param ResetSnapshotRequest $request ResetSnapshotRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetSnapshotResponse
+     * @return ResetSnapshotResponse ResetSnapshotResponse
      */
     public function resetSnapshotWithOptions($request, $runtime)
     {
@@ -1382,9 +1416,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetSnapshotRequest $request
+     * @summary 还原快照
+     *  *
+     * @param ResetSnapshotRequest $request ResetSnapshotRequest
      *
-     * @return ResetSnapshotResponse
+     * @return ResetSnapshotResponse ResetSnapshotResponse
      */
     public function resetSnapshot($request)
     {
@@ -1394,10 +1430,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SendTokenCodeRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param SendTokenCodeRequest $request SendTokenCodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendTokenCodeResponse
+     * @return SendTokenCodeResponse SendTokenCodeResponse
      */
     public function sendTokenCodeWithOptions($request, $runtime)
     {
@@ -1446,9 +1482,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SendTokenCodeRequest $request
+     * @param SendTokenCodeRequest $request SendTokenCodeRequest
      *
-     * @return SendTokenCodeResponse
+     * @return SendTokenCodeResponse SendTokenCodeResponse
      */
     public function sendTokenCode($request)
     {
@@ -1458,10 +1494,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param SetFingerPrintTemplateRequest $request SetFingerPrintTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetFingerPrintTemplateResponse
+     * @return SetFingerPrintTemplateResponse SetFingerPrintTemplateResponse
      */
     public function setFingerPrintTemplateWithOptions($request, $runtime)
     {
@@ -1516,9 +1552,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateRequest $request
+     * @param SetFingerPrintTemplateRequest $request SetFingerPrintTemplateRequest
      *
-     * @return SetFingerPrintTemplateResponse
+     * @return SetFingerPrintTemplateResponse SetFingerPrintTemplateResponse
      */
     public function setFingerPrintTemplate($request)
     {
@@ -1528,10 +1564,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateDescriptionRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param SetFingerPrintTemplateDescriptionRequest $request SetFingerPrintTemplateDescriptionRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetFingerPrintTemplateDescriptionResponse
+     * @return SetFingerPrintTemplateDescriptionResponse SetFingerPrintTemplateDescriptionResponse
      */
     public function setFingerPrintTemplateDescriptionWithOptions($request, $runtime)
     {
@@ -1577,9 +1613,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetFingerPrintTemplateDescriptionRequest $request
+     * @param SetFingerPrintTemplateDescriptionRequest $request SetFingerPrintTemplateDescriptionRequest
      *
-     * @return SetFingerPrintTemplateDescriptionResponse
+     * @return SetFingerPrintTemplateDescriptionResponse SetFingerPrintTemplateDescriptionResponse
      */
     public function setFingerPrintTemplateDescription($request)
     {
@@ -1589,8 +1625,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-     *   *
+     * @summary Start cloud computers.
+     *  *
+     * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+     *  *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1646,8 +1684,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
-     *   *
+     * @summary Start cloud computers.
+     *  *
+     * @description The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
+     *  *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      *
      * @return StartDesktopsResponse StartDesktopsResponse
@@ -1660,10 +1700,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StartRecordContentRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param StartRecordContentRequest $request StartRecordContentRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartRecordContentResponse
+     * @return StartRecordContentResponse StartRecordContentResponse
      */
     public function startRecordContentWithOptions($request, $runtime)
     {
@@ -1712,9 +1752,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StartRecordContentRequest $request
+     * @param StartRecordContentRequest $request StartRecordContentRequest
      *
-     * @return StartRecordContentResponse
+     * @return StartRecordContentResponse StartRecordContentResponse
      */
     public function startRecordContent($request)
     {
@@ -1724,8 +1764,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-     *   *
+     * @summary Stops cloud computers.
+     *  *
+     * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     *  *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1781,8 +1823,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
-     *   *
+     * @summary Stops cloud computers.
+     *  *
+     * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     *  *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      *
      * @return StopDesktopsResponse StopDesktopsResponse
@@ -1795,10 +1839,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StopRecordContentRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param StopRecordContentRequest $request StopRecordContentRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRecordContentResponse
+     * @return StopRecordContentResponse StopRecordContentResponse
      */
     public function stopRecordContentWithOptions($request, $runtime)
     {
@@ -1844,9 +1888,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param StopRecordContentRequest $request
+     * @param StopRecordContentRequest $request StopRecordContentRequest
      *
-     * @return StopRecordContentResponse
+     * @return StopRecordContentResponse StopRecordContentResponse
      */
     public function stopRecordContent($request)
     {
@@ -1856,10 +1900,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnbindUserDesktopRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 解绑用户桌面
+     *  *
+     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindUserDesktopResponse
+     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
      */
     public function unbindUserDesktopWithOptions($request, $runtime)
     {
@@ -1905,9 +1951,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnbindUserDesktopRequest $request
+     * @summary 解绑用户桌面
+     *  *
+     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
      *
-     * @return UnbindUserDesktopResponse
+     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
      */
     public function unbindUserDesktop($request)
     {
@@ -1917,10 +1965,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param VerifyCredentialRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param VerifyCredentialRequest $request VerifyCredentialRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyCredentialResponse
+     * @return VerifyCredentialResponse VerifyCredentialResponse
      */
     public function verifyCredentialWithOptions($request, $runtime)
     {
@@ -1969,9 +2017,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param VerifyCredentialRequest $request
+     * @param VerifyCredentialRequest $request VerifyCredentialRequest
      *
-     * @return VerifyCredentialResponse
+     * @return VerifyCredentialResponse VerifyCredentialResponse
      */
     public function verifyCredential($request)
     {

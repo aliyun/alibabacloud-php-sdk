@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshLoginTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
      * @var string
@@ -23,6 +25,8 @@ class RefreshLoginTokenRequest extends Model
     public $directoryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alice
      *
      * @var string
@@ -30,6 +34,8 @@ class RefreshLoginTokenRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
      *
      * @var string
@@ -44,6 +50,8 @@ class RefreshLoginTokenRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

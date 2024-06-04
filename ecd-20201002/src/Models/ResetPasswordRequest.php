@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetPasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 95e41934-383e-4c9f-824f-3b93b19b****
      *
      * @var string
@@ -30,6 +32,8 @@ class ResetPasswordRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example liming
      *
      * @var string
@@ -37,6 +41,8 @@ class ResetPasswordRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou+dir-899235****
      *
      * @var string
@@ -44,6 +50,8 @@ class ResetPasswordRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

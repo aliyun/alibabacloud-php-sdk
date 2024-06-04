@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfficeSitesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 42f6645a-9c3c-4772-be2a-cc5f5732****
      *
      * @var string
@@ -21,6 +23,8 @@ class DescribeOfficeSitesRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

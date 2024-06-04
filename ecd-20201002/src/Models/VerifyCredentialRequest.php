@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyCredentialRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example d0b95762-0541-4b53-a0e4-7ed09f39****
      *
      * @var string
@@ -16,6 +18,8 @@ class VerifyCredentialRequest extends Model
     public $clientId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456789cyG
      *
      * @var string
@@ -37,6 +41,8 @@ class VerifyCredentialRequest extends Model
     public $encryptedKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1f5772a1c60dbea9fd8e1648567079018086448d234b5bc8e30bec0ba6e80c41c767c4dd0db51e9e5c4e0f111431a****
      *
      * @var string
@@ -44,6 +50,8 @@ class VerifyCredentialRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai+dir-227468****
      *
      * @var string
@@ -51,6 +59,8 @@ class VerifyCredentialRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

@@ -11,6 +11,7 @@ class StopDesktopsRequest extends Model
     /**
      * @description The client ID. The system generates a unique ID for each client.
      *
+     * This parameter is required.
      * @example f4a0dc8e-1702-4728-9a60-95b27a35****
      *
      * @var string
@@ -27,7 +28,7 @@ class StopDesktopsRequest extends Model
     public $clientOS;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
      *
      * @example 6ce412a8-399f-49f9-9518-66ee028a****
      *
@@ -47,6 +48,7 @@ class StopDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
      *
+     * This parameter is required.
      * @example ecd-7w78ozhjcwa3u****
      *
      * @var string[]
@@ -63,8 +65,9 @@ class StopDesktopsRequest extends Model
     public $loginToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

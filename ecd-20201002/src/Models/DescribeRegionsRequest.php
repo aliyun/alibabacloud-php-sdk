@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ac4a73ad-789a-449a-a88f-d18571d6****
      *
      * @var string

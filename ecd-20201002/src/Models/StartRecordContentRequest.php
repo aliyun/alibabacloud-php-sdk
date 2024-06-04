@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartRecordContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clientId;
@@ -24,6 +26,8 @@ class StartRecordContentRequest extends Model
     public $clientVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $desktopId;
@@ -34,16 +38,22 @@ class StartRecordContentRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sessionId;
