@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CsiGetFileInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class CsiGetFileInfoRequest extends Model
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string

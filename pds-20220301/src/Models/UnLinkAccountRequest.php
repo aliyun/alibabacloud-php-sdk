@@ -16,6 +16,8 @@ class UnLinkAccountRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 139****
      *
      * @var string
@@ -23,6 +25,8 @@ class UnLinkAccountRequest extends Model
     public $identity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mobile
      *
      * @var string
@@ -30,6 +34,8 @@ class UnLinkAccountRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example uid1
      *
      * @var string

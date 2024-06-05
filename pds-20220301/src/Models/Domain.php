@@ -16,6 +16,11 @@ class Domain extends Model
     /**
      * @var string
      */
+    public $dataHashName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -84,6 +89,7 @@ class Domain extends Model
     public $userCountQuota;
     protected $_name = [
         'createdAt'                  => 'created_at',
+        'dataHashName'               => 'data_hash_name',
         'description'                => 'description',
         'domainId'                   => 'domain_id',
         'domainName'                 => 'domain_name',
@@ -109,6 +115,9 @@ class Domain extends Model
         $res = [];
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
+        }
+        if (null !== $this->dataHashName) {
+            $res['data_hash_name'] = $this->dataHashName;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -166,6 +175,9 @@ class Domain extends Model
         $model = new self();
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
+        }
+        if (isset($map['data_hash_name'])) {
+            $model->dataHashName = $map['data_hash_name'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];

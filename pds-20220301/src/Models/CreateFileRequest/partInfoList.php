@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class partInfoList extends Model
 {
     /**
+     * @description The MD5 hash value of the file part. This parameter is required when the MD5 hash value of the file part needs to be verified during part upload.
+     *
      * @example ASKJDJSKDJJSJDJS
      *
      * @var string
@@ -17,14 +19,14 @@ class partInfoList extends Model
     public $contentMd5;
 
     /**
-     * @description 该分片前所有数据的SHA1上下文，该字段只在多分片并发上传的模式下有效
+     * @description The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
      *
      * @var parallelSha1Ctx
      */
     public $parallelSha1Ctx;
 
     /**
-     * @description The serial number of a part. The number starts from 1.
+     * @description The serial number of a file part. The number starts from 1.
      *
      * @example 1
      *

@@ -20,6 +20,7 @@ class TokenRequest extends Model
     /**
      * @description The AppId of the application that is created in the Drive and Photo Service console.
      *
+     * This parameter is required.
      * @example 1Zu***flH
      *
      * @var string
@@ -47,7 +48,7 @@ class TokenRequest extends Model
     /**
      * @description The method that is used to generate an access token. Valid values:
      *
-     * urn:ietf:params:oauth:grant-type:jwt-bearer: generates an access token by using a JWT assertion.
+     * This parameter is required.
      * @example refresh_token
      *
      * @var string

@@ -11,7 +11,7 @@ class responses extends Model
     /**
      * @description The response parameters of a child request. For more information, see the topic of the corresponding child request.
      *
-     * @var string[]
+     * @var mixed[]
      */
     public $body;
 

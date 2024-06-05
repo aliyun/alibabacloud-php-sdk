@@ -24,8 +24,6 @@ class DeleteDriveResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
     }
 
     public function toMap()

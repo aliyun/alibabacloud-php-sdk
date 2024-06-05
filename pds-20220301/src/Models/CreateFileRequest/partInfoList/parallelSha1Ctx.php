@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class parallelSha1Ctx extends Model
 {
     /**
-     * @description 该分片前所有数据的SHA1上下文的第1-5个32位变量，该字段只在多分片并发上传的模式下有效
+     * @description The first to fifth 32-bit variables of the SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
      *
      * @var int[]
      */
     public $h;
 
     /**
-     * @description 到上一个数据块为止的总长度，字节，需要为64的倍数，该字段只在多分片并发上传的模式下有效
+     * @description The size of the file content before the file part. Unit: bytes. The value must be a multiple of 64. This parameter takes effect only if the parallel upload feature is enabled.
      *
      * @example 10240
      *

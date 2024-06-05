@@ -20,6 +20,7 @@ class CreateGroupRequest extends Model
     /**
      * @description The name of the group. The name must be 1 to 128 characters in length.
      *
+     * This parameter is required.
      * @example test group
      *
      * @var string

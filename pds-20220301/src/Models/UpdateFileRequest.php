@@ -28,6 +28,7 @@ class UpdateFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -37,6 +38,7 @@ class UpdateFileRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

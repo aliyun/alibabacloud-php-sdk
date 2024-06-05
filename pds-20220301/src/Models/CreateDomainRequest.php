@@ -11,12 +11,17 @@ class CreateDomainRequest extends Model
     /**
      * @description The description of the domain.
      *
+     * @example domain for test
+     *
      * @var string
      */
     public $description;
 
     /**
      * @description The name of the domain.
+     *
+     * This parameter is required.
+     * @example test_domain
      *
      * @var string
      */

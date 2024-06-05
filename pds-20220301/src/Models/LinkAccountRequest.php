@@ -20,6 +20,7 @@ class LinkAccountRequest extends Model
     /**
      * @description The unique identifier of the account, such as a mobile number.
      *
+     * This parameter is required.
      * @example eyy***
      *
      * @var string
@@ -37,6 +38,7 @@ class LinkAccountRequest extends Model
      *   ldap: a Lightweight Directory Access Protocol (LDAP) account.
      *   custom: a custom account.
      *
+     * This parameter is required.
      * @example ding
      *
      * @var string
@@ -46,6 +48,7 @@ class LinkAccountRequest extends Model
     /**
      * @description The ID of the user with which you want to associate an account.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

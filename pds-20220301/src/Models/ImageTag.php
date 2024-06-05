@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ImageTag extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example image
+     *
      * @var string
      */
     public $coverFileCategory;
 
     /**
+     * @example 5d79206586bb5dd69fb34c349282718146c55da7
+     *
      * @var string
      */
     public $coverFileId;
 
     /**
+     * @example 0.736
+     *
      * @var float
      */
     public $coverOverallScore;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $coverTagConfidence;
 
     /**
+     * @example https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example 动物
+     *
      * @var string
      */
     public $name;

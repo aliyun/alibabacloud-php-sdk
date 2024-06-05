@@ -21,6 +21,7 @@ class MoveFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -30,6 +31,7 @@ class MoveFileRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string
@@ -39,6 +41,7 @@ class MoveFileRequest extends Model
     /**
      * @description The ID of the destination parent directory to which you want to move a file or folder. If you want to move a file or folder to the root directory, set this parameter to root.
      *
+     * This parameter is required.
      * @example 6520943DC261
      *
      * @var string

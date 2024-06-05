@@ -5,16 +5,37 @@
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigateFileRequest\driveFileIds;
+use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigateFileRequest\policy;
 use AlibabaCloud\Tea\Model;
 
 class InvestigateFileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var driveFileIds[]
      */
     public $driveFileIds;
+
+    /**
+     * @var policy
+     */
+    public $policy;
+
+    /**
+     * @var bool
+     */
+    public $recursive;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'driveFileIds' => 'drive_file_ids',
+        'policy'       => 'policy',
+        'recursive'    => 'recursive',
+        'userData'     => 'user_data',
     ];
 
     public function validate()
@@ -32,6 +53,15 @@ class InvestigateFileRequest extends Model
                     $res['drive_file_ids'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->policy) {
+            $res['policy'] = null !== $this->policy ? $this->policy->toMap() : null;
+        }
+        if (null !== $this->recursive) {
+            $res['recursive'] = $this->recursive;
+        }
+        if (null !== $this->userData) {
+            $res['user_data'] = $this->userData;
         }
 
         return $res;
@@ -53,6 +83,15 @@ class InvestigateFileRequest extends Model
                     $model->driveFileIds[$n++] = null !== $item ? driveFileIds::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['policy'])) {
+            $model->policy = policy::fromMap($map['policy']);
+        }
+        if (isset($map['recursive'])) {
+            $model->recursive = $map['recursive'];
+        }
+        if (isset($map['user_data'])) {
+            $model->userData = $map['user_data'];
         }
 
         return $model;

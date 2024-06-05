@@ -95,6 +95,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The user ID. The ID can be up to 64 characters in length and cannot contain a number sign (#).
      *
+     * This parameter is required.
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string

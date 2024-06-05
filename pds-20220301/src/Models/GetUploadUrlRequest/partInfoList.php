@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\GetUploadUrlRequest;
 
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetUploadUrlRequest\partInfoList\parallelSha1Ctx;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetUploadUrlRequest\partInfoList\parallelSha256Ctx;
 use AlibabaCloud\Tea\Model;
 
 class partInfoList extends Model
@@ -27,6 +28,11 @@ class partInfoList extends Model
     public $parallelSha1Ctx;
 
     /**
+     * @var parallelSha256Ctx
+     */
+    public $parallelSha256Ctx;
+
+    /**
      * @description The serial number of a part.
      *
      * @example 1
@@ -35,10 +41,11 @@ class partInfoList extends Model
      */
     public $partNumber;
     protected $_name = [
-        'contentMd5'      => 'content_md5',
-        'contentType'     => 'content_type',
-        'parallelSha1Ctx' => 'parallel_sha1_ctx',
-        'partNumber'      => 'part_number',
+        'contentMd5'        => 'content_md5',
+        'contentType'       => 'content_type',
+        'parallelSha1Ctx'   => 'parallel_sha1_ctx',
+        'parallelSha256Ctx' => 'parallel_sha256_ctx',
+        'partNumber'        => 'part_number',
     ];
 
     public function validate()
@@ -56,6 +63,9 @@ class partInfoList extends Model
         }
         if (null !== $this->parallelSha1Ctx) {
             $res['parallel_sha1_ctx'] = null !== $this->parallelSha1Ctx ? $this->parallelSha1Ctx->toMap() : null;
+        }
+        if (null !== $this->parallelSha256Ctx) {
+            $res['parallel_sha256_ctx'] = null !== $this->parallelSha256Ctx ? $this->parallelSha256Ctx->toMap() : null;
         }
         if (null !== $this->partNumber) {
             $res['part_number'] = $this->partNumber;
@@ -80,6 +90,9 @@ class partInfoList extends Model
         }
         if (isset($map['parallel_sha1_ctx'])) {
             $model->parallelSha1Ctx = parallelSha1Ctx::fromMap($map['parallel_sha1_ctx']);
+        }
+        if (isset($map['parallel_sha256_ctx'])) {
+            $model->parallelSha256Ctx = parallelSha256Ctx::fromMap($map['parallel_sha256_ctx']);
         }
         if (isset($map['part_number'])) {
             $model->partNumber = $map['part_number'];

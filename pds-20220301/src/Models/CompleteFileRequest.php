@@ -11,6 +11,7 @@ class CompleteFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class CompleteFileRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string
@@ -29,6 +31,7 @@ class CompleteFileRequest extends Model
     /**
      * @description The upload ID.
      *
+     * This parameter is required.
      * @example C9DCFE5A82644AC7A02DB74C30C934A6
      *
      * @var string

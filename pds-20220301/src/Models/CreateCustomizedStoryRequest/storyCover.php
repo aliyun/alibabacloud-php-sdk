@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storyCover extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
      *
      * @var string

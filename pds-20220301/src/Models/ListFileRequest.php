@@ -30,7 +30,7 @@ class ListFileRequest extends Model
     /**
      * @description The fields to return.
      *
-     * 1.  If this parameter is set to \*, all fields of the file except the fields that must be specified are returned.
+     * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
      * By default, all fields except the fields that must be specified are returned.
      * @example *
      *
@@ -49,7 +49,7 @@ class ListFileRequest extends Model
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
@@ -96,6 +96,7 @@ class ListFileRequest extends Model
     /**
      * @description The ID of the parent folder. If the parent folder is a root directory, set this parameter to root.
      *
+     * This parameter is required.
      * @example root
      *
      * @var string

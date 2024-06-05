@@ -45,9 +45,7 @@ class GetAsyncTaskResponseBody extends Model
     public $createdAt;
 
     /**
-     * @description **
-     *
-     **Warning **This parameter is no longer used. We recommend that you use error_code instead.
+     * @description <warning>This parameter is no longer used. We recommend that you use error_code instead.</warning>
      *
      * The error code returned if the asynchronous task failed.
      * @example InternalError
@@ -89,9 +87,7 @@ class GetAsyncTaskResponseBody extends Model
     public $finishedAt;
 
     /**
-     * @description **
-     *
-     **Warning **This parameter is no longer used. We recommend that you use error_message instead.
+     * @description <warning>This parameter is no longer used. We recommend that you use error_message instead.</warning>
      *
      * The error message returned if the asynchronous task failed.
      * @example The request has been failed due to some unknown error. Please try again later.
@@ -129,9 +125,7 @@ class GetAsyncTaskResponseBody extends Model
     public $state;
 
     /**
-     * @description **
-     *
-     **Warning **This parameter is no longer used. We recommend that you use state instead.
+     * @description <warning>This parameter is no longer used. We recommend that you use state instead.</warning>
      *
      * The state of the task. Valid values:
      *

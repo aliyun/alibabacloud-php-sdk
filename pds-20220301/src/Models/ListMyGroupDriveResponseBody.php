@@ -23,9 +23,15 @@ class ListMyGroupDriveResponseBody extends Model
      * @var string
      */
     public $nextMarker;
+
+    /**
+     * @var Drive
+     */
+    public $rootGroupDrive;
     protected $_name = [
-        'items'      => 'items',
-        'nextMarker' => 'next_marker',
+        'items'          => 'items',
+        'nextMarker'     => 'next_marker',
+        'rootGroupDrive' => 'root_group_drive',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class ListMyGroupDriveResponseBody extends Model
         }
         if (null !== $this->nextMarker) {
             $res['next_marker'] = $this->nextMarker;
+        }
+        if (null !== $this->rootGroupDrive) {
+            $res['root_group_drive'] = null !== $this->rootGroupDrive ? $this->rootGroupDrive->toMap() : null;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class ListMyGroupDriveResponseBody extends Model
         }
         if (isset($map['next_marker'])) {
             $model->nextMarker = $map['next_marker'];
+        }
+        if (isset($map['root_group_drive'])) {
+            $model->rootGroupDrive = Drive::fromMap($map['root_group_drive']);
         }
 
         return $model;

@@ -18,6 +18,7 @@ class UpdateDomainRequest extends Model
     /**
      * @description The domain ID.
      *
+     * This parameter is required.
      * @example bj1
      *
      * @var string

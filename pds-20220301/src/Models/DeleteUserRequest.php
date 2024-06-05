@@ -11,6 +11,7 @@ class DeleteUserRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string

@@ -11,6 +11,7 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The unique identifier of the benefit package.
      *
+     * This parameter is required.
      * @example 40cb7794c9294
      *
      * @var string
@@ -20,7 +21,7 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The unique identifier of the entity.
      *
-     * If you want to manage the benefits of a user, set this parameter to a user ID.
+     * This parameter is required.
      * @example user123
      *
      * @var string
@@ -30,6 +31,7 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The type of the entity. If you want to manage the benefits of a user, set this parameter to user.
      *
+     * This parameter is required.
      * @example user
      *
      * @var string

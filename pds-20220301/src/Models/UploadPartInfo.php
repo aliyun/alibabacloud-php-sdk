@@ -33,6 +33,8 @@ class UploadPartInfo extends Model
     public $parallelSha256Ctx;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +49,8 @@ class UploadPartInfo extends Model
     public $partSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $uploadUrl;

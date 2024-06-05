@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserRequest extends Model
 {
     /**
-     * @description The maximum number of results to return. Valid values: 1 to 100.
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
      *
      * @example 100
      *

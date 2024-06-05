@@ -22,6 +22,8 @@ class UpdateStoryRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -29,6 +31,8 @@ class UpdateStoryRequest extends Model
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9132e0d8-fe92-4e56-86c3-f5f112308003
      *
      * @var string

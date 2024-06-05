@@ -11,6 +11,7 @@ class DeleteFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteFileRequest extends Model
     /**
      * @description The file ID or folder ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

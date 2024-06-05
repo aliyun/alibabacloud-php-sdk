@@ -16,6 +16,16 @@ class UploadFormInfo extends Model
     /**
      * @var string
      */
+    public $endpoint;
+
+    /**
+     * @var string[]
+     */
+    public $formData;
+
+    /**
+     * @var string
+     */
     public $objectKey;
 
     /**
@@ -44,6 +54,8 @@ class UploadFormInfo extends Model
     public $signature;
     protected $_name = [
         'bucketName'       => 'bucket_name',
+        'endpoint'         => 'endpoint',
+        'formData'         => 'form_data',
         'objectKey'        => 'object_key',
         'ossAccessKeyId'   => 'oss_access_key_id',
         'ossEndPoint'      => 'oss_end_point',
@@ -61,6 +73,12 @@ class UploadFormInfo extends Model
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucket_name'] = $this->bucketName;
+        }
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->formData) {
+            $res['form_data'] = $this->formData;
         }
         if (null !== $this->objectKey) {
             $res['object_key'] = $this->objectKey;
@@ -94,6 +112,12 @@ class UploadFormInfo extends Model
         $model = new self();
         if (isset($map['bucket_name'])) {
             $model->bucketName = $map['bucket_name'];
+        }
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
+        }
+        if (isset($map['form_data'])) {
+            $model->formData = $map['form_data'];
         }
         if (isset($map['object_key'])) {
             $model->objectKey = $map['object_key'];

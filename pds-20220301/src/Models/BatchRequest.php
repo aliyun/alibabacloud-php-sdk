@@ -12,7 +12,7 @@ class BatchRequest extends Model
     /**
      * @description The child requests.
      *
-     * The number of child requests. Valid value: 1 to 100.
+     * This parameter is required.
      * @var requests[]
      */
     public $requests;
@@ -56,7 +56,7 @@ class BatchRequest extends Model
      *
      *   <!-- -->
      *
-     * <!-- -->
+     * This parameter is required.
      * @example file
      *
      * @var string

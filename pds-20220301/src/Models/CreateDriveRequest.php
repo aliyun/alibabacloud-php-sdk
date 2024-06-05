@@ -20,6 +20,8 @@ class CreateDriveRequest extends Model
     /**
      * @description The description of the drive. The description can be up to 1,024 characters in length.
      *
+     * @example drive for test
+     *
      * @var string
      */
     public $description;
@@ -27,7 +29,8 @@ class CreateDriveRequest extends Model
     /**
      * @description The name of the drive. The name can be up to 128 characters in length.
      *
-     * @example my_drive
+     * This parameter is required.
+     * @example test_drive
      *
      * @var string
      */
@@ -45,6 +48,7 @@ class CreateDriveRequest extends Model
     /**
      * @description The owner of the drive.
      *
+     * This parameter is required.
      * @example 3b3d7245c159488da17d081ad6c64687
      *
      * @var string
@@ -54,7 +58,7 @@ class CreateDriveRequest extends Model
     /**
      * @description The type of the owner. Valid values:
      *
-     * user and group.
+     * This parameter is required.
      * @example user
      *
      * @var string

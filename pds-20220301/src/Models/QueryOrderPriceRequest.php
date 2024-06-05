@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderPriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $package;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $totalSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $userCount;

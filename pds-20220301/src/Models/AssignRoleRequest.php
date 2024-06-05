@@ -11,6 +11,7 @@ class AssignRoleRequest extends Model
     /**
      * @description The unique identifier of a user. The group administrator role can only be assigned to a user.
      *
+     * This parameter is required.
      * @var Identity
      */
     public $identity;
@@ -18,6 +19,7 @@ class AssignRoleRequest extends Model
     /**
      * @description The ID of the resource that the role can manage. You can only set this parameter to the ID of a group.
      *
+     * This parameter is required.
      * @example 105***b82
      *
      * @var string
@@ -27,6 +29,7 @@ class AssignRoleRequest extends Model
     /**
      * @description The type of the resource that the role can manage. Valid value: RT_Group.
      *
+     * This parameter is required.
      * @example RT_Group
      *
      * @var string
@@ -36,6 +39,7 @@ class AssignRoleRequest extends Model
     /**
      * @description The ID of the role that is assigned to a user. Valid value: SystemGroupAdmin.
      *
+     * This parameter is required.
      * @example SystemGroupAdmin
      *
      * @var string

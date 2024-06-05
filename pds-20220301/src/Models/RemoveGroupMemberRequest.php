@@ -11,6 +11,7 @@ class RemoveGroupMemberRequest extends Model
     /**
      * @description The ID of the group from which you want to remove a member.
      *
+     * This parameter is required.
      * @example 3e5***2c2
      *
      * @var string
@@ -20,6 +21,7 @@ class RemoveGroupMemberRequest extends Model
     /**
      * @description The ID of the member. If member_type is set to user, set this parameter to the ID of the corresponding user.
      *
+     * This parameter is required.
      * @example 2e4***1b1
      *
      * @var string
@@ -31,7 +33,7 @@ class RemoveGroupMemberRequest extends Model
      *
      *   user
      *
-     * Note: A group can be a member of only one group. It cannot be a member of multiple groups. A user can be a member of multiple groups.
+     * This parameter is required.
      * @example user
      *
      * @var string

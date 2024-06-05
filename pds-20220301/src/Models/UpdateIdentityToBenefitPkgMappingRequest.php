@@ -21,6 +21,7 @@ class UpdateIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The unique identifier of the benefit package.
      *
+     * This parameter is required.
      * @example 40cb7794c9294
      *
      * @var string
@@ -40,7 +41,7 @@ class UpdateIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The unique identifier of the entity.
      *
-     * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
+     * This parameter is required.
      * @example user123
      *
      * @var string
@@ -50,6 +51,7 @@ class UpdateIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
      *
+     * This parameter is required.
      * @example user
      *
      * @var string

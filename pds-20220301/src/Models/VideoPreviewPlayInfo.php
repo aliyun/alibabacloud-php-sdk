@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayInfo\liveTranscodingTaskList;
 use AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayInfo\meta;
+use AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayInfo\offlineVideoTranscodingList;
 use AlibabaCloud\Tea\Model;
 
 class VideoPreviewPlayInfo extends Model
@@ -26,10 +27,16 @@ class VideoPreviewPlayInfo extends Model
      * @var meta
      */
     public $meta;
+
+    /**
+     * @var offlineVideoTranscodingList[]
+     */
+    public $offlineVideoTranscodingList;
     protected $_name = [
-        'category'                => 'category',
-        'liveTranscodingTaskList' => 'live_transcoding_task_list',
-        'meta'                    => 'meta',
+        'category'                    => 'category',
+        'liveTranscodingTaskList'     => 'live_transcoding_task_list',
+        'meta'                        => 'meta',
+        'offlineVideoTranscodingList' => 'offline_video_transcoding_list',
     ];
 
     public function validate()
@@ -53,6 +60,15 @@ class VideoPreviewPlayInfo extends Model
         }
         if (null !== $this->meta) {
             $res['meta'] = null !== $this->meta ? $this->meta->toMap() : null;
+        }
+        if (null !== $this->offlineVideoTranscodingList) {
+            $res['offline_video_transcoding_list'] = [];
+            if (null !== $this->offlineVideoTranscodingList && \is_array($this->offlineVideoTranscodingList)) {
+                $n = 0;
+                foreach ($this->offlineVideoTranscodingList as $item) {
+                    $res['offline_video_transcoding_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -80,6 +96,15 @@ class VideoPreviewPlayInfo extends Model
         }
         if (isset($map['meta'])) {
             $model->meta = meta::fromMap($map['meta']);
+        }
+        if (isset($map['offline_video_transcoding_list'])) {
+            if (!empty($map['offline_video_transcoding_list'])) {
+                $model->offlineVideoTranscodingList = [];
+                $n                                  = 0;
+                foreach ($map['offline_video_transcoding_list'] as $item) {
+                    $model->offlineVideoTranscodingList[$n++] = null !== $item ? offlineVideoTranscodingList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

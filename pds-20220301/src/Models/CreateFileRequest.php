@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateFileRequest extends Model
 {
     /**
-     * @description The processing method that is used if the file that you want to create has the same name as an existing file on the cloud. Valid values:
+     * @description The processing method that is used if the file that you want to create has the same name as an existing file in the cloud. Valid values:
      *
      * Default value: ignore.
      * @example ignore
@@ -38,7 +38,7 @@ class CreateFileRequest extends Model
     public $contentHashName;
 
     /**
-     * @description The type of the file content. Default value: application/oct-stream. For more information about common content types, see [How do I configure the Content-Type header?](https://help.aliyun.com/document_detail/39522.htm?spm=a2c4g.11186623.0.0.5a0b7dbb1TPnWF#concept-5041)
+     * @description The type of the file content. Default value: application/oct-stream.
      *
      * @example application/json
      *
@@ -90,7 +90,7 @@ class CreateFileRequest extends Model
     public $imageMediaMetadata;
 
     /**
-     * @description The local time when the file was created. By default, this parameter is left empty. The time is specified in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+     * @description The time when the local file was created. By default, this parameter is left empty. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
      *
      * @example 2019-08-20T06:51:27.292Z
      *
@@ -99,7 +99,7 @@ class CreateFileRequest extends Model
     public $localCreatedAt;
 
     /**
-     * @description The local time when the file was modified. By default, this parameter is left empty. The time is specified in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+     * @description The time when the local file was modified. By default, this parameter is left empty. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
      *
      * @example 2019-08-20T06:51:27.292Z
      *
@@ -110,6 +110,7 @@ class CreateFileRequest extends Model
     /**
      * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot end with a forward slash (/).
      *
+     * This parameter is required.
      * @example a.txt
      *
      * @var string
@@ -128,6 +129,7 @@ class CreateFileRequest extends Model
     /**
      * @description The ID of the parent directory. If you want to create a file or folder in the root directory, set this parameter to root.
      *
+     * This parameter is required.
      * @example fileid1
      *
      * @var string
@@ -160,7 +162,7 @@ class CreateFileRequest extends Model
     public $shareId;
 
     /**
-     * @description The file size. Unit: bytes.
+     * @description The size of the file. Unit: bytes.
      *
      * @example 1024
      *
@@ -171,7 +173,7 @@ class CreateFileRequest extends Model
     /**
      * @description The type of the file. Valid values:
      *
-     * file folder
+     * This parameter is required.
      * @example file
      *
      * @var string

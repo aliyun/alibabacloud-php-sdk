@@ -11,6 +11,7 @@ class GetTaskStatusRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class GetTaskStatusRequest extends Model
     /**
      * @description The ID of the task.
      *
+     * This parameter is required.
      * @example i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
      *
      * @var string

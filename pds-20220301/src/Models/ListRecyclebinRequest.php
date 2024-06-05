@@ -11,6 +11,7 @@ class ListRecyclebinRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,7 +21,7 @@ class ListRecyclebinRequest extends Model
     /**
      * @description Specifies the returned fields.
      *
-     * 1\. If you set this parameter to \*, all fields of the file are returned.
+     * 1\\. If you set this parameter to \\*, all fields of the file are returned.
      *
      * The default value is a null value, which indicates that only some fields are returned.
      * @example *

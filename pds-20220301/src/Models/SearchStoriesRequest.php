@@ -44,6 +44,8 @@ class SearchStoriesRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

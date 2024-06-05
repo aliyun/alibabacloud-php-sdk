@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateShareLinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $creatable;
+
+    /**
+     * @var string[]
+     */
+    public $creatableFileIdList;
+
+    /**
      * @description The description of the share. The description must be 0 to 1,024 characters in length.
      *
      * @var string
@@ -54,6 +64,7 @@ class CreateShareLinkRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -77,11 +88,6 @@ class CreateShareLinkRequest extends Model
      * @var string[]
      */
     public $fileIdList;
-
-    /**
-     * @var bool
-     */
-    public $officeEditable;
 
     /**
      * @description The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
@@ -135,21 +141,22 @@ class CreateShareLinkRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'description'     => 'description',
-        'disableDownload' => 'disable_download',
-        'disablePreview'  => 'disable_preview',
-        'disableSave'     => 'disable_save',
-        'downloadLimit'   => 'download_limit',
-        'driveId'         => 'drive_id',
-        'expiration'      => 'expiration',
-        'fileIdList'      => 'file_id_list',
-        'officeEditable'  => 'office_editable',
-        'previewLimit'    => 'preview_limit',
-        'saveLimit'       => 'save_limit',
-        'shareAllFiles'   => 'share_all_files',
-        'shareName'       => 'share_name',
-        'sharePwd'        => 'share_pwd',
-        'userId'          => 'user_id',
+        'creatable'           => 'creatable',
+        'creatableFileIdList' => 'creatable_file_id_list',
+        'description'         => 'description',
+        'disableDownload'     => 'disable_download',
+        'disablePreview'      => 'disable_preview',
+        'disableSave'         => 'disable_save',
+        'downloadLimit'       => 'download_limit',
+        'driveId'             => 'drive_id',
+        'expiration'          => 'expiration',
+        'fileIdList'          => 'file_id_list',
+        'previewLimit'        => 'preview_limit',
+        'saveLimit'           => 'save_limit',
+        'shareAllFiles'       => 'share_all_files',
+        'shareName'           => 'share_name',
+        'sharePwd'            => 'share_pwd',
+        'userId'              => 'user_id',
     ];
 
     public function validate()
@@ -159,6 +166,12 @@ class CreateShareLinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creatable) {
+            $res['creatable'] = $this->creatable;
+        }
+        if (null !== $this->creatableFileIdList) {
+            $res['creatable_file_id_list'] = $this->creatableFileIdList;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -182,9 +195,6 @@ class CreateShareLinkRequest extends Model
         }
         if (null !== $this->fileIdList) {
             $res['file_id_list'] = $this->fileIdList;
-        }
-        if (null !== $this->officeEditable) {
-            $res['office_editable'] = $this->officeEditable;
         }
         if (null !== $this->previewLimit) {
             $res['preview_limit'] = $this->previewLimit;
@@ -216,6 +226,14 @@ class CreateShareLinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['creatable'])) {
+            $model->creatable = $map['creatable'];
+        }
+        if (isset($map['creatable_file_id_list'])) {
+            if (!empty($map['creatable_file_id_list'])) {
+                $model->creatableFileIdList = $map['creatable_file_id_list'];
+            }
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -241,9 +259,6 @@ class CreateShareLinkRequest extends Model
             if (!empty($map['file_id_list'])) {
                 $model->fileIdList = $map['file_id_list'];
             }
-        }
-        if (isset($map['office_editable'])) {
-            $model->officeEditable = $map['office_editable'];
         }
         if (isset($map['preview_limit'])) {
             $model->previewLimit = $map['preview_limit'];

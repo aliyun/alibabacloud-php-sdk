@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SearchDomainsRequest extends Model
 {
     /**
-     * @description 预付费domain支持按订单实例ID搜索，通过下单接口获取对应的实例ID
-     *
-     * @example pds_trc_public_cn-h033e720j01
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
      *
      * The number of returned results must be less than or equal to the specified number.
@@ -28,7 +19,7 @@ class SearchDomainsRequest extends Model
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
@@ -52,11 +43,10 @@ class SearchDomainsRequest extends Model
      */
     public $orderBy;
     protected $_name = [
-        'instanceId' => 'instance_id',
-        'limit'      => 'limit',
-        'marker'     => 'marker',
-        'name'       => 'name',
-        'orderBy'    => 'order_by',
+        'limit'   => 'limit',
+        'marker'  => 'marker',
+        'name'    => 'name',
+        'orderBy' => 'order_by',
     ];
 
     public function validate()
@@ -66,9 +56,6 @@ class SearchDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['instance_id'] = $this->instanceId;
-        }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -93,9 +80,6 @@ class SearchDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['instance_id'])) {
-            $model->instanceId = $map['instance_id'];
-        }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }

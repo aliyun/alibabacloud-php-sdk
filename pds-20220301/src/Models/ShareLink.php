@@ -96,6 +96,11 @@ class ShareLink extends Model
     /**
      * @var int
      */
+    public $saveDownloadLimit;
+
+    /**
+     * @var int
+     */
     public $saveLimit;
 
     /**
@@ -150,6 +155,7 @@ class ShareLink extends Model
         'previewLimit'      => 'preview_limit',
         'reportCount'       => 'report_count',
         'saveCount'         => 'save_count',
+        'saveDownloadLimit' => 'save_download_limit',
         'saveLimit'         => 'save_limit',
         'shareAllFiles'     => 'share_all_files',
         'shareId'           => 'share_id',
@@ -217,6 +223,9 @@ class ShareLink extends Model
         }
         if (null !== $this->saveCount) {
             $res['save_count'] = $this->saveCount;
+        }
+        if (null !== $this->saveDownloadLimit) {
+            $res['save_download_limit'] = $this->saveDownloadLimit;
         }
         if (null !== $this->saveLimit) {
             $res['save_limit'] = $this->saveLimit;
@@ -306,6 +315,9 @@ class ShareLink extends Model
         }
         if (isset($map['save_count'])) {
             $model->saveCount = $map['save_count'];
+        }
+        if (isset($map['save_download_limit'])) {
+            $model->saveDownloadLimit = $map['save_download_limit'];
         }
         if (isset($map['save_limit'])) {
             $model->saveLimit = $map['save_limit'];

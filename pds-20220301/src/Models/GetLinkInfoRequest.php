@@ -14,6 +14,8 @@ class GetLinkInfoRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 130***
      *
      * @var string
@@ -21,6 +23,8 @@ class GetLinkInfoRequest extends Model
     public $identity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mobile
      *
      * @var string

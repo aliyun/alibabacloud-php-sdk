@@ -11,6 +11,7 @@ class CancelAssignRoleRequest extends Model
     /**
      * @description The unique identifier. You can cancel only the role assigned to a user.
      *
+     * This parameter is required.
      * @var Identity
      */
     public $identity;
@@ -18,6 +19,7 @@ class CancelAssignRoleRequest extends Model
     /**
      * @description The ID of the resource that the role manages. Set the value to a group ID.
      *
+     * This parameter is required.
      * @example 105***b82
      *
      * @var string
@@ -27,6 +29,7 @@ class CancelAssignRoleRequest extends Model
     /**
      * @description The type of the resource that the role manages. Set the value to RT_Group, which specifies group.
      *
+     * This parameter is required.
      * @example RT_Group
      *
      * @var string
@@ -36,6 +39,7 @@ class CancelAssignRoleRequest extends Model
     /**
      * @description The ID of the role to be canceled. Set the value to SystemGroupAdmin, which is the ID of the group administrator role.
      *
+     * This parameter is required.
      * @example SystemGroupAdmin
      *
      * @var string

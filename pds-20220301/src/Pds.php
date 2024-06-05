@@ -227,30 +227,31 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPds\Client as DarabonbaGatewayPdsClient;
+use Darabonba\GatewayPds\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Pds extends OpenApiClient
 {
-    protected $_client;
-
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_client             = new DarabonbaGatewayPdsClient();
-        $this->_spi                = $this->_client;
+        $gatewayClient             = new Client();
+        $this->_spi                = $gatewayClient;
         $this->_signatureAlgorithm = 'v2';
+        $this->_disableHttp2       = true;
         $this->_endpointRule       = '';
     }
 
     /**
-     * @param AddGroupMemberRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Adds a member to a group.
+     *  *
+     * @param AddGroupMemberRequest $request AddGroupMemberRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGroupMemberResponse
+     * @return AddGroupMemberResponse AddGroupMemberResponse
      */
     public function addGroupMemberWithOptions($request, $headers, $runtime)
     {
@@ -285,9 +286,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AddGroupMemberRequest $request
+     * @summary Adds a member to a group.
+     *  *
+     * @param AddGroupMemberRequest $request AddGroupMemberRequest
      *
-     * @return AddGroupMemberResponse
+     * @return AddGroupMemberResponse AddGroupMemberResponse
      */
     public function addGroupMember($request)
     {
@@ -298,11 +301,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AddStoryFilesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 故事添加文件
+     *  *
+     * @param AddStoryFilesRequest $request AddStoryFilesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddStoryFilesResponse
+     * @return AddStoryFilesResponse AddStoryFilesResponse
      */
     public function addStoryFilesWithOptions($request, $headers, $runtime)
     {
@@ -337,9 +342,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param AddStoryFilesRequest $request
+     * @summary 故事添加文件
+     *  *
+     * @param AddStoryFilesRequest $request AddStoryFilesRequest
      *
-     * @return AddStoryFilesResponse
+     * @return AddStoryFilesResponse AddStoryFilesResponse
      */
     public function addStoryFiles($request)
     {
@@ -350,8 +357,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to assign a group administrator role to a user.
-     *   *
+     * @summary Assigns a group administrator role to a user.
+     *  *
+     * @description You can call this operation to assign a group administrator role to a user.
+     *  *
      * @param AssignRoleRequest $request AssignRoleRequest
      * @param string[]          $headers map
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -394,8 +403,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to assign a group administrator role to a user.
-     *   *
+     * @summary Assigns a group administrator role to a user.
+     *  *
+     * @description You can call this operation to assign a group administrator role to a user.
+     *  *
      * @param AssignRoleRequest $request AssignRoleRequest
      *
      * @return AssignRoleResponse AssignRoleResponse
@@ -409,8 +420,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-     *   *
+     * @summary Requests permissions by using OAuth 2.0.
+     *  *
+     * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *  *
      * @param AuthorizeRequest $tmpReq  AuthorizeRequest
      * @param string[]         $headers map
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -467,8 +480,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-     *   *
+     * @summary Requests permissions by using OAuth 2.0.
+     *  *
+     * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *  *
      * @param AuthorizeRequest $request AuthorizeRequest
      *
      * @return AuthorizeResponse AuthorizeResponse
@@ -482,11 +497,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param BatchRequest   $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Calls multiple operations at a time to improve call efficiency.
+     *  *
+     * @param BatchRequest   $request BatchRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchResponse
+     * @return BatchResponse BatchResponse
      */
     public function batchWithOptions($request, $headers, $runtime)
     {
@@ -518,9 +535,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param BatchRequest $request
+     * @summary Calls multiple operations at a time to improve call efficiency.
+     *  *
+     * @param BatchRequest $request BatchRequest
      *
-     * @return BatchResponse
+     * @return BatchResponse BatchResponse
      */
     public function batch($request)
     {
@@ -531,8 +550,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can cancel only the group administrator role.
-     *   *
+     * @summary Cancels a role.
+     *  *
+     * @description You can cancel only the group administrator role.
+     *  *
      * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
      * @param string[]                $headers map
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -575,8 +596,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can cancel only the group administrator role.
-     *   *
+     * @summary Cancels a role.
+     *  *
+     * @description You can cancel only the group administrator role.
+     *  *
      * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
      *
      * @return CancelAssignRoleResponse CancelAssignRoleResponse
@@ -590,11 +613,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CancelShareLinkRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a share link.
+     *  *
+     * @param CancelShareLinkRequest $request CancelShareLinkRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelShareLinkResponse
+     * @return CancelShareLinkResponse CancelShareLinkResponse
      */
     public function cancelShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -623,9 +648,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CancelShareLinkRequest $request
+     * @summary Deletes a share link.
+     *  *
+     * @param CancelShareLinkRequest $request CancelShareLinkRequest
      *
-     * @return CancelShareLinkResponse
+     * @return CancelShareLinkResponse CancelShareLinkResponse
      */
     public function cancelShareLink($request)
     {
@@ -636,11 +663,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ClearRecyclebinRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Empties the recycle bin.
+     *  *
+     * @param ClearRecyclebinRequest $request ClearRecyclebinRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearRecyclebinResponse
+     * @return ClearRecyclebinResponse ClearRecyclebinResponse
      */
     public function clearRecyclebinWithOptions($request, $headers, $runtime)
     {
@@ -669,9 +698,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ClearRecyclebinRequest $request
+     * @summary Empties the recycle bin.
+     *  *
+     * @param ClearRecyclebinRequest $request ClearRecyclebinRequest
      *
-     * @return ClearRecyclebinResponse
+     * @return ClearRecyclebinResponse ClearRecyclebinResponse
      */
     public function clearRecyclebin($request)
     {
@@ -682,11 +713,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CompleteFileRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Completes the upload of a file.
+     *  *
+     * @param CompleteFileRequest $request CompleteFileRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompleteFileResponse
+     * @return CompleteFileResponse CompleteFileResponse
      */
     public function completeFileWithOptions($request, $headers, $runtime)
     {
@@ -721,9 +754,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CompleteFileRequest $request
+     * @summary Completes the upload of a file.
+     *  *
+     * @param CompleteFileRequest $request CompleteFileRequest
      *
-     * @return CompleteFileResponse
+     * @return CompleteFileResponse CompleteFileResponse
      */
     public function completeFile($request)
     {
@@ -734,11 +769,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CopyFileRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Copies a file or folder.
+     *  *
+     * @param CopyFileRequest $request CopyFileRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyFileResponse
+     * @return CopyFileResponse CopyFileResponse
      */
     public function copyFileWithOptions($request, $headers, $runtime)
     {
@@ -782,9 +819,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CopyFileRequest $request
+     * @summary Copies a file or folder.
+     *  *
+     * @param CopyFileRequest $request CopyFileRequest
      *
-     * @return CopyFileResponse
+     * @return CopyFileResponse CopyFileResponse
      */
     public function copyFile($request)
     {
@@ -795,11 +834,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedStoryRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 创建自定义故事
+     *  *
+     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomizedStoryResponse
+     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
      */
     public function createCustomizedStoryWithOptions($request, $headers, $runtime)
     {
@@ -846,9 +887,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedStoryRequest $request
+     * @summary 创建自定义故事
+     *  *
+     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
      *
-     * @return CreateCustomizedStoryResponse
+     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
      */
     public function createCustomizedStory($request)
     {
@@ -859,8 +902,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-     *   *
+     * @summary Create domain.
+     *  *
+     * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      * @param string[]            $headers map
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -912,8 +957,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-     *   *
+     * @summary Create domain.
+     *  *
+     * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      *
      * @return CreateDomainResponse CreateDomainResponse
@@ -927,11 +974,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateDriveRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a drive.
+     *  *
+     * @param CreateDriveRequest $request CreateDriveRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDriveResponse
+     * @return CreateDriveResponse CreateDriveResponse
      */
     public function createDriveWithOptions($request, $headers, $runtime)
     {
@@ -981,9 +1030,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateDriveRequest $request
+     * @summary Creates a drive.
+     *  *
+     * @param CreateDriveRequest $request CreateDriveRequest
      *
-     * @return CreateDriveResponse
+     * @return CreateDriveResponse CreateDriveResponse
      */
     public function createDrive($request)
     {
@@ -994,11 +1045,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a file or folder.
+     *  *
+     * @param CreateFileRequest $request CreateFileRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFileWithOptions($request, $headers, $runtime)
     {
@@ -1087,9 +1140,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateFileRequest $request
+     * @summary Creates a file or folder.
+     *  *
+     * @param CreateFileRequest $request CreateFileRequest
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFile($request)
     {
@@ -1100,11 +1155,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $headers, $runtime)
     {
@@ -1142,9 +1199,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @summary Creates a group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -1155,8 +1214,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-     *   *
+     * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+     *  *
+     * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *  *
      * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
      * @param string[]                                 $headers map
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -1202,8 +1263,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-     *   *
+     * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+     *  *
+     * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *  *
      * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
      *
      * @return CreateIdentityToBenefitPkgMappingResponse CreateIdentityToBenefitPkgMappingResponse
@@ -1217,11 +1280,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建凌霄订单
+     *  *
+     * @param CreateOrderRequest $request CreateOrderRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderResponse
+     * @return CreateOrderResponse CreateOrderResponse
      */
     public function createOrderWithOptions($request, $headers, $runtime)
     {
@@ -1277,9 +1342,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderRequest $request
+     * @summary 创建凌霄订单
+     *  *
+     * @param CreateOrderRequest $request CreateOrderRequest
      *
-     * @return CreateOrderResponse
+     * @return CreateOrderResponse CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -1290,8 +1357,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-     *   *
+     * @summary Creates a share URL.
+     *  *
+     * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *  *
      * @param CreateShareLinkRequest $request CreateShareLinkRequest
      * @param string[]               $headers map
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1302,6 +1371,12 @@ class Pds extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->creatable)) {
+            $body['creatable'] = $request->creatable;
+        }
+        if (!Utils::isUnset($request->creatableFileIdList)) {
+            $body['creatable_file_id_list'] = $request->creatableFileIdList;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -1325,9 +1400,6 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileIdList)) {
             $body['file_id_list'] = $request->fileIdList;
-        }
-        if (!Utils::isUnset($request->officeEditable)) {
-            $body['office_editable'] = $request->officeEditable;
         }
         if (!Utils::isUnset($request->previewLimit)) {
             $body['preview_limit'] = $request->previewLimit;
@@ -1367,8 +1439,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-     *   *
+     * @summary Creates a share URL.
+     *  *
+     * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *  *
      * @param CreateShareLinkRequest $request CreateShareLinkRequest
      *
      * @return CreateShareLinkResponse CreateShareLinkResponse
@@ -1382,11 +1456,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarImageClusterTaskRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 创建相似图片聚类任务
+     *  *
+     * @param CreateSimilarImageClusterTaskRequest $request CreateSimilarImageClusterTaskRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimilarImageClusterTaskResponse
+     * @return CreateSimilarImageClusterTaskResponse CreateSimilarImageClusterTaskResponse
      */
     public function createSimilarImageClusterTaskWithOptions($request, $headers, $runtime)
     {
@@ -1415,9 +1491,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarImageClusterTaskRequest $request
+     * @summary 创建相似图片聚类任务
+     *  *
+     * @param CreateSimilarImageClusterTaskRequest $request CreateSimilarImageClusterTaskRequest
      *
-     * @return CreateSimilarImageClusterTaskResponse
+     * @return CreateSimilarImageClusterTaskResponse CreateSimilarImageClusterTaskResponse
      */
     public function createSimilarImageClusterTask($request)
     {
@@ -1428,11 +1506,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateStoryRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建推荐故事
+     *  *
+     * @param CreateStoryRequest $request CreateStoryRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStoryResponse
+     * @return CreateStoryResponse CreateStoryResponse
      */
     public function createStoryWithOptions($request, $headers, $runtime)
     {
@@ -1491,9 +1571,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateStoryRequest $request
+     * @summary 创建推荐故事
+     *  *
+     * @param CreateStoryRequest $request CreateStoryRequest
      *
-     * @return CreateStoryResponse
+     * @return CreateStoryResponse CreateStoryResponse
      */
     public function createStory($request)
     {
@@ -1504,11 +1586,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a user.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $headers, $runtime)
     {
@@ -1567,9 +1651,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @summary Creates a user.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1580,11 +1666,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CsiGetFileInfoRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取文件内容安全信息
+     *  *
+     * @param CsiGetFileInfoRequest $request CsiGetFileInfoRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CsiGetFileInfoResponse
+     * @return CsiGetFileInfoResponse CsiGetFileInfoResponse
      */
     public function csiGetFileInfoWithOptions($request, $headers, $runtime)
     {
@@ -1619,9 +1707,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param CsiGetFileInfoRequest $request
+     * @summary 获取文件内容安全信息
+     *  *
+     * @param CsiGetFileInfoRequest $request CsiGetFileInfoRequest
      *
-     * @return CsiGetFileInfoResponse
+     * @return CsiGetFileInfoResponse CsiGetFileInfoResponse
      */
     public function csiGetFileInfo($request)
     {
@@ -1632,11 +1722,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Delete the domain
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $headers, $runtime)
     {
@@ -1665,9 +1757,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @summary Delete the domain
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1678,11 +1772,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDriveRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a drive.
+     *  *
+     * @param DeleteDriveRequest $request DeleteDriveRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDriveResponse
+     * @return DeleteDriveResponse DeleteDriveResponse
      */
     public function deleteDriveWithOptions($request, $headers, $runtime)
     {
@@ -1711,9 +1807,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDriveRequest $request
+     * @summary Deletes a drive.
+     *  *
+     * @param DeleteDriveRequest $request DeleteDriveRequest
      *
-     * @return DeleteDriveResponse
+     * @return DeleteDriveResponse DeleteDriveResponse
      */
     public function deleteDrive($request)
     {
@@ -1724,11 +1822,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes a file or folder.
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFileWithOptions($request, $headers, $runtime)
     {
@@ -1760,9 +1860,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
+     * @summary Deletes a file or folder.
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFile($request)
     {
@@ -1773,11 +1875,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $headers, $runtime)
     {
@@ -1806,9 +1910,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1819,11 +1925,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteRevisionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
+     *  *
+     * @param DeleteRevisionRequest $request DeleteRevisionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRevisionResponse
+     * @return DeleteRevisionResponse DeleteRevisionResponse
      */
     public function deleteRevisionWithOptions($request, $headers, $runtime)
     {
@@ -1858,9 +1966,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteRevisionRequest $request
+     * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
+     *  *
+     * @param DeleteRevisionRequest $request DeleteRevisionRequest
      *
-     * @return DeleteRevisionResponse
+     * @return DeleteRevisionResponse DeleteRevisionResponse
      */
     public function deleteRevision($request)
     {
@@ -1871,11 +1981,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteStoryRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 删除故事
+     *  *
+     * @param DeleteStoryRequest $request DeleteStoryRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStoryResponse
+     * @return DeleteStoryResponse DeleteStoryResponse
      */
     public function deleteStoryWithOptions($request, $headers, $runtime)
     {
@@ -1907,9 +2019,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteStoryRequest $request
+     * @summary 删除故事
+     *  *
+     * @param DeleteStoryRequest $request DeleteStoryRequest
      *
-     * @return DeleteStoryResponse
+     * @return DeleteStoryResponse DeleteStoryResponse
      */
     public function deleteStory($request)
     {
@@ -1920,11 +2034,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes a user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $headers, $runtime)
     {
@@ -1953,9 +2069,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary Deletes a user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1966,11 +2084,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeltaGetLastCursorRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the cursor of incremental information.
+     *  *
+     * @param DeltaGetLastCursorRequest $request DeltaGetLastCursorRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeltaGetLastCursorResponse
+     * @return DeltaGetLastCursorResponse DeltaGetLastCursorResponse
      */
     public function deltaGetLastCursorWithOptions($request, $headers, $runtime)
     {
@@ -2002,9 +2122,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param DeltaGetLastCursorRequest $request
+     * @summary Queries the cursor of incremental information.
+     *  *
+     * @param DeltaGetLastCursorRequest $request DeltaGetLastCursorRequest
      *
-     * @return DeltaGetLastCursorResponse
+     * @return DeltaGetLastCursorResponse DeltaGetLastCursorResponse
      */
     public function deltaGetLastCursor($request)
     {
@@ -2015,8 +2137,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For information about best practices for downloading a file.
-     *   *
+     * @summary Downloads a file.
+     *  *
+     * @description For information about best practices for downloading a file.
+     *  *
      * @param DownloadFileRequest $request DownloadFileRequest
      * @param string[]            $headers map
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2065,8 +2189,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For information about best practices for downloading a file.
-     *   *
+     * @summary Downloads a file.
+     *  *
+     * @description For information about best practices for downloading a file.
+     *  *
      * @param DownloadFileRequest $request DownloadFileRequest
      *
      * @return DownloadFileResponse DownloadFileResponse
@@ -2080,11 +2206,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileAddPermissionRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Grants permissions to access files to a user or group.
+     *  *
+     * @param FileAddPermissionRequest $request FileAddPermissionRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileAddPermissionResponse
+     * @return FileAddPermissionResponse FileAddPermissionResponse
      */
     public function fileAddPermissionWithOptions($request, $headers, $runtime)
     {
@@ -2119,9 +2247,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileAddPermissionRequest $request
+     * @summary Grants permissions to access files to a user or group.
+     *  *
+     * @param FileAddPermissionRequest $request FileAddPermissionRequest
      *
-     * @return FileAddPermissionResponse
+     * @return FileAddPermissionResponse FileAddPermissionResponse
      */
     public function fileAddPermission($request)
     {
@@ -2132,11 +2262,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileDeleteUserTagsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Removes custom tags from a file.
+     *  *
+     * @param FileDeleteUserTagsRequest $request FileDeleteUserTagsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileDeleteUserTagsResponse
+     * @return FileDeleteUserTagsResponse FileDeleteUserTagsResponse
      */
     public function fileDeleteUserTagsWithOptions($request, $headers, $runtime)
     {
@@ -2171,9 +2303,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileDeleteUserTagsRequest $request
+     * @summary Removes custom tags from a file.
+     *  *
+     * @param FileDeleteUserTagsRequest $request FileDeleteUserTagsRequest
      *
-     * @return FileDeleteUserTagsResponse
+     * @return FileDeleteUserTagsResponse FileDeleteUserTagsResponse
      */
     public function fileDeleteUserTags($request)
     {
@@ -2184,11 +2318,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileListPermissionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the sharing authorization records of a file.
+     *  *
+     * @param FileListPermissionRequest $request FileListPermissionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileListPermissionResponse
+     * @return FileListPermissionResponse FileListPermissionResponse
      */
     public function fileListPermissionWithOptions($request, $headers, $runtime)
     {
@@ -2220,9 +2356,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileListPermissionRequest $request
+     * @summary Queries the sharing authorization records of a file.
+     *  *
+     * @param FileListPermissionRequest $request FileListPermissionRequest
      *
-     * @return FileListPermissionResponse
+     * @return FileListPermissionResponse FileListPermissionResponse
      */
     public function fileListPermission($request)
     {
@@ -2233,11 +2371,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * This operation is an incremental update operation. Take note of the following items:
-     *   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
-     *   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
-     *   * *   The existing tags with unique names are not affected.
-     *   *
+     * @summary Adds custom tags to a file.
+     *  *
+     * @description This operation is an incremental update operation. Take note of the following items:
+     * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+     * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+     * *   The existing tags with unique names are not affected.
+     *  *
      * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
      * @param string[]               $headers map
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2277,11 +2417,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * This operation is an incremental update operation. Take note of the following items:
-     *   * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
-     *   * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
-     *   * *   The existing tags with unique names are not affected.
-     *   *
+     * @summary Adds custom tags to a file.
+     *  *
+     * @description This operation is an incremental update operation. Take note of the following items:
+     * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
+     * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
+     * *   The existing tags with unique names are not affected.
+     *  *
      * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
      *
      * @return FilePutUserTagsResponse FilePutUserTagsResponse
@@ -2295,11 +2437,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileRemovePermissionRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Cancels the permissions on a shared file.
+     *  *
+     * @param FileRemovePermissionRequest $request FileRemovePermissionRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileRemovePermissionResponse
+     * @return FileRemovePermissionResponse FileRemovePermissionResponse
      */
     public function fileRemovePermissionWithOptions($request, $headers, $runtime)
     {
@@ -2334,9 +2478,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param FileRemovePermissionRequest $request
+     * @summary Cancels the permissions on a shared file.
+     *  *
+     * @param FileRemovePermissionRequest $request FileRemovePermissionRequest
      *
-     * @return FileRemovePermissionResponse
+     * @return FileRemovePermissionResponse FileRemovePermissionResponse
      */
     public function fileRemovePermission($request)
     {
@@ -2347,11 +2493,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information about an asynchronous task.
+     *  *
+     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTaskWithOptions($request, $headers, $runtime)
     {
@@ -2380,9 +2528,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskRequest $request
+     * @summary Queries the information about an asynchronous task.
+     *  *
+     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTask($request)
     {
@@ -2393,11 +2543,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultDriveRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the default drive of a user.
+     *  *
+     * @param GetDefaultDriveRequest $request GetDefaultDriveRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDefaultDriveResponse
+     * @return GetDefaultDriveResponse GetDefaultDriveResponse
      */
     public function getDefaultDriveWithOptions($request, $headers, $runtime)
     {
@@ -2426,9 +2578,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultDriveRequest $request
+     * @summary Queries the default drive of a user.
+     *  *
+     * @param GetDefaultDriveRequest $request GetDefaultDriveRequest
      *
-     * @return GetDefaultDriveResponse
+     * @return GetDefaultDriveResponse GetDefaultDriveResponse
      */
     public function getDefaultDrive($request)
     {
@@ -2439,11 +2593,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDomainRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Get domain information.
+     *  *
+     * @param GetDomainRequest $request GetDomainRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomainWithOptions($request, $headers, $runtime)
     {
@@ -2451,6 +2607,9 @@ class Pds extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->domainId)) {
             $body['domain_id'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['fields'] = $request->fields;
         }
         if (!Utils::isUnset($request->getQuotaUsed)) {
             $body['get_quota_used'] = $request->getQuotaUsed;
@@ -2475,9 +2634,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDomainRequest $request
+     * @summary Get domain information.
+     *  *
+     * @param GetDomainRequest $request GetDomainRequest
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomain($request)
     {
@@ -2488,10 +2649,12 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 获取domain限额
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDomainQuotaResponse
+     * @return GetDomainQuotaResponse GetDomainQuotaResponse
      */
     public function getDomainQuotaWithOptions($headers, $runtime)
     {
@@ -2514,7 +2677,9 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @return GetDomainQuotaResponse
+     * @summary 获取domain限额
+     *  *
+     * @return GetDomainQuotaResponse GetDomainQuotaResponse
      */
     public function getDomainQuota()
     {
@@ -2525,11 +2690,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDownloadUrlRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+     *  *
+     * @param GetDownloadUrlRequest $request GetDownloadUrlRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDownloadUrlResponse
+     * @return GetDownloadUrlResponse GetDownloadUrlResponse
      */
     public function getDownloadUrlWithOptions($request, $headers, $runtime)
     {
@@ -2570,9 +2737,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDownloadUrlRequest $request
+     * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+     *  *
+     * @param GetDownloadUrlRequest $request GetDownloadUrlRequest
      *
-     * @return GetDownloadUrlResponse
+     * @return GetDownloadUrlResponse GetDownloadUrlResponse
      */
     public function getDownloadUrl($request)
     {
@@ -2583,11 +2752,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDriveRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information about a drive.
+     *  *
+     * @param GetDriveRequest $request GetDriveRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDriveResponse
+     * @return GetDriveResponse GetDriveResponse
      */
     public function getDriveWithOptions($request, $headers, $runtime)
     {
@@ -2616,9 +2787,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetDriveRequest $request
+     * @summary Queries the information about a drive.
+     *  *
+     * @param GetDriveRequest $request GetDriveRequest
      *
-     * @return GetDriveResponse
+     * @return GetDriveResponse GetDriveResponse
      */
     public function getDrive($request)
     {
@@ -2629,11 +2802,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetFileRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about a file.
+     *  *
+     * @param GetFileRequest $request GetFileRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileResponse
+     * @return GetFileResponse GetFileResponse
      */
     public function getFileWithOptions($request, $headers, $runtime)
     {
@@ -2677,9 +2852,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetFileRequest $request
+     * @summary Queries the information about a file.
+     *  *
+     * @param GetFileRequest $request GetFileRequest
      *
-     * @return GetFileResponse
+     * @return GetFileResponse GetFileResponse
      */
     public function getFile($request)
     {
@@ -2690,11 +2867,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information about a group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $headers, $runtime)
     {
@@ -2723,9 +2902,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * @summary Queries the information about a group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -2736,11 +2917,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetIdentityToBenefitPkgMappingRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+     *  *
+     * @param GetIdentityToBenefitPkgMappingRequest $request GetIdentityToBenefitPkgMappingRequest
+     * @param string[]                              $headers map
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIdentityToBenefitPkgMappingResponse
+     * @return GetIdentityToBenefitPkgMappingResponse GetIdentityToBenefitPkgMappingResponse
      */
     public function getIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
@@ -2775,9 +2958,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetIdentityToBenefitPkgMappingRequest $request
+     * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+     *  *
+     * @param GetIdentityToBenefitPkgMappingRequest $request GetIdentityToBenefitPkgMappingRequest
      *
-     * @return GetIdentityToBenefitPkgMappingResponse
+     * @return GetIdentityToBenefitPkgMappingResponse GetIdentityToBenefitPkgMappingResponse
      */
     public function getIdentityToBenefitPkgMapping($request)
     {
@@ -2788,11 +2973,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 获取用户认证方式详情
+     *  *
+     * @param GetLinkInfoRequest $request GetLinkInfoRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLinkInfoResponse
+     * @return GetLinkInfoResponse GetLinkInfoResponse
      */
     public function getLinkInfoWithOptions($request, $headers, $runtime)
     {
@@ -2827,9 +3014,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoRequest $request
+     * @summary 获取用户认证方式详情
+     *  *
+     * @param GetLinkInfoRequest $request GetLinkInfoRequest
      *
-     * @return GetLinkInfoResponse
+     * @return GetLinkInfoResponse GetLinkInfoResponse
      */
     public function getLinkInfo($request)
     {
@@ -2840,11 +3029,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoByUserIdRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about a user based on the user ID.
+     *  *
+     * @param GetLinkInfoByUserIdRequest $request GetLinkInfoByUserIdRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLinkInfoByUserIdResponse
+     * @return GetLinkInfoByUserIdResponse GetLinkInfoByUserIdResponse
      */
     public function getLinkInfoByUserIdWithOptions($request, $headers, $runtime)
     {
@@ -2873,9 +3064,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetLinkInfoByUserIdRequest $request
+     * @summary Queries the information about a user based on the user ID.
+     *  *
+     * @param GetLinkInfoByUserIdRequest $request GetLinkInfoByUserIdRequest
      *
-     * @return GetLinkInfoByUserIdResponse
+     * @return GetLinkInfoByUserIdResponse GetLinkInfoByUserIdResponse
      */
     public function getLinkInfoByUserId($request)
     {
@@ -2886,11 +3079,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetRevisionRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the information about a version.
+     *  *
+     * @param GetRevisionRequest $request GetRevisionRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRevisionResponse
+     * @return GetRevisionResponse GetRevisionResponse
      */
     public function getRevisionWithOptions($request, $headers, $runtime)
     {
@@ -2931,9 +3126,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetRevisionRequest $request
+     * @summary Queries the information about a version.
+     *  *
+     * @param GetRevisionRequest $request GetRevisionRequest
      *
-     * @return GetRevisionResponse
+     * @return GetRevisionResponse GetRevisionResponse
      */
     public function getRevision($request)
     {
@@ -2944,11 +3141,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the share URL of a file.
+     *  *
+     * @param GetShareLinkRequest $request GetShareLinkRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetShareLinkResponse
+     * @return GetShareLinkResponse GetShareLinkResponse
      */
     public function getShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -2977,9 +3176,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkRequest $request
+     * @summary Queries the share URL of a file.
+     *  *
+     * @param GetShareLinkRequest $request GetShareLinkRequest
      *
-     * @return GetShareLinkResponse
+     * @return GetShareLinkResponse GetShareLinkResponse
      */
     public function getShareLink($request)
     {
@@ -2990,11 +3191,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkByAnonymousRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a share link anonymously.
+     *  *
+     * @param GetShareLinkByAnonymousRequest $request GetShareLinkByAnonymousRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetShareLinkByAnonymousResponse
+     * @return GetShareLinkByAnonymousResponse GetShareLinkByAnonymousResponse
      */
     public function getShareLinkByAnonymousWithOptions($request, $headers, $runtime)
     {
@@ -3023,9 +3226,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetShareLinkByAnonymousRequest $request
+     * @summary Queries the information about a share link anonymously.
+     *  *
+     * @param GetShareLinkByAnonymousRequest $request GetShareLinkByAnonymousRequest
      *
-     * @return GetShareLinkByAnonymousResponse
+     * @return GetShareLinkByAnonymousResponse GetShareLinkByAnonymousResponse
      */
     public function getShareLinkByAnonymous($request)
     {
@@ -3036,8 +3241,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-     *   *
+     * @summary Queries a share token anonymously.
+     *  *
+     * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *  *
      * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
      * @param string[]                 $headers map
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3077,8 +3284,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-     *   *
+     * @summary Queries a share token anonymously.
+     *  *
+     * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *  *
      * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
      *
      * @return GetShareLinkTokenResponse GetShareLinkTokenResponse
@@ -3092,11 +3301,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetStoryRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 获取故事详情
+     *  *
+     * @param GetStoryRequest $request GetStoryRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStoryResponse
+     * @return GetStoryResponse GetStoryResponse
      */
     public function getStoryWithOptions($request, $headers, $runtime)
     {
@@ -3146,9 +3357,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetStoryRequest $request
+     * @summary 获取故事详情
+     *  *
+     * @param GetStoryRequest $request GetStoryRequest
      *
-     * @return GetStoryResponse
+     * @return GetStoryResponse GetStoryResponse
      */
     public function getStory($request)
     {
@@ -3159,10 +3372,12 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
-     *   * To call this operation, make sure that the value-added image processing feature is enabled.
-     *   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-     *   *
+     * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+     * To call this operation, make sure that the value-added image processing feature is enabled.
+     * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+     *  *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3199,10 +3414,12 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * **Before you call this operation, make sure that you are familiar with the [billing](~~425220~~) of Drive and Photo Service**.
-     *   * To call this operation, make sure that the value-added image processing feature is enabled.
-     *   * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-     *   *
+     * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+     *  *
+     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+     * To call this operation, make sure that the value-added image processing feature is enabled.
+     * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
+     *  *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
      *
      * @return GetTaskStatusResponse GetTaskStatusResponse
@@ -3216,11 +3433,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUploadUrlRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the upload URL of a file.
+     *  *
+     * @param GetUploadUrlRequest $request GetUploadUrlRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUploadUrlResponse
+     * @return GetUploadUrlResponse GetUploadUrlResponse
      */
     public function getUploadUrlWithOptions($request, $headers, $runtime)
     {
@@ -3261,9 +3480,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUploadUrlRequest $request
+     * @summary Queries the upload URL of a file.
+     *  *
+     * @param GetUploadUrlRequest $request GetUploadUrlRequest
      *
-     * @return GetUploadUrlResponse
+     * @return GetUploadUrlResponse GetUploadUrlResponse
      */
     public function getUploadUrl($request)
     {
@@ -3274,11 +3495,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about a user.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $headers, $runtime)
     {
@@ -3307,9 +3530,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary Queries the information about a user.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -3320,8 +3545,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about best practices, see [Preview videos online](~~427477~~).
-     *   *
+     * @summary Queries the information about video playback.
+     *  *
+     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *  *
      * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3376,8 +3603,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about best practices, see [Preview videos online](~~427477~~).
-     *   *
+     * @summary Queries the information about video playback.
+     *  *
+     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *  *
      * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
      *
      * @return GetVideoPreviewPlayInfoResponse GetVideoPreviewPlayInfoResponse
@@ -3391,8 +3620,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about best practices, see [Preview videos online](~~427477~~).
-     *   *
+     * @summary Queries the preview metadata of a video.
+     *  *
+     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *  *
      * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3435,8 +3666,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about best practices, see [Preview videos online](~~427477~~).
-     *   *
+     * @summary Queries the preview metadata of a video.
+     *  *
+     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *  *
      * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
      *
      * @return GetVideoPreviewPlayMetaResponse GetVideoPreviewPlayMetaResponse
@@ -3450,11 +3683,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GroupUpdateNameRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 更新用户组名字
+     *  *
+     * @param GroupUpdateNameRequest $request GroupUpdateNameRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupUpdateNameResponse
+     * @return GroupUpdateNameResponse GroupUpdateNameResponse
      */
     public function groupUpdateNameWithOptions($request, $headers, $runtime)
     {
@@ -3486,9 +3721,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param GroupUpdateNameRequest $request
+     * @summary 更新用户组名字
+     *  *
+     * @param GroupUpdateNameRequest $request GroupUpdateNameRequest
      *
-     * @return GroupUpdateNameResponse
+     * @return GroupUpdateNameResponse GroupUpdateNameResponse
      */
     public function groupUpdateName($request)
     {
@@ -3499,11 +3736,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ImportUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Imports a user.
+     *  *
+     * @param ImportUserRequest $request ImportUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportUserResponse
+     * @return ImportUserResponse ImportUserResponse
      */
     public function importUserWithOptions($request, $headers, $runtime)
     {
@@ -3553,9 +3792,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ImportUserRequest $request
+     * @summary Imports a user.
+     *  *
+     * @param ImportUserRequest $request ImportUserRequest
      *
-     * @return ImportUserResponse
+     * @return ImportUserResponse ImportUserResponse
      */
     public function importUser($request)
     {
@@ -3566,11 +3807,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param InvestigateFileRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 送审文件
+     *  *
+     * @param InvestigateFileRequest $request InvestigateFileRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvestigateFileResponse
+     * @return InvestigateFileResponse InvestigateFileResponse
      */
     public function investigateFileWithOptions($request, $headers, $runtime)
     {
@@ -3578,6 +3821,15 @@ class Pds extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->driveFileIds)) {
             $body['drive_file_ids'] = $request->driveFileIds;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $body['recursive'] = $request->recursive;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3599,9 +3851,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param InvestigateFileRequest $request
+     * @summary 送审文件
+     *  *
+     * @param InvestigateFileRequest $request InvestigateFileRequest
      *
-     * @return InvestigateFileResponse
+     * @return InvestigateFileResponse InvestigateFileResponse
      */
     public function investigateFile($request)
     {
@@ -3612,11 +3866,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param LinkAccountRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Associates an account with a user.
+     *  *
+     * @param LinkAccountRequest $request LinkAccountRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return LinkAccountResponse
+     * @return LinkAccountResponse LinkAccountResponse
      */
     public function linkAccountWithOptions($request, $headers, $runtime)
     {
@@ -3654,9 +3910,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param LinkAccountRequest $request
+     * @summary Associates an account with a user.
+     *  *
+     * @param LinkAccountRequest $request LinkAccountRequest
      *
-     * @return LinkAccountResponse
+     * @return LinkAccountResponse LinkAccountResponse
      */
     public function linkAccount($request)
     {
@@ -3667,11 +3925,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListAddressGroupsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries location-based groups.
+     *  *
+     * @param ListAddressGroupsRequest $request ListAddressGroupsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAddressGroupsResponse
+     * @return ListAddressGroupsResponse ListAddressGroupsResponse
      */
     public function listAddressGroupsWithOptions($request, $headers, $runtime)
     {
@@ -3712,9 +3972,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListAddressGroupsRequest $request
+     * @summary Queries location-based groups.
+     *  *
+     * @param ListAddressGroupsRequest $request ListAddressGroupsRequest
      *
-     * @return ListAddressGroupsResponse
+     * @return ListAddressGroupsResponse ListAddressGroupsResponse
      */
     public function listAddressGroups($request)
     {
@@ -3725,11 +3987,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListAssignmentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+     *  *
+     * @param ListAssignmentRequest $request ListAssignmentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAssignmentResponse
+     * @return ListAssignmentResponse ListAssignmentResponse
      */
     public function listAssignmentWithOptions($request, $headers, $runtime)
     {
@@ -3767,9 +4031,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListAssignmentRequest $request
+     * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+     *  *
+     * @param ListAssignmentRequest $request ListAssignmentRequest
      *
-     * @return ListAssignmentResponse
+     * @return ListAssignmentResponse ListAssignmentResponse
      */
     public function listAssignment($request)
     {
@@ -3780,11 +4046,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDeltaRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Queries incremental information.
+     *  *
+     * @param ListDeltaRequest $request ListDeltaRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeltaResponse
+     * @return ListDeltaResponse ListDeltaResponse
      */
     public function listDeltaWithOptions($request, $headers, $runtime)
     {
@@ -3822,9 +4090,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDeltaRequest $request
+     * @summary Queries incremental information.
+     *  *
+     * @param ListDeltaRequest $request ListDeltaRequest
      *
-     * @return ListDeltaResponse
+     * @return ListDeltaResponse ListDeltaResponse
      */
     public function listDelta($request)
     {
@@ -3835,11 +4105,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 列举 domain
+     *  *
+     * @param ListDomainsRequest $request ListDomainsRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $headers, $runtime)
     {
@@ -3853,6 +4125,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->parentDomainId)) {
             $body['parent_domain_id'] = $request->parentDomainId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['service_code'] = $request->serviceCode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3874,9 +4149,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
+     * @summary 列举 domain
+     *  *
+     * @param ListDomainsRequest $request ListDomainsRequest
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -3887,11 +4164,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDriveRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Queries a list of drives.
+     *  *
+     * @param ListDriveRequest $request ListDriveRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDriveResponse
+     * @return ListDriveResponse ListDriveResponse
      */
     public function listDriveWithOptions($request, $headers, $runtime)
     {
@@ -3929,9 +4208,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListDriveRequest $request
+     * @summary Queries a list of drives.
+     *  *
+     * @param ListDriveRequest $request ListDriveRequest
      *
-     * @return ListDriveResponse
+     * @return ListDriveResponse ListDriveResponse
      */
     public function listDrive($request)
     {
@@ -3942,11 +4223,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFacegroupsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries face-based groups.
+     *  *
+     * @param ListFacegroupsRequest $request ListFacegroupsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFacegroupsResponse
+     * @return ListFacegroupsResponse ListFacegroupsResponse
      */
     public function listFacegroupsWithOptions($request, $headers, $runtime)
     {
@@ -3987,9 +4270,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFacegroupsRequest $request
+     * @summary Queries face-based groups.
+     *  *
+     * @param ListFacegroupsRequest $request ListFacegroupsRequest
      *
-     * @return ListFacegroupsResponse
+     * @return ListFacegroupsResponse ListFacegroupsResponse
      */
     public function listFacegroups($request)
     {
@@ -4000,11 +4285,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFileRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Queries a list of files and folders.
+     *  *
+     * @param ListFileRequest $request ListFileRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileResponse
+     * @return ListFileResponse ListFileResponse
      */
     public function listFileWithOptions($request, $headers, $runtime)
     {
@@ -4066,9 +4353,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListFileRequest $request
+     * @summary Queries a list of files and folders.
+     *  *
+     * @param ListFileRequest $request ListFileRequest
      *
-     * @return ListFileResponse
+     * @return ListFileResponse ListFileResponse
      */
     public function listFile($request)
     {
@@ -4079,11 +4368,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListGroupRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Queries groups.
+     *  *
+     * @param ListGroupRequest $request ListGroupRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupResponse
+     * @return ListGroupResponse ListGroupResponse
      */
     public function listGroupWithOptions($request, $headers, $runtime)
     {
@@ -4115,9 +4406,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListGroupRequest $request
+     * @summary Queries groups.
+     *  *
+     * @param ListGroupRequest $request ListGroupRequest
      *
-     * @return ListGroupResponse
+     * @return ListGroupResponse ListGroupResponse
      */
     public function listGroup($request)
     {
@@ -4128,11 +4421,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListGroupMemberRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the members of a group.
+     *  *
+     * @param ListGroupMemberRequest $request ListGroupMemberRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupMemberResponse
+     * @return ListGroupMemberResponse ListGroupMemberResponse
      */
     public function listGroupMemberWithOptions($request, $headers, $runtime)
     {
@@ -4170,9 +4465,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListGroupMemberRequest $request
+     * @summary Queries the members of a group.
+     *  *
+     * @param ListGroupMemberRequest $request ListGroupMemberRequest
      *
-     * @return ListGroupMemberResponse
+     * @return ListGroupMemberResponse ListGroupMemberResponse
      */
     public function listGroupMember($request)
     {
@@ -4183,11 +4480,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListIdentityRoleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 列举用户或团队已分配的角色列表
+     *  *
+     * @param ListIdentityRoleRequest $request ListIdentityRoleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIdentityRoleResponse
+     * @return ListIdentityRoleResponse ListIdentityRoleResponse
      */
     public function listIdentityRoleWithOptions($request, $headers, $runtime)
     {
@@ -4216,9 +4515,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListIdentityRoleRequest $request
+     * @summary 列举用户或团队已分配的角色列表
+     *  *
+     * @param ListIdentityRoleRequest $request ListIdentityRoleRequest
      *
-     * @return ListIdentityRoleResponse
+     * @return ListIdentityRoleResponse ListIdentityRoleResponse
      */
     public function listIdentityRole($request)
     {
@@ -4229,11 +4530,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListIdentityToBenefitPkgMappingRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+     *  *
+     * @param ListIdentityToBenefitPkgMappingRequest $request ListIdentityToBenefitPkgMappingRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIdentityToBenefitPkgMappingResponse
+     * @return ListIdentityToBenefitPkgMappingResponse ListIdentityToBenefitPkgMappingResponse
      */
     public function listIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
@@ -4268,9 +4571,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListIdentityToBenefitPkgMappingRequest $request
+     * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+     *  *
+     * @param ListIdentityToBenefitPkgMappingRequest $request ListIdentityToBenefitPkgMappingRequest
      *
-     * @return ListIdentityToBenefitPkgMappingResponse
+     * @return ListIdentityToBenefitPkgMappingResponse ListIdentityToBenefitPkgMappingResponse
      */
     public function listIdentityToBenefitPkgMapping($request)
     {
@@ -4281,11 +4586,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListMyDrivesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the drives of the current user.
+     *  *
+     * @param ListMyDrivesRequest $request ListMyDrivesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMyDrivesResponse
+     * @return ListMyDrivesResponse ListMyDrivesResponse
      */
     public function listMyDrivesWithOptions($request, $headers, $runtime)
     {
@@ -4317,9 +4624,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListMyDrivesRequest $request
+     * @summary Queries the drives of the current user.
+     *  *
+     * @param ListMyDrivesRequest $request ListMyDrivesRequest
      *
-     * @return ListMyDrivesResponse
+     * @return ListMyDrivesResponse ListMyDrivesResponse
      */
     public function listMyDrives($request)
     {
@@ -4330,11 +4639,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListMyGroupDriveRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the team drives that can be accessed by the authorized users.
+     *  *
+     * @param ListMyGroupDriveRequest $request ListMyGroupDriveRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMyGroupDriveResponse
+     * @return ListMyGroupDriveResponse ListMyGroupDriveResponse
      */
     public function listMyGroupDriveWithOptions($request, $headers, $runtime)
     {
@@ -4366,9 +4677,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListMyGroupDriveRequest $request
+     * @summary Queries the team drives that can be accessed by the authorized users.
+     *  *
+     * @param ListMyGroupDriveRequest $request ListMyGroupDriveRequest
      *
-     * @return ListMyGroupDriveResponse
+     * @return ListMyGroupDriveResponse ListMyGroupDriveResponse
      */
     public function listMyGroupDrive($request)
     {
@@ -4379,11 +4692,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListReceivedFileRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+     *  *
+     * @param ListReceivedFileRequest $request ListReceivedFileRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListReceivedFileResponse
+     * @return ListReceivedFileResponse ListReceivedFileResponse
      */
     public function listReceivedFileWithOptions($request, $headers, $runtime)
     {
@@ -4415,9 +4730,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListReceivedFileRequest $request
+     * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+     *  *
+     * @param ListReceivedFileRequest $request ListReceivedFileRequest
      *
-     * @return ListReceivedFileResponse
+     * @return ListReceivedFileResponse ListReceivedFileResponse
      */
     public function listReceivedFile($request)
     {
@@ -4428,11 +4745,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRecyclebinRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about files and folders in the recycle bin.
+     *  *
+     * @param ListRecyclebinRequest $request ListRecyclebinRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRecyclebinResponse
+     * @return ListRecyclebinResponse ListRecyclebinResponse
      */
     public function listRecyclebinWithOptions($request, $headers, $runtime)
     {
@@ -4470,9 +4789,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRecyclebinRequest $request
+     * @summary Queries the information about files and folders in the recycle bin.
+     *  *
+     * @param ListRecyclebinRequest $request ListRecyclebinRequest
      *
-     * @return ListRecyclebinResponse
+     * @return ListRecyclebinResponse ListRecyclebinResponse
      */
     public function listRecyclebin($request)
     {
@@ -4483,11 +4804,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRevisionRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the versions of a file.
+     *  *
+     * @param ListRevisionRequest $request ListRevisionRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRevisionResponse
+     * @return ListRevisionResponse ListRevisionResponse
      */
     public function listRevisionWithOptions($request, $headers, $runtime)
     {
@@ -4528,9 +4851,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListRevisionRequest $request
+     * @summary Queries the versions of a file.
+     *  *
+     * @param ListRevisionRequest $request ListRevisionRequest
      *
-     * @return ListRevisionResponse
+     * @return ListRevisionResponse ListRevisionResponse
      */
     public function listRevision($request)
     {
@@ -4541,8 +4866,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-     *   *
+     * @summary Queries shares.
+     *  *
+     * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *  *
      * @param ListShareLinkRequest $request ListShareLinkRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4591,8 +4918,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-     *   *
+     * @summary Queries shares.
+     *  *
+     * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *  *
      * @param ListShareLinkRequest $request ListShareLinkRequest
      *
      * @return ListShareLinkResponse ListShareLinkResponse
@@ -4606,8 +4935,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-     *   *
+     * @summary Queries tags.
+     *  *
+     * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *  *
      * @param ListTagsRequest $request ListTagsRequest
      * @param string[]        $headers map
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -4647,8 +4978,10 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-     *   *
+     * @summary Queries tags.
+     *  *
+     * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *  *
      * @param ListTagsRequest $request ListTagsRequest
      *
      * @return ListTagsResponse ListTagsResponse
@@ -4662,11 +4995,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUploadedPartsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the file parts that are uploaded.
+     *  *
+     * @param ListUploadedPartsRequest $request ListUploadedPartsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUploadedPartsResponse
+     * @return ListUploadedPartsResponse ListUploadedPartsResponse
      */
     public function listUploadedPartsWithOptions($request, $headers, $runtime)
     {
@@ -4710,9 +5045,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUploadedPartsRequest $request
+     * @summary Queries the file parts that are uploaded.
+     *  *
+     * @param ListUploadedPartsRequest $request ListUploadedPartsRequest
      *
-     * @return ListUploadedPartsResponse
+     * @return ListUploadedPartsResponse ListUploadedPartsResponse
      */
     public function listUploadedParts($request)
     {
@@ -4723,11 +5060,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUserRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Queries users.
+     *  *
+     * @param ListUserRequest $request ListUserRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserResponse
+     * @return ListUserResponse ListUserResponse
      */
     public function listUserWithOptions($request, $headers, $runtime)
     {
@@ -4759,9 +5098,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ListUserRequest $request
+     * @summary Queries users.
+     *  *
+     * @param ListUserRequest $request ListUserRequest
      *
-     * @return ListUserResponse
+     * @return ListUserResponse ListUserResponse
      */
     public function listUser($request)
     {
@@ -4772,11 +5113,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param MoveFileRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Moves files or folders.
+     *  *
+     * @param MoveFileRequest $request MoveFileRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveFileResponse
+     * @return MoveFileResponse MoveFileResponse
      */
     public function moveFileWithOptions($request, $headers, $runtime)
     {
@@ -4814,9 +5157,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param MoveFileRequest $request
+     * @summary Moves files or folders.
+     *  *
+     * @param MoveFileRequest $request MoveFileRequest
      *
-     * @return MoveFileResponse
+     * @return MoveFileResponse MoveFileResponse
      */
     public function moveFile($request)
     {
@@ -4827,11 +5172,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param QueryOrderPriceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 查询凌霄订单价格
+     *  *
+     * @param QueryOrderPriceRequest $request QueryOrderPriceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOrderPriceResponse
+     * @return QueryOrderPriceResponse QueryOrderPriceResponse
      */
     public function queryOrderPriceWithOptions($request, $headers, $runtime)
     {
@@ -4881,9 +5228,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param QueryOrderPriceRequest $request
+     * @summary 查询凌霄订单价格
+     *  *
+     * @param QueryOrderPriceRequest $request QueryOrderPriceRequest
      *
-     * @return QueryOrderPriceResponse
+     * @return QueryOrderPriceResponse QueryOrderPriceResponse
      */
     public function queryOrderPrice($request)
     {
@@ -4894,11 +5243,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveFaceGroupFileRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 从人脸分组中的移除指定的文件
+     *  *
+     * @param RemoveFaceGroupFileRequest $request RemoveFaceGroupFileRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveFaceGroupFileResponse
+     * @return RemoveFaceGroupFileResponse RemoveFaceGroupFileResponse
      */
     public function removeFaceGroupFileWithOptions($request, $headers, $runtime)
     {
@@ -4933,9 +5284,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveFaceGroupFileRequest $request
+     * @summary 从人脸分组中的移除指定的文件
+     *  *
+     * @param RemoveFaceGroupFileRequest $request RemoveFaceGroupFileRequest
      *
-     * @return RemoveFaceGroupFileResponse
+     * @return RemoveFaceGroupFileResponse RemoveFaceGroupFileResponse
      */
     public function removeFaceGroupFile($request)
     {
@@ -4946,11 +5299,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveGroupMemberRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Removes a member from a group.
+     *  *
+     * @param RemoveGroupMemberRequest $request RemoveGroupMemberRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveGroupMemberResponse
+     * @return RemoveGroupMemberResponse RemoveGroupMemberResponse
      */
     public function removeGroupMemberWithOptions($request, $headers, $runtime)
     {
@@ -4985,9 +5340,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveGroupMemberRequest $request
+     * @summary Removes a member from a group.
+     *  *
+     * @param RemoveGroupMemberRequest $request RemoveGroupMemberRequest
      *
-     * @return RemoveGroupMemberResponse
+     * @return RemoveGroupMemberResponse RemoveGroupMemberResponse
      */
     public function removeGroupMember($request)
     {
@@ -4998,11 +5355,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveStoryFilesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 故事移除文件
+     *  *
+     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveStoryFilesResponse
+     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
      */
     public function removeStoryFilesWithOptions($request, $headers, $runtime)
     {
@@ -5037,9 +5396,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RemoveStoryFilesRequest $request
+     * @summary 故事移除文件
+     *  *
+     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
      *
-     * @return RemoveStoryFilesResponse
+     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
      */
     public function removeStoryFiles($request)
     {
@@ -5050,11 +5411,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreFileRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Restores a file or folder from the recycle bin.
+     *  *
+     * @param RestoreFileRequest $request RestoreFileRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreFileResponse
+     * @return RestoreFileResponse RestoreFileResponse
      */
     public function restoreFileWithOptions($request, $headers, $runtime)
     {
@@ -5086,9 +5449,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreFileRequest $request
+     * @summary Restores a file or folder from the recycle bin.
+     *  *
+     * @param RestoreFileRequest $request RestoreFileRequest
      *
-     * @return RestoreFileResponse
+     * @return RestoreFileResponse RestoreFileResponse
      */
     public function restoreFile($request)
     {
@@ -5099,11 +5464,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreRevisionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
+     *  *
+     * @param RestoreRevisionRequest $request RestoreRevisionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreRevisionResponse
+     * @return RestoreRevisionResponse RestoreRevisionResponse
      */
     public function restoreRevisionWithOptions($request, $headers, $runtime)
     {
@@ -5138,9 +5505,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param RestoreRevisionRequest $request
+     * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
+     *  *
+     * @param RestoreRevisionRequest $request RestoreRevisionRequest
      *
-     * @return RestoreRevisionResponse
+     * @return RestoreRevisionResponse RestoreRevisionResponse
      */
     public function restoreRevision($request)
     {
@@ -5151,11 +5520,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ScanFileRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Scans files.
+     *  *
+     * @param ScanFileRequest $request ScanFileRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ScanFileResponse
+     * @return ScanFileResponse ScanFileResponse
      */
     public function scanFileWithOptions($request, $headers, $runtime)
     {
@@ -5193,9 +5564,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ScanFileRequest $request
+     * @summary Scans files.
+     *  *
+     * @param ScanFileRequest $request ScanFileRequest
      *
-     * @return ScanFileResponse
+     * @return ScanFileResponse ScanFileResponse
      */
     public function scanFile($request)
     {
@@ -5206,11 +5579,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchAddressGroupsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Queries location-based groups based on specific locations.
+     *  *
+     * @param SearchAddressGroupsRequest $request SearchAddressGroupsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAddressGroupsResponse
+     * @return SearchAddressGroupsResponse SearchAddressGroupsResponse
      */
     public function searchAddressGroupsWithOptions($request, $headers, $runtime)
     {
@@ -5257,9 +5632,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchAddressGroupsRequest $request
+     * @summary Queries location-based groups based on specific locations.
+     *  *
+     * @param SearchAddressGroupsRequest $request SearchAddressGroupsRequest
      *
-     * @return SearchAddressGroupsResponse
+     * @return SearchAddressGroupsResponse SearchAddressGroupsResponse
      */
     public function searchAddressGroups($request)
     {
@@ -5270,19 +5647,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchDomainsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Search domain with specified attributes
+     *  *
+     * @param SearchDomainsRequest $request SearchDomainsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchDomainsResponse
+     * @return SearchDomainsResponse SearchDomainsResponse
      */
     public function searchDomainsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['instance_id'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;
         }
@@ -5315,9 +5691,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchDomainsRequest $request
+     * @summary Search domain with specified attributes
+     *  *
+     * @param SearchDomainsRequest $request SearchDomainsRequest
      *
-     * @return SearchDomainsResponse
+     * @return SearchDomainsResponse SearchDomainsResponse
      */
     public function searchDomains($request)
     {
@@ -5328,11 +5706,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchDriveRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Queries drives.
+     *  *
+     * @param SearchDriveRequest $request SearchDriveRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchDriveResponse
+     * @return SearchDriveResponse SearchDriveResponse
      */
     public function searchDriveWithOptions($request, $headers, $runtime)
     {
@@ -5373,9 +5753,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchDriveRequest $request
+     * @summary Queries drives.
+     *  *
+     * @param SearchDriveRequest $request SearchDriveRequest
      *
-     * @return SearchDriveResponse
+     * @return SearchDriveResponse SearchDriveResponse
      */
     public function searchDrive($request)
     {
@@ -5386,11 +5768,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+     *  *
+     * @param SearchFileRequest $request SearchFileRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchFileResponse
+     * @return SearchFileResponse SearchFileResponse
      */
     public function searchFileWithOptions($request, $headers, $runtime)
     {
@@ -5437,9 +5821,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchFileRequest $request
+     * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+     *  *
+     * @param SearchFileRequest $request SearchFileRequest
      *
-     * @return SearchFileResponse
+     * @return SearchFileResponse SearchFileResponse
      */
     public function searchFile($request)
     {
@@ -5450,11 +5836,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchShareLinkRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Queries share URLs.
+     *  *
+     * @param SearchShareLinkRequest $request SearchShareLinkRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchShareLinkResponse
+     * @return SearchShareLinkResponse SearchShareLinkResponse
      */
     public function searchShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -5501,9 +5889,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchShareLinkRequest $request
+     * @summary Queries share URLs.
+     *  *
+     * @param SearchShareLinkRequest $request SearchShareLinkRequest
      *
-     * @return SearchShareLinkResponse
+     * @return SearchShareLinkResponse SearchShareLinkResponse
      */
     public function searchShareLink($request)
     {
@@ -5514,11 +5904,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchSimilarImageClustersRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取相似图片聚类结果
+     *  *
+     * @param SearchSimilarImageClustersRequest $request SearchSimilarImageClustersRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchSimilarImageClustersResponse
+     * @return SearchSimilarImageClustersResponse SearchSimilarImageClustersResponse
      */
     public function searchSimilarImageClustersWithOptions($request, $headers, $runtime)
     {
@@ -5559,9 +5951,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchSimilarImageClustersRequest $request
+     * @summary 获取相似图片聚类结果
+     *  *
+     * @param SearchSimilarImageClustersRequest $request SearchSimilarImageClustersRequest
      *
-     * @return SearchSimilarImageClustersResponse
+     * @return SearchSimilarImageClustersResponse SearchSimilarImageClustersResponse
      */
     public function searchSimilarImageClusters($request)
     {
@@ -5572,11 +5966,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchStoriesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询故事列表
+     *  *
+     * @param SearchStoriesRequest $request SearchStoriesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchStoriesResponse
+     * @return SearchStoriesResponse SearchStoriesResponse
      */
     public function searchStoriesWithOptions($request, $headers, $runtime)
     {
@@ -5653,9 +6049,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchStoriesRequest $request
+     * @summary 查询故事列表
+     *  *
+     * @param SearchStoriesRequest $request SearchStoriesRequest
      *
-     * @return SearchStoriesResponse
+     * @return SearchStoriesResponse SearchStoriesResponse
      */
     public function searchStories($request)
     {
@@ -5666,11 +6064,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Searches for users.
+     *  *
+     * @param SearchUserRequest $request SearchUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchUserResponse
+     * @return SearchUserResponse SearchUserResponse
      */
     public function searchUserWithOptions($request, $headers, $runtime)
     {
@@ -5723,9 +6123,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param SearchUserRequest $request
+     * @summary Searches for users.
+     *  *
+     * @param SearchUserRequest $request SearchUserRequest
      *
-     * @return SearchUserResponse
+     * @return SearchUserResponse SearchUserResponse
      */
     public function searchUser($request)
     {
@@ -5736,9 +6138,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
-     *   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>.
-     *   *
+     * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
+     *  *
+     * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+     *  *
      * @param TokenRequest   $request TokenRequest
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -5790,9 +6194,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).<props="intl">只发布国际站</props>
-     *   * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).<props="intl">只发布国际站</props>.
-     *   *
+     * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
+     *  *
+     * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+     *  *
      * @param TokenRequest $request TokenRequest
      *
      * @return TokenResponse TokenResponse
@@ -5806,11 +6212,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TrashFileRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Moves a file or folder to the recycle bin.
+     *  *
+     * @param TrashFileRequest $request TrashFileRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TrashFileResponse
+     * @return TrashFileResponse TrashFileResponse
      */
     public function trashFileWithOptions($request, $headers, $runtime)
     {
@@ -5842,9 +6250,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param TrashFileRequest $request
+     * @summary Moves a file or folder to the recycle bin.
+     *  *
+     * @param TrashFileRequest $request TrashFileRequest
      *
-     * @return TrashFileResponse
+     * @return TrashFileResponse TrashFileResponse
      */
     public function trashFile($request)
     {
@@ -5855,11 +6265,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UnLinkAccountRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 取消账号绑定
+     *  *
+     * @param UnLinkAccountRequest $request UnLinkAccountRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnLinkAccountResponse
+     * @return UnLinkAccountResponse UnLinkAccountResponse
      */
     public function unLinkAccountWithOptions($request, $headers, $runtime)
     {
@@ -5897,9 +6309,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UnLinkAccountRequest $request
+     * @summary 取消账号绑定
+     *  *
+     * @param UnLinkAccountRequest $request UnLinkAccountRequest
      *
-     * @return UnLinkAccountResponse
+     * @return UnLinkAccountResponse UnLinkAccountResponse
      */
     public function unLinkAccount($request)
     {
@@ -5910,11 +6324,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Update domain information.
+     *  *
+     * @param UpdateDomainRequest $request UpdateDomainRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainResponse
+     * @return UpdateDomainResponse UpdateDomainResponse
      */
     public function updateDomainWithOptions($request, $headers, $runtime)
     {
@@ -5964,9 +6380,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRequest $request
+     * @summary Update domain information.
+     *  *
+     * @param UpdateDomainRequest $request UpdateDomainRequest
      *
-     * @return UpdateDomainResponse
+     * @return UpdateDomainResponse UpdateDomainResponse
      */
     public function updateDomain($request)
     {
@@ -5977,11 +6395,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateDriveRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Modifies a drive.
+     *  *
+     * @param UpdateDriveRequest $request UpdateDriveRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDriveResponse
+     * @return UpdateDriveResponse UpdateDriveResponse
      */
     public function updateDriveWithOptions($request, $headers, $runtime)
     {
@@ -6025,9 +6445,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateDriveRequest $request
+     * @summary Modifies a drive.
+     *  *
+     * @param UpdateDriveRequest $request UpdateDriveRequest
      *
-     * @return UpdateDriveResponse
+     * @return UpdateDriveResponse UpdateDriveResponse
      */
     public function updateDrive($request)
     {
@@ -6038,11 +6460,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFacegroupRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Updates a face-based group.
+     *  *
+     * @param UpdateFacegroupRequest $request UpdateFacegroupRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFacegroupResponse
+     * @return UpdateFacegroupResponse UpdateFacegroupResponse
      */
     public function updateFacegroupWithOptions($request, $headers, $runtime)
     {
@@ -6083,9 +6507,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFacegroupRequest $request
+     * @summary Updates a face-based group.
+     *  *
+     * @param UpdateFacegroupRequest $request UpdateFacegroupRequest
      *
-     * @return UpdateFacegroupResponse
+     * @return UpdateFacegroupResponse UpdateFacegroupResponse
      */
     public function updateFacegroup($request)
     {
@@ -6096,11 +6522,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Modifies the information about a file instead of the file data.
+     *  *
+     * @param UpdateFileRequest $request UpdateFileRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFileWithOptions($request, $headers, $runtime)
     {
@@ -6153,9 +6581,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileRequest $request
+     * @summary Modifies the information about a file instead of the file data.
+     *  *
+     * @param UpdateFileRequest $request UpdateFileRequest
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFile($request)
     {
@@ -6166,11 +6596,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Modifies the information about a group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $headers, $runtime)
     {
@@ -6205,9 +6637,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @summary Modifies the information about a group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -6218,11 +6652,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateIdentityToBenefitPkgMappingRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+     *  *
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request UpdateIdentityToBenefitPkgMappingRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIdentityToBenefitPkgMappingResponse
+     * @return UpdateIdentityToBenefitPkgMappingResponse UpdateIdentityToBenefitPkgMappingResponse
      */
     public function updateIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
@@ -6263,9 +6699,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateIdentityToBenefitPkgMappingRequest $request
+     * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+     *  *
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request UpdateIdentityToBenefitPkgMappingRequest
      *
-     * @return UpdateIdentityToBenefitPkgMappingResponse
+     * @return UpdateIdentityToBenefitPkgMappingResponse UpdateIdentityToBenefitPkgMappingResponse
      */
     public function updateIdentityToBenefitPkgMapping($request)
     {
@@ -6276,11 +6714,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateRevisionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+     *  *
+     * @param UpdateRevisionRequest $request UpdateRevisionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRevisionResponse
+     * @return UpdateRevisionResponse UpdateRevisionResponse
      */
     public function updateRevisionWithOptions($request, $headers, $runtime)
     {
@@ -6321,9 +6761,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateRevisionRequest $request
+     * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+     *  *
+     * @param UpdateRevisionRequest $request UpdateRevisionRequest
      *
-     * @return UpdateRevisionResponse
+     * @return UpdateRevisionResponse UpdateRevisionResponse
      */
     public function updateRevision($request)
     {
@@ -6334,11 +6776,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateShareLinkRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies a share link.
+     *  *
+     * @param UpdateShareLinkRequest $request UpdateShareLinkRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateShareLinkResponse
+     * @return UpdateShareLinkResponse UpdateShareLinkResponse
      */
     public function updateShareLinkWithOptions($request, $headers, $runtime)
     {
@@ -6415,9 +6859,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateShareLinkRequest $request
+     * @summary Modifies a share link.
+     *  *
+     * @param UpdateShareLinkRequest $request UpdateShareLinkRequest
      *
-     * @return UpdateShareLinkResponse
+     * @return UpdateShareLinkResponse UpdateShareLinkResponse
      */
     public function updateShareLink($request)
     {
@@ -6428,11 +6874,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateStoryRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 更新故事
+     *  *
+     * @param UpdateStoryRequest $request UpdateStoryRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateStoryResponse
+     * @return UpdateStoryResponse UpdateStoryResponse
      */
     public function updateStoryWithOptions($request, $headers, $runtime)
     {
@@ -6473,9 +6921,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateStoryRequest $request
+     * @summary 更新故事
+     *  *
+     * @param UpdateStoryRequest $request UpdateStoryRequest
      *
-     * @return UpdateStoryResponse
+     * @return UpdateStoryResponse UpdateStoryResponse
      */
     public function updateStory($request)
     {
@@ -6486,11 +6936,13 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Modifies the information about a user.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $headers, $runtime)
     {
@@ -6546,9 +6998,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @summary Modifies the information about a user.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {

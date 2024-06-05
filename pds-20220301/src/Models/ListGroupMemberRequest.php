@@ -11,6 +11,7 @@ class ListGroupMemberRequest extends Model
     /**
      * @description The ID of the group of which you want to query members.
      *
+     * This parameter is required.
      * @example 3e5***2c2
      *
      * @var string
@@ -18,7 +19,7 @@ class ListGroupMemberRequest extends Model
     public $groupId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
      *
      * @example 50
      *
@@ -27,7 +28,7 @@ class ListGroupMemberRequest extends Model
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *

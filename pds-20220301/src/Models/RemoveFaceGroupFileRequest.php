@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveFaceGroupFileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveFaceGroupFileRequest extends Model
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Cluster-abc
      *
      * @var string
@@ -23,6 +27,8 @@ class RemoveFaceGroupFileRequest extends Model
     public $faceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example abcd
      *
      * @var string

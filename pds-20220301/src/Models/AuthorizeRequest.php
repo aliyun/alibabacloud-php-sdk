@@ -11,6 +11,7 @@ class AuthorizeRequest extends Model
     /**
      * @description The application ID returned when the application was created.
      *
+     * This parameter is required.
      * @example 47eUHhrzgWBvlLWj
      *
      * @var string
@@ -36,6 +37,7 @@ class AuthorizeRequest extends Model
      *   wechat: logs on by scanning a WeCom QR code.
      *   wechat_app: logs on without authentication in WeCom.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -45,6 +47,7 @@ class AuthorizeRequest extends Model
     /**
      * @description The callback URL specified when the application was created.
      *
+     * This parameter is required.
      * @example https://www.aliyunpds.com/sign/callback
      *
      * @var string
@@ -54,6 +57,7 @@ class AuthorizeRequest extends Model
     /**
      * @description The format in which to return the response. Set the value to code.
      *
+     * This parameter is required.
      * @example code
      *
      * @var string

@@ -11,6 +11,7 @@ class ListRevisionRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,7 +21,7 @@ class ListRevisionRequest extends Model
     /**
      * @description Specifies the returned fields.
      *
-     * By default, this parameter is left empty. If you set this parameter to \*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
+     * By default, this parameter is left empty. If you set this parameter to \\*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
      * @example *
      *
      * @var string
@@ -30,6 +31,7 @@ class ListRevisionRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

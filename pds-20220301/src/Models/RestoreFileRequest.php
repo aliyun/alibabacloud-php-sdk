@@ -11,6 +11,7 @@ class RestoreFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class RestoreFileRequest extends Model
     /**
      * @description The ID of the file or folder.
      *
+     * This parameter is required.
      * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
      *
      * @var string

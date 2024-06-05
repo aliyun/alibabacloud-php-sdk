@@ -11,11 +11,17 @@ class GetDomainRequest extends Model
     /**
      * @description The ID of the domain.
      *
+     * This parameter is required.
      * @example bj1
      *
      * @var string
      */
     public $domainId;
+
+    /**
+     * @var string
+     */
+    public $fields;
 
     /**
      * @description Specifies whether to return the used quota of the domain. Default value: false. If the quota of the domain is greater than 0 and you set this parameter to true, the used quota of the domain is returned.
@@ -27,6 +33,7 @@ class GetDomainRequest extends Model
     public $getQuotaUsed;
     protected $_name = [
         'domainId'     => 'domain_id',
+        'fields'       => 'fields',
         'getQuotaUsed' => 'get_quota_used',
     ];
 
@@ -39,6 +46,9 @@ class GetDomainRequest extends Model
         $res = [];
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
+        }
+        if (null !== $this->fields) {
+            $res['fields'] = $this->fields;
         }
         if (null !== $this->getQuotaUsed) {
             $res['get_quota_used'] = $this->getQuotaUsed;
@@ -57,6 +67,9 @@ class GetDomainRequest extends Model
         $model = new self();
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
+        }
+        if (isset($map['fields'])) {
+            $model->fields = $map['fields'];
         }
         if (isset($map['get_quota_used'])) {
             $model->getQuotaUsed = $map['get_quota_used'];

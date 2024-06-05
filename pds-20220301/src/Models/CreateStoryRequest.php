@@ -21,6 +21,8 @@ class CreateStoryRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -75,6 +77,8 @@ class CreateStoryRequest extends Model
     public $storySubType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TagMemory
      *
      * @var string

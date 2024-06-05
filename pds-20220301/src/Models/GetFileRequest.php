@@ -20,7 +20,7 @@ class GetFileRequest extends Model
     /**
      * @description The fields to return.
      *
-     * 1.  If this parameter is set to \*, all fields of the file except the fields that must be specified are returned.
+     * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
      * By default, all fields except the fields that must be specified are returned.
      * @example *
      *
@@ -31,6 +31,7 @@ class GetFileRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

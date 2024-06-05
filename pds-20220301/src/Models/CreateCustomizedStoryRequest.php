@@ -18,6 +18,8 @@ class CreateCustomizedStoryRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -25,16 +27,22 @@ class CreateCustomizedStoryRequest extends Model
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var storyCover
      */
     public $storyCover;
 
     /**
+     * @description This parameter is required.
+     *
      * @var storyFiles[]
      */
     public $storyFiles;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_name
      *
      * @var string
@@ -42,6 +50,8 @@ class CreateCustomizedStoryRequest extends Model
     public $storyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_created
      *
      * @var string
@@ -49,6 +59,8 @@ class CreateCustomizedStoryRequest extends Model
     public $storySubType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_created
      *
      * @var string

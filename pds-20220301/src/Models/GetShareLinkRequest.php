@@ -11,6 +11,7 @@ class GetShareLinkRequest extends Model
     /**
      * @description The share ID.
      *
+     * This parameter is required.
      * @example 7JQX1FswpQ8
      *
      * @var string

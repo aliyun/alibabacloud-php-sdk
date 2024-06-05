@@ -11,6 +11,7 @@ class DeleteGroupRequest extends Model
     /**
      * @description The group ID.
      *
+     * This parameter is required.
      * @example g123
      *
      * @var string

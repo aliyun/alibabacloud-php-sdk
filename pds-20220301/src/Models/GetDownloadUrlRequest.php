@@ -29,6 +29,7 @@ class GetDownloadUrlRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

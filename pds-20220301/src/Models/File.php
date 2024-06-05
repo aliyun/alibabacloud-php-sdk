@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\SDK\Pds\V20220301\Models\File\investigationInfo;
 use AlibabaCloud\Tea\Model;
 
 class File extends Model
@@ -75,9 +74,9 @@ class File extends Model
     public $hidden;
 
     /**
-     * @var investigationInfo
+     * @var ImageMediaMetadata
      */
-    public $investigationInfo;
+    public $imageMediaMetadata;
 
     /**
      * @var string[]
@@ -177,7 +176,7 @@ class File extends Model
         'fileExtension'      => 'file_extension',
         'fileId'             => 'file_id',
         'hidden'             => 'hidden',
-        'investigationInfo'  => 'investigation_info',
+        'imageMediaMetadata' => 'image_media_metadata',
         'labels'             => 'labels',
         'localCreatedAt'     => 'local_created_at',
         'localModifiedAt'    => 'local_modified_at',
@@ -243,8 +242,8 @@ class File extends Model
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
-        if (null !== $this->investigationInfo) {
-            $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toMap() : null;
+        if (null !== $this->imageMediaMetadata) {
+            $res['image_media_metadata'] = null !== $this->imageMediaMetadata ? $this->imageMediaMetadata->toMap() : null;
         }
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
@@ -348,8 +347,8 @@ class File extends Model
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
-        if (isset($map['investigation_info'])) {
-            $model->investigationInfo = investigationInfo::fromMap($map['investigation_info']);
+        if (isset($map['image_media_metadata'])) {
+            $model->imageMediaMetadata = ImageMediaMetadata::fromMap($map['image_media_metadata']);
         }
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {

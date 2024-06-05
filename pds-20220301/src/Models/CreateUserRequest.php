@@ -22,7 +22,7 @@ class CreateUserRequest extends Model
     /**
      * @description The description of the user. The description can be up to 1,024 characters in length.
      *
-     * @example VIP用户
+     * @example The VIP user
      *
      * @var string
      */
@@ -120,6 +120,7 @@ class CreateUserRequest extends Model
     /**
      * @description The user ID. The ID can be up to 64 characters in length and cannot contain number signs (#).
      *
+     * This parameter is required.
      * @example pdsuserid1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CdnFileDownloadCallbackInfo extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccp-bj1-bj-1234
      *
      * @var string
@@ -16,31 +18,43 @@ class CdnFileDownloadCallbackInfo extends Model
     public $bucket;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $driveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description This parameter is required.
+     *
      * @example md5.Sum([]byte(fmt.Sprintf("%v%v%v%v%v%v...%v", 		req.Object, req.Range, req.DomainID, req.DriveID, req.UserID, req.FileID, req.Expire)))
      *
      * @var string
@@ -48,6 +62,8 @@ class CdnFileDownloadCallbackInfo extends Model
     public $token;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;

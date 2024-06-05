@@ -34,10 +34,16 @@ class ListDomainsRequest extends Model
      * @var string
      */
     public $parentDomainId;
+
+    /**
+     * @var string
+     */
+    public $serviceCode;
     protected $_name = [
         'limit'          => 'limit',
         'marker'         => 'marker',
         'parentDomainId' => 'parent_domain_id',
+        'serviceCode'    => 'service_code',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListDomainsRequest extends Model
         }
         if (null !== $this->parentDomainId) {
             $res['parent_domain_id'] = $this->parentDomainId;
+        }
+        if (null !== $this->serviceCode) {
+            $res['service_code'] = $this->serviceCode;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListDomainsRequest extends Model
         }
         if (isset($map['parent_domain_id'])) {
             $model->parentDomainId = $map['parent_domain_id'];
+        }
+        if (isset($map['service_code'])) {
+            $model->serviceCode = $map['service_code'];
         }
 
         return $model;

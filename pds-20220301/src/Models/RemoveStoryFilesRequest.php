@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveStoryFilesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +24,8 @@ class RemoveStoryFilesRequest extends Model
     public $files;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9132e0d8-fe92-4e56-86c3-f5f112308003
      *
      * @var string

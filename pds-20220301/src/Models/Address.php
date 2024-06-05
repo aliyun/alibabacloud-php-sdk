@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class Address extends Model
 {
     /**
+     * @example 杭州市
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @example 中国
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example 余杭区
+     *
      * @var string
      */
     public $district;
 
     /**
+     * @example 浙江省
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @example 文一西路
+     *
      * @var string
      */
     public $township;

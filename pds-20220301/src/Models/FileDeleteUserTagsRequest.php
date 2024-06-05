@@ -11,6 +11,7 @@ class FileDeleteUserTagsRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class FileDeleteUserTagsRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string
@@ -29,6 +31,7 @@ class FileDeleteUserTagsRequest extends Model
     /**
      * @description The tags that you want to remove from a file. You cannot leave this parameter empty. You can specify up to 1,000 tags.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $keyList;

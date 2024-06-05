@@ -12,7 +12,7 @@ class requests extends Model
      * @description The request parameters of a child request. The parameter value must be a JSON string. For more information, see the topic of the corresponding child request.
      *
      * Before you specify the request body, you must specify a header by using Content-Type. Content-Type can only be set to application/json.
-     * @var string[]
+     * @var mixed[]
      */
     public $body;
 
@@ -26,6 +26,7 @@ class requests extends Model
     /**
      * @description The ID of the child request. The ID is used to associate a child request with a response. The ID of a child request must be unique.
      *
+     * This parameter is required.
      * @example 93433894994ad2e1
      *
      * @var string
@@ -41,6 +42,7 @@ class requests extends Model
      *   DELETE
      *   HEAD
      *
+     * This parameter is required.
      * @example POST
      *
      * @var string
@@ -73,6 +75,7 @@ class requests extends Model
      *   /share_link/get_share_token: queries an access token of a share.
      *   /async_task/get: queries the information about an asynchronous task.
      *
+     * This parameter is required.
      * @example /file/get
      *
      * @var string

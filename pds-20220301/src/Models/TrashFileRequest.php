@@ -11,6 +11,7 @@ class TrashFileRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class TrashFileRequest extends Model
     /**
      * @description The ID of the file or folder.
      *
+     * This parameter is required.
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string

@@ -12,6 +12,7 @@ class GetUploadUrlRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,6 +22,7 @@ class GetUploadUrlRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
      *
      * @var string
@@ -30,6 +32,7 @@ class GetUploadUrlRequest extends Model
     /**
      * @description The information about the file parts.
      *
+     * This parameter is required.
      * @var partInfoList[]
      */
     public $partInfoList;
@@ -46,6 +49,7 @@ class GetUploadUrlRequest extends Model
     /**
      * @description The ID of the upload task.
      *
+     * This parameter is required.
      * @example 10166D06127B413BA1EC8ABB1144D111
      *
      * @var string

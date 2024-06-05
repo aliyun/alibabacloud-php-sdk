@@ -20,6 +20,7 @@ class UpdateGroupRequest extends Model
     /**
      * @description The ID of the group that you want to modify.
      *
+     * This parameter is required.
      * @example 2e43ec8427dd45f19431b7504649a1b4
      *
      * @var string

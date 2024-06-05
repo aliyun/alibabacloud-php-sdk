@@ -18,6 +18,7 @@ class UpdateDriveRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

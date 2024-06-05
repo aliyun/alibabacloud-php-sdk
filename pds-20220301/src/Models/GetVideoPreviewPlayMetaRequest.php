@@ -16,6 +16,7 @@ class GetVideoPreviewPlayMetaRequest extends Model
      *   offline_audio: previews a piece of audio after the audio is transcoded offline.
      *   offline_video: previews a video after the video is transcoded offline.
      *
+     * This parameter is required.
      * @example live_transcoding
      *
      * @var string
@@ -34,6 +35,7 @@ class GetVideoPreviewPlayMetaRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 9520943DC264
      *
      * @var string

@@ -11,6 +11,7 @@ class GetGroupRequest extends Model
     /**
      * @description The group ID.
      *
+     * This parameter is required.
      * @example 2e43ec8427dd45f19431b7504649a1b1
      *
      * @var string

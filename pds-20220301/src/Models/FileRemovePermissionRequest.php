@@ -12,6 +12,7 @@ class FileRemovePermissionRequest extends Model
     /**
      * @description The drive ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,6 +22,7 @@ class FileRemovePermissionRequest extends Model
     /**
      * @description The file ID.
      *
+     * This parameter is required.
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -30,6 +32,7 @@ class FileRemovePermissionRequest extends Model
     /**
      * @description The identities with whom the file is shared.
      *
+     * This parameter is required.
      * @var memberList[]
      */
     public $memberList;

@@ -28,6 +28,7 @@ class ImportUserRequest extends Model
      *   ldap: Lightweight Directory Access Protocol (LDAP) account.
      *   custom: custom account.
      *
+     * This parameter is required.
      * @example mobile
      *
      * @var string
@@ -65,6 +66,7 @@ class ImportUserRequest extends Model
     /**
      * @description The unique identifier.
      *
+     * This parameter is required.
      * @example 130****
      *
      * @var string
@@ -74,6 +76,7 @@ class ImportUserRequest extends Model
     /**
      * @description The nickname of the user.
      *
+     * This parameter is required.
      * @example pdsuer
      *
      * @var string
