@@ -49,6 +49,13 @@ class GrafanaWorkspace extends Model
     public $grafanaWorkspaceDomain;
 
     /**
+     * @example on
+     *
+     * @var string
+     */
+    public $grafanaWorkspaceDomainStatus;
+
+    /**
      * @example experts_edition/advanced_edition/standard
      *
      * @var string
@@ -161,32 +168,33 @@ class GrafanaWorkspace extends Model
      */
     public $userId;
     protected $_name = [
-        'commercial'              => 'commercial',
-        'deployType'              => 'deployType',
-        'description'             => 'description',
-        'endTime'                 => 'endTime',
-        'gmtCreate'               => 'gmtCreate',
-        'grafanaVersion'          => 'grafanaVersion',
-        'grafanaWorkspaceDomain'  => 'grafanaWorkspaceDomain',
-        'grafanaWorkspaceEdition' => 'grafanaWorkspaceEdition',
-        'grafanaWorkspaceId'      => 'grafanaWorkspaceId',
-        'grafanaWorkspaceIp'      => 'grafanaWorkspaceIp',
-        'grafanaWorkspaceName'    => 'grafanaWorkspaceName',
-        'maxAccount'              => 'maxAccount',
-        'ntmId'                   => 'ntmId',
-        'personalDomain'          => 'personalDomain',
-        'personalDomainPrefix'    => 'personalDomainPrefix',
-        'privateDomain'           => 'privateDomain',
-        'privateIp'               => 'privateIp',
-        'protocol'                => 'protocol',
-        'regionId'                => 'regionId',
-        'resourceGroupId'         => 'resourceGroupId',
-        'shareSynced'             => 'shareSynced',
-        'snatIp'                  => 'snatIp',
-        'status'                  => 'status',
-        'tags'                    => 'tags',
-        'upgradeVersion'          => 'upgradeVersion',
-        'userId'                  => 'userId',
+        'commercial'                   => 'commercial',
+        'deployType'                   => 'deployType',
+        'description'                  => 'description',
+        'endTime'                      => 'endTime',
+        'gmtCreate'                    => 'gmtCreate',
+        'grafanaVersion'               => 'grafanaVersion',
+        'grafanaWorkspaceDomain'       => 'grafanaWorkspaceDomain',
+        'grafanaWorkspaceDomainStatus' => 'grafanaWorkspaceDomainStatus',
+        'grafanaWorkspaceEdition'      => 'grafanaWorkspaceEdition',
+        'grafanaWorkspaceId'           => 'grafanaWorkspaceId',
+        'grafanaWorkspaceIp'           => 'grafanaWorkspaceIp',
+        'grafanaWorkspaceName'         => 'grafanaWorkspaceName',
+        'maxAccount'                   => 'maxAccount',
+        'ntmId'                        => 'ntmId',
+        'personalDomain'               => 'personalDomain',
+        'personalDomainPrefix'         => 'personalDomainPrefix',
+        'privateDomain'                => 'privateDomain',
+        'privateIp'                    => 'privateIp',
+        'protocol'                     => 'protocol',
+        'regionId'                     => 'regionId',
+        'resourceGroupId'              => 'resourceGroupId',
+        'shareSynced'                  => 'shareSynced',
+        'snatIp'                       => 'snatIp',
+        'status'                       => 'status',
+        'tags'                         => 'tags',
+        'upgradeVersion'               => 'upgradeVersion',
+        'userId'                       => 'userId',
     ];
 
     public function validate()
@@ -216,6 +224,9 @@ class GrafanaWorkspace extends Model
         }
         if (null !== $this->grafanaWorkspaceDomain) {
             $res['grafanaWorkspaceDomain'] = $this->grafanaWorkspaceDomain;
+        }
+        if (null !== $this->grafanaWorkspaceDomainStatus) {
+            $res['grafanaWorkspaceDomainStatus'] = $this->grafanaWorkspaceDomainStatus;
         }
         if (null !== $this->grafanaWorkspaceEdition) {
             $res['grafanaWorkspaceEdition'] = $this->grafanaWorkspaceEdition;
@@ -312,6 +323,9 @@ class GrafanaWorkspace extends Model
         }
         if (isset($map['grafanaWorkspaceDomain'])) {
             $model->grafanaWorkspaceDomain = $map['grafanaWorkspaceDomain'];
+        }
+        if (isset($map['grafanaWorkspaceDomainStatus'])) {
+            $model->grafanaWorkspaceDomainStatus = $map['grafanaWorkspaceDomainStatus'];
         }
         if (isset($map['grafanaWorkspaceEdition'])) {
             $model->grafanaWorkspaceEdition = $map['grafanaWorkspaceEdition'];
