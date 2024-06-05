@@ -11,6 +11,7 @@ class certificates extends Model
     /**
      * @description The certificate ID. Only server certificates are supported. You can specify up to 20 IDs.
      *
+     * This parameter is required.
      * @example 12315790343_166f8204689_1714763408_70998****
      *
      * @var string

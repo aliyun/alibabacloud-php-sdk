@@ -42,6 +42,7 @@ class CreateLoadBalancerRequest extends Model
      *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. In this case, the ALB instance can be accessed over the Internet.
      *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
      *
+     * This parameter is required.
      * @example Internet
      *
      * @var string
@@ -87,6 +88,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The configuration of the billing method of the ALB instance.
      *
+     * This parameter is required.
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
@@ -98,6 +100,7 @@ class CreateLoadBalancerRequest extends Model
      *   **Standard:** standard.
      *   **StandardWithWaf:** WAF-enabled.
      *
+     * This parameter is required.
      * @example Standard
      *
      * @var string
@@ -107,7 +110,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The name of the ALB instance.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example alb1
      *
      * @var string
@@ -140,6 +143,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) in which you want to create the ALB instance.
      *
+     * This parameter is required.
      * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
@@ -149,6 +153,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The zones and the vSwitches in the zones. You must specify at least two zones.
      *
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

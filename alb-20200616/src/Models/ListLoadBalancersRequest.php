@@ -135,7 +135,7 @@ class ListLoadBalancersRequest extends Model
     /**
      * @description The ID of the zone where the ALB instance is deployed.
      *
-     * You can call the [DescribeZones](~~189196~~) operation to query zones.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query zones.
      * @example cn-hangzhou-a
      *
      * @var string

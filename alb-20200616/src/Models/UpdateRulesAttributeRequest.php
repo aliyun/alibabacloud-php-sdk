@@ -36,6 +36,7 @@ class UpdateRulesAttributeRequest extends Model
     /**
      * @description The forwarding rules. You can specify up to 10 forwarding rules in each request.
      *
+     * This parameter is required.
      * @var rules[]
      */
     public $rules;

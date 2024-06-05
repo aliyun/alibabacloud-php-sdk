@@ -13,6 +13,7 @@ class ReplaceServersInServerGroupRequest extends Model
     /**
      * @description The backend servers that you want to add to the server group. You can specify up to 40 backend servers in each call.
      *
+     * This parameter is required.
      * @var addedServers[]
      */
     public $addedServers;
@@ -44,6 +45,7 @@ class ReplaceServersInServerGroupRequest extends Model
     /**
      * @description The backend servers that you want to remove.
      *
+     * This parameter is required.
      * @var removedServers[]
      */
     public $removedServers;
@@ -51,7 +53,7 @@ class ReplaceServersInServerGroupRequest extends Model
     /**
      * @description The ID of the server group.
      *
-     * > You cannot perform this operation on a server group of the Function type.
+     * This parameter is required.
      * @example sgp-5114d593o96qxy****
      *
      * @var string

@@ -55,6 +55,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -34,6 +34,7 @@ class DisableLoadBalancerAccessLogRequest extends Model
     /**
      * @description The SLB instance ID.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex*****
      *
      * @var string

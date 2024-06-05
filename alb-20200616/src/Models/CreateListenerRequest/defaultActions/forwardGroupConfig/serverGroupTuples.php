@@ -11,6 +11,7 @@ class serverGroupTuples extends Model
     /**
      * @description The ID of the server group to which requests are forwarded.
      *
+     * This parameter is required.
      * @example rsp-cige6j****
      *
      * @var string

@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs.
      *
+     * This parameter is required.
      * @example acl-123
      *
      * @var string[]
@@ -26,6 +27,7 @@ class TagResourcesRequest extends Model
      *   **securitypolicy**: a security policy
      *   **servergroup**: a server group
      *
+     * This parameter is required.
      * @example loadbalancer
      *
      * @var string
@@ -35,6 +37,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @example test
      *
      * @var tag[]

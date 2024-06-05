@@ -46,6 +46,7 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The configuration of health checks.
      *
+     * This parameter is required.
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
@@ -88,8 +89,9 @@ class CreateServerGroupRequest extends Model
     public $scheduler;
 
     /**
-     * @description The name of the server group. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the server group. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
+     * This parameter is required.
      * @example sg-atstuj3rtoptyui****
      *
      * @var string

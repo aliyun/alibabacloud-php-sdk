@@ -11,6 +11,7 @@ class DissociateAclsFromListenerRequest extends Model
     /**
      * @description The ACL IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $aclIds;
@@ -42,6 +43,7 @@ class DissociateAclsFromListenerRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

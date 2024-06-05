@@ -11,6 +11,7 @@ class UpdateAclAttributeRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateAclAttributeRequest extends Model
     public $aclId;
 
     /**
-     * @description The ACL name. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The ACL name. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
+     * This parameter is required.
      * @example test-acl
      *
      * @var string

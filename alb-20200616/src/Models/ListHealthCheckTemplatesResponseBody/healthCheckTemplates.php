@@ -19,7 +19,7 @@ class healthCheckTemplates extends Model
     /**
      * @description The port that is used for health checks.
      *
-     * Valid values: \*\* 0 to 65535\*\*.
+     * Valid values: \\*\\* 0 to 65535\\*\\*.
      *
      * Default value: **0**. This value indicates that the port on a backend server is used for health checks.
      * @example 80
@@ -82,7 +82,7 @@ class healthCheckTemplates extends Model
     /**
      * @description The URL that is used for health checks.
      *
-     * The URL must be 1 to 80 characters in length and can contain only letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). The URL can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \" , +`. The URL must start with a forward slash (/).
+     * The URL must be 1 to 80 characters in length and can contain only letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). The URL can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
      * @example /test/index.html
      *
      * @var string
@@ -114,7 +114,7 @@ class healthCheckTemplates extends Model
     /**
      * @description The name of the health check template.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example HealthCheckTemplate1
      *
      * @var string

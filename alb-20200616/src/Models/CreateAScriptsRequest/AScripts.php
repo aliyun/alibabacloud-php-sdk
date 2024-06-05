@@ -11,7 +11,7 @@ class AScripts extends Model
     /**
      * @description The name of the AScript rule.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -33,7 +33,8 @@ class AScripts extends Model
     /**
      * @description The content of the AScript rule.
      *
-     * @example if and(match_re($uri, \"^/1.txt$\"), $arg_type) {   rewrite(concat(\"/1.\", $arg_type), \"break\") }
+     * This parameter is required.
+     * @example if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) {   rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
      *
      * @var string
      */

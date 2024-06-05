@@ -41,6 +41,7 @@ class CreateAScriptsRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsn-6hfq3zs0x04ibn****
      *
      * @var string

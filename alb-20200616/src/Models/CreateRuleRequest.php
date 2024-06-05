@@ -51,6 +51,7 @@ class CreateRuleRequest extends Model
     /**
      * @description The listener ID of the ALB instance.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -60,7 +61,7 @@ class CreateRuleRequest extends Model
     /**
      * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
      *
-     * > The priorities of the forwarding rules created for the same listener must be unique.
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -71,6 +72,8 @@ class CreateRuleRequest extends Model
      * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
      *
      * Valid values: **-1** to **172800**.
+     *
+     * This parameter is required.
      * @var ruleActions[]
      */
     public $ruleActions;
@@ -78,6 +81,7 @@ class CreateRuleRequest extends Model
     /**
      * @description The configuration of the source IP-based forwarding rule.
      *
+     * This parameter is required.
      * @var ruleConditions[]
      */
     public $ruleConditions;
@@ -86,8 +90,9 @@ class CreateRuleRequest extends Model
      * @description The name of the forwarding rule.
      *
      *   The name must be 2 to 128 characters in length.
-     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *   It can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      *
+     * This parameter is required.
      * @example rule-doc
      *
      * @var string

@@ -11,6 +11,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The EIP bandwidth plan ID.
      *
+     * This parameter is required.
      * @example cbwp-bp1pzf0ym72pu3y76****
      *
      * @var string
@@ -44,6 +45,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The ALB instance ID.
      *
+     * This parameter is required.
      * @example alb-d676fho813rmu3****
      *
      * @var string
@@ -53,7 +55,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The region ID of the ALB instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -21,7 +21,7 @@ class reason extends Model
     /**
      * @description The HTTP status code returned after backend servers pass health checks.
      *
-     * Valid values: **HTTP\_2xx**, **HTTP\_3xx**, **HTTP\_4xx**, and **HTTP\_5xx**. Multiple status codes are separated by commas (,).
+     * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple status codes are separated by commas (,).
      *
      * > A value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
      * @example HTTP_2xx

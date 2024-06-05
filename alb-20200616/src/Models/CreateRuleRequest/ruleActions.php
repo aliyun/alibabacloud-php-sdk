@@ -48,6 +48,7 @@ class ruleActions extends Model
     /**
      * @description The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -107,6 +108,7 @@ class ruleActions extends Model
      *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify the **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
      *   **ExtType**: the action or the actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify this parameter, you must also specify **FinalType**. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
+     * This parameter is required.
      * @example ForwardGroup
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class defaultActions extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
@@ -19,6 +21,7 @@ class defaultActions extends Model
      *
      **ForwardGroup**: forwards requests to multiple vServer groups.
      *
+     * This parameter is required.
      * @example ForwardGroup
      *
      * @var string

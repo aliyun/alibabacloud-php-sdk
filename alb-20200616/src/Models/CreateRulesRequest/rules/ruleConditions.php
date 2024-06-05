@@ -93,6 +93,7 @@ class ruleConditions extends Model
      *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
      *   **ResponseStatusCode**: Responses are forwarded based on response status codes.
      *
+     * This parameter is required.
      * @example Host
      *
      * @var string

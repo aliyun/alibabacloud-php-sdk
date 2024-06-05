@@ -11,6 +11,7 @@ class GetHealthCheckTemplateAttributeRequest extends Model
     /**
      * @description The ID of the health check template.
      *
+     * This parameter is required.
      * @example hct-x4jazoyi6tvsq9****
      *
      * @var string

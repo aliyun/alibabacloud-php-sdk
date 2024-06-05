@@ -11,7 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group to which you want to move the resource.
      *
-     * > You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify resource and permission management in your Alibaba Cloud account. For more information, see [What is resource management?](~~94475~~)
+     * This parameter is required.
      * @example rg-9gLOoK****
      *
      * @var string
@@ -21,6 +21,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example acl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -35,6 +36,7 @@ class MoveResourceGroupRequest extends Model
      *   **securitypolicy**: security policy
      *   **servergroup**: server group
      *
+     * This parameter is required.
      * @example ACL
      *
      * @var string

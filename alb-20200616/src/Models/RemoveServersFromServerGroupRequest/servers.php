@@ -25,7 +25,7 @@ class servers extends Model
      *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
      *   If the server group type is **Fc**, set the ServerId parameter to the ARN of a function specified in the server group.
      *
-     * > You can call the [ListServerGroups](~~213627~~) operation to query information about the server group type so that you can set ServerId to a proper value.
+     * This parameter is required.
      * @example i-bp1f9kdprbgy9uiu****
      *
      * @var string
@@ -50,6 +50,7 @@ class servers extends Model
      *   **Ip**
      *   **Fc**
      *
+     * This parameter is required.
      * @example Ecs
      *
      * @var string

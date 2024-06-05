@@ -35,6 +35,7 @@ class DeleteServerGroupRequest extends Model
     /**
      * @description The ID of the server group.
      *
+     * This parameter is required.
      * @example sgp-cige6j****
      *
      * @var string

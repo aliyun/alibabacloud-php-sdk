@@ -24,6 +24,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The IDs of the resources from which you want to remove tags.
      *
+     * This parameter is required.
      * @example acl-123
      *
      * @var string[]
@@ -38,6 +39,7 @@ class UnTagResourcesRequest extends Model
      *   **securitypolicy**: a security policy
      *   **servergroup**: a server group
      *
+     * This parameter is required.
      * @example loadbalancer
      *
      * @var string

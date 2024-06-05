@@ -108,7 +108,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -.
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
      * @example HTTP_80
      *
      * @var string
@@ -118,6 +118,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description The ID of the Application Load Balancer (ALB) listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

@@ -15,11 +15,11 @@ class redirectConfig extends Model
      *
      *   Limits on a custom value:
      *
-     *   The hostname is 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\*) and question marks (?) can be used as wildcard characters.
+     *   The hostname is 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\\*) and question marks (?) can be used as wildcard characters.
      *   The hostname contains at least one period (.) but does not start or end with a period (.).
      *   The rightmost domain label contains only letters and wildcard characters. It does not contain digits or hyphens (-).
      *   The domain labels do not start or end with hyphens (-).
-     *   You can use asterisks (\*) and question marks (?) anywhere in a domain label as wildcard characters.
+     *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
      *
      * @example www.example.com
      *
@@ -39,12 +39,12 @@ class redirectConfig extends Model
     /**
      * @description The path to which requests are redirected. Valid values:
      *
-     *   **${path}** (default): You can reference \*\*${host}**, **${protocol}**, and**${port}**. The path can consist of **${host}**,**${protocol}**, and **${port}\*\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
+     *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}**, and**${port}**. The path can consist of **${host}**,**${protocol}**, and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
      *
      *   Limits on a custom value:
      *
      *   The value is 1 to 128 characters in length.
-     *   It starts with a forward slash (/) and contains letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   It starts with a forward slash (/) and contains letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
      *
      * @example /test
      *
@@ -78,7 +78,7 @@ class redirectConfig extends Model
     public $protocol;
 
     /**
-     * @description The query string to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \ | < > &`.
+     * @description The query string to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
      *
      * @example quert
      *

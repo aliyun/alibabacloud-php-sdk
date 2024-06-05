@@ -33,6 +33,7 @@ class EnableLoadBalancerAccessLogRequest extends Model
     /**
      * @description The ALB instance ID.
      *
+     * This parameter is required.
      * @example alb-bd6oylbckp6k9x****
      *
      * @var string
@@ -42,6 +43,7 @@ class EnableLoadBalancerAccessLogRequest extends Model
     /**
      * @description The project to which the access log is shipped.
      *
+     * This parameter is required.
      * @example sls-setter
      *
      * @var string
@@ -51,6 +53,7 @@ class EnableLoadBalancerAccessLogRequest extends Model
     /**
      * @description The Logstore to which the access log is shipped.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

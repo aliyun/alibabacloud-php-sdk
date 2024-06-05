@@ -58,6 +58,7 @@ class ListTagKeysRequest extends Model
      *   **securitypolicy**: a security policy
      *   **servergroup**: a server group
      *
+     * This parameter is required.
      * @example loadbalancer
      *
      * @var string

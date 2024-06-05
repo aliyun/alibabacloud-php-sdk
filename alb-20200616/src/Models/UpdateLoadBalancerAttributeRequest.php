@@ -36,6 +36,7 @@ class UpdateLoadBalancerAttributeRequest extends Model
     /**
      * @description The ID of the ALB instance.
      *
+     * This parameter is required.
      * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
@@ -43,7 +44,7 @@ class UpdateLoadBalancerAttributeRequest extends Model
     public $loadBalancerId;
 
     /**
-     * @description The name of the ALB instance. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the ALB instance. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
      * @example lb-instance-test
      *

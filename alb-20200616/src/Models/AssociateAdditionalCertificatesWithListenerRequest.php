@@ -12,6 +12,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The additional certificates.
      *
+     * This parameter is required.
      * @var certificates[]
      */
     public $certificates;
@@ -43,6 +44,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

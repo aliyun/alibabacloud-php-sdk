@@ -12,6 +12,7 @@ class CreateSecurityPolicyRequest extends Model
     /**
      * @description The supported cipher suites.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ciphers;
@@ -50,7 +51,7 @@ class CreateSecurityPolicyRequest extends Model
     /**
      * @description The name of the security policy.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * This parameter is required.
      * @example test-secrity
      *
      * @var string
@@ -60,6 +61,7 @@ class CreateSecurityPolicyRequest extends Model
     /**
      * @description The supported Transport Layer Security (TLS) protocol versions.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $TLSVersions;

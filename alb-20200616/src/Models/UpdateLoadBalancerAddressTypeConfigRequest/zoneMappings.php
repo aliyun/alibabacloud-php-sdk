@@ -30,7 +30,7 @@ class zoneMappings extends Model
     /**
      * @description The ID of the zone where the ALB instance is deployed. You can specify up to 10 zone IDs.
      *
-     * You can call the [DescribeZones](~~189196~~) operation to query the most recent zone list.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
      * @example cn-hangzhou-a
      *
      * @var string

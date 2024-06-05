@@ -63,6 +63,7 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The server group ID.
      *
+     * This parameter is required.
      * @example sgp-atstuj3rtop****
      *
      * @var string
@@ -72,7 +73,7 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The server group name.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string

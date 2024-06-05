@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The description of the IP entry. The description must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -.
+     * @description The description of the IP entry. The description must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
      *
      * You can add up to 20 IP entries in each call.
      * @example test-entry
@@ -21,7 +21,7 @@ class aclEntries extends Model
     /**
      * @description The CIDR block of the IP entry.
      *
-     * You can add up to 20 IP entries in each call.
+     * This parameter is required.
      * @example 10.0.1.0/24
      *
      * @var string

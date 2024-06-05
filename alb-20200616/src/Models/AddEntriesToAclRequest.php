@@ -12,6 +12,7 @@ class AddEntriesToAclRequest extends Model
     /**
      * @description The IP entries that you want to add. You can add up to 20 IP entries in each call.
      *
+     * This parameter is required.
      * @var aclEntries[]
      */
     public $aclEntries;
@@ -19,6 +20,7 @@ class AddEntriesToAclRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string

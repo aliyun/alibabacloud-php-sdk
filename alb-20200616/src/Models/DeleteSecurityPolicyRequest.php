@@ -33,6 +33,7 @@ class DeleteSecurityPolicyRequest extends Model
     /**
      * @description The security policy ID.
      *
+     * This parameter is required.
      * @example spy-n0kn923****
      *
      * @var string

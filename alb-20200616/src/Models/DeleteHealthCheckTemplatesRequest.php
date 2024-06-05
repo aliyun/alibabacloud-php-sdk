@@ -32,6 +32,7 @@ class DeleteHealthCheckTemplatesRequest extends Model
     /**
      * @description The ID of the health check template.
      *
+     * This parameter is required.
      * @example acl-123
      *
      * @var string[]

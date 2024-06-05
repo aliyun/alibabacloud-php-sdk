@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
-     * @description The description of the backend server. The description must be 2 to 256 characters in length and can contain letters, digits, periods (.), underscores (\_), hyphens (-), commas (,), semicolons (;), forward slashes (/), and at signs (@). You can specify up to 40 servers in each call.
+     * @description The description of the backend server. The description must be 2 to 256 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), commas (,), semicolons (;), forward slashes (/), and at signs (@). You can specify up to 40 servers in each call.
      *
      * @example test
      *
@@ -49,6 +49,7 @@ class servers extends Model
      *   If ServerType is set to **Ip**, set the ServerId parameter to an IP address specified in the server group.
      *   If the backend server group is of the **Fc** type, set this parameter to the Alibaba Cloud Resource Name (ARN) of a function.
      *
+     * This parameter is required.
      * @example ecs-bp67acfmxazb4p****
      *
      * @var string
@@ -74,6 +75,7 @@ class servers extends Model
      *   **Ip**
      *   **fc**
      *
+     * This parameter is required.
      * @example Ecs
      *
      * @var string

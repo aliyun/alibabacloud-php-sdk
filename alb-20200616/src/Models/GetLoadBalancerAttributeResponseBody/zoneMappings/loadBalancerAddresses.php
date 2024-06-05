@@ -11,7 +11,7 @@ class loadBalancerAddresses extends Model
     /**
      * @description The ID of the zone where the ALB instance was deployed.
      *
-     * You can call the [DescribeZones](~~189196~~) operation to query the zones of the ALB instance.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the zones of the ALB instance.
      * @example 192.168.10.1
      *
      * @var string

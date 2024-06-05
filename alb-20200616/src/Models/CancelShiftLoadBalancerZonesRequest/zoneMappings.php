@@ -11,6 +11,7 @@ class zoneMappings extends Model
     /**
      * @description The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
      *
+     * This parameter is required.
      * @example vsw-bp1rmcrwg3erh1fh8****
      *
      * @var string
@@ -18,8 +19,9 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID. You can call the [DescribeZones](~~189196~~) operation to query the most recent zone list.
+     * @description The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou-a
      *
      * @var string

@@ -21,6 +21,8 @@ class loadBalancerBillingConfig extends Model
      * @description The billing method of the ALB instance.
      *
      * Set the value to **PostPay**, which specifies the pay-as-you-go billing method.
+     *
+     * This parameter is required.
      * @example PostPay
      *
      * @var string

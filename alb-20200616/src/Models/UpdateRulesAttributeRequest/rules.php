@@ -37,6 +37,7 @@ class rules extends Model
     /**
      * @description The forwarding rule ID. You can specify up to 20 IDs.
      *
+     * This parameter is required.
      * @example rule-cxjh7vazn2jpnl****
      *
      * @var string
@@ -44,7 +45,7 @@ class rules extends Model
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. You can specify names for up to 20 forwarding rules.
+     * @description The name of the forwarding rule. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. You can specify names for up to 20 forwarding rules.
      *
      * @example rule-instance-test
      *

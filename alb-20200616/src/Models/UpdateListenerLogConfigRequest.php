@@ -56,6 +56,7 @@ class UpdateListenerLogConfigRequest extends Model
     /**
      * @description The ID of the Application Load Balancer (ALB) listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

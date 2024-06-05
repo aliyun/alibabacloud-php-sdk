@@ -11,6 +11,7 @@ class uchConfig extends Model
     /**
      * @description The type of the parameter.
      *
+     * This parameter is required.
      * @example QueryString
      *
      * @var string
@@ -20,6 +21,7 @@ class uchConfig extends Model
     /**
      * @description The parameter value for consistent hashing.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string

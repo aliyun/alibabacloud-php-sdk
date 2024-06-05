@@ -39,6 +39,7 @@ class UpdateLoadBalancerEditionRequest extends Model
      *   **Standard**: standard
      *   **StandardWithWaf**: WAF-enabled
      *
+     * This parameter is required.
      * @example Standard
      *
      * @var string
@@ -48,6 +49,7 @@ class UpdateLoadBalancerEditionRequest extends Model
     /**
      * @description The ID of the ALB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex****
      *
      * @var string

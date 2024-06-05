@@ -35,6 +35,7 @@ class DeleteRuleRequest extends Model
     /**
      * @description The ID of the forwarding rule.
      *
+     * This parameter is required.
      * @example rule-doc****
      *
      * @var string

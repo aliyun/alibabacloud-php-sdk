@@ -11,6 +11,7 @@ class AScripts extends Model
     /**
      * @description The AScript rule ID.
      *
+     * This parameter is required.
      * @example as-mhqxcanmivn4g5****
      *
      * @var string
@@ -20,7 +21,7 @@ class AScripts extends Model
     /**
      * @description The name of the AScript rule.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example Group1
      *
      * @var string
@@ -42,7 +43,7 @@ class AScripts extends Model
     /**
      * @description The content of the AScript rule.
      *
-     * @example if and(match_re($uri, \"^/1.txt$\"), $arg_type) { rewrite(concat(\"/1.\", $arg_type), \"break\") }
+     * @example if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) { rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
      *
      * @var string
      */

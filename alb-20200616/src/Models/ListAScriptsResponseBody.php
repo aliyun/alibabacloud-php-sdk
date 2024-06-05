@@ -31,6 +31,7 @@ class ListAScriptsResponseBody extends Model
      *   If **NextToken** is empty, no next page exists.
      *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
+     * This parameter is required.
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string

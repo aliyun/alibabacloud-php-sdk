@@ -36,6 +36,7 @@ class CreateRulesRequest extends Model
     /**
      * @description The listener ID of the ALB instance.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -45,6 +46,7 @@ class CreateRulesRequest extends Model
     /**
      * @description The forwarding rules. You can specify at most 10 forwarding rules in each call.
      *
+     * This parameter is required.
      * @var rules[]
      */
     public $rules;

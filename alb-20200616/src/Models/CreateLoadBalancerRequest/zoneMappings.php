@@ -29,6 +29,7 @@ class zoneMappings extends Model
     /**
      * @description The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify up to 10 zones.
      *
+     * This parameter is required.
      * @example vsw-sersdf****
      *
      * @var string
@@ -38,7 +39,7 @@ class zoneMappings extends Model
     /**
      * @description The zone ID of the ALB instance. You can specify up to 10 zones for an ALB instance.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-a
      *
      * @var string

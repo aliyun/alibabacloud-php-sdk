@@ -15,6 +15,8 @@ class accessLogTracingConfig extends Model
      *   **false** (default)
      *
      * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

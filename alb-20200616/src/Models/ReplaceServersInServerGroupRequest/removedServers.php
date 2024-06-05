@@ -23,7 +23,7 @@ class removedServers extends Model
      *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
      *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
      *
-     * > You cannot perform this operation on a server group of the Function type. You can call the [ListServerGroups](~~213627~~) operation to query information about the server group type so that you can set ServerId to a proper value.
+     * This parameter is required.
      * @example ecs-bp1ac9uozods2uc****
      *
      * @var string

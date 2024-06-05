@@ -48,6 +48,7 @@ class ruleActions extends Model
     /**
      * @description The priority of the action. Valid values: **1** to **50000**. A lower value specifies a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify priorities for up to 20 actions.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -100,6 +101,7 @@ class ruleActions extends Model
      *   **Cookie**: Requests are distributed based on cookies.
      *   **SourceIp**: Requests are distributed based on source IP addresses.
      *
+     * This parameter is required.
      * @example Host
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
-     * @description The name of the ACL. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the ACL. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
      * @example test-acl
      *

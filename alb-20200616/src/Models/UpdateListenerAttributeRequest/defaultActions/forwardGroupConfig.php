@@ -12,6 +12,7 @@ class forwardGroupConfig extends Model
     /**
      * @description The server groups to which requests are forwarded.
      *
+     * This parameter is required.
      * @var serverGroupTuples[]
      */
     public $serverGroupTuples;

@@ -23,6 +23,7 @@ class GetListenerHealthStatusRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string

@@ -27,7 +27,7 @@ class rules extends Model
     /**
      * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value specifies a higher priority. You can specify priorities for at most 10 forwarding rules.
      *
-     * >  The priority of each forwarding rule added to a listener must be unique.
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -37,6 +37,7 @@ class rules extends Model
     /**
      * @description The actions of the forwarding rule.
      *
+     * This parameter is required.
      * @var ruleActions[]
      */
     public $ruleActions;
@@ -44,6 +45,7 @@ class rules extends Model
     /**
      * @description The conditions of the forwarding rule.
      *
+     * This parameter is required.
      * @var ruleConditions[]
      */
     public $ruleConditions;
@@ -52,8 +54,9 @@ class rules extends Model
      * @description The name of the forwarding rule. You can name at most 20 forwarding rules.
      *
      *   The name must be 2 to 128 characters in length.
-     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *   It can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

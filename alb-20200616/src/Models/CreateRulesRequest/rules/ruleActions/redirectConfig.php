@@ -15,11 +15,11 @@ class redirectConfig extends Model
      *
      *   Limits on the value:
      *
-     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\*) and question marks (?) can be used as wildcards.
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\\*) and question marks (?) can be used as wildcards.
      *   The hostname contains at least one period (.) but does not start or end with a period (.).
      *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
      *   The domain labels do not start or end with hyphens (-).
-     *   You can use asterisks (\*) and question marks (?) as wildcards anywhere in a domain label.
+     *   You can use asterisks (\\*) and question marks (?) as wildcards anywhere in a domain label.
      *
      * @example www.example.com
      *
@@ -44,7 +44,7 @@ class redirectConfig extends Model
      *   Limits on the value:
      *
      *   The path must be 1 to 128 characters in length.
-     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
      *   The path is case-sensitive.
      *
      * @example /test
@@ -86,7 +86,7 @@ class redirectConfig extends Model
      *   Limits on the value:
      *
      *   The query string must be 1 to 128 characters in length.
-     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
+     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \\ | < > &`, and uppercase letters.
      *
      * @example quert
      *

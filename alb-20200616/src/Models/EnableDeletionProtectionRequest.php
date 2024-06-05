@@ -32,6 +32,7 @@ class EnableDeletionProtectionRequest extends Model
     /**
      * @description The Application Load Balancer (ALB) instance ID.
      *
+     * This parameter is required.
      * @example re-atstuj3rtop****
      *
      * @var string

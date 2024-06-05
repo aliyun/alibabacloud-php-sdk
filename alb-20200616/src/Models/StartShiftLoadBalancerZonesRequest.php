@@ -36,6 +36,7 @@ class StartShiftLoadBalancerZonesRequest extends Model
     /**
      * @description The ALB instance ID.
      *
+     * This parameter is required.
      * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
@@ -45,7 +46,7 @@ class StartShiftLoadBalancerZonesRequest extends Model
     /**
      * @description The mappings between zones and vSwitches.
      *
-     * >  You can remove only one zone in each call.
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

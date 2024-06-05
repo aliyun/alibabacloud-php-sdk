@@ -36,6 +36,7 @@ class UpdateServerGroupServersAttributeRequest extends Model
     /**
      * @description The server group ID.
      *
+     * This parameter is required.
      * @example sgp-atstuj3rtop****
      *
      * @var string
@@ -45,6 +46,7 @@ class UpdateServerGroupServersAttributeRequest extends Model
     /**
      * @description The backend servers that you want to add to the server group. You can specify up to 40 servers in each call.
      *
+     * This parameter is required.
      * @var servers[]
      */
     public $servers;

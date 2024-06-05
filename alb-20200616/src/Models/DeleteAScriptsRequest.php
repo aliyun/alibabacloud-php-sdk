@@ -11,6 +11,7 @@ class DeleteAScriptsRequest extends Model
     /**
      * @description The AScript rule IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $AScriptIds;

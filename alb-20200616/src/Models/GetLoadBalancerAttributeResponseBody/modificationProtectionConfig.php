@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class modificationProtectionConfig extends Model
 {
     /**
-     * @description The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     * @description The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
      *
      * This parameter is valid only if **ModificationProtectionStatus** is set to **ConsoleProtection**.
      * @var string

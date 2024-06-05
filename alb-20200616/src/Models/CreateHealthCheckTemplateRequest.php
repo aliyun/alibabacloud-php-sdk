@@ -112,7 +112,7 @@ class CreateHealthCheckTemplateRequest extends Model
     /**
      * @description The URL that is used for health checks.
      *
-     * It must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \" , +`. The URL must start with a forward slash (/).
+     * It must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
      *
      * > This parameter is valid only if the `HealthCheckProtocol` parameter is set to **HTTP**.
      * @example /test/index.html
@@ -137,7 +137,7 @@ class CreateHealthCheckTemplateRequest extends Model
     /**
      * @description The name of the health check template.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * This parameter is required.
      * @example HealthCheckTemplate1
      *
      * @var string

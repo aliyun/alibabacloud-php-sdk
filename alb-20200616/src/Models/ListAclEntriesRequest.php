@@ -11,6 +11,7 @@ class ListAclEntriesRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string

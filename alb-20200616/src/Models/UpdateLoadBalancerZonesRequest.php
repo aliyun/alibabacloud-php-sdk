@@ -36,6 +36,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     /**
      * @description The ID of the ALB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex****
      *
      * @var string
@@ -45,6 +46,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     /**
      * @description The zones and the vSwitches. You must specify at least two zones. The specified zones overwrite the existing configurations.
      *
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

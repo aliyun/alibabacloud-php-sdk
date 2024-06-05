@@ -35,6 +35,7 @@ class ApplyHealthCheckTemplateToServerGroupRequest extends Model
     /**
      * @description The template ID.
      *
+     * This parameter is required.
      * @example hct-bp1qjwo61pqz3ahltv****
      *
      * @var string
@@ -44,6 +45,7 @@ class ApplyHealthCheckTemplateToServerGroupRequest extends Model
     /**
      * @description The server group ID.
      *
+     * This parameter is required.
      * @example sgp-n80wyad08u0tox****
      *
      * @var string

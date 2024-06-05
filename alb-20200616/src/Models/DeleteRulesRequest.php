@@ -35,6 +35,7 @@ class DeleteRulesRequest extends Model
     /**
      * @description The ID of the forwarding rule. Valid values of N: **1** to **5**.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ruleIds;

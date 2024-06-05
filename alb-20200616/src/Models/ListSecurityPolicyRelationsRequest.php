@@ -11,6 +11,7 @@ class ListSecurityPolicyRelationsRequest extends Model
     /**
      * @description The security policy IDs. You can specify up to five IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $securityPolicyIds;

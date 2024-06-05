@@ -11,6 +11,7 @@ class certificates extends Model
     /**
      * @description The certificate ID. Only server certificates are supported.
      *
+     * This parameter is required.
      * @example cert-123
      *
      * @var string

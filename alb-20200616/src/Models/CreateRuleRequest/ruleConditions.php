@@ -87,6 +87,7 @@ class ruleConditions extends Model
      *   **Cookie**: Requests are distributed based on cookies.
      *   **SourceIp**: Requests are distributed based on source IP addresses.
      *
+     * This parameter is required.
      * @example Host
      *
      * @var string

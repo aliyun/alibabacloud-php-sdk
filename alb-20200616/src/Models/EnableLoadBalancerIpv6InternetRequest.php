@@ -35,6 +35,7 @@ class EnableLoadBalancerIpv6InternetRequest extends Model
     /**
      * @description The ALB instance ID.
      *
+     * This parameter is required.
      * @example alb-o2cvudgo6rlqz7****
      *
      * @var string

@@ -49,6 +49,8 @@ class CreateListenerRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var defaultActions[]
      */
     public $defaultActions;
@@ -107,7 +109,7 @@ class CreateListenerRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_). Regular expressions are supported.
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_). Regular expressions are supported.
      * @example HTTP_80
      *
      * @var string
@@ -118,6 +120,8 @@ class CreateListenerRequest extends Model
      * @description The frontend port that is used by the ALB instance.
      *
      * Valid values: **1 to 65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -128,6 +132,8 @@ class CreateListenerRequest extends Model
      * @description The listener protocol.
      *
      * Valid values: **HTTP**, **HTTPS**, and **QUIC**.
+     *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string
@@ -137,6 +143,7 @@ class CreateListenerRequest extends Model
     /**
      * @description The ID of the ALB instance.
      *
+     * This parameter is required.
      * @example alb-n5qw04uq8vavfe****
      *
      * @var string
@@ -165,7 +172,7 @@ class CreateListenerRequest extends Model
     /**
      * @description The ID of the security policy. System security policies and custom security policies are supported.
      *
-     * Default value: **tls_cipher_policy\_1\_0** (system security policy).
+     * Default value: **tls_cipher_policy_1_0** (system security policy).
      *
      * >  Only HTTPS listeners support this parameter.
      * @example tls_cipher_policy_1_0

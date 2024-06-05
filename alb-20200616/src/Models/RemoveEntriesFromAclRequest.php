@@ -11,6 +11,7 @@ class RemoveEntriesFromAclRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -44,6 +45,7 @@ class RemoveEntriesFromAclRequest extends Model
     /**
      * @description The entries that you want to remove. You can remove up to 20 entries in each call.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $entries;

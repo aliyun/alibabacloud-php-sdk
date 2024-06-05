@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $certificateIds;
+
+    /**
      * @description The type of the certificate. Valid values: **Ca** and **Server**.
      *
      * @example Server
@@ -20,6 +25,7 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @description The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -47,6 +53,7 @@ class ListListenerCertificatesRequest extends Model
      */
     public $nextToken;
     protected $_name = [
+        'certificateIds'  => 'CertificateIds',
         'certificateType' => 'CertificateType',
         'listenerId'      => 'ListenerId',
         'maxResults'      => 'MaxResults',
@@ -60,6 +67,9 @@ class ListListenerCertificatesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificateIds) {
+            $res['CertificateIds'] = $this->certificateIds;
+        }
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
@@ -84,6 +94,11 @@ class ListListenerCertificatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateIds'])) {
+            if (!empty($map['CertificateIds'])) {
+                $model->certificateIds = $map['CertificateIds'];
+            }
+        }
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }

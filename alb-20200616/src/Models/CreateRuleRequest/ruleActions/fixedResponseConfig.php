@@ -28,7 +28,7 @@ class fixedResponseConfig extends Model
     public $contentType;
 
     /**
-     * @description The HTTP status code in the response. Valid values: **HTTP\_2xx**, **HTTP\_4xx**, and **HTTP\_5xx**. **x** must be a digit.
+     * @description The HTTP status code in the response. Valid values: **HTTP_2xx**, **HTTP_4xx**, and **HTTP_5xx**. **x** must be a digit.
      *
      * @example HTTP_200
      *

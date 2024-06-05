@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class responseHeaderConfig extends Model
 {
     /**
-     * @description The header key. The key must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (\_). Cookie and Host are not supported.
+     * @description The header key. The key must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
      *
      * @var string
      */

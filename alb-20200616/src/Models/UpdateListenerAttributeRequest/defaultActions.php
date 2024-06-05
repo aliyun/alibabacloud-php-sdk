@@ -20,6 +20,8 @@ class defaultActions extends Model
      * @description The type of the action. You can specify only one action type.
      *
      * Set the value to **ForwardGroup** to forward requests to multiple vServer groups.
+     *
+     * This parameter is required.
      * @example ForwardGroup
      *
      * @var string

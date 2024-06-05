@@ -148,7 +148,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
     /**
      * @description The name of the ALB instance.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example alb1
      *
      * @var string
@@ -236,7 +236,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
     /**
      * @description The zone ID of the ALB instance.
      *
-     * You can call the [DescribeZones](~~189196~~) operation to query the zones of the ALB instance.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the zones of the ALB instance.
      * @var zoneMappings[]
      */
     public $zoneMappings;

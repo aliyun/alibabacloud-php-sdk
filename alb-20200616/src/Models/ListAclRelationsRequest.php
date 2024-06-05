@@ -11,6 +11,7 @@ class ListAclRelationsRequest extends Model
     /**
      * @description The ACL IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $aclIds;
