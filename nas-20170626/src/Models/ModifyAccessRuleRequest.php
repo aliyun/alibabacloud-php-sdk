@@ -11,6 +11,7 @@ class ModifyAccessRuleRequest extends Model
     /**
      * @description The name of the permission group.
      *
+     * This parameter is required.
      * @example vpc-test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccessRuleRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -82,7 +84,7 @@ class ModifyAccessRuleRequest extends Model
      * @description The IP address or CIDR block of the authorized object.
      *
      * You must set this parameter to an IP address or CIDR block.
-     * @example 192.0.**.**
+     * @example 192.0.\*\*.**
      *
      * @var string
      */

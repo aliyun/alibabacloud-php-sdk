@@ -11,6 +11,7 @@ class ResetFileSystemRequest extends Model
     /**
      * @description The ID of the advanced Extreme NAS file system.
      *
+     * This parameter is required.
      * @example extreme-012dd****
      *
      * @var string
@@ -20,6 +21,7 @@ class ResetFileSystemRequest extends Model
     /**
      * @description The snapshot ID.
      *
+     * This parameter is required.
      * @example s-extreme-snapsho****
      *
      * @var string

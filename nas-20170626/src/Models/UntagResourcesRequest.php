@@ -25,6 +25,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs. Valid values of N: 1 to 50.
      *
+     * This parameter is required.
      * @example 03e08484f0
      *
      * @var string[]
@@ -34,7 +35,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
-     * Set the value to filesystem.
+     * This parameter is required.
      * @example filesystem
      *
      * @var string

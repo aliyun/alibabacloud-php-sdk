@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogAnalysisRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fileSystemType;
+
+    /**
      * @description The page number. Default value: 1.
      *
      * @example 1
@@ -29,15 +34,17 @@ class DescribeLogAnalysisRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'fileSystemType' => 'FileSystemType',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -47,6 +54,9 @@ class DescribeLogAnalysisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -68,6 +78,9 @@ class DescribeLogAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

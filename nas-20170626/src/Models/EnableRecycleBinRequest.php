@@ -11,6 +11,7 @@ class EnableRecycleBinRequest extends Model
     /**
      * @description The ID of the file system for which you want to enable the recycle bin feature.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

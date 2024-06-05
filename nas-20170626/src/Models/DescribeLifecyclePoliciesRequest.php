@@ -20,7 +20,7 @@ class DescribeLifecyclePoliciesRequest extends Model
     /**
      * @description The name of the lifecycle policy. The name must meet the following conventions:
      *
-     * The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (\_), and hyphens (-).
+     * The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
      * @example lifecyclepolicy_01
      *
      * @var string

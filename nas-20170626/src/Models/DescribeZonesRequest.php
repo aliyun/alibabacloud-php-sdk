@@ -27,7 +27,7 @@ class DescribeZonesRequest extends Model
     /**
      * @description The ID of the region where you want to query zones.
      *
-     * You can call the DescribeRegions operation to query the latest region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

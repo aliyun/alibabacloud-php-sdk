@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessPointRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DEFAULT_VPC_GROUP_NAME
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateAccessPointRequest extends Model
     public $enabledRam;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 31a8e4****
      *
      * @var string
@@ -86,6 +90,8 @@ class CreateAccessPointRequest extends Model
     public $rootDirectory;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-2zesj9afh3y518k9o****
      *
      * @var string
@@ -93,6 +99,8 @@ class CreateAccessPointRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-2zevmwkwyztjuoffg****
      *
      * @var string

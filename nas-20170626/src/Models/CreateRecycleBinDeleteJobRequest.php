@@ -21,7 +21,7 @@ class CreateRecycleBinDeleteJobRequest extends Model
     /**
      * @description The ID of the file or directory that you want to permanently delete.
      *
-     * You can call the [ListRecycledDirectoriesAndFiles](~~264193~~) operation to query the value of the FileId parameter.
+     * This parameter is required.
      * @example 04***08
      *
      * @var string
@@ -31,6 +31,7 @@ class CreateRecycleBinDeleteJobRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

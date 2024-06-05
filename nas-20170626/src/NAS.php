@@ -270,8 +270,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The API operation is available only for CPFS file systems.
-     *   *
+     * @description The API operation is available only for CPFS file systems.
+     *  *
      * @param AddClientToBlackListRequest $request AddClientToBlackListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -312,8 +312,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The API operation is available only for CPFS file systems.
-     *   *
+     * @description The API operation is available only for CPFS file systems.
+     *  *
      * @param AddClientToBlackListRequest $request AddClientToBlackListRequest
      *
      * @return AddClientToBlackListResponse AddClientToBlackListResponse
@@ -326,15 +326,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   Each tag includes a TagKey and a TagValue.
-     *   * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
-     *   * *   You must specify a TagKey. You can leave a TagValue empty.
-     *   * *   A TagKey and TagValue are not case-sensitive.
-     *   * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
-     *   * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
-     *   * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-     *   *
+     * @description ## Limits
+     * *   Each tag includes a TagKey and a TagValue.
+     * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+     * *   You must specify a TagKey. You can leave a TagValue empty.
+     * *   A TagKey and TagValue are not case-sensitive.
+     * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+     * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+     * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -369,15 +369,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   Each tag includes a TagKey and a TagValue.
-     *   * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
-     *   * *   You must specify a TagKey. You can leave a TagValue empty.
-     *   * *   A TagKey and TagValue are not case-sensitive.
-     *   * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
-     *   * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
-     *   * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-     *   *
+     * @description ## Limits
+     * *   Each tag includes a TagKey and a TagValue.
+     * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. These placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
+     * *   You must specify a TagKey. You can leave a TagValue empty.
+     * *   A TagKey and TagValue are not case-sensitive.
+     * *   A TagKey can be a maximum of 64 characters in length. A TagValue can be a maximum of 128 characters in length.
+     * *   You can add a maximum of 10 tags to a file system at a time. If you add two tags with the same TagKey, the new tag added will overwrite the existing tag.
+     * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      *
      * @return AddTagsResponse AddTagsResponse
@@ -390,12 +390,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   You can apply only one automatic snapshot policy to each file system.
-     *   * *   Each automatic snapshot policy can be applied to multiple file systems.
-     *   * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-     *   *
+     * @summary Applies an automatic snapshot policy to one or more file systems.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     * *   You can apply only one automatic snapshot policy to each file system.
+     * *   Each automatic snapshot policy can be applied to multiple file systems.
+     * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+     *  *
      * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -430,12 +432,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   You can apply only one automatic snapshot policy to each file system.
-     *   * *   Each automatic snapshot policy can be applied to multiple file systems.
-     *   * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-     *   *
+     * @summary Applies an automatic snapshot policy to one or more file systems.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     * *   You can apply only one automatic snapshot policy to each file system.
+     * *   Each automatic snapshot policy can be applied to multiple file systems.
+     * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
+     *  *
      * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      *
      * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
@@ -448,18 +452,20 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-     *   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-     *   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
-     *   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
-     *   *     **
-     *   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-     *   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-     *   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-     *   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *   *
+     * @summary Adds AutoRefresh configurations to a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+     * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+     * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+     * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+     *     **
+     *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+     * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+     * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+     * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+     *  *
      * @param ApplyDataFlowAutoRefreshRequest $request ApplyDataFlowAutoRefreshRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -509,18 +515,20 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-     *   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-     *   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](~~336901~~) operation to query the dataflow status.
-     *   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](~~182246~~).
-     *   *     **
-     *   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-     *   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-     *   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-     *   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *   *
+     * @summary Adds AutoRefresh configurations to a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
+     * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
+     * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+     * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+     *     **
+     *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+     * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+     * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+     * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+     *  *
      * @param ApplyDataFlowAutoRefreshRequest $request ApplyDataFlowAutoRefreshRequest
      *
      * @return ApplyDataFlowAutoRefreshResponse ApplyDataFlowAutoRefreshResponse
@@ -533,9 +541,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Removes automatic snapshot policies from one or more file systems.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -567,9 +577,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Removes automatic snapshot policies from one or more file systems.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
      *
      * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
@@ -582,11 +594,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-     *   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
-     *   *
+     * @summary Cancels the AutoRefresh configuration for a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+     * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+     *  *
      * @param CancelDataFlowAutoRefreshRequest $request CancelDataFlowAutoRefreshRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -630,11 +644,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-     *   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the AutoRefresh tasks.
-     *   *
+     * @summary Cancels the AutoRefresh configuration for a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
+     * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+     *  *
      * @param CancelDataFlowAutoRefreshRequest $request CancelDataFlowAutoRefreshRequest
      *
      * @return CancelDataFlowAutoRefreshResponse CancelDataFlowAutoRefreshResponse
@@ -647,11 +663,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-     *   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-     *   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
-     *   *
+     * @summary Cancels a dataflow task that is not running.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+     * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+     * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+     *  *
      * @param CancelDataFlowTaskRequest $request CancelDataFlowTaskRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -695,11 +713,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
-     *   * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
-     *   * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](~~2402275~~) operation.
-     *   *
+     * @summary Cancels a dataflow task that is not running.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflow tasks. You can view the version information on the file system details page in the console.
+     * *   You can cancel only the dataflow tasks that are in the `Pending` and `Executing` states.
+     * *   It generally takes 5 to 10 minutes to cancel a dataflow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+     *  *
      * @param CancelDataFlowTaskRequest $request CancelDataFlowTaskRequest
      *
      * @return CancelDataFlowTaskResponse CancelDataFlowTaskResponse
@@ -712,8 +732,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose file systems support the directory quota feature.
-     *   *
+     * @summary Cancels the directory quota of a file system.
+     *  *
+     * @description Only General-purpose file systems support the directory quota feature.
+     *  *
      * @param CancelDirQuotaRequest $request CancelDirQuotaRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -754,8 +776,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose file systems support the directory quota feature.
-     *   *
+     * @summary Cancels the directory quota of a file system.
+     *  *
+     * @description Only General-purpose file systems support the directory quota feature.
+     *  *
      * @param CancelDirQuotaRequest $request CancelDirQuotaRequest
      *
      * @return CancelDirQuotaResponse CancelDirQuotaResponse
@@ -768,8 +792,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Cancels a running data retrieval task.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param CancelLifecycleRetrieveJobRequest $request CancelLifecycleRetrieveJobRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -801,8 +827,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Cancels a running data retrieval task.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param CancelLifecycleRetrieveJobRequest $request CancelLifecycleRetrieveJobRequest
      *
      * @return CancelLifecycleRetrieveJobResponse CancelLifecycleRetrieveJobResponse
@@ -815,11 +843,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
-     *   * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
-     *   * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-     *   *
+     * @summary Cancels a running job of the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+     * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+     * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+     *  *
      * @param CancelRecycleBinJobRequest $request CancelRecycleBinJobRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -848,11 +878,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
-     *   * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
-     *   * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-     *   *
+     * @summary Cancels a running job of the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
+     * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
+     * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
+     *  *
      * @param CancelRecycleBinJobRequest $request CancelRecycleBinJobRequest
      *
      * @return CancelRecycleBinJobResponse CancelRecycleBinJobResponse
@@ -865,10 +897,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -905,9 +939,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -917,10 +953,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates a permission group.
+     *  *
+     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessGroupResponse
+     * @return CreateAccessGroupResponse CreateAccessGroupResponse
      */
     public function createAccessGroupWithOptions($request, $runtime)
     {
@@ -957,9 +995,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessGroupRequest $request
+     * @summary Creates a permission group.
+     *  *
+     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
      *
-     * @return CreateAccessGroupResponse
+     * @return CreateAccessGroupResponse CreateAccessGroupResponse
      */
     public function createAccessGroup($request)
     {
@@ -969,10 +1009,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessPointRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 创建接入点
+     *  *
+     * @param CreateAccessPointRequest $request CreateAccessPointRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessPointResponse
+     * @return CreateAccessPointResponse CreateAccessPointResponse
      */
     public function createAccessPointWithOptions($request, $runtime)
     {
@@ -1036,9 +1078,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessPointRequest $request
+     * @summary 创建接入点
+     *  *
+     * @param CreateAccessPointRequest $request CreateAccessPointRequest
      *
-     * @return CreateAccessPointResponse
+     * @return CreateAccessPointResponse CreateAccessPointResponse
      */
     public function createAccessPoint($request)
     {
@@ -1048,10 +1092,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessRuleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a rule for a permission group.
+     *  *
+     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessRuleResponse
+     * @return CreateAccessRuleResponse CreateAccessRuleResponse
      */
     public function createAccessRuleWithOptions($request, $runtime)
     {
@@ -1097,9 +1143,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessRuleRequest $request
+     * @summary Creates a rule for a permission group.
+     *  *
+     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
      *
-     * @return CreateAccessRuleResponse
+     * @return CreateAccessRuleResponse CreateAccessRuleResponse
      */
     public function createAccessRule($request)
     {
@@ -1109,17 +1157,19 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-     *   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-     *   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-     *   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-     *   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-     *   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-     *   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-     *   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-     *   *
+     * @summary Creates an automatic snapshot policy.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+     * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+     * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+     * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+     * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+     * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+     * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+     * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+     *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1163,17 +1213,19 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
-     *   * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
-     *   * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
-     *   * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
-     *   * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
-     *   * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
-     *   * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
-     *   * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-     *   *
+     * @summary Creates an automatic snapshot policy.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
+     * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
+     * *   A maximum of 128 auto snapshots can be created for a file system. If the upper limit is reached, the earliest auto snapshot is deleted. This rule does not apply to manual snapshots.
+     * *   If you modify the retention period of an automatic snapshot policy, the modification applies only to subsequent snapshots, but not to the existing snapshots.
+     * *   If an auto snapshot is being created for a file system, you cannot create a manual snapshot for the file system. You must wait after the auto snapshot is created.
+     * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
+     * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
+     * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
+     *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      *
      * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
@@ -1186,42 +1238,44 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Billing
-     *   *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-     *   *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
-     *   * *   Dataflow specifications
-     *   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-     *   *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-     *   * *   Fileset
-     *   *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-     *   *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
-     *   *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-     *   *     **
-     *   *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-     *   * *   Source storage
-     *   *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
-     *   *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-     *   *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-     *   *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-     *   *         **
-     *   *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
-     *   * *   AutoRefresh
-     *   *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-     *   *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
-     *   *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
-     *   *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *   *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-     *   *     **
-     *   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
-     *   * *   Permissions
-     *   *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
-     *   * *   Basic operations
-     *   *     *   Only CPFS V2.2.0 and later support dataflows.
-     *   *     *   You can create a dataflow only if the CPFS file system is in the Running state.
-     *   *     *   A maximum of 10 dataflows can be created for a CPFS file system.
-     *   *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
-     *   *
+     * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+     *  *
+     * @description *   Billing
+     *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+     *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
+     * *   Dataflow specifications
+     *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+     *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+     *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+     * *   Fileset
+     *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+     *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+     *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+     *     **
+     *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+     * *   Source storage
+     *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+     *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+     *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+     *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+     *         **
+     *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+     * *   AutoRefresh
+     *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+     *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+     *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+     *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+     *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+     *     **
+     *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+     * *   Permissions
+     *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+     * *   Basic operations
+     *     *   Only CPFS V2.2.0 and later support dataflows.
+     *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+     *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+     *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+     *  *
      * @param CreateDataFlowRequest $request CreateDataFlowRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1289,42 +1343,44 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Billing
-     *   *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-     *   *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](~~163752~~).
-     *   * *   Dataflow specifications
-     *   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-     *   *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-     *   * *   Fileset
-     *   *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-     *   *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
-     *   *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-     *   *     **
-     *   *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-     *   * *   Source storage
-     *   *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
-     *   *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-     *   *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-     *   *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-     *   *         **
-     *   *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
-     *   * *   AutoRefresh
-     *   *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
-     *   *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](~~182246~~).
-     *   *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
-     *   *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *   *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
-     *   *     **
-     *   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
-     *   * *   Permissions
-     *   *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](~~185138~~).
-     *   * *   Basic operations
-     *   *     *   Only CPFS V2.2.0 and later support dataflows.
-     *   *     *   You can create a dataflow only if the CPFS file system is in the Running state.
-     *   *     *   A maximum of 10 dataflows can be created for a CPFS file system.
-     *   *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
-     *   *
+     * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+     *  *
+     * @description *   Billing
+     *     *   If you create a dataflow, you are charged for using the dataflow throughput. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+     *     *   When you configure the AutoRefresh feature for a dataflow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
+     * *   Dataflow specifications
+     *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+     *     *   When you create a dataflow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
+     *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+     * *   Fileset
+     *     *   The destination for a dataflow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
+     *     *   When you create a dataflow, the related fileset must already exist and cannot be nested with other filesets. Only one dataflow can be created in a fileset, which corresponds to one source storage.
+     *     *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
+     *     **
+     *     **Note** If data already exists in the fileset, after you create a dataflow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
+     * *   Source storage
+     *     *   The source storage is an OSS bucket. SourceStorage for a dataflow must be an OSS bucket. The prefix of an OSS bucket is not supported.
+     *     *   CPFS dataflows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+     *     *   If dataflows for multiple CPFS file systems or multiple dataflows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
+     *     *   Dataflows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+     *         **
+     *         **Note** Before you create a dataflow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created dataflow can access the data in the OSS bucket. When a dataflow is being used, do not delete or modify the tag. Otherwise, the dataflow for CPFS cannot access the data in the OSS bucket.
+     * *   AutoRefresh
+     *     *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
+     *     *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
+     *     *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a dataflow.
+     *     *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes `Misconfigured`. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
+     *     *   When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
+     *     **
+     *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly
+     * *   Permissions
+     *     When you create a dataflow, CPFS obtains two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+     * *   Basic operations
+     *     *   Only CPFS V2.2.0 and later support dataflows.
+     *     *   You can create a dataflow only if the CPFS file system is in the Running state.
+     *     *   A maximum of 10 dataflows can be created for a CPFS file system.
+     *     *   It generally takes 2 to 5 minutes to create a dataflow. You can call the DescribeDataFlows operation to check whether the dataflow has been created.
+     *  *
      * @param CreateDataFlowRequest $request CreateDataFlowRequest
      *
      * @return CreateDataFlowResponse CreateDataFlowResponse
@@ -1337,12 +1393,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-     *   * *   You can create a dataflow task only for a dataflow that is in the Running state.
-     *   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-     *   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-     *   *
+     * @summary Creates a dataflow task.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+     * *   You can create a dataflow task only for a dataflow that is in the Running state.
+     * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+     * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+     *  *
      * @param CreateDataFlowTaskRequest $request CreateDataFlowTaskRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1401,12 +1459,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-     *   * *   You can create a dataflow task only for a dataflow that is in the Running state.
-     *   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](~~336914~~) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-     *   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-     *   *
+     * @summary Creates a dataflow task.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Dataflow tasks can be created only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+     * *   You can create a dataflow task only for a dataflow that is in the Running state.
+     * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+     * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+     *  *
      * @param CreateDataFlowTaskRequest $request CreateDataFlowTaskRequest
      *
      * @return CreateDataFlowTaskResponse CreateDataFlowTaskResponse
@@ -1419,10 +1479,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateDirRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 创建目录
+     *  *
+     * @param CreateDirRequest $request CreateDirRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDirResponse
+     * @return CreateDirResponse CreateDirResponse
      */
     public function createDirWithOptions($request, $runtime)
     {
@@ -1465,9 +1527,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateDirRequest $request
+     * @summary 创建目录
+     *  *
+     * @param CreateDirRequest $request CreateDirRequest
      *
-     * @return CreateDirResponse
+     * @return CreateDirResponse CreateDirResponse
      */
     public function createDir($request)
     {
@@ -1477,9 +1541,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is only available to some users.
-     *   * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-     *   *
+     * @summary Creates a directory or file.
+     *  *
+     * @description *   This operation is only available to some users.
+     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+     *  *
      * @param CreateFileRequest $request CreateFileRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1523,9 +1589,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is only available to some users.
-     *   * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-     *   *
+     * @summary Creates a directory or file.
+     *  *
+     * @description *   This operation is only available to some users.
+     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+     *  *
      * @param CreateFileRequest $request CreateFileRequest
      *
      * @return CreateFileResponse CreateFileResponse
@@ -1538,10 +1606,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
-     *   * *   Before you create a file system, you must complete real-name verification.
-     *   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-     *   *
+     * @summary Creates a file system.
+     *  *
+     * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+     * *   Before you create a file system, you must complete real-name verification.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *  *
      * @param CreateFileSystemRequest $request CreateFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1621,10 +1691,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](~~178365~~) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
-     *   * *   Before you create a file system, you must complete real-name verification.
-     *   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-     *   *
+     * @summary Creates a file system.
+     *  *
+     * @description *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+     * *   Before you create a file system, you must complete real-name verification.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *  *
      * @param CreateFileSystemRequest $request CreateFileSystemRequest
      *
      * @return CreateFileSystemResponse CreateFileSystemResponse
@@ -1637,13 +1709,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-     *   * *   A maximum of 10 filesets can be created for a CPFS file system.
-     *   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-     *   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-     *   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-     *   *
+     * @summary Creates a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+     * *   A maximum of 10 filesets can be created for a CPFS file system.
+     * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+     * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+     * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+     *  *
      * @param CreateFilesetRequest $request CreateFilesetRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1655,6 +1729,9 @@ class NAS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -1687,13 +1764,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-     *   * *   A maximum of 10 filesets can be created for a CPFS file system.
-     *   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-     *   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-     *   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-     *   *
+     * @summary Creates a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
+     * *   A maximum of 10 filesets can be created for a CPFS file system.
+     * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
+     * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
+     * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+     *  *
      * @param CreateFilesetRequest $request CreateFilesetRequest
      *
      * @return CreateFilesetResponse CreateFilesetResponse
@@ -1706,10 +1785,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateLDAPConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates LDAP configurations.
+     *  *
+     * @param CreateLDAPConfigRequest $request CreateLDAPConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLDAPConfigResponse
+     * @return CreateLDAPConfigResponse CreateLDAPConfigResponse
      */
     public function createLDAPConfigWithOptions($request, $runtime)
     {
@@ -1746,9 +1827,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateLDAPConfigRequest $request
+     * @summary Creates LDAP configurations.
+     *  *
+     * @param CreateLDAPConfigRequest $request CreateLDAPConfigRequest
      *
-     * @return CreateLDAPConfigResponse
+     * @return CreateLDAPConfigResponse CreateLDAPConfigResponse
      */
     public function createLDAPConfig($request)
     {
@@ -1758,9 +1841,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   You can create lifecycle policies only for General-purpose NAS file systems.
-     *   * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-     *   *
+     * @summary Creates a lifecycle policy.
+     *  *
+     * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
+     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *  *
      * @param CreateLifecyclePolicyRequest $request CreateLifecyclePolicyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1807,9 +1892,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   You can create lifecycle policies only for General-purpose NAS file systems.
-     *   * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-     *   *
+     * @summary Creates a lifecycle policy.
+     *  *
+     * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
+     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *  *
      * @param CreateLifecyclePolicyRequest $request CreateLifecyclePolicyRequest
      *
      * @return CreateLifecyclePolicyResponse CreateLifecyclePolicyResponse
@@ -1822,9 +1909,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-     *   *
+     * @summary Creates a data retrieval task.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+     *  *
      * @param CreateLifecycleRetrieveJobRequest $request CreateLifecycleRetrieveJobRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1862,9 +1951,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-     *   *
+     * @summary Creates a data retrieval task.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+     *  *
      * @param CreateLifecycleRetrieveJobRequest $request CreateLifecycleRetrieveJobRequest
      *
      * @return CreateLifecycleRetrieveJobResponse CreateLifecycleRetrieveJobResponse
@@ -1877,10 +1968,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateLogAnalysisRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
+     *  *
+     * @param CreateLogAnalysisRequest $request CreateLogAnalysisRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLogAnalysisResponse
+     * @return CreateLogAnalysisResponse CreateLogAnalysisResponse
      */
     public function createLogAnalysisWithOptions($request, $runtime)
     {
@@ -1911,9 +2004,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param CreateLogAnalysisRequest $request
+     * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
+     *  *
+     * @param CreateLogAnalysisRequest $request CreateLogAnalysisRequest
      *
-     * @return CreateLogAnalysisResponse
+     * @return CreateLogAnalysisResponse CreateLogAnalysisResponse
      */
     public function createLogAnalysis($request)
     {
@@ -1923,9 +2018,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     *   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-     *   *
+     * @summary Creates a mount target.
+     *  *
+     * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *  *
      * @param CreateMountTargetRequest $request CreateMountTargetRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1978,9 +2075,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     *   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](~~208530~~).
-     *   *
+     * @summary Creates a mount target.
+     *  *
+     * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *  *
      * @param CreateMountTargetRequest $request CreateMountTargetRequest
      *
      * @return CreateMountTargetResponse CreateMountTargetResponse
@@ -1993,15 +2092,17 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Prerequisites
-     *   *     A protocol service is created.
-     *   * *   Others
-     *   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-     *   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-     *   *     *   You can create a maximum of 10 export directories for a protocol service.
-     *   *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *
+     * @summary Creates an export directory for a protocol service.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Prerequisites
+     *     A protocol service is created.
+     * *   Others
+     *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+     *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+     *     *   You can create a maximum of 10 export directories for a protocol service.
+     *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+     *  *
      * @param CreateProtocolMountTargetRequest $request CreateProtocolMountTargetRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2060,15 +2161,17 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Prerequisites
-     *   *     A protocol service is created.
-     *   * *   Others
-     *   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-     *   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-     *   *     *   You can create a maximum of 10 export directories for a protocol service.
-     *   *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *
+     * @summary Creates an export directory for a protocol service.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Prerequisites
+     *     A protocol service is created.
+     * *   Others
+     *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
+     *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
+     *     *   You can create a maximum of 10 export directories for a protocol service.
+     *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
+     *  *
      * @param CreateProtocolMountTargetRequest $request CreateProtocolMountTargetRequest
      *
      * @return CreateProtocolMountTargetResponse CreateProtocolMountTargetResponse
@@ -2081,19 +2184,21 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
-     *   * *   Protocol service types
-     *   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-     *   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
-     *   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-     *   *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-     *   * *   Protocol type
-     *   *     Only NFSv3 is supported.
-     *   * *   Others
-     *   *     *   Only one protocol service can be created for a CPFS file system.
-     *   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *
+     * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+     *  *
+     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+     * *   Protocol service types
+     *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+     *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+     *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+     *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+     * *   Protocol type
+     *     Only NFSv3 is supported.
+     * *   Others
+     *     *   Only one protocol service can be created for a CPFS file system.
+     *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+     *  *
      * @param CreateProtocolServiceRequest $request CreateProtocolServiceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2149,19 +2254,21 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
-     *   * *   Protocol service types
-     *   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-     *   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](~~427175~~) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
-     *   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-     *   *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](~~111858~~). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-     *   * *   Protocol type
-     *   *     Only NFSv3 is supported.
-     *   * *   Others
-     *   *     *   Only one protocol service can be created for a CPFS file system.
-     *   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-     *   *
+     * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+     *  *
+     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
+     * *   Protocol service types
+     *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
+     *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. General-purpose protocol services are provided free of charge.
+     *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
+     *        >   Note You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
+     * *   Protocol type
+     *     Only NFSv3 is supported.
+     * *   Others
+     *     *   Only one protocol service can be created for a CPFS file system.
+     *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+     *  *
      * @param CreateProtocolServiceRequest $request CreateProtocolServiceRequest
      *
      * @return CreateProtocolServiceResponse CreateProtocolServiceResponse
@@ -2174,10 +2281,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-     *   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-     *   *
+     * @summary Creates a job to permanently delete a file or directory from the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+     * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+     *  *
      * @param CreateRecycleBinDeleteJobRequest $request CreateRecycleBinDeleteJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2206,10 +2315,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-     *   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-     *   *
+     * @summary Creates a job to permanently delete a file or directory from the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   If you permanently delete a directory, the files in the directory are recursively cleared.
+     * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+     *  *
      * @param CreateRecycleBinDeleteJobRequest $request CreateRecycleBinDeleteJobRequest
      *
      * @return CreateRecycleBinDeleteJobResponse CreateRecycleBinDeleteJobResponse
@@ -2222,12 +2333,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-     *   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-     *   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-     *   *
+     * @summary Restores a file or directory from the recycle bin.
+     *  *
+     * @description ### Usage notes
+     * *   Only General-purpose NAS file systems support this operation.
+     * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+     * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+     * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+     *  *
      * @param CreateRecycleBinRestoreJobRequest $request CreateRecycleBinRestoreJobRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2256,12 +2369,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ### Usage notes
-     *   * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-     *   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-     *   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-     *   *
+     * @summary Restores a file or directory from the recycle bin.
+     *  *
+     * @description ### Usage notes
+     * *   Only General-purpose NAS file systems support this operation.
+     * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
+     * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
+     * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+     *  *
      * @param CreateRecycleBinRestoreJobRequest $request CreateRecycleBinRestoreJobRequest
      *
      * @return CreateRecycleBinRestoreJobResponse CreateRecycleBinRestoreJobResponse
@@ -2274,16 +2389,18 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support the snapshot feature.
-     *   * *   You can create a maximum of 128 snapshots for a file system.
-     *   * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
-     *   * *   You can create only one snapshot for a file system at a time.
-     *   * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
-     *   * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
-     *   * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
-     *   * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-     *   *
+     * @summary Creates a snapshot.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   You can create a maximum of 128 snapshots for a file system.
+     * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+     * *   You can create only one snapshot for a file system at a time.
+     * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+     * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+     * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+     * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2324,16 +2441,18 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support the snapshot feature.
-     *   * *   You can create a maximum of 128 snapshots for a file system.
-     *   * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
-     *   * *   You can create only one snapshot for a file system at a time.
-     *   * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
-     *   * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
-     *   * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
-     *   * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to an overdue payment. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-     *   *
+     * @summary Creates a snapshot.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/zh/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   You can create a maximum of 128 snapshots for a file system.
+     * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
+     * *   You can create only one snapshot for a file system at a time.
+     * *   If the file system expires when a snapshot is being created, the file system is released and the snapshot is deleted.
+     * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
+     * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
+     * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
      * @return CreateSnapshotResponse CreateSnapshotResponse
@@ -2346,8 +2465,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *   *
+     * @summary Deletes a permission group.
+     *  *
+     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *  *
      * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2382,8 +2503,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *   *
+     * @summary Deletes a permission group.
+     *  *
+     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *  *
      * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
      *
      * @return DeleteAccessGroupResponse DeleteAccessGroupResponse
@@ -2396,10 +2519,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessPointRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除接入点
+     *  *
+     * @param DeleteAccessPointRequest $request DeleteAccessPointRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessPointResponse
+     * @return DeleteAccessPointResponse DeleteAccessPointResponse
      */
     public function deleteAccessPointWithOptions($request, $runtime)
     {
@@ -2430,9 +2555,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessPointRequest $request
+     * @summary 删除接入点
+     *  *
+     * @param DeleteAccessPointRequest $request DeleteAccessPointRequest
      *
-     * @return DeleteAccessPointResponse
+     * @return DeleteAccessPointResponse DeleteAccessPointResponse
      */
     public function deleteAccessPoint($request)
     {
@@ -2442,8 +2569,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *   *
+     * @summary Deletes a rule from a permission group.
+     *  *
+     * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *  *
      * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2481,8 +2610,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *   *
+     * @summary Deletes a rule from a permission group.
+     *  *
+     * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *  *
      * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
      *
      * @return DeleteAccessRuleResponse DeleteAccessRuleResponse
@@ -2495,10 +2626,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-     *   *
+     * @summary Deletes an automatic snapshot policy.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+     *  *
      * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2530,10 +2663,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-     *   *
+     * @summary Deletes an automatic snapshot policy.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
+     *  *
      * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      *
      * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
@@ -2546,11 +2681,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-     *   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-     *   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
-     *   *
+     * @summary Deletes a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+     * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+     * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+     *  *
      * @param DeleteDataFlowRequest $request DeleteDataFlowRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2591,11 +2728,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
-     *   * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
-     *   * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
-     *   *
+     * @summary Deletes a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   You can create filesets only in CPFS V2.2.0 and later. You can view the version information on the file system details page in the console.
+     * *   You can delete the dataflows that are only in the `Running` or `Stopped` state.
+     * *   After a dataflow is deleted, the resources related to the dataflow are released and cannot be restored. You must create a dataflow again if required.
+     *  *
      * @param DeleteDataFlowRequest $request DeleteDataFlowRequest
      *
      * @return DeleteDataFlowResponse DeleteDataFlowResponse
@@ -2608,10 +2747,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a file system, you must delete all mount targets of the file system.
-     *   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-     *   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a file system.
+     *  *
+     * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+     * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+     * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2643,10 +2784,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a file system, you must delete all mount targets of the file system.
-     *   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-     *   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a file system.
+     *  *
+     * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+     * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
+     * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      *
      * @return DeleteFileSystemResponse DeleteFileSystemResponse
@@ -2659,9 +2802,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteFilesetRequest $request DeleteFilesetRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2702,9 +2847,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteFilesetRequest $request DeleteFilesetRequest
      *
      * @return DeleteFilesetResponse DeleteFilesetResponse
@@ -2717,10 +2864,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteLDAPConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteLDAPConfigRequest $request DeleteLDAPConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLDAPConfigResponse
+     * @return DeleteLDAPConfigResponse DeleteLDAPConfigResponse
      */
     public function deleteLDAPConfigWithOptions($request, $runtime)
     {
@@ -2748,9 +2895,9 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteLDAPConfigRequest $request
+     * @param DeleteLDAPConfigRequest $request DeleteLDAPConfigRequest
      *
-     * @return DeleteLDAPConfigResponse
+     * @return DeleteLDAPConfigResponse DeleteLDAPConfigResponse
      */
     public function deleteLDAPConfig($request)
     {
@@ -2760,8 +2907,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Deletes a lifecycle policy.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param DeleteLifecyclePolicyRequest $request DeleteLifecyclePolicyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2796,8 +2945,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Deletes a lifecycle policy.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param DeleteLifecyclePolicyRequest $request DeleteLifecyclePolicyRequest
      *
      * @return DeleteLifecyclePolicyResponse DeleteLifecyclePolicyResponse
@@ -2810,10 +2961,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteLogAnalysisRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Disables log dumping for a General-purpose NAS file system.
+     *  *
+     * @param DeleteLogAnalysisRequest $request DeleteLogAnalysisRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLogAnalysisResponse
+     * @return DeleteLogAnalysisResponse DeleteLogAnalysisResponse
      */
     public function deleteLogAnalysisWithOptions($request, $runtime)
     {
@@ -2844,9 +2997,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DeleteLogAnalysisRequest $request
+     * @summary Disables log dumping for a General-purpose NAS file system.
+     *  *
+     * @param DeleteLogAnalysisRequest $request DeleteLogAnalysisRequest
      *
-     * @return DeleteLogAnalysisResponse
+     * @return DeleteLogAnalysisResponse DeleteLogAnalysisResponse
      */
     public function deleteLogAnalysis($request)
     {
@@ -2856,8 +3011,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a mount target.
+     *  *
+     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2892,8 +3049,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a mount target.
+     *  *
+     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
      *
      * @return DeleteMountTargetResponse DeleteMountTargetResponse
@@ -2906,8 +3065,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Deletes an export directory of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DeleteProtocolMountTargetRequest $request DeleteProtocolMountTargetRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2951,8 +3112,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Deletes an export directory of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DeleteProtocolMountTargetRequest $request DeleteProtocolMountTargetRequest
      *
      * @return DeleteProtocolMountTargetResponse DeleteProtocolMountTargetResponse
@@ -2965,9 +3128,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     *   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-     *   *
+     * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
+     *  *
+     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+     *  *
      * @param DeleteProtocolServiceRequest $request DeleteProtocolServiceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3008,9 +3173,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     *   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-     *   *
+     * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
+     *  *
+     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+     *  *
      * @param DeleteProtocolServiceRequest $request DeleteProtocolServiceRequest
      *
      * @return DeleteProtocolServiceResponse DeleteProtocolServiceResponse
@@ -3023,9 +3190,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Deletes a snapshot or cancels a snapshot that is being created.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3057,9 +3226,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Deletes a snapshot or cancels a snapshot that is being created.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
      * @return DeleteSnapshotResponse DeleteSnapshotResponse
@@ -3072,10 +3243,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries permission groups.
+     *  *
+     * @param DescribeAccessGroupsRequest $request DescribeAccessGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessGroupsResponse
+     * @return DescribeAccessGroupsResponse DescribeAccessGroupsResponse
      */
     public function describeAccessGroupsWithOptions($request, $runtime)
     {
@@ -3115,9 +3288,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessGroupsRequest $request
+     * @summary Queries permission groups.
+     *  *
+     * @param DescribeAccessGroupsRequest $request DescribeAccessGroupsRequest
      *
-     * @return DescribeAccessGroupsResponse
+     * @return DescribeAccessGroupsResponse DescribeAccessGroupsResponse
      */
     public function describeAccessGroups($request)
     {
@@ -3127,10 +3302,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 接入点详情页
+     *  *
+     * @param DescribeAccessPointRequest $request DescribeAccessPointRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessPointResponse
+     * @return DescribeAccessPointResponse DescribeAccessPointResponse
      */
     public function describeAccessPointWithOptions($request, $runtime)
     {
@@ -3161,9 +3338,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointRequest $request
+     * @summary 接入点详情页
+     *  *
+     * @param DescribeAccessPointRequest $request DescribeAccessPointRequest
      *
-     * @return DescribeAccessPointResponse
+     * @return DescribeAccessPointResponse DescribeAccessPointResponse
      */
     public function describeAccessPoint($request)
     {
@@ -3173,10 +3352,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询接入点信息
+     *  *
+     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessPointsResponse
+     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
      */
     public function describeAccessPointsWithOptions($request, $runtime)
     {
@@ -3213,9 +3394,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessPointsRequest $request
+     * @summary 查询接入点信息
+     *  *
+     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
      *
-     * @return DescribeAccessPointsResponse
+     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
      */
     public function describeAccessPoints($request)
     {
@@ -3225,10 +3408,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessRulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about rules in a permission group.
+     *  *
+     * @param DescribeAccessRulesRequest $request DescribeAccessRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessRulesResponse
+     * @return DescribeAccessRulesResponse DescribeAccessRulesResponse
      */
     public function describeAccessRulesWithOptions($request, $runtime)
     {
@@ -3268,9 +3453,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessRulesRequest $request
+     * @summary Queries the information about rules in a permission group.
+     *  *
+     * @param DescribeAccessRulesRequest $request DescribeAccessRulesRequest
      *
-     * @return DescribeAccessRulesResponse
+     * @return DescribeAccessRulesResponse DescribeAccessRulesResponse
      */
     public function describeAccessRules($request)
     {
@@ -3280,9 +3467,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries automatic snapshot policies.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DescribeAutoSnapshotPoliciesRequest $request DescribeAutoSnapshotPoliciesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3323,9 +3512,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries automatic snapshot policies.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DescribeAutoSnapshotPoliciesRequest $request DescribeAutoSnapshotPoliciesRequest
      *
      * @return DescribeAutoSnapshotPoliciesResponse DescribeAutoSnapshotPoliciesResponse
@@ -3338,9 +3529,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries automatic snapshot tasks.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     *  *
      * @param DescribeAutoSnapshotTasksRequest $request DescribeAutoSnapshotTasksRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3384,9 +3577,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries automatic snapshot tasks.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     *  *
      * @param DescribeAutoSnapshotTasksRequest $request DescribeAutoSnapshotTasksRequest
      *
      * @return DescribeAutoSnapshotTasksResponse DescribeAutoSnapshotTasksResponse
@@ -3399,8 +3594,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The API operation is available only for CPFS file systems.
-     *   *
+     * @description The API operation is available only for CPFS file systems.
+     *  *
      * @param DescribeBlackListClientsRequest $request DescribeBlackListClientsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3438,8 +3633,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The API operation is available only for CPFS file systems.
-     *   *
+     * @description The API operation is available only for CPFS file systems.
+     *  *
      * @param DescribeBlackListClientsRequest $request DescribeBlackListClientsRequest
      *
      * @return DescribeBlackListClientsResponse DescribeBlackListClientsResponse
@@ -3452,8 +3647,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ###.
-     *   *
+     * @summary 查询数据流动任务
+     *  *
+     * @description ###
+     *  *
      * @param DescribeDataFlowTasksRequest $request DescribeDataFlowTasksRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3494,8 +3691,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * ###.
-     *   *
+     * @summary 查询数据流动任务
+     *  *
+     * @description ###
+     *  *
      * @param DescribeDataFlowTasksRequest $request DescribeDataFlowTasksRequest
      *
      * @return DescribeDataFlowTasksResponse DescribeDataFlowTasksResponse
@@ -3508,11 +3707,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
-     *   * *   Combined query is supported.
-     *   *
+     * @summary Queries the dataflows of a CPFS file system.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+     * *   Combined query is supported.
+     *  *
      * @param DescribeDataFlowsRequest $request DescribeDataFlowsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3553,11 +3754,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
-     *   * *   Combined query is supported.
-     *   *
+     * @summary Queries the dataflows of a CPFS file system.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath and Description support fuzzy match.
+     * *   Combined query is supported.
+     *  *
      * @param DescribeDataFlowsRequest $request DescribeDataFlowsRequest
      *
      * @return DescribeDataFlowsResponse DescribeDataFlowsResponse
@@ -3570,8 +3773,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support the directory quota feature.
-     *   *
+     * @summary Queries the directory quotas of a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support the directory quota feature.
+     *  *
      * @param DescribeDirQuotasRequest $request DescribeDirQuotasRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3612,8 +3817,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support the directory quota feature.
-     *   *
+     * @summary Queries the directory quotas of a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support the directory quota feature.
+     *  *
      * @param DescribeDirQuotasRequest $request DescribeDirQuotasRequest
      *
      * @return DescribeDirQuotasResponse DescribeDirQuotasResponse
@@ -3626,10 +3833,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the statistics of file systems that are owned by the current account.
+     *  *
+     * @param DescribeFileSystemStatisticsRequest $request DescribeFileSystemStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFileSystemStatisticsResponse
+     * @return DescribeFileSystemStatisticsResponse DescribeFileSystemStatisticsResponse
      */
     public function describeFileSystemStatisticsWithOptions($request, $runtime)
     {
@@ -3660,9 +3869,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemStatisticsRequest $request
+     * @summary Queries the statistics of file systems that are owned by the current account.
+     *  *
+     * @param DescribeFileSystemStatisticsRequest $request DescribeFileSystemStatisticsRequest
      *
-     * @return DescribeFileSystemStatisticsResponse
+     * @return DescribeFileSystemStatisticsResponse DescribeFileSystemStatisticsResponse
      */
     public function describeFileSystemStatistics($request)
     {
@@ -3672,10 +3883,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries file systems.
+     *  *
+     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFileSystemsResponse
+     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
      */
     public function describeFileSystemsWithOptions($request, $runtime)
     {
@@ -3721,9 +3934,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemsRequest $request
+     * @summary Queries file systems.
+     *  *
+     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
      *
-     * @return DescribeFileSystemsResponse
+     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
      */
     public function describeFileSystems($request)
     {
@@ -3733,11 +3948,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
-     *   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-     *   * *   Combined query is supported.
-     *   *
+     * @summary Queries the information about created filesets.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+     * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+     * *   Combined query is supported.
+     *  *
      * @param DescribeFilesetsRequest $request DescribeFilesetsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3778,11 +3995,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
-     *   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-     *   * *   Combined query is supported.
-     *   *
+     * @summary Queries the information about created filesets.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+     * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
+     * *   Combined query is supported.
+     *  *
      * @param DescribeFilesetsRequest $request DescribeFilesetsRequest
      *
      * @return DescribeFilesetsResponse DescribeFilesetsResponse
@@ -3795,8 +4014,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries lifecycle policies.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param DescribeLifecyclePoliciesRequest $request DescribeLifecyclePoliciesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3825,8 +4046,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries lifecycle policies.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param DescribeLifecyclePoliciesRequest $request DescribeLifecyclePoliciesRequest
      *
      * @return DescribeLifecyclePoliciesResponse DescribeLifecyclePoliciesResponse
@@ -3839,15 +4062,20 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogAnalysisRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the log dump information configured in log analysis.
+     *  *
+     * @param DescribeLogAnalysisRequest $request DescribeLogAnalysisRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogAnalysisResponse
+     * @return DescribeLogAnalysisResponse DescribeLogAnalysisResponse
      */
     public function describeLogAnalysisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->fileSystemType)) {
+            $query['FileSystemType'] = $request->fileSystemType;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -3876,9 +4104,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogAnalysisRequest $request
+     * @summary Queries the log dump information configured in log analysis.
+     *  *
+     * @param DescribeLogAnalysisRequest $request DescribeLogAnalysisRequest
      *
-     * @return DescribeLogAnalysisResponse
+     * @return DescribeLogAnalysisResponse DescribeLogAnalysisResponse
      */
     public function describeLogAnalysis($request)
     {
@@ -3888,10 +4118,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeMountTargetsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries mount targets.
+     *  *
+     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMountTargetsResponse
+     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
      */
     public function describeMountTargetsWithOptions($request, $runtime)
     {
@@ -3931,9 +4163,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeMountTargetsRequest $request
+     * @summary Queries mount targets.
+     *  *
+     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
      *
-     * @return DescribeMountTargetsResponse
+     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
      */
     public function describeMountTargets($request)
     {
@@ -3943,9 +4177,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-     *   *
+     * @summary Queries the clients on which a file system is mounted.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+     *  *
      * @param DescribeMountedClientsRequest $request DescribeMountedClientsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3992,9 +4228,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-     *   *
+     * @summary Queries the clients on which a file system is mounted.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+     *  *
      * @param DescribeMountedClientsRequest $request DescribeMountedClientsRequest
      *
      * @return DescribeMountedClientsResponse DescribeMountedClientsResponse
@@ -4007,10 +4245,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeNfsAclRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries whether the NFS ACL feature is enabled for a file system.
+     *  *
+     * @param DescribeNfsAclRequest $request DescribeNfsAclRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNfsAclResponse
+     * @return DescribeNfsAclResponse DescribeNfsAclResponse
      */
     public function describeNfsAclWithOptions($request, $runtime)
     {
@@ -4038,9 +4278,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeNfsAclRequest $request
+     * @summary Queries whether the NFS ACL feature is enabled for a file system.
+     *  *
+     * @param DescribeNfsAclRequest $request DescribeNfsAclRequest
      *
-     * @return DescribeNfsAclResponse
+     * @return DescribeNfsAclResponse DescribeNfsAclResponse
      */
     public function describeNfsAcl($request)
     {
@@ -4050,8 +4292,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Queries the export directories of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DescribeProtocolMountTargetRequest $request DescribeProtocolMountTargetRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -4095,8 +4339,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Queries the export directories of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DescribeProtocolMountTargetRequest $request DescribeProtocolMountTargetRequest
      *
      * @return DescribeProtocolMountTargetResponse DescribeProtocolMountTargetResponse
@@ -4109,8 +4355,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Queries the information about protocol services.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DescribeProtocolServiceRequest $request DescribeProtocolServiceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4160,8 +4408,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Queries the information about protocol services.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param DescribeProtocolServiceRequest $request DescribeProtocolServiceRequest
      *
      * @return DescribeProtocolServiceResponse DescribeProtocolServiceResponse
@@ -4174,10 +4424,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions in which Apsara File Storage NAS is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -4211,9 +4463,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions in which Apsara File Storage NAS is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -4223,10 +4477,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeSmbAclRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param DescribeSmbAclRequest $request DescribeSmbAclRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSmbAclResponse
+     * @return DescribeSmbAclResponse DescribeSmbAclResponse
      */
     public function describeSmbAclWithOptions($request, $runtime)
     {
@@ -4254,9 +4510,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeSmbAclRequest $request
+     * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param DescribeSmbAclRequest $request DescribeSmbAclRequest
      *
-     * @return DescribeSmbAclResponse
+     * @return DescribeSmbAclResponse DescribeSmbAclResponse
      */
     public function describeSmbAcl($request)
     {
@@ -4266,9 +4524,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries the information about one or more snapshots of a file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4321,9 +4581,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary Queries the information about one or more snapshots of a file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      *
      * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
@@ -4336,10 +4598,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeStoragePackagesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
+     *  *
+     * @param DescribeStoragePackagesRequest $request DescribeStoragePackagesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStoragePackagesResponse
+     * @return DescribeStoragePackagesResponse DescribeStoragePackagesResponse
      */
     public function describeStoragePackagesWithOptions($request, $runtime)
     {
@@ -4376,9 +4640,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeStoragePackagesRequest $request
+     * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
+     *  *
+     * @param DescribeStoragePackagesRequest $request DescribeStoragePackagesRequest
      *
-     * @return DescribeStoragePackagesResponse
+     * @return DescribeStoragePackagesResponse DescribeStoragePackagesResponse
      */
     public function describeStoragePackages($request)
     {
@@ -4388,10 +4654,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all zones in a region and the file system types that are supported in each zone.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -4422,9 +4690,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries all zones in a region and the file system types that are supported in each zone.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -4434,10 +4704,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
-     *   * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-     *   *
+     * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+     * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+     *  *
      * @param DisableAndCleanRecycleBinRequest $request DisableAndCleanRecycleBinRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4466,10 +4738,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
-     *   * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-     *   *
+     * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
+     * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
+     *  *
      * @param DisableAndCleanRecycleBinRequest $request DisableAndCleanRecycleBinRequest
      *
      * @return DisableAndCleanRecycleBinResponse DisableAndCleanRecycleBinResponse
@@ -4482,10 +4756,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DisableNfsAclRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Disables the NFS ACL feature for a file system.
+     *  *
+     * @param DisableNfsAclRequest $request DisableNfsAclRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableNfsAclResponse
+     * @return DisableNfsAclResponse DisableNfsAclResponse
      */
     public function disableNfsAclWithOptions($request, $runtime)
     {
@@ -4513,9 +4789,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DisableNfsAclRequest $request
+     * @summary Disables the NFS ACL feature for a file system.
+     *  *
+     * @param DisableNfsAclRequest $request DisableNfsAclRequest
      *
-     * @return DisableNfsAclResponse
+     * @return DisableNfsAclResponse DisableNfsAclResponse
      */
     public function disableNfsAcl($request)
     {
@@ -4525,10 +4803,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DisableSmbAclRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param DisableSmbAclRequest $request DisableSmbAclRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableSmbAclResponse
+     * @return DisableSmbAclResponse DisableSmbAclResponse
      */
     public function disableSmbAclWithOptions($request, $runtime)
     {
@@ -4556,9 +4836,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param DisableSmbAclRequest $request
+     * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param DisableSmbAclRequest $request DisableSmbAclRequest
      *
-     * @return DisableSmbAclResponse
+     * @return DisableSmbAclResponse DisableSmbAclResponse
      */
     public function disableSmbAcl($request)
     {
@@ -4568,10 +4850,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param EnableNfsAclRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Enables the NFS ACL feature for a file system.
+     *  *
+     * @param EnableNfsAclRequest $request EnableNfsAclRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableNfsAclResponse
+     * @return EnableNfsAclResponse EnableNfsAclResponse
      */
     public function enableNfsAclWithOptions($request, $runtime)
     {
@@ -4599,9 +4883,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param EnableNfsAclRequest $request
+     * @summary Enables the NFS ACL feature for a file system.
+     *  *
+     * @param EnableNfsAclRequest $request EnableNfsAclRequest
      *
-     * @return EnableNfsAclResponse
+     * @return EnableNfsAclResponse EnableNfsAclResponse
      */
     public function enableNfsAcl($request)
     {
@@ -4611,8 +4897,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Enables the recycle bin feature for a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param EnableRecycleBinRequest $request EnableRecycleBinRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4647,8 +4935,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Enables the recycle bin feature for a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param EnableRecycleBinRequest $request EnableRecycleBinRequest
      *
      * @return EnableRecycleBinResponse EnableRecycleBinResponse
@@ -4661,10 +4951,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param EnableSmbAclRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param EnableSmbAclRequest $request EnableSmbAclRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableSmbAclResponse
+     * @return EnableSmbAclResponse EnableSmbAclResponse
      */
     public function enableSmbAclWithOptions($request, $runtime)
     {
@@ -4698,9 +4990,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param EnableSmbAclRequest $request
+     * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param EnableSmbAclRequest $request EnableSmbAclRequest
      *
-     * @return EnableSmbAclResponse
+     * @return EnableSmbAclResponse EnableSmbAclResponse
      */
     public function enableSmbAcl($request)
     {
@@ -4710,8 +5004,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param GetDirectoryOrFilePropertiesRequest $request GetDirectoryOrFilePropertiesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -4746,8 +5042,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param GetDirectoryOrFilePropertiesRequest $request GetDirectoryOrFilePropertiesRequest
      *
      * @return GetDirectoryOrFilePropertiesResponse GetDirectoryOrFilePropertiesResponse
@@ -4760,10 +5058,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param GetRecycleBinAttributeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
+     *  *
+     * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRecycleBinAttributeResponse
+     * @return GetRecycleBinAttributeResponse GetRecycleBinAttributeResponse
      */
     public function getRecycleBinAttributeWithOptions($request, $runtime)
     {
@@ -4788,9 +5088,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param GetRecycleBinAttributeRequest $request
+     * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
+     *  *
+     * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
      *
-     * @return GetRecycleBinAttributeResponse
+     * @return GetRecycleBinAttributeResponse GetRecycleBinAttributeResponse
      */
     public function getRecycleBinAttribute($request)
     {
@@ -4800,8 +5102,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListDirectoriesAndFilesRequest $request ListDirectoriesAndFilesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4848,8 +5152,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListDirectoriesAndFilesRequest $request ListDirectoriesAndFilesRequest
      *
      * @return ListDirectoriesAndFilesResponse ListDirectoriesAndFilesResponse
@@ -4862,8 +5168,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries data retrieval tasks.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListLifecycleRetrieveJobsRequest $request ListLifecycleRetrieveJobsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4907,8 +5215,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries data retrieval tasks.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListLifecycleRetrieveJobsRequest $request ListLifecycleRetrieveJobsRequest
      *
      * @return ListLifecycleRetrieveJobsResponse ListLifecycleRetrieveJobsResponse
@@ -4921,8 +5231,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries the directories that are recently deleted.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListRecentlyRecycledDirectoriesRequest $request ListRecentlyRecycledDirectoriesRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -4951,8 +5263,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries the directories that are recently deleted.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListRecentlyRecycledDirectoriesRequest $request ListRecentlyRecycledDirectoriesRequest
      *
      * @return ListRecentlyRecycledDirectoriesResponse ListRecentlyRecycledDirectoriesResponse
@@ -4965,9 +5279,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can query a maximum of 50 jobs that are recently executed.
-     *   *
+     * @summary Queries the jobs of the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can query a maximum of 50 jobs that are recently executed.
+     *  *
      * @param ListRecycleBinJobsRequest $request ListRecycleBinJobsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4996,9 +5312,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only General-purpose NAS file systems support this operation.
-     *   * *   You can query a maximum of 50 jobs that are recently executed.
-     *   *
+     * @summary Queries the jobs of the recycle bin.
+     *  *
+     * @description *   Only General-purpose NAS file systems support this operation.
+     * *   You can query a maximum of 50 jobs that are recently executed.
+     *  *
      * @param ListRecycleBinJobsRequest $request ListRecycleBinJobsRequest
      *
      * @return ListRecycleBinJobsResponse ListRecycleBinJobsResponse
@@ -5011,8 +5329,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries deleted files or directories.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListRecycledDirectoriesAndFilesRequest $request ListRecycledDirectoriesAndFilesRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -5041,8 +5361,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Queries deleted files or directories.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ListRecycledDirectoriesAndFilesRequest $request ListRecycledDirectoriesAndFilesRequest
      *
      * @return ListRecycledDirectoriesAndFilesResponse ListRecycledDirectoriesAndFilesResponse
@@ -5055,10 +5377,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5095,9 +5419,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5107,8 +5433,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *   *
+     * @summary Modifies a permission group.
+     *  *
+     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *  *
      * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5146,8 +5474,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *   *
+     * @summary Modifies a permission group.
+     *  *
+     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *  *
      * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
      *
      * @return ModifyAccessGroupResponse ModifyAccessGroupResponse
@@ -5160,10 +5490,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessPointRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 修改接入点信息
+     *  *
+     * @param ModifyAccessPointRequest $request ModifyAccessPointRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccessPointResponse
+     * @return ModifyAccessPointResponse ModifyAccessPointResponse
      */
     public function modifyAccessPointWithOptions($request, $runtime)
     {
@@ -5203,9 +5535,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessPointRequest $request
+     * @summary 修改接入点信息
+     *  *
+     * @param ModifyAccessPointRequest $request ModifyAccessPointRequest
      *
-     * @return ModifyAccessPointResponse
+     * @return ModifyAccessPointResponse ModifyAccessPointResponse
      */
     public function modifyAccessPoint($request)
     {
@@ -5215,8 +5549,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *   *
+     * @summary Modifies a rule in a permission group.
+     *  *
+     * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *  *
      * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5269,8 +5605,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *   *
+     * @summary Modifies a rule in a permission group.
+     *  *
+     * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *  *
      * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
      *
      * @return ModifyAccessRuleResponse ModifyAccessRuleResponse
@@ -5283,9 +5621,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5329,9 +5669,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   *
+     * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *  *
      * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
      *
      * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
@@ -5344,16 +5686,18 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows.
-     *   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-     *   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
-     *   * *   Data flow specifications:
-     *   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-     *   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-     *   * *   Billing
-     *   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-     *   *
+     * @summary Modifies the attributes of a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows.
+     * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+     * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
+     * *   Data flow specifications:
+     *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+     *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+     * *   Billing
+     *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+     *  *
      * @param ModifyDataFlowRequest $request ModifyDataFlowRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -5400,16 +5744,18 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows.
-     *   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-     *   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](~~336901~~) operation to query the status of the dataflow to be modified.
-     *   * *   Data flow specifications:
-     *   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-     *   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-     *   * *   Billing
-     *   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](~~111858~~).
-     *   *
+     * @summary Modifies the attributes of a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows.
+     * *   You can modify the attributes only of the dataflows that are in the `Running` state.
+     * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
+     * *   Data flow specifications:
+     *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
+     *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
+     * *   Billing
+     *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+     *  *
      * @param ModifyDataFlowRequest $request ModifyDataFlowRequest
      *
      * @return ModifyDataFlowResponse ModifyDataFlowResponse
@@ -5422,10 +5768,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataFlowAutoRefreshRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 修改数据流动中的自动更新配置
+     *  *
+     * @param ModifyDataFlowAutoRefreshRequest $request ModifyDataFlowAutoRefreshRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataFlowAutoRefreshResponse
+     * @return ModifyDataFlowAutoRefreshResponse ModifyDataFlowAutoRefreshResponse
      */
     public function modifyDataFlowAutoRefreshWithOptions($request, $runtime)
     {
@@ -5468,9 +5816,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyDataFlowAutoRefreshRequest $request
+     * @summary 修改数据流动中的自动更新配置
+     *  *
+     * @param ModifyDataFlowAutoRefreshRequest $request ModifyDataFlowAutoRefreshRequest
      *
-     * @return ModifyDataFlowAutoRefreshResponse
+     * @return ModifyDataFlowAutoRefreshResponse ModifyDataFlowAutoRefreshResponse
      */
     public function modifyDataFlowAutoRefresh($request)
     {
@@ -5480,10 +5830,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies the description of a file system.
+     *  *
+     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFileSystemResponse
+     * @return ModifyFileSystemResponse ModifyFileSystemResponse
      */
     public function modifyFileSystemWithOptions($request, $runtime)
     {
@@ -5514,9 +5866,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request
+     * @summary Modifies the description of a file system.
+     *  *
+     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
      *
-     * @return ModifyFileSystemResponse
+     * @return ModifyFileSystemResponse ModifyFileSystemResponse
      */
     public function modifyFileSystem($request)
     {
@@ -5526,9 +5880,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset modification.
-     *   *
+     * @summary Modifies a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset modification.
+     *  *
      * @param ModifyFilesetRequest $request ModifyFilesetRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -5540,6 +5896,9 @@ class NAS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -5572,9 +5931,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support fileset modification.
-     *   *
+     * @summary Modifies a fileset.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support fileset modification.
+     *  *
      * @param ModifyFilesetRequest $request ModifyFilesetRequest
      *
      * @return ModifyFilesetResponse ModifyFilesetResponse
@@ -5587,8 +5948,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * #.
-     *   *
+     * @description #
+     *  *
      * @param ModifyLDAPConfigRequest $request ModifyLDAPConfigRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5629,8 +5990,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * #.
-     *   *
+     * @description #
+     *  *
      * @param ModifyLDAPConfigRequest $request ModifyLDAPConfigRequest
      *
      * @return ModifyLDAPConfigResponse ModifyLDAPConfigResponse
@@ -5643,8 +6004,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Modifies a lifecycle policy.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ModifyLifecyclePolicyRequest $request ModifyLifecyclePolicyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5688,8 +6051,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Modifies a lifecycle policy.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param ModifyLifecyclePolicyRequest $request ModifyLifecyclePolicyRequest
      *
      * @return ModifyLifecyclePolicyResponse ModifyLifecyclePolicyResponse
@@ -5702,10 +6067,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyMountTargetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies a mount target.
+     *  *
+     * @param ModifyMountTargetRequest $request ModifyMountTargetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMountTargetResponse
+     * @return ModifyMountTargetResponse ModifyMountTargetResponse
      */
     public function modifyMountTargetWithOptions($request, $runtime)
     {
@@ -5745,9 +6112,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifyMountTargetRequest $request
+     * @summary Modifies a mount target.
+     *  *
+     * @param ModifyMountTargetRequest $request ModifyMountTargetRequest
      *
-     * @return ModifyMountTargetResponse
+     * @return ModifyMountTargetResponse ModifyMountTargetResponse
      */
     public function modifyMountTarget($request)
     {
@@ -5757,8 +6126,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param ModifyProtocolMountTargetRequest $request ModifyProtocolMountTargetRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -5805,8 +6176,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param ModifyProtocolMountTargetRequest $request ModifyProtocolMountTargetRequest
      *
      * @return ModifyProtocolMountTargetResponse ModifyProtocolMountTargetResponse
@@ -5819,8 +6192,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Modifies a protocol service. You can modify the description of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param ModifyProtocolServiceRequest $request ModifyProtocolServiceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5864,8 +6239,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   *
+     * @summary Modifies a protocol service. You can modify the description of a protocol service.
+     *  *
+     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *  *
      * @param ModifyProtocolServiceRequest $request ModifyProtocolServiceRequest
      *
      * @return ModifyProtocolServiceResponse ModifyProtocolServiceResponse
@@ -5878,10 +6255,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifySmbAclRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param ModifySmbAclRequest $request ModifySmbAclRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySmbAclResponse
+     * @return ModifySmbAclResponse ModifySmbAclResponse
      */
     public function modifySmbAclWithOptions($request, $runtime)
     {
@@ -5930,9 +6309,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param ModifySmbAclRequest $request
+     * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
+     *  *
+     * @param ModifySmbAclRequest $request ModifySmbAclRequest
      *
-     * @return ModifySmbAclResponse
+     * @return ModifySmbAclResponse ModifySmbAclResponse
      */
     public function modifySmbAcl($request)
     {
@@ -5942,9 +6323,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Activates Apsara File Storage NAS.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenNASServiceResponse
+     * @return OpenNASServiceResponse OpenNASServiceResponse
      */
     public function openNASServiceWithOptions($runtime)
     {
@@ -5965,7 +6348,9 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @return OpenNASServiceResponse
+     * @summary Activates Apsara File Storage NAS.
+     *  *
+     * @return OpenNASServiceResponse OpenNASServiceResponse
      */
     public function openNASService()
     {
@@ -5975,8 +6360,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The IP address of a client to remove from the blacklist.
-     *   *
+     * @description The IP address of a client to remove from the blacklist.
+     *  *
      * @param RemoveClientFromBlackListRequest $request RemoveClientFromBlackListRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6017,8 +6402,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * The IP address of a client to remove from the blacklist.
-     *   *
+     * @description The IP address of a client to remove from the blacklist.
+     *  *
      * @param RemoveClientFromBlackListRequest $request RemoveClientFromBlackListRequest
      *
      * @return RemoveClientFromBlackListResponse RemoveClientFromBlackListResponse
@@ -6031,8 +6416,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
-     *   *
+     * @description A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+     *  *
      * @param RemoveTagsRequest $request RemoveTagsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -6067,8 +6452,8 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
-     *   *
+     * @description A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is returned.
+     *  *
      * @param RemoveTagsRequest $request RemoveTagsRequest
      *
      * @return RemoveTagsResponse RemoveTagsResponse
@@ -6081,11 +6466,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   The file system must be in the Running state.
-     *   * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-     *   *
+     * @summary Rolls back a file system to a snapshot of the file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     * *   The file system must be in the Running state.
+     * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+     *  *
      * @param ResetFileSystemRequest $request ResetFileSystemRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -6120,11 +6507,13 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     *   * *   Only advanced Extreme NAS file systems support this feature.
-     *   * *   The file system must be in the Running state.
-     *   * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-     *   *
+     * @summary Rolls back a file system to a snapshot of the file system.
+     *  *
+     * @description *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     * *   The file system must be in the Running state.
+     * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
+     *  *
      * @param ResetFileSystemRequest $request ResetFileSystemRequest
      *
      * @return ResetFileSystemResponse ResetFileSystemResponse
@@ -6137,8 +6526,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Retries failed a data retrieval task.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param RetryLifecycleRetrieveJobRequest $request RetryLifecycleRetrieveJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6170,8 +6561,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Retries failed a data retrieval task.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param RetryLifecycleRetrieveJobRequest $request RetryLifecycleRetrieveJobRequest
      *
      * @return RetryLifecycleRetrieveJobResponse RetryLifecycleRetrieveJobResponse
@@ -6184,8 +6577,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NFS file systems support the directory quota feature.
-     *   *
+     * @summary Creates a directory quota for a file system.
+     *  *
+     * @description Only General-purpose NFS file systems support the directory quota feature.
+     *  *
      * @param SetDirQuotaRequest $request SetDirQuotaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -6235,8 +6630,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NFS file systems support the directory quota feature.
-     *   *
+     * @summary Creates a directory quota for a file system.
+     *  *
+     * @description Only General-purpose NFS file systems support the directory quota feature.
+     *  *
      * @param SetDirQuotaRequest $request SetDirQuotaRequest
      *
      * @return SetDirQuotaResponse SetDirQuotaResponse
@@ -6249,12 +6646,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can enable the dataflows that are only in the `Stopped` state.
-     *   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-     *   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
-     *   *
+     * @summary Enables a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can enable the dataflows that are only in the `Stopped` state.
+     * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+     * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+     *  *
      * @param StartDataFlowRequest $request StartDataFlowRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -6295,12 +6694,14 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can enable the dataflows that are only in the `Stopped` state.
-     *   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
-     *   * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](~~2402270~~) operation.
-     *   *
+     * @summary Enables a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can enable the dataflows that are only in the `Stopped` state.
+     * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified dataflow. If the resources are insufficient, the dataflow cannot be enabled.
+     * *   It generally takes 2 to 5 minutes to enable a dataflow. You can query the dataflow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+     *  *
      * @param StartDataFlowRequest $request StartDataFlowRequest
      *
      * @return StartDataFlowResponse StartDataFlowResponse
@@ -6313,13 +6714,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can disable only the dataflows that are in the `Running` state.
-     *   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-     *   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-     *   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
-     *   *
+     * @summary Disables a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can disable only the dataflows that are in the `Running` state.
+     * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+     * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+     * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+     *  *
      * @param StopDataFlowRequest $request StopDataFlowRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -6360,13 +6763,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-     *   * *   You can disable only the dataflows that are in the `Running` state.
-     *   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-     *   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-     *   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](~~2402271~~) operation to query the dataflow status.
-     *   *
+     * @summary Disables a dataflow.
+     *  *
+     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
+     * *   You can disable only the dataflows that are in the `Running` state.
+     * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
+     * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
+     * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+     *  *
      * @param StopDataFlowRequest $request StopDataFlowRequest
      *
      * @return StopDataFlowResponse StopDataFlowResponse
@@ -6379,10 +6784,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates tags and binds the tags to file systems.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -6416,9 +6823,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Creates tags and binds the tags to file systems.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6428,10 +6837,12 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from a file system.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -6468,9 +6879,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from a file system.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -6480,8 +6893,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Modifies the retention period of data in the recycle bin of a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param UpdateRecycleBinAttributeRequest $request UpdateRecycleBinAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6510,8 +6925,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Only General-purpose NAS file systems support this operation.
-     *   *
+     * @summary Modifies the retention period of data in the recycle bin of a file system.
+     *  *
+     * @description Only General-purpose NAS file systems support this operation.
+     *  *
      * @param UpdateRecycleBinAttributeRequest $request UpdateRecycleBinAttributeRequest
      *
      * @return UpdateRecycleBinAttributeResponse UpdateRecycleBinAttributeResponse
@@ -6524,9 +6941,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-     *   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-     *   *
+     * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
+     *  *
+     * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+     *  *
      * @param UpgradeFileSystemRequest $request UpgradeFileSystemRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6567,9 +6986,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-     *   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-     *   *
+     * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
+     *  *
+     * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+     *  *
      * @param UpgradeFileSystemRequest $request UpgradeFileSystemRequest
      *
      * @return UpgradeFileSystemResponse UpgradeFileSystemResponse

@@ -46,6 +46,11 @@ class autoSnapshotPolicy extends Model
     public $fileSystemNums;
 
     /**
+     * @var string
+     */
+    public $fileSystemType;
+
+    /**
      * @description The region ID of the automatic snapshot policy.
      *
      * @example cn-hangzhou
@@ -69,7 +74,7 @@ class autoSnapshotPolicy extends Model
      *
      * Valid values:
      *
-     *   \-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
+     *   \\-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
      *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
      *
      * @example 30
@@ -106,6 +111,7 @@ class autoSnapshotPolicy extends Model
         'autoSnapshotPolicyName' => 'AutoSnapshotPolicyName',
         'createTime'             => 'CreateTime',
         'fileSystemNums'         => 'FileSystemNums',
+        'fileSystemType'         => 'FileSystemType',
         'regionId'               => 'RegionId',
         'repeatWeekdays'         => 'RepeatWeekdays',
         'retentionDays'          => 'RetentionDays',
@@ -131,6 +137,9 @@ class autoSnapshotPolicy extends Model
         }
         if (null !== $this->fileSystemNums) {
             $res['FileSystemNums'] = $this->fileSystemNums;
+        }
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -170,6 +179,9 @@ class autoSnapshotPolicy extends Model
         }
         if (isset($map['FileSystemNums'])) {
             $model->fileSystemNums = $map['FileSystemNums'];
+        }
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessPointResponseBody extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 70EACC9C-D07A-4A34-ADA4-77506C42****
      *
      * @var string

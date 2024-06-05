@@ -11,6 +11,7 @@ class CreateLogAnalysisRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 174494xxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateLogAnalysisRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

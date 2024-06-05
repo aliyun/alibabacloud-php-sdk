@@ -17,7 +17,7 @@ class autoRefreshs extends Model
      *   The directory must be encoded in UTF-8.
      *   The directory must start and end with a forward slash (/).
      *
-     * >  The directory must be an existing directory in the CPFS file system and must be in a fileset where the dataflow is enabled.
+     * This parameter is required.
      * @example /prefix1/prefix2/
      *
      * @var string

@@ -19,6 +19,7 @@ class tag extends Model
      *   The tag key cannot start with `aliyun` or `acs:`.
      *   The tag key cannot contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example nastest
      *
      * @var string
@@ -35,6 +36,7 @@ class tag extends Model
      *   The tag value cannot start with `aliyun` or `acs:`.
      *   The tag value cannot contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example filetest
      *
      * @var string

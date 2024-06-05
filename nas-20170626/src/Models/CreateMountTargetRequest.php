@@ -50,11 +50,11 @@ class CreateMountTargetRequest extends Model
     /**
      * @description The ID of the file system.
      *
-     *   Sample ID of a General-purpose NAS file system: 31a8e4\*\*\*\*.
-     *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\*\*\*\*.
-     *   The IDs of Cloud Parallel File Storage (CPFS) file systems must start with `cpfs-`, for example, cpfs-125487\*\*\*\*.
+     *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
+     *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
+     *   The IDs of Cloud Parallel File Storage (CPFS) file systems must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
      *
-     * > CPFS file systems are available only on the China site (aliyun.com).
+     * This parameter is required.
      * @example 174494****
      *
      * @var string
@@ -64,6 +64,7 @@ class CreateMountTargetRequest extends Model
     /**
      * @description The network type of the mount target. Valid value: **Vpc**.
      *
+     * This parameter is required.
      * @example Vpc
      *
      * @var string

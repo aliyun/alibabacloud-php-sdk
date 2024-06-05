@@ -11,6 +11,7 @@ class CancelLifecycleRetrieveJobRequest extends Model
     /**
      * @description The ID of the data retrieval task.
      *
+     * This parameter is required.
      * @example lrj-nfstest-ia-160****853-hshvw
      *
      * @var string

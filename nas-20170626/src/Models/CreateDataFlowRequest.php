@@ -55,7 +55,7 @@ class CreateDataFlowRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter but cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example Bucket01 DataFlow
      *
@@ -80,6 +80,7 @@ class CreateDataFlowRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -128,7 +129,7 @@ class CreateDataFlowRequest extends Model
      *   The name must be encoded in UTF-8.
      *   The name cannot start with `http://` or `https://`.
      *
-     * >  The OSS bucket must be an existing bucket in the region.
+     * This parameter is required.
      * @example oss://bucket1
      *
      * @var string

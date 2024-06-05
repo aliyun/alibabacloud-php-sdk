@@ -35,7 +35,7 @@ class CreateProtocolMountTargetRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter but cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @var string
      */
@@ -58,6 +58,7 @@ class CreateProtocolMountTargetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-123****
      *
      * @var string
@@ -103,6 +104,7 @@ class CreateProtocolMountTargetRequest extends Model
     /**
      * @description The ID of the protocol service.
      *
+     * This parameter is required.
      * @example ptc-123****
      *
      * @var string
@@ -112,6 +114,7 @@ class CreateProtocolMountTargetRequest extends Model
     /**
      * @description The vSwitch ID of the export directory for the protocol service.
      *
+     * This parameter is required.
      * @example vsw-123****
      *
      * @var string
@@ -121,6 +124,7 @@ class CreateProtocolMountTargetRequest extends Model
     /**
      * @description The VPC ID of the export directory for the protocol service.
      *
+     * This parameter is required.
      * @example vpc-123****
      *
      * @var string

@@ -11,6 +11,7 @@ class CreateLifecycleRetrieveJobRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateLifecycleRetrieveJobRequest extends Model
     /**
      * @description The directories or files that you want to retrieve. You can specify a maximum of 10 paths.
      *
+     * This parameter is required.
      * @example Paths.1=/pathway/doc1,Paths.2=/pathway/doc2
      *
      * @var string[]

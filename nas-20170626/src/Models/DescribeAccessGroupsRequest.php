@@ -14,7 +14,7 @@ class DescribeAccessGroupsRequest extends Model
      * Limits:
      *
      *   The name must be 3 to 64 characters in length.
-     *   The name must start with a letter and can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
      *
      * @example DEFAULT_VPC_GROUP_NAME
      *

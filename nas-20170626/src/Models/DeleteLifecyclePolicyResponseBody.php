@@ -18,12 +18,12 @@ class DeleteLifecyclePolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * Valid values:
      *
      *   true
-     *   false: The request failed.
+     *   false
      *
      * @example true
      *

@@ -21,6 +21,7 @@ class CancelDataFlowAutoRefreshRequest extends Model
     /**
      * @description The dataflow ID.
      *
+     * This parameter is required.
      * @example dfid-123456
      *
      * @var string
@@ -44,6 +45,7 @@ class CancelDataFlowAutoRefreshRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-12345678
      *
      * @var string
@@ -59,7 +61,7 @@ class CancelDataFlowAutoRefreshRequest extends Model
      *   The directory must be encoded in UTF-8.
      *   The directory must start and end with a forward slash (/).
      *
-     * >  The directory must be an existing directory in the CPFS file system and must be in a fileset where the dataflow is enabled.
+     * This parameter is required.
      * @example /prefix1/prefix2/
      *
      * @var string

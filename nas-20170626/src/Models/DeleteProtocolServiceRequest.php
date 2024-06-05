@@ -35,6 +35,7 @@ class DeleteProtocolServiceRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-123****
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteProtocolServiceRequest extends Model
     /**
      * @description The ID of the protocol service.
      *
+     * This parameter is required.
      * @example ptc-123****
      *
      * @var string

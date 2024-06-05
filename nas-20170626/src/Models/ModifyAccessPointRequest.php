@@ -16,6 +16,8 @@ class ModifyAccessPointRequest extends Model
     public $accessGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ap-ie15yd****
      *
      * @var string
@@ -37,6 +39,8 @@ class ModifyAccessPointRequest extends Model
     public $enabledRam;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1ca404****
      *
      * @var string

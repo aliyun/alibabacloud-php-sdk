@@ -11,6 +11,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the automatic snapshot policy.
      *
+     * This parameter is required.
      * @example sp-extreme-233e6****
      *
      * @var string
@@ -20,7 +21,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
     /**
      * @description The IDs of advanced Extreme NAS file systems.
      *
-     * You can specify a maximum of 100 file system IDs at a time. If you want to apply an automatic snapshot policy to multiple file systems, separate the file system IDs with commas (,).
+     * This parameter is required.
      * @example extreme-233e6****,extreme -23vbp****,extreme -23vas****
      *
      * @var string

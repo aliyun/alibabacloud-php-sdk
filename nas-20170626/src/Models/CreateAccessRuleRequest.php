@@ -11,6 +11,7 @@ class CreateAccessRuleRequest extends Model
     /**
      * @description The name of the permission group.
      *
+     * This parameter is required.
      * @example vpc-test
      *
      * @var string

@@ -12,6 +12,7 @@ class DescribeFilesetsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string

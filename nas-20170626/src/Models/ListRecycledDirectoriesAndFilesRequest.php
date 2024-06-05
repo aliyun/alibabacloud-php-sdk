@@ -11,7 +11,7 @@ class ListRecycledDirectoriesAndFilesRequest extends Model
     /**
      * @description The ID of the directory that you want to query.
      *
-     * You can call the [ListRecycleBinJobs](~~264192~~) operation to query the value of the FileId parameter.
+     * This parameter is required.
      * @example 04***08
      *
      * @var string
@@ -21,6 +21,7 @@ class ListRecycledDirectoriesAndFilesRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

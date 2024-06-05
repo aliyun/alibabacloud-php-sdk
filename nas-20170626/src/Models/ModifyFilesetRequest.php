@@ -19,6 +19,11 @@ class ModifyFilesetRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The fileset description.
      *
      * @var string
@@ -42,6 +47,7 @@ class ModifyFilesetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -51,17 +57,19 @@ class ModifyFilesetRequest extends Model
     /**
      * @description The fileset ID.
      *
+     * This parameter is required.
      * @example fset-1902718ea0ae****
      *
      * @var string
      */
     public $fsetId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'description'  => 'Description',
-        'dryRun'       => 'DryRun',
-        'fileSystemId' => 'FileSystemId',
-        'fsetId'       => 'FsetId',
+        'clientToken'        => 'ClientToken',
+        'deletionProtection' => 'DeletionProtection',
+        'description'        => 'Description',
+        'dryRun'             => 'DryRun',
+        'fileSystemId'       => 'FileSystemId',
+        'fsetId'             => 'FsetId',
     ];
 
     public function validate()
@@ -73,6 +81,9 @@ class ModifyFilesetRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -100,6 +111,9 @@ class ModifyFilesetRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -29,7 +29,7 @@ class package extends Model
     /**
      * @description The ID of the storage plan.
      *
-     * @example naspackage-@string(\"*****\", *)-@string(\"*****\", *)
+     * @example naspackage-@string(\\"*****\\", *)-@string(\\"*****\\", *)
      *
      * @var string
      */

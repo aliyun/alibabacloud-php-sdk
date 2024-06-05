@@ -34,6 +34,7 @@ class ApplyDataFlowAutoRefreshRequest extends Model
     /**
      * @description The automatic update configurations.
      *
+     * This parameter is required.
      * @var autoRefreshs[]
      */
     public $autoRefreshs;
@@ -51,6 +52,7 @@ class ApplyDataFlowAutoRefreshRequest extends Model
     /**
      * @description The dataflow ID.
      *
+     * This parameter is required.
      * @example dfid-194433a5be31****
      *
      * @var string
@@ -74,6 +76,7 @@ class ApplyDataFlowAutoRefreshRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string

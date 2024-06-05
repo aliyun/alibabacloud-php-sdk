@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDirRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 31a8e4****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDirRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateDirRequest extends Model
     public $ownerGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateDirRequest extends Model
     public $ownerUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0755
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateDirRequest extends Model
     public $recursion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

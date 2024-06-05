@@ -11,6 +11,7 @@ class DeleteLifecyclePolicyRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteLifecyclePolicyRequest extends Model
     /**
      * @description The name of the lifecycle policy.
      *
+     * This parameter is required.
      * @example lifecyclepolicy1
      *
      * @var string

@@ -42,6 +42,11 @@ class snapshot extends Model
     public $encryptType;
 
     /**
+     * @var string
+     */
+    public $fileSystemType;
+
+    /**
      * @description The progress of the snapshot creation. The value of this parameter is expressed as a percentage.
      *
      * @example 100
@@ -65,7 +70,7 @@ class snapshot extends Model
      *
      * Valid values:
      *
-     *   \-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
+     *   \\-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
      *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
      *
      * @example 30
@@ -92,6 +97,11 @@ class snapshot extends Model
      * @var string
      */
     public $snapshotName;
+
+    /**
+     * @var string
+     */
+    public $snapshotType;
 
     /**
      * @description The ID of the source file system.
@@ -140,11 +150,13 @@ class snapshot extends Model
         'createTime'              => 'CreateTime',
         'description'             => 'Description',
         'encryptType'             => 'EncryptType',
+        'fileSystemType'          => 'FileSystemType',
         'progress'                => 'Progress',
         'remainTime'              => 'RemainTime',
         'retentionDays'           => 'RetentionDays',
         'snapshotId'              => 'SnapshotId',
         'snapshotName'            => 'SnapshotName',
+        'snapshotType'            => 'SnapshotType',
         'sourceFileSystemId'      => 'SourceFileSystemId',
         'sourceFileSystemSize'    => 'SourceFileSystemSize',
         'sourceFileSystemVersion' => 'SourceFileSystemVersion',
@@ -167,6 +179,9 @@ class snapshot extends Model
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
         }
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -181,6 +196,9 @@ class snapshot extends Model
         }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
+        }
+        if (null !== $this->snapshotType) {
+            $res['SnapshotType'] = $this->snapshotType;
         }
         if (null !== $this->sourceFileSystemId) {
             $res['SourceFileSystemId'] = $this->sourceFileSystemId;
@@ -215,6 +233,9 @@ class snapshot extends Model
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
         }
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -229,6 +250,9 @@ class snapshot extends Model
         }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
+        }
+        if (isset($map['SnapshotType'])) {
+            $model->snapshotType = $map['SnapshotType'];
         }
         if (isset($map['SourceFileSystemId'])) {
             $model->sourceFileSystemId = $map['SourceFileSystemId'];

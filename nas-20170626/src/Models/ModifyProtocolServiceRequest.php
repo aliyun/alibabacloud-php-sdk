@@ -25,7 +25,7 @@ class ModifyProtocolServiceRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter and cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example The description of the protocol service.
      *
@@ -50,6 +50,7 @@ class ModifyProtocolServiceRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-123****
      *
      * @var string
@@ -59,6 +60,7 @@ class ModifyProtocolServiceRequest extends Model
     /**
      * @description The ID of the protocol service.
      *
+     * This parameter is required.
      * @example ptc-123****
      *
      * @var string

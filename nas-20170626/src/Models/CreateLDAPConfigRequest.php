@@ -20,6 +20,7 @@ class CreateLDAPConfigRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 109c04****
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateLDAPConfigRequest extends Model
     /**
      * @description An LDAP search base.
      *
+     * This parameter is required.
      * @example dc=example
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateLDAPConfigRequest extends Model
     /**
      * @description An LDAP URI.
      *
+     * This parameter is required.
      * @example ldap://ldap.example.example
      *
      * @var string

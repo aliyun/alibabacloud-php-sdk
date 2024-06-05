@@ -35,6 +35,7 @@ class ModifySmbAclRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string
@@ -44,12 +45,12 @@ class ModifySmbAclRequest extends Model
     /**
      * @description The home directory of each user. Each user-specific home directory must meet the following requirements:
      *
-     *   Each segment starts with a forward slash (/) or a backward slash (\\).
+     *   Each segment starts with a forward slash (/) or a backward slash (\\\\).
      *   Each segment does not contain the following special characters: `<>":|?*`.
      *   Each segment is 0 to 255 characters in length.
      *   The total length is 0 to 32,767 characters.
      *
-     * > User A must have the permissions to create folders in the \home directory. Otherwise, the file system cannot create the `/home/A` directory when User A logs on to the file system.
+     * > User A must have the permissions to create folders in the \\home directory. Otherwise, the file system cannot create the `/home/A` directory when User A logs on to the file system.
      * @example /home
      *
      * @var string

@@ -20,6 +20,7 @@ class DescribeBlackListClientsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-123458****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeBlackListClientsRequest extends Model
     /**
      * @description The ID of the region where the file system resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

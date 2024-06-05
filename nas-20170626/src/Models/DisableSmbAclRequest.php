@@ -11,6 +11,7 @@ class DisableSmbAclRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

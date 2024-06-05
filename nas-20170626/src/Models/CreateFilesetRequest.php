@@ -19,11 +19,16 @@ class CreateFilesetRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The description of the fileset.
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter but cannot start with http:// or https://.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @var string
      */
@@ -46,6 +51,7 @@ class CreateFilesetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -59,17 +65,19 @@ class CreateFilesetRequest extends Model
      *   The path must be 2 to 1,024 characters in length.
      *   The path must start and end with a forward slash (/).
      *
+     * This parameter is required.
      * @example /test/
      *
      * @var string
      */
     public $fileSystemPath;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'description'    => 'Description',
-        'dryRun'         => 'DryRun',
-        'fileSystemId'   => 'FileSystemId',
-        'fileSystemPath' => 'FileSystemPath',
+        'clientToken'        => 'ClientToken',
+        'deletionProtection' => 'DeletionProtection',
+        'description'        => 'Description',
+        'dryRun'             => 'DryRun',
+        'fileSystemId'       => 'FileSystemId',
+        'fileSystemPath'     => 'FileSystemPath',
     ];
 
     public function validate()
@@ -81,6 +89,9 @@ class CreateFilesetRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -108,6 +119,9 @@ class CreateFilesetRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -54,6 +54,11 @@ class userQuotaInfos extends Model
     public $sizeReal;
 
     /**
+     * @var int
+     */
+    public $sizeRealInByte;
+
+    /**
      * @description The ID of the user that you specify to create a quota for the directory. The value depends on the value of the UserType parameter. Valid values: Uid and Gid.
      *
      * @example 500
@@ -79,6 +84,7 @@ class userQuotaInfos extends Model
         'quotaType'      => 'QuotaType',
         'sizeLimit'      => 'SizeLimit',
         'sizeReal'       => 'SizeReal',
+        'sizeRealInByte' => 'SizeRealInByte',
         'userId'         => 'UserId',
         'userType'       => 'UserType',
     ];
@@ -104,6 +110,9 @@ class userQuotaInfos extends Model
         }
         if (null !== $this->sizeReal) {
             $res['SizeReal'] = $this->sizeReal;
+        }
+        if (null !== $this->sizeRealInByte) {
+            $res['SizeRealInByte'] = $this->sizeRealInByte;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -137,6 +146,9 @@ class userQuotaInfos extends Model
         }
         if (isset($map['SizeReal'])) {
             $model->sizeReal = $map['SizeReal'];
+        }
+        if (isset($map['SizeRealInByte'])) {
+            $model->sizeRealInByte = $map['SizeRealInByte'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

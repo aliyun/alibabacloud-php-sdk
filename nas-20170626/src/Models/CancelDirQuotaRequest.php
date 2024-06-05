@@ -11,6 +11,7 @@ class CancelDirQuotaRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string
@@ -20,6 +21,7 @@ class CancelDirQuotaRequest extends Model
     /**
      * @description The absolute path of a directory.
      *
+     * This parameter is required.
      * @example /data/sub1
      *
      * @var string
@@ -49,6 +51,7 @@ class CancelDirQuotaRequest extends Model
      *   Gid: user group ID
      *   AllUsers: all users
      *
+     * This parameter is required.
      * @example Uid
      *
      * @var string

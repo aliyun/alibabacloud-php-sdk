@@ -11,6 +11,7 @@ class CancelRecycleBinJobRequest extends Model
     /**
      * @description The job ID.
      *
+     * This parameter is required.
      * @example rb-15****ed-r-1625****2441
      *
      * @var string

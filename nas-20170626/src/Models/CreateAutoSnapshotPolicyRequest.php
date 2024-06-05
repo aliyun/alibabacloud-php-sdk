@@ -15,7 +15,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
      *
      *   The name must be 2 to 128 characters in length.
      *   The name must start with a letter.
-     *   The name can contain digits, colons (:), underscores (\_), and hyphens (-). It cannot start with `http://` or `https://`.
+     *   The name can contain digits, colons (:), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
      *   This parameter is empty by default.
      *
      * @example FinanceJoshua
@@ -27,7 +27,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The type of the file system.
      *
-     * Valid value: extreme, which indicates Extreme NAS file systems.
+     * This parameter is required.
      * @example extreme
      *
      * @var string
@@ -37,7 +37,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The days of a week on which to create automatic snapshots.
      *
-     * If you want to create multiple auto snapshots within a week, you can specify multiple days from Monday to Sunday and separate the days with commas (,). You can specify a maximum of seven days.
+     * This parameter is required.
      * @example 1,2,3
      *
      * @var string
@@ -49,7 +49,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
      *
      * Valid values:
      *
-     *   \-1 (default). Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
+     *   \\-1 (default). Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
      *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
      *
      * @example 30
@@ -61,7 +61,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The points in time at which auto snapshots were created.
      *
-     * If you want to create multiple auto snapshots within a day, you can specify multiple points in time and separate the points in time with commas (,). You can specify a maximum of 24 points in time.
+     * This parameter is required.
      * @example 0,1,…23
      *
      * @var string

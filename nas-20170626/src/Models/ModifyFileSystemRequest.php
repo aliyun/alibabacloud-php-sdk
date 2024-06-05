@@ -15,7 +15,7 @@ class ModifyFileSystemRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   It must start with a letter but cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example NAS-test-1
      *
@@ -29,7 +29,7 @@ class ModifyFileSystemRequest extends Model
      *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
      *   The IDs of Extreme NAS file systems must start with `extreme-`. Example: `extreme-0015****`.
      *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
-     * >CPFS file systems are available only on the China site (aliyun.com).
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string

@@ -19,6 +19,11 @@ class entrie extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The fileset description.
      *
      * @var string
@@ -67,12 +72,13 @@ class entrie extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'fileSystemPath' => 'FileSystemPath',
-        'fsetId'         => 'FsetId',
-        'status'         => 'Status',
-        'updateTime'     => 'UpdateTime',
+        'createTime'         => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
+        'description'        => 'Description',
+        'fileSystemPath'     => 'FileSystemPath',
+        'fsetId'             => 'FsetId',
+        'status'             => 'Status',
+        'updateTime'         => 'UpdateTime',
     ];
 
     public function validate()
@@ -84,6 +90,9 @@ class entrie extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -114,6 +123,9 @@ class entrie extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

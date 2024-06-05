@@ -12,6 +12,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 0addcw****
      *
      * @var string
@@ -19,6 +20,8 @@ class RemoveTagsRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;

@@ -11,6 +11,7 @@ class DeleteLDAPConfigRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404a348
      *
      * @var string

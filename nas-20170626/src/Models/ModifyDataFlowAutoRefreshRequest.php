@@ -30,6 +30,8 @@ class ModifyDataFlowAutoRefreshRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dataFlowId;
@@ -42,6 +44,8 @@ class ModifyDataFlowAutoRefreshRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileSystemId;

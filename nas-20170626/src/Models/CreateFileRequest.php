@@ -11,6 +11,7 @@ class CreateFileRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string
@@ -43,6 +44,7 @@ class CreateFileRequest extends Model
     /**
      * @description The absolute path of the directory or file. The path must start and end with a forward slash (/) and must be 2 to 1024 characters in length.
      *
+     * This parameter is required.
      * @example /test/
      *
      * @var string
@@ -55,6 +57,7 @@ class CreateFileRequest extends Model
      *   File
      *   Directory
      *
+     * This parameter is required.
      * @example File
      *
      * @var string

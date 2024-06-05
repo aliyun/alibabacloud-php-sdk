@@ -11,6 +11,7 @@ class DescribeNfsAclRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 206614xxxx
      *
      * @var string

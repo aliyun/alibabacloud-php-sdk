@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ap-ie15yd****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAccessPointRequest extends Model
     public $accessPointId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 31a8e4****
      *
      * @var string

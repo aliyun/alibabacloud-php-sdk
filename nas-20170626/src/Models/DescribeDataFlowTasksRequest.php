@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataFlowTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cpfs-099394bd928c****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveClientFromBlackListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 192.168.0.0
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveClientFromBlackListRequest extends Model
     public $clientIP;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -23,6 +27,8 @@ class RemoveClientFromBlackListRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cpfs-00d91ca404a348****
      *
      * @var string
@@ -32,6 +38,7 @@ class RemoveClientFromBlackListRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

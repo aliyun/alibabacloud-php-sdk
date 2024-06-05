@@ -22,6 +22,8 @@ class DescribeAccessPointsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6299428C-3861-435D-AE54-9B330A00****
      *
      * @var string

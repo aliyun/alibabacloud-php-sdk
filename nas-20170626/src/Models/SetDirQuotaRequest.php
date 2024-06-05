@@ -21,6 +21,7 @@ class SetDirQuotaRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string
@@ -30,6 +31,7 @@ class SetDirQuotaRequest extends Model
     /**
      * @description The absolute path of a directory.
      *
+     * This parameter is required.
      * @example /data/sub1
      *
      * @var string
@@ -44,6 +46,7 @@ class SetDirQuotaRequest extends Model
      *   Accounting: a statistical quota. If you set this parameter to Accounting, NAS calculates only the storage usage of the directory.
      *   Enforcement: a restricted quota. If you set this parameter to Enforcement and the storage usage exceeds the quota, you can no longer create files or subdirectories for the directory, or write data to the directory.
      *
+     * This parameter is required.
      * @example Accounting
      *
      * @var string
@@ -83,6 +86,7 @@ class SetDirQuotaRequest extends Model
      *   Gid: user group ID
      *   AllUsers: all users
      *
+     * This parameter is required.
      * @example Uid
      *
      * @var string

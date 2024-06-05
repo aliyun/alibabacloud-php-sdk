@@ -25,7 +25,7 @@ class ModifyProtocolMountTargetRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter but cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @var string
      */
@@ -48,6 +48,7 @@ class ModifyProtocolMountTargetRequest extends Model
     /**
      * @description The ID of the export directory for the protocol service.
      *
+     * This parameter is required.
      * @example exp-19abf5beab8d****
      *
      * @var string
@@ -57,6 +58,7 @@ class ModifyProtocolMountTargetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -66,6 +68,7 @@ class ModifyProtocolMountTargetRequest extends Model
     /**
      * @description The ID of the protocol service.
      *
+     * This parameter is required.
      * @example ptc-197ed6a00f2b****
      *
      * @var string

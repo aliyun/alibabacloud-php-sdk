@@ -23,6 +23,7 @@ class DescribeMountedClientsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 109c****66
      *
      * @var string
@@ -32,6 +33,7 @@ class DescribeMountedClientsRequest extends Model
     /**
      * @description The domain name of the mount target.
      *
+     * This parameter is required.
      * @example 1111222****95.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -61,6 +63,7 @@ class DescribeMountedClientsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

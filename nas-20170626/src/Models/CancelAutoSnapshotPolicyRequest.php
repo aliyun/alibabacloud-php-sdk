@@ -11,7 +11,7 @@ class CancelAutoSnapshotPolicyRequest extends Model
     /**
      * @description The IDs of file systems.
      *
-     * You can specify a maximum of 100 file system IDs. If you want to remove automatic snapshot policies from multiple file systems, separate the file system IDs with commas (,).
+     * This parameter is required.
      * @example extreme-233e6****,extreme-23vbp****,extreme-23vas****
      *
      * @var string

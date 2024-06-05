@@ -11,7 +11,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the automatic snapshot policy.
      *
-     * You can call the [DescribeAutoSnapshotPolicies](~~126583~~) operation to view available automatic snapshot policies.
+     * This parameter is required.
      * @example sp-extreme-233e6****
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteSnapshotRequest extends Model
     /**
      * @description The snapshot ID.
      *
+     * This parameter is required.
      * @example s-extreme-snapsho****
      *
      * @var string

@@ -31,7 +31,7 @@ class DescribeAutoSnapshotTasksRequest extends Model
     /**
      * @description The type of the file system.
      *
-     * Valid value: extreme, which indicates Extreme NAS file systems.
+     * This parameter is required.
      * @example extreme
      *
      * @var string

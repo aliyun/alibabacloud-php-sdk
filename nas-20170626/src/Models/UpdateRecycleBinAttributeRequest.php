@@ -11,6 +11,7 @@ class UpdateRecycleBinAttributeRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 1ca404****
      *
      * @var string
@@ -20,7 +21,7 @@ class UpdateRecycleBinAttributeRequest extends Model
     /**
      * @description The retention period of the files in the recycle bin. Unit: days.
      *
-     * Default value: 3.
+     * This parameter is required.
      * @example 3
      *
      * @var int

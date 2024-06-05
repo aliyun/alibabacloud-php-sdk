@@ -11,6 +11,7 @@ class EnableNfsAclRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 43f264xxxx
      *
      * @var string

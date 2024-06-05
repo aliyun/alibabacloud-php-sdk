@@ -35,6 +35,7 @@ class DeleteFilesetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteFilesetRequest extends Model
     /**
      * @description The fileset ID.
      *
+     * This parameter is required.
      * @example fset-1902718ea0ae****
      *
      * @var string

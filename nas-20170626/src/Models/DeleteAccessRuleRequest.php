@@ -11,6 +11,7 @@ class DeleteAccessRuleRequest extends Model
     /**
      * @description The name of the permission group.
      *
+     * This parameter is required.
      * @example vpc-test
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteAccessRuleRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

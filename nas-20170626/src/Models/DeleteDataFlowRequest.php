@@ -21,6 +21,7 @@ class DeleteDataFlowRequest extends Model
     /**
      * @description The dataflow ID.
      *
+     * This parameter is required.
      * @example dfid-123456
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteDataFlowRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-12345678
      *
      * @var string

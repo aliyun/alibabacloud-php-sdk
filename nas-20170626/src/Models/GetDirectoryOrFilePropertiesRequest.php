@@ -11,6 +11,7 @@ class GetDirectoryOrFilePropertiesRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
@@ -20,7 +21,7 @@ class GetDirectoryOrFilePropertiesRequest extends Model
     /**
      * @description The absolute path of the directory.
      *
-     * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+     * This parameter is required.
      * @example /pathway/to/folder
      *
      * @var string

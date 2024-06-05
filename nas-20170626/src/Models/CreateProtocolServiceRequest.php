@@ -25,7 +25,7 @@ class CreateProtocolServiceRequest extends Model
      *
      *   The description must be 2 to 128 characters in length.
      *   The description must start with a letter and cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @var string
      */
@@ -48,6 +48,7 @@ class CreateProtocolServiceRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example cpfs-123****
      *
      * @var string
@@ -63,6 +64,7 @@ class CreateProtocolServiceRequest extends Model
      *   General
      *   CL1
      *
+     * This parameter is required.
      * @example General
      *
      * @var string
@@ -72,7 +74,7 @@ class CreateProtocolServiceRequest extends Model
     /**
      * @description The protocol type of the protocol service.
      *
-     * Valid value: NFS (default). Only NFSv3 is supported.
+     * This parameter is required.
      * @example NFS
      *
      * @var string
@@ -92,6 +94,7 @@ class CreateProtocolServiceRequest extends Model
     /**
      * @description The vSwitch ID of the protocol service.
      *
+     * This parameter is required.
      * @example vsw-123****
      *
      * @var string
@@ -101,6 +104,7 @@ class CreateProtocolServiceRequest extends Model
     /**
      * @description The virtual private cloud (VPC) ID of the protocol service. The VPC ID of the protocol service must be the same as the VPC ID of the file system.
      *
+     * This parameter is required.
      * @example vpc-123****
      *
      * @var string

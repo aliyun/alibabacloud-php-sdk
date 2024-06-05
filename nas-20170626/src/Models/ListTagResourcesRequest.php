@@ -28,6 +28,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to filesystem.
      *
+     * This parameter is required.
      * @example filesystem
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeSmbAclRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example 31a8e4****
      *
      * @var string
