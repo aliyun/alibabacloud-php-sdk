@@ -986,7 +986,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+     * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
      *  *
      * @param GetLindormInstanceRequest $request GetLindormInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1034,7 +1034,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+     * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
      *  *
      * @param GetLindormInstanceRequest $request GetLindormInstanceRequest
      *
@@ -1249,7 +1249,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags associated with the specified Lindorm instances.
+     * @summary Queries the tags associated with the specified Lindorm instance.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1309,7 +1309,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags associated with the specified Lindorm instances.
+     * @summary Queries the tags associated with the specified Lindorm instance.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -1730,7 +1730,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Enables and disables the MySQL compatibility feature.
+     * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
      *  *
      * @description Prerequisites
      * *   The LindormTable version of your instance is 2.6.0 or later.
@@ -1786,7 +1786,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Enables and disables the MySQL compatibility feature.
+     * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
      *  *
      * @description Prerequisites
      * *   The LindormTable version of your instance is 2.6.0 or later.
@@ -1876,7 +1876,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+     * @summary Removes tags from a Lindorm instance.
+     *  *
+     * @description If a tag is not added to any Lindorm instance, it is deleted.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1933,7 +1935,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+     * @summary Removes tags from a Lindorm instance.
+     *  *
+     * @description If a tag is not added to any Lindorm instance, it is deleted.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *

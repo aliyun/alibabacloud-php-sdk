@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class engineList extends Model
 {
     /**
+     * @description The number of engine nodes.
+     *
      * @example 2
      *
      * @var string
@@ -16,6 +18,8 @@ class engineList extends Model
     public $coreCount;
 
     /**
+     * @description The number of CPU cores on the engine node.
+     *
      * @example 4
      *
      * @var string
@@ -23,6 +27,15 @@ class engineList extends Model
     public $cpuCount;
 
     /**
+     * @description The engine type. Valid values:
+     *
+     *   **lindorm**: LindormTable.
+     *   **tsdb**: LindormTSDB.
+     *   **solr**: LindormSearch.
+     *   **store**: LindormDFS.
+     *   **bds** :Lindorm Tunnel Service (LTS).
+     *   **compute**: Lindorm Distributed Processing System (LDPS).
+     *
      * @example lindorm
      *
      * @var string
@@ -30,6 +43,11 @@ class engineList extends Model
     public $engine;
 
     /**
+     * @description Indicates whether the version of the engine is the latest. Valid values:
+     *
+     *   **true**: The version of the engine is the latest.
+     *   **false**: The version of the engine is not the latest.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +55,8 @@ class engineList extends Model
     public $isLastVersion;
 
     /**
+     * @description The latest version number of the engine.
+     *
      * @example 2.2.19.2
      *
      * @var string
@@ -44,6 +64,8 @@ class engineList extends Model
     public $latestVersion;
 
     /**
+     * @description The memory size of the engine nodes
+     *
      * @example 8GB
      *
      * @var string
@@ -51,6 +73,8 @@ class engineList extends Model
     public $memorySize;
 
     /**
+     * @description The version of the engine.
+     *
      * @example 2.2.3
      *
      * @var string

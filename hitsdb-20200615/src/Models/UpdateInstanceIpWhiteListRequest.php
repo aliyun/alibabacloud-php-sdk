@@ -18,6 +18,8 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public $delete;
 
     /**
+     * @description The name of the IP whitelist. Default value: user.
+     *
      * @example test_group
      *
      * @var string

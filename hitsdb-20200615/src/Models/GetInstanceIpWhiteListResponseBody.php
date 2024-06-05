@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceIpWhiteListResponseBody extends Model
 {
     /**
+     * @description The details about the IP address whitelists.
+     *
      * @var groupList[]
      */
     public $groupList;

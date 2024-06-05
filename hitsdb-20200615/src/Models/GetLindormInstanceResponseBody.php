@@ -31,10 +31,11 @@ class GetLindormInstanceResponseBody extends Model
     public $arbiterZoneId;
 
     /**
-     * @description 部署架构，取值：
+     * @description The architecture of the instance. Valid values:
      *
-     * - **1.0**：单可用区。
-     * - **2.0**：多可用区。
+     *   **1.0**: The instance is deployed in a single zone.
+     *   **2.0**: The instance is deployed across multiple zones.
+     *
      * @example 1.0
      *
      * @var string
@@ -147,6 +148,9 @@ class GetLindormInstanceResponseBody extends Model
     public $diskUsage;
 
     /**
+     * @description Indicates whether LBlob is enabled for the instance. Valid values:
+     *
+     * true: LBlob is enabled for the instance. false: LBlob is not enabled for the instance.
      * @example true
      *
      * @var bool
@@ -175,10 +179,16 @@ class GetLindormInstanceResponseBody extends Model
     public $enableKms;
 
     /**
-     * @description 实例是否开通LTS引擎，返回值：
+     * @var bool
+     */
+    public $enableLProxy;
+
+    /**
+     * @description Indicates whether the LTS engine is activated for the instance. Valid values:
      *
-     * - **true**：开通LTS引擎。
-     * - **false**：未开通LTS引擎。
+     *   **true**: The LTS engine is activated for the instance.
+     *   **false**: The LTS engine is not activated for the instance.
+     *
      * @example true
      *
      * @var bool
@@ -186,11 +196,25 @@ class GetLindormInstanceResponseBody extends Model
     public $enableLTS;
 
     /**
+     * @description Indicates whether LindormTable of the instance supports LindormSQL V3 that is compatible with MySQL. By default, LindormTable of instances that are purchased after October 24, 2023 supports LindormSQL V3. If your instance is purchased before this date and want to enable LindormSQL V3, contact the technical support.
+     *
+     *   True: LindormTable supports LindormSQL V3.
+     *   False: LindormTable does not support LindormSQL V3.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $enableLsqlVersionV3;
 
     /**
+     * @description Indicates whether AI control nodes are enabled for the instance.
+     *
+     *   True: AI control nodes are enabled for the instance.
+     *   False: AI control nodes are not enabled for the instance.
+     *
+     * @example False
+     *
      * @var bool
      */
     public $enableMLCtrl;
@@ -464,6 +488,7 @@ class GetLindormInstanceResponseBody extends Model
         'enableCdc'            => 'EnableCdc',
         'enableCompute'        => 'EnableCompute',
         'enableKms'            => 'EnableKms',
+        'enableLProxy'         => 'EnableLProxy',
         'enableLTS'            => 'EnableLTS',
         'enableLsqlVersionV3'  => 'EnableLsqlVersionV3',
         'enableMLCtrl'         => 'EnableMLCtrl',
@@ -566,6 +591,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->enableKms) {
             $res['EnableKms'] = $this->enableKms;
+        }
+        if (null !== $this->enableLProxy) {
+            $res['EnableLProxy'] = $this->enableLProxy;
         }
         if (null !== $this->enableLTS) {
             $res['EnableLTS'] = $this->enableLTS;
@@ -746,6 +774,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['EnableKms'])) {
             $model->enableKms = $map['EnableKms'];
+        }
+        if (isset($map['EnableLProxy'])) {
+            $model->enableLProxy = $map['EnableLProxy'];
         }
         if (isset($map['EnableLTS'])) {
             $model->enableLTS = $map['EnableLTS'];

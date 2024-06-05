@@ -40,11 +40,28 @@ class CreateLindormInstanceRequest extends Model
     public $archVersion;
 
     /**
+     * @description The auto-renewal duration. Unit: month.
+     *
+     * Valid values: **1** to **12**.
+     *
+     * >  This parameter is available only when the **AutoRenewal** parameter is set to **true**.
+     * @example 1
+     *
      * @var string
      */
     public $autoRenewDuration;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     *
+     *   **true**: enables auto-renewal.
+     *   **false**: disables auto-renewal.
+     *
+     * Default value: false.
+     *
+     * >  This parameter is available only when the **PayType** parameter is set to **PREPAY**.
+     * @example false
+     *
      * @var bool
      */
     public $autoRenewal;
