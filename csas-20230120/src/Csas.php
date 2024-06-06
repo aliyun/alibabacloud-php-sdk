@@ -117,6 +117,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserRequest;
@@ -2819,6 +2821,56 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 吊销用户登录会话
+     *  *
+     * @param RevokeUserSessionRequest $request RevokeUserSessionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeUserSessionResponse RevokeUserSessionResponse
+     */
+    public function revokeUserSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->externalIds)) {
+            $query['ExternalIds'] = $request->externalIds;
+        }
+        if (!Utils::isUnset($request->idpId)) {
+            $query['IdpId'] = $request->idpId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeUserSession',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeUserSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 吊销用户登录会话
+     *  *
+     * @param RevokeUserSessionRequest $request RevokeUserSessionRequest
+     *
+     * @return RevokeUserSessionResponse RevokeUserSessionResponse
+     */
+    public function revokeUserSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeUserSessionWithOptions($request, $runtime);
     }
 
     /**
