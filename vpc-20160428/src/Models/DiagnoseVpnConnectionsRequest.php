@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseVpnConnectionsRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DiagnoseVpnConnectionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -23,8 +27,9 @@ class DiagnoseVpnConnectionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the IPsec-VPN connection.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -37,16 +42,22 @@ class DiagnoseVpnConnectionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of tunnel IDs.
+     *
      * @var string[]
      */
     public $tunnelIds;
 
     /**
+     * @description The IDs of IPsec-VPN connections.
+     *
      * @var string[]
      */
     public $vpnConnectionIds;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp10hz6b0mbp39flt****
      *
      * @var string

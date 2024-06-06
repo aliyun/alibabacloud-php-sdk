@@ -70,6 +70,8 @@ class ModifySslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @example app_my6g4qmvnwxzj2f****
+     *
      * @var string
      */
     public $IDaaSApplicationId;

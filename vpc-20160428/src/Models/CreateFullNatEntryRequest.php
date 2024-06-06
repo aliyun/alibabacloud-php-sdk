@@ -107,7 +107,6 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @description The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
      *
-     * This parameter is required.
      * @example 80
      *
      * @var string

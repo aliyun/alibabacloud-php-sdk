@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteEntryRequest extends Model
 {
     /**
-     * @description The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
+     * @description The destination CIDR block of the route. Only IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported.
      *
      * @example 47.100.XX.XX/16
      *

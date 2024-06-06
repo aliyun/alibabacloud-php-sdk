@@ -19,7 +19,7 @@ class customerGateway extends Model
     public $asn;
 
     /**
-     * @description The authentication key of the Border Gateway Protocol (BGP) routing protocol for the gateway device in the data center.
+     * @description The authentication key that is used to connect to the gateway device in the data center by using Border Gateway Protocol (BGP).
      *
      * @example AuthKey****
      *
@@ -28,9 +28,9 @@ class customerGateway extends Model
     public $authKey;
 
     /**
-     * @description The timestamp generated when the customer gateway was created. Unit: millisecond.
+     * @description The time when the customer gateway was created. Unit: millisecond.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -38,7 +38,7 @@ class customerGateway extends Model
     public $createTime;
 
     /**
-     * @description The ID of the customer gateway.
+     * @description The customer gateway ID.
      *
      * @example cgw-bp1pvpl9r9adju6l5****
      *
@@ -56,7 +56,7 @@ class customerGateway extends Model
     public $description;
 
     /**
-     * @description The public IP address of the gateway device in the data center.
+     * @description The IP address of the gateway device in the data center.
      *
      * @example 139.32.XX.XX
      *
@@ -76,7 +76,7 @@ class customerGateway extends Model
     /**
      * @description The ID of the resource group to which the customer gateway belongs.
      *
-     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -84,7 +84,7 @@ class customerGateway extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags added to the customer gateway.
+     * @description The tags that are added to the customer gateway.
      *
      * @var tags
      */

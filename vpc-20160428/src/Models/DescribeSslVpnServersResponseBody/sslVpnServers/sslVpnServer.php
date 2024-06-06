@@ -48,7 +48,7 @@ class sslVpnServer extends Model
     public $connections;
 
     /**
-     * @description The timestamp generated when the SSL server was created.
+     * @description The timestamp generated when the SSL-VPN server was created.
      *
      * @example 1613800884000
      *
@@ -69,6 +69,8 @@ class sslVpnServer extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @example app_my6g4qmvnwxzj2f****
+     *
      * @var string
      */
     public $IDaaSApplicationId;
@@ -83,12 +85,14 @@ class sslVpnServer extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @example EIAM 2.0
+     *
      * @var string
      */
     public $IDaaSInstanceVersion;
 
     /**
-     * @description The ID of the region where the IDaaS instance is created.
+     * @description The region ID of the IDaaS instance.
      *
      * @example cn-hangzhou
      *
@@ -124,7 +128,7 @@ class sslVpnServer extends Model
     public $maxConnections;
 
     /**
-     * @description The name of the SSL server.
+     * @description The name of the SSL-VPN server.
      *
      * @example test
      *
@@ -133,7 +137,7 @@ class sslVpnServer extends Model
     public $name;
 
     /**
-     * @description The port that is used by the SSL server.
+     * @description The port that is used by the SSL-VPN server.
      *
      * @example 1194
      *
@@ -142,7 +146,7 @@ class sslVpnServer extends Model
     public $port;
 
     /**
-     * @description The protocol that is used by the SSL server.
+     * @description The protocol that is used by the SSL-VPN server.
      *
      * @example UDP
      *
@@ -151,7 +155,7 @@ class sslVpnServer extends Model
     public $proto;
 
     /**
-     * @description The ID of the region where the SSL server is created.
+     * @description The region ID of the SSL-VPN server.
      *
      * @example cn-hangzhou
      *
@@ -160,9 +164,9 @@ class sslVpnServer extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the SSL server belongs.
+     * @description The resource group ID of the SSL-VPN server.
      *
-     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string
@@ -170,7 +174,7 @@ class sslVpnServer extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the SSL server.
+     * @description The ID of the SSL-VPN server.
      *
      * @example vss-bp15j3du13gq1dgey****
      *

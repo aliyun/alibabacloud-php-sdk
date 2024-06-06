@@ -46,7 +46,7 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The information about VPN gateways.
+     * @description The VPN gateways.
      *
      * @var vpnGateways
      */

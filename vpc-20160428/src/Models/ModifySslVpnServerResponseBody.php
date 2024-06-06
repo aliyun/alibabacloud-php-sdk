@@ -66,6 +66,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @example app_my6g4qmvnwxzj2f****
+     *
      * @var string
      */
     public $IDaaSApplicationId;
@@ -80,6 +82,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @example EIAM 2.0
+     *
      * @var string
      */
     public $IDaaSInstanceVersion;

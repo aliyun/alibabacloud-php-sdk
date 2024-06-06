@@ -94,7 +94,7 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @description The ID of the resource group to which the SSL client certificate belongs.
      *
-     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+     * The SSL client certificate and the SSL server associated with the SSL client certificate belong to the same resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string

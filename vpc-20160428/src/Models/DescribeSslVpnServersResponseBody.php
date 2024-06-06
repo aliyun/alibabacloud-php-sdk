@@ -37,7 +37,7 @@ class DescribeSslVpnServersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The detailed information about the SSL servers.
+     * @description The detailed information about the SSL-VPN server.
      *
      * @var sslVpnServers
      */

@@ -21,7 +21,7 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $clientToken;
 
     /**
-     * @description The new weight that you want to set for the destination-based route. Valid values:
+     * @description The new weight of the destination-based route. Valid values:
      *
      *   **0**: a low priority
      *   **100**: a high priority
@@ -103,7 +103,7 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $vpnGatewayId;
 
     /**
-     * @description The previous weight of the destination-based route. Valid values:
+     * @description The original weight of the destination-based route. Valid values:
      *
      *   **0**: a low priority
      *   **100**: a high priority

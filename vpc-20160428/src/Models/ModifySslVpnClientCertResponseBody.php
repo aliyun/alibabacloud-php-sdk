@@ -18,7 +18,7 @@ class ModifySslVpnClientCertResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 606998F0-B94D-48FE-8316-ACA81BB230DA
      *
@@ -27,7 +27,7 @@ class ModifySslVpnClientCertResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the SSL-VPN client certificate.
+     * @description The ID of the SSL client certificate.
      *
      * @example vsc-bp1n8wcf134yl0osr****
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionLogsRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. The value must be a UNIX timestamp. For example, 1671003744 specifies 15:42:24 (UTC+8) on December 14, 2022.
+     * @description The start time of the flow log. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  If you specify **From**, you must also specify **To** or **MinutePeriod**.
+     * >  If you specify **From**, you must specify **To** or **MinutePeriod**.
      * @example 1671003744
      *
      * @var int
@@ -19,9 +19,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $from;
 
     /**
-     * @description The interval at which log data is queried. Valid values: **1** to **10**. Unit: minutes.
+     * @description The interval at which log data is collected. Valid values: **1** to **10**. Unit: minutes.
      *
-     * >  If both **From** and **To** are not specified, you must specify **MinutePeriod**.
+     * >  If you do not specify **From** and **To**, you must specify **MinutePeriod**.
      * @example 10
      *
      * @var int
@@ -39,7 +39,7 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -48,7 +48,7 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     * @description The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -57,7 +57,7 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     * @description The region ID of the IPsec-VPN connection.
      *
      * This parameter is required.
      * @example eu-central-1
@@ -77,9 +77,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The end of the time range to query. The value must be a UNIX timestamp. For example, 1671004344 specifies 15:52:24 (UTC+8) on December 14, 2022.
+     * @description The end time of the flow log. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  If you specify **To**, you must also specify **From** or **MinutePeriod**.
+     * >  If you specify **To**, you must specify **From** or **MinutePeriod**.
      * @example 1671004344
      *
      * @var int
@@ -87,8 +87,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $to;
 
     /**
-     * @description The tunnel ID of the IPsec-VPN connection. You can specify this parameter only for IPsec-VPN connections in dual-tunnel mode.
+     * @description The ID of the IPsec-VPN connection.
      *
+     * This parameter is available only for a dual-tunnel IPsec-VPN connection.
      * @example tun-opsqc4d97wni27****
      *
      * @var string

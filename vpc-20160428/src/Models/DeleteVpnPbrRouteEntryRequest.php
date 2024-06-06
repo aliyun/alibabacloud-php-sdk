@@ -114,7 +114,7 @@ class DeleteVpnPbrRouteEntryRequest extends Model
     public $vpnGatewayId;
 
     /**
-     * @description The weight of the policy-based route.
+     * @description The weight of the policy-based route. Valid values:
      *
      * This parameter is required.
      * @example 0

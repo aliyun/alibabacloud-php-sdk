@@ -78,9 +78,8 @@ class DescribeCustomerGatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tag value.
+     * @description The tags to be added to the customer gateway.
      *
-     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
      * @var tag[]
      */
     public $tag;

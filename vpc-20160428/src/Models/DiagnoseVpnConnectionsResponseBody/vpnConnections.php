@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpnConnections extends Model
 {
     /**
+     * @description The cause of the error.
+     *
      * @example Phase1 negotiation timeout
      *
      * @var string
@@ -16,6 +18,8 @@ class vpnConnections extends Model
     public $failedReason;
 
     /**
+     * @description The error code.
+     *
      * @example Phase1NegotiationTimeout
      *
      * @var string
@@ -23,6 +27,9 @@ class vpnConnections extends Model
     public $failedReasonCode;
 
     /**
+     * @description The timestamp when the current error occurred on the IPsec-VPN connection. Unit: millisecond.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1673581161000
      *
      * @var int
@@ -30,6 +37,8 @@ class vpnConnections extends Model
     public $failedTime;
 
     /**
+     * @description If the values of the parameters configured for the IPsec-VPN connection and the peer gateway device do not match, this parameter indicates the value of the parameters configured for the IPsec-VPN connection.
+     *
      * @example SHA256
      *
      * @var string
@@ -37,6 +46,8 @@ class vpnConnections extends Model
     public $mismatchLocalParam;
 
     /**
+     * @description If the parameter values configured for the IPsec-VPN connection and the peer gateway device do not match, this parameter indicates the value of the parameter configured for the peer gateway device.
+     *
      * @example SHA
      *
      * @var string
@@ -44,6 +55,12 @@ class vpnConnections extends Model
     public $mismatchRemoteParam;
 
     /**
+     * @description The error level. Valid values:
+     *
+     *   **Critical**
+     *   **Warn**
+     *   **Normal**
+     *
      * @example Warn
      *
      * @var string
@@ -51,6 +68,8 @@ class vpnConnections extends Model
     public $severity;
 
     /**
+     * @description The log information about the error.
+     *
      * @example 2023-01-13 11:39:21 vco-bp1spxu8hlcvpd7ry**** [PROTO_ERR]: ikev1.c:1433:isakmp_ph1resend(): phase1 negotiation failed due to time up. [{remote id:4}{ph1: 172.16.0.88[500] <=> 192.168.0.206[500], 172.16.0.88 <=> 192.168.0.206}]
      *
      * @var string
@@ -58,6 +77,8 @@ class vpnConnections extends Model
     public $sourceLog;
 
     /**
+     * @description The tunnel ID.
+     *
      * @example tun-64n1sr9dig64k6****
      *
      * @var string
@@ -65,6 +86,8 @@ class vpnConnections extends Model
     public $tunnelId;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-bp1spxu8hlcvpd7ry****
      *
      * @var string

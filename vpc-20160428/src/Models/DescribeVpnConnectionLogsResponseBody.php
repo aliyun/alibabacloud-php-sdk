@@ -19,9 +19,8 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $count;
 
     /**
-     * @description An array of strings.
+     * @description The log list.
      *
-     * Each item in the array is a log entry.
      * @var data
      */
     public $data;
@@ -29,8 +28,8 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     /**
      * @description Indicates whether the log is accurate. Valid values:
      *
-     *   **true**: accurate
-     *   **false**: inaccurate
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -39,7 +38,7 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $isCompleted;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -48,7 +47,7 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -57,7 +56,7 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CF161502-4959-5C3B-B499-09B87BA931D9
      *
