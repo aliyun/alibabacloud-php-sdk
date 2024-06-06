@@ -116,6 +116,21 @@ class ConfigureDtsJobAdvanceRequest extends Model
     public $destCaCertificatePassword;
 
     /**
+     * @var string
+     */
+    public $destClientCertOssUrl;
+
+    /**
+     * @var string
+     */
+    public $destClientKeyOssUrl;
+
+    /**
+     * @var string
+     */
+    public $destClientPassword;
+
+    /**
      * @description The password of the destination database account.
      *
      * >  If the destination database is a MaxCompute project, you must specify the AccessKey secret of your Alibaba Cloud account. For information about how to obtain your AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
@@ -605,6 +620,21 @@ class ConfigureDtsJobAdvanceRequest extends Model
     public $srcCaCertificatePassword;
 
     /**
+     * @var string
+     */
+    public $srcClientCertOssUrl;
+
+    /**
+     * @var string
+     */
+    public $srcClientKeyOssUrl;
+
+    /**
+     * @var string
+     */
+    public $srcClientPassword;
+
+    /**
      * @description Specifies whether to perform incremental data migration or synchronization. Default value: false. Valid values:
      *
      *   **false**: does not perform incremental data migration or synchronization.
@@ -638,6 +668,9 @@ class ConfigureDtsJobAdvanceRequest extends Model
         'delayRuleTime'                   => 'DelayRuleTime',
         'destCaCertificateOssUrl'         => 'DestCaCertificateOssUrl',
         'destCaCertificatePassword'       => 'DestCaCertificatePassword',
+        'destClientCertOssUrl'            => 'DestClientCertOssUrl',
+        'destClientKeyOssUrl'             => 'DestClientKeyOssUrl',
+        'destClientPassword'              => 'DestClientPassword',
         'destinationEndpointDataBaseName' => 'DestinationEndpointDataBaseName',
         'destinationEndpointEngineName'   => 'DestinationEndpointEngineName',
         'destinationEndpointIP'           => 'DestinationEndpointIP',
@@ -680,6 +713,9 @@ class ConfigureDtsJobAdvanceRequest extends Model
         'sourceEndpointVSwitchID'         => 'SourceEndpointVSwitchID',
         'srcCaCertificateOssUrl'          => 'SrcCaCertificateOssUrl',
         'srcCaCertificatePassword'        => 'SrcCaCertificatePassword',
+        'srcClientCertOssUrl'             => 'SrcClientCertOssUrl',
+        'srcClientKeyOssUrl'              => 'SrcClientKeyOssUrl',
+        'srcClientPassword'               => 'SrcClientPassword',
         'structureInitialization'         => 'StructureInitialization',
         'synchronizationDirection'        => 'SynchronizationDirection',
     ];
@@ -723,6 +759,15 @@ class ConfigureDtsJobAdvanceRequest extends Model
         }
         if (null !== $this->destCaCertificatePassword) {
             $res['DestCaCertificatePassword'] = $this->destCaCertificatePassword;
+        }
+        if (null !== $this->destClientCertOssUrl) {
+            $res['DestClientCertOssUrl'] = $this->destClientCertOssUrl;
+        }
+        if (null !== $this->destClientKeyOssUrl) {
+            $res['DestClientKeyOssUrl'] = $this->destClientKeyOssUrl;
+        }
+        if (null !== $this->destClientPassword) {
+            $res['DestClientPassword'] = $this->destClientPassword;
         }
         if (null !== $this->destinationEndpointDataBaseName) {
             $res['DestinationEndpointDataBaseName'] = $this->destinationEndpointDataBaseName;
@@ -850,6 +895,15 @@ class ConfigureDtsJobAdvanceRequest extends Model
         if (null !== $this->srcCaCertificatePassword) {
             $res['SrcCaCertificatePassword'] = $this->srcCaCertificatePassword;
         }
+        if (null !== $this->srcClientCertOssUrl) {
+            $res['SrcClientCertOssUrl'] = $this->srcClientCertOssUrl;
+        }
+        if (null !== $this->srcClientKeyOssUrl) {
+            $res['SrcClientKeyOssUrl'] = $this->srcClientKeyOssUrl;
+        }
+        if (null !== $this->srcClientPassword) {
+            $res['SrcClientPassword'] = $this->srcClientPassword;
+        }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
@@ -900,6 +954,15 @@ class ConfigureDtsJobAdvanceRequest extends Model
         }
         if (isset($map['DestCaCertificatePassword'])) {
             $model->destCaCertificatePassword = $map['DestCaCertificatePassword'];
+        }
+        if (isset($map['DestClientCertOssUrl'])) {
+            $model->destClientCertOssUrl = $map['DestClientCertOssUrl'];
+        }
+        if (isset($map['DestClientKeyOssUrl'])) {
+            $model->destClientKeyOssUrl = $map['DestClientKeyOssUrl'];
+        }
+        if (isset($map['DestClientPassword'])) {
+            $model->destClientPassword = $map['DestClientPassword'];
         }
         if (isset($map['DestinationEndpointDataBaseName'])) {
             $model->destinationEndpointDataBaseName = $map['DestinationEndpointDataBaseName'];
@@ -1026,6 +1089,15 @@ class ConfigureDtsJobAdvanceRequest extends Model
         }
         if (isset($map['SrcCaCertificatePassword'])) {
             $model->srcCaCertificatePassword = $map['SrcCaCertificatePassword'];
+        }
+        if (isset($map['SrcClientCertOssUrl'])) {
+            $model->srcClientCertOssUrl = $map['SrcClientCertOssUrl'];
+        }
+        if (isset($map['SrcClientKeyOssUrl'])) {
+            $model->srcClientKeyOssUrl = $map['SrcClientKeyOssUrl'];
+        }
+        if (isset($map['SrcClientPassword'])) {
+            $model->srcClientPassword = $map['SrcClientPassword'];
         }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];

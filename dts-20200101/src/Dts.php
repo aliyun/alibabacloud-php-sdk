@@ -384,6 +384,15 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->destCaCertificatePassword)) {
             $query['DestCaCertificatePassword'] = $request->destCaCertificatePassword;
         }
+        if (!Utils::isUnset($request->destClientCertOssUrl)) {
+            $query['DestClientCertOssUrl'] = $request->destClientCertOssUrl;
+        }
+        if (!Utils::isUnset($request->destClientKeyOssUrl)) {
+            $query['DestClientKeyOssUrl'] = $request->destClientKeyOssUrl;
+        }
+        if (!Utils::isUnset($request->destClientPassword)) {
+            $query['DestClientPassword'] = $request->destClientPassword;
+        }
         if (!Utils::isUnset($request->destinationEndpointDataBaseName)) {
             $query['DestinationEndpointDataBaseName'] = $request->destinationEndpointDataBaseName;
         }
@@ -506,6 +515,15 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->srcCaCertificatePassword)) {
             $query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
+        }
+        if (!Utils::isUnset($request->srcClientCertOssUrl)) {
+            $query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
+        }
+        if (!Utils::isUnset($request->srcClientKeyOssUrl)) {
+            $query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
+        }
+        if (!Utils::isUnset($request->srcClientPassword)) {
+            $query['SrcClientPassword'] = $request->srcClientPassword;
         }
         if (!Utils::isUnset($request->structureInitialization)) {
             $query['StructureInitialization'] = $request->structureInitialization;
