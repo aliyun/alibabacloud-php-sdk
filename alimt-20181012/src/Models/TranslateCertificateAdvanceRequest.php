@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class TranslateCertificateAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example driving_license
      *
      * @var string
@@ -17,6 +19,8 @@ class TranslateCertificateAdvanceRequest extends Model
     public $certificateType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://imageurl
      *
      * @var Stream
@@ -31,6 +35,8 @@ class TranslateCertificateAdvanceRequest extends Model
     public $resultType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -38,6 +44,8 @@ class TranslateCertificateAdvanceRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string

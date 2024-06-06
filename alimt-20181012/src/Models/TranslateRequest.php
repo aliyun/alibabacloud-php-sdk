@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TranslateRequest extends Model
 {
     /**
-     * @example {\"appName\":\"alynx\"}
+     * @example {\\"appName\\":\\"alynx\\"}
      *
      * @var string
      */
     public $context;
 
     /**
+     * @description This parameter is required.
+     *
      * @example text
      *
      * @var string
@@ -23,6 +25,8 @@ class TranslateRequest extends Model
     public $formatType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example title
      *
      * @var string
@@ -30,6 +34,8 @@ class TranslateRequest extends Model
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -37,11 +43,15 @@ class TranslateRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceText;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string

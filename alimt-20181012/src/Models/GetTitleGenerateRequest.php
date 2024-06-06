@@ -16,6 +16,8 @@ class GetTitleGenerateRequest extends Model
     public $attributes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 127896018
      *
      * @var string
@@ -37,6 +39,8 @@ class GetTitleGenerateRequest extends Model
     public $hotWords;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -44,6 +48,8 @@ class GetTitleGenerateRequest extends Model
     public $language;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ae
      *
      * @var string
@@ -51,6 +57,8 @@ class GetTitleGenerateRequest extends Model
     public $platform;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10pcs 80ml Kitchen Disposable
      *
      * @var string

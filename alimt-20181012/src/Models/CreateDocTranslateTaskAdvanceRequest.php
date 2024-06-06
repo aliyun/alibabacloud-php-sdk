@@ -24,6 +24,8 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://fileUrl
      *
      * @var Stream
@@ -38,6 +40,8 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -45,6 +49,8 @@ class CreateDocTranslateTaskAdvanceRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string

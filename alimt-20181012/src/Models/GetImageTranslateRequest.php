@@ -16,6 +16,8 @@ class GetImageTranslateRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +25,8 @@ class GetImageTranslateRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -30,6 +34,8 @@ class GetImageTranslateRequest extends Model
     public $targetLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxxxxxx.oss-cn-shenzhen.aliyuncs.com/xxxxxx.jpg
      *
      * @var string

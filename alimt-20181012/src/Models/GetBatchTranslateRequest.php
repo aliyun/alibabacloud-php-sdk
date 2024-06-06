@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBatchTranslateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example translate_standard
      *
      * @var string
@@ -16,6 +18,8 @@ class GetBatchTranslateRequest extends Model
     public $apiType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example text
      *
      * @var string
@@ -23,6 +27,8 @@ class GetBatchTranslateRequest extends Model
     public $formatType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example general
      *
      * @var string
@@ -30,6 +36,8 @@ class GetBatchTranslateRequest extends Model
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -37,6 +45,8 @@ class GetBatchTranslateRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"11":"hello boy","12":"go home","13":"we can"}
      *
      * @var string
@@ -44,6 +54,8 @@ class GetBatchTranslateRequest extends Model
     public $sourceText;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string

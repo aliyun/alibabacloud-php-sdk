@@ -16,6 +16,8 @@ class GetImageDiagnoseRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxxxx.oss-cn-shenzhen.aliyuncs.com/jd/41209/xxxxx.jpg
      *
      * @var string

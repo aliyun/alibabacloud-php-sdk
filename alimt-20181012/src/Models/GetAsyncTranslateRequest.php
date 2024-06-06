@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncTranslateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 77056ab7-7be1-4c2a-91a1-f20f63894048
      *
      * @var string

@@ -23,6 +23,8 @@ class CreateImageTranslateTaskRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateImageTranslateTaskRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -37,6 +41,8 @@ class CreateImageTranslateTaskRequest extends Model
     public $targetLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxx,http://yyy
      *
      * @var string

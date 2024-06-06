@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAsyncTranslateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example translate_standard
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAsyncTranslateRequest extends Model
     public $apiType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example text
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAsyncTranslateRequest extends Model
     public $formatType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example general
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateAsyncTranslateRequest extends Model
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateAsyncTranslateRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Opinion: We have finally gotten some relief at the pump. But it may not last long
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateAsyncTranslateRequest extends Model
     public $sourceText;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string

@@ -16,6 +16,8 @@ class TranslateECommerceRequest extends Model
     public $context;
 
     /**
+     * @description This parameter is required.
+     *
      * @example text
      *
      * @var string
@@ -23,6 +25,8 @@ class TranslateECommerceRequest extends Model
     public $formatType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example social
      *
      * @var string
@@ -30,6 +34,8 @@ class TranslateECommerceRequest extends Model
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -37,6 +43,8 @@ class TranslateECommerceRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hello
      *
      * @var string
@@ -44,6 +52,8 @@ class TranslateECommerceRequest extends Model
     public $sourceText;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string

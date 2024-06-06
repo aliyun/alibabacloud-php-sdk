@@ -1,3 +1,8 @@
+2024-06-06 Version: 1.2.1
+- Update API GetDetectLanguage: update response param.
+- Update API TranslateECommerce: update response param.
+
+
 2023-08-12 Version: 1.2.0
 - Generated php 2018-10-12 for alimt.
 

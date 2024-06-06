@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTitleIntelligenceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 111
      *
      * @var int
@@ -16,6 +18,8 @@ class GetTitleIntelligenceRequest extends Model
     public $catLevelThreeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 222
      *
      * @var int
@@ -37,6 +41,8 @@ class GetTitleIntelligenceRequest extends Model
     public $keywords;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ae
      *
      * @var string

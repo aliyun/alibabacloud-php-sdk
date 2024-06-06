@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TranslateCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example driving_license
      *
      * @var string
@@ -16,6 +18,8 @@ class TranslateCertificateRequest extends Model
     public $certificateType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://imageurl
      *
      * @var string
@@ -30,6 +34,8 @@ class TranslateCertificateRequest extends Model
     public $resultType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +43,8 @@ class TranslateCertificateRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string

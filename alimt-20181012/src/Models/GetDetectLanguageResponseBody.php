@@ -16,14 +16,20 @@ class GetDetectLanguageResponseBody extends Model
     public $detectedLanguage;
 
     /**
+     * @var string
+     */
+    public $languageProbabilities;
+
+    /**
      * @example 0C5EC1EC-1A06-4D60-97E6-4D41350945E4
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'detectedLanguage' => 'DetectedLanguage',
-        'requestId'        => 'RequestId',
+        'detectedLanguage'      => 'DetectedLanguage',
+        'languageProbabilities' => 'LanguageProbabilities',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class GetDetectLanguageResponseBody extends Model
         $res = [];
         if (null !== $this->detectedLanguage) {
             $res['DetectedLanguage'] = $this->detectedLanguage;
+        }
+        if (null !== $this->languageProbabilities) {
+            $res['LanguageProbabilities'] = $this->languageProbabilities;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -53,6 +62,9 @@ class GetDetectLanguageResponseBody extends Model
         $model = new self();
         if (isset($map['DetectedLanguage'])) {
             $model->detectedLanguage = $map['DetectedLanguage'];
+        }
+        if (isset($map['LanguageProbabilities'])) {
+            $model->languageProbabilities = $map['LanguageProbabilities'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

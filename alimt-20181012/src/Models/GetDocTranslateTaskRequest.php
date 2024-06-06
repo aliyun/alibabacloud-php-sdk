@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocTranslateTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0586df512c8b4bb382d7d9a6a01b5854
      *
      * @var string

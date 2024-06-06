@@ -30,6 +30,8 @@ class TranslateImageBatchRequest extends Model
     public $field;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://example.com/1.jpg,https://example.com/2.jpg,https://example.com/3.jpg
      *
      * @var string
@@ -37,6 +39,8 @@ class TranslateImageBatchRequest extends Model
     public $imageUrls;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +48,8 @@ class TranslateImageBatchRequest extends Model
     public $sourceLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example en
      *
      * @var string

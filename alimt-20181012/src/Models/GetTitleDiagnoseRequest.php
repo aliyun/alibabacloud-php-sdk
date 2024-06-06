@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTitleDiagnoseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -23,6 +25,8 @@ class GetTitleDiagnoseRequest extends Model
     public $extra;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +34,8 @@ class GetTitleDiagnoseRequest extends Model
     public $language;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ae
      *
      * @var string
@@ -37,6 +43,8 @@ class GetTitleDiagnoseRequest extends Model
     public $platform;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Amroe Japan Comic Theme Uzumaki Naruto Namikaze Minato 3D Visual Cartoon 7 Color USB Touch
      *
      * @var string

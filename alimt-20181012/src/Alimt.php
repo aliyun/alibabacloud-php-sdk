@@ -157,10 +157,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateAsyncTranslateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 大文本异步翻译，支持5000-50000字翻译
+     *  *
+     * @param CreateAsyncTranslateRequest $request CreateAsyncTranslateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAsyncTranslateResponse
+     * @return CreateAsyncTranslateResponse CreateAsyncTranslateResponse
      */
     public function createAsyncTranslateWithOptions($request, $runtime)
     {
@@ -203,9 +205,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateAsyncTranslateRequest $request
+     * @summary 大文本异步翻译，支持5000-50000字翻译
+     *  *
+     * @param CreateAsyncTranslateRequest $request CreateAsyncTranslateRequest
      *
-     * @return CreateAsyncTranslateResponse
+     * @return CreateAsyncTranslateResponse CreateAsyncTranslateResponse
      */
     public function createAsyncTranslate($request)
     {
@@ -215,10 +219,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateDocTranslateTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateDocTranslateTaskRequest $request CreateDocTranslateTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDocTranslateTaskResponse
+     * @return CreateDocTranslateTaskResponse CreateDocTranslateTaskResponse
      */
     public function createDocTranslateTaskWithOptions($request, $runtime)
     {
@@ -261,9 +265,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateDocTranslateTaskRequest $request
+     * @param CreateDocTranslateTaskRequest $request CreateDocTranslateTaskRequest
      *
-     * @return CreateDocTranslateTaskResponse
+     * @return CreateDocTranslateTaskResponse CreateDocTranslateTaskResponse
      */
     public function createDocTranslateTask($request)
     {
@@ -286,7 +290,7 @@ class Alimt extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -308,12 +312,13 @@ class Alimt extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -351,10 +356,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateImageTranslateTaskRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateImageTranslateTaskRequest $request CreateImageTranslateTaskRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageTranslateTaskResponse
+     * @return CreateImageTranslateTaskResponse CreateImageTranslateTaskResponse
      */
     public function createImageTranslateTaskWithOptions($request, $runtime)
     {
@@ -394,9 +399,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param CreateImageTranslateTaskRequest $request
+     * @param CreateImageTranslateTaskRequest $request CreateImageTranslateTaskRequest
      *
-     * @return CreateImageTranslateTaskResponse
+     * @return CreateImageTranslateTaskResponse CreateImageTranslateTaskResponse
      */
     public function createImageTranslateTask($request)
     {
@@ -406,10 +411,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTranslateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 大文本异步翻译，支持5000-50000字翻译
+     *  *
+     * @param GetAsyncTranslateRequest $request GetAsyncTranslateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncTranslateResponse
+     * @return GetAsyncTranslateResponse GetAsyncTranslateResponse
      */
     public function getAsyncTranslateWithOptions($request, $runtime)
     {
@@ -437,9 +444,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTranslateRequest $request
+     * @summary 大文本异步翻译，支持5000-50000字翻译
+     *  *
+     * @param GetAsyncTranslateRequest $request GetAsyncTranslateRequest
      *
-     * @return GetAsyncTranslateResponse
+     * @return GetAsyncTranslateResponse GetAsyncTranslateResponse
      */
     public function getAsyncTranslate($request)
     {
@@ -449,10 +458,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetBatchTranslateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetBatchTranslateRequest $request GetBatchTranslateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBatchTranslateResponse
+     * @return GetBatchTranslateResponse GetBatchTranslateResponse
      */
     public function getBatchTranslateWithOptions($request, $runtime)
     {
@@ -495,9 +504,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetBatchTranslateRequest $request
+     * @param GetBatchTranslateRequest $request GetBatchTranslateRequest
      *
-     * @return GetBatchTranslateResponse
+     * @return GetBatchTranslateResponse GetBatchTranslateResponse
      */
     public function getBatchTranslate($request)
     {
@@ -507,10 +516,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetDetectLanguageRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 语种识别
+     *  *
+     * @param GetDetectLanguageRequest $request GetDetectLanguageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDetectLanguageResponse
+     * @return GetDetectLanguageResponse GetDetectLanguageResponse
      */
     public function getDetectLanguageWithOptions($request, $runtime)
     {
@@ -538,9 +549,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetDetectLanguageRequest $request
+     * @summary 语种识别
+     *  *
+     * @param GetDetectLanguageRequest $request GetDetectLanguageRequest
      *
-     * @return GetDetectLanguageResponse
+     * @return GetDetectLanguageResponse GetDetectLanguageResponse
      */
     public function getDetectLanguage($request)
     {
@@ -550,10 +563,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetDocTranslateTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetDocTranslateTaskRequest $request GetDocTranslateTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDocTranslateTaskResponse
+     * @return GetDocTranslateTaskResponse GetDocTranslateTaskResponse
      */
     public function getDocTranslateTaskWithOptions($request, $runtime)
     {
@@ -578,9 +591,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetDocTranslateTaskRequest $request
+     * @param GetDocTranslateTaskRequest $request GetDocTranslateTaskRequest
      *
-     * @return GetDocTranslateTaskResponse
+     * @return GetDocTranslateTaskResponse GetDocTranslateTaskResponse
      */
     public function getDocTranslateTask($request)
     {
@@ -590,10 +603,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageDiagnoseRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetImageDiagnoseRequest $request GetImageDiagnoseRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageDiagnoseResponse
+     * @return GetImageDiagnoseResponse GetImageDiagnoseResponse
      */
     public function getImageDiagnoseWithOptions($request, $runtime)
     {
@@ -624,9 +637,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageDiagnoseRequest $request
+     * @param GetImageDiagnoseRequest $request GetImageDiagnoseRequest
      *
-     * @return GetImageDiagnoseResponse
+     * @return GetImageDiagnoseResponse GetImageDiagnoseResponse
      */
     public function getImageDiagnose($request)
     {
@@ -636,10 +649,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageTranslateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetImageTranslateRequest $request GetImageTranslateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageTranslateResponse
+     * @return GetImageTranslateResponse GetImageTranslateResponse
      */
     public function getImageTranslateWithOptions($request, $runtime)
     {
@@ -676,9 +689,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageTranslateRequest $request
+     * @param GetImageTranslateRequest $request GetImageTranslateRequest
      *
-     * @return GetImageTranslateResponse
+     * @return GetImageTranslateResponse GetImageTranslateResponse
      */
     public function getImageTranslate($request)
     {
@@ -688,10 +701,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageTranslateTaskRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetImageTranslateTaskRequest $request GetImageTranslateTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageTranslateTaskResponse
+     * @return GetImageTranslateTaskResponse GetImageTranslateTaskResponse
      */
     public function getImageTranslateTaskWithOptions($request, $runtime)
     {
@@ -719,9 +732,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetImageTranslateTaskRequest $request
+     * @param GetImageTranslateTaskRequest $request GetImageTranslateTaskRequest
      *
-     * @return GetImageTranslateTaskResponse
+     * @return GetImageTranslateTaskResponse GetImageTranslateTaskResponse
      */
     public function getImageTranslateTask($request)
     {
@@ -731,10 +744,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleDiagnoseRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetTitleDiagnoseRequest $request GetTitleDiagnoseRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTitleDiagnoseResponse
+     * @return GetTitleDiagnoseResponse GetTitleDiagnoseResponse
      */
     public function getTitleDiagnoseWithOptions($request, $runtime)
     {
@@ -774,9 +787,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleDiagnoseRequest $request
+     * @param GetTitleDiagnoseRequest $request GetTitleDiagnoseRequest
      *
-     * @return GetTitleDiagnoseResponse
+     * @return GetTitleDiagnoseResponse GetTitleDiagnoseResponse
      */
     public function getTitleDiagnose($request)
     {
@@ -786,10 +799,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleGenerateRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetTitleGenerateRequest $request GetTitleGenerateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTitleGenerateResponse
+     * @return GetTitleGenerateResponse GetTitleGenerateResponse
      */
     public function getTitleGenerateWithOptions($request, $runtime)
     {
@@ -835,9 +848,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleGenerateRequest $request
+     * @param GetTitleGenerateRequest $request GetTitleGenerateRequest
      *
-     * @return GetTitleGenerateResponse
+     * @return GetTitleGenerateResponse GetTitleGenerateResponse
      */
     public function getTitleGenerate($request)
     {
@@ -847,10 +860,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleIntelligenceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetTitleIntelligenceRequest $request GetTitleIntelligenceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTitleIntelligenceResponse
+     * @return GetTitleIntelligenceResponse GetTitleIntelligenceResponse
      */
     public function getTitleIntelligenceWithOptions($request, $runtime)
     {
@@ -890,9 +903,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTitleIntelligenceRequest $request
+     * @param GetTitleIntelligenceRequest $request GetTitleIntelligenceRequest
      *
-     * @return GetTitleIntelligenceResponse
+     * @return GetTitleIntelligenceResponse GetTitleIntelligenceResponse
      */
     public function getTitleIntelligence($request)
     {
@@ -902,10 +915,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTranslateImageBatchResultRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取图片批量翻译结果
+     *  *
+     * @param GetTranslateImageBatchResultRequest $request GetTranslateImageBatchResultRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranslateImageBatchResultResponse
+     * @return GetTranslateImageBatchResultResponse GetTranslateImageBatchResultResponse
      */
     public function getTranslateImageBatchResultWithOptions($request, $runtime)
     {
@@ -933,9 +948,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTranslateImageBatchResultRequest $request
+     * @summary 获取图片批量翻译结果
+     *  *
+     * @param GetTranslateImageBatchResultRequest $request GetTranslateImageBatchResultRequest
      *
-     * @return GetTranslateImageBatchResultResponse
+     * @return GetTranslateImageBatchResultResponse GetTranslateImageBatchResultResponse
      */
     public function getTranslateImageBatchResult($request)
     {
@@ -945,10 +962,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTranslateReportRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetTranslateReportRequest $request GetTranslateReportRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranslateReportResponse
+     * @return GetTranslateReportResponse GetTranslateReportResponse
      */
     public function getTranslateReportWithOptions($request, $runtime)
     {
@@ -985,9 +1002,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param GetTranslateReportRequest $request
+     * @param GetTranslateReportRequest $request GetTranslateReportRequest
      *
-     * @return GetTranslateReportResponse
+     * @return GetTranslateReportResponse GetTranslateReportResponse
      */
     public function getTranslateReport($request)
     {
@@ -997,10 +1014,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param OpenAlimtServiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 开通服务
+     *  *
+     * @param OpenAlimtServiceRequest $request OpenAlimtServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenAlimtServiceResponse
+     * @return OpenAlimtServiceResponse OpenAlimtServiceResponse
      */
     public function openAlimtServiceWithOptions($request, $runtime)
     {
@@ -1031,9 +1050,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param OpenAlimtServiceRequest $request
+     * @summary 开通服务
+     *  *
+     * @param OpenAlimtServiceRequest $request OpenAlimtServiceRequest
      *
-     * @return OpenAlimtServiceResponse
+     * @return OpenAlimtServiceResponse OpenAlimtServiceResponse
      */
     public function openAlimtService($request)
     {
@@ -1043,10 +1064,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param TranslateRequest $request TranslateRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TranslateResponse
+     * @return TranslateResponse TranslateResponse
      */
     public function translateWithOptions($request, $runtime)
     {
@@ -1091,9 +1112,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateRequest $request
+     * @param TranslateRequest $request TranslateRequest
      *
-     * @return TranslateResponse
+     * @return TranslateResponse TranslateResponse
      */
     public function translate($request)
     {
@@ -1103,10 +1124,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateCertificateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param TranslateCertificateRequest $request TranslateCertificateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return TranslateCertificateResponse
+     * @return TranslateCertificateResponse TranslateCertificateResponse
      */
     public function translateCertificateWithOptions($request, $runtime)
     {
@@ -1146,9 +1167,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateCertificateRequest $request
+     * @param TranslateCertificateRequest $request TranslateCertificateRequest
      *
-     * @return TranslateCertificateResponse
+     * @return TranslateCertificateResponse TranslateCertificateResponse
      */
     public function translateCertificate($request)
     {
@@ -1171,7 +1192,7 @@ class Alimt extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1193,12 +1214,13 @@ class Alimt extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1236,8 +1258,8 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
-     *   *
+     * @deprecated OpenAPI TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+     *  *
      * Deprecated
      *
      * @param TranslateECommerceRequest $request TranslateECommerceRequest
@@ -1288,8 +1310,8 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
-     *   *
+     * @deprecated OpenAPI TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+     *  *
      * Deprecated
      *
      * @param TranslateECommerceRequest $request TranslateECommerceRequest
@@ -1304,10 +1326,10 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateGeneralRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param TranslateGeneralRequest $request TranslateGeneralRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TranslateGeneralResponse
+     * @return TranslateGeneralResponse TranslateGeneralResponse
      */
     public function translateGeneralWithOptions($request, $runtime)
     {
@@ -1352,9 +1374,9 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateGeneralRequest $request
+     * @param TranslateGeneralRequest $request TranslateGeneralRequest
      *
-     * @return TranslateGeneralResponse
+     * @return TranslateGeneralResponse TranslateGeneralResponse
      */
     public function translateGeneral($request)
     {
@@ -1364,10 +1386,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateImageRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 公有云图片翻译产品API
+     *  *
+     * @param TranslateImageRequest $request TranslateImageRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return TranslateImageResponse
+     * @return TranslateImageResponse TranslateImageResponse
      */
     public function translateImageWithOptions($request, $runtime)
     {
@@ -1410,9 +1434,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateImageRequest $request
+     * @summary 公有云图片翻译产品API
+     *  *
+     * @param TranslateImageRequest $request TranslateImageRequest
      *
-     * @return TranslateImageResponse
+     * @return TranslateImageResponse TranslateImageResponse
      */
     public function translateImage($request)
     {
@@ -1422,10 +1448,12 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateImageBatchRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 批量图片翻译接口
+     *  *
+     * @param TranslateImageBatchRequest $request TranslateImageBatchRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return TranslateImageBatchResponse
+     * @return TranslateImageBatchResponse TranslateImageBatchResponse
      */
     public function translateImageBatchWithOptions($request, $runtime)
     {
@@ -1468,9 +1496,11 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateImageBatchRequest $request
+     * @summary 批量图片翻译接口
+     *  *
+     * @param TranslateImageBatchRequest $request TranslateImageBatchRequest
      *
-     * @return TranslateImageBatchResponse
+     * @return TranslateImageBatchResponse TranslateImageBatchResponse
      */
     public function translateImageBatch($request)
     {

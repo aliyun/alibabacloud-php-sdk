@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTranslateReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-03-01 00:00:00
      *
      * @var string
@@ -21,6 +25,8 @@ class GetTranslateReportRequest extends Model
     public $beginTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-03-01 23:59:59
      *
      * @var string
@@ -28,6 +34,8 @@ class GetTranslateReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $group;
