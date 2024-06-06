@@ -298,6 +298,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $maintainTime;
 
     /**
+     * @var string
+     */
+    public $orca;
+
+    /**
      * @description The billing method of the cluster. Valid values:
      *
      *   **Postpaid**: pay-as-you-go.
@@ -402,6 +407,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $restoreDataPoint;
+
+    /**
+     * @var string
+     */
+    public $restoreType;
+
+    /**
      * @description The storage of SQL. Unit: bytes. If the value is -1, no data is stored.
      *
      * @example 0
@@ -418,6 +433,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var string
      */
     public $serverlessType;
+
+    /**
+     * @var string
+     */
+    public $sourceDBCluster;
 
     /**
      * @description Indicates whether the cross-zone disaster recovery feature is enabled. Valid values: ON OFF 0: Customer Drill Mode
@@ -571,6 +591,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'isProxyLatestVersion'         => 'IsProxyLatestVersion',
         'lockMode'                     => 'LockMode',
         'maintainTime'                 => 'MaintainTime',
+        'orca'                         => 'Orca',
         'payType'                      => 'PayType',
         'provisionedIops'              => 'ProvisionedIops',
         'proxyCpuCores'                => 'ProxyCpuCores',
@@ -581,8 +602,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'regionId'                     => 'RegionId',
         'requestId'                    => 'RequestId',
         'resourceGroupId'              => 'ResourceGroupId',
+        'restoreDataPoint'             => 'RestoreDataPoint',
+        'restoreType'                  => 'RestoreType',
         'SQLSize'                      => 'SQLSize',
         'serverlessType'               => 'ServerlessType',
+        'sourceDBCluster'              => 'SourceDBCluster',
         'standbyHAMode'                => 'StandbyHAMode',
         'storageMax'                   => 'StorageMax',
         'storagePayType'               => 'StoragePayType',
@@ -704,6 +728,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
+        if (null !== $this->orca) {
+            $res['Orca'] = $this->orca;
+        }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -734,11 +761,20 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->restoreDataPoint) {
+            $res['RestoreDataPoint'] = $this->restoreDataPoint;
+        }
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
+        }
         if (null !== $this->SQLSize) {
             $res['SQLSize'] = $this->SQLSize;
         }
         if (null !== $this->serverlessType) {
             $res['ServerlessType'] = $this->serverlessType;
+        }
+        if (null !== $this->sourceDBCluster) {
+            $res['SourceDBCluster'] = $this->sourceDBCluster;
         }
         if (null !== $this->standbyHAMode) {
             $res['StandbyHAMode'] = $this->standbyHAMode;
@@ -896,6 +932,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
         }
+        if (isset($map['Orca'])) {
+            $model->orca = $map['Orca'];
+        }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
@@ -926,11 +965,20 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['RestoreDataPoint'])) {
+            $model->restoreDataPoint = $map['RestoreDataPoint'];
+        }
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
+        }
         if (isset($map['SQLSize'])) {
             $model->SQLSize = $map['SQLSize'];
         }
         if (isset($map['ServerlessType'])) {
             $model->serverlessType = $map['ServerlessType'];
+        }
+        if (isset($map['SourceDBCluster'])) {
+            $model->sourceDBCluster = $map['SourceDBCluster'];
         }
         if (isset($map['StandbyHAMode'])) {
             $model->standbyHAMode = $map['StandbyHAMode'];

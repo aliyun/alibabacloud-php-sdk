@@ -28,6 +28,11 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var string
+     */
+    public $DBNodeCrashList;
+
+    /**
      * @description The method used to replicate data across zones. Valid values:
      *
      *   **AsyncSync**: the asynchronous mode.
@@ -38,6 +43,11 @@ class ModifyDBClusterRequest extends Model
      * @var string
      */
     public $dataSyncMode;
+
+    /**
+     * @var string
+     */
+    public $faultInjectionType;
 
     /**
      * @description The fault scenario that you want to simulate for the cluster.
@@ -113,7 +123,9 @@ class ModifyDBClusterRequest extends Model
     protected $_name = [
         'compressStorage'      => 'CompressStorage',
         'DBClusterId'          => 'DBClusterId',
+        'DBNodeCrashList'      => 'DBNodeCrashList',
         'dataSyncMode'         => 'DataSyncMode',
+        'faultInjectionType'   => 'FaultInjectionType',
         'faultSimulateMode'    => 'FaultSimulateMode',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -137,8 +149,14 @@ class ModifyDBClusterRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+        if (null !== $this->DBNodeCrashList) {
+            $res['DBNodeCrashList'] = $this->DBNodeCrashList;
+        }
         if (null !== $this->dataSyncMode) {
             $res['DataSyncMode'] = $this->dataSyncMode;
+        }
+        if (null !== $this->faultInjectionType) {
+            $res['FaultInjectionType'] = $this->faultInjectionType;
         }
         if (null !== $this->faultSimulateMode) {
             $res['FaultSimulateMode'] = $this->faultSimulateMode;
@@ -182,8 +200,14 @@ class ModifyDBClusterRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+        if (isset($map['DBNodeCrashList'])) {
+            $model->DBNodeCrashList = $map['DBNodeCrashList'];
+        }
         if (isset($map['DataSyncMode'])) {
             $model->dataSyncMode = $map['DataSyncMode'];
+        }
+        if (isset($map['FaultInjectionType'])) {
+            $model->faultInjectionType = $map['FaultInjectionType'];
         }
         if (isset($map['FaultSimulateMode'])) {
             $model->faultSimulateMode = $map['FaultSimulateMode'];

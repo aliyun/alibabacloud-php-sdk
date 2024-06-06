@@ -152,6 +152,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $orca;
+
+    /**
+     * @var string
+     */
     public $remoteMemorySize;
 
     /**
@@ -214,6 +219,7 @@ class DBNodes extends Model
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
         'memorySize'       => 'MemorySize',
+        'orca'             => 'Orca',
         'remoteMemorySize' => 'RemoteMemorySize',
         'sccMode'          => 'SccMode',
         'serverWeight'     => 'ServerWeight',
@@ -270,6 +276,9 @@ class DBNodes extends Model
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->orca) {
+            $res['Orca'] = $this->orca;
         }
         if (null !== $this->remoteMemorySize) {
             $res['RemoteMemorySize'] = $this->remoteMemorySize;
@@ -342,6 +351,9 @@ class DBNodes extends Model
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['Orca'])) {
+            $model->orca = $map['Orca'];
         }
         if (isset($map['RemoteMemorySize'])) {
             $model->remoteMemorySize = $map['RemoteMemorySize'];

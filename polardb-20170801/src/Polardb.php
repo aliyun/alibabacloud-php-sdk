@@ -7383,8 +7383,14 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->DBNodeCrashList)) {
+            $query['DBNodeCrashList'] = $request->DBNodeCrashList;
+        }
         if (!Utils::isUnset($request->dataSyncMode)) {
             $query['DataSyncMode'] = $request->dataSyncMode;
+        }
+        if (!Utils::isUnset($request->faultInjectionType)) {
+            $query['FaultInjectionType'] = $request->faultInjectionType;
         }
         if (!Utils::isUnset($request->faultSimulateMode)) {
             $query['FaultSimulateMode'] = $request->faultSimulateMode;
