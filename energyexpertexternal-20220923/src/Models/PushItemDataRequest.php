@@ -12,6 +12,7 @@ class PushItemDataRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20210223-01
      *
      * @var string
@@ -21,6 +22,7 @@ class PushItemDataRequest extends Model
     /**
      * @description Push data list.
      *
+     * This parameter is required.
      * @var items
      */
     public $items;
@@ -28,6 +30,7 @@ class PushItemDataRequest extends Model
     /**
      * @description The year of the data created.
      *
+     * This parameter is required.
      * @example 2024
      *
      * @var string

@@ -10,7 +10,7 @@ class info extends Model
 {
     /**
      * @description The rated capacity.
-     *
+     * Unit is kVA.
      * @example 100
      *
      * @var int

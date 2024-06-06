@@ -11,6 +11,7 @@ class GetDeviceListRequest extends Model
     /**
      * @description The ID of the site.
      *
+     * This parameter is required.
      * @example pn_95
      *
      * @var string

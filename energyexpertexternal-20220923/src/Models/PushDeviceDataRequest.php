@@ -12,6 +12,7 @@ class PushDeviceDataRequest extends Model
     /**
      * @description The type of the device. [View device type definitions](https://carbon-doc.oss-cn-hangzhou.aliyuncs.com/Deviceappendixes-en.pdf)
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,6 +22,7 @@ class PushDeviceDataRequest extends Model
     /**
      * @description List of devices to which data is pushed.
      *
+     * This parameter is required.
      * @var devices[]
      */
     public $devices;

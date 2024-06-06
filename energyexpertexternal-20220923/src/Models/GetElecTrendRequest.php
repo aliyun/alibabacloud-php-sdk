@@ -11,6 +11,7 @@ class GetElecTrendRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20240115-3
      *
      * @var string
@@ -20,6 +21,7 @@ class GetElecTrendRequest extends Model
     /**
      * @description List of years.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $yearList;

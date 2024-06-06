@@ -11,6 +11,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20080808-1
      *
      * @var string
@@ -20,7 +21,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description Type of emission
      *
-     * >  Valid values: footprint | emission. Meaning: footprint: all inventories are involved in the calculation; emission: only inventories with positive and zero emissions are involved in the calculation, and negative numbers are not involved in the calculation.
+     * This parameter is required.
      * @example footprint
      *
      * @var string
@@ -30,7 +31,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description Group by
      *
-     * >  Valid values: resource | process | resourceType | processType. Meaning: resource: aggregation by inventory group, process: aggregation by operation group, resourceType: aggregation by inventory type, processType: aggregation by phase group
+     * This parameter is required.
      * @example resource
      *
      * @var string
@@ -40,6 +41,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description The type of the obtained environmental impact: gwp indicates the carbon footprint of climate change. For more information, see the type value of the enumerated values.
      *
+     * This parameter is required.
      * @example gwp
      *
      * @var string
@@ -49,6 +51,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description The product id.
      *
+     * This parameter is required.
      * @example 1024
      *
      * @var int
@@ -58,6 +61,7 @@ class GetInventoryListRequest extends Model
     /**
      * @description Product type: 1 indicates that the carbon footprint of the product is requested, and 5 indicates that the carbon footprint of the supply chain is requested.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

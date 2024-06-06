@@ -11,6 +11,7 @@ class GetEmissionSummaryRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20240119-1
      *
      * @var string
@@ -38,6 +39,7 @@ class GetEmissionSummaryRequest extends Model
     /**
      * @description Year of inventory.
      *
+     * This parameter is required.
      * @example 2024
      *
      * @var int

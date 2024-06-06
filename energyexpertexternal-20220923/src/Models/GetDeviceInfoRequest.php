@@ -11,6 +11,7 @@ class GetDeviceInfoRequest extends Model
     /**
      * @description The ID of the device.
      *
+     * This parameter is required.
      * @example pn_69873
      *
      * @var string
@@ -18,8 +19,9 @@ class GetDeviceInfoRequest extends Model
     public $deviceId;
 
     /**
-     * @description The date on which the statistics are collected.
+     * @description The time string in the YYYY-mm-dd format.
      *
+     * This parameter is required.
      * @example 2022-07-26
      *
      * @var string
@@ -29,6 +31,7 @@ class GetDeviceInfoRequest extends Model
     /**
      * @description The ID of the site.
      *
+     * This parameter is required.
      * @example pn_95
      *
      * @var string

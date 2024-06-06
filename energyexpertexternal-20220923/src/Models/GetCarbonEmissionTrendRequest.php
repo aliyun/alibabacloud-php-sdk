@@ -11,6 +11,7 @@ class GetCarbonEmissionTrendRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20240119-1
      *
      * @var string
@@ -38,6 +39,7 @@ class GetCarbonEmissionTrendRequest extends Model
     /**
      * @description Trend Type.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -47,6 +49,7 @@ class GetCarbonEmissionTrendRequest extends Model
     /**
      * @description The list of inventory year.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $yearList;

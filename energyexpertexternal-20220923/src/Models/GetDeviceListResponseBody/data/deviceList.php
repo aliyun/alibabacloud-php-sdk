@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class deviceList extends Model
 {
     /**
-     * @description The ID of the device.
+     * @description The device ID.
      *
      * @example pn_69873
      *
@@ -19,7 +19,7 @@ class deviceList extends Model
     public $deviceId;
 
     /**
-     * @description The name of the device.
+     * @description The device name.
      *
      * @example Main transformer 4#
      *
@@ -37,7 +37,7 @@ class deviceList extends Model
     public $firstTypeName;
 
     /**
-     * @description The information about the device.
+     * @description The device information.
      *
      * @var info
      */

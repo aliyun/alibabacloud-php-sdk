@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The identifier of the data item.
      *
-     * @example item_code
+     * @example demo_api_code
      *
      * @var string
      */

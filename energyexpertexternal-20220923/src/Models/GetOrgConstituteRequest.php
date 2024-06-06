@@ -11,6 +11,7 @@ class GetOrgConstituteRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example Z-20240115-2
      *
      * @var string
@@ -29,6 +30,7 @@ class GetOrgConstituteRequest extends Model
     /**
      * @description Module type.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -38,6 +40,7 @@ class GetOrgConstituteRequest extends Model
     /**
      * @description Year.
      *
+     * This parameter is required.
      * @example 2024
      *
      * @var int

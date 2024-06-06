@@ -11,6 +11,7 @@ class GetGasConstituteRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20240115-3
      *
      * @var string
@@ -20,6 +21,7 @@ class GetGasConstituteRequest extends Model
     /**
      * @description Module code.
      *
+     * This parameter is required.
      * @example carbonInventory.check.scope_1_direct_ghg_emissions
      *
      * @var string
@@ -29,6 +31,7 @@ class GetGasConstituteRequest extends Model
     /**
      * @description Module type.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -38,6 +41,7 @@ class GetGasConstituteRequest extends Model
     /**
      * @description Year
      *
+     * This parameter is required.
      * @example 2024
      *
      * @var int

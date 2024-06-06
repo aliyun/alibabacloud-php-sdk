@@ -11,6 +11,7 @@ class GetFootprintListRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20080808-1
      *
      * @var string
@@ -20,6 +21,7 @@ class GetFootprintListRequest extends Model
     /**
      * @description The pagination parameter. The number of the page that starts from 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +31,7 @@ class GetFootprintListRequest extends Model
     /**
      * @description The number of entries returned on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -38,6 +41,7 @@ class GetFootprintListRequest extends Model
     /**
      * @description Product type: 1 indicates that the carbon footprint of the product is requested, and 5 indicates that the carbon footprint of the supply chain is requested.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

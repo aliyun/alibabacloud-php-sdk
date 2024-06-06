@@ -11,6 +11,7 @@ class GetDataItemListRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-202302-01
      *
      * @var string

@@ -35,7 +35,7 @@ class GetOrgAndFactoryResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
      *

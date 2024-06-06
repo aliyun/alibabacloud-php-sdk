@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class recordList extends Model
 {
     /**
-     * @description The identifier of the device.
+     * @description The device identifier.
      *
      * @example Ia
      *
@@ -18,7 +18,7 @@ class recordList extends Model
     public $identifier;
 
     /**
-     * @description The name of the parameter.
+     * @description The parameter name.
      *
      * @example Phase A current
      *

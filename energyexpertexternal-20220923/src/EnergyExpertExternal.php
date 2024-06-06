@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceInfoRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceInfoResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceListRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceListResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDocumentAnalyzeResultRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDocumentAnalyzeResultResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetElecConstituteRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetElecConstituteResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetElecTrendRequest;
@@ -61,8 +63,21 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\PushItemDataRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\PushItemDataResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\RecalculateCarbonEmissionRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\RecalculateCarbonEmissionResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SendDocumentAskQuestionRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SendDocumentAskQuestionResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobAdvanceRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -101,11 +116,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GenerateResultRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Generate a report of the specified carbon footprint.
+     *  *
+     * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+     *  *
+     * @param GenerateResultRequest $request GenerateResultRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateResultResponse
+     * @return GenerateResultResponse GenerateResultResponse
      */
     public function generateResultWithOptions($request, $headers, $runtime)
     {
@@ -140,9 +159,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GenerateResultRequest $request
+     * @summary Generate a report of the specified carbon footprint.
+     *  *
+     * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+     *  *
+     * @param GenerateResultRequest $request GenerateResultRequest
      *
-     * @return GenerateResultResponse
+     * @return GenerateResultResponse GenerateResultResponse
      */
     public function generateResult($request)
     {
@@ -153,11 +176,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetAreaElecConstituteRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary This interface is used to obtain electrical constitute analysis data.
+     *  *
+     * @param GetAreaElecConstituteRequest $request GetAreaElecConstituteRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAreaElecConstituteResponse
+     * @return GetAreaElecConstituteResponse GetAreaElecConstituteResponse
      */
     public function getAreaElecConstituteWithOptions($request, $headers, $runtime)
     {
@@ -189,9 +214,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetAreaElecConstituteRequest $request
+     * @summary This interface is used to obtain electrical constitute analysis data.
+     *  *
+     * @param GetAreaElecConstituteRequest $request GetAreaElecConstituteRequest
      *
-     * @return GetAreaElecConstituteResponse
+     * @return GetAreaElecConstituteResponse GetAreaElecConstituteResponse
      */
     public function getAreaElecConstitute($request)
     {
@@ -202,11 +229,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetCarbonEmissionTrendRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary Get trends in carbon emissions.
+     *  *
+     * @param GetCarbonEmissionTrendRequest $request GetCarbonEmissionTrendRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCarbonEmissionTrendResponse
+     * @return GetCarbonEmissionTrendResponse GetCarbonEmissionTrendResponse
      */
     public function getCarbonEmissionTrendWithOptions($request, $headers, $runtime)
     {
@@ -247,9 +276,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetCarbonEmissionTrendRequest $request
+     * @summary Get trends in carbon emissions.
+     *  *
+     * @param GetCarbonEmissionTrendRequest $request GetCarbonEmissionTrendRequest
      *
-     * @return GetCarbonEmissionTrendResponse
+     * @return GetCarbonEmissionTrendResponse GetCarbonEmissionTrendResponse
      */
     public function getCarbonEmissionTrend($request)
     {
@@ -260,11 +291,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetDataItemListRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary This interface is used to obtain the details category of a data item.
+     *  *
+     * @description - obtain data item detail list under the current enterprise.
+     *  *
+     * @param GetDataItemListRequest $request GetDataItemListRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataItemListResponse
+     * @return GetDataItemListResponse GetDataItemListResponse
      */
     public function getDataItemListWithOptions($request, $headers, $runtime)
     {
@@ -293,9 +328,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetDataItemListRequest $request
+     * @summary This interface is used to obtain the details category of a data item.
+     *  *
+     * @description - obtain data item detail list under the current enterprise.
+     *  *
+     * @param GetDataItemListRequest $request GetDataItemListRequest
      *
-     * @return GetDataItemListResponse
+     * @return GetDataItemListResponse GetDataItemListResponse
      */
     public function getDataItemList($request)
     {
@@ -306,11 +345,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetDataQualityAnalysisRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary Obtain the data quality evaluation results DQR and DQI.
+     *  *
+     * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+     *  *
+     * @param GetDataQualityAnalysisRequest $request GetDataQualityAnalysisRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataQualityAnalysisResponse
+     * @return GetDataQualityAnalysisResponse GetDataQualityAnalysisResponse
      */
     public function getDataQualityAnalysisWithOptions($request, $headers, $runtime)
     {
@@ -348,9 +391,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetDataQualityAnalysisRequest $request
+     * @summary Obtain the data quality evaluation results DQR and DQI.
+     *  *
+     * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+     *  *
+     * @param GetDataQualityAnalysisRequest $request GetDataQualityAnalysisRequest
      *
-     * @return GetDataQualityAnalysisResponse
+     * @return GetDataQualityAnalysisResponse GetDataQualityAnalysisResponse
      */
     public function getDataQualityAnalysis($request)
     {
@@ -361,9 +408,14 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
-     *   * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
-     *   *
+     * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+     *  *
+     * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+     * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -403,9 +455,14 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
-     *   * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
-     *   *
+     * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+     *  *
+     * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+     * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
      *
      * @return GetDeviceInfoResponse GetDeviceInfoResponse
@@ -419,9 +476,14 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
-     *   * *   Virtual meters at the site are not returned.
-     *   *
+     * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
+     *  *
+     * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+     * *   Virtual meters at the site are not returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @param GetDeviceListRequest $request GetDeviceListRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -455,9 +517,14 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
-     *   * *   Virtual meters at the site are not returned.
-     *   *
+     * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
+     *  *
+     * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+     * *   Virtual meters at the site are not returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @param GetDeviceListRequest $request GetDeviceListRequest
      *
      * @return GetDeviceListResponse GetDeviceListResponse
@@ -471,11 +538,63 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetElecConstituteRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 获取文档结果
+     *  *
+     * @param GetDocumentAnalyzeResultRequest $request GetDocumentAnalyzeResultRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetElecConstituteResponse
+     * @return GetDocumentAnalyzeResultResponse GetDocumentAnalyzeResultResponse
+     */
+    public function getDocumentAnalyzeResultWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['jobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocumentAnalyzeResult',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aidoc/document/getDocumentAnalyzeResult',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocumentAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文档结果
+     *  *
+     * @param GetDocumentAnalyzeResultRequest $request GetDocumentAnalyzeResultRequest
+     *
+     * @return GetDocumentAnalyzeResultResponse GetDocumentAnalyzeResultResponse
+     */
+    public function getDocumentAnalyzeResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDocumentAnalyzeResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary This interface is used to obtain power composition analysis data.
+     *  *
+     * @param GetElecConstituteRequest $request GetElecConstituteRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetElecConstituteResponse GetElecConstituteResponse
      */
     public function getElecConstituteWithOptions($request, $headers, $runtime)
     {
@@ -507,9 +626,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetElecConstituteRequest $request
+     * @summary This interface is used to obtain power composition analysis data.
+     *  *
+     * @param GetElecConstituteRequest $request GetElecConstituteRequest
      *
-     * @return GetElecConstituteResponse
+     * @return GetElecConstituteResponse GetElecConstituteResponse
      */
     public function getElecConstitute($request)
     {
@@ -520,11 +641,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetElecTrendRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary This interface is used to obtain power trend analysis data.
+     *  *
+     * @param GetElecTrendRequest $request GetElecTrendRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetElecTrendResponse
+     * @return GetElecTrendResponse GetElecTrendResponse
      */
     public function getElecTrendWithOptions($request, $headers, $runtime)
     {
@@ -556,9 +679,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetElecTrendRequest $request
+     * @summary This interface is used to obtain power trend analysis data.
+     *  *
+     * @param GetElecTrendRequest $request GetElecTrendRequest
      *
-     * @return GetElecTrendResponse
+     * @return GetElecTrendResponse GetElecTrendResponse
      */
     public function getElecTrend($request)
     {
@@ -569,11 +694,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEmissionSourceConstituteRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary Obtain the emission source composition.
+     *  *
+     * @param GetEmissionSourceConstituteRequest $request GetEmissionSourceConstituteRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEmissionSourceConstituteResponse
+     * @return GetEmissionSourceConstituteResponse GetEmissionSourceConstituteResponse
      */
     public function getEmissionSourceConstituteWithOptions($request, $headers, $runtime)
     {
@@ -611,9 +738,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEmissionSourceConstituteRequest $request
+     * @summary Obtain the emission source composition.
+     *  *
+     * @param GetEmissionSourceConstituteRequest $request GetEmissionSourceConstituteRequest
      *
-     * @return GetEmissionSourceConstituteResponse
+     * @return GetEmissionSourceConstituteResponse GetEmissionSourceConstituteResponse
      */
     public function getEmissionSourceConstitute($request)
     {
@@ -624,11 +753,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEmissionSummaryRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Get a summary of carbon emissions.
+     *  *
+     * @param GetEmissionSummaryRequest $request GetEmissionSummaryRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEmissionSummaryResponse
+     * @return GetEmissionSummaryResponse GetEmissionSummaryResponse
      */
     public function getEmissionSummaryWithOptions($request, $headers, $runtime)
     {
@@ -666,9 +797,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEmissionSummaryRequest $request
+     * @summary Get a summary of carbon emissions.
+     *  *
+     * @param GetEmissionSummaryRequest $request GetEmissionSummaryRequest
      *
-     * @return GetEmissionSummaryResponse
+     * @return GetEmissionSummaryResponse GetEmissionSummaryResponse
      */
     public function getEmissionSummary($request)
     {
@@ -679,11 +812,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEpdInventoryConstituteRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary Gets the result details of the environmental impact category.
+     *  *
+     * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+     *  *
+     * @param GetEpdInventoryConstituteRequest $request GetEpdInventoryConstituteRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEpdInventoryConstituteResponse
+     * @return GetEpdInventoryConstituteResponse GetEpdInventoryConstituteResponse
      */
     public function getEpdInventoryConstituteWithOptions($request, $headers, $runtime)
     {
@@ -718,9 +855,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEpdInventoryConstituteRequest $request
+     * @summary Gets the result details of the environmental impact category.
+     *  *
+     * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+     *  *
+     * @param GetEpdInventoryConstituteRequest $request GetEpdInventoryConstituteRequest
      *
-     * @return GetEpdInventoryConstituteResponse
+     * @return GetEpdInventoryConstituteResponse GetEpdInventoryConstituteResponse
      */
     public function getEpdInventoryConstitute($request)
     {
@@ -731,11 +872,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEpdSummaryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Obtain the total amount of emissions for various environmental impacts.
+     *  *
+     * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+     *  *
+     * @param GetEpdSummaryRequest $request GetEpdSummaryRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEpdSummaryResponse
+     * @return GetEpdSummaryResponse GetEpdSummaryResponse
      */
     public function getEpdSummaryWithOptions($request, $headers, $runtime)
     {
@@ -770,9 +915,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetEpdSummaryRequest $request
+     * @summary Obtain the total amount of emissions for various environmental impacts.
+     *  *
+     * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+     *  *
+     * @param GetEpdSummaryRequest $request GetEpdSummaryRequest
      *
-     * @return GetEpdSummaryResponse
+     * @return GetEpdSummaryResponse GetEpdSummaryResponse
      */
     public function getEpdSummary($request)
     {
@@ -783,11 +932,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetFootprintListRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Get the list of product carbon footprints.
+     *  *
+     * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+     *  *
+     * @param GetFootprintListRequest $request GetFootprintListRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFootprintListResponse
+     * @return GetFootprintListResponse GetFootprintListResponse
      */
     public function getFootprintListWithOptions($request, $headers, $runtime)
     {
@@ -825,9 +978,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetFootprintListRequest $request
+     * @summary Get the list of product carbon footprints.
+     *  *
+     * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+     *  *
+     * @param GetFootprintListRequest $request GetFootprintListRequest
      *
-     * @return GetFootprintListResponse
+     * @return GetFootprintListResponse GetFootprintListResponse
      */
     public function getFootprintList($request)
     {
@@ -838,11 +995,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGasConstituteRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary This interface is used to obtain gas composition analysis.
+     *  *
+     * @param GetGasConstituteRequest $request GetGasConstituteRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGasConstituteResponse
+     * @return GetGasConstituteResponse GetGasConstituteResponse
      */
     public function getGasConstituteWithOptions($request, $headers, $runtime)
     {
@@ -880,9 +1039,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGasConstituteRequest $request
+     * @summary This interface is used to obtain gas composition analysis.
+     *  *
+     * @param GetGasConstituteRequest $request GetGasConstituteRequest
      *
-     * @return GetGasConstituteResponse
+     * @return GetGasConstituteResponse GetGasConstituteResponse
      */
     public function getGasConstitute($request)
     {
@@ -893,11 +1054,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpBenchmarkListRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary obtain the active carbon reduction ranking list.
+     *  *
+     * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+     *  *
+     * @param GetGwpBenchmarkListRequest $request GetGwpBenchmarkListRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGwpBenchmarkListResponse
+     * @return GetGwpBenchmarkListResponse GetGwpBenchmarkListResponse
      */
     public function getGwpBenchmarkListWithOptions($request, $headers, $runtime)
     {
@@ -932,9 +1097,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpBenchmarkListRequest $request
+     * @summary obtain the active carbon reduction ranking list.
+     *  *
+     * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+     *  *
+     * @param GetGwpBenchmarkListRequest $request GetGwpBenchmarkListRequest
      *
-     * @return GetGwpBenchmarkListResponse
+     * @return GetGwpBenchmarkListResponse GetGwpBenchmarkListResponse
      */
     public function getGwpBenchmarkList($request)
     {
@@ -945,11 +1114,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpBenchmarkSummaryRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary This API is to obtain the total amount of active carbon reduction.
+     *  *
+     * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+     *  *
+     * @param GetGwpBenchmarkSummaryRequest $request GetGwpBenchmarkSummaryRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGwpBenchmarkSummaryResponse
+     * @return GetGwpBenchmarkSummaryResponse GetGwpBenchmarkSummaryResponse
      */
     public function getGwpBenchmarkSummaryWithOptions($request, $headers, $runtime)
     {
@@ -984,9 +1157,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpBenchmarkSummaryRequest $request
+     * @summary This API is to obtain the total amount of active carbon reduction.
+     *  *
+     * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+     *  *
+     * @param GetGwpBenchmarkSummaryRequest $request GetGwpBenchmarkSummaryRequest
      *
-     * @return GetGwpBenchmarkSummaryResponse
+     * @return GetGwpBenchmarkSummaryResponse GetGwpBenchmarkSummaryResponse
      */
     public function getGwpBenchmarkSummary($request)
     {
@@ -997,11 +1174,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpInventoryConstituteRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *  *
+     * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *  *
+     * @param GetGwpInventoryConstituteRequest $request GetGwpInventoryConstituteRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGwpInventoryConstituteResponse
+     * @return GetGwpInventoryConstituteResponse GetGwpInventoryConstituteResponse
      */
     public function getGwpInventoryConstituteWithOptions($request, $headers, $runtime)
     {
@@ -1036,9 +1217,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpInventoryConstituteRequest $request
+     * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *  *
+     * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *  *
+     * @param GetGwpInventoryConstituteRequest $request GetGwpInventoryConstituteRequest
      *
-     * @return GetGwpInventoryConstituteResponse
+     * @return GetGwpInventoryConstituteResponse GetGwpInventoryConstituteResponse
      */
     public function getGwpInventoryConstitute($request)
     {
@@ -1049,11 +1234,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpInventorySummaryRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
+     *  *
+     * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+     *  *
+     * @param GetGwpInventorySummaryRequest $request GetGwpInventorySummaryRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGwpInventorySummaryResponse
+     * @return GetGwpInventorySummaryResponse GetGwpInventorySummaryResponse
      */
     public function getGwpInventorySummaryWithOptions($request, $headers, $runtime)
     {
@@ -1088,9 +1277,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetGwpInventorySummaryRequest $request
+     * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
+     *  *
+     * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+     *  *
+     * @param GetGwpInventorySummaryRequest $request GetGwpInventorySummaryRequest
      *
-     * @return GetGwpInventorySummaryResponse
+     * @return GetGwpInventorySummaryResponse GetGwpInventorySummaryResponse
      */
     public function getGwpInventorySummary($request)
     {
@@ -1101,11 +1294,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetInventoryListRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
+     *  *
+     * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+     *  *
+     * @param GetInventoryListRequest $request GetInventoryListRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInventoryListResponse
+     * @return GetInventoryListResponse GetInventoryListResponse
      */
     public function getInventoryListWithOptions($request, $headers, $runtime)
     {
@@ -1149,9 +1346,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetInventoryListRequest $request
+     * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
+     *  *
+     * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+     *  *
+     * @param GetInventoryListRequest $request GetInventoryListRequest
      *
-     * @return GetInventoryListResponse
+     * @return GetInventoryListResponse GetInventoryListResponse
      */
     public function getInventoryList($request)
     {
@@ -1162,10 +1363,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can set multiple request parameters to filter query results. Specified parameters have logical AND relations. Parameters without assigned values are not used as filtering conditions.
-     *   * *   The x-acs-caller-uid header is used to check whether the activated service plan is the required service plan. If the verification is passed, the information about the organizations and sites that are activated by using the Alibaba Cloud account is returned. If the verification fails, a null value is returned.
-     *   * *   If activated organizations and sites exist, the data of the organizations and sites is returned. If no organization or site data exists, a null value is returned.
-     *   *
+     * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+     *  *
+     * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1192,10 +1396,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * *   You can set multiple request parameters to filter query results. Specified parameters have logical AND relations. Parameters without assigned values are not used as filtering conditions.
-     *   * *   The x-acs-caller-uid header is used to check whether the activated service plan is the required service plan. If the verification is passed, the information about the organizations and sites that are activated by using the Alibaba Cloud account is returned. If the verification fails, a null value is returned.
-     *   * *   If activated organizations and sites exist, the data of the organizations and sites is returned. If no organization or site data exists, a null value is returned.
-     *   *
+     * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+     *  *
+     * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+     * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
+     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     *  *
      * @return GetOrgAndFactoryResponse GetOrgAndFactoryResponse
      */
     public function getOrgAndFactory()
@@ -1207,11 +1414,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetOrgConstituteRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary This interface is used to obtain carbon inventory organization analysis data.
+     *  *
+     * @param GetOrgConstituteRequest $request GetOrgConstituteRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOrgConstituteResponse
+     * @return GetOrgConstituteResponse GetOrgConstituteResponse
      */
     public function getOrgConstituteWithOptions($request, $headers, $runtime)
     {
@@ -1249,9 +1458,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetOrgConstituteRequest $request
+     * @summary This interface is used to obtain carbon inventory organization analysis data.
+     *  *
+     * @param GetOrgConstituteRequest $request GetOrgConstituteRequest
      *
-     * @return GetOrgConstituteResponse
+     * @return GetOrgConstituteResponse GetOrgConstituteResponse
      */
     public function getOrgConstitute($request)
     {
@@ -1262,11 +1473,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetPcrInfoRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Obtains the oss address of the Product Carbon footprint Report.
+     *  *
+     * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+     *  *
+     * @param GetPcrInfoRequest $request GetPcrInfoRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPcrInfoResponse
+     * @return GetPcrInfoResponse GetPcrInfoResponse
      */
     public function getPcrInfoWithOptions($request, $headers, $runtime)
     {
@@ -1301,9 +1516,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetPcrInfoRequest $request
+     * @summary Obtains the oss address of the Product Carbon footprint Report.
+     *  *
+     * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+     *  *
+     * @param GetPcrInfoRequest $request GetPcrInfoRequest
      *
-     * @return GetPcrInfoResponse
+     * @return GetPcrInfoResponse GetPcrInfoResponse
      */
     public function getPcrInfo($request)
     {
@@ -1314,11 +1533,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetReductionProposalRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Get carbon reduction recommendations.
+     *  *
+     * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+     *  *
+     * @param GetReductionProposalRequest $request GetReductionProposalRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetReductionProposalResponse
+     * @return GetReductionProposalResponse GetReductionProposalResponse
      */
     public function getReductionProposalWithOptions($request, $headers, $runtime)
     {
@@ -1356,9 +1579,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param GetReductionProposalRequest $request
+     * @summary Get carbon reduction recommendations.
+     *  *
+     * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+     *  *
+     * @param GetReductionProposalRequest $request GetReductionProposalRequest
      *
-     * @return GetReductionProposalResponse
+     * @return GetReductionProposalResponse GetReductionProposalResponse
      */
     public function getReductionProposal($request)
     {
@@ -1369,11 +1596,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param IsCompletedRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Check if the result generation is complete.
+     *  *
+     * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+     *  *
+     * @param IsCompletedRequest $request IsCompletedRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return IsCompletedResponse
+     * @return IsCompletedResponse IsCompletedResponse
      */
     public function isCompletedWithOptions($request, $headers, $runtime)
     {
@@ -1408,9 +1639,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param IsCompletedRequest $request
+     * @summary Check if the result generation is complete.
+     *  *
+     * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+     *  *
+     * @param IsCompletedRequest $request IsCompletedRequest
      *
-     * @return IsCompletedResponse
+     * @return IsCompletedResponse IsCompletedResponse
      */
     public function isCompleted($request)
     {
@@ -1421,11 +1656,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param PushDeviceDataRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
+     *  *
+     * @param PushDeviceDataRequest $request PushDeviceDataRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushDeviceDataResponse
+     * @return PushDeviceDataResponse PushDeviceDataResponse
      */
     public function pushDeviceDataWithOptions($request, $headers, $runtime)
     {
@@ -1457,9 +1694,11 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param PushDeviceDataRequest $request
+     * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
+     *  *
+     * @param PushDeviceDataRequest $request PushDeviceDataRequest
      *
-     * @return PushDeviceDataResponse
+     * @return PushDeviceDataResponse PushDeviceDataResponse
      */
     public function pushDeviceData($request)
     {
@@ -1470,8 +1709,12 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * N/A.
-     *   *
+     * @summary This interface is used to push data items.
+     *  *
+     * @description - This interface is used for individual data item data.
+     * - Data items can link data to services such as carbon footprints and carbon inventories.
+     * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
+     *  *
      * @param PushItemDataRequest $request PushItemDataRequest
      * @param string[]            $headers map
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1511,8 +1754,12 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * N/A.
-     *   *
+     * @summary This interface is used to push data items.
+     *  *
+     * @description - This interface is used for individual data item data.
+     * - Data items can link data to services such as carbon footprints and carbon inventories.
+     * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
+     *  *
      * @param PushItemDataRequest $request PushItemDataRequest
      *
      * @return PushItemDataResponse PushItemDataResponse
@@ -1526,11 +1773,15 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param RecalculateCarbonEmissionRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary Recalculate carbon emissions.
+     *  *
+     * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+     *  *
+     * @param RecalculateCarbonEmissionRequest $request RecalculateCarbonEmissionRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecalculateCarbonEmissionResponse
+     * @return RecalculateCarbonEmissionResponse RecalculateCarbonEmissionResponse
      */
     public function recalculateCarbonEmissionWithOptions($request, $headers, $runtime)
     {
@@ -1562,9 +1813,13 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @param RecalculateCarbonEmissionRequest $request
+     * @summary Recalculate carbon emissions.
+     *  *
+     * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+     *  *
+     * @param RecalculateCarbonEmissionRequest $request RecalculateCarbonEmissionRequest
      *
-     * @return RecalculateCarbonEmissionResponse
+     * @return RecalculateCarbonEmissionResponse RecalculateCarbonEmissionResponse
      */
     public function recalculateCarbonEmission($request)
     {
@@ -1572,5 +1827,200 @@ class EnergyExpertExternal extends OpenApiClient
         $headers = [];
 
         return $this->recalculateCarbonEmissionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 在线文档问答
+     *  *
+     * @param SendDocumentAskQuestionRequest $request SendDocumentAskQuestionRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendDocumentAskQuestionResponse SendDocumentAskQuestionResponse
+     */
+    public function sendDocumentAskQuestionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->folderId)) {
+            $body['folderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendDocumentAskQuestion',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aidoc/document/sendDocumentAskQuestion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendDocumentAskQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 在线文档问答
+     *  *
+     * @param SendDocumentAskQuestionRequest $request SendDocumentAskQuestionRequest
+     *
+     * @return SendDocumentAskQuestionResponse SendDocumentAskQuestionResponse
+     */
+    public function sendDocumentAskQuestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sendDocumentAskQuestionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文档结果
+     *  *
+     * @param SubmitDocumentAnalyzeJobRequest $request SubmitDocumentAnalyzeJobRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitDocumentAnalyzeJobResponse SubmitDocumentAnalyzeJobResponse
+     */
+    public function submitDocumentAnalyzeJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['fileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->folderId)) {
+            $query['folderId'] = $request->folderId;
+        }
+        if (!Utils::isUnset($request->ossUrl)) {
+            $query['ossUrl'] = $request->ossUrl;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['templateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDocumentAnalyzeJob',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aidoc/document/submitDocumentAnalyzeJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDocumentAnalyzeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文档结果
+     *  *
+     * @param SubmitDocumentAnalyzeJobRequest $request SubmitDocumentAnalyzeJobRequest
+     *
+     * @return SubmitDocumentAnalyzeJobResponse SubmitDocumentAnalyzeJobResponse
+     */
+    public function submitDocumentAnalyzeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitDocumentAnalyzeJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitDocumentAnalyzeJobAdvanceRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitDocumentAnalyzeJobResponse
+     */
+    public function submitDocumentAnalyzeJobAdvance($request, $headers, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::empty_($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'energyExpertExternal',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = new OSS($ossConfig);
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitDocumentAnalyzeJobReq);
+        if (!Utils::isUnset($request->ossUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->ossUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitDocumentAnalyzeJobReq->ossUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitDocumentAnalyzeJobWithOptions($submitDocumentAnalyzeJobReq, $headers, $runtime);
     }
 }

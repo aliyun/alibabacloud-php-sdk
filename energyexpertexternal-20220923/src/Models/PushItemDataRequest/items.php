@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The data item code.
+     * @description API data identification.<props="intl">For details: [GetDataItemList ](https://www.alibabacloud.com/help/en/energy-expert/developer-reference/api-energyexpertexternal-2022-09-23-getdataitemlist)
      *
-     * @example xxx
+     * This parameter is required.
+     * @example demo_api_code
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class items extends Model
     /**
      * @description The month.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -29,6 +31,7 @@ class items extends Model
     /**
      * @description The value of the data item.
      *
+     * This parameter is required.
      * @example 1.11
      *
      * @var float

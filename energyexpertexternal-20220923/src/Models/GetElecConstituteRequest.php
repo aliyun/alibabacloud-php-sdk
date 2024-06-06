@@ -11,6 +11,7 @@ class GetElecConstituteRequest extends Model
     /**
      * @description The enterprise code.
      *
+     * This parameter is required.
      * @example C-20240202-01
      *
      * @var string
@@ -20,6 +21,7 @@ class GetElecConstituteRequest extends Model
     /**
      * @description Year.
      *
+     * This parameter is required.
      * @example 2024
      *
      * @var int
