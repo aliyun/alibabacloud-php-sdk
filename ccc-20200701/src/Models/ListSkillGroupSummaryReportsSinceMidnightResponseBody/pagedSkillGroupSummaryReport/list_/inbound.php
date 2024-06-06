@@ -58,6 +58,11 @@ class inbound extends Model
     public $averageWorkTime;
 
     /**
+     * @var int
+     */
+    public $callsAbandoned;
+
+    /**
      * @example 0
      *
      * @var int
@@ -84,6 +89,11 @@ class inbound extends Model
      * @var int
      */
     public $callsOffered;
+
+    /**
+     * @var string
+     */
+    public $callsOverflow;
 
     /**
      * @var string
@@ -250,10 +260,12 @@ class inbound extends Model
         'averageRingTime'                           => 'AverageRingTime',
         'averageTalkTime'                           => 'AverageTalkTime',
         'averageWorkTime'                           => 'AverageWorkTime',
+        'callsAbandoned'                            => 'CallsAbandoned',
         'callsAttendedTransferOut'                  => 'CallsAttendedTransferOut',
         'callsBlindTransferOut'                     => 'CallsBlindTransferOut',
         'callsHandled'                              => 'CallsHandled',
         'callsOffered'                              => 'CallsOffered',
+        'callsOverflow'                             => 'CallsOverflow',
         'callsQueuingCanceled'                      => 'CallsQueuingCanceled',
         'callsQueuingFailure'                       => 'CallsQueuingFailure',
         'callsQueuingRerouted'                      => 'CallsQueuingRerouted',
@@ -308,6 +320,9 @@ class inbound extends Model
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
         }
+        if (null !== $this->callsAbandoned) {
+            $res['CallsAbandoned'] = $this->callsAbandoned;
+        }
         if (null !== $this->callsAttendedTransferOut) {
             $res['CallsAttendedTransferOut'] = $this->callsAttendedTransferOut;
         }
@@ -319,6 +334,9 @@ class inbound extends Model
         }
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
+        }
+        if (null !== $this->callsOverflow) {
+            $res['CallsOverflow'] = $this->callsOverflow;
         }
         if (null !== $this->callsQueuingCanceled) {
             $res['CallsQueuingCanceled'] = $this->callsQueuingCanceled;
@@ -425,6 +443,9 @@ class inbound extends Model
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
         }
+        if (isset($map['CallsAbandoned'])) {
+            $model->callsAbandoned = $map['CallsAbandoned'];
+        }
         if (isset($map['CallsAttendedTransferOut'])) {
             $model->callsAttendedTransferOut = $map['CallsAttendedTransferOut'];
         }
@@ -436,6 +457,9 @@ class inbound extends Model
         }
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
+        }
+        if (isset($map['CallsOverflow'])) {
+            $model->callsOverflow = $map['CallsOverflow'];
         }
         if (isset($map['CallsQueuingCanceled'])) {
             $model->callsQueuingCanceled = $map['CallsQueuingCanceled'];

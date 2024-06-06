@@ -56,6 +56,11 @@ class list_ extends Model
     public $completionRate;
 
     /**
+     * @var string
+     */
+    public $contactFlowId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -144,6 +149,7 @@ class list_ extends Model
         'casesConnected'     => 'CasesConnected',
         'casesUncompleted'   => 'CasesUncompleted',
         'completionRate'     => 'CompletionRate',
+        'contactFlowId'      => 'ContactFlowId',
         'maxAttemptCount'    => 'MaxAttemptCount',
         'minAttemptInterval' => 'MinAttemptInterval',
         'name'               => 'Name',
@@ -185,6 +191,9 @@ class list_ extends Model
         }
         if (null !== $this->completionRate) {
             $res['CompletionRate'] = $this->completionRate;
+        }
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
         }
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
@@ -254,6 +263,9 @@ class list_ extends Model
         }
         if (isset($map['CompletionRate'])) {
             $model->completionRate = $map['CompletionRate'];
+        }
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
         }
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];

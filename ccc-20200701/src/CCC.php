@@ -2014,8 +2014,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead
+     *  *
      * @summary 创建呼入控制号码
      *  *
+     * Deprecated
+     *
      * @param CreateCustomCallTaggingRequest $request CreateCustomCallTaggingRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2050,8 +2054,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead
+     *  *
      * @summary 创建呼入控制号码
      *  *
+     * Deprecated
+     *
      * @param CreateCustomCallTaggingRequest $request CreateCustomCallTaggingRequest
      *
      * @return CreateCustomCallTaggingResponse CreateCustomCallTaggingResponse
@@ -6801,8 +6809,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
+     *  *
      * @summary ListLegacyAgentEventLogs
      *  *
+     * Deprecated
+     *
      * @param ListLegacyAgentEventLogsRequest $request ListLegacyAgentEventLogsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6849,8 +6861,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
+     *  *
      * @summary ListLegacyAgentEventLogs
      *  *
+     * Deprecated
+     *
      * @param ListLegacyAgentEventLogsRequest $request ListLegacyAgentEventLogsRequest
      *
      * @return ListLegacyAgentEventLogsResponse ListLegacyAgentEventLogsResponse
@@ -6863,8 +6879,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
+     *  *
      * @summary ListLegacyAgentStatusLogs
      *  *
+     * Deprecated
+     *
      * @param ListLegacyAgentStatusLogsRequest $request ListLegacyAgentStatusLogsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6911,8 +6931,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
+     *  *
      * @summary ListLegacyAgentStatusLogs
      *  *
+     * Deprecated
+     *
      * @param ListLegacyAgentStatusLogsRequest $request ListLegacyAgentStatusLogsRequest
      *
      * @return ListLegacyAgentStatusLogsResponse ListLegacyAgentStatusLogsResponse
