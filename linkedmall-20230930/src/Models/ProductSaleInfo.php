@@ -30,6 +30,13 @@ class ProductSaleInfo extends Model
     public $fuzzyQuantity;
 
     /**
+     * @example 21000017-4580902812
+     *
+     * @var string
+     */
+    public $lmItemId;
+
+    /**
      * @example 660460842235822080
      *
      * @var string
@@ -79,6 +86,7 @@ class ProductSaleInfo extends Model
         'canSell'       => 'canSell',
         'divisionCode'  => 'divisionCode',
         'fuzzyQuantity' => 'fuzzyQuantity',
+        'lmItemId'      => 'lmItemId',
         'productId'     => 'productId',
         'productStatus' => 'productStatus',
         'quantity'      => 'quantity',
@@ -103,6 +111,9 @@ class ProductSaleInfo extends Model
         }
         if (null !== $this->fuzzyQuantity) {
             $res['fuzzyQuantity'] = $this->fuzzyQuantity;
+        }
+        if (null !== $this->lmItemId) {
+            $res['lmItemId'] = $this->lmItemId;
         }
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
@@ -151,6 +162,9 @@ class ProductSaleInfo extends Model
         }
         if (isset($map['fuzzyQuantity'])) {
             $model->fuzzyQuantity = $map['fuzzyQuantity'];
+        }
+        if (isset($map['lmItemId'])) {
+            $model->lmItemId = $map['lmItemId'];
         }
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];

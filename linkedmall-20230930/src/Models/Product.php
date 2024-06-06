@@ -66,6 +66,13 @@ class Product extends Model
     public $images;
 
     /**
+     * @example 21000017-4580902812
+     *
+     * @var string
+     */
+    public $lmItemId;
+
+    /**
      * @example https://img.alicdn.com/imgextra/i3/2214281521988/O1CN01w4vomR1QYYEx6nyr5_!!2214281521988.jpg
      *
      * @var string
@@ -166,6 +173,7 @@ class Product extends Model
         'extendProperties' => 'extendProperties',
         'fuzzyQuantity'    => 'fuzzyQuantity',
         'images'           => 'images',
+        'lmItemId'         => 'lmItemId',
         'picUrl'           => 'picUrl',
         'productId'        => 'productId',
         'productSpecs'     => 'productSpecs',
@@ -227,6 +235,9 @@ class Product extends Model
         }
         if (null !== $this->images) {
             $res['images'] = $this->images;
+        }
+        if (null !== $this->lmItemId) {
+            $res['lmItemId'] = $this->lmItemId;
         }
         if (null !== $this->picUrl) {
             $res['picUrl'] = $this->picUrl;
@@ -340,6 +351,9 @@ class Product extends Model
             if (!empty($map['images'])) {
                 $model->images = $map['images'];
             }
+        }
+        if (isset($map['lmItemId'])) {
+            $model->lmItemId = $map['lmItemId'];
         }
         if (isset($map['picUrl'])) {
             $model->picUrl = $map['picUrl'];
