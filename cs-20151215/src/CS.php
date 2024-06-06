@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterDiagnosisRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterDiagnosisResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
@@ -130,6 +132,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterCheckResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisCheckItemsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisResultResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
@@ -1200,7 +1204,62 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+     * @summary 发起集群诊断
+     *  *
+     * @param string                        $clusterId
+     * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateClusterDiagnosisResponse CreateClusterDiagnosisResponse
+     */
+    public function createClusterDiagnosisWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->target)) {
+            $body['target'] = $request->target;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterDiagnosis',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClusterDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发起集群诊断
+     *  *
+     * @param string                        $clusterId
+     * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
+     *
+     * @return CreateClusterDiagnosisResponse CreateClusterDiagnosisResponse
+     */
+    public function createClusterDiagnosis($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createClusterDiagnosisWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -1266,7 +1325,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -2839,7 +2898,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+     * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
      *  *
      * @param string                          $ClusterId
      * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
@@ -2875,7 +2934,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+     * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
      *  *
      * @param string                          $ClusterId
      * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
@@ -4689,6 +4748,98 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->getClusterCheckWithOptions($clusterId, $checkId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取集群诊断检查项
+     *  *
+     * @param string         $clusterId
+     * @param string         $diagnosisId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
+     */
+    public function getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterDiagnosisCheckItems',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis/' . OpenApiUtilClient::getEncodeParam($diagnosisId) . '/check_items',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterDiagnosisCheckItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取集群诊断检查项
+     *  *
+     * @param string $clusterId
+     * @param string $diagnosisId
+     *
+     * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
+     */
+    public function getClusterDiagnosisCheckItems($clusterId, $diagnosisId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取集群诊断结果
+     *  *
+     * @param string         $clusterId
+     * @param string         $diagnosisId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
+     */
+    public function getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterDiagnosisResult',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/diagnosis/' . OpenApiUtilClient::getEncodeParam($diagnosisId) . '/result',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterDiagnosisResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取集群诊断结果
+     *  *
+     * @param string $clusterId
+     * @param string $diagnosisId
+     *
+     * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
+     */
+    public function getClusterDiagnosisResult($clusterId, $diagnosisId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $headers, $runtime);
     }
 
     /**

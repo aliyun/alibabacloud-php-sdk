@@ -26,7 +26,7 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
-     * @description The duration of the auto-renewal. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
+     * @description The auto-renewal duration. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
      *
      * If you specify `PeriodUnit=Month`, the valid values are 1, 2, 3, 6, and 12.
      * @example 1
@@ -48,7 +48,7 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are mounted to the nodes in the node pool. You can mount 0 to 10 data disks. You can mount at most 10 data disks to the nodes in the node pool.
+     * @description The configurations of the data disks that are mounted to the nodes in the node pool. You can mount at most 10 data disks to the nodes in the node pool.
      *
      * @var DataDisk[]
      */
@@ -179,7 +179,7 @@ class scalingGroup extends Model
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
-     * @description The subscription duration of worker nodes. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+     * @description The subscription duration of the nodes in the node pool. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
      *
      * If `PeriodUnit=Month` is specified, the valid values are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
      * @example 1
@@ -283,7 +283,7 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
-     * @description Indicates whether Burst is enabled for the system disk when the disk type is cloud_auto.
+     * @description Specifies whether to enable Burst for the system disk when the disk type is cloud_auto.
      *
      * @example true
      *
@@ -292,17 +292,17 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The types of system disks. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: cloud: disk cloud_efficiency: ultra disk cloud_ssd: standard SSD cloud_essd: indicates an enhanced SSD (ESSD).
+     * @description The types of system disks. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: cloud: disk. cloud_efficiency: ultra disk. cloud_ssd: standard SSD. cloud_essd: enhanced SSD (ESSD).
      *
      * @var string[]
      */
     public $systemDiskCategories;
 
     /**
-     * @description The type of system disk. Valid values:
+     * @description The type of the system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
-     *   `cloud_ssd`: standard SSD
+     *   `cloud_ssd`: standard SSD.
      *
      * Default value: `cloud_ssd`.
      * @example cloud_efficiency
@@ -321,7 +321,7 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
-     * @description Indicates whether the system disk is encrypted. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
+     * @description Specifies whether to encrypt the system disk. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
      *
      * @example false
      *

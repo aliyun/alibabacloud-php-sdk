@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description The maximum bandwidth of the elastic IP address (EIP).
+     * @description The maximum bandwidth of the EIP.
      *
      * @example 5
      *
@@ -48,7 +48,7 @@ class autoScaling extends Model
     public $enable;
 
     /**
-     * @description Specifies whether to associate an EIP with the node pool. Valid values:
+     * @description Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
      *
      *   `true`: associates an EIP with the node pool.
      *   `false`: does not associate an EIP with the node pool.
@@ -81,12 +81,12 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
+     * @description The instance types that can be used for auto scaling of the node pool. Valid values:
      *
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.
-     *   `gpushare`: shared GPU-accelerated instance
-     *   `spot`: preemptible instance
+     *   `gpushare`: shared GPU-accelerated instance.
+     *   `spot`: preemptible instance.
      *
      * Default value: `cpu`.
      * @example cpu

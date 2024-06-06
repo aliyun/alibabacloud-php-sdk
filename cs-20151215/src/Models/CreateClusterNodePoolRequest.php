@@ -17,14 +17,14 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolRequest extends Model
 {
     /**
-     * @description The configuration of auto scaling.
+     * @description The configurations of auto scaling.
      *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
-     * @description This parameter is deprecated. Use the desired_size parameter instead.
+     * @description This parameter is discontinued. Use desired_size.
      *
      * The number of nodes in the node pool.
      * @example 1
@@ -36,9 +36,9 @@ class CreateClusterNodePoolRequest extends Model
     public $count;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * The configuration of the edge node pool.
+     * The configurations of the edge node pool.
      * @deprecated
      *
      * @var interconnectConfig
@@ -48,8 +48,8 @@ class CreateClusterNodePoolRequest extends Model
     /**
      * @description The network type of the edge node pool. This parameter takes effect only if you set the `type` parameter of the node pool to `edge`. Valid values:
      *
-     *   `basic`: basic
-     *   `private`: dedicated Only Kubernetes 1.22 and later support this parameter.
+     *   `basic`: basic.
+     *   `private`: dedicated. Only Kubernetes 1.22 and later support this value.
      *
      * @example basic
      *
@@ -58,21 +58,21 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectMode;
 
     /**
-     * @description The configuration of the cluster.
+     * @description The cluster configurations.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configuration of the managed node pool feature.
+     * @description The configurations of the managed node pool feature.
      *
      * @var management
      */
     public $management;
 
     /**
-     * @description The maximum number of nodes that can be created in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
+     * @description The maximum number of nodes that can be created in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value greater than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
      *
      * @example 10
      *
@@ -83,28 +83,28 @@ class CreateClusterNodePoolRequest extends Model
     public $maxNodes;
 
     /**
-     * @description The node configuration.
+     * @description The node configurations.
      *
      * @var nodeConfig
      */
     public $nodeConfig;
 
     /**
-     * @description The configuration of the node pool.
+     * @description The configurations of the node pool.
      *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
-     * @description The configuration of the scaling group that is used by the node pool.
+     * @description The configurations of the scaling group that is used by the node pool.
      *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description The configuration of confidential computing for the cluster.
+     * @description The configurations of confidential computing for the cluster.
      *
      * @var teeConfig
      */

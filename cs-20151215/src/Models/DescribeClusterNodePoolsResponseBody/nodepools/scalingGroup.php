@@ -25,9 +25,9 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
-     * @description The duration of the auto-renewal. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+     * @description The auto-renewal duration of the nodes in the node pool. This parameter is available and required only when `instance_charge_type` is set to `PrePaid`.
      *
-     * If you specify `PeriodUnit=Month`, the valid values are 1, 2, 3, 6, and 12.
+     * Valid values when `period_unit` is set to Month: 1, 2, 3, 6, and 12.
      * @example 0
      *
      * @var int
@@ -35,9 +35,8 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description [This parameter is deprecated]
+     * @description This parameter is deprecated. Use the security_hardening_os parameter instead.
      *
-     * Please replace this parameter with security_hardening_os.
      * @example false
      *
      * @deprecated
@@ -47,10 +46,10 @@ class scalingGroup extends Model
     public $cisEnabled;
 
     /**
-     * @description Indicates whether pay-as-you-go instances are automatically created to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as cost or insufficient inventory. This parameter takes effect when `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
+     * @description Indicates whether pay-as-you-go instances are automatically created to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect when `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
      *
-     *   `true`: Pay-as-you-go instances are automatically created to meet the required number of ECS instances if preemptible instances cannot be created.
-     *   `false`: Pay-as-you-go instances are not automatically created to meet the required number of ECS instances if preemptible instances cannot be created.
+     *   `true`: Pay-as-you-go instances are automatically created to meet the required number of ECS instances.
+     *   `false`: Pay-as-you-go instances are not automatically created to meet the required number of ECS instances.
      *
      * @example true
      *
@@ -59,14 +58,14 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are attached to the nodes in the node pool. The configurations include the disk type and disk size.
+     * @description The configurations of the data disks that are mounted to the nodes in the node pool. The configurations include the disk type and disk size.
      *
      * @var DataDisk[]
      */
     public $dataDisks;
 
     /**
-     * @description The ID of the deployment set to which the ECS instances in the node pool belong.
+     * @description The ID of the deployment set.
      *
      * @example ds-bp1d19mmbsv3jf6xxxxx
      *
@@ -75,7 +74,7 @@ class scalingGroup extends Model
     public $deploymentsetId;
 
     /**
-     * @description You can now specify the desired number of nodes for a node pool.
+     * @description The expected number of nodes in the node pool.
      *
      * @example 2
      *
@@ -93,8 +92,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
-     * @description The type of OS image. You must set this parameter or platform. Valid values:
-     * - ContainerOS: ContainerOS
+     * @description The type of the OS image.
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -102,10 +101,10 @@ class scalingGroup extends Model
     public $imageType;
 
     /**
-     * @description The billing method of the nodes in a node pool. Valid values:
+     * @description The billing method of the nodes in the node pool. Valid values:
      *
-     *   `PrePaid`: the subscription billing method.
-     *   `PostPaid`: the pay-as-you-go billing method.
+     *   `PrePaid`: subscription
+     *   `PostPaid`: pay-as-you-go
      *
      * @example PostPaid
      *
@@ -114,7 +113,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The actual instance types used to create nodes are subject to inventory availability.
+     * @description The list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The instance type that is used to create the node varies based on the inventory.
      *
      * @example ecs.n4.large
      *
@@ -123,7 +122,7 @@ class scalingGroup extends Model
     public $instanceTypes;
 
     /**
-     * @description The billing method of the public IP address of the node.
+     * @description The metering method of the public IP address.
      *
      * @example PayByBandwidth
      *
@@ -132,7 +131,7 @@ class scalingGroup extends Model
     public $internetChargeType;
 
     /**
-     * @description The maximum outbound bandwidth of the public IP address of the node. Unit: Mbit/s. Valid values: 1 to 100.
+     * @description The maximum outbound bandwidth of the public IP address. Unit: Mbit/s. Valid values: 1 to 100.
      *
      * @example 10
      *
@@ -141,9 +140,9 @@ class scalingGroup extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The name of the key pair. You must set this parameter or the `login_password` parameter.
+     * @description The name of the key pair. Either this parameter or the `login_password` parameter is specified.
      *
-     * You must set `key_pair` if the node pool is a managed node pool.
+     * Only the `key_pair` parameter is supported if the node pool is a managed node pool.
      * @example pro-nodepool
      *
      * @var string
@@ -151,7 +150,7 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
-     * @description Specifies whether a non-root user can log on to the ECS instance added to the node pool.
+     * @description Indicates whether a non-root user can log on to an ECS instance added to the node pool.
      *
      * @example true
      *
@@ -160,7 +159,7 @@ class scalingGroup extends Model
     public $loginAsNonRoot;
 
     /**
-     * @description The password for SSH logon. You must set this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     * @description The password for SSH logon. Either this parameter or the `key_pair` parameter is specified. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * For security purposes, the returned password is encrypted.
      * @example ******
@@ -170,17 +169,17 @@ class scalingGroup extends Model
     public $loginPassword;
 
     /**
-     * @description The ECS instance scaling policy for a multi-zone scaling group. Valid values:
+     * @description The ECS instance scaling policy for the multi-zone scaling group. Valid values:
      *
-     *   `PRIORITY`: the scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
+     *   `PRIORITY`: ECS instances are created based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
      *
      *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configuration. You can set the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
      *
      **
      *
-     **Note** `COST_OPTIMIZED` takes effect only when multiple instance types or preemptible instances are specified in the auto scaling conflagrations.
+     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If the distribution of ECS instances across zones is not balanced due to reasons such as insufficient inventory, you can call the `RebalanceInstances` operation to evenly distribute the ECS instances across zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
      *
      * @example COST_OPTIMIZED
      *
@@ -207,9 +206,9 @@ class scalingGroup extends Model
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
-     * @description The subscription duration of worker nodes. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+     * @description The subscription duration of the nodes in the node pool. This parameter is available and required only when `instance_charge_type` is set to `PrePaid`.
      *
-     * If `PeriodUnit=Month` is specified, the valid values are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+     * Valid values when `period_unit` is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
      * @example 1
      *
      * @var int
@@ -217,9 +216,9 @@ class scalingGroup extends Model
     public $period;
 
     /**
-     * @description The billing cycle of the nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`.
+     * @description The billing cycle of the nodes in the node pool. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`.
      *
-     * Valid value: `Month`
+     * Valid value: `Month`.
      * @example Month
      *
      * @var string
@@ -227,7 +226,7 @@ class scalingGroup extends Model
     public $periodUnit;
 
     /**
-     * @description The release version of the operating system. Valid values:
+     * @description The OS distribution. Valid values:
      *
      *   `CentOS`
      *   `AliyunLinux`
@@ -241,14 +240,14 @@ class scalingGroup extends Model
     public $platform;
 
     /**
-     * @description The private node pool options.
+     * @description The configuration of the private node pool.
      *
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes that are created on Elastic Compute Service (ECS) instances.
+     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
      *
      * @example KubernetesWorkerRole-021dc54f-929b-437a-8ae0-34c24d3e****
      *
@@ -257,7 +256,7 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
-     * @description After you specify a list of ApsaraDB RDS instances, the ECS instances in the cluster are automatically added to the whitelists of the ApsaraDB RDS instances.
+     * @description The ApsaraDB RDS instances. If you specify the list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
      *
      * @var string[]
      */
@@ -275,8 +274,8 @@ class scalingGroup extends Model
     /**
      * @description The scaling mode of the scaling group. Valid values:
      *
-     *   `release`: the standard mode. ECS instances are created and released based on resource usage.
-     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances attached with local disks.
+     *   `release`: the standard mode. ECS instances are created and released based on the resource usage.
+     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
      *
      * @example release
      *
@@ -294,15 +293,19 @@ class scalingGroup extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which the node pool is added.
+     * @description The IDs of security groups for the node pool.
      *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
-     * @description Specifies whether to enable Alibaba Cloud Linux Security Hardening.
-     * Default value: false
+     * @description Indicates whether Alibaba Cloud Linux Security Hardening is enabled. Valid values:
+     *
+     *   `true`: Alibaba Cloud Linux Security Hardening is enabled.
+     *   `false`: Alibaba Cloud Linux Security Hardening is disabled.
+     *
+     * Default value: `false`
      * @example false
      *
      * @var bool
@@ -310,8 +313,8 @@ class scalingGroup extends Model
     public $securityHardeningOs;
 
     /**
-     * @description Specifies whether to enable reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see ACK reinforcement based on classified protection.
-     * Default value: false.
+     * @description Indicates whether reinforcement based on classified protection is enabled. Reinforcement based on classified protection can be enabled only when Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3 is installed on nodes. Alibaba Cloud provides standards for baseline check and a scanner to ensure the compliance of Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 images with the level 3 standards of classified protection.
+     *
      * @example false
      *
      * @var bool
@@ -328,7 +331,7 @@ class scalingGroup extends Model
     public $spotInstancePools;
 
     /**
-     * @description Indicates whether preemptible instances are supplemented when the number of preemptible instances drops below the specified minimum number. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
+     * @description Indicates whether supplementation of preemptible instances is enabled. If the value of this parameter is true, when the scaling group receives a system message indicating that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
      *
      *   `true`: Supplementation of preemptible instances is enabled.
      *   `false`: Supplementation of preemptible instances is disabled.
@@ -340,18 +343,18 @@ class scalingGroup extends Model
     public $spotInstanceRemedy;
 
     /**
-     * @description The bid configurations of preemptible instances.
+     * @description The bid configuration of preemptible instances.
      *
      * @var spotPriceLimit[]
      */
     public $spotPriceLimit;
 
     /**
-     * @description The type of preemptible instance. Valid values:
+     * @description The bidding policy of preemptible instances. Valid values:
      *
-     *   NoSpot: a non-preemptible instance.
-     *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.
-     *   SpotAsPriceGo: a preemptible instance for which the system automatically bids based on the current market price.
+     *   NoSpot: non-preemptible.
+     *   SpotWithPriceLimit: the highest bid is specified.
+     *   SpotAsPriceGo: bids based on the up-to-date market price are submitted.
      *
      * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/157759.html).
      * @example NoSpot
@@ -361,8 +364,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
-     * @description Specifies whether to enable the burst feature for system disks. Valid values:
-     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks. ](https://help.aliyun.com/document_detail/368372.html)
+     * @description Indicates whether the burst feature is enabled for the system disk when the disk type is cloud_auto.
+     *
      * @example true
      *
      * @var bool
@@ -370,8 +373,8 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The type of system disk. When a high -priority disk type cannot be used, automatically try the next priority disk type creation system disk. Valid values:
-     * - cloud_essd: ESSD
+     * @description The types of system disks. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: cloud (disk), cloud_efficiency (ultra disk), cloud_ssd (standard SSD), and cloud_essd (ESSD).
+     *
      * @var string[]
      */
     public $systemDiskCategories;
@@ -379,8 +382,8 @@ class scalingGroup extends Model
     /**
      * @description The type of system disk. Valid values:
      *
-     *   `cloud_efficiency`: ultra disk.
-     *   `cloud_ssd`: standard SSD.
+     *   `cloud_efficiency`: ultra disk
+     *   `cloud_ssd`: standard SSD
      *
      * @example cloud_efficiency
      *
@@ -389,7 +392,7 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
-     * @description The algorithm that you want to use to encrypt the system disk. Set the value to aes-256.
+     * @description The algorithm that is used to encrypt the system disk. The value is aes-256.
      *
      * @example aes-256
      *
@@ -398,8 +401,11 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt the system disk. Valid values:
-     * - `false`: does not encrypt the system disk.
+     * @description Indicates whether the system disk is encrypted. Valid values:
+     *
+     *   true: The system disk is encrypted.
+     *   false: The system disk is not encrypted.
+     *
      * @example false
      *
      * @var bool
@@ -407,7 +413,7 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
-     * @description The ID of the KMS key that you want to use to encrypt the system disk.
+     * @description The ID of the Key Management Service (KMS) key that is used to encrypt the system disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -416,7 +422,7 @@ class scalingGroup extends Model
     public $systemDiskKmsKeyId;
 
     /**
-     * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for enhanced SSDs (ESSDs).
+     * @description The performance level (PL) of the system disk. This parameter takes effect only for an ESSD.
      *
      * @example PL1
      *
@@ -425,8 +431,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description The predefined IOPS of a system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS} Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
-     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * @description The preset read/write IOPS of the system disk when the disk type is cloud_auto.
+     *
      * @example 1000
      *
      * @var int
@@ -434,9 +440,9 @@ class scalingGroup extends Model
     public $systemDiskProvisionedIops;
 
     /**
-     * @description The system disk size of a node. Unit: GiB.
+     * @description The size of the system disk. Unit: GiB.
      *
-     * Valid values: 20 to 500
+     * Valid values: 20 to 500.
      * @example 120
      *
      * @var int
@@ -444,15 +450,15 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
-     * @description The labels that you want to add to the ECS instances.
+     * @description The tags that are added only to ECS instances.
      *
-     * The key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+     * The tag key must be unique and cannot exceed 128 characters in length. The tag key and value must not start with aliyun or acs: or contain https:// or http://.
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The vSwitch IDs. You can specify 1 to 20 vSwitches.
+     * @description The IDs of vSwitches. Allowed number of vSwitches: 1 to 8.
      *
      * >  To ensure high availability, we recommend that you select vSwitches in different zones.
      * @var string[]

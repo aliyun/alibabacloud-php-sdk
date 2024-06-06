@@ -11,8 +11,8 @@ class autoUpgradePolicy extends Model
     /**
      * @description Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: yes.
+     *   `false`: no.
      *
      * @example true
      *
@@ -21,11 +21,23 @@ class autoUpgradePolicy extends Model
     public $autoUpgradeKubelet;
 
     /**
+     * @description Specifies whether ACK is allowed to automatically update the operating system. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+     *
+     *   `true`: yes.
+     *   `false`: no.
+     *
+     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeOs;
 
     /**
+     * @description Specifies whether ACK is allowed to automatically update the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+     *
+     *   `true`: yes.
+     *   `false`: no.
+     *
+     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeRuntime;

@@ -35,6 +35,8 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description 【已废弃】请使用参数security_hardening_os替代。
+     *
      * @example false
      *
      * @deprecated
@@ -90,6 +92,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @description 操作系统镜像类型。
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -143,6 +147,8 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @description 弹出的ECS实例是否使用以非root用户登录。
+     *
      * @example true
      *
      * @var bool
@@ -292,11 +298,18 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @description 阿里云OS安全加固。取值：
+     *
+     * 默认值：`false`。
+     * @example false
+     *
      * @var bool
      */
     public $securityHardeningOs;
 
     /**
+     * @description 是否开启等保加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启等保加固。阿里云为Alibaba Cloud Linux 2和Alibaba Cloud Linux 3等保2.0三级版镜像提供等保合规的基线检查标准和扫描程序。
+     *
      * @example false
      *
      * @var bool
@@ -346,6 +359,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @description 节点系统盘是否开启Burst（性能突发），磁盘类型为cloud_auto时配置。
+     *
      * @example true
      *
      * @var bool
@@ -353,6 +368,8 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
+     * @description 系统盘的多磁盘类型。当无法使用高优先级的磁盘类型时，自动尝试下一优先级的磁盘类型创建系统盘。取值：
+     * 默认值：`cloud_efficiency`
      * @var string[]
      */
     public $systemDiskCategories;
@@ -370,6 +387,8 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @description 系统盘采用的加密算法。取值范围：aes-256。
+     *
      * @example aes-256
      *
      * @var string
@@ -377,6 +396,8 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
+     * @description 是否加密系统盘。取值：
+     * - `false`：不加密。
      * @example false
      *
      * @var bool
@@ -384,6 +405,8 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
+     * @description 系统盘使用的KMS密钥ID。
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -400,6 +423,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description 节点系统盘预配置的读写IOPS，磁盘类型为cloud_auto时配置。
+     *
      * @example 1000
      *
      * @var int

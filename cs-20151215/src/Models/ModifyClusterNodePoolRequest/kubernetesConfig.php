@@ -65,13 +65,17 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The configurations of node taints.
+     * @description The configuration of a node taint.
      *
      * @var Taint[]
      */
     public $taints;
 
     /**
+     * @description Specifies whether the nodes are unschedulable after a scale-out activity is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $unschedulable;

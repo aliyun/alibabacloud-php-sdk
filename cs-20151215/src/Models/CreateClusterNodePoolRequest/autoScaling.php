@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
      **
      *
-     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     **Important** This parameter is discontinued. Use internet_charge_type and internet_max_bandwidth_out.
      *
      * @example 5
      *
@@ -24,16 +24,16 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * The metering method of the EIP. Valid values:
+     * The billing method of the EIP. Valid values:
      *
      *   `PayByBandwidth`: pay-by-bandwidth
      *   `PayByTraffic`: pay-by-data-transfer
      *
      **
      *
-     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     **Important** This parameter is discontinued. Use internet_charge_type and internet_max_bandwidth_out.
      *
      * @example PayByBandwidth
      *
@@ -46,8 +46,8 @@ class autoScaling extends Model
     /**
      * @description Specifies whether to enable auto scaling for the node pool. Valid values:
      *
-     *   `true`: enables auto scaling.
-     *   `false`: disables auto scaling. If you set this parameter to false, other parameters in the `auto_scaling` section do not take effect.
+     *   `true`
+     *   `false`: If you set this parameter to false, other parameters of `auto_scaling` object do not take effect.
      *
      * Default value: `false`.
      * @example true
@@ -57,16 +57,16 @@ class autoScaling extends Model
     public $enable;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
      * Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
      *
-     *   `true`: associates an EIP with the node pool.
-     *   `false`: does not associate an EIP with the node pool.
+     *   `true`
+     *   `false`
      *
      **
      *
-     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     **Important** This parameter is discontinued. Use internet_charge_type and internet_max_bandwidth_out.
      *
      * @example true
      *
@@ -77,7 +77,7 @@ class autoScaling extends Model
     public $isBondEip;
 
     /**
-     * @description The maximum number of instances that can be automatically scaled. The number of nodes in the node pool cannot exceed this value. This parameter takes effect only if you set `enable` to true. Valid values: [min_instances, 2000]. Default value: 0.
+     * @description The maximum number of instances that can be automatically scaled. The number of nodes in the node pool cannot be greater than this value. This parameter takes effect only if `enable` is set to true. Valid values: [min_instances, 2000]. Default value: 0.
      *
      * @example 10
      *
@@ -86,7 +86,7 @@ class autoScaling extends Model
     public $maxInstances;
 
     /**
-     * @description The minimum number of instances that can be automatically scaled. The number of nodes in the node pool cannot be lower than this value. This parameter takes effect only if you set `enable` to true. Valid values: [0, max_instances]. Default value: 0.
+     * @description The minimum number of instances that can be automatically scaled. The number of nodes in the node pool cannot be smaller than this value. This parameter takes effect only if `enable` is set to true. Valid values: [0, max_instances]. Default value: 0.
      *
      * @example 1
      *
@@ -95,7 +95,7 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description The type of instances that are automatically scaled. This parameter takes effect only if you set `enable` to true. Valid values:
+     * @description The type of instances that are automatically scaled. This parameter takes effect only if `enable` is set to true. Valid values:
      *
      *   `cpu`: regular instance
      *   `gpu`: GPU-accelerated instance

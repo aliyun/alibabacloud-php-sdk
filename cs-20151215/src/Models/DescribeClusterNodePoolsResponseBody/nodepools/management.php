@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
-     * @description Indicates whether auto repair is enabled. This parameter takes effect only when `enable=true` is specified. Valid values:
+     * @description Indicates whether auto repair is enabled. This parameter takes effect only when `enable` is set to true. Valid values:
      *
      *   `true`: Auto repair is enabled.
      *   `false`: Auto repair is disabled.
@@ -32,8 +32,8 @@ class management extends Model
     public $autoRepairPolicy;
 
     /**
-     * @description Specifies whether to enable auto update. Valid values:
-     * - `false`: disables auto update.
+     * @description Indicates whether auto update is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -48,8 +48,8 @@ class management extends Model
     public $autoUpgradePolicy;
 
     /**
-     * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
-     * - `false`: no
+     * @description Indicates whether auto Common Vulnerabilities and Exposures (CVE) patching is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -67,7 +67,7 @@ class management extends Model
      * @description Indicates whether the managed node pool feature is enabled. Valid values:
      *
      *   `true`: The managed node pool feature is enabled.
-     *   `false`: The managed node pool feature is disabled. Other parameters in this section take effect only when `enable=true` is specified.
+     *   `false`: The managed node pool feature is disabled. Other parameters in this section take effect only if the value of `enable` is true.
      *
      * @example true
      *
@@ -76,7 +76,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configuration of auto update. The configuration take effects only when `enable=true` is specified.
+     * @description The configuration of auto update. The configuration take effects only if the value of `enable` is true.
      *
      * @var upgradeConfig
      */

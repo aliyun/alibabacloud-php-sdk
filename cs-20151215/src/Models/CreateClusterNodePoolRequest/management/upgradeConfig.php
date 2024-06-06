@@ -11,12 +11,12 @@ class upgradeConfig extends Model
     /**
      * @description Specifies whether to enable auto update. Valid values:
      *
-     *   `true`: enables auto update.
-     *   `false`: disables auto update.
+     *   `true`
+     *   `false`
      *
      **
      *
-     **Important** This parameter is deprecated. Use the preceding auto_upgrade parameter instead.
+     **Important** This parameter is discontinued. Use the preceding auto_upgrade parameter.
      *
      * @example false
      *
@@ -29,7 +29,7 @@ class upgradeConfig extends Model
     /**
      * @description The maximum number of unavailable nodes. Valid values: 1 to 1000.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class nodeConfig extends Model
 {
     /**
-     * @description The kubelet configuration.
+     * @description The parameter settings of the kubelet.
      *
      * @var KubeletConfig
      */

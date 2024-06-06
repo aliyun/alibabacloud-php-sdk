@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class autoRepairPolicy extends Model
 {
     /**
-     * @description Specifies whether to allow node restart. This parameter takes effect only if you set `auto_repair` to true. Valid values:
+     * @description Specifies whether to allow node restart. This parameter takes effect only if `auto_repair` is set to true. Valid values:
      *
-     *   `true`: allows node restart.
-     *   `false`: does not allow node restart.
+     *   `true`
+     *   `false`
      *
-     * When `auto_repair` is set to true, the default value of this parameter is `true`. When `auto_repair` is set to false, the default value of this parameter is `false`.
+     * If `auto_repair` is set to true, the default value of this parameter is `true`. If `auto_repair` is set to false, the default value of this parameter is `false`.
      * @example true
      *
      * @var bool

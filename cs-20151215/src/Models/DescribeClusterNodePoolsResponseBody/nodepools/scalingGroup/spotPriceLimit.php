@@ -18,7 +18,7 @@ class spotPriceLimit extends Model
     public $instanceType;
 
     /**
-     * @description The price limit of a single preemptible instance.
+     * @description The price cap for a single preemptible instance.
      *
      * Unit: USD/hour.
      * @example 0.39

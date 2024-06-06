@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodePoolsRequest extends Model
 {
     /**
+     * @description The name of the node pool.
+     *
+     * @example nodepool-test
+     *
      * @var string
      */
     public $nodepoolName;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodePoolsResponseBody extends Model
 {
     /**
-     * @description A list of node pools.
+     * @description The list of the node pools.
      *
      * @var nodepools[]
      */

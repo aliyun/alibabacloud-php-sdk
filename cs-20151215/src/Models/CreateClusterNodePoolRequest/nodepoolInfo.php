@@ -30,9 +30,9 @@ class nodepoolInfo extends Model
     /**
      * @description The type of the node pool. Valid values:
      *
-     *   `ess`: regular node pool (which supports the managed node pool feature and the auto scaling feature)
-     *   `edge`: edge node pool
-     *   `lingjun`: Lingjun node pool
+     *   `ess`: regular node pool, which supports the managed node pool feature and auto scaling feature.
+     *   `edge`: edge node pool.
+     *   `lingjun`: Lingjun node pool.
      *
      * @example ess
      *

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class autoVulFixPolicy extends Model
 {
     /**
-     * @description Specifies whether to allow node restart. This parameter takes effect only if you set `auto_vul_fix` to true. Valid values:
+     * @description Specifies whether to allow node restart. This parameter takes effect only if `auto_vul_fix` is set to true. Valid values:
      *
-     *   `true`: allows node restart.
-     *   `false`: does not allow node restart. When `auto_vul_fix` is set to true, the default value of this parameter is `false`. When `auto_vul_fix` is set to false, the default value of this parameter is `false`.
+     *   `true`
+     *   `false` If `auto_vul_fix` is set to true, the default value of this parameter is `false`. If `auto_vul_fix` is set to false, the default value of this parameter is `false`.
      *
      * @example true
      *
@@ -21,13 +21,13 @@ class autoVulFixPolicy extends Model
     public $restartNode;
 
     /**
-     * @description The level of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Supported CVE levels:
+     * @description The level of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Valid values:
      *
      *   `asap`: high
      *   `later`: medium
      *   `nntf`: low
      *
-     * When `auto_vul_fix` is set to true, the default value of this parameter is `asap`.
+     * If `auto_vul_fix` is set to true, the default value of this parameter is `asap`.
      * @example asap,nntf
      *
      * @var string
