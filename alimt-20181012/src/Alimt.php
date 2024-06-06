@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetAsyncTranslateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetAsyncTranslateResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateByVPCRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateByVPCResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetDetectLanguageRequest;
@@ -46,6 +48,8 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateECommerceResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralVpcRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateGeneralVpcResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageBatchRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageBatchResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateImageRequest;
@@ -513,6 +517,68 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBatchTranslateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary GetBatchTranslateByVPC
+     *  *
+     * @param GetBatchTranslateByVPCRequest $request GetBatchTranslateByVPCRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBatchTranslateByVPCResponse GetBatchTranslateByVPCResponse
+     */
+    public function getBatchTranslateByVPCWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiType)) {
+            $body['ApiType'] = $request->apiType;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTranslateByVPC',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchTranslateByVPCResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GetBatchTranslateByVPC
+     *  *
+     * @param GetBatchTranslateByVPCRequest $request GetBatchTranslateByVPCRequest
+     *
+     * @return GetBatchTranslateByVPCResponse GetBatchTranslateByVPCResponse
+     */
+    public function getBatchTranslateByVPC($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTranslateByVPCWithOptions($request, $runtime);
     }
 
     /**
@@ -1383,6 +1449,70 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->translateGeneralWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary TranslateGeneralVpc
+     *  *
+     * @param TranslateGeneralVpcRequest $request TranslateGeneralVpcRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TranslateGeneralVpcResponse TranslateGeneralVpcResponse
+     */
+    public function translateGeneralVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TranslateGeneralVpc',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TranslateGeneralVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary TranslateGeneralVpc
+     *  *
+     * @param TranslateGeneralVpcRequest $request TranslateGeneralVpcRequest
+     *
+     * @return TranslateGeneralVpcResponse TranslateGeneralVpcResponse
+     */
+    public function translateGeneralVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateGeneralVpcWithOptions($request, $runtime);
     }
 
     /**
