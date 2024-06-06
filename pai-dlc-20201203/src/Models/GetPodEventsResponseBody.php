@@ -21,6 +21,8 @@ class GetPodEventsResponseBody extends Model
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dlc-20210126170216-*****-chief-0
      *
      * @var string

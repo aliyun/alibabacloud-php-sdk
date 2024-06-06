@@ -103,6 +103,16 @@ class ListTensorboardsRequest extends Model
     public $tensorboardId;
 
     /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $username;
+
+    /**
      * @example true
      *
      * @var bool
@@ -130,6 +140,8 @@ class ListTensorboardsRequest extends Model
         'startTime'     => 'StartTime',
         'status'        => 'Status',
         'tensorboardId' => 'TensorboardId',
+        'userId'        => 'UserId',
+        'username'      => 'Username',
         'verbose'       => 'Verbose',
         'workspaceId'   => 'WorkspaceId',
     ];
@@ -182,6 +194,12 @@ class ListTensorboardsRequest extends Model
         }
         if (null !== $this->tensorboardId) {
             $res['TensorboardId'] = $this->tensorboardId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
@@ -242,6 +260,12 @@ class ListTensorboardsRequest extends Model
         }
         if (isset($map['TensorboardId'])) {
             $model->tensorboardId = $map['TensorboardId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];

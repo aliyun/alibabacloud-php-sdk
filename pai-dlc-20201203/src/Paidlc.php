@@ -143,11 +143,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 创建一个DLC作业
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJobWithOptions($request, $headers, $runtime)
     {
@@ -230,9 +232,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
+     * @summary 创建一个DLC作业
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJob($request)
     {
@@ -243,11 +247,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param CreateTensorboardRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 创建一个Tensorboard
+     *  *
+     * @param CreateTensorboardRequest $request CreateTensorboardRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTensorboardResponse
+     * @return CreateTensorboardResponse CreateTensorboardResponse
      */
     public function createTensorboardWithOptions($request, $headers, $runtime)
     {
@@ -324,9 +330,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param CreateTensorboardRequest $request
+     * @summary 创建一个Tensorboard
+     *  *
+     * @param CreateTensorboardRequest $request CreateTensorboardRequest
      *
-     * @return CreateTensorboardResponse
+     * @return CreateTensorboardResponse CreateTensorboardResponse
      */
     public function createTensorboard($request)
     {
@@ -337,11 +345,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个DLC作业
+     *  *
      * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJobWithOptions($JobId, $headers, $runtime)
     {
@@ -364,9 +374,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个DLC作业
+     *  *
      * @param string $JobId
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJob($JobId)
     {
@@ -377,12 +389,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个数据源配置
+     *  *
      * @param string                   $TensorboardId
-     * @param DeleteTensorboardRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteTensorboardRequest $request       DeleteTensorboardRequest
+     * @param string[]                 $headers       map
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteTensorboardResponse
+     * @return DeleteTensorboardResponse DeleteTensorboardResponse
      */
     public function deleteTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -411,10 +425,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个数据源配置
+     *  *
      * @param string                   $TensorboardId
-     * @param DeleteTensorboardRequest $request
+     * @param DeleteTensorboardRequest $request       DeleteTensorboardRequest
      *
-     * @return DeleteTensorboardResponse
+     * @return DeleteTensorboardResponse DeleteTensorboardResponse
      */
     public function deleteTensorboard($TensorboardId, $request)
     {
@@ -425,12 +441,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个DLC作业详情
+     *  *
      * @param string         $JobId
-     * @param GetJobRequest  $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetJobRequest  $request GetJobRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJobWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -459,10 +477,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个DLC作业详情
+     *  *
      * @param string        $JobId
-     * @param GetJobRequest $request
+     * @param GetJobRequest $request GetJobRequest
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJob($JobId, $request)
     {
@@ -473,12 +493,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业的事件
+     *  *
      * @param string              $JobId
-     * @param GetJobEventsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetJobEventsRequest $request GetJobEventsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobEventsResponse
+     * @return GetJobEventsResponse GetJobEventsResponse
      */
     public function getJobEventsWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -513,10 +535,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业的事件
+     *  *
      * @param string              $JobId
-     * @param GetJobEventsRequest $request
+     * @param GetJobEventsRequest $request GetJobEventsRequest
      *
-     * @return GetJobEventsResponse
+     * @return GetJobEventsResponse GetJobEventsResponse
      */
     public function getJobEvents($JobId, $request)
     {
@@ -527,12 +551,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个作业的资源监控指标
+     *  *
      * @param string               $JobId
-     * @param GetJobMetricsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetJobMetricsRequest $request GetJobMetricsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobMetricsResponse
+     * @return GetJobMetricsResponse GetJobMetricsResponse
      */
     public function getJobMetricsWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -573,10 +599,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个作业的资源监控指标
+     *  *
      * @param string               $JobId
-     * @param GetJobMetricsRequest $request
+     * @param GetJobMetricsRequest $request GetJobMetricsRequest
      *
-     * @return GetJobMetricsResponse
+     * @return GetJobMetricsResponse GetJobMetricsResponse
      */
     public function getJobMetrics($JobId, $request)
     {
@@ -587,12 +615,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取DLC作业某次算力健康检测结果
+     *  *
      * @param string                         $JobId
-     * @param GetJobSanityCheckResultRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetJobSanityCheckResultRequest $request GetJobSanityCheckResultRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobSanityCheckResultResponse
+     * @return GetJobSanityCheckResultResponse GetJobSanityCheckResultResponse
      */
     public function getJobSanityCheckResultWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -627,10 +657,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取DLC作业某次算力健康检测结果
+     *  *
      * @param string                         $JobId
-     * @param GetJobSanityCheckResultRequest $request
+     * @param GetJobSanityCheckResultRequest $request GetJobSanityCheckResultRequest
      *
-     * @return GetJobSanityCheckResultResponse
+     * @return GetJobSanityCheckResultResponse GetJobSanityCheckResultResponse
      */
     public function getJobSanityCheckResult($JobId, $request)
     {
@@ -641,13 +673,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业中一个运行实例的系统事件
+     *  *
      * @param string              $JobId
      * @param string              $PodId
-     * @param GetPodEventsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetPodEventsRequest $request GetPodEventsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPodEventsResponse
+     * @return GetPodEventsResponse GetPodEventsResponse
      */
     public function getPodEventsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
@@ -685,11 +719,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业中一个运行实例的系统事件
+     *  *
      * @param string              $JobId
      * @param string              $PodId
-     * @param GetPodEventsRequest $request
+     * @param GetPodEventsRequest $request GetPodEventsRequest
      *
-     * @return GetPodEventsResponse
+     * @return GetPodEventsResponse GetPodEventsResponse
      */
     public function getPodEvents($JobId, $PodId, $request)
     {
@@ -700,13 +736,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业中一个运行实例的日志
+     *  *
      * @param string            $JobId
      * @param string            $PodId
-     * @param GetPodLogsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetPodLogsRequest $request GetPodLogsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPodLogsResponse
+     * @return GetPodLogsResponse GetPodLogsResponse
      */
     public function getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
@@ -747,11 +785,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取作业中一个运行实例的日志
+     *  *
      * @param string            $JobId
      * @param string            $PodId
-     * @param GetPodLogsRequest $request
+     * @param GetPodLogsRequest $request GetPodLogsRequest
      *
-     * @return GetPodLogsResponse
+     * @return GetPodLogsResponse GetPodLogsResponse
      */
     public function getPodLogs($JobId, $PodId, $request)
     {
@@ -762,12 +802,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个Tensorboard
+     *  *
      * @param string                $TensorboardId
-     * @param GetTensorboardRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetTensorboardRequest $request       GetTensorboardRequest
+     * @param string[]              $headers       map
+     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetTensorboardResponse
+     * @return GetTensorboardResponse GetTensorboardResponse
      */
     public function getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -802,10 +844,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个Tensorboard
+     *  *
      * @param string                $TensorboardId
-     * @param GetTensorboardRequest $request
+     * @param GetTensorboardRequest $request       GetTensorboardRequest
      *
-     * @return GetTensorboardResponse
+     * @return GetTensorboardResponse GetTensorboardResponse
      */
     public function getTensorboard($TensorboardId, $request)
     {
@@ -816,12 +860,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary Get the shared url for tensorboard
+     *  *
      * @param string                         $TensorboardId
-     * @param GetTensorboardSharedUrlRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetTensorboardSharedUrlRequest $request       GetTensorboardSharedUrlRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetTensorboardSharedUrlResponse
+     * @return GetTensorboardSharedUrlResponse GetTensorboardSharedUrlResponse
      */
     public function getTensorboardSharedUrlWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -850,10 +896,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary Get the shared url for tensorboard
+     *  *
      * @param string                         $TensorboardId
-     * @param GetTensorboardSharedUrlRequest $request
+     * @param GetTensorboardSharedUrlRequest $request       GetTensorboardSharedUrlRequest
      *
-     * @return GetTensorboardSharedUrlResponse
+     * @return GetTensorboardSharedUrlResponse GetTensorboardSharedUrlResponse
      */
     public function getTensorboardSharedUrl($TensorboardId, $request)
     {
@@ -864,11 +912,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 获取用户Token
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getTokenWithOptions($request, $headers, $runtime)
     {
@@ -903,9 +953,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
+     * @summary 获取用户Token
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getToken($request)
     {
@@ -916,13 +968,15 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary Get the url for accessing pod's terminal in k8s
+     *  *
      * @param string                $JobId
      * @param string                $PodId
-     * @param GetWebTerminalRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetWebTerminalRequest $request GetWebTerminalRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWebTerminalResponse
+     * @return GetWebTerminalResponse GetWebTerminalResponse
      */
     public function getWebTerminalWithOptions($JobId, $PodId, $request, $headers, $runtime)
     {
@@ -954,11 +1008,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary Get the url for accessing pod's terminal in k8s
+     *  *
      * @param string                $JobId
      * @param string                $PodId
-     * @param GetWebTerminalRequest $request
+     * @param GetWebTerminalRequest $request GetWebTerminalRequest
      *
-     * @return GetWebTerminalResponse
+     * @return GetWebTerminalResponse GetWebTerminalResponse
      */
     public function getWebTerminal($JobId, $PodId, $request)
     {
@@ -969,11 +1025,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListEcsSpecsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary ListEcsSpecs
+     *  *
+     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEcsSpecsResponse
+     * @return ListEcsSpecsResponse ListEcsSpecsResponse
      */
     public function listEcsSpecsWithOptions($request, $headers, $runtime)
     {
@@ -1020,9 +1078,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListEcsSpecsRequest $request
+     * @summary ListEcsSpecs
+     *  *
+     * @param ListEcsSpecsRequest $request ListEcsSpecsRequest
      *
-     * @return ListEcsSpecsResponse
+     * @return ListEcsSpecsResponse ListEcsSpecsResponse
      */
     public function listEcsSpecs($request)
     {
@@ -1033,12 +1093,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取某个DLC作业的多次算力健康检测结果
+     *  *
      * @param string                           $JobId
-     * @param ListJobSanityCheckResultsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListJobSanityCheckResultsRequest $request ListJobSanityCheckResultsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobSanityCheckResultsResponse
+     * @return ListJobSanityCheckResultsResponse ListJobSanityCheckResultsResponse
      */
     public function listJobSanityCheckResultsWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -1067,10 +1129,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 获取某个DLC作业的多次算力健康检测结果
+     *  *
      * @param string                           $JobId
-     * @param ListJobSanityCheckResultsRequest $request
+     * @param ListJobSanityCheckResultsRequest $request ListJobSanityCheckResultsRequest
      *
-     * @return ListJobSanityCheckResultsResponse
+     * @return ListJobSanityCheckResultsResponse ListJobSanityCheckResultsResponse
      */
     public function listJobSanityCheckResults($JobId, $request)
     {
@@ -1081,11 +1145,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $tmpReq
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 根据过滤条件获取DLC作业列表
+     *  *
+     * @param ListJobsRequest $tmpReq  ListJobsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1179,9 +1245,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $request
+     * @summary 根据过滤条件获取DLC作业列表
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -1192,11 +1260,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListTensorboardsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 获取Tensorboard
+     *  *
+     * @param ListTensorboardsRequest $request ListTensorboardsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTensorboardsResponse
+     * @return ListTensorboardsResponse ListTensorboardsResponse
      */
     public function listTensorboardsWithOptions($request, $headers, $runtime)
     {
@@ -1244,6 +1314,12 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->tensorboardId)) {
             $query['TensorboardId'] = $request->tensorboardId;
         }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
         if (!Utils::isUnset($request->verbose)) {
             $query['Verbose'] = $request->verbose;
         }
@@ -1270,9 +1346,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListTensorboardsRequest $request
+     * @summary 获取Tensorboard
+     *  *
+     * @param ListTensorboardsRequest $request ListTensorboardsRequest
      *
-     * @return ListTensorboardsResponse
+     * @return ListTensorboardsResponse ListTensorboardsResponse
      */
     public function listTensorboards($request)
     {
@@ -1283,12 +1361,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 开始运行tensorboard
+     *  *
      * @param string                  $TensorboardId
-     * @param StartTensorboardRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param StartTensorboardRequest $request       StartTensorboardRequest
+     * @param string[]                $headers       map
+     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
      *
-     * @return StartTensorboardResponse
+     * @return StartTensorboardResponse StartTensorboardResponse
      */
     public function startTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -1317,10 +1397,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 开始运行tensorboard
+     *  *
      * @param string                  $TensorboardId
-     * @param StartTensorboardRequest $request
+     * @param StartTensorboardRequest $request       StartTensorboardRequest
      *
-     * @return StartTensorboardResponse
+     * @return StartTensorboardResponse StartTensorboardResponse
      */
     public function startTensorboard($TensorboardId, $request)
     {
@@ -1331,11 +1413,13 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 停止一个DLC作业
+     *  *
      * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopJobResponse
+     * @return StopJobResponse StopJobResponse
      */
     public function stopJobWithOptions($JobId, $headers, $runtime)
     {
@@ -1358,9 +1442,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 停止一个DLC作业
+     *  *
      * @param string $JobId
      *
-     * @return StopJobResponse
+     * @return StopJobResponse StopJobResponse
      */
     public function stopJob($JobId)
     {
@@ -1371,12 +1457,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 停止运行tensorboard
+     *  *
      * @param string                 $TensorboardId
-     * @param StopTensorboardRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param StopTensorboardRequest $request       StopTensorboardRequest
+     * @param string[]               $headers       map
+     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
      *
-     * @return StopTensorboardResponse
+     * @return StopTensorboardResponse StopTensorboardResponse
      */
     public function stopTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -1405,10 +1493,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 停止运行tensorboard
+     *  *
      * @param string                 $TensorboardId
-     * @param StopTensorboardRequest $request
+     * @param StopTensorboardRequest $request       StopTensorboardRequest
      *
-     * @return StopTensorboardResponse
+     * @return StopTensorboardResponse StopTensorboardResponse
      */
     public function stopTensorboard($TensorboardId, $request)
     {
@@ -1419,12 +1509,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 更新一个Job
+     *  *
      * @param string           $JobId
-     * @param UpdateJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param UpdateJobRequest $request UpdateJobRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJobWithOptions($JobId, $request, $headers, $runtime)
     {
@@ -1453,10 +1545,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 更新一个Job
+     *  *
      * @param string           $JobId
-     * @param UpdateJobRequest $request
+     * @param UpdateJobRequest $request UpdateJobRequest
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJob($JobId, $request)
     {
@@ -1467,12 +1561,14 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 更新tensorboard
+     *  *
      * @param string                   $TensorboardId
-     * @param UpdateTensorboardRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateTensorboardRequest $request       UpdateTensorboardRequest
+     * @param string[]                 $headers       map
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
      *
-     * @return UpdateTensorboardResponse
+     * @return UpdateTensorboardResponse UpdateTensorboardResponse
      */
     public function updateTensorboardWithOptions($TensorboardId, $request, $headers, $runtime)
     {
@@ -1504,10 +1600,12 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @summary 更新tensorboard
+     *  *
      * @param string                   $TensorboardId
-     * @param UpdateTensorboardRequest $request
+     * @param UpdateTensorboardRequest $request       UpdateTensorboardRequest
      *
-     * @return UpdateTensorboardResponse
+     * @return UpdateTensorboardResponse UpdateTensorboardResponse
      */
     public function updateTensorboard($TensorboardId, $request)
     {

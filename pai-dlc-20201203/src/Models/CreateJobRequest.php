@@ -29,6 +29,8 @@ class CreateJobRequest extends Model
     public $debuggerConfigContent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tf-mnist-test
      *
      * @var string
@@ -53,11 +55,15 @@ class CreateJobRequest extends Model
     public $jobMaxRunningTimeMinutes;
 
     /**
+     * @description This parameter is required.
+     *
      * @var JobSpec[]
      */
     public $jobSpecs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TFJob
      *
      * @var string
@@ -110,6 +116,8 @@ class CreateJobRequest extends Model
     public $thirdpartyLibs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example python /root/code/mnist.py
      *
      * @var string

@@ -16,6 +16,8 @@ class GetJobMetricsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example GpuMemoryUsage
      *
      * @var string

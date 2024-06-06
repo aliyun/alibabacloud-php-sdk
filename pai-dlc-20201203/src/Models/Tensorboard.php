@@ -41,6 +41,13 @@ class Tensorboard extends Model
      *
      * @var string
      */
+    public $gmtFinishTime;
+
+    /**
+     * @example 2021-01-12T14:36:00Z
+     *
+     * @var string
+     */
     public $gmtModifyTime;
 
     /**
@@ -115,11 +122,19 @@ class Tensorboard extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @example tensorboard.pai
+     *
+     * @var string
+     */
+    public $username;
     protected $_name = [
         'dataSourceId'           => 'DataSourceId',
         'displayName'            => 'DisplayName',
         'duration'               => 'Duration',
         'gmtCreateTime'          => 'GmtCreateTime',
+        'gmtFinishTime'          => 'GmtFinishTime',
         'gmtModifyTime'          => 'GmtModifyTime',
         'jobId'                  => 'JobId',
         'reasonCode'             => 'ReasonCode',
@@ -132,6 +147,7 @@ class Tensorboard extends Model
         'tensorboardSpec'        => 'TensorboardSpec',
         'tensorboardUrl'         => 'TensorboardUrl',
         'userId'                 => 'UserId',
+        'username'               => 'Username',
     ];
 
     public function validate()
@@ -152,6 +168,9 @@ class Tensorboard extends Model
         }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+        if (null !== $this->gmtFinishTime) {
+            $res['GmtFinishTime'] = $this->gmtFinishTime;
         }
         if (null !== $this->gmtModifyTime) {
             $res['GmtModifyTime'] = $this->gmtModifyTime;
@@ -195,6 +214,9 @@ class Tensorboard extends Model
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
+        }
 
         return $res;
     }
@@ -218,6 +240,9 @@ class Tensorboard extends Model
         }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+        if (isset($map['GmtFinishTime'])) {
+            $model->gmtFinishTime = $map['GmtFinishTime'];
         }
         if (isset($map['GmtModifyTime'])) {
             $model->gmtModifyTime = $map['GmtModifyTime'];
@@ -260,6 +285,9 @@ class Tensorboard extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;
