@@ -3,6 +3,11 @@
 - Update API ListTensorboards: add param Username.
 
 
+2024-06-06 Version: 1.4.5
+- Update API ListTensorboards: add param UserId.
+- Update API ListTensorboards: add param Username.
+
+
 2024-04-09 Version: 1.4.4
 - Update API CreateTensorboard: update param body.
 - Update API ListJobs: add param ResourceQuotaName.
