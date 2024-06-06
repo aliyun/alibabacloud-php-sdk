@@ -16,7 +16,7 @@ class CreateUserAuthenticateOptionsResponseBody extends Model
     public $challengeBase64;
 
     /**
-     * @example {\"subscribeEvent\":false,\"installAgent\":false}
+     * @example {\\"subscribeEvent\\":false,\\"installAgent\\":false}
      *
      * @var string
      */

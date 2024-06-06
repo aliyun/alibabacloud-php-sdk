@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterAuthenticatorRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11122223333
      *
      * @var string
@@ -16,13 +18,15 @@ class RegisterAuthenticatorRequest extends Model
     public $applicationExternalId;
 
     /**
-     * @example ZhangSan\"s authenticator
+     * @example ZhangSan\\"s authenticator
      *
      * @var string
      */
     public $authenticatorName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example webauthn
      *
      * @var string
@@ -51,6 +55,8 @@ class RegisterAuthenticatorRequest extends Model
     public $logParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {}
      *
      * @var string
@@ -72,6 +78,8 @@ class RegisterAuthenticatorRequest extends Model
     public $serverExtendParamsJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-11122223333
      *
      * @var string

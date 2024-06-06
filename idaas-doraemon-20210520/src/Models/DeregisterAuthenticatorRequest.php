@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeregisterAuthenticatorRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11122223333
      *
      * @var string
@@ -16,6 +18,8 @@ class DeregisterAuthenticatorRequest extends Model
     public $applicationExternalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a00712a4e56196755059356c290793031xHdUrCPXUS
      *
      * @var string
@@ -23,6 +27,8 @@ class DeregisterAuthenticatorRequest extends Model
     public $authenticatorUuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-11122223333
      *
      * @var string

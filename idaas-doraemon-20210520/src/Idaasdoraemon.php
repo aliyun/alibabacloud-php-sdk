@@ -86,10 +86,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthenticatorRegistrationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 创建认证器请求
+     *  *
+     * @param CreateAuthenticatorRegistrationRequest $request CreateAuthenticatorRegistrationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAuthenticatorRegistrationResponse
+     * @return CreateAuthenticatorRegistrationResponse CreateAuthenticatorRegistrationResponse
      */
     public function createAuthenticatorRegistrationWithOptions($request, $runtime)
     {
@@ -141,9 +143,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthenticatorRegistrationRequest $request
+     * @summary 创建认证器请求
+     *  *
+     * @param CreateAuthenticatorRegistrationRequest $request CreateAuthenticatorRegistrationRequest
      *
-     * @return CreateAuthenticatorRegistrationResponse
+     * @return CreateAuthenticatorRegistrationResponse CreateAuthenticatorRegistrationResponse
      */
     public function createAuthenticatorRegistration($request)
     {
@@ -153,10 +157,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param CreateUserAuthenticateOptionsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 创建用户认证请求
+     *  *
+     * @param CreateUserAuthenticateOptionsRequest $request CreateUserAuthenticateOptionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserAuthenticateOptionsResponse
+     * @return CreateUserAuthenticateOptionsResponse CreateUserAuthenticateOptionsResponse
      */
     public function createUserAuthenticateOptionsWithOptions($request, $runtime)
     {
@@ -202,9 +208,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param CreateUserAuthenticateOptionsRequest $request
+     * @summary 创建用户认证请求
+     *  *
+     * @param CreateUserAuthenticateOptionsRequest $request CreateUserAuthenticateOptionsRequest
      *
-     * @return CreateUserAuthenticateOptionsResponse
+     * @return CreateUserAuthenticateOptionsResponse CreateUserAuthenticateOptionsResponse
      */
     public function createUserAuthenticateOptions($request)
     {
@@ -214,10 +222,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param DeregisterAuthenticatorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除认证器
+     *  *
+     * @param DeregisterAuthenticatorRequest $request DeregisterAuthenticatorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeregisterAuthenticatorResponse
+     * @return DeregisterAuthenticatorResponse DeregisterAuthenticatorResponse
      */
     public function deregisterAuthenticatorWithOptions($request, $runtime)
     {
@@ -251,9 +261,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param DeregisterAuthenticatorRequest $request
+     * @summary 删除认证器
+     *  *
+     * @param DeregisterAuthenticatorRequest $request DeregisterAuthenticatorRequest
      *
-     * @return DeregisterAuthenticatorResponse
+     * @return DeregisterAuthenticatorResponse DeregisterAuthenticatorResponse
      */
     public function deregisterAuthenticator($request)
     {
@@ -263,10 +275,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param FetchAccessTokenRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取access_token
+     *  *
+     * @param FetchAccessTokenRequest $request FetchAccessTokenRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FetchAccessTokenResponse
+     * @return FetchAccessTokenResponse FetchAccessTokenResponse
      */
     public function fetchAccessTokenWithOptions($request, $runtime)
     {
@@ -309,9 +323,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param FetchAccessTokenRequest $request
+     * @summary 获取access_token
+     *  *
+     * @param FetchAccessTokenRequest $request FetchAccessTokenRequest
      *
-     * @return FetchAccessTokenResponse
+     * @return FetchAccessTokenResponse FetchAccessTokenResponse
      */
     public function fetchAccessToken($request)
     {
@@ -321,10 +337,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param GetAuthenticatorRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询单个认证器
+     *  *
+     * @param GetAuthenticatorRequest $request GetAuthenticatorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthenticatorResponse
+     * @return GetAuthenticatorResponse GetAuthenticatorResponse
      */
     public function getAuthenticatorWithOptions($request, $runtime)
     {
@@ -358,9 +376,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param GetAuthenticatorRequest $request
+     * @summary 查询单个认证器
+     *  *
+     * @param GetAuthenticatorRequest $request GetAuthenticatorRequest
      *
-     * @return GetAuthenticatorResponse
+     * @return GetAuthenticatorResponse GetAuthenticatorResponse
      */
     public function getAuthenticator($request)
     {
@@ -370,10 +390,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticationLogsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 列表查询认证事件日志
+     *  *
+     * @param ListAuthenticationLogsRequest $request ListAuthenticationLogsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthenticationLogsResponse
+     * @return ListAuthenticationLogsResponse ListAuthenticationLogsResponse
      */
     public function listAuthenticationLogsWithOptions($request, $runtime)
     {
@@ -428,9 +450,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticationLogsRequest $request
+     * @summary 列表查询认证事件日志
+     *  *
+     * @param ListAuthenticationLogsRequest $request ListAuthenticationLogsRequest
      *
-     * @return ListAuthenticationLogsResponse
+     * @return ListAuthenticationLogsResponse ListAuthenticationLogsResponse
      */
     public function listAuthenticationLogs($request)
     {
@@ -440,10 +464,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticatorOpsLogsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 列表查询认证器操作日志
+     *  *
+     * @param ListAuthenticatorOpsLogsRequest $request ListAuthenticatorOpsLogsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthenticatorOpsLogsResponse
+     * @return ListAuthenticatorOpsLogsResponse ListAuthenticatorOpsLogsResponse
      */
     public function listAuthenticatorOpsLogsWithOptions($request, $runtime)
     {
@@ -492,9 +518,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticatorOpsLogsRequest $request
+     * @summary 列表查询认证器操作日志
+     *  *
+     * @param ListAuthenticatorOpsLogsRequest $request ListAuthenticatorOpsLogsRequest
      *
-     * @return ListAuthenticatorOpsLogsResponse
+     * @return ListAuthenticatorOpsLogsResponse ListAuthenticatorOpsLogsResponse
      */
     public function listAuthenticatorOpsLogs($request)
     {
@@ -504,10 +532,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticatorsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 列表查询认证器
+     *  *
+     * @param ListAuthenticatorsRequest $request ListAuthenticatorsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthenticatorsResponse
+     * @return ListAuthenticatorsResponse ListAuthenticatorsResponse
      */
     public function listAuthenticatorsWithOptions($request, $runtime)
     {
@@ -547,9 +577,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListAuthenticatorsRequest $request
+     * @summary 列表查询认证器
+     *  *
+     * @param ListAuthenticatorsRequest $request ListAuthenticatorsRequest
      *
-     * @return ListAuthenticatorsResponse
+     * @return ListAuthenticatorsResponse ListAuthenticatorsResponse
      */
     public function listAuthenticators($request)
     {
@@ -559,10 +591,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListCostUnitOrdersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询按量计费订单列表
+     *  *
+     * @param ListCostUnitOrdersRequest $request ListCostUnitOrdersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCostUnitOrdersResponse
+     * @return ListCostUnitOrdersResponse ListCostUnitOrdersResponse
      */
     public function listCostUnitOrdersWithOptions($request, $runtime)
     {
@@ -599,9 +633,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListCostUnitOrdersRequest $request
+     * @summary 查询按量计费订单列表
+     *  *
+     * @param ListCostUnitOrdersRequest $request ListCostUnitOrdersRequest
      *
-     * @return ListCostUnitOrdersResponse
+     * @return ListCostUnitOrdersResponse ListCostUnitOrdersResponse
      */
     public function listCostUnitOrders($request)
     {
@@ -611,10 +647,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListOrderConsumeStatisticRecordsRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 查询用量消费统计记录列表
+     *  *
+     * @param ListOrderConsumeStatisticRecordsRequest $request ListOrderConsumeStatisticRecordsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrderConsumeStatisticRecordsResponse
+     * @return ListOrderConsumeStatisticRecordsResponse ListOrderConsumeStatisticRecordsResponse
      */
     public function listOrderConsumeStatisticRecordsWithOptions($request, $runtime)
     {
@@ -660,9 +698,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListOrderConsumeStatisticRecordsRequest $request
+     * @summary 查询用量消费统计记录列表
+     *  *
+     * @param ListOrderConsumeStatisticRecordsRequest $request ListOrderConsumeStatisticRecordsRequest
      *
-     * @return ListOrderConsumeStatisticRecordsResponse
+     * @return ListOrderConsumeStatisticRecordsResponse ListOrderConsumeStatisticRecordsResponse
      */
     public function listOrderConsumeStatisticRecords($request)
     {
@@ -672,10 +712,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListPwnedPasswordsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 弱密码检测
+     *  *
+     * @param ListPwnedPasswordsRequest $request ListPwnedPasswordsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPwnedPasswordsResponse
+     * @return ListPwnedPasswordsResponse ListPwnedPasswordsResponse
      */
     public function listPwnedPasswordsWithOptions($request, $runtime)
     {
@@ -703,9 +745,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListPwnedPasswordsRequest $request
+     * @summary 弱密码检测
+     *  *
+     * @param ListPwnedPasswordsRequest $request ListPwnedPasswordsRequest
      *
-     * @return ListPwnedPasswordsResponse
+     * @return ListPwnedPasswordsResponse ListPwnedPasswordsResponse
      */
     public function listPwnedPasswords($request)
     {
@@ -715,10 +759,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询应用用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -749,9 +795,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary 查询应用用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -761,10 +809,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsReportsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 短信回执查询
+     *  *
+     * @param QuerySmsReportsRequest $request QuerySmsReportsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsReportsResponse
+     * @return QuerySmsReportsResponse QuerySmsReportsResponse
      */
     public function querySmsReportsWithOptions($request, $runtime)
     {
@@ -789,9 +839,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsReportsRequest $request
+     * @summary 短信回执查询
+     *  *
+     * @param QuerySmsReportsRequest $request QuerySmsReportsRequest
      *
-     * @return QuerySmsReportsResponse
+     * @return QuerySmsReportsResponse QuerySmsReportsResponse
      */
     public function querySmsReports($request)
     {
@@ -801,9 +853,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 短信上行查询
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsUpsResponse
+     * @return QuerySmsUpsResponse QuerySmsUpsResponse
      */
     public function querySmsUpsWithOptions($runtime)
     {
@@ -824,7 +878,9 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @return QuerySmsUpsResponse
+     * @summary 短信上行查询
+     *  *
+     * @return QuerySmsUpsResponse QuerySmsUpsResponse
      */
     public function querySmsUps()
     {
@@ -834,10 +890,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param RegisterAuthenticatorRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 注册认证器
+     *  *
+     * @param RegisterAuthenticatorRequest $request RegisterAuthenticatorRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterAuthenticatorResponse
+     * @return RegisterAuthenticatorResponse RegisterAuthenticatorResponse
      */
     public function registerAuthenticatorWithOptions($request, $runtime)
     {
@@ -895,9 +953,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param RegisterAuthenticatorRequest $request
+     * @summary 注册认证器
+     *  *
+     * @param RegisterAuthenticatorRequest $request RegisterAuthenticatorRequest
      *
-     * @return RegisterAuthenticatorResponse
+     * @return RegisterAuthenticatorResponse RegisterAuthenticatorResponse
      */
     public function registerAuthenticator($request)
     {
@@ -907,10 +967,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ServiceInvokeRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 认证接口
+     *  *
+     * @param ServiceInvokeRequest $request ServiceInvokeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ServiceInvokeResponse
+     * @return ServiceInvokeResponse ServiceInvokeResponse
      */
     public function serviceInvokeWithOptions($request, $runtime)
     {
@@ -959,9 +1021,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param ServiceInvokeRequest $request
+     * @summary 认证接口
+     *  *
+     * @param ServiceInvokeRequest $request ServiceInvokeRequest
      *
-     * @return ServiceInvokeResponse
+     * @return ServiceInvokeResponse ServiceInvokeResponse
      */
     public function serviceInvoke($request)
     {
@@ -971,10 +1035,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthenticatorAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新认证器名字
+     *  *
+     * @param UpdateAuthenticatorAttributeRequest $request UpdateAuthenticatorAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAuthenticatorAttributeResponse
+     * @return UpdateAuthenticatorAttributeResponse UpdateAuthenticatorAttributeResponse
      */
     public function updateAuthenticatorAttributeWithOptions($request, $runtime)
     {
@@ -1011,9 +1077,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthenticatorAttributeRequest $request
+     * @summary 更新认证器名字
+     *  *
+     * @param UpdateAuthenticatorAttributeRequest $request UpdateAuthenticatorAttributeRequest
      *
-     * @return UpdateAuthenticatorAttributeResponse
+     * @return UpdateAuthenticatorAttributeResponse UpdateAuthenticatorAttributeResponse
      */
     public function updateAuthenticatorAttribute($request)
     {
@@ -1023,10 +1091,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param VerifyIdTokenRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 验证id_token
+     *  *
+     * @param VerifyIdTokenRequest $request VerifyIdTokenRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyIdTokenResponse
+     * @return VerifyIdTokenResponse VerifyIdTokenResponse
      */
     public function verifyIdTokenWithOptions($request, $runtime)
     {
@@ -1057,9 +1127,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param VerifyIdTokenRequest $request
+     * @summary 验证id_token
+     *  *
+     * @param VerifyIdTokenRequest $request VerifyIdTokenRequest
      *
-     * @return VerifyIdTokenResponse
+     * @return VerifyIdTokenResponse VerifyIdTokenResponse
      */
     public function verifyIdToken($request)
     {
@@ -1069,10 +1141,12 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param VerifyUserAuthenticationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 认证用户
+     *  *
+     * @param VerifyUserAuthenticationRequest $request VerifyUserAuthenticationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyUserAuthenticationResponse
+     * @return VerifyUserAuthenticationResponse VerifyUserAuthenticationResponse
      */
     public function verifyUserAuthenticationWithOptions($request, $runtime)
     {
@@ -1133,9 +1207,11 @@ class Idaasdoraemon extends OpenApiClient
     }
 
     /**
-     * @param VerifyUserAuthenticationRequest $request
+     * @summary 认证用户
+     *  *
+     * @param VerifyUserAuthenticationRequest $request VerifyUserAuthenticationRequest
      *
-     * @return VerifyUserAuthenticationResponse
+     * @return VerifyUserAuthenticationResponse VerifyUserAuthenticationResponse
      */
     public function verifyUserAuthentication($request)
     {

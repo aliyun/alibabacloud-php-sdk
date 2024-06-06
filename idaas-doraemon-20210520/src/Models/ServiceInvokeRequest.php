@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ServiceInvokeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example A0000003
      *
      * @var string
@@ -16,6 +18,8 @@ class ServiceInvokeRequest extends Model
     public $applicationExternalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SimpleAuthInit
      *
      * @var string
@@ -44,6 +48,8 @@ class ServiceInvokeRequest extends Model
     public $serverExtendParamsJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example IFAA
      *
      * @var string

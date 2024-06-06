@@ -16,7 +16,7 @@ class ServiceInvokeResponseBody extends Model
     public $code;
 
     /**
-     * @example "{\"ifaa\"{\"code\":0,\"message\":\"eyJo....BWUFBQUFBIn19\"},\"version\":\"1.0.0\",\"transaction\":{\"id\":\"sIFAA-ios\",\"type\":\"sIFAA-ios\",\"payload\":\"\"},\"action\":\"request/auth\"}" }
+     * @example "{\\"ifaa\\"{\\"code\\":0,\\"message\\":\\"eyJo....BWUFBQUFBIn19\\"},\\"version\\":\\"1.0.0\\",\\"transaction\\":{\\"id\\":\\"sIFAA-ios\\",\\"type\\":\\"sIFAA-ios\\",\\"payload\\":\\"\\"},\\"action\\":\\"request/auth\\"}" }
      *
      * @var string
      */

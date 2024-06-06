@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAuthenticatorAttributeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11122223333
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAuthenticatorAttributeRequest extends Model
     public $applicationExternalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TOTP-DefaultName
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAuthenticatorAttributeRequest extends Model
     public $authenticatorName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c810731ad3af06e45171395abf19cf9cb00E7i97PhE
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateAuthenticatorAttributeRequest extends Model
     public $authenticatorUuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-11122223333
      *
      * @var string

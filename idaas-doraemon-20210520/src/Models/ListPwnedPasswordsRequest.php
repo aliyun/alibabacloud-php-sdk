@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPwnedPasswordsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 000000
      *
      * @var string

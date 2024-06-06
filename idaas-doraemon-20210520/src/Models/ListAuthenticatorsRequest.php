@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAuthenticatorsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11122223333
      *
      * @var string
@@ -37,6 +39,8 @@ class ListAuthenticatorsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-11122223333
      *
      * @var string

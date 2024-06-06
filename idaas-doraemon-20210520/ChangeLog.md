@@ -1,3 +1,6 @@
+2024-06-06 Version: 1.2.11
+- Generated php 2021-05-20 for idaas-doraemon.
+
 2024-03-29 Version: 1.2.10
 - Generated php 2021-05-20 for idaas-doraemon.
 

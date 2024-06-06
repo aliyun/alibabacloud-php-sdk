@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAuthenticatorOpsLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example webauth_demo
      *
      * @var string

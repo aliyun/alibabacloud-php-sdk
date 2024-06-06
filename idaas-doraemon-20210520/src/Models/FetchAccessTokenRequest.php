@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FetchAccessTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example secAuthApp
      *
      * @var string
@@ -16,6 +18,8 @@ class FetchAccessTokenRequest extends Model
     public $applicationExternalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eyJhdHRhY2htZW50IjoicGxhdGZvcm0iLCJ1c2VyVmVyaWZpY2F0aW9uIjoicmVxdWlyZWQifQ==
      *
      * @var string
@@ -23,6 +27,8 @@ class FetchAccessTokenRequest extends Model
     public $mobileExtendParamsJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a3984bc27776bb6f65f82276f75d6a12d56e1b41e98ed6975d852b14309b8a20
      *
      * @var string

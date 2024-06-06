@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyUserAuthenticationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11122223333
      *
      * @var string
@@ -16,6 +18,8 @@ class VerifyUserAuthenticationRequest extends Model
     public $applicationExternalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {}
      *
      * @var string
@@ -23,6 +27,8 @@ class VerifyUserAuthenticationRequest extends Model
     public $authenticationContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example webauthn
      *
      * @var string
@@ -79,6 +85,8 @@ class VerifyUserAuthenticationRequest extends Model
     public $serverExtendParamsJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-11122223333
      *
      * @var string
