@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dependencies extends Model
 {
     /**
+     * @var string[]
+     */
+    public $clusterTypes;
+
+    /**
      * @description Name of the Feature.
      *
      * @var bool[]
@@ -22,8 +27,9 @@ class dependencies extends Model
      */
     public $services;
     protected $_name = [
-        'features' => 'Features',
-        'services' => 'Services',
+        'clusterTypes' => 'ClusterTypes',
+        'features'     => 'Features',
+        'services'     => 'Services',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class dependencies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterTypes) {
+            $res['ClusterTypes'] = $this->clusterTypes;
+        }
         if (null !== $this->features) {
             $res['Features'] = $this->features;
         }
@@ -51,6 +60,11 @@ class dependencies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterTypes'])) {
+            if (!empty($map['ClusterTypes'])) {
+                $model->clusterTypes = $map['ClusterTypes'];
+            }
+        }
         if (isset($map['Features'])) {
             $model->features = $map['Features'];
         }

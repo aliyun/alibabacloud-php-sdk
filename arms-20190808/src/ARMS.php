@@ -3725,6 +3725,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addonName)) {
+            $query['AddonName'] = $request->addonName;
+        }
         if (!Utils::isUnset($request->environmentId)) {
             $query['EnvironmentId'] = $request->environmentId;
         }

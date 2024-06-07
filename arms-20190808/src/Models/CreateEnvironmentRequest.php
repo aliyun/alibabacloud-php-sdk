@@ -50,7 +50,7 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The subtype of the environment. Valid values:
      *
-     *   CS: ACK, One
+     *   CS: ACK
      *   ECS: ECS
      *   Cloud: cloud service
      *
@@ -88,6 +88,8 @@ class CreateEnvironmentRequest extends Model
     public $feePackage;
 
     /**
+     * @description 环境绑定的grafana工作区id。传空时，表示使用默认的共享grafana。
+     *
      * @var string
      */
     public $grafanaWorkspaceId;
@@ -97,7 +99,7 @@ class CreateEnvironmentRequest extends Model
      *
      *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
      *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
-     *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+     *   agent-exporter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
      *
      * @example none
      *
@@ -106,7 +108,7 @@ class CreateEnvironmentRequest extends Model
     public $managedType;
 
     /**
-     * @description The ID of the Prometheus instance. If no Prometheus instance is created, call the InitEnvironment operation to initialize a storage instance.
+     * @description The ID of the Prometheus instance. If no Prometheus instance is created, call the InitEnvironment operation.
      *
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *

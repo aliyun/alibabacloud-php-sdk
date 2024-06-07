@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteAddonReleaseRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addonName;
+
+    /**
      * @description Environment ID.
      *
      * This parameter is required.
@@ -46,6 +51,7 @@ class DeleteAddonReleaseRequest extends Model
      */
     public $releaseName;
     protected $_name = [
+        'addonName'     => 'AddonName',
         'environmentId' => 'EnvironmentId',
         'force'         => 'Force',
         'regionId'      => 'RegionId',
@@ -59,6 +65,9 @@ class DeleteAddonReleaseRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addonName) {
+            $res['AddonName'] = $this->addonName;
+        }
         if (null !== $this->environmentId) {
             $res['EnvironmentId'] = $this->environmentId;
         }
@@ -83,6 +92,9 @@ class DeleteAddonReleaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddonName'])) {
+            $model->addonName = $map['AddonName'];
+        }
         if (isset($map['EnvironmentId'])) {
             $model->environmentId = $map['EnvironmentId'];
         }
