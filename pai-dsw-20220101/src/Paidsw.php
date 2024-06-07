@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetLifecycleRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetLifecycleResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetMetricsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetMetricsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenRequest;
@@ -877,6 +879,79 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->getLifecycleWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取metrics数据
+     *  *
+     * @param string            $InstanceId
+     * @param GetMetricsRequest $request    GetMetricsRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetMetricsResponse GetMetricsResponse
+     */
+    public function getMetricsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMetrics',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instance/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/cms/metrics',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取metrics数据
+     *  *
+     * @param string            $InstanceId
+     * @param GetMetricsRequest $request    GetMetricsRequest
+     *
+     * @return GetMetricsResponse GetMetricsResponse
+     */
+    public function getMetrics($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetricsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
