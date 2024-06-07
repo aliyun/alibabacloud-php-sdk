@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApisResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The error code.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class ListDataServiceApisResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class ListDataServiceApisResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the creator of the API. The ID can be used to search for the API created by the creator.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListDataServiceApisResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -53,7 +53,7 @@ class ListDataServiceApisResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The error message.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

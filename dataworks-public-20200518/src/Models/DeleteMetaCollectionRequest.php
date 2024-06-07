@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionRequest extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The unique identifier of the collection.
      *
      * This parameter is required.
      * @example album.12333

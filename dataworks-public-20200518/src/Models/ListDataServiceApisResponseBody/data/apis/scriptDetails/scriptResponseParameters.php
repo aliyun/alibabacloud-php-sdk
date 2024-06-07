@@ -18,7 +18,7 @@ class scriptResponseParameters extends Model
     public $columnName;
 
     /**
-     * @description The sample value of the parameter.
+     * @description The sample value.
      *
      * @example example2
      *
@@ -29,7 +29,19 @@ class scriptResponseParameters extends Model
     /**
      * @description The data type of the parameter. Valid values:
      *
-     * - 5: BOOLEAN
+     *   0: String
+     *   1: Int
+     *   2: Long
+     *   3: Float
+     *   4: Double
+     *   5: Boolean
+     *   6: StringList
+     *   7: IntList
+     *   8: LongList
+     *   9: FloatList
+     *   10: DoubleList
+     *   11: BooleanList
+     *
      * @example 0
      *
      * @var int
@@ -37,7 +49,7 @@ class scriptResponseParameters extends Model
     public $parameterDataType;
 
     /**
-     * @description The description of the parameter.
+     * @description The description.
      *
      * @example description2
      *

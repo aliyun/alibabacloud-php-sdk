@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class wizardConnection extends Model
 {
     /**
-     * @description The ID of the data source.
+     * @description The data source ID.
      *
      * @example 123
      *

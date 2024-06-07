@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateMetaCollectionRequest extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The comment of the collection.
      *
+     * The comment must be 1 to 64 characters in length.
      * @example this is a comment
      *
      * @var string
@@ -18,9 +19,8 @@ class UpdateMetaCollectionRequest extends Model
     public $comment;
 
     /**
-     * @description The comment of the collection.
+     * @description The name of the collection.
      *
-     * The comment must be 1 to 64 characters in length.
      * @example myCollectionName
      *
      * @var string
@@ -28,7 +28,7 @@ class UpdateMetaCollectionRequest extends Model
     public $name;
 
     /**
-     * @description The name of the collection.
+     * @description The unique identifier of the collection.
      *
      * This parameter is required.
      * @example album.396397

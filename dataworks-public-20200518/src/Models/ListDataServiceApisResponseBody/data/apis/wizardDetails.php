@@ -21,7 +21,7 @@ class wizardDetails extends Model
     public $isPagedResponse;
 
     /**
-     * @description The data source information of the API generated in wizard mode.
+     * @description The data source information about the API generated in wizard mode.
      *
      * @var wizardConnection
      */

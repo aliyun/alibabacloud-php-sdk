@@ -22,7 +22,7 @@ class GetMigrationSummaryResponseBody extends Model
     /**
      * @description The ID of the migration task.
      *
-     * You can call the [CreateImportMigration](~~CreateImportMigration~~) operation to obtain the ID of the import task and call the [CreateExportMigration](~~CreateImportMigration~~) operation to obtain the ID of the export task.
+     * You can call the [CreateImportMigration](https://help.aliyun.com/document_detail/2780280.html) operation to obtain the ID of the import task and call the [CreateExportMigration](https://help.aliyun.com/document_detail/2780281.html) operation to obtain the ID of the export task.
      * @example 19999A96-71BA-2845-B455-ED620EF4E37F
      *
      * @var string

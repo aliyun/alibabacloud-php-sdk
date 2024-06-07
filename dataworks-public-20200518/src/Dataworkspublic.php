@@ -1135,7 +1135,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+     * @summary Modifies the resource group that you specify when you activate DataWorks or purchase a DataWorks exclusive resource group.
      *  *
      * @param ChangeResourceManagerResourceGroupRequest $request ChangeResourceManagerResourceGroupRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -1174,7 +1174,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+     * @summary Modifies the resource group that you specify when you activate DataWorks or purchase a DataWorks exclusive resource group.
      *  *
      * @param ChangeResourceManagerResourceGroupRequest $request ChangeResourceManagerResourceGroupRequest
      *
@@ -2832,10 +2832,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Collections are classified into various types. The names of collections of the same type must be different.
+     * @summary Creates a collection.
      *  *
-     * @description A category must belong to a data album.
-     * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+     * @description Collections are classified into various types. The names of collections of the same type must be different.
      *  *
      * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2877,10 +2876,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Collections are classified into various types. The names of collections of the same type must be different.
+     * @summary Creates a collection.
      *  *
-     * @description A category must belong to a data album.
-     * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+     * @description Collections are classified into various types. The names of collections of the same type must be different.
      *  *
      * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
      *
@@ -4605,7 +4603,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+     * @summary Deletes a collection.
      *  *
      * @param DeleteMetaCollectionRequest $request DeleteMetaCollectionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4638,7 +4636,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+     * @summary Deletes a collection.
      *  *
      * @param DeleteMetaCollectionRequest $request DeleteMetaCollectionRequest
      *
@@ -4652,7 +4650,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+     * @summary Deletes an entity from a collection.
      *  *
      * @param DeleteMetaCollectionEntityRequest $request DeleteMetaCollectionEntityRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4688,7 +4686,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+     * @summary Deletes an entity from a collection.
      *  *
      * @param DeleteMetaCollectionEntityRequest $request DeleteMetaCollectionEntityRequest
      *
@@ -11266,7 +11264,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about APIs in the development state.
+     * @summary Queries a list of APIs in the development state.
      *  *
      * @param ListDataServiceApisRequest $request ListDataServiceApisRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -11317,7 +11315,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about APIs in the development state.
+     * @summary Queries a list of APIs in the development state.
      *  *
      * @param ListDataServiceApisRequest $request ListDataServiceApisRequest
      *
@@ -17435,9 +17433,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Only the name and comment of a collection can be updated.
+     * @summary Updates a collection.
      *  *
-     * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+     * @description Only the name and comment of a collection can be updated.
      *  *
      * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -17476,9 +17474,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Only the name and comment of a collection can be updated.
+     * @summary Updates a collection.
      *  *
-     * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+     * @description Only the name and comment of a collection can be updated.
      *  *
      * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
      *

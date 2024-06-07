@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionEntityRequest extends Model
 {
     /**
-     * @description The unique identifier of the entity.
+     * @description The unique identifier of the collection.
      *
      * This parameter is required.
      * @example album.12345
@@ -19,7 +19,7 @@ class DeleteMetaCollectionEntityRequest extends Model
     public $collectionQualifiedName;
 
     /**
-     * @description The ID of the request.
+     * @description The unique identifier of the entity.
      *
      * This parameter is required.
      * @example maxcompute.projectA.tableB

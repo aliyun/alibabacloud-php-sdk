@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaCollectionDetailResponseBody extends Model
 {
     /**
-     * @description The collection.
+     * @description The details of the collection.
      *
      * @var Collection
      */
     public $collection;
 
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example 9999
      *
@@ -25,7 +25,7 @@ class GetMetaCollectionDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example album.xxxx does not exist.
      *
@@ -34,7 +34,7 @@ class GetMetaCollectionDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -43,7 +43,7 @@ class GetMetaCollectionDetailResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
      * @example 0000-ABCD-E****
      *
@@ -54,7 +54,7 @@ class GetMetaCollectionDetailResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     * false: The request failed.
+     * false
      * @example true
      *
      * @var bool

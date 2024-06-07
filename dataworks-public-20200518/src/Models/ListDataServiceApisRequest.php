@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListDataServiceApisRequest extends Model
 {
     /**
-     * @description The ID of the tenant.
+     * @description The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
      *
      * @var string
      */
     public $apiNameKeyword;
 
     /**
-     * @description The keyword in the name of the API. The keyword can be used to search for the API whose name contains the keyword.
+     * @description The keyword in API paths. The keyword is used to search for the APIs whose paths contain the keyword.
      *
      * @example /test/
      *
@@ -25,7 +25,7 @@ class ListDataServiceApisRequest extends Model
     public $apiPathKeyword;
 
     /**
-     * @description The keyword in the path of the API. The keyword can be used to search for the API whose path contains the keyword.
+     * @description The ID of the Alibaba Cloud account used by the creator of the APIs. The ID is used to search for the APIs created by the creator.
      *
      * @example 12345
      *
@@ -34,7 +34,7 @@ class ListDataServiceApisRequest extends Model
     public $creatorId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListDataServiceApis**.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -43,7 +43,7 @@ class ListDataServiceApisRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
      *
      * @example 10
      *
@@ -52,7 +52,7 @@ class ListDataServiceApisRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. A maximum of 100 entries can be returned on each page.
+     * @description The workspace ID.
      *
      * This parameter is required.
      * @example 10000
@@ -62,7 +62,7 @@ class ListDataServiceApisRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
      *
      * @example 10001
      *

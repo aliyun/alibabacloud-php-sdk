@@ -18,7 +18,7 @@ class wizardResponseParameters extends Model
     public $columnName;
 
     /**
-     * @description The sample value of the parameter.
+     * @description The sample value.
      *
      * @example example2
      *
@@ -27,7 +27,20 @@ class wizardResponseParameters extends Model
     public $exampleValue;
 
     /**
-     * @description The data type of the parameter. Valid values: 0, 1, 2, 3, 4, and 5. A value of 0 indicates the STRING data type. A value of 1 indicates the INT data type. A value of 2 indicates the LONG data type. A value of 3 indicates the FLOAT data type. A value of 4 indicates the DOUBLE data type. A value of 5 indicates the BOOLEAN data type.
+     * @description The data type of the parameter. Valid values:
+     *
+     *   0: String
+     *   1: Int
+     *   2: Long
+     *   3: Float
+     *   4: Double
+     *   5: Boolean
+     *   6: StringList
+     *   7: IntList
+     *   8: LongList
+     *   9: FloatList
+     *   10: DoubleList
+     *   11: BooleanList
      *
      * @example 0
      *
@@ -36,7 +49,7 @@ class wizardResponseParameters extends Model
     public $parameterDataType;
 
     /**
-     * @description The description of the parameter.
+     * @description The description.
      *
      * @example description2
      *
