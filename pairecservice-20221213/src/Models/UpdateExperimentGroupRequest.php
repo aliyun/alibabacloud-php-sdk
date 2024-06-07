@@ -42,6 +42,8 @@ class UpdateExperimentGroupRequest extends Model
     public $debugUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example This is a test.
      *
      * @var string
@@ -70,6 +72,8 @@ class UpdateExperimentGroupRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -77,6 +81,8 @@ class UpdateExperimentGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -84,6 +90,8 @@ class UpdateExperimentGroupRequest extends Model
     public $layerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example experiment_group1
      *
      * @var string

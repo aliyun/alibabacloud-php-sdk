@@ -16,6 +16,8 @@ class ListLaboratoriesRequest extends Model
     public $environment;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string
@@ -23,6 +25,8 @@ class ListLaboratoriesRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

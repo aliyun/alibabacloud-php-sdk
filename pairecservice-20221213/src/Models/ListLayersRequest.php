@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLayersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLayersRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

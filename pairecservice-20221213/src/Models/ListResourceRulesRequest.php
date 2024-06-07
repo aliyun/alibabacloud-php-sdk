@@ -14,6 +14,8 @@ class ListResourceRulesRequest extends Model
     public $all;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

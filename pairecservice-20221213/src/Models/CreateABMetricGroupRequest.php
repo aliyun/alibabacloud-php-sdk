@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateABMetricGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1,2
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateABMetricGroupRequest extends Model
     public $ABMetricIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateABMetricGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example visits
      *
      * @var string
@@ -35,6 +43,8 @@ class CreateABMetricGroupRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +52,8 @@ class CreateABMetricGroupRequest extends Model
     public $realtime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

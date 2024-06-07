@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFeatureConsistencyCheckJobConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $compareFeature;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service_123
      *
      * @var string
@@ -44,6 +48,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $featureDisplayExclude;
 
     /**
+     * @description This parameter is required.
+     *
      * @example reso-********
      *
      * @var string
@@ -95,6 +101,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $fgJarVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example file.json
      *
      * @var string
@@ -102,6 +110,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $fgJsonFileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -109,6 +119,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $generateZip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string
@@ -144,6 +156,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $itemTablePartitionFieldFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example feature_consistency_check1
      *
      * @var string
@@ -158,6 +172,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $ossResourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0.89
      *
      * @var float
@@ -165,6 +181,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $sampleRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -172,6 +190,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $sceneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string
@@ -179,6 +199,8 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $serviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $useFeatureStore;

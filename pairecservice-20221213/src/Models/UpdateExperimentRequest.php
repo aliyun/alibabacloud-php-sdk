@@ -30,6 +30,8 @@ class UpdateExperimentRequest extends Model
     public $debugUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example This is a test.
      *
      * @var string
@@ -44,6 +46,8 @@ class UpdateExperimentRequest extends Model
     public $flowPercent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -51,6 +55,8 @@ class UpdateExperimentRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example experiment_test
      *
      * @var string
@@ -58,6 +64,8 @@ class UpdateExperimentRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Baseline
      *
      * @var string

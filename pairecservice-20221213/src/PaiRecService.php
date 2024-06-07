@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneFeatureConsistencyCheck
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneFeatureConsistencyCheckJobConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneLaboratoryResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateABMetricGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateABMetricRequest;
@@ -52,6 +54,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSubCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateSubCrowdResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DebugResourceRuleShrinkRequest;
@@ -82,6 +88,14 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteSubCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteSubCrowdResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricRequest;
@@ -111,6 +125,12 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSubCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSubCrowdResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListABMetricGroupsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListABMetricGroupsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListABMetricsRequest;
@@ -152,6 +172,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListSubCrowdsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListSubCrowdsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTableMetasRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTableMetasResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTrafficControlTargetTrafficHistoryRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTrafficControlTargetTrafficHistoryResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTrafficControlTasksRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTrafficControlTasksResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineExperimentRequest;
@@ -169,8 +193,20 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleShrinkRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReleaseTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReleaseTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SplitTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SplitTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SyncFeatureConsistencyCheckJobReplayLogRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SyncFeatureConsistencyCheckJobReplayLogResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\TerminateFeatureConsistencyCheckJobRequest;
@@ -203,6 +239,12 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateSceneResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTableMetaRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTableMetaResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTargetRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTargetResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskTrafficRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskTrafficResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -245,11 +287,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param BackflowFeatureConsistencyCheckJobDataRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary 特征一致性检查数据回流。
+     *  *
+     * @param BackflowFeatureConsistencyCheckJobDataRequest $request BackflowFeatureConsistencyCheckJobDataRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BackflowFeatureConsistencyCheckJobDataResponse
+     * @return BackflowFeatureConsistencyCheckJobDataResponse BackflowFeatureConsistencyCheckJobDataResponse
      */
     public function backflowFeatureConsistencyCheckJobDataWithOptions($request, $headers, $runtime)
     {
@@ -305,9 +349,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param BackflowFeatureConsistencyCheckJobDataRequest $request
+     * @summary 特征一致性检查数据回流。
+     *  *
+     * @param BackflowFeatureConsistencyCheckJobDataRequest $request BackflowFeatureConsistencyCheckJobDataRequest
      *
-     * @return BackflowFeatureConsistencyCheckJobDataResponse
+     * @return BackflowFeatureConsistencyCheckJobDataResponse BackflowFeatureConsistencyCheckJobDataResponse
      */
     public function backflowFeatureConsistencyCheckJobData($request)
     {
@@ -318,12 +364,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 检测实例下配置的资源的连接状态。
+     *  *
      * @param string                        $InstanceId
-     * @param CheckInstanceResourcesRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CheckInstanceResourcesRequest $request    CheckInstanceResourcesRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CheckInstanceResourcesResponse
+     * @return CheckInstanceResourcesResponse CheckInstanceResourcesResponse
      */
     public function checkInstanceResourcesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -355,10 +403,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 检测实例下配置的资源的连接状态。
+     *  *
      * @param string                        $InstanceId
-     * @param CheckInstanceResourcesRequest $request
+     * @param CheckInstanceResourcesRequest $request    CheckInstanceResourcesRequest
      *
-     * @return CheckInstanceResourcesResponse
+     * @return CheckInstanceResourcesResponse CheckInstanceResourcesResponse
      */
     public function checkInstanceResources($InstanceId, $request)
     {
@@ -369,12 +419,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验。
+     *  *
      * @param string                 $ExperimentId
-     * @param CloneExperimentRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CloneExperimentRequest $request      CloneExperimentRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CloneExperimentResponse
+     * @return CloneExperimentResponse CloneExperimentResponse
      */
     public function cloneExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -403,10 +455,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验。
+     *  *
      * @param string                 $ExperimentId
-     * @param CloneExperimentRequest $request
+     * @param CloneExperimentRequest $request      CloneExperimentRequest
      *
-     * @return CloneExperimentResponse
+     * @return CloneExperimentResponse CloneExperimentResponse
      */
     public function cloneExperiment($ExperimentId, $request)
     {
@@ -417,12 +471,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+     *  *
      * @param string                      $ExperimentGroupId
-     * @param CloneExperimentGroupRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CloneExperimentGroupRequest $request           CloneExperimentGroupRequest
+     * @param string[]                    $headers           map
+     * @param RuntimeOptions              $runtime           runtime options for this request RuntimeOptions
      *
-     * @return CloneExperimentGroupResponse
+     * @return CloneExperimentGroupResponse CloneExperimentGroupResponse
      */
     public function cloneExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -457,10 +513,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+     *  *
      * @param string                      $ExperimentGroupId
-     * @param CloneExperimentGroupRequest $request
+     * @param CloneExperimentGroupRequest $request           CloneExperimentGroupRequest
      *
-     * @return CloneExperimentGroupResponse
+     * @return CloneExperimentGroupResponse CloneExperimentGroupResponse
      */
     public function cloneExperimentGroup($ExperimentGroupId, $request)
     {
@@ -471,12 +529,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆特征一致性检查配置。
+     *  *
      * @param string                                       $SourceFeatureConsistencyCheckJobConfigId
-     * @param CloneFeatureConsistencyCheckJobConfigRequest $request
-     * @param string[]                                     $headers
-     * @param RuntimeOptions                               $runtime
+     * @param CloneFeatureConsistencyCheckJobConfigRequest $request                                  CloneFeatureConsistencyCheckJobConfigRequest
+     * @param string[]                                     $headers                                  map
+     * @param RuntimeOptions                               $runtime                                  runtime options for this request RuntimeOptions
      *
-     * @return CloneFeatureConsistencyCheckJobConfigResponse
+     * @return CloneFeatureConsistencyCheckJobConfigResponse CloneFeatureConsistencyCheckJobConfigResponse
      */
     public function cloneFeatureConsistencyCheckJobConfigWithOptions($SourceFeatureConsistencyCheckJobConfigId, $request, $headers, $runtime)
     {
@@ -505,10 +565,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆特征一致性检查配置。
+     *  *
      * @param string                                       $SourceFeatureConsistencyCheckJobConfigId
-     * @param CloneFeatureConsistencyCheckJobConfigRequest $request
+     * @param CloneFeatureConsistencyCheckJobConfigRequest $request                                  CloneFeatureConsistencyCheckJobConfigRequest
      *
-     * @return CloneFeatureConsistencyCheckJobConfigResponse
+     * @return CloneFeatureConsistencyCheckJobConfigResponse CloneFeatureConsistencyCheckJobConfigResponse
      */
     public function cloneFeatureConsistencyCheckJobConfig($SourceFeatureConsistencyCheckJobConfigId, $request)
     {
@@ -519,12 +581,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验室。
+     *  *
      * @param string                 $LaboratoryId
-     * @param CloneLaboratoryRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CloneLaboratoryRequest $request      CloneLaboratoryRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CloneLaboratoryResponse
+     * @return CloneLaboratoryResponse CloneLaboratoryResponse
      */
     public function cloneLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -559,10 +623,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 克隆实验室。
+     *  *
      * @param string                 $LaboratoryId
-     * @param CloneLaboratoryRequest $request
+     * @param CloneLaboratoryRequest $request      CloneLaboratoryRequest
      *
-     * @return CloneLaboratoryResponse
+     * @return CloneLaboratoryResponse CloneLaboratoryResponse
      */
     public function cloneLaboratory($LaboratoryId, $request)
     {
@@ -573,11 +639,65 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateABMetricRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 克隆流量调控任务
+     *  *
+     * @param string                         $TrafficControlTaskId
+     * @param CloneTrafficControlTaskRequest $request              CloneTrafficControlTaskRequest
+     * @param string[]                       $headers              map
+     * @param RuntimeOptions                 $runtime              runtime options for this request RuntimeOptions
      *
-     * @return CreateABMetricResponse
+     * @return CloneTrafficControlTaskResponse CloneTrafficControlTaskResponse
+     */
+    public function cloneTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/clone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 克隆流量调控任务
+     *  *
+     * @param string                         $TrafficControlTaskId
+     * @param CloneTrafficControlTaskRequest $request              CloneTrafficControlTaskRequest
+     *
+     * @return CloneTrafficControlTaskResponse CloneTrafficControlTaskResponse
+     */
+    public function cloneTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cloneTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建AB test实验指标
+     *  *
+     * @param CreateABMetricRequest $request CreateABMetricRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateABMetricResponse CreateABMetricResponse
      */
     public function createABMetricWithOptions($request, $headers, $runtime)
     {
@@ -642,9 +762,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateABMetricRequest $request
+     * @summary 创建AB test实验指标
+     *  *
+     * @param CreateABMetricRequest $request CreateABMetricRequest
      *
-     * @return CreateABMetricResponse
+     * @return CreateABMetricResponse CreateABMetricResponse
      */
     public function createABMetric($request)
     {
@@ -655,11 +777,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateABMetricGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 创建指标组
+     *  *
+     * @param CreateABMetricGroupRequest $request CreateABMetricGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateABMetricGroupResponse
+     * @return CreateABMetricGroupResponse CreateABMetricGroupResponse
      */
     public function createABMetricGroupWithOptions($request, $headers, $runtime)
     {
@@ -703,9 +827,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateABMetricGroupRequest $request
+     * @summary 创建指标组
+     *  *
+     * @param CreateABMetricGroupRequest $request CreateABMetricGroupRequest
      *
-     * @return CreateABMetricGroupResponse
+     * @return CreateABMetricGroupResponse CreateABMetricGroupResponse
      */
     public function createABMetricGroup($request)
     {
@@ -716,11 +842,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateCalculationJobsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 创建AB指标的计算任务。
+     *  *
+     * @param CreateCalculationJobsRequest $request CreateCalculationJobsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCalculationJobsResponse
+     * @return CreateCalculationJobsResponse CreateCalculationJobsResponse
      */
     public function createCalculationJobsWithOptions($request, $headers, $runtime)
     {
@@ -758,9 +886,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateCalculationJobsRequest $request
+     * @summary 创建AB指标的计算任务。
+     *  *
+     * @param CreateCalculationJobsRequest $request CreateCalculationJobsRequest
      *
-     * @return CreateCalculationJobsResponse
+     * @return CreateCalculationJobsResponse CreateCalculationJobsResponse
      */
     public function createCalculationJobs($request)
     {
@@ -771,11 +901,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateCrowdRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建人群。
+     *  *
+     * @param CreateCrowdRequest $request CreateCrowdRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCrowdResponse
+     * @return CreateCrowdResponse CreateCrowdResponse
      */
     public function createCrowdWithOptions($request, $headers, $runtime)
     {
@@ -819,9 +951,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateCrowdRequest $request
+     * @summary 创建人群。
+     *  *
+     * @param CreateCrowdRequest $request CreateCrowdRequest
      *
-     * @return CreateCrowdResponse
+     * @return CreateCrowdResponse CreateCrowdResponse
      */
     public function createCrowd($request)
     {
@@ -832,11 +966,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateExperimentRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建实验。
+     *  *
+     * @param CreateExperimentRequest $request CreateExperimentRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExperimentResponse
+     * @return CreateExperimentResponse CreateExperimentResponse
      */
     public function createExperimentWithOptions($request, $headers, $runtime)
     {
@@ -889,9 +1025,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateExperimentRequest $request
+     * @summary 创建实验。
+     *  *
+     * @param CreateExperimentRequest $request CreateExperimentRequest
      *
-     * @return CreateExperimentResponse
+     * @return CreateExperimentResponse CreateExperimentResponse
      */
     public function createExperiment($request)
     {
@@ -902,11 +1040,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateExperimentGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 创建实验组。
+     *  *
+     * @param CreateExperimentGroupRequest $request CreateExperimentGroupRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExperimentGroupResponse
+     * @return CreateExperimentGroupResponse CreateExperimentGroupResponse
      */
     public function createExperimentGroupWithOptions($request, $headers, $runtime)
     {
@@ -977,9 +1117,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateExperimentGroupRequest $request
+     * @summary 创建实验组。
+     *  *
+     * @param CreateExperimentGroupRequest $request CreateExperimentGroupRequest
      *
-     * @return CreateExperimentGroupResponse
+     * @return CreateExperimentGroupResponse CreateExperimentGroupResponse
      */
     public function createExperimentGroup($request)
     {
@@ -990,11 +1132,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateFeatureConsistencyCheckJobRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @summary 创建特征一致性检查任务。
+     *  *
+     * @param CreateFeatureConsistencyCheckJobRequest $request CreateFeatureConsistencyCheckJobRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFeatureConsistencyCheckJobResponse
+     * @return CreateFeatureConsistencyCheckJobResponse CreateFeatureConsistencyCheckJobResponse
      */
     public function createFeatureConsistencyCheckJobWithOptions($request, $headers, $runtime)
     {
@@ -1032,9 +1176,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateFeatureConsistencyCheckJobRequest $request
+     * @summary 创建特征一致性检查任务。
+     *  *
+     * @param CreateFeatureConsistencyCheckJobRequest $request CreateFeatureConsistencyCheckJobRequest
      *
-     * @return CreateFeatureConsistencyCheckJobResponse
+     * @return CreateFeatureConsistencyCheckJobResponse CreateFeatureConsistencyCheckJobResponse
      */
     public function createFeatureConsistencyCheckJob($request)
     {
@@ -1045,11 +1191,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateFeatureConsistencyCheckJobConfigRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary 创建特征一致性检查配置。
+     *  *
+     * @param CreateFeatureConsistencyCheckJobConfigRequest $request CreateFeatureConsistencyCheckJobConfigRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFeatureConsistencyCheckJobConfigResponse
+     * @return CreateFeatureConsistencyCheckJobConfigResponse CreateFeatureConsistencyCheckJobConfigResponse
      */
     public function createFeatureConsistencyCheckJobConfigWithOptions($request, $headers, $runtime)
     {
@@ -1171,9 +1319,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateFeatureConsistencyCheckJobConfigRequest $request
+     * @summary 创建特征一致性检查配置。
+     *  *
+     * @param CreateFeatureConsistencyCheckJobConfigRequest $request CreateFeatureConsistencyCheckJobConfigRequest
      *
-     * @return CreateFeatureConsistencyCheckJobConfigResponse
+     * @return CreateFeatureConsistencyCheckJobConfigResponse CreateFeatureConsistencyCheckJobConfigResponse
      */
     public function createFeatureConsistencyCheckJobConfig($request)
     {
@@ -1184,12 +1334,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 为指定实例配置创建新的配置资源
+     *  *
      * @param string                        $InstanceId
-     * @param CreateInstanceResourceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateInstanceResourceRequest $request    CreateInstanceResourceRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResourceResponse
+     * @return CreateInstanceResourceResponse CreateInstanceResourceResponse
      */
     public function createInstanceResourceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1227,10 +1379,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 为指定实例配置创建新的配置资源
+     *  *
      * @param string                        $InstanceId
-     * @param CreateInstanceResourceRequest $request
+     * @param CreateInstanceResourceRequest $request    CreateInstanceResourceRequest
      *
-     * @return CreateInstanceResourceResponse
+     * @return CreateInstanceResourceResponse CreateInstanceResourceResponse
      */
     public function createInstanceResource($InstanceId, $request)
     {
@@ -1241,11 +1395,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateLaboratoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建实验室
+     *  *
+     * @param CreateLaboratoryRequest $request CreateLaboratoryRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLaboratoryResponse
+     * @return CreateLaboratoryResponse CreateLaboratoryResponse
      */
     public function createLaboratoryWithOptions($request, $headers, $runtime)
     {
@@ -1307,9 +1463,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateLaboratoryRequest $request
+     * @summary 创建实验室
+     *  *
+     * @param CreateLaboratoryRequest $request CreateLaboratoryRequest
      *
-     * @return CreateLaboratoryResponse
+     * @return CreateLaboratoryResponse CreateLaboratoryResponse
      */
     public function createLaboratory($request)
     {
@@ -1320,11 +1478,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateLayerRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建层。
+     *  *
+     * @param CreateLayerRequest $request CreateLayerRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLayerResponse
+     * @return CreateLayerResponse CreateLayerResponse
      */
     public function createLayerWithOptions($request, $headers, $runtime)
     {
@@ -1362,9 +1522,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateLayerRequest $request
+     * @summary 创建层。
+     *  *
+     * @param CreateLayerRequest $request CreateLayerRequest
      *
-     * @return CreateLayerResponse
+     * @return CreateLayerResponse CreateLayerResponse
      */
     public function createLayer($request)
     {
@@ -1375,11 +1537,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateParamRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建参数。
+     *  *
+     * @param CreateParamRequest $request CreateParamRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateParamResponse
+     * @return CreateParamResponse CreateParamResponse
      */
     public function createParamWithOptions($request, $headers, $runtime)
     {
@@ -1420,9 +1584,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateParamRequest $request
+     * @summary 创建参数。
+     *  *
+     * @param CreateParamRequest $request CreateParamRequest
      *
-     * @return CreateParamResponse
+     * @return CreateParamResponse CreateParamResponse
      */
     public function createParam($request)
     {
@@ -1433,11 +1599,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceRuleRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建资源规则
+     *  *
+     * @param CreateResourceRuleRequest $request CreateResourceRuleRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceRuleResponse
+     * @return CreateResourceRuleResponse CreateResourceRuleResponse
      */
     public function createResourceRuleWithOptions($request, $headers, $runtime)
     {
@@ -1487,9 +1655,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceRuleRequest $request
+     * @summary 创建资源规则
+     *  *
+     * @param CreateResourceRuleRequest $request CreateResourceRuleRequest
      *
-     * @return CreateResourceRuleResponse
+     * @return CreateResourceRuleResponse CreateResourceRuleResponse
      */
     public function createResourceRule($request)
     {
@@ -1500,12 +1670,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 创建资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
-     * @param CreateResourceRuleItemRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateResourceRuleItemRequest $request        CreateResourceRuleItemRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceRuleItemResponse
+     * @return CreateResourceRuleItemResponse CreateResourceRuleItemResponse
      */
     public function createResourceRuleItemWithOptions($ResourceRuleId, $request, $headers, $runtime)
     {
@@ -1549,10 +1721,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 创建资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
-     * @param CreateResourceRuleItemRequest $request
+     * @param CreateResourceRuleItemRequest $request        CreateResourceRuleItemRequest
      *
-     * @return CreateResourceRuleItemResponse
+     * @return CreateResourceRuleItemResponse CreateResourceRuleItemResponse
      */
     public function createResourceRuleItem($ResourceRuleId, $request)
     {
@@ -1563,11 +1737,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateSceneRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建场景
+     *  *
+     * @param CreateSceneRequest $request CreateSceneRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSceneResponse
+     * @return CreateSceneResponse CreateSceneResponse
      */
     public function createSceneWithOptions($request, $headers, $runtime)
     {
@@ -1605,9 +1781,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateSceneRequest $request
+     * @summary 创建场景
+     *  *
+     * @param CreateSceneRequest $request CreateSceneRequest
      *
-     * @return CreateSceneResponse
+     * @return CreateSceneResponse CreateSceneResponse
      */
     public function createScene($request)
     {
@@ -1618,12 +1796,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 在指定人群下创建子人群。
+     *  *
      * @param string                $CrowdId
-     * @param CreateSubCrowdRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateSubCrowdRequest $request CreateSubCrowdRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubCrowdResponse
+     * @return CreateSubCrowdResponse CreateSubCrowdResponse
      */
     public function createSubCrowdWithOptions($CrowdId, $request, $headers, $runtime)
     {
@@ -1658,10 +1838,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 在指定人群下创建子人群。
+     *  *
      * @param string                $CrowdId
-     * @param CreateSubCrowdRequest $request
+     * @param CreateSubCrowdRequest $request CreateSubCrowdRequest
      *
-     * @return CreateSubCrowdResponse
+     * @return CreateSubCrowdResponse CreateSubCrowdResponse
      */
     public function createSubCrowd($CrowdId, $request)
     {
@@ -1672,11 +1854,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateTableMetaRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 创建数据表。
+     *  *
+     * @param CreateTableMetaRequest $request CreateTableMetaRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTableMetaResponse
+     * @return CreateTableMetaResponse CreateTableMetaResponse
      */
     public function createTableMetaWithOptions($request, $headers, $runtime)
     {
@@ -1723,9 +1907,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param CreateTableMetaRequest $request
+     * @summary 创建数据表。
+     *  *
+     * @param CreateTableMetaRequest $request CreateTableMetaRequest
      *
-     * @return CreateTableMetaResponse
+     * @return CreateTableMetaResponse CreateTableMetaResponse
      */
     public function createTableMeta($request)
     {
@@ -1736,12 +1922,219 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param string                   $ResourceRuleId
-     * @param DebugResourceRuleRequest $tmpReq
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 创建流量调控目标
+     *  *
+     * @param CreateTrafficControlTargetRequest $request CreateTrafficControlTargetRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DebugResourceRuleResponse
+     * @return CreateTrafficControlTargetResponse CreateTrafficControlTargetResponse
+     */
+    public function createTrafficControlTargetWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->event)) {
+            $body['Event'] = $request->event;
+        }
+        if (!Utils::isUnset($request->itemConditionArray)) {
+            $body['ItemConditionArray'] = $request->itemConditionArray;
+        }
+        if (!Utils::isUnset($request->itemConditionExpress)) {
+            $body['ItemConditionExpress'] = $request->itemConditionExpress;
+        }
+        if (!Utils::isUnset($request->itemConditionType)) {
+            $body['ItemConditionType'] = $request->itemConditionType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->newProductRegulation)) {
+            $body['NewProductRegulation'] = $request->newProductRegulation;
+        }
+        if (!Utils::isUnset($request->recallName)) {
+            $body['RecallName'] = $request->recallName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisPeriod)) {
+            $body['StatisPeriod'] = $request->statisPeriod;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->toleranceValue)) {
+            $body['ToleranceValue'] = $request->toleranceValue;
+        }
+        if (!Utils::isUnset($request->trafficControlTaskId)) {
+            $body['TrafficControlTaskId'] = $request->trafficControlTaskId;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建流量调控目标
+     *  *
+     * @param CreateTrafficControlTargetRequest $request CreateTrafficControlTargetRequest
+     *
+     * @return CreateTrafficControlTargetResponse CreateTrafficControlTargetResponse
+     */
+    public function createTrafficControlTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTrafficControlTargetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建流量调控任务
+     *  *
+     * @param CreateTrafficControlTaskRequest $request CreateTrafficControlTaskRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTrafficControlTaskResponse CreateTrafficControlTaskResponse
+     */
+    public function createTrafficControlTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->behaviorTableMetaId)) {
+            $body['BehaviorTableMetaId'] = $request->behaviorTableMetaId;
+        }
+        if (!Utils::isUnset($request->controlGranularity)) {
+            $body['ControlGranularity'] = $request->controlGranularity;
+        }
+        if (!Utils::isUnset($request->controlLogic)) {
+            $body['ControlLogic'] = $request->controlLogic;
+        }
+        if (!Utils::isUnset($request->controlType)) {
+            $body['ControlType'] = $request->controlType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->executionTime)) {
+            $body['ExecutionTime'] = $request->executionTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->itemConditionArray)) {
+            $body['ItemConditionArray'] = $request->itemConditionArray;
+        }
+        if (!Utils::isUnset($request->itemConditionExpress)) {
+            $body['ItemConditionExpress'] = $request->itemConditionExpress;
+        }
+        if (!Utils::isUnset($request->itemConditionType)) {
+            $body['ItemConditionType'] = $request->itemConditionType;
+        }
+        if (!Utils::isUnset($request->itemTableMetaId)) {
+            $body['ItemTableMetaId'] = $request->itemTableMetaId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisBehaviorConditionArray)) {
+            $body['StatisBehaviorConditionArray'] = $request->statisBehaviorConditionArray;
+        }
+        if (!Utils::isUnset($request->statisBehaviorConditionExpress)) {
+            $body['StatisBehaviorConditionExpress'] = $request->statisBehaviorConditionExpress;
+        }
+        if (!Utils::isUnset($request->statisBehaviorConditionType)) {
+            $body['StatisBehaviorConditionType'] = $request->statisBehaviorConditionType;
+        }
+        if (!Utils::isUnset($request->trafficControlTargets)) {
+            $body['TrafficControlTargets'] = $request->trafficControlTargets;
+        }
+        if (!Utils::isUnset($request->userConditionArray)) {
+            $body['UserConditionArray'] = $request->userConditionArray;
+        }
+        if (!Utils::isUnset($request->userConditionExpress)) {
+            $body['UserConditionExpress'] = $request->userConditionExpress;
+        }
+        if (!Utils::isUnset($request->userConditionType)) {
+            $body['UserConditionType'] = $request->userConditionType;
+        }
+        if (!Utils::isUnset($request->userTableMetaId)) {
+            $body['UserTableMetaId'] = $request->userTableMetaId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建流量调控任务
+     *  *
+     * @param CreateTrafficControlTaskRequest $request CreateTrafficControlTaskRequest
+     *
+     * @return CreateTrafficControlTaskResponse CreateTrafficControlTaskResponse
+     */
+    public function createTrafficControlTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTrafficControlTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 对指定资源规则中的计算公式进行调试
+     *  *
+     * @param string                   $ResourceRuleId
+     * @param DebugResourceRuleRequest $tmpReq         DebugResourceRuleRequest
+     * @param string[]                 $headers        map
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return DebugResourceRuleResponse DebugResourceRuleResponse
      */
     public function debugResourceRuleWithOptions($ResourceRuleId, $tmpReq, $headers, $runtime)
     {
@@ -1781,10 +2174,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 对指定资源规则中的计算公式进行调试
+     *  *
      * @param string                   $ResourceRuleId
-     * @param DebugResourceRuleRequest $request
+     * @param DebugResourceRuleRequest $request        DebugResourceRuleRequest
      *
-     * @return DebugResourceRuleResponse
+     * @return DebugResourceRuleResponse DebugResourceRuleResponse
      */
     public function debugResourceRule($ResourceRuleId, $request)
     {
@@ -1795,12 +2190,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定AB实验指标。
+     *  *
      * @param string                $ABMetricId
-     * @param DeleteABMetricRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteABMetricRequest $request    DeleteABMetricRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteABMetricResponse
+     * @return DeleteABMetricResponse DeleteABMetricResponse
      */
     public function deleteABMetricWithOptions($ABMetricId, $request, $headers, $runtime)
     {
@@ -1829,10 +2226,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定AB实验指标。
+     *  *
      * @param string                $ABMetricId
-     * @param DeleteABMetricRequest $request
+     * @param DeleteABMetricRequest $request    DeleteABMetricRequest
      *
-     * @return DeleteABMetricResponse
+     * @return DeleteABMetricResponse DeleteABMetricResponse
      */
     public function deleteABMetric($ABMetricId, $request)
     {
@@ -1843,12 +2242,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除AB实验指标组。
+     *  *
      * @param string                     $ABMetricGroupId
-     * @param DeleteABMetricGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DeleteABMetricGroupRequest $request         DeleteABMetricGroupRequest
+     * @param string[]                   $headers         map
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
      *
-     * @return DeleteABMetricGroupResponse
+     * @return DeleteABMetricGroupResponse DeleteABMetricGroupResponse
      */
     public function deleteABMetricGroupWithOptions($ABMetricGroupId, $request, $headers, $runtime)
     {
@@ -1877,10 +2278,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除AB实验指标组。
+     *  *
      * @param string                     $ABMetricGroupId
-     * @param DeleteABMetricGroupRequest $request
+     * @param DeleteABMetricGroupRequest $request         DeleteABMetricGroupRequest
      *
-     * @return DeleteABMetricGroupResponse
+     * @return DeleteABMetricGroupResponse DeleteABMetricGroupResponse
      */
     public function deleteABMetricGroup($ABMetricGroupId, $request)
     {
@@ -1891,12 +2294,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定人群。
+     *  *
      * @param string             $CrowdId
-     * @param DeleteCrowdRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param DeleteCrowdRequest $request DeleteCrowdRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCrowdResponse
+     * @return DeleteCrowdResponse DeleteCrowdResponse
      */
     public function deleteCrowdWithOptions($CrowdId, $request, $headers, $runtime)
     {
@@ -1925,10 +2330,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定人群。
+     *  *
      * @param string             $CrowdId
-     * @param DeleteCrowdRequest $request
+     * @param DeleteCrowdRequest $request DeleteCrowdRequest
      *
-     * @return DeleteCrowdResponse
+     * @return DeleteCrowdResponse DeleteCrowdResponse
      */
     public function deleteCrowd($CrowdId, $request)
     {
@@ -1939,12 +2346,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除实验。
+     *  *
      * @param string                  $ExperimentId
-     * @param DeleteExperimentRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param DeleteExperimentRequest $request      DeleteExperimentRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteExperimentResponse
+     * @return DeleteExperimentResponse DeleteExperimentResponse
      */
     public function deleteExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -1973,10 +2382,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除实验。
+     *  *
      * @param string                  $ExperimentId
-     * @param DeleteExperimentRequest $request
+     * @param DeleteExperimentRequest $request      DeleteExperimentRequest
      *
-     * @return DeleteExperimentResponse
+     * @return DeleteExperimentResponse DeleteExperimentResponse
      */
     public function deleteExperiment($ExperimentId, $request)
     {
@@ -1987,12 +2398,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param DeleteExperimentGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteExperimentGroupRequest $request           DeleteExperimentGroupRequest
+     * @param string[]                     $headers           map
+     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
      *
-     * @return DeleteExperimentGroupResponse
+     * @return DeleteExperimentGroupResponse DeleteExperimentGroupResponse
      */
     public function deleteExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -2021,10 +2434,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param DeleteExperimentGroupRequest $request
+     * @param DeleteExperimentGroupRequest $request           DeleteExperimentGroupRequest
      *
-     * @return DeleteExperimentGroupResponse
+     * @return DeleteExperimentGroupResponse DeleteExperimentGroupResponse
      */
     public function deleteExperimentGroup($ExperimentGroupId, $request)
     {
@@ -2035,12 +2450,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定实例下的指定配置资源。
+     *  *
      * @param string         $InstanceId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResourceResponse
+     * @return DeleteInstanceResourceResponse DeleteInstanceResourceResponse
      */
     public function deleteInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime)
     {
@@ -2063,10 +2480,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定实例下的指定配置资源。
+     *  *
      * @param string $InstanceId
      * @param string $ResourceId
      *
-     * @return DeleteInstanceResourceResponse
+     * @return DeleteInstanceResourceResponse DeleteInstanceResourceResponse
      */
     public function deleteInstanceResource($InstanceId, $ResourceId)
     {
@@ -2077,12 +2496,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param DeleteLaboratoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param DeleteLaboratoryRequest $request      DeleteLaboratoryRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteLaboratoryResponse
+     * @return DeleteLaboratoryResponse DeleteLaboratoryResponse
      */
     public function deleteLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -2111,10 +2532,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param DeleteLaboratoryRequest $request
+     * @param DeleteLaboratoryRequest $request      DeleteLaboratoryRequest
      *
-     * @return DeleteLaboratoryResponse
+     * @return DeleteLaboratoryResponse DeleteLaboratoryResponse
      */
     public function deleteLaboratory($LaboratoryId, $request)
     {
@@ -2125,12 +2548,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除层。
+     *  *
      * @param string             $LayerId
-     * @param DeleteLayerRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param DeleteLayerRequest $request DeleteLayerRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLayerResponse
+     * @return DeleteLayerResponse DeleteLayerResponse
      */
     public function deleteLayerWithOptions($LayerId, $request, $headers, $runtime)
     {
@@ -2159,10 +2584,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除层。
+     *  *
      * @param string             $LayerId
-     * @param DeleteLayerRequest $request
+     * @param DeleteLayerRequest $request DeleteLayerRequest
      *
-     * @return DeleteLayerResponse
+     * @return DeleteLayerResponse DeleteLayerResponse
      */
     public function deleteLayer($LayerId, $request)
     {
@@ -2173,12 +2600,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定参数。
+     *  *
      * @param string             $ParamId
-     * @param DeleteParamRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param DeleteParamRequest $request DeleteParamRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteParamResponse
+     * @return DeleteParamResponse DeleteParamResponse
      */
     public function deleteParamWithOptions($ParamId, $request, $headers, $runtime)
     {
@@ -2207,10 +2636,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定参数。
+     *  *
      * @param string             $ParamId
-     * @param DeleteParamRequest $request
+     * @param DeleteParamRequest $request DeleteParamRequest
      *
-     * @return DeleteParamResponse
+     * @return DeleteParamResponse DeleteParamResponse
      */
     public function deleteParam($ParamId, $request)
     {
@@ -2221,12 +2652,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源规则
+     *  *
      * @param string                    $ResourceRuleId
-     * @param DeleteResourceRuleRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteResourceRuleRequest $request        DeleteResourceRuleRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceRuleResponse
+     * @return DeleteResourceRuleResponse DeleteResourceRuleResponse
      */
     public function deleteResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
     {
@@ -2255,10 +2688,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源规则
+     *  *
      * @param string                    $ResourceRuleId
-     * @param DeleteResourceRuleRequest $request
+     * @param DeleteResourceRuleRequest $request        DeleteResourceRuleRequest
      *
-     * @return DeleteResourceRuleResponse
+     * @return DeleteResourceRuleResponse DeleteResourceRuleResponse
      */
     public function deleteResourceRule($ResourceRuleId, $request)
     {
@@ -2269,13 +2704,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
      * @param string                        $ResourceRuleItemId
-     * @param DeleteResourceRuleItemRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DeleteResourceRuleItemRequest $request            DeleteResourceRuleItemRequest
+     * @param string[]                      $headers            map
+     * @param RuntimeOptions                $runtime            runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceRuleItemResponse
+     * @return DeleteResourceRuleItemResponse DeleteResourceRuleItemResponse
      */
     public function deleteResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime)
     {
@@ -2304,11 +2741,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
      * @param string                        $ResourceRuleItemId
-     * @param DeleteResourceRuleItemRequest $request
+     * @param DeleteResourceRuleItemRequest $request            DeleteResourceRuleItemRequest
      *
-     * @return DeleteResourceRuleItemResponse
+     * @return DeleteResourceRuleItemResponse DeleteResourceRuleItemResponse
      */
     public function deleteResourceRuleItem($ResourceRuleId, $ResourceRuleItemId, $request)
     {
@@ -2319,12 +2758,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除场景
+     *  *
      * @param string             $SceneId
-     * @param DeleteSceneRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param DeleteSceneRequest $request DeleteSceneRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSceneResponse
+     * @return DeleteSceneResponse DeleteSceneResponse
      */
     public function deleteSceneWithOptions($SceneId, $request, $headers, $runtime)
     {
@@ -2353,10 +2794,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除场景
+     *  *
      * @param string             $SceneId
-     * @param DeleteSceneRequest $request
+     * @param DeleteSceneRequest $request DeleteSceneRequest
      *
-     * @return DeleteSceneResponse
+     * @return DeleteSceneResponse DeleteSceneResponse
      */
     public function deleteScene($SceneId, $request)
     {
@@ -2367,13 +2810,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定人群下的指定子人群。
+     *  *
      * @param string                $CrowdId
      * @param string                $SubCrowdId
-     * @param DeleteSubCrowdRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteSubCrowdRequest $request    DeleteSubCrowdRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubCrowdResponse
+     * @return DeleteSubCrowdResponse DeleteSubCrowdResponse
      */
     public function deleteSubCrowdWithOptions($CrowdId, $SubCrowdId, $request, $headers, $runtime)
     {
@@ -2402,11 +2847,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定人群下的指定子人群。
+     *  *
      * @param string                $CrowdId
      * @param string                $SubCrowdId
-     * @param DeleteSubCrowdRequest $request
+     * @param DeleteSubCrowdRequest $request    DeleteSubCrowdRequest
      *
-     * @return DeleteSubCrowdResponse
+     * @return DeleteSubCrowdResponse DeleteSubCrowdResponse
      */
     public function deleteSubCrowd($CrowdId, $SubCrowdId, $request)
     {
@@ -2417,12 +2864,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据表。
+     *  *
      * @param string                 $TableMetaId
-     * @param DeleteTableMetaRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteTableMetaRequest $request     DeleteTableMetaRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableMetaResponse
+     * @return DeleteTableMetaResponse DeleteTableMetaResponse
      */
     public function deleteTableMetaWithOptions($TableMetaId, $request, $headers, $runtime)
     {
@@ -2451,10 +2900,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据表。
+     *  *
      * @param string                 $TableMetaId
-     * @param DeleteTableMetaRequest $request
+     * @param DeleteTableMetaRequest $request     DeleteTableMetaRequest
      *
-     * @return DeleteTableMetaResponse
+     * @return DeleteTableMetaResponse DeleteTableMetaResponse
      */
     public function deleteTableMeta($TableMetaId, $request)
     {
@@ -2465,12 +2916,222 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param string             $ABMetricId
-     * @param GetABMetricRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 更新流量调控目标
+     *  *
+     * @param string                            $TrafficControlTargetId
+     * @param DeleteTrafficControlTargetRequest $request                DeleteTrafficControlTargetRequest
+     * @param string[]                          $headers                map
+     * @param RuntimeOptions                    $runtime                runtime options for this request RuntimeOptions
      *
-     * @return GetABMetricResponse
+     * @return DeleteTrafficControlTargetResponse DeleteTrafficControlTargetResponse
+     */
+    public function deleteTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新流量调控目标
+     *  *
+     * @param string                            $TrafficControlTargetId
+     * @param DeleteTrafficControlTargetRequest $request                DeleteTrafficControlTargetRequest
+     *
+     * @return DeleteTrafficControlTargetResponse DeleteTrafficControlTargetResponse
+     */
+    public function deleteTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除指定的流量调控任务
+     *  *
+     * @param string                          $TrafficControlTaskId
+     * @param DeleteTrafficControlTaskRequest $request              DeleteTrafficControlTaskRequest
+     * @param string[]                        $headers              map
+     * @param RuntimeOptions                  $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTrafficControlTaskResponse DeleteTrafficControlTaskResponse
+     */
+    public function deleteTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除指定的流量调控任务
+     *  *
+     * @param string                          $TrafficControlTaskId
+     * @param DeleteTrafficControlTaskRequest $request              DeleteTrafficControlTaskRequest
+     *
+     * @return DeleteTrafficControlTaskResponse DeleteTrafficControlTaskResponse
+     */
+    public function deleteTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 产生流量调控的相关代码
+     *  *
+     * @param string                                $TrafficControlTaskId
+     * @param GenerateTrafficControlTaskCodeRequest $request              GenerateTrafficControlTaskCodeRequest
+     * @param string[]                              $headers              map
+     * @param RuntimeOptions                        $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return GenerateTrafficControlTaskCodeResponse GenerateTrafficControlTaskCodeResponse
+     */
+    public function generateTrafficControlTaskCodeWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateTrafficControlTaskCode',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/code',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateTrafficControlTaskCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 产生流量调控的相关代码
+     *  *
+     * @param string                                $TrafficControlTaskId
+     * @param GenerateTrafficControlTaskCodeRequest $request              GenerateTrafficControlTaskCodeRequest
+     *
+     * @return GenerateTrafficControlTaskCodeResponse GenerateTrafficControlTaskCodeResponse
+     */
+    public function generateTrafficControlTaskCode($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateTrafficControlTaskCodeWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 产生流量调控的相关召回配置
+     *  *
+     * @param string                                  $TrafficControlTaskId
+     * @param GenerateTrafficControlTaskConfigRequest $request              GenerateTrafficControlTaskConfigRequest
+     * @param string[]                                $headers              map
+     * @param RuntimeOptions                          $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return GenerateTrafficControlTaskConfigResponse GenerateTrafficControlTaskConfigResponse
+     */
+    public function generateTrafficControlTaskConfigWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateTrafficControlTaskConfig',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateTrafficControlTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 产生流量调控的相关召回配置
+     *  *
+     * @param string                                  $TrafficControlTaskId
+     * @param GenerateTrafficControlTaskConfigRequest $request              GenerateTrafficControlTaskConfigRequest
+     *
+     * @return GenerateTrafficControlTaskConfigResponse GenerateTrafficControlTaskConfigResponse
+     */
+    public function generateTrafficControlTaskConfig($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateTrafficControlTaskConfigWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取AB Test实验指标详细信息。
+     *  *
+     * @param string             $ABMetricId
+     * @param GetABMetricRequest $request    GetABMetricRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetABMetricResponse GetABMetricResponse
      */
     public function getABMetricWithOptions($ABMetricId, $request, $headers, $runtime)
     {
@@ -2499,10 +3160,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取AB Test实验指标详细信息。
+     *  *
      * @param string             $ABMetricId
-     * @param GetABMetricRequest $request
+     * @param GetABMetricRequest $request    GetABMetricRequest
      *
-     * @return GetABMetricResponse
+     * @return GetABMetricResponse GetABMetricResponse
      */
     public function getABMetric($ABMetricId, $request)
     {
@@ -2513,12 +3176,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取AB实验指标组详细信息。
+     *  *
      * @param string                  $ABMetricGroupId
-     * @param GetABMetricGroupRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetABMetricGroupRequest $request         GetABMetricGroupRequest
+     * @param string[]                $headers         map
+     * @param RuntimeOptions          $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetABMetricGroupResponse
+     * @return GetABMetricGroupResponse GetABMetricGroupResponse
      */
     public function getABMetricGroupWithOptions($ABMetricGroupId, $request, $headers, $runtime)
     {
@@ -2547,10 +3212,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取AB实验指标组详细信息。
+     *  *
      * @param string                  $ABMetricGroupId
-     * @param GetABMetricGroupRequest $request
+     * @param GetABMetricGroupRequest $request         GetABMetricGroupRequest
      *
-     * @return GetABMetricGroupResponse
+     * @return GetABMetricGroupResponse GetABMetricGroupResponse
      */
     public function getABMetricGroup($ABMetricGroupId, $request)
     {
@@ -2561,12 +3228,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定计算任务详细信息。
+     *  *
      * @param string                   $CalculationJobId
-     * @param GetCalculationJobRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetCalculationJobRequest $request          GetCalculationJobRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetCalculationJobResponse
+     * @return GetCalculationJobResponse GetCalculationJobResponse
      */
     public function getCalculationJobWithOptions($CalculationJobId, $request, $headers, $runtime)
     {
@@ -2595,10 +3264,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定计算任务详细信息。
+     *  *
      * @param string                   $CalculationJobId
-     * @param GetCalculationJobRequest $request
+     * @param GetCalculationJobRequest $request          GetCalculationJobRequest
      *
-     * @return GetCalculationJobResponse
+     * @return GetCalculationJobResponse GetCalculationJobResponse
      */
     public function getCalculationJob($CalculationJobId, $request)
     {
@@ -2609,12 +3280,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实验详细信息。
+     *  *
      * @param string               $ExperimentId
-     * @param GetExperimentRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetExperimentRequest $request      GetExperimentRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetExperimentResponse
+     * @return GetExperimentResponse GetExperimentResponse
      */
     public function getExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -2643,10 +3316,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实验详细信息。
+     *  *
      * @param string               $ExperimentId
-     * @param GetExperimentRequest $request
+     * @param GetExperimentRequest $request      GetExperimentRequest
      *
-     * @return GetExperimentResponse
+     * @return GetExperimentResponse GetExperimentResponse
      */
     public function getExperiment($ExperimentId, $request)
     {
@@ -2657,12 +3332,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定实验组详细信息。
+     *  *
      * @param string                    $ExperimentGroupId
-     * @param GetExperimentGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetExperimentGroupRequest $request           GetExperimentGroupRequest
+     * @param string[]                  $headers           map
+     * @param RuntimeOptions            $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetExperimentGroupResponse
+     * @return GetExperimentGroupResponse GetExperimentGroupResponse
      */
     public function getExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -2691,10 +3368,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定实验组详细信息。
+     *  *
      * @param string                    $ExperimentGroupId
-     * @param GetExperimentGroupRequest $request
+     * @param GetExperimentGroupRequest $request           GetExperimentGroupRequest
      *
-     * @return GetExperimentGroupResponse
+     * @return GetExperimentGroupResponse GetExperimentGroupResponse
      */
     public function getExperimentGroup($ExperimentGroupId, $request)
     {
@@ -2705,12 +3384,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务详细信息。
+     *  *
      * @param string                               $FeatureConsistencyCheckJobId
-     * @param GetFeatureConsistencyCheckJobRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param GetFeatureConsistencyCheckJobRequest $request                      GetFeatureConsistencyCheckJobRequest
+     * @param string[]                             $headers                      map
+     * @param RuntimeOptions                       $runtime                      runtime options for this request RuntimeOptions
      *
-     * @return GetFeatureConsistencyCheckJobResponse
+     * @return GetFeatureConsistencyCheckJobResponse GetFeatureConsistencyCheckJobResponse
      */
     public function getFeatureConsistencyCheckJobWithOptions($FeatureConsistencyCheckJobId, $request, $headers, $runtime)
     {
@@ -2739,10 +3420,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务详细信息。
+     *  *
      * @param string                               $FeatureConsistencyCheckJobId
-     * @param GetFeatureConsistencyCheckJobRequest $request
+     * @param GetFeatureConsistencyCheckJobRequest $request                      GetFeatureConsistencyCheckJobRequest
      *
-     * @return GetFeatureConsistencyCheckJobResponse
+     * @return GetFeatureConsistencyCheckJobResponse GetFeatureConsistencyCheckJobResponse
      */
     public function getFeatureConsistencyCheckJob($FeatureConsistencyCheckJobId, $request)
     {
@@ -2753,12 +3436,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检测配置详情。
+     *  *
      * @param string                                     $FeatureConsistencyCheckJobConfigId
-     * @param GetFeatureConsistencyCheckJobConfigRequest $request
-     * @param string[]                                   $headers
-     * @param RuntimeOptions                             $runtime
+     * @param GetFeatureConsistencyCheckJobConfigRequest $request                            GetFeatureConsistencyCheckJobConfigRequest
+     * @param string[]                                   $headers                            map
+     * @param RuntimeOptions                             $runtime                            runtime options for this request RuntimeOptions
      *
-     * @return GetFeatureConsistencyCheckJobConfigResponse
+     * @return GetFeatureConsistencyCheckJobConfigResponse GetFeatureConsistencyCheckJobConfigResponse
      */
     public function getFeatureConsistencyCheckJobConfigWithOptions($FeatureConsistencyCheckJobConfigId, $request, $headers, $runtime)
     {
@@ -2787,10 +3472,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检测配置详情。
+     *  *
      * @param string                                     $FeatureConsistencyCheckJobConfigId
-     * @param GetFeatureConsistencyCheckJobConfigRequest $request
+     * @param GetFeatureConsistencyCheckJobConfigRequest $request                            GetFeatureConsistencyCheckJobConfigRequest
      *
-     * @return GetFeatureConsistencyCheckJobConfigResponse
+     * @return GetFeatureConsistencyCheckJobConfigResponse GetFeatureConsistencyCheckJobConfigResponse
      */
     public function getFeatureConsistencyCheckJobConfig($FeatureConsistencyCheckJobConfigId, $request)
     {
@@ -2801,11 +3488,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定推荐全链路深度定制开发平台实例信息。
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -2828,9 +3517,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定推荐全链路深度定制开发平台实例信息。
+     *  *
      * @param string $InstanceId
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($InstanceId)
     {
@@ -2841,12 +3532,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定实例下指定资源的详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResourceResponse
+     * @return GetInstanceResourceResponse GetInstanceResourceResponse
      */
     public function getInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime)
     {
@@ -2869,10 +3562,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定实例下指定资源的详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $ResourceId
      *
-     * @return GetInstanceResourceResponse
+     * @return GetInstanceResourceResponse GetInstanceResourceResponse
      */
     public function getInstanceResource($InstanceId, $ResourceId)
     {
@@ -2883,13 +3578,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下指定表的详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ResourceId
      * @param string         $TableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResourceTableResponse
+     * @return GetInstanceResourceTableResponse GetInstanceResourceTableResponse
      */
     public function getInstanceResourceTableWithOptions($InstanceId, $ResourceId, $TableName, $headers, $runtime)
     {
@@ -2912,11 +3609,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下指定表的详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $ResourceId
      * @param string $TableName
      *
-     * @return GetInstanceResourceTableResponse
+     * @return GetInstanceResourceTableResponse GetInstanceResourceTableResponse
      */
     public function getInstanceResourceTable($InstanceId, $ResourceId, $TableName)
     {
@@ -2927,12 +3626,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实验室详细信息。
+     *  *
      * @param string               $LaboratoryId
-     * @param GetLaboratoryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetLaboratoryRequest $request      GetLaboratoryRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetLaboratoryResponse
+     * @return GetLaboratoryResponse GetLaboratoryResponse
      */
     public function getLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -2961,10 +3662,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实验室详细信息。
+     *  *
      * @param string               $LaboratoryId
-     * @param GetLaboratoryRequest $request
+     * @param GetLaboratoryRequest $request      GetLaboratoryRequest
      *
-     * @return GetLaboratoryResponse
+     * @return GetLaboratoryResponse GetLaboratoryResponse
      */
     public function getLaboratory($LaboratoryId, $request)
     {
@@ -2975,12 +3678,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取层详细信息。
+     *  *
      * @param string          $LayerId
-     * @param GetLayerRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetLayerRequest $request GetLayerRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLayerResponse
+     * @return GetLayerResponse GetLayerResponse
      */
     public function getLayerWithOptions($LayerId, $request, $headers, $runtime)
     {
@@ -3009,10 +3714,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取层详细信息。
+     *  *
      * @param string          $LayerId
-     * @param GetLayerRequest $request
+     * @param GetLayerRequest $request GetLayerRequest
      *
-     * @return GetLayerResponse
+     * @return GetLayerResponse GetLayerResponse
      */
     public function getLayer($LayerId, $request)
     {
@@ -3023,12 +3730,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源规则详细信息
+     *  *
      * @param string                 $ResourceRuleId
-     * @param GetResourceRuleRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetResourceRuleRequest $request        GetResourceRuleRequest
+     * @param string[]               $headers        map
+     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetResourceRuleResponse
+     * @return GetResourceRuleResponse GetResourceRuleResponse
      */
     public function getResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
     {
@@ -3057,10 +3766,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源规则详细信息
+     *  *
      * @param string                 $ResourceRuleId
-     * @param GetResourceRuleRequest $request
+     * @param GetResourceRuleRequest $request        GetResourceRuleRequest
      *
-     * @return GetResourceRuleResponse
+     * @return GetResourceRuleResponse GetResourceRuleResponse
      */
     public function getResourceRule($ResourceRuleId, $request)
     {
@@ -3071,12 +3782,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取场景详细信息
+     *  *
      * @param string          $SceneId
-     * @param GetSceneRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetSceneRequest $request GetSceneRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSceneResponse
+     * @return GetSceneResponse GetSceneResponse
      */
     public function getSceneWithOptions($SceneId, $request, $headers, $runtime)
     {
@@ -3105,10 +3818,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取场景详细信息
+     *  *
      * @param string          $SceneId
-     * @param GetSceneRequest $request
+     * @param GetSceneRequest $request GetSceneRequest
      *
-     * @return GetSceneResponse
+     * @return GetSceneResponse GetSceneResponse
      */
     public function getScene($SceneId, $request)
     {
@@ -3119,13 +3834,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定人群下的指定子人群的详细信息。
+     *  *
      * @param string             $CrowdId
      * @param string             $SubCrowdId
-     * @param GetSubCrowdRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param GetSubCrowdRequest $request    GetSubCrowdRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetSubCrowdResponse
+     * @return GetSubCrowdResponse GetSubCrowdResponse
      */
     public function getSubCrowdWithOptions($CrowdId, $SubCrowdId, $request, $headers, $runtime)
     {
@@ -3154,11 +3871,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定人群下的指定子人群的详细信息。
+     *  *
      * @param string             $CrowdId
      * @param string             $SubCrowdId
-     * @param GetSubCrowdRequest $request
+     * @param GetSubCrowdRequest $request    GetSubCrowdRequest
      *
-     * @return GetSubCrowdResponse
+     * @return GetSubCrowdResponse GetSubCrowdResponse
      */
     public function getSubCrowd($CrowdId, $SubCrowdId, $request)
     {
@@ -3169,12 +3888,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据表详细信息。
+     *  *
      * @param string              $TableMetaId
-     * @param GetTableMetaRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetTableMetaRequest $request     GetTableMetaRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTableMetaResponse
+     * @return GetTableMetaResponse GetTableMetaResponse
      */
     public function getTableMetaWithOptions($TableMetaId, $request, $headers, $runtime)
     {
@@ -3203,10 +3924,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据表详细信息。
+     *  *
      * @param string              $TableMetaId
-     * @param GetTableMetaRequest $request
+     * @param GetTableMetaRequest $request     GetTableMetaRequest
      *
-     * @return GetTableMetaResponse
+     * @return GetTableMetaResponse GetTableMetaResponse
      */
     public function getTableMeta($TableMetaId, $request)
     {
@@ -3217,11 +3940,184 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListABMetricGroupsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取流量调控目标详情
+     *  *
+     * @param string                         $TrafficControlTargetId
+     * @param GetTrafficControlTargetRequest $request                GetTrafficControlTargetRequest
+     * @param string[]                       $headers                map
+     * @param RuntimeOptions                 $runtime                runtime options for this request RuntimeOptions
      *
-     * @return ListABMetricGroupsResponse
+     * @return GetTrafficControlTargetResponse GetTrafficControlTargetResponse
+     */
+    public function getTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取流量调控目标详情
+     *  *
+     * @param string                         $TrafficControlTargetId
+     * @param GetTrafficControlTargetRequest $request                GetTrafficControlTargetRequest
+     *
+     * @return GetTrafficControlTargetResponse GetTrafficControlTargetResponse
+     */
+    public function getTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取流量调控任务详情
+     *  *
+     * @param string                       $TrafficControlTaskId
+     * @param GetTrafficControlTaskRequest $request              GetTrafficControlTaskRequest
+     * @param string[]                     $headers              map
+     * @param RuntimeOptions               $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return GetTrafficControlTaskResponse GetTrafficControlTaskResponse
+     */
+    public function getTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->controlTargetFilter)) {
+            $query['ControlTargetFilter'] = $request->controlTargetFilter;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取流量调控任务详情
+     *  *
+     * @param string                       $TrafficControlTaskId
+     * @param GetTrafficControlTaskRequest $request              GetTrafficControlTaskRequest
+     *
+     * @return GetTrafficControlTaskResponse GetTrafficControlTaskResponse
+     */
+    public function getTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取流量调控任务的流量详情
+     *  *
+     * @param string                              $TrafficControlTaskId
+     * @param GetTrafficControlTaskTrafficRequest $request              GetTrafficControlTaskTrafficRequest
+     * @param string[]                            $headers              map
+     * @param RuntimeOptions                      $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return GetTrafficControlTaskTrafficResponse GetTrafficControlTaskTrafficResponse
+     */
+    public function getTrafficControlTaskTrafficWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrafficControlTaskTraffic',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/traffic',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTrafficControlTaskTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取流量调控任务的流量详情
+     *  *
+     * @param string                              $TrafficControlTaskId
+     * @param GetTrafficControlTaskTrafficRequest $request              GetTrafficControlTaskTrafficRequest
+     *
+     * @return GetTrafficControlTaskTrafficResponse GetTrafficControlTaskTrafficResponse
+     */
+    public function getTrafficControlTaskTraffic($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrafficControlTaskTrafficWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取AB Test实验指标组列表。
+     *  *
+     * @param ListABMetricGroupsRequest $request ListABMetricGroupsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListABMetricGroupsResponse ListABMetricGroupsResponse
      */
     public function listABMetricGroupsWithOptions($request, $headers, $runtime)
     {
@@ -3268,9 +4164,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListABMetricGroupsRequest $request
+     * @summary 获取AB Test实验指标组列表。
+     *  *
+     * @param ListABMetricGroupsRequest $request ListABMetricGroupsRequest
      *
-     * @return ListABMetricGroupsResponse
+     * @return ListABMetricGroupsResponse ListABMetricGroupsResponse
      */
     public function listABMetricGroups($request)
     {
@@ -3281,11 +4179,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListABMetricsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取AB Test实验指标列表。
+     *  *
+     * @param ListABMetricsRequest $request ListABMetricsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListABMetricsResponse
+     * @return ListABMetricsResponse ListABMetricsResponse
      */
     public function listABMetricsWithOptions($request, $headers, $runtime)
     {
@@ -3335,9 +4235,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListABMetricsRequest $request
+     * @summary 获取AB Test实验指标列表。
+     *  *
+     * @param ListABMetricsRequest $request ListABMetricsRequest
      *
-     * @return ListABMetricsResponse
+     * @return ListABMetricsResponse ListABMetricsResponse
      */
     public function listABMetrics($request)
     {
@@ -3348,11 +4250,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListCalculationJobsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 获取计算任务列表。
+     *  *
+     * @param ListCalculationJobsRequest $request ListCalculationJobsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCalculationJobsResponse
+     * @return ListCalculationJobsResponse ListCalculationJobsResponse
      */
     public function listCalculationJobsWithOptions($request, $headers, $runtime)
     {
@@ -3393,9 +4297,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListCalculationJobsRequest $request
+     * @summary 获取计算任务列表。
+     *  *
+     * @param ListCalculationJobsRequest $request ListCalculationJobsRequest
      *
-     * @return ListCalculationJobsResponse
+     * @return ListCalculationJobsResponse ListCalculationJobsResponse
      */
     public function listCalculationJobs($request)
     {
@@ -3406,12 +4312,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取人群下的所有用户。
+     *  *
      * @param string                $CrowdId
-     * @param ListCrowdUsersRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ListCrowdUsersRequest $request ListCrowdUsersRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCrowdUsersResponse
+     * @return ListCrowdUsersResponse ListCrowdUsersResponse
      */
     public function listCrowdUsersWithOptions($CrowdId, $request, $headers, $runtime)
     {
@@ -3440,10 +4348,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取人群下的所有用户。
+     *  *
      * @param string                $CrowdId
-     * @param ListCrowdUsersRequest $request
+     * @param ListCrowdUsersRequest $request ListCrowdUsersRequest
      *
-     * @return ListCrowdUsersResponse
+     * @return ListCrowdUsersResponse ListCrowdUsersResponse
      */
     public function listCrowdUsers($CrowdId, $request)
     {
@@ -3454,11 +4364,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListCrowdsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取人群列表。
+     *  *
+     * @param ListCrowdsRequest $request ListCrowdsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCrowdsResponse
+     * @return ListCrowdsResponse ListCrowdsResponse
      */
     public function listCrowdsWithOptions($request, $headers, $runtime)
     {
@@ -3487,9 +4399,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListCrowdsRequest $request
+     * @summary 获取人群列表。
+     *  *
+     * @param ListCrowdsRequest $request ListCrowdsRequest
      *
-     * @return ListCrowdsResponse
+     * @return ListCrowdsResponse ListCrowdsResponse
      */
     public function listCrowds($request)
     {
@@ -3500,11 +4414,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListExperimentGroupsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 获取实验组列表。
+     *  *
+     * @param ListExperimentGroupsRequest $request ListExperimentGroupsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExperimentGroupsResponse
+     * @return ListExperimentGroupsResponse ListExperimentGroupsResponse
      */
     public function listExperimentGroupsWithOptions($request, $headers, $runtime)
     {
@@ -3542,9 +4458,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListExperimentGroupsRequest $request
+     * @summary 获取实验组列表。
+     *  *
+     * @param ListExperimentGroupsRequest $request ListExperimentGroupsRequest
      *
-     * @return ListExperimentGroupsResponse
+     * @return ListExperimentGroupsResponse ListExperimentGroupsResponse
      */
     public function listExperimentGroups($request)
     {
@@ -3555,11 +4473,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListExperimentsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取实验列表。
+     *  *
+     * @param ListExperimentsRequest $request ListExperimentsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExperimentsResponse
+     * @return ListExperimentsResponse ListExperimentsResponse
      */
     public function listExperimentsWithOptions($request, $headers, $runtime)
     {
@@ -3597,9 +4517,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListExperimentsRequest $request
+     * @summary 获取实验列表。
+     *  *
+     * @param ListExperimentsRequest $request ListExperimentsRequest
      *
-     * @return ListExperimentsResponse
+     * @return ListExperimentsResponse ListExperimentsResponse
      */
     public function listExperiments($request)
     {
@@ -3610,11 +4532,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListFeatureConsistencyCheckJobConfigsRequest $request
-     * @param string[]                                     $headers
-     * @param RuntimeOptions                               $runtime
+     * @summary 获取特征一致性检查配置列表。
+     *  *
+     * @param ListFeatureConsistencyCheckJobConfigsRequest $request ListFeatureConsistencyCheckJobConfigsRequest
+     * @param string[]                                     $headers map
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureConsistencyCheckJobConfigsResponse
+     * @return ListFeatureConsistencyCheckJobConfigsResponse ListFeatureConsistencyCheckJobConfigsResponse
      */
     public function listFeatureConsistencyCheckJobConfigsWithOptions($request, $headers, $runtime)
     {
@@ -3655,9 +4579,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListFeatureConsistencyCheckJobConfigsRequest $request
+     * @summary 获取特征一致性检查配置列表。
+     *  *
+     * @param ListFeatureConsistencyCheckJobConfigsRequest $request ListFeatureConsistencyCheckJobConfigsRequest
      *
-     * @return ListFeatureConsistencyCheckJobConfigsResponse
+     * @return ListFeatureConsistencyCheckJobConfigsResponse ListFeatureConsistencyCheckJobConfigsResponse
      */
     public function listFeatureConsistencyCheckJobConfigs($request)
     {
@@ -3668,12 +4594,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务的特征报表/比对结果。
+     *  *
      * @param string                                              $FeatureConsistencyCheckJobId
-     * @param ListFeatureConsistencyCheckJobFeatureReportsRequest $request
-     * @param string[]                                            $headers
-     * @param RuntimeOptions                                      $runtime
+     * @param ListFeatureConsistencyCheckJobFeatureReportsRequest $request                      ListFeatureConsistencyCheckJobFeatureReportsRequest
+     * @param string[]                                            $headers                      map
+     * @param RuntimeOptions                                      $runtime                      runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+     * @return ListFeatureConsistencyCheckJobFeatureReportsResponse ListFeatureConsistencyCheckJobFeatureReportsResponse
      */
     public function listFeatureConsistencyCheckJobFeatureReportsWithOptions($FeatureConsistencyCheckJobId, $request, $headers, $runtime)
     {
@@ -3711,10 +4639,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务的特征报表/比对结果。
+     *  *
      * @param string                                              $FeatureConsistencyCheckJobId
-     * @param ListFeatureConsistencyCheckJobFeatureReportsRequest $request
+     * @param ListFeatureConsistencyCheckJobFeatureReportsRequest $request                      ListFeatureConsistencyCheckJobFeatureReportsRequest
      *
-     * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+     * @return ListFeatureConsistencyCheckJobFeatureReportsResponse ListFeatureConsistencyCheckJobFeatureReportsResponse
      */
     public function listFeatureConsistencyCheckJobFeatureReports($FeatureConsistencyCheckJobId, $request)
     {
@@ -3725,12 +4655,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务分数报表/比对结果。
+     *  *
      * @param string                                            $FeatureConsistencyCheckJobId
-     * @param ListFeatureConsistencyCheckJobScoreReportsRequest $tmpReq
-     * @param string[]                                          $headers
-     * @param RuntimeOptions                                    $runtime
+     * @param ListFeatureConsistencyCheckJobScoreReportsRequest $tmpReq                       ListFeatureConsistencyCheckJobScoreReportsRequest
+     * @param string[]                                          $headers                      map
+     * @param RuntimeOptions                                    $runtime                      runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+     * @return ListFeatureConsistencyCheckJobScoreReportsResponse ListFeatureConsistencyCheckJobScoreReportsResponse
      */
     public function listFeatureConsistencyCheckJobScoreReportsWithOptions($FeatureConsistencyCheckJobId, $tmpReq, $headers, $runtime)
     {
@@ -3767,10 +4699,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征一致性检查任务分数报表/比对结果。
+     *  *
      * @param string                                            $FeatureConsistencyCheckJobId
-     * @param ListFeatureConsistencyCheckJobScoreReportsRequest $request
+     * @param ListFeatureConsistencyCheckJobScoreReportsRequest $request                      ListFeatureConsistencyCheckJobScoreReportsRequest
      *
-     * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+     * @return ListFeatureConsistencyCheckJobScoreReportsResponse ListFeatureConsistencyCheckJobScoreReportsResponse
      */
     public function listFeatureConsistencyCheckJobScoreReports($FeatureConsistencyCheckJobId, $request)
     {
@@ -3781,11 +4715,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListFeatureConsistencyCheckJobsRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary 获取特征一致性检查任务列表。
+     *  *
+     * @param ListFeatureConsistencyCheckJobsRequest $request ListFeatureConsistencyCheckJobsRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureConsistencyCheckJobsResponse
+     * @return ListFeatureConsistencyCheckJobsResponse ListFeatureConsistencyCheckJobsResponse
      */
     public function listFeatureConsistencyCheckJobsWithOptions($request, $headers, $runtime)
     {
@@ -3829,9 +4765,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListFeatureConsistencyCheckJobsRequest $request
+     * @summary 获取特征一致性检查任务列表。
+     *  *
+     * @param ListFeatureConsistencyCheckJobsRequest $request ListFeatureConsistencyCheckJobsRequest
      *
-     * @return ListFeatureConsistencyCheckJobsResponse
+     * @return ListFeatureConsistencyCheckJobsResponse ListFeatureConsistencyCheckJobsResponse
      */
     public function listFeatureConsistencyCheckJobs($request)
     {
@@ -3842,12 +4780,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例下配置的资源列表。
+     *  *
      * @param string                       $InstanceId
-     * @param ListInstanceResourcesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListInstanceResourcesRequest $request    ListInstanceResourcesRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceResourcesResponse
+     * @return ListInstanceResourcesResponse ListInstanceResourcesResponse
      */
     public function listInstanceResourcesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -3882,10 +4822,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例下配置的资源列表。
+     *  *
      * @param string                       $InstanceId
-     * @param ListInstanceResourcesRequest $request
+     * @param ListInstanceResourcesRequest $request    ListInstanceResourcesRequest
      *
-     * @return ListInstanceResourcesResponse
+     * @return ListInstanceResourcesResponse ListInstanceResourcesResponse
      */
     public function listInstanceResources($InstanceId, $request)
     {
@@ -3896,11 +4838,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取推荐全链路深度定制开发平台实例信息列表。
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
@@ -3944,9 +4888,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary 获取推荐全链路深度定制开发平台实例信息列表。
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -3957,11 +4903,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListLaboratoriesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 获取实验室列表。
+     *  *
+     * @param ListLaboratoriesRequest $request ListLaboratoriesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLaboratoriesResponse
+     * @return ListLaboratoriesResponse ListLaboratoriesResponse
      */
     public function listLaboratoriesWithOptions($request, $headers, $runtime)
     {
@@ -3999,9 +4947,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListLaboratoriesRequest $request
+     * @summary 获取实验室列表。
+     *  *
+     * @param ListLaboratoriesRequest $request ListLaboratoriesRequest
      *
-     * @return ListLaboratoriesResponse
+     * @return ListLaboratoriesResponse ListLaboratoriesResponse
      */
     public function listLaboratories($request)
     {
@@ -4012,11 +4962,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListLayersRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取层列表。
+     *  *
+     * @param ListLayersRequest $request ListLayersRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLayersResponse
+     * @return ListLayersResponse ListLayersResponse
      */
     public function listLayersWithOptions($request, $headers, $runtime)
     {
@@ -4048,9 +5000,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListLayersRequest $request
+     * @summary 获取层列表。
+     *  *
+     * @param ListLayersRequest $request ListLayersRequest
      *
-     * @return ListLayersResponse
+     * @return ListLayersResponse ListLayersResponse
      */
     public function listLayers($request)
     {
@@ -4061,11 +5015,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListParamsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取参数列表。
+     *  *
+     * @param ListParamsRequest $request ListParamsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListParamsResponse
+     * @return ListParamsResponse ListParamsResponse
      */
     public function listParamsWithOptions($request, $headers, $runtime)
     {
@@ -4109,9 +5065,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListParamsRequest $request
+     * @summary 获取参数列表。
+     *  *
+     * @param ListParamsRequest $request ListParamsRequest
      *
-     * @return ListParamsResponse
+     * @return ListParamsResponse ListParamsResponse
      */
     public function listParams($request)
     {
@@ -4122,11 +5080,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListResourceRulesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 获取资源规则列表
+     *  *
+     * @param ListResourceRulesRequest $request ListResourceRulesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceRulesResponse
+     * @return ListResourceRulesResponse ListResourceRulesResponse
      */
     public function listResourceRulesWithOptions($request, $headers, $runtime)
     {
@@ -4176,9 +5136,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListResourceRulesRequest $request
+     * @summary 获取资源规则列表
+     *  *
+     * @param ListResourceRulesRequest $request ListResourceRulesRequest
      *
-     * @return ListResourceRulesResponse
+     * @return ListResourceRulesResponse ListResourceRulesResponse
      */
     public function listResourceRules($request)
     {
@@ -4189,11 +5151,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListScenesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取场景列表
+     *  *
+     * @param ListScenesRequest $request ListScenesRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListScenesResponse
+     * @return ListScenesResponse ListScenesResponse
      */
     public function listScenesWithOptions($request, $headers, $runtime)
     {
@@ -4225,9 +5189,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListScenesRequest $request
+     * @summary 获取场景列表
+     *  *
+     * @param ListScenesRequest $request ListScenesRequest
      *
-     * @return ListScenesResponse
+     * @return ListScenesResponse ListScenesResponse
      */
     public function listScenes($request)
     {
@@ -4238,12 +5204,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取人群下的所有子人群。
+     *  *
      * @param string               $CrowdId
-     * @param ListSubCrowdsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListSubCrowdsRequest $request ListSubCrowdsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSubCrowdsResponse
+     * @return ListSubCrowdsResponse ListSubCrowdsResponse
      */
     public function listSubCrowdsWithOptions($CrowdId, $request, $headers, $runtime)
     {
@@ -4272,10 +5240,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取人群下的所有子人群。
+     *  *
      * @param string               $CrowdId
-     * @param ListSubCrowdsRequest $request
+     * @param ListSubCrowdsRequest $request ListSubCrowdsRequest
      *
-     * @return ListSubCrowdsResponse
+     * @return ListSubCrowdsResponse ListSubCrowdsResponse
      */
     public function listSubCrowds($CrowdId, $request)
     {
@@ -4286,11 +5256,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListTableMetasRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取数据表列表。
+     *  *
+     * @param ListTableMetasRequest $request ListTableMetasRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTableMetasResponse
+     * @return ListTableMetasResponse ListTableMetasResponse
      */
     public function listTableMetasWithOptions($request, $headers, $runtime)
     {
@@ -4334,9 +5306,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param ListTableMetasRequest $request
+     * @summary 获取数据表列表。
+     *  *
+     * @param ListTableMetasRequest $request ListTableMetasRequest
      *
-     * @return ListTableMetasResponse
+     * @return ListTableMetasResponse ListTableMetasResponse
      */
     public function listTableMetas($request)
     {
@@ -4347,12 +5321,173 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param string                   $ExperimentId
-     * @param OfflineExperimentRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 获取流量调控任务流量变更的历史列表
+     *  *
+     * @param string                                        $TrafficControlTargetId
+     * @param ListTrafficControlTargetTrafficHistoryRequest $request                ListTrafficControlTargetTrafficHistoryRequest
+     * @param string[]                                      $headers                map
+     * @param RuntimeOptions                                $runtime                runtime options for this request RuntimeOptions
      *
-     * @return OfflineExperimentResponse
+     * @return ListTrafficControlTargetTrafficHistoryResponse ListTrafficControlTargetTrafficHistoryResponse
+     */
+    public function listTrafficControlTargetTrafficHistoryWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->experimentGroupId)) {
+            $query['ExperimentGroupId'] = $request->experimentGroupId;
+        }
+        if (!Utils::isUnset($request->experimentId)) {
+            $query['ExperimentId'] = $request->experimentId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->itemId)) {
+            $query['ItemId'] = $request->itemId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrafficControlTargetTrafficHistory',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/action/traffichistory',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrafficControlTargetTrafficHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取流量调控任务流量变更的历史列表
+     *  *
+     * @param string                                        $TrafficControlTargetId
+     * @param ListTrafficControlTargetTrafficHistoryRequest $request                ListTrafficControlTargetTrafficHistoryRequest
+     *
+     * @return ListTrafficControlTargetTrafficHistoryResponse ListTrafficControlTargetTrafficHistoryResponse
+     */
+    public function listTrafficControlTargetTrafficHistory($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrafficControlTargetTrafficHistoryWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取流量调控列表
+     *  *
+     * @param ListTrafficControlTasksRequest $request ListTrafficControlTasksRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTrafficControlTasksResponse ListTrafficControlTasksResponse
+     */
+    public function listTrafficControlTasksWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->controlTargetFilter)) {
+            $query['ControlTargetFilter'] = $request->controlTargetFilter;
+        }
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->trafficControlTaskId)) {
+            $query['TrafficControlTaskId'] = $request->trafficControlTaskId;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTrafficControlTasks',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTrafficControlTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取流量调控列表
+     *  *
+     * @param ListTrafficControlTasksRequest $request ListTrafficControlTasksRequest
+     *
+     * @return ListTrafficControlTasksResponse ListTrafficControlTasksResponse
+     */
+    public function listTrafficControlTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTrafficControlTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 上线实验。
+     *  *
+     * @param string                   $ExperimentId
+     * @param OfflineExperimentRequest $request      OfflineExperimentRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return OfflineExperimentResponse OfflineExperimentResponse
      */
     public function offlineExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -4381,10 +5516,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验。
+     *  *
      * @param string                   $ExperimentId
-     * @param OfflineExperimentRequest $request
+     * @param OfflineExperimentRequest $request      OfflineExperimentRequest
      *
-     * @return OfflineExperimentResponse
+     * @return OfflineExperimentResponse OfflineExperimentResponse
      */
     public function offlineExperiment($ExperimentId, $request)
     {
@@ -4395,12 +5532,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 下线实验组。
+     *  *
      * @param string                        $ExperimentGroupId
-     * @param OfflineExperimentGroupRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param OfflineExperimentGroupRequest $request           OfflineExperimentGroupRequest
+     * @param string[]                      $headers           map
+     * @param RuntimeOptions                $runtime           runtime options for this request RuntimeOptions
      *
-     * @return OfflineExperimentGroupResponse
+     * @return OfflineExperimentGroupResponse OfflineExperimentGroupResponse
      */
     public function offlineExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -4429,10 +5568,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 下线实验组。
+     *  *
      * @param string                        $ExperimentGroupId
-     * @param OfflineExperimentGroupRequest $request
+     * @param OfflineExperimentGroupRequest $request           OfflineExperimentGroupRequest
      *
-     * @return OfflineExperimentGroupResponse
+     * @return OfflineExperimentGroupResponse OfflineExperimentGroupResponse
      */
     public function offlineExperimentGroup($ExperimentGroupId, $request)
     {
@@ -4443,12 +5584,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 下线实验室。
+     *  *
      * @param string                   $LaboratoryId
-     * @param OfflineLaboratoryRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param OfflineLaboratoryRequest $request      OfflineLaboratoryRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return OfflineLaboratoryResponse
+     * @return OfflineLaboratoryResponse OfflineLaboratoryResponse
      */
     public function offlineLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -4477,10 +5620,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 下线实验室。
+     *  *
      * @param string                   $LaboratoryId
-     * @param OfflineLaboratoryRequest $request
+     * @param OfflineLaboratoryRequest $request      OfflineLaboratoryRequest
      *
-     * @return OfflineLaboratoryResponse
+     * @return OfflineLaboratoryResponse OfflineLaboratoryResponse
      */
     public function offlineLaboratory($LaboratoryId, $request)
     {
@@ -4491,12 +5636,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验
+     *  *
      * @param string                  $ExperimentId
-     * @param OnlineExperimentRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param OnlineExperimentRequest $request      OnlineExperimentRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return OnlineExperimentResponse
+     * @return OnlineExperimentResponse OnlineExperimentResponse
      */
     public function onlineExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -4525,10 +5672,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验
+     *  *
      * @param string                  $ExperimentId
-     * @param OnlineExperimentRequest $request
+     * @param OnlineExperimentRequest $request      OnlineExperimentRequest
      *
-     * @return OnlineExperimentResponse
+     * @return OnlineExperimentResponse OnlineExperimentResponse
      */
     public function onlineExperiment($ExperimentId, $request)
     {
@@ -4539,12 +5688,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param OnlineExperimentGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param OnlineExperimentGroupRequest $request           OnlineExperimentGroupRequest
+     * @param string[]                     $headers           map
+     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
      *
-     * @return OnlineExperimentGroupResponse
+     * @return OnlineExperimentGroupResponse OnlineExperimentGroupResponse
      */
     public function onlineExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -4573,10 +5724,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param OnlineExperimentGroupRequest $request
+     * @param OnlineExperimentGroupRequest $request           OnlineExperimentGroupRequest
      *
-     * @return OnlineExperimentGroupResponse
+     * @return OnlineExperimentGroupResponse OnlineExperimentGroupResponse
      */
     public function onlineExperimentGroup($ExperimentGroupId, $request)
     {
@@ -4587,12 +5740,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param OnlineLaboratoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param OnlineLaboratoryRequest $request      OnlineLaboratoryRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return OnlineLaboratoryResponse
+     * @return OnlineLaboratoryResponse OnlineLaboratoryResponse
      */
     public function onlineLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -4621,10 +5776,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 上线实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param OnlineLaboratoryRequest $request
+     * @param OnlineLaboratoryRequest $request      OnlineLaboratoryRequest
      *
-     * @return OnlineLaboratoryResponse
+     * @return OnlineLaboratoryResponse OnlineLaboratoryResponse
      */
     public function onlineLaboratory($LaboratoryId, $request)
     {
@@ -4635,12 +5792,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 推全。
+     *  *
      * @param string                   $ExperimentId
-     * @param PushAllExperimentRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param PushAllExperimentRequest $request      PushAllExperimentRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PushAllExperimentResponse
+     * @return PushAllExperimentResponse PushAllExperimentResponse
      */
     public function pushAllExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -4669,10 +5828,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 推全。
+     *  *
      * @param string                   $ExperimentId
-     * @param PushAllExperimentRequest $request
+     * @param PushAllExperimentRequest $request      PushAllExperimentRequest
      *
-     * @return PushAllExperimentResponse
+     * @return PushAllExperimentResponse PushAllExperimentResponse
      */
     public function pushAllExperiment($ExperimentId, $request)
     {
@@ -4683,12 +5844,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 推送指标到指定资源规则
+     *  *
      * @param string                  $ResourceRuleId
-     * @param PushResourceRuleRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param PushResourceRuleRequest $tmpReq         PushResourceRuleRequest
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return PushResourceRuleResponse
+     * @return PushResourceRuleResponse PushResourceRuleResponse
      */
     public function pushResourceRuleWithOptions($ResourceRuleId, $tmpReq, $headers, $runtime)
     {
@@ -4725,10 +5888,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 推送指标到指定资源规则
+     *  *
      * @param string                  $ResourceRuleId
-     * @param PushResourceRuleRequest $request
+     * @param PushResourceRuleRequest $request        PushResourceRuleRequest
      *
-     * @return PushResourceRuleResponse
+     * @return PushResourceRuleResponse PushResourceRuleResponse
      */
     public function pushResourceRule($ResourceRuleId, $request)
     {
@@ -4739,12 +5904,69 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param string                     $ABMetricGroupId
-     * @param ReportABMetricGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 发布流量调控任务
+     *  *
+     * @param string                           $TrafficControlTaskId
+     * @param ReleaseTrafficControlTaskRequest $request              ReleaseTrafficControlTaskRequest
+     * @param string[]                         $headers              map
+     * @param RuntimeOptions                   $runtime              runtime options for this request RuntimeOptions
      *
-     * @return ReportABMetricGroupResponse
+     * @return ReleaseTrafficControlTaskResponse ReleaseTrafficControlTaskResponse
+     */
+    public function releaseTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/release',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发布流量调控任务
+     *  *
+     * @param string                           $TrafficControlTaskId
+     * @param ReleaseTrafficControlTaskRequest $request              ReleaseTrafficControlTaskRequest
+     *
+     * @return ReleaseTrafficControlTaskResponse ReleaseTrafficControlTaskResponse
+     */
+    public function releaseTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->releaseTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 对指标组进行报表。
+     *  *
+     * @param string                     $ABMetricGroupId
+     * @param ReportABMetricGroupRequest $request         ReportABMetricGroupRequest
+     * @param string[]                   $headers         map
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return ReportABMetricGroupResponse ReportABMetricGroupResponse
      */
     public function reportABMetricGroupWithOptions($ABMetricGroupId, $request, $headers, $runtime)
     {
@@ -4800,10 +6022,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 对指标组进行报表。
+     *  *
      * @param string                     $ABMetricGroupId
-     * @param ReportABMetricGroupRequest $request
+     * @param ReportABMetricGroupRequest $request         ReportABMetricGroupRequest
      *
-     * @return ReportABMetricGroupResponse
+     * @return ReportABMetricGroupResponse ReportABMetricGroupResponse
      */
     public function reportABMetricGroup($ABMetricGroupId, $request)
     {
@@ -4814,11 +6038,293 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param SyncFeatureConsistencyCheckJobReplayLogRequest $request
-     * @param string[]                                       $headers
-     * @param RuntimeOptions                                 $runtime
+     * @summary 拆分流量调控目标
+     *  *
+     * @param string                           $TrafficControlTargetId
+     * @param SplitTrafficControlTargetRequest $request                SplitTrafficControlTargetRequest
+     * @param string[]                         $headers                map
+     * @param RuntimeOptions                   $runtime                runtime options for this request RuntimeOptions
      *
-     * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+     * @return SplitTrafficControlTargetResponse SplitTrafficControlTargetResponse
+     */
+    public function splitTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->setValues)) {
+            $body['SetValues'] = $request->setValues;
+        }
+        if (!Utils::isUnset($request->timePoints)) {
+            $body['TimePoints'] = $request->timePoints;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SplitTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/action/split',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SplitTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拆分流量调控目标
+     *  *
+     * @param string                           $TrafficControlTargetId
+     * @param SplitTrafficControlTargetRequest $request                SplitTrafficControlTargetRequest
+     *
+     * @return SplitTrafficControlTargetResponse SplitTrafficControlTargetResponse
+     */
+    public function splitTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->splitTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 开启流量调控目标
+     *  *
+     * @param string                           $TrafficControlTargetId
+     * @param StartTrafficControlTargetRequest $request                StartTrafficControlTargetRequest
+     * @param string[]                         $headers                map
+     * @param RuntimeOptions                   $runtime                runtime options for this request RuntimeOptions
+     *
+     * @return StartTrafficControlTargetResponse StartTrafficControlTargetResponse
+     */
+    public function startTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/action/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启流量调控目标
+     *  *
+     * @param string                           $TrafficControlTargetId
+     * @param StartTrafficControlTargetRequest $request                StartTrafficControlTargetRequest
+     *
+     * @return StartTrafficControlTargetResponse StartTrafficControlTargetResponse
+     */
+    public function startTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 开启流量调控任务
+     *  *
+     * @param string                         $TrafficControlTaskId
+     * @param StartTrafficControlTaskRequest $request              StartTrafficControlTaskRequest
+     * @param string[]                       $headers              map
+     * @param RuntimeOptions                 $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return StartTrafficControlTaskResponse StartTrafficControlTaskResponse
+     */
+    public function startTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启流量调控任务
+     *  *
+     * @param string                         $TrafficControlTaskId
+     * @param StartTrafficControlTaskRequest $request              StartTrafficControlTaskRequest
+     *
+     * @return StartTrafficControlTaskResponse StartTrafficControlTaskResponse
+     */
+    public function startTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止流量调控目标
+     *  *
+     * @param string                          $TrafficControlTargetId
+     * @param StopTrafficControlTargetRequest $request                StopTrafficControlTargetRequest
+     * @param string[]                        $headers                map
+     * @param RuntimeOptions                  $runtime                runtime options for this request RuntimeOptions
+     *
+     * @return StopTrafficControlTargetResponse StopTrafficControlTargetResponse
+     */
+    public function stopTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/action/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止流量调控目标
+     *  *
+     * @param string                          $TrafficControlTargetId
+     * @param StopTrafficControlTargetRequest $request                StopTrafficControlTargetRequest
+     *
+     * @return StopTrafficControlTargetResponse StopTrafficControlTargetResponse
+     */
+    public function stopTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止流量调控任务
+     *  *
+     * @param string                        $TrafficControlTaskId
+     * @param StopTrafficControlTaskRequest $request              StopTrafficControlTaskRequest
+     * @param string[]                      $headers              map
+     * @param RuntimeOptions                $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return StopTrafficControlTaskResponse StopTrafficControlTaskResponse
+     */
+    public function stopTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止流量调控任务
+     *  *
+     * @param string                        $TrafficControlTaskId
+     * @param StopTrafficControlTaskRequest $request              StopTrafficControlTaskRequest
+     *
+     * @return StopTrafficControlTaskResponse StopTrafficControlTaskResponse
+     */
+    public function stopTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 同步特征一致性检测任务重放日志。
+     *  *
+     * @param SyncFeatureConsistencyCheckJobReplayLogRequest $request SyncFeatureConsistencyCheckJobReplayLogRequest
+     * @param string[]                                       $headers map
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SyncFeatureConsistencyCheckJobReplayLogResponse SyncFeatureConsistencyCheckJobReplayLogResponse
      */
     public function syncFeatureConsistencyCheckJobReplayLogWithOptions($request, $headers, $runtime)
     {
@@ -4874,9 +6380,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param SyncFeatureConsistencyCheckJobReplayLogRequest $request
+     * @summary 同步特征一致性检测任务重放日志。
+     *  *
+     * @param SyncFeatureConsistencyCheckJobReplayLogRequest $request SyncFeatureConsistencyCheckJobReplayLogRequest
      *
-     * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+     * @return SyncFeatureConsistencyCheckJobReplayLogResponse SyncFeatureConsistencyCheckJobReplayLogResponse
      */
     public function syncFeatureConsistencyCheckJobReplayLog($request)
     {
@@ -4887,12 +6395,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 取消指定特征一致性检查正在运行中的任务。
+     *  *
      * @param string                                     $FeatureConsistencyCheckJobId
-     * @param TerminateFeatureConsistencyCheckJobRequest $request
-     * @param string[]                                   $headers
-     * @param RuntimeOptions                             $runtime
+     * @param TerminateFeatureConsistencyCheckJobRequest $request                      TerminateFeatureConsistencyCheckJobRequest
+     * @param string[]                                   $headers                      map
+     * @param RuntimeOptions                             $runtime                      runtime options for this request RuntimeOptions
      *
-     * @return TerminateFeatureConsistencyCheckJobResponse
+     * @return TerminateFeatureConsistencyCheckJobResponse TerminateFeatureConsistencyCheckJobResponse
      */
     public function terminateFeatureConsistencyCheckJobWithOptions($FeatureConsistencyCheckJobId, $request, $headers, $runtime)
     {
@@ -4921,10 +6431,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 取消指定特征一致性检查正在运行中的任务。
+     *  *
      * @param string                                     $FeatureConsistencyCheckJobId
-     * @param TerminateFeatureConsistencyCheckJobRequest $request
+     * @param TerminateFeatureConsistencyCheckJobRequest $request                      TerminateFeatureConsistencyCheckJobRequest
      *
-     * @return TerminateFeatureConsistencyCheckJobResponse
+     * @return TerminateFeatureConsistencyCheckJobResponse TerminateFeatureConsistencyCheckJobResponse
      */
     public function terminateFeatureConsistencyCheckJob($FeatureConsistencyCheckJobId, $request)
     {
@@ -4935,12 +6447,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新AB Test实验指标。
+     *  *
      * @param string                $ABMetricId
-     * @param UpdateABMetricRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateABMetricRequest $request    UpdateABMetricRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateABMetricResponse
+     * @return UpdateABMetricResponse UpdateABMetricResponse
      */
     public function updateABMetricWithOptions($ABMetricId, $request, $headers, $runtime)
     {
@@ -5005,10 +6519,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新AB Test实验指标。
+     *  *
      * @param string                $ABMetricId
-     * @param UpdateABMetricRequest $request
+     * @param UpdateABMetricRequest $request    UpdateABMetricRequest
      *
-     * @return UpdateABMetricResponse
+     * @return UpdateABMetricResponse UpdateABMetricResponse
      */
     public function updateABMetric($ABMetricId, $request)
     {
@@ -5019,12 +6535,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新AB test实验指标组。
+     *  *
      * @param string                     $ABMetricGroupId
-     * @param UpdateABMetricGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateABMetricGroupRequest $request         UpdateABMetricGroupRequest
+     * @param string[]                   $headers         map
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
      *
-     * @return UpdateABMetricGroupResponse
+     * @return UpdateABMetricGroupResponse UpdateABMetricGroupResponse
      */
     public function updateABMetricGroupWithOptions($ABMetricGroupId, $request, $headers, $runtime)
     {
@@ -5068,10 +6586,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新AB test实验指标组。
+     *  *
      * @param string                     $ABMetricGroupId
-     * @param UpdateABMetricGroupRequest $request
+     * @param UpdateABMetricGroupRequest $request         UpdateABMetricGroupRequest
      *
-     * @return UpdateABMetricGroupResponse
+     * @return UpdateABMetricGroupResponse UpdateABMetricGroupResponse
      */
     public function updateABMetricGroup($ABMetricGroupId, $request)
     {
@@ -5082,12 +6602,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定人群。
+     *  *
      * @param string             $CrowdId
-     * @param UpdateCrowdRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateCrowdRequest $request UpdateCrowdRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCrowdResponse
+     * @return UpdateCrowdResponse UpdateCrowdResponse
      */
     public function updateCrowdWithOptions($CrowdId, $request, $headers, $runtime)
     {
@@ -5122,10 +6644,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定人群。
+     *  *
      * @param string             $CrowdId
-     * @param UpdateCrowdRequest $request
+     * @param UpdateCrowdRequest $request UpdateCrowdRequest
      *
-     * @return UpdateCrowdResponse
+     * @return UpdateCrowdResponse UpdateCrowdResponse
      */
     public function updateCrowd($CrowdId, $request)
     {
@@ -5136,12 +6660,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新实验。
+     *  *
      * @param string                  $ExperimentId
-     * @param UpdateExperimentRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateExperimentRequest $request      UpdateExperimentRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateExperimentResponse
+     * @return UpdateExperimentResponse UpdateExperimentResponse
      */
     public function updateExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
@@ -5191,10 +6717,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新实验。
+     *  *
      * @param string                  $ExperimentId
-     * @param UpdateExperimentRequest $request
+     * @param UpdateExperimentRequest $request      UpdateExperimentRequest
      *
-     * @return UpdateExperimentResponse
+     * @return UpdateExperimentResponse UpdateExperimentResponse
      */
     public function updateExperiment($ExperimentId, $request)
     {
@@ -5205,12 +6733,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param UpdateExperimentGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateExperimentGroupRequest $request           UpdateExperimentGroupRequest
+     * @param string[]                     $headers           map
+     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
      *
-     * @return UpdateExperimentGroupResponse
+     * @return UpdateExperimentGroupResponse UpdateExperimentGroupResponse
      */
     public function updateExperimentGroupWithOptions($ExperimentGroupId, $request, $headers, $runtime)
     {
@@ -5281,10 +6811,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定实验组。
+     *  *
      * @param string                       $ExperimentGroupId
-     * @param UpdateExperimentGroupRequest $request
+     * @param UpdateExperimentGroupRequest $request           UpdateExperimentGroupRequest
      *
-     * @return UpdateExperimentGroupResponse
+     * @return UpdateExperimentGroupResponse UpdateExperimentGroupResponse
      */
     public function updateExperimentGroup($ExperimentGroupId, $request)
     {
@@ -5295,12 +6827,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新特征一致性检查配置信息。
+     *  *
      * @param string                                        $FeatureConsistencyCheckJobConfigId
-     * @param UpdateFeatureConsistencyCheckJobConfigRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @param UpdateFeatureConsistencyCheckJobConfigRequest $request                            UpdateFeatureConsistencyCheckJobConfigRequest
+     * @param string[]                                      $headers                            map
+     * @param RuntimeOptions                                $runtime                            runtime options for this request RuntimeOptions
      *
-     * @return UpdateFeatureConsistencyCheckJobConfigResponse
+     * @return UpdateFeatureConsistencyCheckJobConfigResponse UpdateFeatureConsistencyCheckJobConfigResponse
      */
     public function updateFeatureConsistencyCheckJobConfigWithOptions($FeatureConsistencyCheckJobConfigId, $request, $headers, $runtime)
     {
@@ -5422,10 +6956,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新特征一致性检查配置信息。
+     *  *
      * @param string                                        $FeatureConsistencyCheckJobConfigId
-     * @param UpdateFeatureConsistencyCheckJobConfigRequest $request
+     * @param UpdateFeatureConsistencyCheckJobConfigRequest $request                            UpdateFeatureConsistencyCheckJobConfigRequest
      *
-     * @return UpdateFeatureConsistencyCheckJobConfigResponse
+     * @return UpdateFeatureConsistencyCheckJobConfigResponse UpdateFeatureConsistencyCheckJobConfigResponse
      */
     public function updateFeatureConsistencyCheckJobConfig($FeatureConsistencyCheckJobConfigId, $request)
     {
@@ -5436,13 +6972,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定实例下指定资源的信息。
+     *  *
      * @param string                        $InstanceId
      * @param string                        $ResourceId
-     * @param UpdateInstanceResourceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateInstanceResourceRequest $request    UpdateInstanceResourceRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResourceResponse
+     * @return UpdateInstanceResourceResponse UpdateInstanceResourceResponse
      */
     public function updateInstanceResourceWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime)
     {
@@ -5474,11 +7012,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定实例下指定资源的信息。
+     *  *
      * @param string                        $InstanceId
      * @param string                        $ResourceId
-     * @param UpdateInstanceResourceRequest $request
+     * @param UpdateInstanceResourceRequest $request    UpdateInstanceResourceRequest
      *
-     * @return UpdateInstanceResourceResponse
+     * @return UpdateInstanceResourceResponse UpdateInstanceResourceResponse
      */
     public function updateInstanceResource($InstanceId, $ResourceId, $request)
     {
@@ -5489,12 +7029,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param UpdateLaboratoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateLaboratoryRequest $request      UpdateLaboratoryRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateLaboratoryResponse
+     * @return UpdateLaboratoryResponse UpdateLaboratoryResponse
      */
     public function updateLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime)
     {
@@ -5553,10 +7095,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新实验室。
+     *  *
      * @param string                  $LaboratoryId
-     * @param UpdateLaboratoryRequest $request
+     * @param UpdateLaboratoryRequest $request      UpdateLaboratoryRequest
      *
-     * @return UpdateLaboratoryResponse
+     * @return UpdateLaboratoryResponse UpdateLaboratoryResponse
      */
     public function updateLaboratory($LaboratoryId, $request)
     {
@@ -5567,12 +7111,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新层。
+     *  *
      * @param string             $LayerId
-     * @param UpdateLayerRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateLayerRequest $request UpdateLayerRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLayerResponse
+     * @return UpdateLayerResponse UpdateLayerResponse
      */
     public function updateLayerWithOptions($LayerId, $request, $headers, $runtime)
     {
@@ -5607,10 +7153,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新层。
+     *  *
      * @param string             $LayerId
-     * @param UpdateLayerRequest $request
+     * @param UpdateLayerRequest $request UpdateLayerRequest
      *
-     * @return UpdateLayerResponse
+     * @return UpdateLayerResponse UpdateLayerResponse
      */
     public function updateLayer($LayerId, $request)
     {
@@ -5621,12 +7169,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新参数。
+     *  *
      * @param string             $ParamId
-     * @param UpdateParamRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateParamRequest $request UpdateParamRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateParamResponse
+     * @return UpdateParamResponse UpdateParamResponse
      */
     public function updateParamWithOptions($ParamId, $request, $headers, $runtime)
     {
@@ -5658,10 +7208,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新参数。
+     *  *
      * @param string             $ParamId
-     * @param UpdateParamRequest $request
+     * @param UpdateParamRequest $request UpdateParamRequest
      *
-     * @return UpdateParamResponse
+     * @return UpdateParamResponse UpdateParamResponse
      */
     public function updateParam($ParamId, $request)
     {
@@ -5672,12 +7224,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源规则列表
+     *  *
      * @param string                    $ResourceRuleId
-     * @param UpdateResourceRuleRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateResourceRuleRequest $request        UpdateResourceRuleRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceRuleResponse
+     * @return UpdateResourceRuleResponse UpdateResourceRuleResponse
      */
     public function updateResourceRuleWithOptions($ResourceRuleId, $request, $headers, $runtime)
     {
@@ -5724,10 +7278,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源规则列表
+     *  *
      * @param string                    $ResourceRuleId
-     * @param UpdateResourceRuleRequest $request
+     * @param UpdateResourceRuleRequest $request        UpdateResourceRuleRequest
      *
-     * @return UpdateResourceRuleResponse
+     * @return UpdateResourceRuleResponse UpdateResourceRuleResponse
      */
     public function updateResourceRule($ResourceRuleId, $request)
     {
@@ -5738,13 +7294,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
      * @param string                        $ResourceRuleItemId
-     * @param UpdateResourceRuleItemRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateResourceRuleItemRequest $request            UpdateResourceRuleItemRequest
+     * @param string[]                      $headers            map
+     * @param RuntimeOptions                $runtime            runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceRuleItemResponse
+     * @return UpdateResourceRuleItemResponse UpdateResourceRuleItemResponse
      */
     public function updateResourceRuleItemWithOptions($ResourceRuleId, $ResourceRuleItemId, $request, $headers, $runtime)
     {
@@ -5788,11 +7346,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新资源规则条目
+     *  *
      * @param string                        $ResourceRuleId
      * @param string                        $ResourceRuleItemId
-     * @param UpdateResourceRuleItemRequest $request
+     * @param UpdateResourceRuleItemRequest $request            UpdateResourceRuleItemRequest
      *
-     * @return UpdateResourceRuleItemResponse
+     * @return UpdateResourceRuleItemResponse UpdateResourceRuleItemResponse
      */
     public function updateResourceRuleItem($ResourceRuleId, $ResourceRuleItemId, $request)
     {
@@ -5803,12 +7363,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新场景
+     *  *
      * @param string             $SceneId
-     * @param UpdateSceneRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateSceneRequest $request UpdateSceneRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSceneResponse
+     * @return UpdateSceneResponse UpdateSceneResponse
      */
     public function updateSceneWithOptions($SceneId, $request, $headers, $runtime)
     {
@@ -5846,10 +7408,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 更新场景
+     *  *
      * @param string             $SceneId
-     * @param UpdateSceneRequest $request
+     * @param UpdateSceneRequest $request UpdateSceneRequest
      *
-     * @return UpdateSceneResponse
+     * @return UpdateSceneResponse UpdateSceneResponse
      */
     public function updateScene($SceneId, $request)
     {
@@ -5860,12 +7424,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据表详细信息。
+     *  *
      * @param string                 $TableMetaId
-     * @param UpdateTableMetaRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateTableMetaRequest $request     UpdateTableMetaRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableMetaResponse
+     * @return UpdateTableMetaResponse UpdateTableMetaResponse
      */
     public function updateTableMetaWithOptions($TableMetaId, $request, $headers, $runtime)
     {
@@ -5912,10 +7478,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据表详细信息。
+     *  *
      * @param string                 $TableMetaId
-     * @param UpdateTableMetaRequest $request
+     * @param UpdateTableMetaRequest $request     UpdateTableMetaRequest
      *
-     * @return UpdateTableMetaResponse
+     * @return UpdateTableMetaResponse UpdateTableMetaResponse
      */
     public function updateTableMeta($TableMetaId, $request)
     {
@@ -5926,11 +7494,287 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param UploadRecommendationDataRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 更新流量调控目标
+     *  *
+     * @param string                            $TrafficControlTargetId
+     * @param UpdateTrafficControlTargetRequest $request                UpdateTrafficControlTargetRequest
+     * @param string[]                          $headers                map
+     * @param RuntimeOptions                    $runtime                runtime options for this request RuntimeOptions
      *
-     * @return UploadRecommendationDataResponse
+     * @return UpdateTrafficControlTargetResponse UpdateTrafficControlTargetResponse
+     */
+    public function updateTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newParam3)) {
+            $query['new-param-3'] = $request->newParam3;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->event)) {
+            $body['Event'] = $request->event;
+        }
+        if (!Utils::isUnset($request->itemConditionArray)) {
+            $body['ItemConditionArray'] = $request->itemConditionArray;
+        }
+        if (!Utils::isUnset($request->itemConditionExpress)) {
+            $body['ItemConditionExpress'] = $request->itemConditionExpress;
+        }
+        if (!Utils::isUnset($request->itemConditionType)) {
+            $body['ItemConditionType'] = $request->itemConditionType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->newProductRegulation)) {
+            $body['NewProductRegulation'] = $request->newProductRegulation;
+        }
+        if (!Utils::isUnset($request->recallName)) {
+            $body['RecallName'] = $request->recallName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisPeriod)) {
+            $body['StatisPeriod'] = $request->statisPeriod;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->toleranceValue)) {
+            $body['ToleranceValue'] = $request->toleranceValue;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTrafficControlTarget',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTrafficControlTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新流量调控目标
+     *  *
+     * @param string                            $TrafficControlTargetId
+     * @param UpdateTrafficControlTargetRequest $request                UpdateTrafficControlTargetRequest
+     *
+     * @return UpdateTrafficControlTargetResponse UpdateTrafficControlTargetResponse
+     */
+    public function updateTrafficControlTarget($TrafficControlTargetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTrafficControlTargetWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新流量调控任务
+     *  *
+     * @param string                          $TrafficControlTaskId
+     * @param UpdateTrafficControlTaskRequest $request              UpdateTrafficControlTaskRequest
+     * @param string[]                        $headers              map
+     * @param RuntimeOptions                  $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTrafficControlTaskResponse UpdateTrafficControlTaskResponse
+     */
+    public function updateTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->behaviorTableMetaId)) {
+            $body['BehaviorTableMetaId'] = $request->behaviorTableMetaId;
+        }
+        if (!Utils::isUnset($request->controlGranularity)) {
+            $body['ControlGranularity'] = $request->controlGranularity;
+        }
+        if (!Utils::isUnset($request->controlLogic)) {
+            $body['ControlLogic'] = $request->controlLogic;
+        }
+        if (!Utils::isUnset($request->controlType)) {
+            $body['ControlType'] = $request->controlType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->executionTime)) {
+            $body['ExecutionTime'] = $request->executionTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->itemConditionArray)) {
+            $body['ItemConditionArray'] = $request->itemConditionArray;
+        }
+        if (!Utils::isUnset($request->itemConditionExpress)) {
+            $body['ItemConditionExpress'] = $request->itemConditionExpress;
+        }
+        if (!Utils::isUnset($request->itemConditionType)) {
+            $body['ItemConditionType'] = $request->itemConditionType;
+        }
+        if (!Utils::isUnset($request->itemTableMetaId)) {
+            $body['ItemTableMetaId'] = $request->itemTableMetaId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisBaeaviorConditionArray)) {
+            $body['StatisBaeaviorConditionArray'] = $request->statisBaeaviorConditionArray;
+        }
+        if (!Utils::isUnset($request->statisBehaviorConditionExpress)) {
+            $body['StatisBehaviorConditionExpress'] = $request->statisBehaviorConditionExpress;
+        }
+        if (!Utils::isUnset($request->statisBehaviorConditionType)) {
+            $body['StatisBehaviorConditionType'] = $request->statisBehaviorConditionType;
+        }
+        if (!Utils::isUnset($request->trafficControlTargets)) {
+            $body['TrafficControlTargets'] = $request->trafficControlTargets;
+        }
+        if (!Utils::isUnset($request->userConditionArray)) {
+            $body['UserConditionArray'] = $request->userConditionArray;
+        }
+        if (!Utils::isUnset($request->userConditionExpress)) {
+            $body['UserConditionExpress'] = $request->userConditionExpress;
+        }
+        if (!Utils::isUnset($request->userConditionType)) {
+            $body['UserConditionType'] = $request->userConditionType;
+        }
+        if (!Utils::isUnset($request->userTableMetaId)) {
+            $body['UserTableMetaId'] = $request->userTableMetaId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTrafficControlTask',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTrafficControlTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新流量调控任务
+     *  *
+     * @param string                          $TrafficControlTaskId
+     * @param UpdateTrafficControlTaskRequest $request              UpdateTrafficControlTaskRequest
+     *
+     * @return UpdateTrafficControlTaskResponse UpdateTrafficControlTaskResponse
+     */
+    public function updateTrafficControlTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新流量调控任务的流量参数
+     *  *
+     * @param string                                 $TrafficControlTaskId
+     * @param UpdateTrafficControlTaskTrafficRequest $request              UpdateTrafficControlTaskTrafficRequest
+     * @param string[]                               $headers              map
+     * @param RuntimeOptions                         $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTrafficControlTaskTrafficResponse UpdateTrafficControlTaskTrafficResponse
+     */
+    public function updateTrafficControlTaskTrafficWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newParam3)) {
+            $query['new-param-3'] = $request->newParam3;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->environment)) {
+            $body['Environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->traffics)) {
+            $body['Traffics'] = $request->traffics;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTrafficControlTaskTraffic',
+            'version'     => '2022-12-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/traffic',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTrafficControlTaskTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新流量调控任务的流量参数
+     *  *
+     * @param string                                 $TrafficControlTaskId
+     * @param UpdateTrafficControlTaskTrafficRequest $request              UpdateTrafficControlTaskTrafficRequest
+     *
+     * @return UpdateTrafficControlTaskTrafficResponse UpdateTrafficControlTaskTrafficResponse
+     */
+    public function updateTrafficControlTaskTraffic($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTrafficControlTaskTrafficWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 上传数据
+     *  *
+     * @param UploadRecommendationDataRequest $request UploadRecommendationDataRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadRecommendationDataResponse UploadRecommendationDataResponse
      */
     public function uploadRecommendationDataWithOptions($request, $headers, $runtime)
     {
@@ -5967,9 +7811,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * @param UploadRecommendationDataRequest $request
+     * @summary 上传数据
+     *  *
+     * @param UploadRecommendationDataRequest $request UploadRecommendationDataRequest
      *
-     * @return UploadRecommendationDataResponse
+     * @return UploadRecommendationDataResponse UploadRecommendationDataResponse
      */
     public function uploadRecommendationData($request)
     {

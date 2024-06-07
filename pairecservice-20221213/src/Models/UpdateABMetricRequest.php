@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateABMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sum(click_cnt)
      *
      * @var string
@@ -16,11 +18,15 @@ class UpdateABMetricRequest extends Model
     public $definition;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test123
      *
      * @var string
@@ -35,6 +41,8 @@ class UpdateABMetricRequest extends Model
     public $leftMetricId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pv
      *
      * @var string
@@ -49,6 +57,8 @@ class UpdateABMetricRequest extends Model
     public $operator;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -70,6 +80,8 @@ class UpdateABMetricRequest extends Model
     public $rightMetricId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -84,6 +96,8 @@ class UpdateABMetricRequest extends Model
     public $statisticsCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -91,6 +105,8 @@ class UpdateABMetricRequest extends Model
     public $tableMetaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Single
      *
      * @var string

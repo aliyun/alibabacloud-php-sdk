@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCrowdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example This is a test.
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCrowdRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateCrowdRequest extends Model
     public $label;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xx人群
      *
      * @var string

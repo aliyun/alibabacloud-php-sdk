@@ -14,26 +14,36 @@ class CreateResourceRuleItemRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $maxValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $minValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $value;

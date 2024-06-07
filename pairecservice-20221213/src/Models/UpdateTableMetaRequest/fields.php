@@ -14,6 +14,8 @@ class fields extends Model
     public $dataType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -21,16 +23,22 @@ class fields extends Model
     public $isDimensionField;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $isPartitionField;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $meaning;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name
      *
      * @var string
@@ -38,6 +46,8 @@ class fields extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BIGINT
      *
      * @var string

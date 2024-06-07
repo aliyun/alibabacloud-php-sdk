@@ -16,6 +16,8 @@ class CreateLaboratoryRequest extends Model
     public $bucketCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UidHash
      *
      * @var string
@@ -51,6 +53,8 @@ class CreateLaboratoryRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Daily
      *
      * @var string
@@ -65,6 +69,8 @@ class CreateLaboratoryRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -72,6 +78,8 @@ class CreateLaboratoryRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example laboratory1
      *
      * @var string
@@ -79,6 +87,8 @@ class CreateLaboratoryRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -86,6 +96,8 @@ class CreateLaboratoryRequest extends Model
     public $sceneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Base
      *
      * @var string

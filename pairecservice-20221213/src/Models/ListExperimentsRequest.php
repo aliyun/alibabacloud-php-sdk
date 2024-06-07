@@ -16,6 +16,8 @@ class ListExperimentsRequest extends Model
     public $experimentGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string

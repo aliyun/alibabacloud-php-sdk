@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $compareFeature;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service_123
      *
      * @var string
@@ -44,6 +48,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $featureDisplayExclude;
 
     /**
+     * @description This parameter is required.
+     *
      * @example reso-********
      *
      * @var string
@@ -95,6 +101,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $fgJarVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example file.json
      *
      * @var string
@@ -102,6 +110,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $fgJsonFileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -109,6 +119,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $generateZip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string
@@ -121,6 +133,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $isUseFeatureStore;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -128,6 +142,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $itemIdField;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_table
      *
      * @var string
@@ -135,6 +151,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $itemTable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ds
      *
      * @var string
@@ -142,6 +160,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $itemTablePartitionField;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yyyymmdd
      *
      * @var string
@@ -149,6 +169,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $itemTablePartitionFieldFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example feature_consistency_check1
      *
      * @var string
@@ -163,6 +185,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $ossResourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0.89
      *
      * @var float
@@ -170,6 +194,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $sampleRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -184,6 +210,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $serviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_id
      *
      * @var string
@@ -191,6 +219,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $userIdField;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_table
      *
      * @var string
@@ -198,6 +228,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $userTable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ds
      *
      * @var string
@@ -205,6 +237,8 @@ class UpdateFeatureConsistencyCheckJobConfigRequest extends Model
     public $userTablePartitionField;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yyyymmdd
      *
      * @var string

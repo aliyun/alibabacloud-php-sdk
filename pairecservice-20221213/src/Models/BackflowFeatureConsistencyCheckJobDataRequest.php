@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BackflowFeatureConsistencyCheckJobDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string
@@ -16,6 +18,8 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $featureConsistencyCheckJobConfigId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string
@@ -23,13 +27,17 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $instanceId;
 
     /**
-     * @example [\"{\\\"itemid\\\":{\\\"value\\\":1010,\\\"type\\\":\\\"string\\\"}}\"]
+     * @description This parameter is required.
+     *
+     * @example [\\"{\\\\\\"itemid\\\\\\":{\\\\\\"value\\\\\\":1010,\\\\\\"type\\\\\\":\\\\\\"string\\\\\\"}}\\"]
      *
      * @var string
      */
     public $itemFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9010
      *
      * @var string
@@ -37,6 +45,8 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $logItemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
      *
      * @var string
@@ -44,6 +54,8 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $logRequestId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1693900981465
      *
      * @var int
@@ -51,6 +63,8 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $logRequestTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1010
      *
      * @var string
@@ -58,6 +72,8 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $logUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example video-feed
      *
      * @var string
@@ -65,14 +81,18 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     public $sceneName;
 
     /**
-     * @example [\"{\\\"dbmtl_probs_is_valid_play\\\":0.00032182207107543945,\\\"dbmtl_y_play_time\\\":0.0043269748210906982}\"]
+     * @description This parameter is required.
+     *
+     * @example [\\"{\\\\\\"dbmtl_probs_is_valid_play\\\\\\":0.00032182207107543945,\\\\\\"dbmtl_y_play_time\\\\\\":0.0043269748210906982}\\"]
      *
      * @var string
      */
     public $scores;
 
     /**
-     * @example {\"userid\":{\"value\":1010,\"type\":\"string\"},\"click_5_seq\":{\"value\":\"9001;9002;9003;9004;9005\",\"type\":\"string\"}}
+     * @description This parameter is required.
+     *
+     * @example {\\"userid\\":{\\"value\\":1010,\\"type\\":\\"string\\"},\\"click_5_seq\\":{\\"value\\":\\"9001;9002;9003;9004;9005\\",\\"type\\":\\"string\\"}}
      *
      * @var string
      */

@@ -70,6 +70,8 @@ class CreateExperimentGroupRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string
@@ -77,6 +79,8 @@ class CreateExperimentGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -84,6 +88,8 @@ class CreateExperimentGroupRequest extends Model
     public $layerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example experiment_group_test
      *
      * @var string
@@ -91,6 +97,8 @@ class CreateExperimentGroupRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

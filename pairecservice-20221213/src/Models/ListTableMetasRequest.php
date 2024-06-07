@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTableMetasRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTableMetasRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ABTest
      *
      * @var string

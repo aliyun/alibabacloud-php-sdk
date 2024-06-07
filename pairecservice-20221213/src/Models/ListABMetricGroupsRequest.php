@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListABMetricGroupsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string

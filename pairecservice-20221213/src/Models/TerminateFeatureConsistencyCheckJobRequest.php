@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TerminateFeatureConsistencyCheckJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string

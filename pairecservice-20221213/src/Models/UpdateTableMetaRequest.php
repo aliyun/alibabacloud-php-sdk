@@ -17,11 +17,15 @@ class UpdateTableMetaRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string
@@ -29,6 +33,8 @@ class UpdateTableMetaRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ABTest
      *
      * @var string
@@ -36,6 +42,8 @@ class UpdateTableMetaRequest extends Model
     public $module;
 
     /**
+     * @description This parameter is required.
+     *
      * @example table_test
      *
      * @var string
@@ -43,6 +51,8 @@ class UpdateTableMetaRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example reso-2s416t***
      *
      * @var string
@@ -50,6 +60,8 @@ class UpdateTableMetaRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example table_mysql
      *
      * @var string

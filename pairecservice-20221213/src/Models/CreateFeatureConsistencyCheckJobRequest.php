@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFeatureConsistencyCheckJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Pre
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
     public $environment;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
     public $featureConsistencyCheckJobConfigId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

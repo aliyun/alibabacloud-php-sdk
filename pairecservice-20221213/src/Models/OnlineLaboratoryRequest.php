@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OnlineLaboratoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string

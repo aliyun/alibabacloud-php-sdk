@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubCrowdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSubCrowdRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ManualInput
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSubCrowdRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user1,user2,user3
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckInstanceResourcesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example OSS
      *
      * @var string

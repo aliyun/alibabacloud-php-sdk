@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneExperimentGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Daily
      *
      * @var string
@@ -16,6 +18,8 @@ class CloneExperimentGroupRequest extends Model
     public $environment;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -23,6 +27,8 @@ class CloneExperimentGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

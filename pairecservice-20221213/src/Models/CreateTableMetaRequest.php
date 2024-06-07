@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTableMetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example this is a test table
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateTableMetaRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test123
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateTableMetaRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ABTest
      *
      * @var string
@@ -36,6 +44,8 @@ class CreateTableMetaRequest extends Model
     public $module;
 
     /**
+     * @description This parameter is required.
+     *
      * @example table_test
      *
      * @var string
@@ -43,6 +53,8 @@ class CreateTableMetaRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example reso-2s416t146ffjc3yefx
      *
      * @var string
@@ -50,6 +62,8 @@ class CreateTableMetaRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example table_mysql
      *
      * @var string

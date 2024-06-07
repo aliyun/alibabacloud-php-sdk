@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DataManagement
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateInstanceResourceRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @example storage
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateInstanceResourceRequest extends Model
     public $group;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateInstanceResourceRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bucket-test-123
      *
      * @var string

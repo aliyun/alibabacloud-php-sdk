@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLayerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example This is a test.
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateLayerRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateLayerRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example layer1
      *
      * @var string

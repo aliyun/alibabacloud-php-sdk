@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCalculationJobsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string
@@ -30,6 +32,8 @@ class ListCalculationJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

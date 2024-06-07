@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
 {
     /**
-     * @example [{\"Value\":{\"FloatFeature\":0.1}}]
+     * @description This parameter is required.
+     *
+     * @example [{\\"Value\\":{\\"FloatFeature\\":0.1}}]
      *
      * @var string
      */
     public $contextFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -23,6 +27,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $featureConsistencyCheckJobConfigId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example week_day:1 | userid:3 | itemid:9001 | cate:cat1 | click_5_seq__cate:cat1
      *
      * @var string
@@ -30,6 +36,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $generatedFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-********
      *
      * @var string
@@ -37,6 +45,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9010
      *
      * @var string
@@ -44,6 +54,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $logItemId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
      *
      * @var string
@@ -51,6 +63,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $logRequestId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1693900981465
      *
      * @var int
@@ -58,6 +72,8 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $logRequestTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1010
      *
      * @var string
@@ -65,11 +81,15 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
     public $logUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $rawFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example video-feed
      *
      * @var string

@@ -14,11 +14,15 @@ class UpdateResourceRuleRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $metricOperationType;
@@ -34,11 +38,15 @@ class UpdateResourceRuleRequest extends Model
     public $metricPullPeriod;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleComputingDefinition;

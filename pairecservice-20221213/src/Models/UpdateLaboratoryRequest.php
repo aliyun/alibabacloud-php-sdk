@@ -16,6 +16,8 @@ class UpdateLaboratoryRequest extends Model
     public $bucketCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Filter
      *
      * @var string
@@ -65,6 +67,8 @@ class UpdateLaboratoryRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-test1
      *
      * @var string
@@ -72,6 +76,8 @@ class UpdateLaboratoryRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example laboratory1
      *
      * @var string
@@ -79,6 +85,8 @@ class UpdateLaboratoryRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Base
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example This is a test.
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateLayerRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateLayerRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateLayerRequest extends Model
     public $laboratoryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example layer1
      *
      * @var string

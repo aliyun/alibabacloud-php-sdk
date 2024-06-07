@@ -14,6 +14,8 @@ class UpdateResourceRuleItemRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +31,8 @@ class UpdateResourceRuleItemRequest extends Model
     public $minValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

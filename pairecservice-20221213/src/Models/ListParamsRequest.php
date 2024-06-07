@@ -16,6 +16,8 @@ class ListParamsRequest extends Model
     public $environment;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-abcdefg1234
      *
      * @var string
@@ -44,6 +46,8 @@ class ListParamsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

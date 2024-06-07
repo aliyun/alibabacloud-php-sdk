@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCalculationJobsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2,3,4
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCalculationJobsRequest extends Model
     public $ABMetricIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-01-03
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateCalculationJobsRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pairec-cn-test1
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateCalculationJobsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-01-01
      *
      * @var string
