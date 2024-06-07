@@ -40,11 +40,15 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserResponse;
@@ -1108,6 +1112,55 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 批量删除用户非在线设备
+     *  *
+     * @param DeleteUserDevicesRequest $request DeleteUserDevicesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteUserDevicesResponse DeleteUserDevicesResponse
+     */
+    public function deleteUserDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserDevices',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除用户非在线设备
+     *  *
+     * @param DeleteUserDevicesRequest $request DeleteUserDevicesRequest
+     *
+     * @return DeleteUserDevicesResponse DeleteUserDevicesResponse
+     */
+    public function deleteUserDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除用户组
      *  *
      * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
@@ -1207,6 +1260,97 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachApplication2ConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ExportUserDevicesRequest $request ExportUserDevicesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportUserDevicesResponse ExportUserDevicesResponse
+     */
+    public function exportUserDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->appStatuses)) {
+            $bodyFlat['AppStatuses'] = $request->appStatuses;
+        }
+        if (!Utils::isUnset($request->department)) {
+            $body['Department'] = $request->department;
+        }
+        if (!Utils::isUnset($request->deviceBelong)) {
+            $body['DeviceBelong'] = $request->deviceBelong;
+        }
+        if (!Utils::isUnset($request->deviceStatuses)) {
+            $bodyFlat['DeviceStatuses'] = $request->deviceStatuses;
+        }
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
+        }
+        if (!Utils::isUnset($request->deviceTypes)) {
+            $bodyFlat['DeviceTypes'] = $request->deviceTypes;
+        }
+        if (!Utils::isUnset($request->dlpStatuses)) {
+            $bodyFlat['DlpStatuses'] = $request->dlpStatuses;
+        }
+        if (!Utils::isUnset($request->hostname)) {
+            $body['Hostname'] = $request->hostname;
+        }
+        if (!Utils::isUnset($request->iaStatuses)) {
+            $bodyFlat['IaStatuses'] = $request->iaStatuses;
+        }
+        if (!Utils::isUnset($request->mac)) {
+            $body['Mac'] = $request->mac;
+        }
+        if (!Utils::isUnset($request->nacStatuses)) {
+            $bodyFlat['NacStatuses'] = $request->nacStatuses;
+        }
+        if (!Utils::isUnset($request->paStatuses)) {
+            $bodyFlat['PaStatuses'] = $request->paStatuses;
+        }
+        if (!Utils::isUnset($request->saseUserId)) {
+            $body['SaseUserId'] = $request->saseUserId;
+        }
+        if (!Utils::isUnset($request->sharingStatus)) {
+            $body['SharingStatus'] = $request->sharingStatus;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['Username'] = $request->username;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportUserDevices',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ExportUserDevicesRequest $request ExportUserDevicesRequest
+     *
+     * @return ExportUserDevicesResponse ExportUserDevicesResponse
+     */
+    public function exportUserDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportUserDevicesWithOptions($request, $runtime);
     }
 
     /**
