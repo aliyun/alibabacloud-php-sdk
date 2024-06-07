@@ -434,6 +434,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMeasureDataRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMeasureDataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionEntitiesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionEntitiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionsRequest;
@@ -12554,6 +12556,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManualDagInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询DataWorks计量数据
+     *  *
+     * @param ListMeasureDataRequest $request ListMeasureDataRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListMeasureDataResponse ListMeasureDataResponse
+     */
+    public function listMeasureDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->componentCode)) {
+            $query['ComponentCode'] = $request->componentCode;
+        }
+        if (!Utils::isUnset($request->domainCode)) {
+            $query['DomainCode'] = $request->domainCode;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMeasureData',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMeasureDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询DataWorks计量数据
+     *  *
+     * @param ListMeasureDataRequest $request ListMeasureDataRequest
+     *
+     * @return ListMeasureDataResponse ListMeasureDataResponse
+     */
+    public function listMeasureData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMeasureDataWithOptions($request, $runtime);
     }
 
     /**
