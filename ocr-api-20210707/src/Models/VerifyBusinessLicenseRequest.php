@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class VerifyBusinessLicenseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $companyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $creditCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $legalPerson;

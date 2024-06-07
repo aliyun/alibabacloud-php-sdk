@@ -44,7 +44,7 @@ class RecognizeAllTextShrinkRequest extends Model
     /**
      * @example false
      *
-     * @var int[]
+     * @var string
      */
     public $outputCoordinate;
 
@@ -96,6 +96,8 @@ class RecognizeAllTextShrinkRequest extends Model
     public $tableConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Advanced
      *
      * @var string

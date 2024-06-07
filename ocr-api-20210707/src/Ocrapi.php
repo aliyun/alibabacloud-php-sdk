@@ -196,10 +196,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAdvancedRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 全文识别高精版
+     *  *
+     * @param RecognizeAdvancedRequest $request RecognizeAdvancedRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeAdvancedResponse
+     * @return RecognizeAdvancedResponse RecognizeAdvancedResponse
      */
     public function recognizeAdvancedWithOptions($request, $runtime)
     {
@@ -253,9 +255,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAdvancedRequest $request
+     * @summary 全文识别高精版
+     *  *
+     * @param RecognizeAdvancedRequest $request RecognizeAdvancedRequest
      *
-     * @return RecognizeAdvancedResponse
+     * @return RecognizeAdvancedResponse RecognizeAdvancedResponse
      */
     public function recognizeAdvanced($request)
     {
@@ -265,10 +269,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAirItineraryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 航空行程单
+     *  *
+     * @param RecognizeAirItineraryRequest $request RecognizeAirItineraryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeAirItineraryResponse
+     * @return RecognizeAirItineraryResponse RecognizeAirItineraryResponse
      */
     public function recognizeAirItineraryWithOptions($request, $runtime)
     {
@@ -298,9 +304,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAirItineraryRequest $request
+     * @summary 航空行程单
+     *  *
+     * @param RecognizeAirItineraryRequest $request RecognizeAirItineraryRequest
      *
-     * @return RecognizeAirItineraryResponse
+     * @return RecognizeAirItineraryResponse RecognizeAirItineraryResponse
      */
     public function recognizeAirItinerary($request)
     {
@@ -310,10 +318,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAllTextRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 统一Api
+     *  *
+     * @param RecognizeAllTextRequest $tmpReq  RecognizeAllTextRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeAllTextResponse
+     * @return RecognizeAllTextResponse RecognizeAllTextResponse
      */
     public function recognizeAllTextWithOptions($tmpReq, $runtime)
     {
@@ -408,9 +418,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeAllTextRequest $request
+     * @summary 统一Api
+     *  *
+     * @param RecognizeAllTextRequest $request RecognizeAllTextRequest
      *
-     * @return RecognizeAllTextResponse
+     * @return RecognizeAllTextResponse RecognizeAllTextResponse
      */
     public function recognizeAllText($request)
     {
@@ -420,10 +432,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankAcceptanceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 银承汇票识别
+     *  *
+     * @param RecognizeBankAcceptanceRequest $request RecognizeBankAcceptanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBankAcceptanceResponse
+     * @return RecognizeBankAcceptanceResponse RecognizeBankAcceptanceResponse
      */
     public function recognizeBankAcceptanceWithOptions($request, $runtime)
     {
@@ -453,9 +467,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankAcceptanceRequest $request
+     * @summary 银承汇票识别
+     *  *
+     * @param RecognizeBankAcceptanceRequest $request RecognizeBankAcceptanceRequest
      *
-     * @return RecognizeBankAcceptanceResponse
+     * @return RecognizeBankAcceptanceResponse RecognizeBankAcceptanceResponse
      */
     public function recognizeBankAcceptance($request)
     {
@@ -465,10 +481,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankAccountLicenseRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 银行开户许可证识别
+     *  *
+     * @param RecognizeBankAccountLicenseRequest $request RecognizeBankAccountLicenseRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBankAccountLicenseResponse
+     * @return RecognizeBankAccountLicenseResponse RecognizeBankAccountLicenseResponse
      */
     public function recognizeBankAccountLicenseWithOptions($request, $runtime)
     {
@@ -498,9 +516,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankAccountLicenseRequest $request
+     * @summary 银行开户许可证识别
+     *  *
+     * @param RecognizeBankAccountLicenseRequest $request RecognizeBankAccountLicenseRequest
      *
-     * @return RecognizeBankAccountLicenseResponse
+     * @return RecognizeBankAccountLicenseResponse RecognizeBankAccountLicenseResponse
      */
     public function recognizeBankAccountLicense($request)
     {
@@ -510,10 +530,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankCardRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 银行卡识别
+     *  *
+     * @param RecognizeBankCardRequest $request RecognizeBankCardRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBankCardResponse
+     * @return RecognizeBankCardResponse RecognizeBankCardResponse
      */
     public function recognizeBankCardWithOptions($request, $runtime)
     {
@@ -543,9 +565,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBankCardRequest $request
+     * @summary 银行卡识别
+     *  *
+     * @param RecognizeBankCardRequest $request RecognizeBankCardRequest
      *
-     * @return RecognizeBankCardResponse
+     * @return RecognizeBankCardResponse RecognizeBankCardResponse
      */
     public function recognizeBankCard($request)
     {
@@ -555,10 +579,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBasicRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 电商图片文字识别
+     *  *
+     * @param RecognizeBasicRequest $request RecognizeBasicRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBasicResponse
+     * @return RecognizeBasicResponse RecognizeBasicResponse
      */
     public function recognizeBasicWithOptions($request, $runtime)
     {
@@ -591,9 +617,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBasicRequest $request
+     * @summary 电商图片文字识别
+     *  *
+     * @param RecognizeBasicRequest $request RecognizeBasicRequest
      *
-     * @return RecognizeBasicResponse
+     * @return RecognizeBasicResponse RecognizeBasicResponse
      */
     public function recognizeBasic($request)
     {
@@ -603,10 +631,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBirthCertificationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 出生证明
+     *  *
+     * @param RecognizeBirthCertificationRequest $request RecognizeBirthCertificationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBirthCertificationResponse
+     * @return RecognizeBirthCertificationResponse RecognizeBirthCertificationResponse
      */
     public function recognizeBirthCertificationWithOptions($request, $runtime)
     {
@@ -636,9 +666,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBirthCertificationRequest $request
+     * @summary 出生证明
+     *  *
+     * @param RecognizeBirthCertificationRequest $request RecognizeBirthCertificationRequest
      *
-     * @return RecognizeBirthCertificationResponse
+     * @return RecognizeBirthCertificationResponse RecognizeBirthCertificationResponse
      */
     public function recognizeBirthCertification($request)
     {
@@ -648,10 +680,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBusShipTicketRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 客运车船票识别
+     *  *
+     * @param RecognizeBusShipTicketRequest $request RecognizeBusShipTicketRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBusShipTicketResponse
+     * @return RecognizeBusShipTicketResponse RecognizeBusShipTicketResponse
      */
     public function recognizeBusShipTicketWithOptions($request, $runtime)
     {
@@ -681,9 +715,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBusShipTicketRequest $request
+     * @summary 客运车船票识别
+     *  *
+     * @param RecognizeBusShipTicketRequest $request RecognizeBusShipTicketRequest
      *
-     * @return RecognizeBusShipTicketResponse
+     * @return RecognizeBusShipTicketResponse RecognizeBusShipTicketResponse
      */
     public function recognizeBusShipTicket($request)
     {
@@ -693,10 +729,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBusinessLicenseRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 营业执照识别
+     *  *
+     * @param RecognizeBusinessLicenseRequest $request RecognizeBusinessLicenseRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeBusinessLicenseResponse
+     * @return RecognizeBusinessLicenseResponse RecognizeBusinessLicenseResponse
      */
     public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
@@ -726,9 +764,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeBusinessLicenseRequest $request
+     * @summary 营业执照识别
+     *  *
+     * @param RecognizeBusinessLicenseRequest $request RecognizeBusinessLicenseRequest
      *
-     * @return RecognizeBusinessLicenseResponse
+     * @return RecognizeBusinessLicenseResponse RecognizeBusinessLicenseResponse
      */
     public function recognizeBusinessLicense($request)
     {
@@ -738,10 +778,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarInvoiceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 机动车销售发票
+     *  *
+     * @param RecognizeCarInvoiceRequest $request RecognizeCarInvoiceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCarInvoiceResponse
+     * @return RecognizeCarInvoiceResponse RecognizeCarInvoiceResponse
      */
     public function recognizeCarInvoiceWithOptions($request, $runtime)
     {
@@ -771,9 +813,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarInvoiceRequest $request
+     * @summary 机动车销售发票
+     *  *
+     * @param RecognizeCarInvoiceRequest $request RecognizeCarInvoiceRequest
      *
-     * @return RecognizeCarInvoiceResponse
+     * @return RecognizeCarInvoiceResponse RecognizeCarInvoiceResponse
      */
     public function recognizeCarInvoice($request)
     {
@@ -783,10 +827,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarNumberRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 车牌识别
+     *  *
+     * @param RecognizeCarNumberRequest $request RecognizeCarNumberRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCarNumberResponse
+     * @return RecognizeCarNumberResponse RecognizeCarNumberResponse
      */
     public function recognizeCarNumberWithOptions($request, $runtime)
     {
@@ -816,9 +862,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarNumberRequest $request
+     * @summary 车牌识别
+     *  *
+     * @param RecognizeCarNumberRequest $request RecognizeCarNumberRequest
      *
-     * @return RecognizeCarNumberResponse
+     * @return RecognizeCarNumberResponse RecognizeCarNumberResponse
      */
     public function recognizeCarNumber($request)
     {
@@ -828,10 +876,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarVinCodeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 车辆vin码识别
+     *  *
+     * @param RecognizeCarVinCodeRequest $request RecognizeCarVinCodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCarVinCodeResponse
+     * @return RecognizeCarVinCodeResponse RecognizeCarVinCodeResponse
      */
     public function recognizeCarVinCodeWithOptions($request, $runtime)
     {
@@ -861,9 +911,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCarVinCodeRequest $request
+     * @summary 车辆vin码识别
+     *  *
+     * @param RecognizeCarVinCodeRequest $request RecognizeCarVinCodeRequest
      *
-     * @return RecognizeCarVinCodeResponse
+     * @return RecognizeCarVinCodeResponse RecognizeCarVinCodeResponse
      */
     public function recognizeCarVinCode($request)
     {
@@ -873,10 +925,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeChinesePassportRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 中国护照识别
+     *  *
+     * @param RecognizeChinesePassportRequest $request RecognizeChinesePassportRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeChinesePassportResponse
+     * @return RecognizeChinesePassportResponse RecognizeChinesePassportResponse
      */
     public function recognizeChinesePassportWithOptions($request, $runtime)
     {
@@ -909,9 +963,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeChinesePassportRequest $request
+     * @summary 中国护照识别
+     *  *
+     * @param RecognizeChinesePassportRequest $request RecognizeChinesePassportRequest
      *
-     * @return RecognizeChinesePassportResponse
+     * @return RecognizeChinesePassportResponse RecognizeChinesePassportResponse
      */
     public function recognizeChinesePassport($request)
     {
@@ -921,10 +977,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCommonPrintedInvoiceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 通用机打发票识别
+     *  *
+     * @param RecognizeCommonPrintedInvoiceRequest $request RecognizeCommonPrintedInvoiceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCommonPrintedInvoiceResponse
+     * @return RecognizeCommonPrintedInvoiceResponse RecognizeCommonPrintedInvoiceResponse
      */
     public function recognizeCommonPrintedInvoiceWithOptions($request, $runtime)
     {
@@ -954,9 +1012,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCommonPrintedInvoiceRequest $request
+     * @summary 通用机打发票识别
+     *  *
+     * @param RecognizeCommonPrintedInvoiceRequest $request RecognizeCommonPrintedInvoiceRequest
      *
-     * @return RecognizeCommonPrintedInvoiceResponse
+     * @return RecognizeCommonPrintedInvoiceResponse RecognizeCommonPrintedInvoiceResponse
      */
     public function recognizeCommonPrintedInvoice($request)
     {
@@ -966,10 +1026,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCosmeticProduceLicenseRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 化妆品生产许可证识别
+     *  *
+     * @param RecognizeCosmeticProduceLicenseRequest $request RecognizeCosmeticProduceLicenseRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCosmeticProduceLicenseResponse
+     * @return RecognizeCosmeticProduceLicenseResponse RecognizeCosmeticProduceLicenseResponse
      */
     public function recognizeCosmeticProduceLicenseWithOptions($request, $runtime)
     {
@@ -999,9 +1061,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCosmeticProduceLicenseRequest $request
+     * @summary 化妆品生产许可证识别
+     *  *
+     * @param RecognizeCosmeticProduceLicenseRequest $request RecognizeCosmeticProduceLicenseRequest
      *
-     * @return RecognizeCosmeticProduceLicenseResponse
+     * @return RecognizeCosmeticProduceLicenseResponse RecognizeCosmeticProduceLicenseResponse
      */
     public function recognizeCosmeticProduceLicense($request)
     {
@@ -1011,10 +1075,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCovidTestReportRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 核算检测报告识别
+     *  *
+     * @param RecognizeCovidTestReportRequest $request RecognizeCovidTestReportRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCovidTestReportResponse
+     * @return RecognizeCovidTestReportResponse RecognizeCovidTestReportResponse
      */
     public function recognizeCovidTestReportWithOptions($request, $runtime)
     {
@@ -1047,9 +1113,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCovidTestReportRequest $request
+     * @summary 核算检测报告识别
+     *  *
+     * @param RecognizeCovidTestReportRequest $request RecognizeCovidTestReportRequest
      *
-     * @return RecognizeCovidTestReportResponse
+     * @return RecognizeCovidTestReportResponse RecognizeCovidTestReportResponse
      */
     public function recognizeCovidTestReport($request)
     {
@@ -1059,10 +1127,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 第二类医疗器械经营备案凭证
+     *  *
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request RecognizeCtwoMedicalDeviceManageLicenseRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse RecognizeCtwoMedicalDeviceManageLicenseResponse
      */
     public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
@@ -1092,9 +1162,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
+     * @summary 第二类医疗器械经营备案凭证
+     *  *
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request RecognizeCtwoMedicalDeviceManageLicenseRequest
      *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse RecognizeCtwoMedicalDeviceManageLicenseResponse
      */
     public function recognizeCtwoMedicalDeviceManageLicense($request)
     {
@@ -1104,10 +1176,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDocumentStructureRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 文档结构化识别
+     *  *
+     * @param RecognizeDocumentStructureRequest $request RecognizeDocumentStructureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeDocumentStructureResponse
+     * @return RecognizeDocumentStructureResponse RecognizeDocumentStructureResponse
      */
     public function recognizeDocumentStructureWithOptions($request, $runtime)
     {
@@ -1164,9 +1238,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDocumentStructureRequest $request
+     * @summary 文档结构化识别
+     *  *
+     * @param RecognizeDocumentStructureRequest $request RecognizeDocumentStructureRequest
      *
-     * @return RecognizeDocumentStructureResponse
+     * @return RecognizeDocumentStructureResponse RecognizeDocumentStructureResponse
      */
     public function recognizeDocumentStructure($request)
     {
@@ -1176,10 +1252,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDrivingLicenseRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 驾驶证识别
+     *  *
+     * @param RecognizeDrivingLicenseRequest $request RecognizeDrivingLicenseRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeDrivingLicenseResponse
+     * @return RecognizeDrivingLicenseResponse RecognizeDrivingLicenseResponse
      */
     public function recognizeDrivingLicenseWithOptions($request, $runtime)
     {
@@ -1209,9 +1287,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDrivingLicenseRequest $request
+     * @summary 驾驶证识别
+     *  *
+     * @param RecognizeDrivingLicenseRequest $request RecognizeDrivingLicenseRequest
      *
-     * @return RecognizeDrivingLicenseResponse
+     * @return RecognizeDrivingLicenseResponse RecognizeDrivingLicenseResponse
      */
     public function recognizeDrivingLicense($request)
     {
@@ -1221,10 +1301,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduFormulaRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 印刷体数学公式识别
+     *  *
+     * @param RecognizeEduFormulaRequest $request RecognizeEduFormulaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduFormulaResponse
+     * @return RecognizeEduFormulaResponse RecognizeEduFormulaResponse
      */
     public function recognizeEduFormulaWithOptions($request, $runtime)
     {
@@ -1254,9 +1336,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduFormulaRequest $request
+     * @summary 印刷体数学公式识别
+     *  *
+     * @param RecognizeEduFormulaRequest $request RecognizeEduFormulaRequest
      *
-     * @return RecognizeEduFormulaResponse
+     * @return RecognizeEduFormulaResponse RecognizeEduFormulaResponse
      */
     public function recognizeEduFormula($request)
     {
@@ -1266,10 +1350,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduOralCalculationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 口算判题
+     *  *
+     * @param RecognizeEduOralCalculationRequest $request RecognizeEduOralCalculationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduOralCalculationResponse
+     * @return RecognizeEduOralCalculationResponse RecognizeEduOralCalculationResponse
      */
     public function recognizeEduOralCalculationWithOptions($request, $runtime)
     {
@@ -1299,9 +1385,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduOralCalculationRequest $request
+     * @summary 口算判题
+     *  *
+     * @param RecognizeEduOralCalculationRequest $request RecognizeEduOralCalculationRequest
      *
-     * @return RecognizeEduOralCalculationResponse
+     * @return RecognizeEduOralCalculationResponse RecognizeEduOralCalculationResponse
      */
     public function recognizeEduOralCalculation($request)
     {
@@ -1311,10 +1399,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperCutRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 试卷切题识别
+     *  *
+     * @param RecognizeEduPaperCutRequest $request RecognizeEduPaperCutRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduPaperCutResponse
+     * @return RecognizeEduPaperCutResponse RecognizeEduPaperCutResponse
      */
     public function recognizeEduPaperCutWithOptions($request, $runtime)
     {
@@ -1353,9 +1443,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperCutRequest $request
+     * @summary 试卷切题识别
+     *  *
+     * @param RecognizeEduPaperCutRequest $request RecognizeEduPaperCutRequest
      *
-     * @return RecognizeEduPaperCutResponse
+     * @return RecognizeEduPaperCutResponse RecognizeEduPaperCutResponse
      */
     public function recognizeEduPaperCut($request)
     {
@@ -1365,10 +1457,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperOcrRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 整页试卷识别
+     *  *
+     * @param RecognizeEduPaperOcrRequest $request RecognizeEduPaperOcrRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduPaperOcrResponse
+     * @return RecognizeEduPaperOcrResponse RecognizeEduPaperOcrResponse
      */
     public function recognizeEduPaperOcrWithOptions($request, $runtime)
     {
@@ -1407,9 +1501,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperOcrRequest $request
+     * @summary 整页试卷识别
+     *  *
+     * @param RecognizeEduPaperOcrRequest $request RecognizeEduPaperOcrRequest
      *
-     * @return RecognizeEduPaperOcrResponse
+     * @return RecognizeEduPaperOcrResponse RecognizeEduPaperOcrResponse
      */
     public function recognizeEduPaperOcr($request)
     {
@@ -1419,10 +1515,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperStructedRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 精细版结构化切题
+     *  *
+     * @param RecognizeEduPaperStructedRequest $request RecognizeEduPaperStructedRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduPaperStructedResponse
+     * @return RecognizeEduPaperStructedResponse RecognizeEduPaperStructedResponse
      */
     public function recognizeEduPaperStructedWithOptions($request, $runtime)
     {
@@ -1458,9 +1556,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduPaperStructedRequest $request
+     * @summary 精细版结构化切题
+     *  *
+     * @param RecognizeEduPaperStructedRequest $request RecognizeEduPaperStructedRequest
      *
-     * @return RecognizeEduPaperStructedResponse
+     * @return RecognizeEduPaperStructedResponse RecognizeEduPaperStructedResponse
      */
     public function recognizeEduPaperStructed($request)
     {
@@ -1470,10 +1570,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduQuestionOcrRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 题目识别
+     *  *
+     * @param RecognizeEduQuestionOcrRequest $request RecognizeEduQuestionOcrRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEduQuestionOcrResponse
+     * @return RecognizeEduQuestionOcrResponse RecognizeEduQuestionOcrResponse
      */
     public function recognizeEduQuestionOcrWithOptions($request, $runtime)
     {
@@ -1506,9 +1608,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEduQuestionOcrRequest $request
+     * @summary 题目识别
+     *  *
+     * @param RecognizeEduQuestionOcrRequest $request RecognizeEduQuestionOcrRequest
      *
-     * @return RecognizeEduQuestionOcrResponse
+     * @return RecognizeEduQuestionOcrResponse RecognizeEduQuestionOcrResponse
      */
     public function recognizeEduQuestionOcr($request)
     {
@@ -1518,10 +1622,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEnglishRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 英语专项识别
+     *  *
+     * @param RecognizeEnglishRequest $request RecognizeEnglishRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEnglishResponse
+     * @return RecognizeEnglishResponse RecognizeEnglishResponse
      */
     public function recognizeEnglishWithOptions($request, $runtime)
     {
@@ -1557,9 +1663,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEnglishRequest $request
+     * @summary 英语专项识别
+     *  *
+     * @param RecognizeEnglishRequest $request RecognizeEnglishRequest
      *
-     * @return RecognizeEnglishResponse
+     * @return RecognizeEnglishResponse RecognizeEnglishResponse
      */
     public function recognizeEnglish($request)
     {
@@ -1569,10 +1677,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEstateCertificationRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 不动产权证
+     *  *
+     * @param RecognizeEstateCertificationRequest $request RecognizeEstateCertificationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeEstateCertificationResponse
+     * @return RecognizeEstateCertificationResponse RecognizeEstateCertificationResponse
      */
     public function recognizeEstateCertificationWithOptions($request, $runtime)
     {
@@ -1602,9 +1712,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeEstateCertificationRequest $request
+     * @summary 不动产权证
+     *  *
+     * @param RecognizeEstateCertificationRequest $request RecognizeEstateCertificationRequest
      *
-     * @return RecognizeEstateCertificationResponse
+     * @return RecognizeEstateCertificationResponse RecognizeEstateCertificationResponse
      */
     public function recognizeEstateCertification($request)
     {
@@ -1614,10 +1726,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeExitEntryPermitToHKRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 来往港澳台通行证识别
+     *  *
+     * @param RecognizeExitEntryPermitToHKRequest $request RecognizeExitEntryPermitToHKRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeExitEntryPermitToHKResponse
+     * @return RecognizeExitEntryPermitToHKResponse RecognizeExitEntryPermitToHKResponse
      */
     public function recognizeExitEntryPermitToHKWithOptions($request, $runtime)
     {
@@ -1650,9 +1764,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeExitEntryPermitToHKRequest $request
+     * @summary 来往港澳台通行证识别
+     *  *
+     * @param RecognizeExitEntryPermitToHKRequest $request RecognizeExitEntryPermitToHKRequest
      *
-     * @return RecognizeExitEntryPermitToHKResponse
+     * @return RecognizeExitEntryPermitToHKResponse RecognizeExitEntryPermitToHKResponse
      */
     public function recognizeExitEntryPermitToHK($request)
     {
@@ -1662,10 +1778,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeExitEntryPermitToMainlandRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 来往大陆(内地)通行证识别
+     *  *
+     * @param RecognizeExitEntryPermitToMainlandRequest $request RecognizeExitEntryPermitToMainlandRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeExitEntryPermitToMainlandResponse
+     * @return RecognizeExitEntryPermitToMainlandResponse RecognizeExitEntryPermitToMainlandResponse
      */
     public function recognizeExitEntryPermitToMainlandWithOptions($request, $runtime)
     {
@@ -1698,9 +1816,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeExitEntryPermitToMainlandRequest $request
+     * @summary 来往大陆(内地)通行证识别
+     *  *
+     * @param RecognizeExitEntryPermitToMainlandRequest $request RecognizeExitEntryPermitToMainlandRequest
      *
-     * @return RecognizeExitEntryPermitToMainlandResponse
+     * @return RecognizeExitEntryPermitToMainlandResponse RecognizeExitEntryPermitToMainlandResponse
      */
     public function recognizeExitEntryPermitToMainland($request)
     {
@@ -1710,10 +1830,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeFoodManageLicenseRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 食品经营许可证
+     *  *
+     * @param RecognizeFoodManageLicenseRequest $request RecognizeFoodManageLicenseRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeFoodManageLicenseResponse
+     * @return RecognizeFoodManageLicenseResponse RecognizeFoodManageLicenseResponse
      */
     public function recognizeFoodManageLicenseWithOptions($request, $runtime)
     {
@@ -1743,9 +1865,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeFoodManageLicenseRequest $request
+     * @summary 食品经营许可证
+     *  *
+     * @param RecognizeFoodManageLicenseRequest $request RecognizeFoodManageLicenseRequest
      *
-     * @return RecognizeFoodManageLicenseResponse
+     * @return RecognizeFoodManageLicenseResponse RecognizeFoodManageLicenseResponse
      */
     public function recognizeFoodManageLicense($request)
     {
@@ -1755,10 +1879,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeFoodProduceLicenseRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 食品生产许可证
+     *  *
+     * @param RecognizeFoodProduceLicenseRequest $request RecognizeFoodProduceLicenseRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeFoodProduceLicenseResponse
+     * @return RecognizeFoodProduceLicenseResponse RecognizeFoodProduceLicenseResponse
      */
     public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
     {
@@ -1788,9 +1914,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeFoodProduceLicenseRequest $request
+     * @summary 食品生产许可证
+     *  *
+     * @param RecognizeFoodProduceLicenseRequest $request RecognizeFoodProduceLicenseRequest
      *
-     * @return RecognizeFoodProduceLicenseResponse
+     * @return RecognizeFoodProduceLicenseResponse RecognizeFoodProduceLicenseResponse
      */
     public function recognizeFoodProduceLicense($request)
     {
@@ -1800,10 +1928,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeGeneralRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 通用文字识别
+     *  *
+     * @param RecognizeGeneralRequest $request RecognizeGeneralRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeGeneralResponse
+     * @return RecognizeGeneralResponse RecognizeGeneralResponse
      */
     public function recognizeGeneralWithOptions($request, $runtime)
     {
@@ -1833,9 +1963,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeGeneralRequest $request
+     * @summary 通用文字识别
+     *  *
+     * @param RecognizeGeneralRequest $request RecognizeGeneralRequest
      *
-     * @return RecognizeGeneralResponse
+     * @return RecognizeGeneralResponse RecognizeGeneralResponse
      */
     public function recognizeGeneral($request)
     {
@@ -1845,10 +1977,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHKIdcardRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 香港身份证识别
+     *  *
+     * @param RecognizeHKIdcardRequest $request RecognizeHKIdcardRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeHKIdcardResponse
+     * @return RecognizeHKIdcardResponse RecognizeHKIdcardResponse
      */
     public function recognizeHKIdcardWithOptions($request, $runtime)
     {
@@ -1878,9 +2012,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHKIdcardRequest $request
+     * @summary 香港身份证识别
+     *  *
+     * @param RecognizeHKIdcardRequest $request RecognizeHKIdcardRequest
      *
-     * @return RecognizeHKIdcardResponse
+     * @return RecognizeHKIdcardResponse RecognizeHKIdcardResponse
      */
     public function recognizeHKIdcard($request)
     {
@@ -1890,10 +2026,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHandwritingRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 通用手写体识别
+     *  *
+     * @param RecognizeHandwritingRequest $request RecognizeHandwritingRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeHandwritingResponse
+     * @return RecognizeHandwritingResponse RecognizeHandwritingResponse
      */
     public function recognizeHandwritingWithOptions($request, $runtime)
     {
@@ -1938,9 +2076,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHandwritingRequest $request
+     * @summary 通用手写体识别
+     *  *
+     * @param RecognizeHandwritingRequest $request RecognizeHandwritingRequest
      *
-     * @return RecognizeHandwritingResponse
+     * @return RecognizeHandwritingResponse RecognizeHandwritingResponse
      */
     public function recognizeHandwriting($request)
     {
@@ -1950,10 +2090,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHealthCodeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 防疫健康码识别
+     *  *
+     * @param RecognizeHealthCodeRequest $request RecognizeHealthCodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeHealthCodeResponse
+     * @return RecognizeHealthCodeResponse RecognizeHealthCodeResponse
      */
     public function recognizeHealthCodeWithOptions($request, $runtime)
     {
@@ -1983,9 +2125,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHealthCodeRequest $request
+     * @summary 防疫健康码识别
+     *  *
+     * @param RecognizeHealthCodeRequest $request RecognizeHealthCodeRequest
      *
-     * @return RecognizeHealthCodeResponse
+     * @return RecognizeHealthCodeResponse RecognizeHealthCodeResponse
      */
     public function recognizeHealthCode($request)
     {
@@ -1995,10 +2139,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHotelConsumeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 酒店流水识别
+     *  *
+     * @param RecognizeHotelConsumeRequest $request RecognizeHotelConsumeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeHotelConsumeResponse
+     * @return RecognizeHotelConsumeResponse RecognizeHotelConsumeResponse
      */
     public function recognizeHotelConsumeWithOptions($request, $runtime)
     {
@@ -2028,9 +2174,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHotelConsumeRequest $request
+     * @summary 酒店流水识别
+     *  *
+     * @param RecognizeHotelConsumeRequest $request RecognizeHotelConsumeRequest
      *
-     * @return RecognizeHotelConsumeResponse
+     * @return RecognizeHotelConsumeResponse RecognizeHotelConsumeResponse
      */
     public function recognizeHotelConsume($request)
     {
@@ -2040,10 +2188,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHouseholdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 户口本识别
+     *  *
+     * @param RecognizeHouseholdRequest $request RecognizeHouseholdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeHouseholdResponse
+     * @return RecognizeHouseholdResponse RecognizeHouseholdResponse
      */
     public function recognizeHouseholdWithOptions($request, $runtime)
     {
@@ -2076,9 +2226,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeHouseholdRequest $request
+     * @summary 户口本识别
+     *  *
+     * @param RecognizeHouseholdRequest $request RecognizeHouseholdRequest
      *
-     * @return RecognizeHouseholdResponse
+     * @return RecognizeHouseholdResponse RecognizeHouseholdResponse
      */
     public function recognizeHousehold($request)
     {
@@ -2088,10 +2240,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeIdcardRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 身份证识别
+     *  *
+     * @param RecognizeIdcardRequest $request RecognizeIdcardRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeIdcardResponse
+     * @return RecognizeIdcardResponse RecognizeIdcardResponse
      */
     public function recognizeIdcardWithOptions($request, $runtime)
     {
@@ -2127,9 +2281,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeIdcardRequest $request
+     * @summary 身份证识别
+     *  *
+     * @param RecognizeIdcardRequest $request RecognizeIdcardRequest
      *
-     * @return RecognizeIdcardResponse
+     * @return RecognizeIdcardResponse RecognizeIdcardResponse
      */
     public function recognizeIdcard($request)
     {
@@ -2139,10 +2295,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInternationalBusinessLicenseRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 国际营业执照识别
+     *  *
+     * @param RecognizeInternationalBusinessLicenseRequest $request RecognizeInternationalBusinessLicenseRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeInternationalBusinessLicenseResponse
+     * @return RecognizeInternationalBusinessLicenseResponse RecognizeInternationalBusinessLicenseResponse
      */
     public function recognizeInternationalBusinessLicenseWithOptions($request, $runtime)
     {
@@ -2175,9 +2333,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInternationalBusinessLicenseRequest $request
+     * @summary 国际营业执照识别
+     *  *
+     * @param RecognizeInternationalBusinessLicenseRequest $request RecognizeInternationalBusinessLicenseRequest
      *
-     * @return RecognizeInternationalBusinessLicenseResponse
+     * @return RecognizeInternationalBusinessLicenseResponse RecognizeInternationalBusinessLicenseResponse
      */
     public function recognizeInternationalBusinessLicense($request)
     {
@@ -2187,10 +2347,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInternationalIdcardRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 国际身份证识别
+     *  *
+     * @param RecognizeInternationalIdcardRequest $request RecognizeInternationalIdcardRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeInternationalIdcardResponse
+     * @return RecognizeInternationalIdcardResponse RecognizeInternationalIdcardResponse
      */
     public function recognizeInternationalIdcardWithOptions($request, $runtime)
     {
@@ -2223,9 +2385,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInternationalIdcardRequest $request
+     * @summary 国际身份证识别
+     *  *
+     * @param RecognizeInternationalIdcardRequest $request RecognizeInternationalIdcardRequest
      *
-     * @return RecognizeInternationalIdcardResponse
+     * @return RecognizeInternationalIdcardResponse RecognizeInternationalIdcardResponse
      */
     public function recognizeInternationalIdcard($request)
     {
@@ -2235,10 +2399,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInvoiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 增值税发票识别
+     *  *
+     * @param RecognizeInvoiceRequest $request RecognizeInvoiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeInvoiceResponse
+     * @return RecognizeInvoiceResponse RecognizeInvoiceResponse
      */
     public function recognizeInvoiceWithOptions($request, $runtime)
     {
@@ -2271,9 +2437,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeInvoiceRequest $request
+     * @summary 增值税发票识别
+     *  *
+     * @param RecognizeInvoiceRequest $request RecognizeInvoiceRequest
      *
-     * @return RecognizeInvoiceResponse
+     * @return RecognizeInvoiceResponse RecognizeInvoiceResponse
      */
     public function recognizeInvoice($request)
     {
@@ -2283,10 +2451,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeJanpaneseRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 日语识别
+     *  *
+     * @param RecognizeJanpaneseRequest $request RecognizeJanpaneseRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeJanpaneseResponse
+     * @return RecognizeJanpaneseResponse RecognizeJanpaneseResponse
      */
     public function recognizeJanpaneseWithOptions($request, $runtime)
     {
@@ -2325,9 +2495,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeJanpaneseRequest $request
+     * @summary 日语识别
+     *  *
+     * @param RecognizeJanpaneseRequest $request RecognizeJanpaneseRequest
      *
-     * @return RecognizeJanpaneseResponse
+     * @return RecognizeJanpaneseResponse RecognizeJanpaneseResponse
      */
     public function recognizeJanpanese($request)
     {
@@ -2337,10 +2509,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeKoreanRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 韩语识别
+     *  *
+     * @param RecognizeKoreanRequest $request RecognizeKoreanRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeKoreanResponse
+     * @return RecognizeKoreanResponse RecognizeKoreanResponse
      */
     public function recognizeKoreanWithOptions($request, $runtime)
     {
@@ -2379,9 +2553,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeKoreanRequest $request
+     * @summary 韩语识别
+     *  *
+     * @param RecognizeKoreanRequest $request RecognizeKoreanRequest
      *
-     * @return RecognizeKoreanResponse
+     * @return RecognizeKoreanResponse RecognizeKoreanResponse
      */
     public function recognizeKorean($request)
     {
@@ -2391,10 +2567,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeLatinRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 拉丁语识别
+     *  *
+     * @param RecognizeLatinRequest $request RecognizeLatinRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeLatinResponse
+     * @return RecognizeLatinResponse RecognizeLatinResponse
      */
     public function recognizeLatinWithOptions($request, $runtime)
     {
@@ -2433,9 +2611,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeLatinRequest $request
+     * @summary 拉丁语识别
+     *  *
+     * @param RecognizeLatinRequest $request RecognizeLatinRequest
      *
-     * @return RecognizeLatinResponse
+     * @return RecognizeLatinResponse RecognizeLatinResponse
      */
     public function recognizeLatin($request)
     {
@@ -2445,10 +2625,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 医疗器械经营许可证
+     *  *
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request RecognizeMedicalDeviceManageLicenseRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeMedicalDeviceManageLicenseResponse
+     * @return RecognizeMedicalDeviceManageLicenseResponse RecognizeMedicalDeviceManageLicenseResponse
      */
     public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
@@ -2478,9 +2660,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request
+     * @summary 医疗器械经营许可证
+     *  *
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request RecognizeMedicalDeviceManageLicenseRequest
      *
-     * @return RecognizeMedicalDeviceManageLicenseResponse
+     * @return RecognizeMedicalDeviceManageLicenseResponse RecognizeMedicalDeviceManageLicenseResponse
      */
     public function recognizeMedicalDeviceManageLicense($request)
     {
@@ -2490,10 +2674,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 医疗器械生产许可证
+     *  *
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request RecognizeMedicalDeviceProduceLicenseRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse
+     * @return RecognizeMedicalDeviceProduceLicenseResponse RecognizeMedicalDeviceProduceLicenseResponse
      */
     public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
     {
@@ -2523,9 +2709,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
+     * @summary 医疗器械生产许可证
+     *  *
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request RecognizeMedicalDeviceProduceLicenseRequest
      *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse
+     * @return RecognizeMedicalDeviceProduceLicenseResponse RecognizeMedicalDeviceProduceLicenseResponse
      */
     public function recognizeMedicalDeviceProduceLicense($request)
     {
@@ -2535,10 +2723,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMixedInvoicesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 混贴发票识别
+     *  *
+     * @param RecognizeMixedInvoicesRequest $request RecognizeMixedInvoicesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeMixedInvoicesResponse
+     * @return RecognizeMixedInvoicesResponse RecognizeMixedInvoicesResponse
      */
     public function recognizeMixedInvoicesWithOptions($request, $runtime)
     {
@@ -2574,9 +2764,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMixedInvoicesRequest $request
+     * @summary 混贴发票识别
+     *  *
+     * @param RecognizeMixedInvoicesRequest $request RecognizeMixedInvoicesRequest
      *
-     * @return RecognizeMixedInvoicesResponse
+     * @return RecognizeMixedInvoicesResponse RecognizeMixedInvoicesResponse
      */
     public function recognizeMixedInvoices($request)
     {
@@ -2586,10 +2778,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMultiLanguageRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 通用多语言识别
+     *  *
+     * @param RecognizeMultiLanguageRequest $tmpReq  RecognizeMultiLanguageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeMultiLanguageResponse
+     * @return RecognizeMultiLanguageResponse RecognizeMultiLanguageResponse
      */
     public function recognizeMultiLanguageWithOptions($tmpReq, $runtime)
     {
@@ -2639,9 +2833,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeMultiLanguageRequest $request
+     * @summary 通用多语言识别
+     *  *
+     * @param RecognizeMultiLanguageRequest $request RecognizeMultiLanguageRequest
      *
-     * @return RecognizeMultiLanguageResponse
+     * @return RecognizeMultiLanguageResponse RecognizeMultiLanguageResponse
      */
     public function recognizeMultiLanguage($request)
     {
@@ -2651,10 +2847,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeNonTaxInvoiceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 非税收入票据识别
+     *  *
+     * @param RecognizeNonTaxInvoiceRequest $request RecognizeNonTaxInvoiceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeNonTaxInvoiceResponse
+     * @return RecognizeNonTaxInvoiceResponse RecognizeNonTaxInvoiceResponse
      */
     public function recognizeNonTaxInvoiceWithOptions($request, $runtime)
     {
@@ -2684,9 +2882,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeNonTaxInvoiceRequest $request
+     * @summary 非税收入票据识别
+     *  *
+     * @param RecognizeNonTaxInvoiceRequest $request RecognizeNonTaxInvoiceRequest
      *
-     * @return RecognizeNonTaxInvoiceResponse
+     * @return RecognizeNonTaxInvoiceResponse RecognizeNonTaxInvoiceResponse
      */
     public function recognizeNonTaxInvoice($request)
     {
@@ -2696,10 +2896,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePassportRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 护照识别
+     *  *
+     * @param RecognizePassportRequest $request RecognizePassportRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizePassportResponse
+     * @return RecognizePassportResponse RecognizePassportResponse
      */
     public function recognizePassportWithOptions($request, $runtime)
     {
@@ -2729,9 +2931,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePassportRequest $request
+     * @summary 护照识别
+     *  *
+     * @param RecognizePassportRequest $request RecognizePassportRequest
      *
-     * @return RecognizePassportResponse
+     * @return RecognizePassportResponse RecognizePassportResponse
      */
     public function recognizePassport($request)
     {
@@ -2741,10 +2945,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePaymentRecordRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 支付详情页识别
+     *  *
+     * @param RecognizePaymentRecordRequest $request RecognizePaymentRecordRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizePaymentRecordResponse
+     * @return RecognizePaymentRecordResponse RecognizePaymentRecordResponse
      */
     public function recognizePaymentRecordWithOptions($request, $runtime)
     {
@@ -2774,9 +2980,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePaymentRecordRequest $request
+     * @summary 支付详情页识别
+     *  *
+     * @param RecognizePaymentRecordRequest $request RecognizePaymentRecordRequest
      *
-     * @return RecognizePaymentRecordResponse
+     * @return RecognizePaymentRecordResponse RecognizePaymentRecordResponse
      */
     public function recognizePaymentRecord($request)
     {
@@ -2786,10 +2994,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePurchaseRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 电商订单页识别
+     *  *
+     * @param RecognizePurchaseRecordRequest $request RecognizePurchaseRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizePurchaseRecordResponse
+     * @return RecognizePurchaseRecordResponse RecognizePurchaseRecordResponse
      */
     public function recognizePurchaseRecordWithOptions($request, $runtime)
     {
@@ -2822,9 +3032,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizePurchaseRecordRequest $request
+     * @summary 电商订单页识别
+     *  *
+     * @param RecognizePurchaseRecordRequest $request RecognizePurchaseRecordRequest
      *
-     * @return RecognizePurchaseRecordResponse
+     * @return RecognizePurchaseRecordResponse RecognizePurchaseRecordResponse
      */
     public function recognizePurchaseRecord($request)
     {
@@ -2834,10 +3046,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeQuotaInvoiceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 定额发票
+     *  *
+     * @param RecognizeQuotaInvoiceRequest $request RecognizeQuotaInvoiceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeQuotaInvoiceResponse
+     * @return RecognizeQuotaInvoiceResponse RecognizeQuotaInvoiceResponse
      */
     public function recognizeQuotaInvoiceWithOptions($request, $runtime)
     {
@@ -2867,9 +3081,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeQuotaInvoiceRequest $request
+     * @summary 定额发票
+     *  *
+     * @param RecognizeQuotaInvoiceRequest $request RecognizeQuotaInvoiceRequest
      *
-     * @return RecognizeQuotaInvoiceResponse
+     * @return RecognizeQuotaInvoiceResponse RecognizeQuotaInvoiceResponse
      */
     public function recognizeQuotaInvoice($request)
     {
@@ -2879,10 +3095,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRideHailingItineraryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 网约车行程单识别
+     *  *
+     * @param RecognizeRideHailingItineraryRequest $request RecognizeRideHailingItineraryRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeRideHailingItineraryResponse
+     * @return RecognizeRideHailingItineraryResponse RecognizeRideHailingItineraryResponse
      */
     public function recognizeRideHailingItineraryWithOptions($request, $runtime)
     {
@@ -2912,9 +3130,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRideHailingItineraryRequest $request
+     * @summary 网约车行程单识别
+     *  *
+     * @param RecognizeRideHailingItineraryRequest $request RecognizeRideHailingItineraryRequest
      *
-     * @return RecognizeRideHailingItineraryResponse
+     * @return RecognizeRideHailingItineraryResponse RecognizeRideHailingItineraryResponse
      */
     public function recognizeRideHailingItinerary($request)
     {
@@ -2924,10 +3144,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRollTicketRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 增值税发票卷票
+     *  *
+     * @param RecognizeRollTicketRequest $request RecognizeRollTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeRollTicketResponse
+     * @return RecognizeRollTicketResponse RecognizeRollTicketResponse
      */
     public function recognizeRollTicketWithOptions($request, $runtime)
     {
@@ -2957,9 +3179,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRollTicketRequest $request
+     * @summary 增值税发票卷票
+     *  *
+     * @param RecognizeRollTicketRequest $request RecognizeRollTicketRequest
      *
-     * @return RecognizeRollTicketResponse
+     * @return RecognizeRollTicketResponse RecognizeRollTicketResponse
      */
     public function recognizeRollTicket($request)
     {
@@ -2969,10 +3193,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRussianRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 俄语识别
+     *  *
+     * @param RecognizeRussianRequest $request RecognizeRussianRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeRussianResponse
+     * @return RecognizeRussianResponse RecognizeRussianResponse
      */
     public function recognizeRussianWithOptions($request, $runtime)
     {
@@ -3011,9 +3237,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeRussianRequest $request
+     * @summary 俄语识别
+     *  *
+     * @param RecognizeRussianRequest $request RecognizeRussianRequest
      *
-     * @return RecognizeRussianResponse
+     * @return RecognizeRussianResponse RecognizeRussianResponse
      */
     public function recognizeRussian($request)
     {
@@ -3023,10 +3251,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeShoppingReceiptRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 购物小票识别
+     *  *
+     * @param RecognizeShoppingReceiptRequest $request RecognizeShoppingReceiptRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeShoppingReceiptResponse
+     * @return RecognizeShoppingReceiptResponse RecognizeShoppingReceiptResponse
      */
     public function recognizeShoppingReceiptWithOptions($request, $runtime)
     {
@@ -3056,9 +3286,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeShoppingReceiptRequest $request
+     * @summary 购物小票识别
+     *  *
+     * @param RecognizeShoppingReceiptRequest $request RecognizeShoppingReceiptRequest
      *
-     * @return RecognizeShoppingReceiptResponse
+     * @return RecognizeShoppingReceiptResponse RecognizeShoppingReceiptResponse
      */
     public function recognizeShoppingReceipt($request)
     {
@@ -3068,10 +3300,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeSocialSecurityCardRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 社会保障卡识别
+     *  *
+     * @param RecognizeSocialSecurityCardRequest $request RecognizeSocialSecurityCardRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeSocialSecurityCardResponse
+     * @return RecognizeSocialSecurityCardResponse RecognizeSocialSecurityCardResponse
      */
     public function recognizeSocialSecurityCardWithOptions($request, $runtime)
     {
@@ -3101,9 +3335,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeSocialSecurityCardRequest $request
+     * @summary 社会保障卡识别
+     *  *
+     * @param RecognizeSocialSecurityCardRequest $request RecognizeSocialSecurityCardRequest
      *
-     * @return RecognizeSocialSecurityCardResponse
+     * @return RecognizeSocialSecurityCardResponse RecognizeSocialSecurityCardResponse
      */
     public function recognizeSocialSecurityCard($request)
     {
@@ -3113,10 +3349,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeSocialSecurityCardVersionIIRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 社保卡识别
+     *  *
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request RecognizeSocialSecurityCardVersionIIRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeSocialSecurityCardVersionIIResponse
+     * @return RecognizeSocialSecurityCardVersionIIResponse RecognizeSocialSecurityCardVersionIIResponse
      */
     public function recognizeSocialSecurityCardVersionIIWithOptions($request, $runtime)
     {
@@ -3146,9 +3384,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeSocialSecurityCardVersionIIRequest $request
+     * @summary 社保卡识别
+     *  *
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request RecognizeSocialSecurityCardVersionIIRequest
      *
-     * @return RecognizeSocialSecurityCardVersionIIResponse
+     * @return RecognizeSocialSecurityCardVersionIIResponse RecognizeSocialSecurityCardVersionIIResponse
      */
     public function recognizeSocialSecurityCardVersionII($request)
     {
@@ -3158,10 +3398,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTableOcrRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 表格识别
+     *  *
+     * @param RecognizeTableOcrRequest $request RecognizeTableOcrRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTableOcrResponse
+     * @return RecognizeTableOcrResponse RecognizeTableOcrResponse
      */
     public function recognizeTableOcrWithOptions($request, $runtime)
     {
@@ -3203,9 +3445,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTableOcrRequest $request
+     * @summary 表格识别
+     *  *
+     * @param RecognizeTableOcrRequest $request RecognizeTableOcrRequest
      *
-     * @return RecognizeTableOcrResponse
+     * @return RecognizeTableOcrResponse RecognizeTableOcrResponse
      */
     public function recognizeTableOcr($request)
     {
@@ -3215,10 +3459,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTaxClearanceCertificateRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 税收完税证明识别
+     *  *
+     * @param RecognizeTaxClearanceCertificateRequest $request RecognizeTaxClearanceCertificateRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTaxClearanceCertificateResponse
+     * @return RecognizeTaxClearanceCertificateResponse RecognizeTaxClearanceCertificateResponse
      */
     public function recognizeTaxClearanceCertificateWithOptions($request, $runtime)
     {
@@ -3248,9 +3494,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTaxClearanceCertificateRequest $request
+     * @summary 税收完税证明识别
+     *  *
+     * @param RecognizeTaxClearanceCertificateRequest $request RecognizeTaxClearanceCertificateRequest
      *
-     * @return RecognizeTaxClearanceCertificateResponse
+     * @return RecognizeTaxClearanceCertificateResponse RecognizeTaxClearanceCertificateResponse
      */
     public function recognizeTaxClearanceCertificate($request)
     {
@@ -3260,10 +3508,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTaxiInvoiceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 出租车发票
+     *  *
+     * @param RecognizeTaxiInvoiceRequest $request RecognizeTaxiInvoiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTaxiInvoiceResponse
+     * @return RecognizeTaxiInvoiceResponse RecognizeTaxiInvoiceResponse
      */
     public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
@@ -3293,9 +3543,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTaxiInvoiceRequest $request
+     * @summary 出租车发票
+     *  *
+     * @param RecognizeTaxiInvoiceRequest $request RecognizeTaxiInvoiceRequest
      *
-     * @return RecognizeTaxiInvoiceResponse
+     * @return RecognizeTaxiInvoiceResponse RecognizeTaxiInvoiceResponse
      */
     public function recognizeTaxiInvoice($request)
     {
@@ -3305,10 +3557,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeThaiRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 泰语识别
+     *  *
+     * @param RecognizeThaiRequest $request RecognizeThaiRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeThaiResponse
+     * @return RecognizeThaiResponse RecognizeThaiResponse
      */
     public function recognizeThaiWithOptions($request, $runtime)
     {
@@ -3347,9 +3601,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeThaiRequest $request
+     * @summary 泰语识别
+     *  *
+     * @param RecognizeThaiRequest $request RecognizeThaiRequest
      *
-     * @return RecognizeThaiResponse
+     * @return RecognizeThaiResponse RecognizeThaiResponse
      */
     public function recognizeThai($request)
     {
@@ -3359,10 +3615,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTollInvoiceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 过路过桥费发票识别
+     *  *
+     * @param RecognizeTollInvoiceRequest $request RecognizeTollInvoiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTollInvoiceResponse
+     * @return RecognizeTollInvoiceResponse RecognizeTollInvoiceResponse
      */
     public function recognizeTollInvoiceWithOptions($request, $runtime)
     {
@@ -3392,9 +3650,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTollInvoiceRequest $request
+     * @summary 过路过桥费发票识别
+     *  *
+     * @param RecognizeTollInvoiceRequest $request RecognizeTollInvoiceRequest
      *
-     * @return RecognizeTollInvoiceResponse
+     * @return RecognizeTollInvoiceResponse RecognizeTollInvoiceResponse
      */
     public function recognizeTollInvoice($request)
     {
@@ -3404,10 +3664,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTradeMarkCertificationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 商标注册证
+     *  *
+     * @param RecognizeTradeMarkCertificationRequest $request RecognizeTradeMarkCertificationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTradeMarkCertificationResponse
+     * @return RecognizeTradeMarkCertificationResponse RecognizeTradeMarkCertificationResponse
      */
     public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
     {
@@ -3437,9 +3699,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTradeMarkCertificationRequest $request
+     * @summary 商标注册证
+     *  *
+     * @param RecognizeTradeMarkCertificationRequest $request RecognizeTradeMarkCertificationRequest
      *
-     * @return RecognizeTradeMarkCertificationResponse
+     * @return RecognizeTradeMarkCertificationResponse RecognizeTradeMarkCertificationResponse
      */
     public function recognizeTradeMarkCertification($request)
     {
@@ -3449,10 +3713,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTrainInvoiceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 火车票
+     *  *
+     * @param RecognizeTrainInvoiceRequest $request RecognizeTrainInvoiceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeTrainInvoiceResponse
+     * @return RecognizeTrainInvoiceResponse RecognizeTrainInvoiceResponse
      */
     public function recognizeTrainInvoiceWithOptions($request, $runtime)
     {
@@ -3482,9 +3748,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeTrainInvoiceRequest $request
+     * @summary 火车票
+     *  *
+     * @param RecognizeTrainInvoiceRequest $request RecognizeTrainInvoiceRequest
      *
-     * @return RecognizeTrainInvoiceResponse
+     * @return RecognizeTrainInvoiceResponse RecognizeTrainInvoiceResponse
      */
     public function recognizeTrainInvoice($request)
     {
@@ -3494,10 +3762,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeUsedCarInvoiceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 二手车统一销售发票识别
+     *  *
+     * @param RecognizeUsedCarInvoiceRequest $request RecognizeUsedCarInvoiceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeUsedCarInvoiceResponse
+     * @return RecognizeUsedCarInvoiceResponse RecognizeUsedCarInvoiceResponse
      */
     public function recognizeUsedCarInvoiceWithOptions($request, $runtime)
     {
@@ -3527,9 +3797,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeUsedCarInvoiceRequest $request
+     * @summary 二手车统一销售发票识别
+     *  *
+     * @param RecognizeUsedCarInvoiceRequest $request RecognizeUsedCarInvoiceRequest
      *
-     * @return RecognizeUsedCarInvoiceResponse
+     * @return RecognizeUsedCarInvoiceResponse RecognizeUsedCarInvoiceResponse
      */
     public function recognizeUsedCarInvoice($request)
     {
@@ -3539,10 +3811,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleCertificationRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 车辆合格证识别
+     *  *
+     * @param RecognizeVehicleCertificationRequest $request RecognizeVehicleCertificationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeVehicleCertificationResponse
+     * @return RecognizeVehicleCertificationResponse RecognizeVehicleCertificationResponse
      */
     public function recognizeVehicleCertificationWithOptions($request, $runtime)
     {
@@ -3572,9 +3846,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleCertificationRequest $request
+     * @summary 车辆合格证识别
+     *  *
+     * @param RecognizeVehicleCertificationRequest $request RecognizeVehicleCertificationRequest
      *
-     * @return RecognizeVehicleCertificationResponse
+     * @return RecognizeVehicleCertificationResponse RecognizeVehicleCertificationResponse
      */
     public function recognizeVehicleCertification($request)
     {
@@ -3584,10 +3860,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleLicenseRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 行驶证识别
+     *  *
+     * @param RecognizeVehicleLicenseRequest $request RecognizeVehicleLicenseRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeVehicleLicenseResponse
+     * @return RecognizeVehicleLicenseResponse RecognizeVehicleLicenseResponse
      */
     public function recognizeVehicleLicenseWithOptions($request, $runtime)
     {
@@ -3617,9 +3895,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleLicenseRequest $request
+     * @summary 行驶证识别
+     *  *
+     * @param RecognizeVehicleLicenseRequest $request RecognizeVehicleLicenseRequest
      *
-     * @return RecognizeVehicleLicenseResponse
+     * @return RecognizeVehicleLicenseResponse RecognizeVehicleLicenseResponse
      */
     public function recognizeVehicleLicense($request)
     {
@@ -3629,10 +3909,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleRegistrationRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 机动车注册登记证识别
+     *  *
+     * @param RecognizeVehicleRegistrationRequest $request RecognizeVehicleRegistrationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeVehicleRegistrationResponse
+     * @return RecognizeVehicleRegistrationResponse RecognizeVehicleRegistrationResponse
      */
     public function recognizeVehicleRegistrationWithOptions($request, $runtime)
     {
@@ -3662,9 +3944,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeVehicleRegistrationRequest $request
+     * @summary 机动车注册登记证识别
+     *  *
+     * @param RecognizeVehicleRegistrationRequest $request RecognizeVehicleRegistrationRequest
      *
-     * @return RecognizeVehicleRegistrationResponse
+     * @return RecognizeVehicleRegistrationResponse RecognizeVehicleRegistrationResponse
      */
     public function recognizeVehicleRegistration($request)
     {
@@ -3674,10 +3958,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeWaybillRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 电子面单识别
+     *  *
+     * @param RecognizeWaybillRequest $request RecognizeWaybillRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecognizeWaybillResponse
+     * @return RecognizeWaybillResponse RecognizeWaybillResponse
      */
     public function recognizeWaybillWithOptions($request, $runtime)
     {
@@ -3707,9 +3993,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeWaybillRequest $request
+     * @summary 电子面单识别
+     *  *
+     * @param RecognizeWaybillRequest $request RecognizeWaybillRequest
      *
-     * @return RecognizeWaybillResponse
+     * @return RecognizeWaybillResponse RecognizeWaybillResponse
      */
     public function recognizeWaybill($request)
     {
@@ -3719,10 +4007,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyBusinessLicenseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 营业执照核验
+     *  *
+     * @param VerifyBusinessLicenseRequest $request VerifyBusinessLicenseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyBusinessLicenseResponse
+     * @return VerifyBusinessLicenseResponse VerifyBusinessLicenseResponse
      */
     public function verifyBusinessLicenseWithOptions($request, $runtime)
     {
@@ -3756,9 +4046,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyBusinessLicenseRequest $request
+     * @summary 营业执照核验
+     *  *
+     * @param VerifyBusinessLicenseRequest $request VerifyBusinessLicenseRequest
      *
-     * @return VerifyBusinessLicenseResponse
+     * @return VerifyBusinessLicenseResponse VerifyBusinessLicenseResponse
      */
     public function verifyBusinessLicense($request)
     {
@@ -3768,10 +4060,12 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyVATInvoiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 增值税发票核验
+     *  *
+     * @param VerifyVATInvoiceRequest $request VerifyVATInvoiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyVATInvoiceResponse
+     * @return VerifyVATInvoiceResponse VerifyVATInvoiceResponse
      */
     public function verifyVATInvoiceWithOptions($request, $runtime)
     {
@@ -3814,9 +4108,11 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyVATInvoiceRequest $request
+     * @summary 增值税发票核验
+     *  *
+     * @param VerifyVATInvoiceRequest $request VerifyVATInvoiceRequest
      *
-     * @return VerifyVATInvoiceResponse
+     * @return VerifyVATInvoiceResponse VerifyVATInvoiceResponse
      */
     public function verifyVATInvoice($request)
     {

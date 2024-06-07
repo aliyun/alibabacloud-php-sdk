@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMultiLanguageShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $languagesShrink;

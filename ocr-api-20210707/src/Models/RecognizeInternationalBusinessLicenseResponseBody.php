@@ -23,7 +23,7 @@ class RecognizeInternationalBusinessLicenseResponseBody extends Model
     public $data;
 
     /**
-     * @example The type of image didn\"t match the api.
+     * @example The type of image didn\\"t match the api.
      *
      * @var string
      */

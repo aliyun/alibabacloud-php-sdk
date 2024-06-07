@@ -50,7 +50,7 @@ class RecognizeAllTextRequest extends Model
     /**
      * @example false
      *
-     * @var int[]
+     * @var string
      */
     public $outputCoordinate;
 
@@ -102,6 +102,8 @@ class RecognizeAllTextRequest extends Model
     public $tableConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Advanced
      *
      * @var string

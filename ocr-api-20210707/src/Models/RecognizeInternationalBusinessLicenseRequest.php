@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeInternationalBusinessLicenseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example India
      *
      * @var string

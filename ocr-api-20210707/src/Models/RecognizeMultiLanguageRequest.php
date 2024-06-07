@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMultiLanguageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $languages;

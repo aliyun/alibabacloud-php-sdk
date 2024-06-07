@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeInternationalIdcardRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Vietnam
      *
      * @var string

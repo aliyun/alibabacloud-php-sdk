@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeEduPaperOcrRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example scan：扫描图， photo：实拍图
      *
      * @var string

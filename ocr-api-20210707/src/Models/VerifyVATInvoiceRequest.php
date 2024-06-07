@@ -14,6 +14,8 @@ class VerifyVATInvoiceRequest extends Model
     public $invoiceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $invoiceDate;
@@ -24,6 +26,8 @@ class VerifyVATInvoiceRequest extends Model
     public $invoiceKind;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $invoiceNo;
