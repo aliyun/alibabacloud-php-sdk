@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySubscriptionDetailResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +22,8 @@ class QuerySubscriptionDetailResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +31,8 @@ class QuerySubscriptionDetailResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 066E6E47-04CB-4774-A976-4F73CB76D4A3
      *
      * @var string
@@ -31,6 +40,8 @@ class QuerySubscriptionDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information returned after the QuerySubscriptionDetail operation was called.
+     *
      * @var secretBindDetailDTO
      */
     public $secretBindDetailDTO;

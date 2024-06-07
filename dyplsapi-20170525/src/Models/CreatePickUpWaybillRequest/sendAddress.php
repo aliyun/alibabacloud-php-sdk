@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class sendAddress extends Model
 {
     /**
+     * @description The detailed address of the sender.
+     *
+     * This parameter is required.
+     * @example XX community
+     *
      * @var string
      */
     public $addressDetail;
 
     /**
+     * @description The district where the sender is located.
+     *
+     * This parameter is required.
+     * @example wenjiang
+     *
      * @var string
      */
     public $areaName;
 
     /**
+     * @description The city where the sender is located.
+     *
+     * This parameter is required.
+     * @example chengdu
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The province where the sender is located.
+     *
+     * This parameter is required.
+     * @example Sichuan
+     *
      * @var string
      */
     public $provinceName;
 
     /**
+     * @description The street where the sender is located.
+     *
+     * @example XX Street
+     *
      * @var string
      */
     public $townName;

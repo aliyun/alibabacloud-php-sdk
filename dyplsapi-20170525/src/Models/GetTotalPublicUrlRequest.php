@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTotalPublicUrlRequest extends Model
 {
     /**
+     * @description The ID of the call record.
+     *
+     * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view **Call Record ID** on the **Call Record Query** page.
+     *
+     * This parameter is required.
      * @example 2568900****
      *
      * @var string
@@ -16,6 +21,11 @@ class GetTotalPublicUrlRequest extends Model
     public $callId;
 
     /**
+     * @description The call initiation time in the call record.
+     *
+     * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account). View **Call Initiated At** on the **Call Record Query** page, or view the call_time field in the Call Detail Record (CDR) receipt.
+     *
+     * This parameter is required.
      * @example 2019-03-05 12:00:00
      *
      * @var string
@@ -23,6 +33,9 @@ class GetTotalPublicUrlRequest extends Model
     public $callTime;
 
     /**
+     * @description Specifies whether the verification on the binding ID is required.
+     *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -35,6 +48,9 @@ class GetTotalPublicUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC12256****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePickUpWaybillResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class CreatePickUpWaybillResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +35,8 @@ class CreatePickUpWaybillResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9FC30594-3841-43AD-9008-03393BCB5CD2
      *
      * @var string

@@ -14,6 +14,11 @@ class QuerySecretNoDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description The key of the phone number pool.
+     *
+     * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC2258****
      *
      * @var string
@@ -31,6 +36,9 @@ class QuerySecretNoDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The private number.
+     *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string

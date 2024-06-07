@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The download URL of the recorded call.
+     *
+     * >  The download URL of the recorded call is valid for 30 days.
      * @example http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=1551****07&OSSAccessKeyId=LTAIP00vvvv****v&Signature=tK6Yq9KusU4n%2BZQWX****4/WmEA%3D
      *
      * @var string
@@ -16,6 +19,9 @@ class data extends Model
     public $phonePublicUrl;
 
     /**
+     * @description The download URL of the recorded ringing tone.
+     *
+     * >  The download URL of the recorded ringing tone is valid for 30 days.
      * @example http://secret-ab-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=155175****&OSSAccessKeyId=LTAIP00vvv****vv&Signature=tK6Yq9KusU4n%2BZQW****g4/WmEA%3D
      *
      * @var string

@@ -14,6 +14,9 @@ class AddAxnTrackNoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private number in the AXN binding, that is, phone number X.
+     *
+     * This parameter is required.
      * @example 1700000****
      *
      * @var string
@@ -21,6 +24,9 @@ class AddAxnTrackNoRequest extends Model
     public $phoneNoX;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC2235****
      *
      * @var string
@@ -38,6 +44,9 @@ class AddAxnTrackNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The binding ID.
+     *
+     * This parameter is required.
      * @example 15678890****
      *
      * @var string
@@ -45,6 +54,9 @@ class AddAxnTrackNoRequest extends Model
     public $subsId;
 
     /**
+     * @description The tracking number.
+     *
+     * This parameter is required.
      * @example abcde*****
      *
      * @var string

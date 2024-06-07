@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseSecretNoResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class ReleaseSecretNoResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +30,8 @@ class ReleaseSecretNoResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 986BCB6D-C9BF-42F9-91CE-3A990121232
      *
      * @var string

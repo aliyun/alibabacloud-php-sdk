@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class secretNoInfoDTO extends Model
 {
     /**
+     * @description The verification status of the phone number. Valid values:
+     *
+     *   **0**: The phone number is not verified.
+     *   **1**: The phone number is verified.
+     *
      * @example 0
      *
      * @var int
@@ -16,16 +21,26 @@ class secretNoInfoDTO extends Model
     public $certifyStatus;
 
     /**
+     * @description The city.
+     *
+     * @example chengdu
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The province.
+     *
+     * @example sichuan
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @description The time when the phone number was purchased.
+     *
      * @example 2021-12-03 15:19:27
      *
      * @var string
@@ -33,6 +48,13 @@ class secretNoInfoDTO extends Model
     public $purchaseTime;
 
     /**
+     * @description The status of the phone number. Valid values:
+     *
+     *   **0**: The phone number is not bound to other phone numbers.
+     *   **1**: The phone number is bound to other phone numbers.
+     *   **2**: The phone number is locked.
+     *   **3**: The phone number is frozen.
+     *
      * @example 0
      *
      * @var int
@@ -40,6 +62,12 @@ class secretNoInfoDTO extends Model
     public $secretStatus;
 
     /**
+     * @description The carrier to which the phone number belongs. Valid values:
+     *
+     *   **1**: China Mobile
+     *   **2**: China Unicom
+     *   **3**: China Telecom
+     *
      * @example 1
      *
      * @var int

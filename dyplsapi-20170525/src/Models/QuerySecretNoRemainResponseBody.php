@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySecretNoRemainResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +22,8 @@ class QuerySecretNoRemainResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +31,8 @@ class QuerySecretNoRemainResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9FC30594-3841-43AD-9008-03393BCB5CD2
      *
      * @var string
@@ -31,6 +40,8 @@ class QuerySecretNoRemainResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information returned after the operation was called.
+     *
      * @var secretRemainDTO
      */
     public $secretRemainDTO;

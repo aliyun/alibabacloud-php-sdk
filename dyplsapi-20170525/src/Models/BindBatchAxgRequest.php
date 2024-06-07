@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BindBatchAxgRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var axgBindList[]
      */
     public $axgBindList;
@@ -20,6 +22,8 @@ class BindBatchAxgRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC2235****
+     *
      * @var string
      */
     public $poolKey;

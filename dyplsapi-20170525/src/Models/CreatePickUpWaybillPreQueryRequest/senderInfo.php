@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class senderInfo extends Model
 {
     /**
+     * @description The address of the sender.
+     *
      * @var addressInfo
      */
     public $addressInfo;
 
     /**
+     * @description The mobile phone number of the sender.
+     *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -22,6 +27,11 @@ class senderInfo extends Model
     public $mobile;
 
     /**
+     * @description The name of the sender.
+     *
+     * This parameter is required.
+     * @example Wang
+     *
      * @var string
      */
     public $name;

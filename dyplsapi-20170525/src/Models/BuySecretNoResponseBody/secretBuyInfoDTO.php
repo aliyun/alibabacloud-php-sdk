@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class secretBuyInfoDTO extends Model
 {
     /**
+     * @description The private number, that is, phone number X.
+     *
      * @example 1390000****
      *
      * @var string

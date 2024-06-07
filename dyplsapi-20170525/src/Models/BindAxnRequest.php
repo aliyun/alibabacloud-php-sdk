@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class BindAxnRequest extends Model
 {
     /**
+     * @description The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
+     *
+     * @example 7ee372834d2f4cc7ac0d0ab2d0ae1aac
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @description Specifies whether to enable automatic speech recognition (ASR). Valid values:
+     *
+     *   **false** (default): disables ASR.
+     *   **true**: enables ASR.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +30,9 @@ class BindAxnRequest extends Model
     public $ASRStatus;
 
     /**
+     * @description Re-sets the phone number display logic in the AXN binding. Fixed value: **1**, indicating that phone number X is displayed on both the calling phone and the called phone.
+     *
+     * >  Due to the regulatory restrictions imposed by carriers, the setting to display real phone numbers during calls does not take effect.
      * @example 1
      *
      * @var int
@@ -28,6 +40,11 @@ class BindAxnRequest extends Model
     public $callDisplayType;
 
     /**
+     * @description The status of one-way call restrictions. Valid values:
+     *
+     *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
+     *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+     *
      * @example CONTROL_AX_DISABLE
      *
      * @var string
@@ -35,6 +52,8 @@ class BindAxnRequest extends Model
     public $callRestrict;
 
     /**
+     * @description The maximum ringing duration for each number in sequential ringing. Unit: seconds.
+     *
      * @example 10
      *
      * @var int
@@ -42,11 +61,21 @@ class BindAxnRequest extends Model
     public $callTimeout;
 
     /**
+     * @description Specifies the city to which phone number X to be selected belongs.
+     *
+     *   If no phone number for the specified city is available in the current phone number pool or this parameter is not specified, a phone number that belongs to another city is randomly selected from the current phone number pool and assigned as phone number X.
+     *   If **Number X Assignment Mode** is set to **Strict Matching Mode** and no phone number meets the requirement, the system displays an allocation error.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $expectCity;
 
     /**
+     * @description The expiration time of the AXN binding. Unit: seconds.
+     *
+     * This parameter is required.
      * @example 2021-09-05 12:00:00
      *
      * @var string
@@ -54,6 +83,11 @@ class BindAxnRequest extends Model
     public $expiration;
 
     /**
+     * @description Specifies whether to record all calls made by the bound phone numbers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example true
      *
      * @var bool
@@ -61,6 +95,9 @@ class BindAxnRequest extends Model
     public $isRecordingEnabled;
 
     /**
+     * @description The type of the phone number.
+     *
+     * >  This parameter is applicable to the key accounts of Alibaba Cloud. This parameter can be ignored for Alibaba Cloud users.
      * @example AXB_170
      *
      * @var string
@@ -68,6 +105,8 @@ class BindAxnRequest extends Model
     public $noType;
 
     /**
+     * @description The extension field for the external business. This parameter is returned in a call record receipt.
+     *
      * @example abcdef
      *
      * @var string
@@ -75,6 +114,8 @@ class BindAxnRequest extends Model
     public $outId;
 
     /**
+     * @description The ID of the external business.
+     *
      * @example 34553330****
      *
      * @var string
@@ -87,6 +128,9 @@ class BindAxnRequest extends Model
     public $ownerId;
 
     /**
+     * @description Phone number A in the AXN binding. Phone number A can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+     *
+     * This parameter is required.
      * @example 139****0000
      *
      * @var string
@@ -94,6 +138,9 @@ class BindAxnRequest extends Model
     public $phoneNoA;
 
     /**
+     * @description Phone number B in the AXN binding. If phone number A is used to call phone number X, the call is forwarded to phone number B. Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+     *
+     * >  If phone number B is not specified in the AXN binding, the system automatically generates a nonexistent number. If phone number A is used to call phone number X, the nonexistent number is returned. If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
      * @example 138****0000
      *
      * @var string
@@ -101,6 +148,9 @@ class BindAxnRequest extends Model
     public $phoneNoB;
 
     /**
+     * @description Phone number X in the AXN binding. Phone number X is the phone number that you purchased in the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) or by using the [BuySecretNo](https://help.aliyun.com/document_detail/110266.html) operation before you bind a phone number. Phone number X is used to forward calls.
+     *
+     * >  If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the ExpectCity parameter and is used as phone number X.
      * @example 139****0000
      *
      * @var string
@@ -108,6 +158,8 @@ class BindAxnRequest extends Model
     public $phoneNoX;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console ](https://dypls.console.aliyun.com/dypls.htm#/account)and view the key of the phone number pool on the **Number Pool Management** page.
+     *
      * @example FC2256****
      *
      * @var string
@@ -125,6 +177,15 @@ class BindAxnRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Sets the ringtone code for enterprise Color Ring Back Tone (CRBT) in the AXN extension binding.
+     *
+     *   Ringtone setting (with a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_AB
+     *   Ringtone setting (without a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_A
+     *   Ringtone setting when an N-side number is used to call phone number X in the AXN extension binding: AXNRing_N
+     *
+     * Enterprise CRBT codes: Enterprise CRBT codes can be queried in the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account). You can choose **Number Pool Management > Enterprise CRBT Management** to view enterprise CRBT codes. You can also upload, delete, or perform other operations on enterprise CRBT codes.
+     *
+     * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
      * @example {"AXNRing_N":"100000001","AXNRing_A":"100000001"}
      *
      * @var string

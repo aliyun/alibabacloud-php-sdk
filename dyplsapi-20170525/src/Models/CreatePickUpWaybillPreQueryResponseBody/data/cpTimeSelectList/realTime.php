@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class realTime extends Model
 {
     /**
+     * @description The name of the real-time order type.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The tip displayed when the real-time order cannot be placed.
+     *
+     * @example Exceeding the real-time ordering time range.
+     *
      * @var string
      */
     public $selectDisableTip;
 
     /**
+     * @description Indicates whether the real-time order can be placed after the deadline for placing a real-time order is reached.
+     *
      * @example false
      *
      * @var bool

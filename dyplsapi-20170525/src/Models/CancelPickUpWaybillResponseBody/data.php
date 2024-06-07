@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example none
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example none
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The cancellation result.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the cancellation was successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindBatchAxgShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $axgBindListShrink;
@@ -19,6 +21,8 @@ class BindBatchAxgShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @example FC2235****
+     *
      * @var string
      */
     public $poolKey;

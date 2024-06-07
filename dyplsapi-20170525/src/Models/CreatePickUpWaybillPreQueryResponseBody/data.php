@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 0
      *
      * @var string
@@ -17,21 +19,33 @@ class data extends Model
     public $code;
 
     /**
+     * @description The information about whether the courier company can accept the order.
+     *
      * @var cpTimeSelectList[]
      */
     public $cpTimeSelectList;
 
     /**
+     * @description The error code.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example none
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The response content.
+     *
      * @example Success
      *
      * @var string
@@ -39,6 +53,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

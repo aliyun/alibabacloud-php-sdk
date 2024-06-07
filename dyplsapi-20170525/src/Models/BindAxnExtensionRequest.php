@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class BindAxnExtensionRequest extends Model
 {
     /**
+     * @description The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
+     *
+     * @example 980abddb908f48e8b987cb2cd303****
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @description Specifies whether to enable automatic speech recognition (ASR). Valid values:
+     *
+     *   **false** (default): disables ASR.
+     *   **true**: enables ASR.
+     *
      * @example True
      *
      * @var bool
@@ -21,6 +30,9 @@ class BindAxnExtensionRequest extends Model
     public $ASRStatus;
 
     /**
+     * @description Re-sets the phone number display logic in the AXN extension binding. Fixed value: **1**, indicating that phone number X is displayed on both the calling phone and the called phone.
+     *
+     * >  Due to the regulatory restrictions imposed by carriers, the setting to display real phone numbers during calls does not take effect.
      * @example 1
      *
      * @var int
@@ -28,6 +40,11 @@ class BindAxnExtensionRequest extends Model
     public $callDisplayType;
 
     /**
+     * @description The status of call restrictions. Valid values:
+     *
+     *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
+     *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+     *
      * @example CONTROL_AX_DISABLE
      *
      * @var string
@@ -35,11 +52,21 @@ class BindAxnExtensionRequest extends Model
     public $callRestrict;
 
     /**
+     * @description Specifies the city to which phone number X to be selected belongs.
+     *
+     *   If no phone number for the specified city is available in the current phone number pool or this parameter is not specified, a phone number that belongs to another city is randomly selected from the current phone number pool and assigned as phone number X.
+     *   If Number X Assignment Mode is set to Strict Matching Mode and no phone number meets the requirement, the system displays an allocation error.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $expectCity;
 
     /**
+     * @description The expiration time of the AXN extension binding. The value is accurate to seconds.
+     *
+     * This parameter is required.
      * @example 2019-09-05 12:00:00
      *
      * @var string
@@ -47,6 +74,14 @@ class BindAxnExtensionRequest extends Model
     public $expiration;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
+     * @description The extension of phone number X. The extension is 1 to 3 digits in length.
+     *
+     * >  If you specify Extension, you must also specify PhoneNoX.
      * @example 130
      *
      * @var string
@@ -54,6 +89,11 @@ class BindAxnExtensionRequest extends Model
     public $extension;
 
     /**
+     * @description Specifies whether to record all calls made by the bound phone numbers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example true
      *
      * @var bool
@@ -61,6 +101,8 @@ class BindAxnExtensionRequest extends Model
     public $isRecordingEnabled;
 
     /**
+     * @description The extension field for the external business. This parameter is returned in a call record receipt.
+     *
      * @example abcdef
      *
      * @var string
@@ -68,6 +110,8 @@ class BindAxnExtensionRequest extends Model
     public $outId;
 
     /**
+     * @description The ID of the external business.
+     *
      * @example abcdef
      *
      * @var string
@@ -80,6 +124,9 @@ class BindAxnExtensionRequest extends Model
     public $ownerId;
 
     /**
+     * @description Phone number A in the AXN extension binding. Phone number A can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+     *
+     * This parameter is required.
      * @example 139****0000
      *
      * @var string
@@ -87,6 +134,9 @@ class BindAxnExtensionRequest extends Model
     public $phoneNoA;
 
     /**
+     * @description Phone number B in the AXN extension binding. When phone number A is used to call phone number X, the call is forwarded to phone number B. If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
+     *
+     * Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
      * @example 139****0000
      *
      * @var string
@@ -94,6 +144,9 @@ class BindAxnExtensionRequest extends Model
     public $phoneNoB;
 
     /**
+     * @description Phone number X in the AXN extension binding. If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the **ExpectCity** parameter and is used as phone number X.
+     *
+     * >  Phone number X is the phone number that you purchased in the Phone Number Protection console or by using the [BuySecretNo](https://help.aliyun.com/document_detail/110266.html) operation before you bind a phone number. Phone number X is used to forward calls.
      * @example 139****0000
      *
      * @var string
@@ -101,6 +154,8 @@ class BindAxnExtensionRequest extends Model
     public $phoneNoX;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
      * @example FC123456
      *
      * @var string
@@ -118,6 +173,15 @@ class BindAxnExtensionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Sets the ringtone for enterprise Color Ring Back Tone (CRBT) in the AXN extension binding.
+     *
+     *   Ringtone setting (with a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_AB
+     *   Ringtone setting (without a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_A
+     *   Ringtone setting when an N-side number is used to call phone number X in the AXN extension binding: AXNRing_N
+     *
+     * Enterprise CRBT codes: Enterprise CRBT codes can be queried in the Phone Number Protection console. You can choose **Number Pool Management > Enterprise CRBT Management** to view and manage enterprise CRBT codes. You can also upload, delete, or perform other operations on enterprise CRBT codes.
+     *
+     * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
      * @example {"AXNRing_N":"100000001","AXNRing_A":"100000001"}
      *
      * @var string
@@ -130,6 +194,7 @@ class BindAxnExtensionRequest extends Model
         'callRestrict'         => 'CallRestrict',
         'expectCity'           => 'ExpectCity',
         'expiration'           => 'Expiration',
+        'extend'               => 'Extend',
         'extension'            => 'Extension',
         'isRecordingEnabled'   => 'IsRecordingEnabled',
         'outId'                => 'OutId',
@@ -168,6 +233,9 @@ class BindAxnExtensionRequest extends Model
         }
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
@@ -234,6 +302,9 @@ class BindAxnExtensionRequest extends Model
         }
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];

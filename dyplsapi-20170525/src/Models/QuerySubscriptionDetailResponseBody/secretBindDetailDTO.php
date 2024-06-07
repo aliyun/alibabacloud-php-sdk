@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class secretBindDetailDTO extends Model
 {
     /**
+     * @description The ID of the ASR model.
+     *
      * @example 123456
      *
      * @var string
@@ -16,6 +18,11 @@ class secretBindDetailDTO extends Model
     public $ASRModelId;
 
     /**
+     * @description Indicates whether automatic speech recognition (ASR) is enabled. Valid values:
+     *
+     *   **false**: ASR is disabled.
+     *   **true**: ASR is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class secretBindDetailDTO extends Model
     public $ASRStatus;
 
     /**
+     * @description The status of one-way call restrictions. No value is returned for this parameter if one-way call restrictions are not set. Valid values:
+     *
+     *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
+     *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+     *
      * @example CONTROL_BX_DISABLE
      *
      * @var string
@@ -30,6 +42,8 @@ class secretBindDetailDTO extends Model
     public $callRestrict;
 
     /**
+     * @description The expiration time of the binding.
+     *
      * @example 2019-09-05 12:00:00
      *
      * @var string
@@ -37,6 +51,8 @@ class secretBindDetailDTO extends Model
     public $expireDate;
 
     /**
+     * @description The extension in the AXG extension binding.
+     *
      * @example 130
      *
      * @var string
@@ -44,6 +60,8 @@ class secretBindDetailDTO extends Model
     public $extension;
 
     /**
+     * @description The creation time of the binding.
+     *
      * @example 2019-03-05 12:00:00
      *
      * @var string
@@ -51,6 +69,8 @@ class secretBindDetailDTO extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of number group G in the binding.
+     *
      * @example 2000000130001
      *
      * @var int
@@ -58,6 +78,11 @@ class secretBindDetailDTO extends Model
     public $groupId;
 
     /**
+     * @description Indicates whether all calls made by the bound phone numbers are recorded. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +90,8 @@ class secretBindDetailDTO extends Model
     public $needRecord;
 
     /**
+     * @description Phone number A in the binding.
+     *
      * @example 13900001111
      *
      * @var string
@@ -72,6 +99,8 @@ class secretBindDetailDTO extends Model
     public $phoneNoA;
 
     /**
+     * @description Phone number B in the binding.
+     *
      * @example 13900002222
      *
      * @var string
@@ -79,6 +108,8 @@ class secretBindDetailDTO extends Model
     public $phoneNoB;
 
     /**
+     * @description The private number in the binding, that is, phone number X.
+     *
      * @example 13900001234
      *
      * @var string
@@ -86,6 +117,11 @@ class secretBindDetailDTO extends Model
     public $phoneNoX;
 
     /**
+     * @description The binding status. Valid values:
+     *
+     *   **0**: The binding expired.
+     *   **1**: The binding is in effect.
+     *
      * @example 1
      *
      * @var int
@@ -93,6 +129,8 @@ class secretBindDetailDTO extends Model
     public $status;
 
     /**
+     * @description The binding ID.
+     *
      * @example 100000076879****
      *
      * @var string

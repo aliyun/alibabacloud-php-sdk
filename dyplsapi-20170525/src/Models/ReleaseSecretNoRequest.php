@@ -14,6 +14,9 @@ class ReleaseSecretNoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC123456
      *
      * @var string
@@ -31,6 +34,9 @@ class ReleaseSecretNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The prefix of phone numbers. When you call the ReleaseSecretNo operation with **SecretNo** specified, the system performs fuzzy matching against phone numbers based on the prefix.
+     *
+     * This parameter is required.
      * @example 130
      *
      * @var string

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class secretBind extends Model
 {
     /**
+     * @example isv.INVALID_PARAMETERS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 257
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example ringConfig invalid
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 13333333333
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 13333333333
+     *
      * @var string
      */
     public $secretNo;
 
     /**
+     * @example 1000085060515673
+     *
      * @var string
      */
     public $subsId;

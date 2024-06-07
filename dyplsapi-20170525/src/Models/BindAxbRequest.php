@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class BindAxbRequest extends Model
 {
     /**
+     * @description The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
+     *
+     * @example 7ee372834d2f4cc7ac0d0ab2d0ae1aac
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @description Specifies whether to enable automatic speech recognition (ASR). Valid values:
+     *
+     *   **false** (default): disables ASR.
+     *   **true**: enables ASR.
+     *
      * @example false
      *
      * @var bool
@@ -21,6 +30,9 @@ class BindAxbRequest extends Model
     public $ASRStatus;
 
     /**
+     * @description Re-sets the phone number display logic in the AXB binding. Fixed value: **1**, indicating that phone number X is displayed on both the calling phone and the called phone.
+     *
+     * >  Due to the regulatory restrictions imposed by carriers, the setting to display real phone numbers during calls does not take effect.
      * @example 1
      *
      * @var int
@@ -28,6 +40,11 @@ class BindAxbRequest extends Model
     public $callDisplayType;
 
     /**
+     * @description The status of the one-way call restriction. Valid values:
+     *
+     *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
+     *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+     *
      * @example CONTROL_AX_DISABLE
      *
      * @var string
@@ -35,6 +52,8 @@ class BindAxbRequest extends Model
     public $callRestrict;
 
     /**
+     * @description The maximum ringing duration for each number in sequential ringing. Unit: seconds. The value ranges from 5 to 20.
+     *
      * @example 10
      *
      * @var int
@@ -42,16 +61,38 @@ class BindAxbRequest extends Model
     public $callTimeout;
 
     /**
+     * @description Specifies the dual tone multiple frequency (DTMF) key configuration in the AXB binding. The following content can be configured:
+     *
+     *   endCallIvrPhoneNo: for whom the audio is played, user A or user B.
+     *   waitingDtmfTime: the maximum waiting time after the first audio is played. The maximum waiting time is 30 seconds.
+     *   maxLoop: the maximum number of loop playback times of the first audio if the DTMF key is not matched. The maximum number of loop playback times is 5.
+     *   step1File: the name of the first audio.
+     *   step2File: the name of the second audio.
+     *   validKey: the valid key values, such as 1,2. Only two valid key values can be set, and the key values are separated by a comma (,).
+     *   waitingEndCall: The waiting duration to hang up a call. The waiting duration is allowed by a carrier. The maximum waiting duration is 10 seconds.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $dtmfConfig;
 
     /**
+     * @description Specifies the city to which phone number X to be selected belongs.
+     *
+     *   If no phone number for the specified city is available in the current phone number pool or this parameter is not specified, a phone number that belongs to another city is randomly selected from the current phone number pool and assigned as phone number X.
+     *   If**Number X Assignment Mode** is set to **Strict Matching Mode** and no phone number meets the requirement, the system displays an allocation error.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $expectCity;
 
     /**
+     * @description The expiration time of the AXB binding.
+     *
+     * This parameter is required.
      * @example 2021-09-05 12:00:00
      *
      * @var string
@@ -59,6 +100,11 @@ class BindAxbRequest extends Model
     public $expiration;
 
     /**
+     * @description Specifies whether to record all calls made by the bound phone numbers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example true
      *
      * @var bool
@@ -66,6 +112,8 @@ class BindAxbRequest extends Model
     public $isRecordingEnabled;
 
     /**
+     * @description The extension field for the external business. This parameter is returned in a call record receipt.
+     *
      * @example abcdef
      *
      * @var string
@@ -73,6 +121,8 @@ class BindAxbRequest extends Model
     public $outId;
 
     /**
+     * @description The ID of the external business.
+     *
      * @example 34553330****
      *
      * @var string
@@ -85,6 +135,9 @@ class BindAxbRequest extends Model
     public $ownerId;
 
     /**
+     * @description Phone number A in the AXB binding.
+     *
+     * This parameter is required.
      * @example 139****0000
      *
      * @var string
@@ -92,6 +145,9 @@ class BindAxbRequest extends Model
     public $phoneNoA;
 
     /**
+     * @description Phone number B in the AXB binding. If phone number A is used to call phone number X, the call is forwarded to phone number B. Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+     *
+     * >  If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
      * @example 139****0000
      *
      * @var string
@@ -99,6 +155,9 @@ class BindAxbRequest extends Model
     public $phoneNoB;
 
     /**
+     * @description Phone number X in the AXB binding.
+     *
+     * If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the ExpectCity parameter and is used as phone number X.
      * @example 139****0000
      *
      * @var string
@@ -106,6 +165,9 @@ class BindAxbRequest extends Model
     public $phoneNoX;
 
     /**
+     * @description The key of the phone number pool.
+     *
+     * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
      * @example FC5526*****
      *
      * @var string
@@ -123,6 +185,14 @@ class BindAxbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Sets the ringtone code for enterprise Color Ring Back Tone (CRBT) in the AXB binding.
+     *
+     *   Ringtone setting when phone number A is used to call phone number X in the AXB binding: AXBRing_A
+     *   Ringtone setting when phone number B is used to call phone number X in the AXB binding: AXBRing_B
+     *
+     * Enterprise CRBT codes: Enterprise CRBT codes can be queried in the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account). You can choose **Number Pool Management** > **Enterprise CRBT Management** to view enterprise CRBT codes. You can also upload, delete, or perform other operations on enterprise CRBT codes.
+     *
+     * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
      * @example {"AXBRing_B":"1000****1","AXBRing_A":"1000****1"}
      *
      * @var string

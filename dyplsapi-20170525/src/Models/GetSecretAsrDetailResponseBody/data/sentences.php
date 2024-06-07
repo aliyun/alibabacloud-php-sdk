@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sentences extends Model
 {
     /**
+     * @description The start time offset of the sentence. Unit: milliseconds.
+     *
      * @example 1020
      *
      * @var int
@@ -16,6 +18,8 @@ class sentences extends Model
     public $beginTime;
 
     /**
+     * @description The ID of the audio track to which the sentence belongs.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class sentences extends Model
     public $channelId;
 
     /**
+     * @description The emotion value. Value range: 1 to 10. The higher the value, the stronger the emotion.
+     *
      * @example 5.7
      *
      * @var string
@@ -30,6 +36,8 @@ class sentences extends Model
     public $emotionValue;
 
     /**
+     * @description The end time offset of the sentence. Unit: milliseconds.
+     *
      * @example 1770
      *
      * @var int
@@ -37,6 +45,8 @@ class sentences extends Model
     public $endTime;
 
     /**
+     * @description The silence duration between the current sentence and the previous sentence. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class sentences extends Model
     public $silenceDuration;
 
     /**
+     * @description The average speech rate of the sentence. Unit: number of words per minute.
+     *
      * @example 80
      *
      * @var int
@@ -51,6 +63,10 @@ class sentences extends Model
     public $speechRate;
 
     /**
+     * @description The recognition result of the sentence.
+     *
+     * @example Hello
+     *
      * @var string
      */
     public $text;

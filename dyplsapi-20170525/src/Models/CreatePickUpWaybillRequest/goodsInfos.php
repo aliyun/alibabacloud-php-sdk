@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class goodsInfos extends Model
 {
     /**
+     * @description The item name.
+     *
+     * @example zhang
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The item quantity.
+     *
      * @example 1
      *
      * @var string
@@ -21,6 +27,8 @@ class goodsInfos extends Model
     public $quantity;
 
     /**
+     * @description The item weight. Unit: gram.
+     *
      * @example 1000
      *
      * @var string

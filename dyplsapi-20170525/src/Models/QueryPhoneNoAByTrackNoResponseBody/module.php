@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @description The extension of phone number X.
+     *
      * @example 130
      *
      * @var string
@@ -16,6 +18,8 @@ class module extends Model
     public $extension;
 
     /**
+     * @description Phone number A.
+     *
      * @example 1310000****
      *
      * @var string
@@ -23,6 +27,8 @@ class module extends Model
     public $phoneNoA;
 
     /**
+     * @description The private number, that is, phone number X.
+     *
      * @example 1710000****
      *
      * @var string

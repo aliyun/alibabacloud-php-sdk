@@ -14,6 +14,9 @@ class QuerySubsIdRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private number in the binding, that is, phone number X.
+     *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -21,6 +24,9 @@ class QuerySubsIdRequest extends Model
     public $phoneNoX;
 
     /**
+     * @description The key of the phone number pool.
+     *
+     * Log on to the [Phone Number Protection console](https://dyplsnext.console.aliyun.com/overview) and view the key of the phone number pool on the Number Pool Management page.
      * @example FC123456
      *
      * @var string

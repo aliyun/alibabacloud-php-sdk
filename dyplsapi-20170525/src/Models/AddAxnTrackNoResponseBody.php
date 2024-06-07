@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddAxnTrackNoResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,12 +21,18 @@ class AddAxnTrackNoResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 8906582E-6722
+     * @description The request ID.
+     *
+     * @example 1A4CADEF-8516-5890-9177-A1A4D97F****
      *
      * @var string
      */

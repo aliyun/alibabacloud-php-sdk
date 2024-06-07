@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryPhoneNoAByTrackNoResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,16 +22,24 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The information returned after the phone numbers were bound.
+     *
      * @var module[]
      */
     public $module;
 
     /**
+     * @description The request ID.
+     *
      * @example 8906582E-6722
      *
      * @var string

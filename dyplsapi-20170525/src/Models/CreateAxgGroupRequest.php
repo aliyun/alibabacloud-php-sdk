@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateAxgGroupRequest extends Model
 {
     /**
+     * @description The name of number group G. If the name of number group G is not specified, the ID of number group G is used as the name of number group G.
+     *
+     * >  The value must be 1 to 128 characters in length.
+     * @example Aliyun
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The phone numbers that you add to number group G. Separate multiple phone numbers with commas (,). A maximum of 200 phone numbers can be added to number group G.
+     *
      * @example 1390000****,1380000****
      *
      * @var string
@@ -26,6 +33,9 @@ class CreateAxgGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC123456
      *
      * @var string
@@ -33,6 +43,10 @@ class CreateAxgGroupRequest extends Model
     public $poolKey;
 
     /**
+     * @description The remarks of number group G. The value must be 0 to 256 characters in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetTotalPublicUrlResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class GetTotalPublicUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description The download URLs of the recording files.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +38,8 @@ class GetTotalPublicUrlResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AB3CEF7-DCBE-488C-9C33-D180982CE031
      *
      * @var string

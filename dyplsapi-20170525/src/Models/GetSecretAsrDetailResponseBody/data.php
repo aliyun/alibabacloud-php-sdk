@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total duration of the audio file that was recognized. Unit: milliseconds.
+     *
      * @example 10944
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $bizDuration;
 
     /**
+     * @description The ID of the business process.
+     *
      * @example 435ee78c7a019650@!FC100000074672458@!2020061522****
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $businessId;
 
     /**
+     * @description The business keyword.
+     *
      * @example JCGTncltuNao****
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $businessKey;
 
     /**
+     * @description The status code. The status code 21050000 indicates that the request was successful.
+     *
      * @example 21050000
      *
      * @var string
@@ -38,6 +46,8 @@ class data extends Model
     public $code;
 
     /**
+     * @description The description.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -45,6 +55,8 @@ class data extends Model
     public $msg;
 
     /**
+     * @description The request ID.
+     *
      * @example 8d2329d407a83447a83be441681f4872ac74nE
      *
      * @var string
@@ -52,11 +64,15 @@ class data extends Model
     public $requestId;
 
     /**
+     * @description The ASR result.
+     *
      * @var sentences[]
      */
     public $sentences;
 
     /**
+     * @description The type.
+     *
      * @example asrResult
      *
      * @var string

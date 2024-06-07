@@ -12,6 +12,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePickUpWaybillRequest extends Model
 {
     /**
+     * @description The end time of the door-to-door pickup in the appointment. The value of **AppointGotEndTime** is the value of **EndTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
+     *
+     * >  This parameter is required when **BizType** is set to **1**.
      * @example 2021-01-01 12:00:00
      *
      * @var string
@@ -19,6 +22,9 @@ class CreatePickUpWaybillRequest extends Model
     public $appointGotEndTime;
 
     /**
+     * @description The start time of the door-to-door pickup in the appointment. The value of **AppointGotStartTime** is the value of **StartTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
+     *
+     * >  This parameter is required when **BizType** is set to **1**.
      * @example 2021-01-01 10:00:00
      *
      * @var string
@@ -26,6 +32,11 @@ class CreatePickUpWaybillRequest extends Model
     public $appointGotStartTime;
 
     /**
+     * @description The pickup mode. Valid values:
+     *
+     *   **0** (default): real-time order.
+     *   **1**: appointment order.
+     *
      * @example 0
      *
      * @var int
@@ -33,11 +44,17 @@ class CreatePickUpWaybillRequest extends Model
     public $bizType;
 
     /**
+     * @description The address of the consignee.
+     *
+     * This parameter is required.
      * @var consigneeAddress
      */
     public $consigneeAddress;
 
     /**
+     * @description The mobile phone number of the consignee.
+     *
+     * >  Either ConsigneeMobile or ConsigneePhone must be set.
      * @example 1580000****
      *
      * @var string
@@ -45,11 +62,19 @@ class CreatePickUpWaybillRequest extends Model
     public $consigneeMobile;
 
     /**
+     * @description The name of the consignee.
+     *
+     * This parameter is required.
+     * @example Li
+     *
      * @var string
      */
     public $consigneeName;
 
     /**
+     * @description The landline phone number of the consignee.
+     *
+     * >  Either ConsigneeMobile or ConsigneePhone must be set.
      * @example 0570000****
      *
      * @var string
@@ -57,6 +82,8 @@ class CreatePickUpWaybillRequest extends Model
     public $consigneePhone;
 
     /**
+     * @description The code of the courier company.
+     *
      * @example YTO
      *
      * @var string
@@ -64,11 +91,16 @@ class CreatePickUpWaybillRequest extends Model
     public $cpCode;
 
     /**
+     * @description The items.
+     *
      * @var goodsInfos[]
      */
     public $goodsInfos;
 
     /**
+     * @description The external channel sources.
+     *
+     * This parameter is required.
      * @example YUN_DIAN_SHANG
      *
      * @var string
@@ -76,6 +108,9 @@ class CreatePickUpWaybillRequest extends Model
     public $orderChannels;
 
     /**
+     * @description The ID of the external order.
+     *
+     * This parameter is required.
      * @example 143234234266****
      *
      * @var string
@@ -83,16 +118,26 @@ class CreatePickUpWaybillRequest extends Model
     public $outerOrderCode;
 
     /**
+     * @description The additional information about the order. The additional information will be printed on the order.
+     *
+     * @example fragile
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The address of the sender.
+     *
+     * This parameter is required.
      * @var sendAddress
      */
     public $sendAddress;
 
     /**
+     * @description The mobile phone number of the sender.
+     *
+     * >  Either SendMobile or SendPhone must be set.
      * @example 1596714****
      *
      * @var string
@@ -100,11 +145,19 @@ class CreatePickUpWaybillRequest extends Model
     public $sendMobile;
 
     /**
+     * @description The name of the sender.
+     *
+     * This parameter is required.
+     * @example Wang
+     *
      * @var string
      */
     public $sendName;
 
     /**
+     * @description The landline phone number of the sender.
+     *
+     * >  Either SendMobile or SendPhone must be set.
      * @example 05718845****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateAxgGroupResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class CreateAxgGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of number group G. The value of this parameter is required when the [BindAxg](https://help.aliyun.com/document_detail/110249.html) operation is called to add an AXG binding.
+     *
      * @example 2000000000001
      *
      * @var int
@@ -23,6 +30,8 @@ class CreateAxgGroupResponseBody extends Model
     public $groupId;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -30,6 +39,8 @@ class CreateAxgGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 635C0FDA-9EBC-43D7-B368-9F583C08A126
      *
      * @var string

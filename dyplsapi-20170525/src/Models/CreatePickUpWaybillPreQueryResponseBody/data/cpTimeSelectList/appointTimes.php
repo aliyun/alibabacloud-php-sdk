@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class appointTimes extends Model
 {
     /**
+     * @description The date in the YYYY-MM-DD format.
+     *
      * @example 2022-04-28
      *
      * @var string
@@ -17,6 +19,8 @@ class appointTimes extends Model
     public $date;
 
     /**
+     * @description Indicates whether the date is selectable.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,8 @@ class appointTimes extends Model
     public $dateSelectable;
 
     /**
+     * @description The time range for the scheduled pickup for this date.
+     *
      * @var timeList[]
      */
     public $timeList;

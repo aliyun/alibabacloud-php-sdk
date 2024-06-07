@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class axgBindList extends Model
 {
     /**
+     * @example 7ee372834d2f4cc7ac0d0ab2d0ae1aac
+     *
      * @var string
      */
     public $ASRModelId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ASRStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callDisplayType;
 
     /**
+     * @example CONTROL_AX_DISABLE
+     *
      * @var string
      */
     public $callRestrict;
@@ -34,46 +42,68 @@ class axgBindList extends Model
     public $expectCity;
 
     /**
+     * @example 2022-07-11 01:05:15
+     *
      * @var string
      */
     public $expiration;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $isRecordingEnabled;
 
     /**
+     * @example 18223ad447910fd
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example 20220824021816883677
+     *
      * @var string
      */
     public $outOrderId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 13333333333
+     *
      * @var string
      */
     public $phoneNoA;
 
     /**
+     * @example 13333333333
+     *
      * @var string
      */
     public $phoneNoB;
 
     /**
+     * @example 13333333333
+     *
      * @var string
      */
     public $phoneNoX;
 
     /**
+     * @example {\\"AXBRing_B\\":\\"100000002\\",\\"AXBRing_A\\":\\"100000001\\"}
+     *
      * @var string
      */
     public $ringConfig;

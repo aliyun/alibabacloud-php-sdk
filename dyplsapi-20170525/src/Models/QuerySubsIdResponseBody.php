@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySubsIdResponseBody extends Model
 {
     /**
+     * @description The response code. The value OK indicates that the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class QuerySubsIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +27,8 @@ class QuerySubsIdResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example E7F99446-8191-43C0-99B5-F58A6AEAD779
      *
      * @var string
@@ -30,6 +36,8 @@ class QuerySubsIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The binding ID.
+     *
      * @example 11111111****
      *
      * @var string

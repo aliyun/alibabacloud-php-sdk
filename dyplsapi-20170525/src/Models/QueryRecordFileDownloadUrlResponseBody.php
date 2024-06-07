@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordFileDownloadUrlResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description The download URL of the recording file. The download URL is valid for 2 hours.
+     *
      * @example http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=155175****&OSSAccessKeyId=LTAIP00vvvv****v&Signature=tK6Yq9KusU4n%2BZ****7lg4/WmEA%3D
      *
      * @var string
@@ -23,6 +30,8 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
     public $downloadUrl;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -30,6 +39,8 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AB3CEF7-DCBE-488C-9C33-D180982CE031
      *
      * @var string

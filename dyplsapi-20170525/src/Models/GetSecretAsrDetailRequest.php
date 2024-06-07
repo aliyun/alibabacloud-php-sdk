@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSecretAsrDetailRequest extends Model
 {
     /**
+     * @description The ID of the call record.
+     *
+     * You can log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view **Call Record ID** on the **Call Record Query** page.
+     *
+     * This parameter is required.
      * @example 225625****
      *
      * @var string
@@ -16,6 +21,11 @@ class GetSecretAsrDetailRequest extends Model
     public $callId;
 
     /**
+     * @description The call initiation time in the call record.
+     *
+     * You can log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account). View **Call Initiated At** on the **Call Record Query** page, or view the call_time field in the Call Detail Record (CDR) receipt.
+     *
+     * This parameter is required.
      * @example 2019-03-05 12:00:00
      *
      * @var string
@@ -23,6 +33,11 @@ class GetSecretAsrDetailRequest extends Model
     public $callTime;
 
     /**
+     * @description The key of the phone number pool.
+     *
+     * You can log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC2267****
      *
      * @var string

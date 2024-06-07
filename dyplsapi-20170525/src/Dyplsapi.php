@@ -108,10 +108,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param AddAxnTrackNoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a tracking number for a private number in the AXN binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddAxnTrackNoRequest $request AddAxnTrackNoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAxnTrackNoResponse
+     * @return AddAxnTrackNoResponse AddAxnTrackNoResponse
      */
     public function addAxnTrackNoWithOptions($request, $runtime)
     {
@@ -157,9 +162,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param AddAxnTrackNoRequest $request
+     * @summary Adds a tracking number for a private number in the AXN binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddAxnTrackNoRequest $request AddAxnTrackNoRequest
      *
-     * @return AddAxnTrackNoResponse
+     * @return AddAxnTrackNoResponse AddAxnTrackNoResponse
      */
     public function addAxnTrackNo($request)
     {
@@ -169,10 +179,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSecretBlacklistRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Adds a blacklist.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddSecretBlacklistRequest $request AddSecretBlacklistRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSecretBlacklistResponse
+     * @return AddSecretBlacklistResponse AddSecretBlacklistResponse
      */
     public function addSecretBlacklistWithOptions($request, $runtime)
     {
@@ -212,9 +227,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSecretBlacklistRequest $request
+     * @summary Adds a blacklist.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddSecretBlacklistRequest $request AddSecretBlacklistRequest
      *
-     * @return AddSecretBlacklistResponse
+     * @return AddSecretBlacklistResponse AddSecretBlacklistResponse
      */
     public function addSecretBlacklist($request)
     {
@@ -224,10 +244,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxbRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Adds an AXB binding.
+     *  *
+     * @description Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxbRequest $request BindAxbRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxbResponse
+     * @return BindAxbResponse BindAxbResponse
      */
     public function bindAxbWithOptions($request, $runtime)
     {
@@ -309,9 +335,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxbRequest $request
+     * @summary Adds an AXB binding.
+     *  *
+     * @description Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxbRequest $request BindAxbRequest
      *
-     * @return BindAxbResponse
+     * @return BindAxbResponse BindAxbResponse
      */
     public function bindAxb($request)
     {
@@ -321,10 +353,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxgRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Adds an AXG binding.
+     *  *
+     * @description An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxgRequest $request BindAxgRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxgResponse
+     * @return BindAxgResponse BindAxgResponse
      */
     public function bindAxgWithOptions($request, $runtime)
     {
@@ -403,9 +441,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxgRequest $request
+     * @summary Adds an AXG binding.
+     *  *
+     * @description An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxgRequest $request BindAxgRequest
      *
-     * @return BindAxgResponse
+     * @return BindAxgResponse BindAxgResponse
      */
     public function bindAxg($request)
     {
@@ -415,10 +459,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxnRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Adds an AXN binding.
+     *  *
+     * @description >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
+     *  *
+     * @param BindAxnRequest $request BindAxnRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxnResponse
+     * @return BindAxnResponse BindAxnResponse
      */
     public function bindAxnWithOptions($request, $runtime)
     {
@@ -500,9 +548,13 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxnRequest $request
+     * @summary Adds an AXN binding.
+     *  *
+     * @description >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
+     *  *
+     * @param BindAxnRequest $request BindAxnRequest
      *
-     * @return BindAxnResponse
+     * @return BindAxnResponse BindAxnResponse
      */
     public function bindAxn($request)
     {
@@ -512,10 +564,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxnExtensionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Adds an AXN extension binding.
+     *  *
+     * @description Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxnExtensionRequest $request BindAxnExtensionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxnExtensionResponse
+     * @return BindAxnExtensionResponse BindAxnExtensionResponse
      */
     public function bindAxnExtensionWithOptions($request, $runtime)
     {
@@ -538,6 +596,9 @@ class Dyplsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->expiration)) {
             $query['Expiration'] = $request->expiration;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->extension)) {
             $query['Extension'] = $request->extension;
@@ -594,9 +655,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindAxnExtensionRequest $request
+     * @summary Adds an AXN extension binding.
+     *  *
+     * @description Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param BindAxnExtensionRequest $request BindAxnExtensionRequest
      *
-     * @return BindAxnExtensionResponse
+     * @return BindAxnExtensionResponse BindAxnExtensionResponse
      */
     public function bindAxnExtension($request)
     {
@@ -606,10 +673,10 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindBatchAxgRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param BindBatchAxgRequest $tmpReq  BindBatchAxgRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindBatchAxgResponse
+     * @return BindBatchAxgResponse BindBatchAxgResponse
      */
     public function bindBatchAxgWithOptions($tmpReq, $runtime)
     {
@@ -654,9 +721,9 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindBatchAxgRequest $request
+     * @param BindBatchAxgRequest $request BindBatchAxgRequest
      *
-     * @return BindBatchAxgResponse
+     * @return BindBatchAxgResponse BindBatchAxgResponse
      */
     public function bindBatchAxg($request)
     {
@@ -666,10 +733,17 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BuySecretNoRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Purchases a phone number.
+     *  *
+     * @description *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
+     * *   Before you call this operation, make sure that you are familiar with the [pricing](https://help.aliyun.com/document_detail/59825.html) of Phone Number Protection.
+     * *   When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before you call this operation to purchase a phone number, check the quantity of phone numbers available for purchase by using the [QuerySecretNoRemain](https://help.aliyun.com/document_detail/111699.html) operation.
+     * *   The account used to purchase a phone number must be an enterprise account that has passed real-name verification. For more information about how to perform real-name verification, see [Enterprise verification FAQs](https://help.aliyun.com/document_detail/37172.html).
+     *  *
+     * @param BuySecretNoRequest $request BuySecretNoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BuySecretNoResponse
+     * @return BuySecretNoResponse BuySecretNoResponse
      */
     public function buySecretNoWithOptions($request, $runtime)
     {
@@ -718,9 +792,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BuySecretNoRequest $request
+     * @summary Purchases a phone number.
+     *  *
+     * @description *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
+     * *   Before you call this operation, make sure that you are familiar with the [pricing](https://help.aliyun.com/document_detail/59825.html) of Phone Number Protection.
+     * *   When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before you call this operation to purchase a phone number, check the quantity of phone numbers available for purchase by using the [QuerySecretNoRemain](https://help.aliyun.com/document_detail/111699.html) operation.
+     * *   The account used to purchase a phone number must be an enterprise account that has passed real-name verification. For more information about how to perform real-name verification, see [Enterprise verification FAQs](https://help.aliyun.com/document_detail/37172.html).
+     *  *
+     * @param BuySecretNoRequest $request BuySecretNoRequest
      *
-     * @return BuySecretNoResponse
+     * @return BuySecretNoResponse BuySecretNoResponse
      */
     public function buySecretNo($request)
     {
@@ -730,10 +811,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelPickUpWaybillRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Cancels a door-to-door delivery order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CancelPickUpWaybillRequest $request CancelPickUpWaybillRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelPickUpWaybillResponse
+     * @return CancelPickUpWaybillResponse CancelPickUpWaybillResponse
      */
     public function cancelPickUpWaybillWithOptions($request, $runtime)
     {
@@ -773,9 +859,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelPickUpWaybillRequest $request
+     * @summary Cancels a door-to-door delivery order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CancelPickUpWaybillRequest $request CancelPickUpWaybillRequest
      *
-     * @return CancelPickUpWaybillResponse
+     * @return CancelPickUpWaybillResponse CancelPickUpWaybillResponse
      */
     public function cancelPickUpWaybill($request)
     {
@@ -785,10 +876,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateAxgGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates number group G.
+     *  *
+     * @description Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
+     * >  Up to 2,000 number groups G can be added for a single phone number pool.
+     *  *
+     * @param CreateAxgGroupRequest $request CreateAxgGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAxgGroupResponse
+     * @return CreateAxgGroupResponse CreateAxgGroupResponse
      */
     public function createAxgGroupWithOptions($request, $runtime)
     {
@@ -834,9 +930,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateAxgGroupRequest $request
+     * @summary Creates number group G.
+     *  *
+     * @description Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
+     * >  Up to 2,000 number groups G can be added for a single phone number pool.
+     *  *
+     * @param CreateAxgGroupRequest $request CreateAxgGroupRequest
      *
-     * @return CreateAxgGroupResponse
+     * @return CreateAxgGroupResponse CreateAxgGroupResponse
      */
     public function createAxgGroup($request)
     {
@@ -846,10 +947,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePickUpWaybillRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a door-to-door delivery order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreatePickUpWaybillRequest $tmpReq  CreatePickUpWaybillRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePickUpWaybillResponse
+     * @return CreatePickUpWaybillResponse CreatePickUpWaybillResponse
      */
     public function createPickUpWaybillWithOptions($tmpReq, $runtime)
     {
@@ -933,9 +1039,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePickUpWaybillRequest $request
+     * @summary Creates a door-to-door delivery order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreatePickUpWaybillRequest $request CreatePickUpWaybillRequest
      *
-     * @return CreatePickUpWaybillResponse
+     * @return CreatePickUpWaybillResponse CreatePickUpWaybillResponse
      */
     public function createPickUpWaybill($request)
     {
@@ -945,10 +1056,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePickUpWaybillPreQueryRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries a pickup order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreatePickUpWaybillPreQueryRequest $tmpReq  CreatePickUpWaybillPreQueryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePickUpWaybillPreQueryResponse
+     * @return CreatePickUpWaybillPreQueryResponse CreatePickUpWaybillPreQueryResponse
      */
     public function createPickUpWaybillPreQueryWithOptions($tmpReq, $runtime)
     {
@@ -999,9 +1115,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param CreatePickUpWaybillPreQueryRequest $request
+     * @summary Queries a pickup order.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreatePickUpWaybillPreQueryRequest $request CreatePickUpWaybillPreQueryRequest
      *
-     * @return CreatePickUpWaybillPreQueryResponse
+     * @return CreatePickUpWaybillPreQueryResponse CreatePickUpWaybillPreQueryResponse
      */
     public function createPickUpWaybillPreQuery($request)
     {
@@ -1011,10 +1132,10 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteAxgGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteAxgGroupRequest $request DeleteAxgGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAxgGroupResponse
+     * @return DeleteAxgGroupResponse DeleteAxgGroupResponse
      */
     public function deleteAxgGroupWithOptions($request, $runtime)
     {
@@ -1054,9 +1175,9 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteAxgGroupRequest $request
+     * @param DeleteAxgGroupRequest $request DeleteAxgGroupRequest
      *
-     * @return DeleteAxgGroupResponse
+     * @return DeleteAxgGroupResponse DeleteAxgGroupResponse
      */
     public function deleteAxgGroup($request)
     {
@@ -1066,10 +1187,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretBlacklistRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a blacklist.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSecretBlacklistRequest $request DeleteSecretBlacklistRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecretBlacklistResponse
+     * @return DeleteSecretBlacklistResponse DeleteSecretBlacklistResponse
      */
     public function deleteSecretBlacklistWithOptions($request, $runtime)
     {
@@ -1109,9 +1235,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretBlacklistRequest $request
+     * @summary Deletes a blacklist.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSecretBlacklistRequest $request DeleteSecretBlacklistRequest
      *
-     * @return DeleteSecretBlacklistResponse
+     * @return DeleteSecretBlacklistResponse DeleteSecretBlacklistResponse
      */
     public function deleteSecretBlacklist($request)
     {
@@ -1121,10 +1252,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param GetSecretAsrDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Obtains the details of the automatic speech recognition (ASR) result.
+     *  *
+     * @description Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetSecretAsrDetailRequest $request GetSecretAsrDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecretAsrDetailResponse
+     * @return GetSecretAsrDetailResponse GetSecretAsrDetailResponse
      */
     public function getSecretAsrDetailWithOptions($request, $runtime)
     {
@@ -1158,9 +1295,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param GetSecretAsrDetailRequest $request
+     * @summary Obtains the details of the automatic speech recognition (ASR) result.
+     *  *
+     * @description Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetSecretAsrDetailRequest $request GetSecretAsrDetailRequest
      *
-     * @return GetSecretAsrDetailResponse
+     * @return GetSecretAsrDetailResponse GetSecretAsrDetailResponse
      */
     public function getSecretAsrDetail($request)
     {
@@ -1170,10 +1313,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param GetTotalPublicUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Obtains the download URL of a recorded ringing tone.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetTotalPublicUrlRequest $request GetTotalPublicUrlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTotalPublicUrlResponse
+     * @return GetTotalPublicUrlResponse GetTotalPublicUrlResponse
      */
     public function getTotalPublicUrlWithOptions($request, $runtime)
     {
@@ -1219,9 +1367,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param GetTotalPublicUrlRequest $request
+     * @summary Obtains the download URL of a recorded ringing tone.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetTotalPublicUrlRequest $request GetTotalPublicUrlRequest
      *
-     * @return GetTotalPublicUrlResponse
+     * @return GetTotalPublicUrlResponse GetTotalPublicUrlResponse
      */
     public function getTotalPublicUrl($request)
     {
@@ -1231,10 +1384,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param LockSecretNoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Locks a phone number.
+     *  *
+     * @description After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param LockSecretNoRequest $request LockSecretNoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockSecretNoResponse
+     * @return LockSecretNoResponse LockSecretNoResponse
      */
     public function lockSecretNoWithOptions($request, $runtime)
     {
@@ -1274,9 +1433,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param LockSecretNoRequest $request
+     * @summary Locks a phone number.
+     *  *
+     * @description After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param LockSecretNoRequest $request LockSecretNoRequest
      *
-     * @return LockSecretNoResponse
+     * @return LockSecretNoResponse LockSecretNoResponse
      */
     public function lockSecretNo($request)
     {
@@ -1286,10 +1451,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param OperateAxgGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies number group G.
+     *  *
+     * @description After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param OperateAxgGroupRequest $request OperateAxgGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateAxgGroupResponse
+     * @return OperateAxgGroupResponse OperateAxgGroupResponse
      */
     public function operateAxgGroupWithOptions($request, $runtime)
     {
@@ -1335,9 +1506,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param OperateAxgGroupRequest $request
+     * @summary Modifies number group G.
+     *  *
+     * @description After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param OperateAxgGroupRequest $request OperateAxgGroupRequest
      *
-     * @return OperateAxgGroupResponse
+     * @return OperateAxgGroupResponse OperateAxgGroupResponse
      */
     public function operateAxgGroup($request)
     {
@@ -1347,10 +1524,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param OperateBlackNoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Adds a phone number to a blacklist or deletes a phone number from a blacklist.
+     *  *
+     * @description The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param OperateBlackNoRequest $request OperateBlackNoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateBlackNoResponse
+     * @return OperateBlackNoResponse OperateBlackNoResponse
      */
     public function operateBlackNoWithOptions($request, $runtime)
     {
@@ -1396,9 +1579,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param OperateBlackNoRequest $request
+     * @summary Adds a phone number to a blacklist or deletes a phone number from a blacklist.
+     *  *
+     * @description The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param OperateBlackNoRequest $request OperateBlackNoRequest
      *
-     * @return OperateBlackNoResponse
+     * @return OperateBlackNoResponse OperateBlackNoResponse
      */
     public function operateBlackNo($request)
     {
@@ -1408,10 +1597,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryPhoneNoAByTrackNoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details about a tracking number.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryPhoneNoAByTrackNoRequest $request QueryPhoneNoAByTrackNoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPhoneNoAByTrackNoResponse
+     * @return QueryPhoneNoAByTrackNoResponse QueryPhoneNoAByTrackNoResponse
      */
     public function queryPhoneNoAByTrackNoWithOptions($request, $runtime)
     {
@@ -1454,9 +1648,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryPhoneNoAByTrackNoRequest $request
+     * @summary Queries the details about a tracking number.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryPhoneNoAByTrackNoRequest $request QueryPhoneNoAByTrackNoRequest
      *
-     * @return QueryPhoneNoAByTrackNoResponse
+     * @return QueryPhoneNoAByTrackNoResponse QueryPhoneNoAByTrackNoResponse
      */
     public function queryPhoneNoAByTrackNo($request)
     {
@@ -1466,10 +1665,22 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRecordFileDownloadUrlRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Obtains the download URL of a recording file.
+     *  *
+     * @description If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
+     * >  We recommend that you subscribe to [the recording status report SecretRecording](https://help.aliyun.com/document_detail/109198.html). The values of the response parameters in SecretRecording can be used as the values of the request parameters for downloading a recording file.
+     * ### [](#)Procedure for obtaining a recording file
+     * 1.  Specify the request parameter in an update or binding operation to enable the recording feature.
+     * 2.  Subscribe to recording message receipts in the Phone Number Protection console.
+     * 3.  After a recording message receipt is returned, call the QueryRecordFileDownloadUrl operation to obtain the download URL of the recording file, and download the recording file.
+     * >
+     * *   A download URL is valid for 2 hours. Download the recording file as soon as possible after obtaining a download URL.
+     * *   The storage period of recording files is 30 days. You can download only the recording files of calls recorded in the last 30 days.
+     *  *
+     * @param QueryRecordFileDownloadUrlRequest $request QueryRecordFileDownloadUrlRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecordFileDownloadUrlResponse
+     * @return QueryRecordFileDownloadUrlResponse QueryRecordFileDownloadUrlResponse
      */
     public function queryRecordFileDownloadUrlWithOptions($request, $runtime)
     {
@@ -1515,9 +1726,21 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRecordFileDownloadUrlRequest $request
+     * @summary Obtains the download URL of a recording file.
+     *  *
+     * @description If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
+     * >  We recommend that you subscribe to [the recording status report SecretRecording](https://help.aliyun.com/document_detail/109198.html). The values of the response parameters in SecretRecording can be used as the values of the request parameters for downloading a recording file.
+     * ### [](#)Procedure for obtaining a recording file
+     * 1.  Specify the request parameter in an update or binding operation to enable the recording feature.
+     * 2.  Subscribe to recording message receipts in the Phone Number Protection console.
+     * 3.  After a recording message receipt is returned, call the QueryRecordFileDownloadUrl operation to obtain the download URL of the recording file, and download the recording file.
+     * >
+     * *   A download URL is valid for 2 hours. Download the recording file as soon as possible after obtaining a download URL.
+     * *   The storage period of recording files is 30 days. You can download only the recording files of calls recorded in the last 30 days.
+     *  *
+     * @param QueryRecordFileDownloadUrlRequest $request QueryRecordFileDownloadUrlRequest
      *
-     * @return QueryRecordFileDownloadUrlResponse
+     * @return QueryRecordFileDownloadUrlResponse QueryRecordFileDownloadUrlResponse
      */
     public function queryRecordFileDownloadUrl($request)
     {
@@ -1527,10 +1750,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySecretNoDetailRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the attributes of a private number.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySecretNoDetailRequest $request QuerySecretNoDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySecretNoDetailResponse
+     * @return QuerySecretNoDetailResponse QuerySecretNoDetailResponse
      */
     public function querySecretNoDetailWithOptions($request, $runtime)
     {
@@ -1570,9 +1798,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySecretNoDetailRequest $request
+     * @summary Queries the attributes of a private number.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySecretNoDetailRequest $request QuerySecretNoDetailRequest
      *
-     * @return QuerySecretNoDetailResponse
+     * @return QuerySecretNoDetailResponse QuerySecretNoDetailResponse
      */
     public function querySecretNoDetail($request)
     {
@@ -1582,10 +1815,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySecretNoRemainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the quantity of remaining phone numbers available for online purchase.
+     *  *
+     * @description When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
+     *  *
+     * @param QuerySecretNoRemainRequest $request QuerySecretNoRemainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySecretNoRemainResponse
+     * @return QuerySecretNoRemainResponse QuerySecretNoRemainResponse
      */
     public function querySecretNoRemainWithOptions($request, $runtime)
     {
@@ -1628,9 +1865,13 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySecretNoRemainRequest $request
+     * @summary Queries the quantity of remaining phone numbers available for online purchase.
+     *  *
+     * @description When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
+     *  *
+     * @param QuerySecretNoRemainRequest $request QuerySecretNoRemainRequest
      *
-     * @return QuerySecretNoRemainResponse
+     * @return QuerySecretNoRemainResponse QuerySecretNoRemainResponse
      */
     public function querySecretNoRemain($request)
     {
@@ -1640,10 +1881,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySubsIdRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries binding IDs.
+     *  *
+     * @description You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
+     *  *
+     * @param QuerySubsIdRequest $request QuerySubsIdRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySubsIdResponse
+     * @return QuerySubsIdResponse QuerySubsIdResponse
      */
     public function querySubsIdWithOptions($request, $runtime)
     {
@@ -1683,9 +1928,13 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySubsIdRequest $request
+     * @summary Queries binding IDs.
+     *  *
+     * @description You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
+     *  *
+     * @param QuerySubsIdRequest $request QuerySubsIdRequest
      *
-     * @return QuerySubsIdResponse
+     * @return QuerySubsIdResponse QuerySubsIdResponse
      */
     public function querySubsId($request)
     {
@@ -1695,10 +1944,17 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySubscriptionDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details about a phone number binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### [](#poolkeyproducttype)Limits on PoolKey and ProductType
+     * You must specify either PoolKey or ProductType. If both parameters are not specified, an error is reported when you call the QuerySubscriptionDetail operation. We recommend that you specify the ProductType parameter for the original key accounts of Alibaba Cloud and the PoolKey parameter for Alibaba Cloud users.
+     *  *
+     * @param QuerySubscriptionDetailRequest $request QuerySubscriptionDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySubscriptionDetailResponse
+     * @return QuerySubscriptionDetailResponse QuerySubscriptionDetailResponse
      */
     public function querySubscriptionDetailWithOptions($request, $runtime)
     {
@@ -1744,9 +2000,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySubscriptionDetailRequest $request
+     * @summary Queries the details about a phone number binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### [](#poolkeyproducttype)Limits on PoolKey and ProductType
+     * You must specify either PoolKey or ProductType. If both parameters are not specified, an error is reported when you call the QuerySubscriptionDetail operation. We recommend that you specify the ProductType parameter for the original key accounts of Alibaba Cloud and the PoolKey parameter for Alibaba Cloud users.
+     *  *
+     * @param QuerySubscriptionDetailRequest $request QuerySubscriptionDetailRequest
      *
-     * @return QuerySubscriptionDetailResponse
+     * @return QuerySubscriptionDetailResponse QuerySubscriptionDetailResponse
      */
     public function querySubscriptionDetail($request)
     {
@@ -1756,10 +2019,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param ReleaseSecretNoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Releases a phone number.
+     *  *
+     * @description *   After a phone number is released, it will no longer be charged from the following month.
+     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
+     *  *
+     * @param ReleaseSecretNoRequest $request ReleaseSecretNoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseSecretNoResponse
+     * @return ReleaseSecretNoResponse ReleaseSecretNoResponse
      */
     public function releaseSecretNoWithOptions($request, $runtime)
     {
@@ -1799,9 +2067,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param ReleaseSecretNoRequest $request
+     * @summary Releases a phone number.
+     *  *
+     * @description *   After a phone number is released, it will no longer be charged from the following month.
+     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
+     *  *
+     * @param ReleaseSecretNoRequest $request ReleaseSecretNoRequest
      *
-     * @return ReleaseSecretNoResponse
+     * @return ReleaseSecretNoResponse ReleaseSecretNoResponse
      */
     public function releaseSecretNo($request)
     {
@@ -1811,10 +2084,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UnbindSubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Unbinds a phone number.
+     *  *
+     * @description Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
+     *  *
+     * @param UnbindSubscriptionRequest $request UnbindSubscriptionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindSubscriptionResponse
+     * @return UnbindSubscriptionResponse UnbindSubscriptionResponse
      */
     public function unbindSubscriptionWithOptions($request, $runtime)
     {
@@ -1860,9 +2137,13 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UnbindSubscriptionRequest $request
+     * @summary Unbinds a phone number.
+     *  *
+     * @description Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
+     *  *
+     * @param UnbindSubscriptionRequest $request UnbindSubscriptionRequest
      *
-     * @return UnbindSubscriptionResponse
+     * @return UnbindSubscriptionResponse UnbindSubscriptionResponse
      */
     public function unbindSubscription($request)
     {
@@ -1872,10 +2153,16 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UnlockSecretNoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Unlocks a phone number.
+     *  *
+     * @description After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UnlockSecretNoRequest $request UnlockSecretNoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockSecretNoResponse
+     * @return UnlockSecretNoResponse UnlockSecretNoResponse
      */
     public function unlockSecretNoWithOptions($request, $runtime)
     {
@@ -1915,9 +2202,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UnlockSecretNoRequest $request
+     * @summary Unlocks a phone number.
+     *  *
+     * @description After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UnlockSecretNoRequest $request UnlockSecretNoRequest
      *
-     * @return UnlockSecretNoResponse
+     * @return UnlockSecretNoResponse UnlockSecretNoResponse
      */
     public function unlockSecretNo($request)
     {
@@ -1927,10 +2220,15 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a phone number binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSubscriptionResponse
+     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
      */
     public function updateSubscriptionWithOptions($request, $runtime)
     {
@@ -2012,9 +2310,14 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubscriptionRequest $request
+     * @summary Modifies a phone number binding.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
      *
-     * @return UpdateSubscriptionResponse
+     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
      */
     public function updateSubscription($request)
     {

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class cpTimeSelectList extends Model
 {
     /**
+     * @description The available time for the scheduled pickup. If the current courier company cannot accept the scheduled pickup, this field is left empty.
+     *
      * @var appointTimes[]
      */
     public $appointTimes;
 
     /**
+     * @description The estimated price. Unit: CNY. The value is accurate to two decimal places. The value of this parameter is displayed if an estimated weight is specified.
+     *
      * @example 12.50
      *
      * @var string
@@ -23,6 +27,8 @@ class cpTimeSelectList extends Model
     public $prePrice;
 
     /**
+     * @description The information about whether the real-time order can be selected.
+     *
      * @var realTime
      */
     public $realTime;

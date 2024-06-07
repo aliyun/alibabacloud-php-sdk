@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class addressInfo extends Model
 {
     /**
+     * @description The detailed address of the sender.
+     *
+     * @example XX community
+     *
      * @var string
      */
     public $addressDetail;
 
     /**
+     * @description The district where the sender is located.
+     *
+     * @example xihu
+     *
      * @var string
      */
     public $areaName;
 
     /**
+     * @description The city where the sender is located.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $cityName;
 
     /**
+     * @description The province where the sender is located.
+     *
+     * @example zhejiang
+     *
      * @var string
      */
     public $provinceName;
 
     /**
+     * @description The street where the sender is located.
+     *
+     * @example XX Street
+     *
      * @var string
      */
     public $townName;

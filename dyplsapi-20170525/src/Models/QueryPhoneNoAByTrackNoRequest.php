@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPhoneNoAByTrackNoRequest extends Model
 {
     /**
+     * @description The cabinet number.
+     *
      * @example 25689****
      *
      * @var string
@@ -21,6 +23,8 @@ class QueryPhoneNoAByTrackNoRequest extends Model
     public $ownerId;
 
     /**
+     * @description Phone number X returned by the API operation for creating a binding.
+     *
      * @example 1710000****
      *
      * @var string
@@ -38,6 +42,9 @@ class QueryPhoneNoAByTrackNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tracking number.
+     *
+     * This parameter is required.
      * @example 22573****
      *
      * @var string

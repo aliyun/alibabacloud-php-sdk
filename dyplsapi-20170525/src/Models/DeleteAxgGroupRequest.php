@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAxgGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $groupId;
@@ -19,6 +23,10 @@ class DeleteAxgGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example FC2235****
+     *
      * @var string
      */
     public $poolKey;

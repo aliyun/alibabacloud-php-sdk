@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CancelPickUpWaybillRequest extends Model
 {
     /**
+     * @description The cancellation reason.
+     *
+     * This parameter is required.
+     * @example {\\"action\\":\\"UPDATE_DESC\\",\\"value\\":\\"The courier is unable to pick up the package.\\"}
+     *
      * @var string
      */
     public $cancelDesc;
 
     /**
+     * @description The ID of the external order.
+     *
+     * This parameter is required.
      * @example 1145678823****
      *
      * @var string

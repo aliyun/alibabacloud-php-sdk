@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteAxgGroupResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9297B722-A016-43FB-B51A-E54050D9369D
+     *
      * @var string
      */
     public $requestId;

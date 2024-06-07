@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class consigneeInfo extends Model
 {
     /**
+     * @description The address of the consignee.
+     *
      * @var addressInfo
      */
     public $addressInfo;
 
     /**
+     * @description The mobile phone number of the consignee.
+     *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -22,6 +27,11 @@ class consigneeInfo extends Model
     public $mobile;
 
     /**
+     * @description The name of the consignee.
+     *
+     * This parameter is required.
+     * @example Li
+     *
      * @var string
      */
     public $name;

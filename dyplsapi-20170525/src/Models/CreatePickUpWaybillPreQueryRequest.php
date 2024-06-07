@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class CreatePickUpWaybillPreQueryRequest extends Model
 {
     /**
+     * @description The consignee information.
+     *
+     * This parameter is required.
      * @var consigneeInfo
      */
     public $consigneeInfo;
 
     /**
+     * @description The code of the courier company. If no courier company is specified, the system allocates a courier company.
+     *
      * @example YTO
      *
      * @var string
@@ -23,6 +28,9 @@ class CreatePickUpWaybillPreQueryRequest extends Model
     public $cpCode;
 
     /**
+     * @description The identifier of the external channel source. It cannot contain underscores.
+     *
+     * This parameter is required.
      * @example Test
      *
      * @var string
@@ -30,6 +38,8 @@ class CreatePickUpWaybillPreQueryRequest extends Model
     public $orderChannels;
 
     /**
+     * @description The order number of the access system.
+     *
      * @example 787DFHHDS989****
      *
      * @var string
@@ -37,6 +47,9 @@ class CreatePickUpWaybillPreQueryRequest extends Model
     public $outerOrderCode;
 
     /**
+     * @description The estimated weight. Unit: gram.
+     *
+     * >  If you need to query the estimated price, this parameter is required.
      * @example 2000
      *
      * @var string
@@ -44,6 +57,9 @@ class CreatePickUpWaybillPreQueryRequest extends Model
     public $preWeight;
 
     /**
+     * @description The sender information.
+     *
+     * This parameter is required.
      * @var senderInfo
      */
     public $senderInfo;

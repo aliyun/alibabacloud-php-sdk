@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class secretRemainDTO extends Model
 {
     /**
+     * @description The quantity of remaining phone numbers available for online purchase.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,17 @@ class secretRemainDTO extends Model
     public $amount;
 
     /**
+     * @description The home location of the phone numbers.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The information about remaining phone numbers available for online purchase.
+     *
      * @var remainDTOList
      */
     public $remainDTOList;

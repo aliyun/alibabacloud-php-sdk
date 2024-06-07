@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class BindBatchAxgResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5DCCA8CD-6C0A-50B4-A496-B1D2AB48A1C3
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The code of the courier company.
+     *
      * @example YTO
      *
      * @var string
@@ -16,16 +18,26 @@ class data extends Model
     public $cpCode;
 
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example none
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The pickup code.
+     *
      * @example 3524
      *
      * @var string
@@ -33,6 +45,8 @@ class data extends Model
     public $gotCode;
 
     /**
+     * @description The order ID.
+     *
      * @example 77312345629****
      *
      * @var string
@@ -40,6 +54,8 @@ class data extends Model
     public $mailNo;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string

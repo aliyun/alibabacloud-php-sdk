@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class secretBindDTO extends Model
 {
     /**
+     * @description The extension of the phone number.
+     *
+     * >  The BindAxg operation does not involve an extension. Ignore this parameter.
      * @example 139****0000
      *
      * @var string
@@ -16,6 +19,8 @@ class secretBindDTO extends Model
     public $extension;
 
     /**
+     * @description The private number, that is, phone number X.
+     *
      * @example 139****0000
      *
      * @var string
@@ -23,6 +28,8 @@ class secretBindDTO extends Model
     public $secretNo;
 
     /**
+     * @description The binding ID.
+     *
      * @example 1************3
      *
      * @var string

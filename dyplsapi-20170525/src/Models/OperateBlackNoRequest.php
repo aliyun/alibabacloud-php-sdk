@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class OperateBlackNoRequest extends Model
 {
     /**
+     * @description The phone number to be added to or deleted from the blacklist.
+     *
+     * This parameter is required.
      * @example 150****0000
      *
      * @var string
@@ -16,6 +19,12 @@ class OperateBlackNoRequest extends Model
     public $blackNo;
 
     /**
+     * @description The type of the operation on the phone number. Valid values:
+     *
+     *   **AddBlack**: adds the phone number to the blacklist.
+     *   **DeleteBlack**: deletes the phone number from the blacklist.
+     *
+     * This parameter is required.
      * @example AddBlack
      *
      * @var string
@@ -28,6 +37,9 @@ class OperateBlackNoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+     *
+     * This parameter is required.
      * @example FC123456****
      *
      * @var string
@@ -45,6 +57,8 @@ class OperateBlackNoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The description.
+     *
      * @example abcdef
      *
      * @var string

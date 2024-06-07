@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timeList extends Model
 {
     /**
+     * @description The end of the time range.
+     *
      * @example 12:00:00
      *
      * @var string
@@ -16,11 +18,17 @@ class timeList extends Model
     public $endTime;
 
     /**
+     * @description The tip displayed when the scheduled pickup is not available.
+     *
+     * @example Appointment Full
+     *
      * @var string
      */
     public $selectDisableTip;
 
     /**
+     * @description Indicates whether the time range can be selected for the scheduled pickup.
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +36,8 @@ class timeList extends Model
     public $selectable;
 
     /**
+     * @description The beginning of the time range.
+     *
      * @example 10:00:00
      *
      * @var string
