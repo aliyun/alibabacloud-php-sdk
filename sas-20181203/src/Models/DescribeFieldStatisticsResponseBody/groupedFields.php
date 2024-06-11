@@ -36,6 +36,11 @@ class groupedFields extends Model
     public $azureInstanceCount;
 
     /**
+     * @var int
+     */
+    public $exposedInstanceCoreCount;
+
+    /**
      * @description The number of exposed servers.
      *
      * @example 1
@@ -90,6 +95,11 @@ class groupedFields extends Model
     public $importantAssetCount;
 
     /**
+     * @var int
+     */
+    public $instanceCoreCount;
+
+    /**
      * @description The total number of assets of the specified type. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
      *
      * @example 100
@@ -108,6 +118,11 @@ class groupedFields extends Model
     public $instanceSyncTaskCount;
 
     /**
+     * @var int
+     */
+    public $newInstanceCoreCount;
+
+    /**
      * @description The number of newly added servers.
      *
      * @example 10
@@ -124,6 +139,11 @@ class groupedFields extends Model
      * @var int
      */
     public $noRiskInstanceCount;
+
+    /**
+     * @var int
+     */
+    public $notRunningStatusCoreCount;
 
     /**
      * @description The number of servers that are shut down.
@@ -171,6 +191,11 @@ class groupedFields extends Model
     public $regionCount;
 
     /**
+     * @var int
+     */
+    public $riskInstanceCoreCount;
+
+    /**
      * @description The number of assets that are at risk.
      *
      * @example 90
@@ -216,6 +241,11 @@ class groupedFields extends Model
     public $unKnowStatusInstanceCount;
 
     /**
+     * @var int
+     */
+    public $unprotectedInstanceCoreCount;
+
+    /**
      * @description The number of unprotected assets.
      *
      * @example 10
@@ -233,31 +263,37 @@ class groupedFields extends Model
      */
     public $vpcCount;
     protected $_name = [
-        'aliYunInstanceCount'       => 'AliYunInstanceCount',
-        'awsInstanceCount'          => 'AwsInstanceCount',
-        'azureInstanceCount'        => 'AzureInstanceCount',
-        'exposedInstanceCount'      => 'ExposedInstanceCount',
-        'generalAssetCount'         => 'GeneralAssetCount',
-        'groupCount'                => 'GroupCount',
-        'huaweiInstanceCount'       => 'HuaweiInstanceCount',
-        'idcInstanceCount'          => 'IdcInstanceCount',
-        'importantAssetCount'       => 'ImportantAssetCount',
-        'instanceCount'             => 'InstanceCount',
-        'instanceSyncTaskCount'     => 'InstanceSyncTaskCount',
-        'newInstanceCount'          => 'NewInstanceCount',
-        'noRiskInstanceCount'       => 'NoRiskInstanceCount',
-        'notRunningStatusCount'     => 'NotRunningStatusCount',
-        'offlineInstanceCount'      => 'OfflineInstanceCount',
-        'outMachineInstanceCount'   => 'OutMachineInstanceCount',
-        'pauseInstanceCount'        => 'PauseInstanceCount',
-        'regionCount'               => 'RegionCount',
-        'riskInstanceCount'         => 'RiskInstanceCount',
-        'tencentInstanceCount'      => 'TencentInstanceCount',
-        'testAssetCount'            => 'TestAssetCount',
-        'tripartiteInstanceCount'   => 'TripartiteInstanceCount',
-        'unKnowStatusInstanceCount' => 'UnKnowStatusInstanceCount',
-        'unprotectedInstanceCount'  => 'UnprotectedInstanceCount',
-        'vpcCount'                  => 'VpcCount',
+        'aliYunInstanceCount'          => 'AliYunInstanceCount',
+        'awsInstanceCount'             => 'AwsInstanceCount',
+        'azureInstanceCount'           => 'AzureInstanceCount',
+        'exposedInstanceCoreCount'     => 'ExposedInstanceCoreCount',
+        'exposedInstanceCount'         => 'ExposedInstanceCount',
+        'generalAssetCount'            => 'GeneralAssetCount',
+        'groupCount'                   => 'GroupCount',
+        'huaweiInstanceCount'          => 'HuaweiInstanceCount',
+        'idcInstanceCount'             => 'IdcInstanceCount',
+        'importantAssetCount'          => 'ImportantAssetCount',
+        'instanceCoreCount'            => 'InstanceCoreCount',
+        'instanceCount'                => 'InstanceCount',
+        'instanceSyncTaskCount'        => 'InstanceSyncTaskCount',
+        'newInstanceCoreCount'         => 'NewInstanceCoreCount',
+        'newInstanceCount'             => 'NewInstanceCount',
+        'noRiskInstanceCount'          => 'NoRiskInstanceCount',
+        'notRunningStatusCoreCount'    => 'NotRunningStatusCoreCount',
+        'notRunningStatusCount'        => 'NotRunningStatusCount',
+        'offlineInstanceCount'         => 'OfflineInstanceCount',
+        'outMachineInstanceCount'      => 'OutMachineInstanceCount',
+        'pauseInstanceCount'           => 'PauseInstanceCount',
+        'regionCount'                  => 'RegionCount',
+        'riskInstanceCoreCount'        => 'RiskInstanceCoreCount',
+        'riskInstanceCount'            => 'RiskInstanceCount',
+        'tencentInstanceCount'         => 'TencentInstanceCount',
+        'testAssetCount'               => 'TestAssetCount',
+        'tripartiteInstanceCount'      => 'TripartiteInstanceCount',
+        'unKnowStatusInstanceCount'    => 'UnKnowStatusInstanceCount',
+        'unprotectedInstanceCoreCount' => 'UnprotectedInstanceCoreCount',
+        'unprotectedInstanceCount'     => 'UnprotectedInstanceCount',
+        'vpcCount'                     => 'VpcCount',
     ];
 
     public function validate()
@@ -275,6 +311,9 @@ class groupedFields extends Model
         }
         if (null !== $this->azureInstanceCount) {
             $res['AzureInstanceCount'] = $this->azureInstanceCount;
+        }
+        if (null !== $this->exposedInstanceCoreCount) {
+            $res['ExposedInstanceCoreCount'] = $this->exposedInstanceCoreCount;
         }
         if (null !== $this->exposedInstanceCount) {
             $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
@@ -294,17 +333,26 @@ class groupedFields extends Model
         if (null !== $this->importantAssetCount) {
             $res['ImportantAssetCount'] = $this->importantAssetCount;
         }
+        if (null !== $this->instanceCoreCount) {
+            $res['InstanceCoreCount'] = $this->instanceCoreCount;
+        }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->instanceSyncTaskCount) {
             $res['InstanceSyncTaskCount'] = $this->instanceSyncTaskCount;
         }
+        if (null !== $this->newInstanceCoreCount) {
+            $res['NewInstanceCoreCount'] = $this->newInstanceCoreCount;
+        }
         if (null !== $this->newInstanceCount) {
             $res['NewInstanceCount'] = $this->newInstanceCount;
         }
         if (null !== $this->noRiskInstanceCount) {
             $res['NoRiskInstanceCount'] = $this->noRiskInstanceCount;
+        }
+        if (null !== $this->notRunningStatusCoreCount) {
+            $res['NotRunningStatusCoreCount'] = $this->notRunningStatusCoreCount;
         }
         if (null !== $this->notRunningStatusCount) {
             $res['NotRunningStatusCount'] = $this->notRunningStatusCount;
@@ -321,6 +369,9 @@ class groupedFields extends Model
         if (null !== $this->regionCount) {
             $res['RegionCount'] = $this->regionCount;
         }
+        if (null !== $this->riskInstanceCoreCount) {
+            $res['RiskInstanceCoreCount'] = $this->riskInstanceCoreCount;
+        }
         if (null !== $this->riskInstanceCount) {
             $res['RiskInstanceCount'] = $this->riskInstanceCount;
         }
@@ -335,6 +386,9 @@ class groupedFields extends Model
         }
         if (null !== $this->unKnowStatusInstanceCount) {
             $res['UnKnowStatusInstanceCount'] = $this->unKnowStatusInstanceCount;
+        }
+        if (null !== $this->unprotectedInstanceCoreCount) {
+            $res['UnprotectedInstanceCoreCount'] = $this->unprotectedInstanceCoreCount;
         }
         if (null !== $this->unprotectedInstanceCount) {
             $res['UnprotectedInstanceCount'] = $this->unprotectedInstanceCount;
@@ -363,6 +417,9 @@ class groupedFields extends Model
         if (isset($map['AzureInstanceCount'])) {
             $model->azureInstanceCount = $map['AzureInstanceCount'];
         }
+        if (isset($map['ExposedInstanceCoreCount'])) {
+            $model->exposedInstanceCoreCount = $map['ExposedInstanceCoreCount'];
+        }
         if (isset($map['ExposedInstanceCount'])) {
             $model->exposedInstanceCount = $map['ExposedInstanceCount'];
         }
@@ -381,17 +438,26 @@ class groupedFields extends Model
         if (isset($map['ImportantAssetCount'])) {
             $model->importantAssetCount = $map['ImportantAssetCount'];
         }
+        if (isset($map['InstanceCoreCount'])) {
+            $model->instanceCoreCount = $map['InstanceCoreCount'];
+        }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['InstanceSyncTaskCount'])) {
             $model->instanceSyncTaskCount = $map['InstanceSyncTaskCount'];
         }
+        if (isset($map['NewInstanceCoreCount'])) {
+            $model->newInstanceCoreCount = $map['NewInstanceCoreCount'];
+        }
         if (isset($map['NewInstanceCount'])) {
             $model->newInstanceCount = $map['NewInstanceCount'];
         }
         if (isset($map['NoRiskInstanceCount'])) {
             $model->noRiskInstanceCount = $map['NoRiskInstanceCount'];
+        }
+        if (isset($map['NotRunningStatusCoreCount'])) {
+            $model->notRunningStatusCoreCount = $map['NotRunningStatusCoreCount'];
         }
         if (isset($map['NotRunningStatusCount'])) {
             $model->notRunningStatusCount = $map['NotRunningStatusCount'];
@@ -408,6 +474,9 @@ class groupedFields extends Model
         if (isset($map['RegionCount'])) {
             $model->regionCount = $map['RegionCount'];
         }
+        if (isset($map['RiskInstanceCoreCount'])) {
+            $model->riskInstanceCoreCount = $map['RiskInstanceCoreCount'];
+        }
         if (isset($map['RiskInstanceCount'])) {
             $model->riskInstanceCount = $map['RiskInstanceCount'];
         }
@@ -422,6 +491,9 @@ class groupedFields extends Model
         }
         if (isset($map['UnKnowStatusInstanceCount'])) {
             $model->unKnowStatusInstanceCount = $map['UnKnowStatusInstanceCount'];
+        }
+        if (isset($map['UnprotectedInstanceCoreCount'])) {
+            $model->unprotectedInstanceCoreCount = $map['UnprotectedInstanceCoreCount'];
         }
         if (isset($map['UnprotectedInstanceCount'])) {
             $model->unprotectedInstanceCount = $map['UnprotectedInstanceCount'];

@@ -624,6 +624,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulCheckTaskStatusDetailReques
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulCheckTaskStatusDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDefendCountStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDefendCountStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoRequest;
@@ -633,6 +635,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListPageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulMetaCountStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulNumStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulNumStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulTargetConfigRequest;
@@ -19452,6 +19455,53 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询漏洞rasp防御统计
+     *  *
+     * @param DescribeVulDefendCountStatisticsRequest $request DescribeVulDefendCountStatisticsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVulDefendCountStatisticsResponse DescribeVulDefendCountStatisticsResponse
+     */
+    public function describeVulDefendCountStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vulType)) {
+            $query['VulType'] = $request->vulType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulDefendCountStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulDefendCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询漏洞rasp防御统计
+     *  *
+     * @param DescribeVulDefendCountStatisticsRequest $request DescribeVulDefendCountStatisticsRequest
+     *
+     * @return DescribeVulDefendCountStatisticsResponse DescribeVulDefendCountStatisticsResponse
+     */
+    public function describeVulDefendCountStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulDefendCountStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details about a vulnerability.
      *  *
      * @param DescribeVulDetailsRequest $request DescribeVulDetailsRequest
@@ -19717,8 +19767,14 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->raspDefend)) {
+            $query['RaspDefend'] = $request->raspDefend;
+        }
         if (!Utils::isUnset($request->vulNameLike)) {
             $query['VulNameLike'] = $request->vulNameLike;
+        }
+        if (!Utils::isUnset($request->vulType)) {
+            $query['VulType'] = $request->vulType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -19750,6 +19806,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVulListPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询漏洞库信息统计
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVulMetaCountStatisticsResponse DescribeVulMetaCountStatisticsResponse
+     */
+    public function describeVulMetaCountStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVulMetaCountStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulMetaCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询漏洞库信息统计
+     *  *
+     * @return DescribeVulMetaCountStatisticsResponse DescribeVulMetaCountStatisticsResponse
+     */
+    public function describeVulMetaCountStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulMetaCountStatisticsWithOptions($runtime);
     }
 
     /**
@@ -25555,6 +25648,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
+            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
         if (!Utils::isUnset($request->securityEventIds)) {
             $query['SecurityEventIds'] = $request->securityEventIds;

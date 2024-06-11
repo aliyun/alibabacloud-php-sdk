@@ -88,6 +88,16 @@ class HandleSecurityEventsRequest extends Model
     public $remark;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 16670360956*****
+     *
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The IDs of the alert events.
      *
      * This parameter is required.
@@ -106,13 +116,14 @@ class HandleSecurityEventsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'markBatch'        => 'MarkBatch',
-        'markMissParam'    => 'MarkMissParam',
-        'operationCode'    => 'OperationCode',
-        'operationParams'  => 'OperationParams',
-        'remark'           => 'Remark',
-        'securityEventIds' => 'SecurityEventIds',
-        'sourceIp'         => 'SourceIp',
+        'markBatch'                  => 'MarkBatch',
+        'markMissParam'              => 'MarkMissParam',
+        'operationCode'              => 'OperationCode',
+        'operationParams'            => 'OperationParams',
+        'remark'                     => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'securityEventIds'           => 'SecurityEventIds',
+        'sourceIp'                   => 'SourceIp',
     ];
 
     public function validate()
@@ -136,6 +147,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
@@ -169,6 +183,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {

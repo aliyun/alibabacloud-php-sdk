@@ -36,6 +36,11 @@ class DescribeVulListPageRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $raspDefend;
+
+    /**
      * @description The name of the vulnerability.
      *
      * @example RCE vulnerability
@@ -43,11 +48,18 @@ class DescribeVulListPageRequest extends Model
      * @var string
      */
     public $vulNameLike;
+
+    /**
+     * @var string
+     */
+    public $vulType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'cveId'       => 'CveId',
         'pageSize'    => 'PageSize',
+        'raspDefend'  => 'RaspDefend',
         'vulNameLike' => 'VulNameLike',
+        'vulType'     => 'VulType',
     ];
 
     public function validate()
@@ -66,8 +78,14 @@ class DescribeVulListPageRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->raspDefend) {
+            $res['RaspDefend'] = $this->raspDefend;
+        }
         if (null !== $this->vulNameLike) {
             $res['VulNameLike'] = $this->vulNameLike;
+        }
+        if (null !== $this->vulType) {
+            $res['VulType'] = $this->vulType;
         }
 
         return $res;
@@ -90,8 +108,14 @@ class DescribeVulListPageRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RaspDefend'])) {
+            $model->raspDefend = $map['RaspDefend'];
+        }
         if (isset($map['VulNameLike'])) {
             $model->vulNameLike = $map['VulNameLike'];
+        }
+        if (isset($map['VulType'])) {
+            $model->vulType = $map['VulType'];
         }
 
         return $model;

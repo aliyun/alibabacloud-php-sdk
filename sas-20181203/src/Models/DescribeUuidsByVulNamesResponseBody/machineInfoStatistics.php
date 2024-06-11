@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class machineInfoStatistics extends Model
 {
     /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
      * @description The instance ID.
      *
      * @example i-wz9gd1os5talju****
@@ -62,6 +72,8 @@ class machineInfoStatistics extends Model
      */
     public $uuid;
     protected $_name = [
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
         'machineInstanceId' => 'MachineInstanceId',
         'machineIp'         => 'MachineIp',
         'machineName'       => 'MachineName',
@@ -77,6 +89,12 @@ class machineInfoStatistics extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
         if (null !== $this->machineInstanceId) {
             $res['MachineInstanceId'] = $this->machineInstanceId;
         }
@@ -107,6 +125,12 @@ class machineInfoStatistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
         if (isset($map['MachineInstanceId'])) {
             $model->machineInstanceId = $map['MachineInstanceId'];
         }

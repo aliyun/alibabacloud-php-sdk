@@ -48,6 +48,11 @@ class instances extends Model
     public $groupFlag;
 
     /**
+     * @var int
+     */
+    public $instanceCoreCount;
+
+    /**
      * @description The total number of assets that belong to the specified type.
      *
      * >  If the **MachineTypes** request parameter is not specified, the value of the InstanceCount parameter is the total number of your assets.
@@ -92,6 +97,7 @@ class instances extends Model
         'authVersionCheckCount'    => 'AuthVersionCheckCount',
         'fieldAliasName'           => 'FieldAliasName',
         'groupFlag'                => 'GroupFlag',
+        'instanceCoreCount'        => 'InstanceCoreCount',
         'instanceCount'            => 'InstanceCount',
         'os'                       => 'Os',
         'riskInstanceCount'        => 'RiskInstanceCount',
@@ -116,6 +122,9 @@ class instances extends Model
         }
         if (null !== $this->groupFlag) {
             $res['GroupFlag'] = $this->groupFlag;
+        }
+        if (null !== $this->instanceCoreCount) {
+            $res['InstanceCoreCount'] = $this->instanceCoreCount;
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
@@ -152,6 +161,9 @@ class instances extends Model
         }
         if (isset($map['GroupFlag'])) {
             $model->groupFlag = $map['GroupFlag'];
+        }
+        if (isset($map['InstanceCoreCount'])) {
+            $model->instanceCoreCount = $map['InstanceCoreCount'];
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];

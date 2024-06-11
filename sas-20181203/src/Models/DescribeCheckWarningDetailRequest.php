@@ -11,7 +11,7 @@ class DescribeCheckWarningDetailRequest extends Model
     /**
      * @description The ID of the check item.
      *
-     * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of check items.
+     * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of the check items.
      * @example 1
      *
      * @var string

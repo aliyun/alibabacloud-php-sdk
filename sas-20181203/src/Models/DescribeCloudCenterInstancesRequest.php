@@ -111,6 +111,8 @@ class DescribeCloudCenterInstancesRequest extends Model
      *
      * @example cn-hangzhou
      *
+     * @deprecated
+     *
      * @var string
      */
     public $regionId;

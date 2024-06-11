@@ -19,6 +19,11 @@ class GetLogMetaRequest extends Model
     public $logStore;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
