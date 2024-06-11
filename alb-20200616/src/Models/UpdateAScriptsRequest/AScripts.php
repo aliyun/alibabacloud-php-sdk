@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsRequest;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsRequest\AScripts\extAttributes;
 use AlibabaCloud\Tea\Model;
 
 class AScripts extends Model
@@ -41,6 +42,16 @@ class AScripts extends Model
     public $enabled;
 
     /**
+     * @var bool
+     */
+    public $extAttributeEnabled;
+
+    /**
+     * @var extAttributes[]
+     */
+    public $extAttributes;
+
+    /**
      * @description The content of the AScript rule.
      *
      * @example if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) { rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
@@ -49,10 +60,12 @@ class AScripts extends Model
      */
     public $scriptContent;
     protected $_name = [
-        'AScriptId'     => 'AScriptId',
-        'AScriptName'   => 'AScriptName',
-        'enabled'       => 'Enabled',
-        'scriptContent' => 'ScriptContent',
+        'AScriptId'           => 'AScriptId',
+        'AScriptName'         => 'AScriptName',
+        'enabled'             => 'Enabled',
+        'extAttributeEnabled' => 'ExtAttributeEnabled',
+        'extAttributes'       => 'ExtAttributes',
+        'scriptContent'       => 'ScriptContent',
     ];
 
     public function validate()
@@ -70,6 +83,18 @@ class AScripts extends Model
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->extAttributeEnabled) {
+            $res['ExtAttributeEnabled'] = $this->extAttributeEnabled;
+        }
+        if (null !== $this->extAttributes) {
+            $res['ExtAttributes'] = [];
+            if (null !== $this->extAttributes && \is_array($this->extAttributes)) {
+                $n = 0;
+                foreach ($this->extAttributes as $item) {
+                    $res['ExtAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->scriptContent) {
             $res['ScriptContent'] = $this->scriptContent;
@@ -94,6 +119,18 @@ class AScripts extends Model
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['ExtAttributeEnabled'])) {
+            $model->extAttributeEnabled = $map['ExtAttributeEnabled'];
+        }
+        if (isset($map['ExtAttributes'])) {
+            if (!empty($map['ExtAttributes'])) {
+                $model->extAttributes = [];
+                $n                    = 0;
+                foreach ($map['ExtAttributes'] as $item) {
+                    $model->extAttributes[$n++] = null !== $item ? extAttributes::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ScriptContent'])) {
             $model->scriptContent = $map['ScriptContent'];
