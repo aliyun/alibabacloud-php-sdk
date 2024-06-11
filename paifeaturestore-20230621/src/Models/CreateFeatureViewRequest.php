@@ -29,6 +29,8 @@ class CreateFeatureViewRequest extends Model
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FeatureView1
      *
      * @var string
@@ -36,6 +38,8 @@ class CreateFeatureViewRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -57,6 +61,8 @@ class CreateFeatureViewRequest extends Model
     public $registerTable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -76,6 +82,8 @@ class CreateFeatureViewRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Batch
      *
      * @var string
@@ -83,6 +91,8 @@ class CreateFeatureViewRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Custom
      *
      * @var string

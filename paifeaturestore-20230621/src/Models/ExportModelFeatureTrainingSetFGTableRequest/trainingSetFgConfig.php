@@ -23,6 +23,8 @@ class trainingSetFgConfig extends Model
     public $jarName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[][]
      */
     public $partitions;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateModelFeatureRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var features[]
      */
     public $features;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateModelFeatureRequest extends Model
     public $labelTableId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example model_feature_1
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateModelFeatureRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

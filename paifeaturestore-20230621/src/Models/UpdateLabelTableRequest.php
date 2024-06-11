@@ -17,6 +17,8 @@ class UpdateLabelTableRequest extends Model
     public $datasourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var fields[]
      */
     public $fields;

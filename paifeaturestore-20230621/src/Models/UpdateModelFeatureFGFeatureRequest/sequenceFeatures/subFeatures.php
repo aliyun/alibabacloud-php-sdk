@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subFeatures extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example -1024
      *
      * @var string
@@ -16,6 +18,8 @@ class subFeatures extends Model
     public $defaultValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example User
      *
      * @var string
@@ -23,6 +27,8 @@ class subFeatures extends Model
     public $featureDomain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -30,6 +36,8 @@ class subFeatures extends Model
     public $featureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RawFeature
      *
      * @var string
@@ -37,6 +45,8 @@ class subFeatures extends Model
     public $featureType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -44,6 +54,8 @@ class subFeatures extends Model
     public $inputFeatureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example STRING
      *
      * @var string

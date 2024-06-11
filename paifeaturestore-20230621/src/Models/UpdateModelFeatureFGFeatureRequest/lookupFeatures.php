@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lookupFeatures extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example -1024
      *
      * @var string
@@ -16,6 +18,8 @@ class lookupFeatures extends Model
     public $defaultValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -23,6 +27,8 @@ class lookupFeatures extends Model
     public $featureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Item
      *
      * @var string
@@ -30,6 +36,8 @@ class lookupFeatures extends Model
     public $keyFeatureDomain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class lookupFeatures extends Model
     public $keyFeatureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example User
      *
      * @var string
@@ -44,6 +54,8 @@ class lookupFeatures extends Model
     public $mapFeatureDomain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -51,6 +63,8 @@ class lookupFeatures extends Model
     public $mapFeatureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example STRING
      *
      * @var string

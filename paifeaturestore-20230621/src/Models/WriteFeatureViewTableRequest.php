@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class WriteFeatureViewTableRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Merge
      *
      * @var string

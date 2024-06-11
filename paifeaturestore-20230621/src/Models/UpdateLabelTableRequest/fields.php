@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $attributes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example lat
      *
      * @var string
@@ -21,6 +25,8 @@ class fields extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DOUBLE
      *
      * @var string

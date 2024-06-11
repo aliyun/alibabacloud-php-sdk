@@ -22,6 +22,8 @@ class UpdateModelFeatureFGFeatureRequest extends Model
     public $rawFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $reserves;

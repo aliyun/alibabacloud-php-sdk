@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFeatureEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example user_id
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFeatureEntityRequest extends Model
     public $joinId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example feature_entity_1
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFeatureEntityRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

@@ -16,6 +16,8 @@ class CheckInstanceDatasourceRequest extends Model
     public $config;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hologres
      *
      * @var string
@@ -23,6 +25,8 @@ class CheckInstanceDatasourceRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example igraph1
      *
      * @var string

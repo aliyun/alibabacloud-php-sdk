@@ -16,6 +16,8 @@ class CreateProjectRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example project1
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateProjectRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string
@@ -37,6 +41,8 @@ class CreateProjectRequest extends Model
     public $offlineLifeCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -44,6 +50,8 @@ class CreateProjectRequest extends Model
     public $onlineDatasourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 324
      *
      * @var string

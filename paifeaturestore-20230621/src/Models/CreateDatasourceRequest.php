@@ -16,6 +16,8 @@ class CreateDatasourceRequest extends Model
     public $config;
 
     /**
+     * @description This parameter is required.
+     *
      * @example datasource1
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateDatasourceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hologres
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateDatasourceRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example igraph_instance1
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateDatasourceRequest extends Model
     public $uri;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 234
      *
      * @var string

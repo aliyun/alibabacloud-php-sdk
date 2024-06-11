@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ChangeProjectFeatureEntityHotIdVersionRequest extends Model
+class ListFeatureViewOnlineFeaturesShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example 20221213
-     *
      * @var string
      */
-    public $version;
+    public $joinIdsShrink;
     protected $_name = [
-        'version' => 'Version',
+        'joinIdsShrink' => 'JoinIds',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class ChangeProjectFeatureEntityHotIdVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->joinIdsShrink) {
+            $res['JoinIds'] = $this->joinIdsShrink;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class ChangeProjectFeatureEntityHotIdVersionRequest extends Model
     /**
      * @param array $map
      *
-     * @return ChangeProjectFeatureEntityHotIdVersionRequest
+     * @return ListFeatureViewOnlineFeaturesShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['JoinIds'])) {
+            $model->joinIdsShrink = $map['JoinIds'];
         }
 
         return $model;

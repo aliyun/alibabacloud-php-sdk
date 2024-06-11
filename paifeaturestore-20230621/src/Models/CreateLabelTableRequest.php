@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLabelTableRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateLabelTableRequest extends Model
     public $datasourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rec_test
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateLabelTableRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string

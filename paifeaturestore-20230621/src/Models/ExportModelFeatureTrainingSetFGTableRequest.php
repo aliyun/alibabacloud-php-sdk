@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ExportModelFeatureTrainingSetFGTableRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var trainingSetFgConfig
      */
     public $trainingSetFgConfig;

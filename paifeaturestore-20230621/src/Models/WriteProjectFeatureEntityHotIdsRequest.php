@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class WriteProjectFeatureEntityHotIdsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1,2,3
      *
      * @var string
@@ -16,6 +18,8 @@ class WriteProjectFeatureEntityHotIdsRequest extends Model
     public $hotIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20221213
      *
      * @var string

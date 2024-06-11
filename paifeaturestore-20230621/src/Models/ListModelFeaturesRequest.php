@@ -49,6 +49,8 @@ class ListModelFeaturesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string

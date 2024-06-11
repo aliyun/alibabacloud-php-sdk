@@ -23,6 +23,8 @@ class PublishFeatureViewTableRequest extends Model
     public $eventTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Overwrite
      *
      * @var string
@@ -30,6 +32,8 @@ class PublishFeatureViewTableRequest extends Model
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

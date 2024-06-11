@@ -61,6 +61,9 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureEntitiesRequest
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureEntitiesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureEntitiesShrinkRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewFieldRelationshipsResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewOnlineFeaturesRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewOnlineFeaturesResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewOnlineFeaturesShrinkRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewRelationshipsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewsRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewsResponse;
@@ -144,14 +147,16 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 切换生效的热点数据的版本。
+     *  *
      * @param string                                        $InstanceId
      * @param string                                        $ProjectId
      * @param string                                        $FeatureEntityName
-     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request           ChangeProjectFeatureEntityHotIdVersionRequest
+     * @param string[]                                      $headers           map
+     * @param RuntimeOptions                                $runtime           runtime options for this request RuntimeOptions
      *
-     * @return ChangeProjectFeatureEntityHotIdVersionResponse
+     * @return ChangeProjectFeatureEntityHotIdVersionResponse ChangeProjectFeatureEntityHotIdVersionResponse
      */
     public function changeProjectFeatureEntityHotIdVersionWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime)
     {
@@ -180,12 +185,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 切换生效的热点数据的版本。
+     *  *
      * @param string                                        $InstanceId
      * @param string                                        $ProjectId
      * @param string                                        $FeatureEntityName
-     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request
+     * @param ChangeProjectFeatureEntityHotIdVersionRequest $request           ChangeProjectFeatureEntityHotIdVersionRequest
      *
-     * @return ChangeProjectFeatureEntityHotIdVersionResponse
+     * @return ChangeProjectFeatureEntityHotIdVersionResponse ChangeProjectFeatureEntityHotIdVersionResponse
      */
     public function changeProjectFeatureEntityHotIdVersion($InstanceId, $ProjectId, $FeatureEntityName, $request)
     {
@@ -196,12 +203,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 检测资源连接状态。
+     *  *
      * @param string                         $InstanceId
-     * @param CheckInstanceDatasourceRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CheckInstanceDatasourceRequest $request    CheckInstanceDatasourceRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CheckInstanceDatasourceResponse
+     * @return CheckInstanceDatasourceResponse CheckInstanceDatasourceResponse
      */
     public function checkInstanceDatasourceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -236,10 +245,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 检测资源连接状态。
+     *  *
      * @param string                         $InstanceId
-     * @param CheckInstanceDatasourceRequest $request
+     * @param CheckInstanceDatasourceRequest $request    CheckInstanceDatasourceRequest
      *
-     * @return CheckInstanceDatasourceResponse
+     * @return CheckInstanceDatasourceResponse CheckInstanceDatasourceResponse
      */
     public function checkInstanceDatasource($InstanceId, $request)
     {
@@ -250,12 +261,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据源。
+     *  *
      * @param string                  $InstanceId
-     * @param CreateDatasourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateDatasourceRequest $request    CreateDatasourceRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateDatasourceResponse
+     * @return CreateDatasourceResponse CreateDatasourceResponse
      */
     public function createDatasourceWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -296,10 +309,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据源。
+     *  *
      * @param string                  $InstanceId
-     * @param CreateDatasourceRequest $request
+     * @param CreateDatasourceRequest $request    CreateDatasourceRequest
      *
-     * @return CreateDatasourceResponse
+     * @return CreateDatasourceResponse CreateDatasourceResponse
      */
     public function createDatasource($InstanceId, $request)
     {
@@ -310,12 +325,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征实体
+     *  *
      * @param string                     $InstanceId
-     * @param CreateFeatureEntityRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateFeatureEntityRequest $request    CreateFeatureEntityRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateFeatureEntityResponse
+     * @return CreateFeatureEntityResponse CreateFeatureEntityResponse
      */
     public function createFeatureEntityWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -350,10 +367,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征实体
+     *  *
      * @param string                     $InstanceId
-     * @param CreateFeatureEntityRequest $request
+     * @param CreateFeatureEntityRequest $request    CreateFeatureEntityRequest
      *
-     * @return CreateFeatureEntityResponse
+     * @return CreateFeatureEntityResponse CreateFeatureEntityResponse
      */
     public function createFeatureEntity($InstanceId, $request)
     {
@@ -364,12 +383,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征视图。
+     *  *
      * @param string                   $InstanceId
-     * @param CreateFeatureViewRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateFeatureViewRequest $request    CreateFeatureViewRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateFeatureViewResponse
+     * @return CreateFeatureViewResponse CreateFeatureViewResponse
      */
     public function createFeatureViewWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -434,10 +455,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征视图。
+     *  *
      * @param string                   $InstanceId
-     * @param CreateFeatureViewRequest $request
+     * @param CreateFeatureViewRequest $request    CreateFeatureViewRequest
      *
-     * @return CreateFeatureViewResponse
+     * @return CreateFeatureViewResponse CreateFeatureViewResponse
      */
     public function createFeatureView($InstanceId, $request)
     {
@@ -448,11 +471,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 创建Feature Store实例。
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
@@ -481,9 +506,11 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary 创建Feature Store实例。
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -494,12 +521,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建label表
+     *  *
      * @param string                  $InstanceId
-     * @param CreateLabelTableRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateLabelTableRequest $request    CreateLabelTableRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateLabelTableResponse
+     * @return CreateLabelTableResponse CreateLabelTableResponse
      */
     public function createLabelTableWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -537,10 +566,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建label表
+     *  *
      * @param string                  $InstanceId
-     * @param CreateLabelTableRequest $request
+     * @param CreateLabelTableRequest $request    CreateLabelTableRequest
      *
-     * @return CreateLabelTableResponse
+     * @return CreateLabelTableResponse CreateLabelTableResponse
      */
     public function createLabelTable($InstanceId, $request)
     {
@@ -551,12 +582,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建模型特征。
+     *  *
      * @param string                    $InstanceId
-     * @param CreateModelFeatureRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateModelFeatureRequest $request    CreateModelFeatureRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateModelFeatureResponse
+     * @return CreateModelFeatureResponse CreateModelFeatureResponse
      */
     public function createModelFeatureWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -597,10 +630,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建模型特征。
+     *  *
      * @param string                    $InstanceId
-     * @param CreateModelFeatureRequest $request
+     * @param CreateModelFeatureRequest $request    CreateModelFeatureRequest
      *
-     * @return CreateModelFeatureResponse
+     * @return CreateModelFeatureResponse CreateModelFeatureResponse
      */
     public function createModelFeature($InstanceId, $request)
     {
@@ -611,12 +646,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建训练样本FG表。
+     *  *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateModelFeatureTrainingSetFGTableResponse
+     * @return CreateModelFeatureTrainingSetFGTableResponse CreateModelFeatureTrainingSetFGTableResponse
      */
     public function createModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -639,10 +676,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建训练样本FG表。
+     *  *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return CreateModelFeatureTrainingSetFGTableResponse
+     * @return CreateModelFeatureTrainingSetFGTableResponse CreateModelFeatureTrainingSetFGTableResponse
      */
     public function createModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId)
     {
@@ -653,12 +692,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建FeatureStore项目
+     *  *
      * @param string               $InstanceId
-     * @param CreateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateProjectRequest $request    CreateProjectRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -702,10 +743,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建FeatureStore项目
+     *  *
      * @param string               $InstanceId
-     * @param CreateProjectRequest $request
+     * @param CreateProjectRequest $request    CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($InstanceId, $request)
     {
@@ -716,11 +759,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceIdentityRoleRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建feature store服务账户角色
+     *  *
+     * @param CreateServiceIdentityRoleRequest $request CreateServiceIdentityRoleRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceIdentityRoleResponse
+     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRoleWithOptions($request, $headers, $runtime)
     {
@@ -749,9 +794,11 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceIdentityRoleRequest $request
+     * @summary 创建feature store服务账户角色
+     *  *
+     * @param CreateServiceIdentityRoleRequest $request CreateServiceIdentityRoleRequest
      *
-     * @return CreateServiceIdentityRoleResponse
+     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRole($request)
     {
@@ -762,12 +809,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定数据源。
+     *  *
      * @param string         $InstanceId
      * @param string         $DatasourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatasourceResponse
+     * @return DeleteDatasourceResponse DeleteDatasourceResponse
      */
     public function deleteDatasourceWithOptions($InstanceId, $DatasourceId, $headers, $runtime)
     {
@@ -790,10 +839,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定数据源。
+     *  *
      * @param string $InstanceId
      * @param string $DatasourceId
      *
-     * @return DeleteDatasourceResponse
+     * @return DeleteDatasourceResponse DeleteDatasourceResponse
      */
     public function deleteDatasource($InstanceId, $DatasourceId)
     {
@@ -804,12 +855,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定特征实体
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureEntityId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return DeleteFeatureEntityResponse
+     * @return DeleteFeatureEntityResponse DeleteFeatureEntityResponse
      */
     public function deleteFeatureEntityWithOptions($InstanceId, $FeatureEntityId, $headers, $runtime)
     {
@@ -832,10 +885,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定特征实体
+     *  *
      * @param string $InstanceId
      * @param string $FeatureEntityId
      *
-     * @return DeleteFeatureEntityResponse
+     * @return DeleteFeatureEntityResponse DeleteFeatureEntityResponse
      */
     public function deleteFeatureEntity($InstanceId, $FeatureEntityId)
     {
@@ -846,12 +901,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定特征视图。
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteFeatureViewResponse
+     * @return DeleteFeatureViewResponse DeleteFeatureViewResponse
      */
     public function deleteFeatureViewWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -874,10 +931,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定特征视图。
+     *  *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return DeleteFeatureViewResponse
+     * @return DeleteFeatureViewResponse DeleteFeatureViewResponse
      */
     public function deleteFeatureView($InstanceId, $FeatureViewId)
     {
@@ -888,12 +947,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除label表
+     *  *
      * @param string         $InstanceId
      * @param string         $LabelTableId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteLabelTableResponse
+     * @return DeleteLabelTableResponse DeleteLabelTableResponse
      */
     public function deleteLabelTableWithOptions($InstanceId, $LabelTableId, $headers, $runtime)
     {
@@ -916,10 +977,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除label表
+     *  *
      * @param string $InstanceId
      * @param string $LabelTableId
      *
-     * @return DeleteLabelTableResponse
+     * @return DeleteLabelTableResponse DeleteLabelTableResponse
      */
     public function deleteLabelTable($InstanceId, $LabelTableId)
     {
@@ -930,12 +993,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定模型特征。
+     *  *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteModelFeatureResponse
+     * @return DeleteModelFeatureResponse DeleteModelFeatureResponse
      */
     public function deleteModelFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -958,10 +1023,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定模型特征。
+     *  *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return DeleteModelFeatureResponse
+     * @return DeleteModelFeatureResponse DeleteModelFeatureResponse
      */
     public function deleteModelFeature($InstanceId, $ModelFeatureId)
     {
@@ -972,12 +1039,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定Feature Store项目。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProjectWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -1000,10 +1069,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定Feature Store项目。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProject($InstanceId, $ProjectId)
     {
@@ -1014,13 +1085,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 导出训练样本FG表。
+     *  *
      * @param string                                      $InstanceId
      * @param string                                      $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetFGTableRequest $request
-     * @param string[]                                    $headers
-     * @param RuntimeOptions                              $runtime
+     * @param ExportModelFeatureTrainingSetFGTableRequest $request        ExportModelFeatureTrainingSetFGTableRequest
+     * @param string[]                                    $headers        map
+     * @param RuntimeOptions                              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ExportModelFeatureTrainingSetFGTableResponse
+     * @return ExportModelFeatureTrainingSetFGTableResponse ExportModelFeatureTrainingSetFGTableResponse
      */
     public function exportModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -1049,11 +1122,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 导出训练样本FG表。
+     *  *
      * @param string                                      $InstanceId
      * @param string                                      $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetFGTableRequest $request
+     * @param ExportModelFeatureTrainingSetFGTableRequest $request        ExportModelFeatureTrainingSetFGTableRequest
      *
-     * @return ExportModelFeatureTrainingSetFGTableResponse
+     * @return ExportModelFeatureTrainingSetFGTableResponse ExportModelFeatureTrainingSetFGTableResponse
      */
     public function exportModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId, $request)
     {
@@ -1064,13 +1139,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 导出训练集表。
+     *  *
      * @param string                                    $InstanceId
      * @param string                                    $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetTableRequest $request
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
+     * @param ExportModelFeatureTrainingSetTableRequest $request        ExportModelFeatureTrainingSetTableRequest
+     * @param string[]                                  $headers        map
+     * @param RuntimeOptions                            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ExportModelFeatureTrainingSetTableResponse
+     * @return ExportModelFeatureTrainingSetTableResponse ExportModelFeatureTrainingSetTableResponse
      */
     public function exportModelFeatureTrainingSetTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -1105,11 +1182,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 导出训练集表。
+     *  *
      * @param string                                    $InstanceId
      * @param string                                    $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetTableRequest $request
+     * @param ExportModelFeatureTrainingSetTableRequest $request        ExportModelFeatureTrainingSetTableRequest
      *
-     * @return ExportModelFeatureTrainingSetTableResponse
+     * @return ExportModelFeatureTrainingSetTableResponse ExportModelFeatureTrainingSetTableResponse
      */
     public function exportModelFeatureTrainingSetTable($InstanceId, $ModelFeatureId, $request)
     {
@@ -1120,12 +1199,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $DatasourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetDatasourceResponse
+     * @return GetDatasourceResponse GetDatasourceResponse
      */
     public function getDatasourceWithOptions($InstanceId, $DatasourceId, $headers, $runtime)
     {
@@ -1148,10 +1229,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $DatasourceId
      *
-     * @return GetDatasourceResponse
+     * @return GetDatasourceResponse GetDatasourceResponse
      */
     public function getDatasource($InstanceId, $DatasourceId)
     {
@@ -1162,13 +1245,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下指定表的详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $DatasourceId
      * @param string         $TableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetDatasourceTableResponse
+     * @return GetDatasourceTableResponse GetDatasourceTableResponse
      */
     public function getDatasourceTableWithOptions($InstanceId, $DatasourceId, $TableName, $headers, $runtime)
     {
@@ -1191,11 +1276,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下指定表的详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $DatasourceId
      * @param string $TableName
      *
-     * @return GetDatasourceTableResponse
+     * @return GetDatasourceTableResponse GetDatasourceTableResponse
      */
     public function getDatasourceTable($InstanceId, $DatasourceId, $TableName)
     {
@@ -1206,12 +1293,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征实体详细信息
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureEntityId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetFeatureEntityResponse
+     * @return GetFeatureEntityResponse GetFeatureEntityResponse
      */
     public function getFeatureEntityWithOptions($InstanceId, $FeatureEntityId, $headers, $runtime)
     {
@@ -1234,10 +1323,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征实体详细信息
+     *  *
      * @param string $InstanceId
      * @param string $FeatureEntityId
      *
-     * @return GetFeatureEntityResponse
+     * @return GetFeatureEntityResponse GetFeatureEntityResponse
      */
     public function getFeatureEntity($InstanceId, $FeatureEntityId)
     {
@@ -1248,12 +1339,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetFeatureViewResponse
+     * @return GetFeatureViewResponse GetFeatureViewResponse
      */
     public function getFeatureViewWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -1276,10 +1369,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return GetFeatureViewResponse
+     * @return GetFeatureViewResponse GetFeatureViewResponse
      */
     public function getFeatureView($InstanceId, $FeatureViewId)
     {
@@ -1290,11 +1385,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例详细信息
+     *  *
      * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -1317,9 +1414,11 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取实例详细信息
+     *  *
      * @param string $InstanceId
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($InstanceId)
     {
@@ -1330,12 +1429,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Label表详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $LabelTableId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetLabelTableResponse
+     * @return GetLabelTableResponse GetLabelTableResponse
      */
     public function getLabelTableWithOptions($InstanceId, $LabelTableId, $headers, $runtime)
     {
@@ -1358,10 +1459,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Label表详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $LabelTableId
      *
-     * @return GetLabelTableResponse
+     * @return GetLabelTableResponse GetLabelTableResponse
      */
     public function getLabelTable($InstanceId, $LabelTableId)
     {
@@ -1372,12 +1475,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征详情。
+     *  *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetModelFeatureResponse
+     * @return GetModelFeatureResponse GetModelFeatureResponse
      */
     public function getModelFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1400,10 +1505,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征详情。
+     *  *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureResponse
+     * @return GetModelFeatureResponse GetModelFeatureResponse
      */
     public function getModelFeature($InstanceId, $ModelFeatureId)
     {
@@ -1414,12 +1521,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征的FG特征配置信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetModelFeatureFGFeatureResponse
+     * @return GetModelFeatureFGFeatureResponse GetModelFeatureFGFeatureResponse
      */
     public function getModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1442,10 +1551,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征的FG特征配置信息。
+     *  *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureFGFeatureResponse
+     * @return GetModelFeatureFGFeatureResponse GetModelFeatureFGFeatureResponse
      */
     public function getModelFeatureFGFeature($InstanceId, $ModelFeatureId)
     {
@@ -1456,12 +1567,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征的fg.json文件配置信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetModelFeatureFGInfoResponse
+     * @return GetModelFeatureFGInfoResponse GetModelFeatureFGInfoResponse
      */
     public function getModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1484,10 +1597,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征的fg.json文件配置信息。
+     *  *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureFGInfoResponse
+     * @return GetModelFeatureFGInfoResponse GetModelFeatureFGInfoResponse
      */
     public function getModelFeatureFGInfo($InstanceId, $ModelFeatureId)
     {
@@ -1498,12 +1613,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定Feature Store项目详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -1526,10 +1643,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定Feature Store项目详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($InstanceId, $ProjectId)
     {
@@ -1540,13 +1659,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征实体详细信息
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
      * @param string         $FeatureEntityName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetProjectFeatureEntityResponse
+     * @return GetProjectFeatureEntityResponse GetProjectFeatureEntityResponse
      */
     public function getProjectFeatureEntityWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $headers, $runtime)
     {
@@ -1569,11 +1690,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征实体详细信息
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      * @param string $FeatureEntityName
      *
-     * @return GetProjectFeatureEntityResponse
+     * @return GetProjectFeatureEntityResponse GetProjectFeatureEntityResponse
      */
     public function getProjectFeatureEntity($InstanceId, $ProjectId, $FeatureEntityName)
     {
@@ -1584,14 +1707,16 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下，指定特征实体指定的热点数据。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
      * @param string         $NextSeqNumber
      * @param string         $FeatureEntityName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetProjectFeatureEntityHotIdsResponse
+     * @return GetProjectFeatureEntityHotIdsResponse GetProjectFeatureEntityHotIdsResponse
      */
     public function getProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $NextSeqNumber, $FeatureEntityName, $headers, $runtime)
     {
@@ -1614,12 +1739,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下，指定特征实体指定的热点数据。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      * @param string $NextSeqNumber
      * @param string $FeatureEntityName
      *
-     * @return GetProjectFeatureEntityHotIdsResponse
+     * @return GetProjectFeatureEntityHotIdsResponse GetProjectFeatureEntityHotIdsResponse
      */
     public function getProjectFeatureEntityHotIds($InstanceId, $ProjectId, $NextSeqNumber, $FeatureEntityName)
     {
@@ -1630,13 +1757,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
      * @param string         $FeatureViewName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetProjectFeatureViewResponse
+     * @return GetProjectFeatureViewResponse GetProjectFeatureViewResponse
      */
     public function getProjectFeatureViewWithOptions($InstanceId, $ProjectId, $FeatureViewName, $headers, $runtime)
     {
@@ -1659,11 +1788,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      * @param string $FeatureViewName
      *
-     * @return GetProjectFeatureViewResponse
+     * @return GetProjectFeatureViewResponse GetProjectFeatureViewResponse
      */
     public function getProjectFeatureView($InstanceId, $ProjectId, $FeatureViewName)
     {
@@ -1674,13 +1805,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下指定模型特征的详细信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
      * @param string         $ModelFeatureName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
      *
-     * @return GetProjectModelFeatureResponse
+     * @return GetProjectModelFeatureResponse GetProjectModelFeatureResponse
      */
     public function getProjectModelFeatureWithOptions($InstanceId, $ProjectId, $ModelFeatureName, $headers, $runtime)
     {
@@ -1703,11 +1836,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下指定模型特征的详细信息。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      * @param string $ModelFeatureName
      *
-     * @return GetProjectModelFeatureResponse
+     * @return GetProjectModelFeatureResponse GetProjectModelFeatureResponse
      */
     public function getProjectModelFeature($InstanceId, $ProjectId, $ModelFeatureName)
     {
@@ -1718,11 +1853,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取feature store服务账户角色。
+     *  *
      * @param string         $RoleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetServiceIdentityRoleResponse
+     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRoleWithOptions($RoleName, $headers, $runtime)
     {
@@ -1745,9 +1882,11 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取feature store服务账户角色。
+     *  *
      * @param string $RoleName
      *
-     * @return GetServiceIdentityRoleResponse
+     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRole($RoleName)
     {
@@ -1758,12 +1897,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务详情
+     *  *
      * @param string         $InstanceId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTaskWithOptions($InstanceId, $TaskId, $headers, $runtime)
     {
@@ -1786,10 +1927,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务详情
+     *  *
      * @param string $InstanceId
      * @param string $TaskId
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTask($InstanceId, $TaskId)
     {
@@ -1800,13 +1943,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下所有表。
+     *  *
      * @param string                      $InstanceId
      * @param string                      $DatasourceId
-     * @param ListDatasourceTablesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListDatasourceTablesRequest $request      ListDatasourceTablesRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListDatasourceTablesResponse
+     * @return ListDatasourceTablesResponse ListDatasourceTablesResponse
      */
     public function listDatasourceTablesWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime)
     {
@@ -1835,11 +1980,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源下所有表。
+     *  *
      * @param string                      $InstanceId
      * @param string                      $DatasourceId
-     * @param ListDatasourceTablesRequest $request
+     * @param ListDatasourceTablesRequest $request      ListDatasourceTablesRequest
      *
-     * @return ListDatasourceTablesResponse
+     * @return ListDatasourceTablesResponse ListDatasourceTablesResponse
      */
     public function listDatasourceTables($InstanceId, $DatasourceId, $request)
     {
@@ -1850,12 +1997,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源列表。
+     *  *
      * @param string                 $InstanceId
-     * @param ListDatasourcesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListDatasourcesRequest $request    ListDatasourcesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDatasourcesResponse
+     * @return ListDatasourcesResponse ListDatasourcesResponse
      */
     public function listDatasourcesWithOptions($InstanceId, $request, $headers, $runtime)
     {
@@ -1902,10 +2051,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源列表。
+     *  *
      * @param string                 $InstanceId
-     * @param ListDatasourcesRequest $request
+     * @param ListDatasourcesRequest $request    ListDatasourcesRequest
      *
-     * @return ListDatasourcesResponse
+     * @return ListDatasourcesResponse ListDatasourcesResponse
      */
     public function listDatasources($InstanceId, $request)
     {
@@ -1916,12 +2067,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征实体列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListFeatureEntitiesRequest $tmpReq
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListFeatureEntitiesRequest $tmpReq     ListFeatureEntitiesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureEntitiesResponse
+     * @return ListFeatureEntitiesResponse ListFeatureEntitiesResponse
      */
     public function listFeatureEntitiesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -1976,10 +2129,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 创建特征实体列表
+     *  *
      * @param string                     $InstanceId
-     * @param ListFeatureEntitiesRequest $request
+     * @param ListFeatureEntitiesRequest $request    ListFeatureEntitiesRequest
      *
-     * @return ListFeatureEntitiesResponse
+     * @return ListFeatureEntitiesResponse ListFeatureEntitiesResponse
      */
     public function listFeatureEntities($InstanceId, $request)
     {
@@ -1990,13 +2145,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征字段血缘关系。
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
      * @param string         $FieldName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureViewFieldRelationshipsResponse
+     * @return ListFeatureViewFieldRelationshipsResponse ListFeatureViewFieldRelationshipsResponse
      */
     public function listFeatureViewFieldRelationshipsWithOptions($InstanceId, $FeatureViewId, $FieldName, $headers, $runtime)
     {
@@ -2019,11 +2176,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征字段血缘关系。
+     *  *
      * @param string $InstanceId
      * @param string $FeatureViewId
      * @param string $FieldName
      *
-     * @return ListFeatureViewFieldRelationshipsResponse
+     * @return ListFeatureViewFieldRelationshipsResponse ListFeatureViewFieldRelationshipsResponse
      */
     public function listFeatureViewFieldRelationships($InstanceId, $FeatureViewId, $FieldName)
     {
@@ -2034,12 +2193,73 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图下的在线特征数据。
+     *  *
+     * @param string                               $InstanceId
+     * @param string                               $FeatureViewId
+     * @param ListFeatureViewOnlineFeaturesRequest $tmpReq        ListFeatureViewOnlineFeaturesRequest
+     * @param string[]                             $headers       map
+     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListFeatureViewOnlineFeaturesResponse ListFeatureViewOnlineFeaturesResponse
+     */
+    public function listFeatureViewOnlineFeaturesWithOptions($InstanceId, $FeatureViewId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListFeatureViewOnlineFeaturesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->joinIds)) {
+            $request->joinIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->joinIds, 'JoinIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->joinIdsShrink)) {
+            $query['JoinIds'] = $request->joinIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFeatureViewOnlineFeatures',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/onlinefeatures',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFeatureViewOnlineFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取特征视图下的在线特征数据。
+     *  *
+     * @param string                               $InstanceId
+     * @param string                               $FeatureViewId
+     * @param ListFeatureViewOnlineFeaturesRequest $request       ListFeatureViewOnlineFeaturesRequest
+     *
+     * @return ListFeatureViewOnlineFeaturesResponse ListFeatureViewOnlineFeaturesResponse
+     */
+    public function listFeatureViewOnlineFeatures($InstanceId, $FeatureViewId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFeatureViewOnlineFeaturesWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取特征视图血缘关系。
+     *  *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureViewRelationshipsResponse
+     * @return ListFeatureViewRelationshipsResponse ListFeatureViewRelationshipsResponse
      */
     public function listFeatureViewRelationshipsWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -2062,10 +2282,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图血缘关系。
+     *  *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return ListFeatureViewRelationshipsResponse
+     * @return ListFeatureViewRelationshipsResponse ListFeatureViewRelationshipsResponse
      */
     public function listFeatureViewRelationships($InstanceId, $FeatureViewId)
     {
@@ -2076,12 +2298,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图列表。
+     *  *
      * @param string                  $InstanceId
-     * @param ListFeatureViewsRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListFeatureViewsRequest $tmpReq     ListFeatureViewsRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureViewsResponse
+     * @return ListFeatureViewsResponse ListFeatureViewsResponse
      */
     public function listFeatureViewsWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -2145,10 +2369,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图列表。
+     *  *
      * @param string                  $InstanceId
-     * @param ListFeatureViewsRequest $request
+     * @param ListFeatureViewsRequest $request    ListFeatureViewsRequest
      *
-     * @return ListFeatureViewsResponse
+     * @return ListFeatureViewsResponse ListFeatureViewsResponse
      */
     public function listFeatureViews($InstanceId, $request)
     {
@@ -2159,11 +2385,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 获取Feature Store实例列表。
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
@@ -2204,9 +2432,11 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary 获取Feature Store实例列表。
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -2217,12 +2447,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Label表列表。
+     *  *
      * @param string                 $InstanceId
-     * @param ListLabelTablesRequest $tmpReq
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListLabelTablesRequest $tmpReq     ListLabelTablesRequest
+     * @param string[]               $headers    map
+     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListLabelTablesResponse
+     * @return ListLabelTablesResponse ListLabelTablesResponse
      */
     public function listLabelTablesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -2277,10 +2509,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Label表列表。
+     *  *
      * @param string                 $InstanceId
-     * @param ListLabelTablesRequest $request
+     * @param ListLabelTablesRequest $request    ListLabelTablesRequest
      *
-     * @return ListLabelTablesResponse
+     * @return ListLabelTablesResponse ListLabelTablesResponse
      */
     public function listLabelTables($InstanceId, $request)
     {
@@ -2291,13 +2525,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取注册FG特征时模型特征下可选的所有特征。
+     *  *
      * @param string                                   $InstanceId
      * @param string                                   $ModelFeatureId
-     * @param ListModelFeatureAvailableFeaturesRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param ListModelFeatureAvailableFeaturesRequest $request        ListModelFeatureAvailableFeaturesRequest
+     * @param string[]                                 $headers        map
+     * @param RuntimeOptions                           $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListModelFeatureAvailableFeaturesResponse
+     * @return ListModelFeatureAvailableFeaturesResponse ListModelFeatureAvailableFeaturesResponse
      */
     public function listModelFeatureAvailableFeaturesWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -2326,11 +2562,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取注册FG特征时模型特征下可选的所有特征。
+     *  *
      * @param string                                   $InstanceId
      * @param string                                   $ModelFeatureId
-     * @param ListModelFeatureAvailableFeaturesRequest $request
+     * @param ListModelFeatureAvailableFeaturesRequest $request        ListModelFeatureAvailableFeaturesRequest
      *
-     * @return ListModelFeatureAvailableFeaturesResponse
+     * @return ListModelFeatureAvailableFeaturesResponse ListModelFeatureAvailableFeaturesResponse
      */
     public function listModelFeatureAvailableFeatures($InstanceId, $ModelFeatureId, $request)
     {
@@ -2341,12 +2579,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征列表。
+     *  *
      * @param string                   $InstanceId
-     * @param ListModelFeaturesRequest $tmpReq
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListModelFeaturesRequest $tmpReq     ListModelFeaturesRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListModelFeaturesResponse
+     * @return ListModelFeaturesResponse ListModelFeaturesResponse
      */
     public function listModelFeaturesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -2401,10 +2641,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型特征列表。
+     *  *
      * @param string                   $InstanceId
-     * @param ListModelFeaturesRequest $request
+     * @param ListModelFeaturesRequest $request    ListModelFeaturesRequest
      *
-     * @return ListModelFeaturesResponse
+     * @return ListModelFeaturesResponse ListModelFeaturesResponse
      */
     public function listModelFeatures($InstanceId, $request)
     {
@@ -2415,12 +2657,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图的所有创建人。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListProjectFeatureViewOwnersResponse
+     * @return ListProjectFeatureViewOwnersResponse ListProjectFeatureViewOwnersResponse
      */
     public function listProjectFeatureViewOwnersWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -2443,10 +2687,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图的所有创建人。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return ListProjectFeatureViewOwnersResponse
+     * @return ListProjectFeatureViewOwnersResponse ListProjectFeatureViewOwnersResponse
      */
     public function listProjectFeatureViewOwners($InstanceId, $ProjectId)
     {
@@ -2457,12 +2703,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图的所有标签。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListProjectFeatureViewTagsResponse
+     * @return ListProjectFeatureViewTagsResponse ListProjectFeatureViewTagsResponse
      */
     public function listProjectFeatureViewTagsWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -2485,10 +2733,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下特征视图的所有标签。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return ListProjectFeatureViewTagsResponse
+     * @return ListProjectFeatureViewTagsResponse ListProjectFeatureViewTagsResponse
      */
     public function listProjectFeatureViewTags($InstanceId, $ProjectId)
     {
@@ -2499,12 +2749,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下的所有特征视图、特征信息。
+     *  *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListProjectFeatureViewsResponse
+     * @return ListProjectFeatureViewsResponse ListProjectFeatureViewsResponse
      */
     public function listProjectFeatureViewsWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -2527,10 +2779,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下的所有特征视图、特征信息。
+     *  *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return ListProjectFeatureViewsResponse
+     * @return ListProjectFeatureViewsResponse ListProjectFeatureViewsResponse
      */
     public function listProjectFeatureViews($InstanceId, $ProjectId)
     {
@@ -2541,12 +2795,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Feature Store项目列表。
+     *  *
      * @param string              $InstanceId
-     * @param ListProjectsRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListProjectsRequest $tmpReq     ListProjectsRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -2601,10 +2857,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取Feature Store项目列表。
+     *  *
      * @param string              $InstanceId
-     * @param ListProjectsRequest $request
+     * @param ListProjectsRequest $request    ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($InstanceId, $request)
     {
@@ -2615,13 +2873,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务日志列表
+     *  *
      * @param string              $InstanceId
      * @param string              $TaskId
-     * @param ListTaskLogsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListTaskLogsRequest $request    ListTaskLogsRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTaskLogsResponse
+     * @return ListTaskLogsResponse ListTaskLogsResponse
      */
     public function listTaskLogsWithOptions($InstanceId, $TaskId, $request, $headers, $runtime)
     {
@@ -2653,11 +2913,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务日志列表
+     *  *
      * @param string              $InstanceId
      * @param string              $TaskId
-     * @param ListTaskLogsRequest $request
+     * @param ListTaskLogsRequest $request    ListTaskLogsRequest
      *
-     * @return ListTaskLogsResponse
+     * @return ListTaskLogsResponse ListTaskLogsResponse
      */
     public function listTaskLogs($InstanceId, $TaskId, $request)
     {
@@ -2668,12 +2930,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务列表
+     *  *
      * @param string           $InstanceId
-     * @param ListTasksRequest $tmpReq
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListTasksRequest $tmpReq     ListTasksRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasksWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
@@ -2728,10 +2992,12 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务列表
+     *  *
      * @param string           $InstanceId
-     * @param ListTasksRequest $request
+     * @param ListTasksRequest $request    ListTasksRequest
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasks($InstanceId, $request)
     {
@@ -2742,13 +3008,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 将特征视图的离线数据发布/同步到线上。
+     *  *
      * @param string                         $InstanceId
      * @param string                         $FeatureViewId
-     * @param PublishFeatureViewTableRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param PublishFeatureViewTableRequest $request       PublishFeatureViewTableRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
      *
-     * @return PublishFeatureViewTableResponse
+     * @return PublishFeatureViewTableResponse PublishFeatureViewTableResponse
      */
     public function publishFeatureViewTableWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime)
     {
@@ -2789,11 +3057,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 将特征视图的离线数据发布/同步到线上。
+     *  *
      * @param string                         $InstanceId
      * @param string                         $FeatureViewId
-     * @param PublishFeatureViewTableRequest $request
+     * @param PublishFeatureViewTableRequest $request       PublishFeatureViewTableRequest
      *
-     * @return PublishFeatureViewTableResponse
+     * @return PublishFeatureViewTableResponse PublishFeatureViewTableResponse
      */
     public function publishFeatureViewTable($InstanceId, $FeatureViewId, $request)
     {
@@ -2804,13 +3074,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据源信息。
+     *  *
      * @param string                  $InstanceId
      * @param string                  $DatasourceId
-     * @param UpdateDatasourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateDatasourceRequest $request      UpdateDatasourceRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateDatasourceResponse
+     * @return UpdateDatasourceResponse UpdateDatasourceResponse
      */
     public function updateDatasourceWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime)
     {
@@ -2845,11 +3117,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据源信息。
+     *  *
      * @param string                  $InstanceId
      * @param string                  $DatasourceId
-     * @param UpdateDatasourceRequest $request
+     * @param UpdateDatasourceRequest $request      UpdateDatasourceRequest
      *
-     * @return UpdateDatasourceResponse
+     * @return UpdateDatasourceResponse UpdateDatasourceResponse
      */
     public function updateDatasource($InstanceId, $DatasourceId, $request)
     {
@@ -2860,13 +3134,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新label表。
+     *  *
      * @param string                  $InstanceId
      * @param string                  $LabelTableId
-     * @param UpdateLabelTableRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateLabelTableRequest $request      UpdateLabelTableRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateLabelTableResponse
+     * @return UpdateLabelTableResponse UpdateLabelTableResponse
      */
     public function updateLabelTableWithOptions($InstanceId, $LabelTableId, $request, $headers, $runtime)
     {
@@ -2901,11 +3177,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新label表。
+     *  *
      * @param string                  $InstanceId
      * @param string                  $LabelTableId
-     * @param UpdateLabelTableRequest $request
+     * @param UpdateLabelTableRequest $request      UpdateLabelTableRequest
      *
-     * @return UpdateLabelTableResponse
+     * @return UpdateLabelTableResponse UpdateLabelTableResponse
      */
     public function updateLabelTable($InstanceId, $LabelTableId, $request)
     {
@@ -2916,13 +3194,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征。
+     *  *
      * @param string                    $InstanceId
      * @param string                    $ModelFeatureId
-     * @param UpdateModelFeatureRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateModelFeatureRequest $request        UpdateModelFeatureRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateModelFeatureResponse
+     * @return UpdateModelFeatureResponse UpdateModelFeatureResponse
      */
     public function updateModelFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -2957,11 +3237,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征。
+     *  *
      * @param string                    $InstanceId
      * @param string                    $ModelFeatureId
-     * @param UpdateModelFeatureRequest $request
+     * @param UpdateModelFeatureRequest $request        UpdateModelFeatureRequest
      *
-     * @return UpdateModelFeatureResponse
+     * @return UpdateModelFeatureResponse UpdateModelFeatureResponse
      */
     public function updateModelFeature($InstanceId, $ModelFeatureId, $request)
     {
@@ -2972,13 +3254,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征的FG特征配置信息。
+     *  *
      * @param string                             $InstanceId
      * @param string                             $ModelFeatureId
-     * @param UpdateModelFeatureFGFeatureRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param UpdateModelFeatureFGFeatureRequest $request        UpdateModelFeatureFGFeatureRequest
+     * @param string[]                           $headers        map
+     * @param RuntimeOptions                     $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateModelFeatureFGFeatureResponse
+     * @return UpdateModelFeatureFGFeatureResponse UpdateModelFeatureFGFeatureResponse
      */
     public function updateModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -3016,11 +3300,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征的FG特征配置信息。
+     *  *
      * @param string                             $InstanceId
      * @param string                             $ModelFeatureId
-     * @param UpdateModelFeatureFGFeatureRequest $request
+     * @param UpdateModelFeatureFGFeatureRequest $request        UpdateModelFeatureFGFeatureRequest
      *
-     * @return UpdateModelFeatureFGFeatureResponse
+     * @return UpdateModelFeatureFGFeatureResponse UpdateModelFeatureFGFeatureResponse
      */
     public function updateModelFeatureFGFeature($InstanceId, $ModelFeatureId, $request)
     {
@@ -3031,13 +3317,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征的fg.json文件配置信息。
+     *  *
      * @param string                          $InstanceId
      * @param string                          $ModelFeatureId
-     * @param UpdateModelFeatureFGInfoRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateModelFeatureFGInfoRequest $request        UpdateModelFeatureFGInfoRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateModelFeatureFGInfoResponse
+     * @return UpdateModelFeatureFGInfoResponse UpdateModelFeatureFGInfoResponse
      */
     public function updateModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
@@ -3066,11 +3354,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型特征的fg.json文件配置信息。
+     *  *
      * @param string                          $InstanceId
      * @param string                          $ModelFeatureId
-     * @param UpdateModelFeatureFGInfoRequest $request
+     * @param UpdateModelFeatureFGInfoRequest $request        UpdateModelFeatureFGInfoRequest
      *
-     * @return UpdateModelFeatureFGInfoResponse
+     * @return UpdateModelFeatureFGInfoResponse UpdateModelFeatureFGInfoResponse
      */
     public function updateModelFeatureFGInfo($InstanceId, $ModelFeatureId, $request)
     {
@@ -3081,13 +3371,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定Feature Store项目信息。
+     *  *
      * @param string               $InstanceId
      * @param string               $ProjectId
-     * @param UpdateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateProjectRequest $request    UpdateProjectRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProjectWithOptions($InstanceId, $ProjectId, $request, $headers, $runtime)
     {
@@ -3119,11 +3411,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定Feature Store项目信息。
+     *  *
      * @param string               $InstanceId
      * @param string               $ProjectId
-     * @param UpdateProjectRequest $request
+     * @param UpdateProjectRequest $request    UpdateProjectRequest
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProject($InstanceId, $ProjectId, $request)
     {
@@ -3134,13 +3428,15 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图血缘关系。
+     *  *
      * @param string                       $InstanceId
      * @param string                       $FeatureViewId
-     * @param WriteFeatureViewTableRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param WriteFeatureViewTableRequest $request       WriteFeatureViewTableRequest
+     * @param string[]                     $headers       map
+     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
      *
-     * @return WriteFeatureViewTableResponse
+     * @return WriteFeatureViewTableResponse WriteFeatureViewTableResponse
      */
     public function writeFeatureViewTableWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime)
     {
@@ -3175,11 +3471,13 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征视图血缘关系。
+     *  *
      * @param string                       $InstanceId
      * @param string                       $FeatureViewId
-     * @param WriteFeatureViewTableRequest $request
+     * @param WriteFeatureViewTableRequest $request       WriteFeatureViewTableRequest
      *
-     * @return WriteFeatureViewTableResponse
+     * @return WriteFeatureViewTableResponse WriteFeatureViewTableResponse
      */
     public function writeFeatureViewTable($InstanceId, $FeatureViewId, $request)
     {
@@ -3190,14 +3488,16 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 向指定项目下的特征实体写入热点数据。
+     *  *
      * @param string                                 $InstanceId
      * @param string                                 $ProjectId
      * @param string                                 $FeatureEntityName
-     * @param WriteProjectFeatureEntityHotIdsRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @param WriteProjectFeatureEntityHotIdsRequest $request           WriteProjectFeatureEntityHotIdsRequest
+     * @param string[]                               $headers           map
+     * @param RuntimeOptions                         $runtime           runtime options for this request RuntimeOptions
      *
-     * @return WriteProjectFeatureEntityHotIdsResponse
+     * @return WriteProjectFeatureEntityHotIdsResponse WriteProjectFeatureEntityHotIdsResponse
      */
     public function writeProjectFeatureEntityHotIdsWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $request, $headers, $runtime)
     {
@@ -3229,12 +3529,14 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @summary 向指定项目下的特征实体写入热点数据。
+     *  *
      * @param string                                 $InstanceId
      * @param string                                 $ProjectId
      * @param string                                 $FeatureEntityName
-     * @param WriteProjectFeatureEntityHotIdsRequest $request
+     * @param WriteProjectFeatureEntityHotIdsRequest $request           WriteProjectFeatureEntityHotIdsRequest
      *
-     * @return WriteProjectFeatureEntityHotIdsResponse
+     * @return WriteProjectFeatureEntityHotIdsResponse WriteProjectFeatureEntityHotIdsResponse
      */
     public function writeProjectFeatureEntityHotIds($InstanceId, $ProjectId, $FeatureEntityName, $request)
     {

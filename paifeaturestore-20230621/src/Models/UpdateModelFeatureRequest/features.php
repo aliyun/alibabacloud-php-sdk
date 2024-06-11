@@ -16,6 +16,8 @@ class features extends Model
     public $aliasName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var string
@@ -23,6 +25,8 @@ class features extends Model
     public $featureViewId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gender
      *
      * @var string
@@ -30,6 +34,8 @@ class features extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example STRING
      *
      * @var string

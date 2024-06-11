@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class sequenceFeatures extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example #
      *
      * @var string
@@ -17,6 +19,8 @@ class sequenceFeatures extends Model
     public $attributeDelim;
 
     /**
+     * @description This parameter is required.
+     *
      * @example item_id
      *
      * @var string
@@ -24,6 +28,8 @@ class sequenceFeatures extends Model
     public $featureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ;
      *
      * @var string
@@ -31,6 +37,8 @@ class sequenceFeatures extends Model
     public $sequenceDelim;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 50
      *
      * @var int

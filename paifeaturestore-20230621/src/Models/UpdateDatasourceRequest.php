@@ -16,6 +16,8 @@ class UpdateDatasourceRequest extends Model
     public $config;
 
     /**
+     * @description This parameter is required.
+     *
      * @example datasource1
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateDatasourceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example igraph_instance1
      *
      * @var string
