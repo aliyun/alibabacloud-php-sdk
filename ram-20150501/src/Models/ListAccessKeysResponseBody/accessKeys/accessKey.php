@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class accessKey extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example 0wNEpMMlzy7s****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @description The time when the AccessKey pair was created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The status of the AccessKey pair. Valid values: Active and Inactive.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;

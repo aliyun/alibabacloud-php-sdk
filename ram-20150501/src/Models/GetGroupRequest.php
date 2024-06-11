@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

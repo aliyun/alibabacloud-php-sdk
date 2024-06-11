@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The new description of the RAM user group.
+     *
+     * The comments must be 1 to 128 characters in length.
+     * @example NewDev-Team
+     *
      * @var string
      */
     public $newComments;
 
     /**
+     * @description The new name of the RAM user group.
+     *
+     * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+     * @example NewDev-Team
+     *
      * @var string
      */
     public $newGroupName;

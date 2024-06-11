@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The description of the RAM user.
+     *
+     * @example Cloud computing engineer
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The point in time when the RAM user was created. The time is displayed in UTC.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The display name of the RAM user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The email address of the RAM user.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example alice@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The point in time when the RAM user last logged on to the Alibaba Cloud Management Console by using the password. The time is displayed in UTC.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $lastLoginDate;
 
     /**
+     * @description The mobile phone number of the RAM user.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example 86-1860000****
+     *
      * @var string
      */
     public $mobilePhone;
 
     /**
+     * @description The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+     *
+     * @example 2015-02-11T03:15:21Z
+     *
      * @var string
      */
     public $updateDate;
 
     /**
+     * @description The ID of the RAM user.
+     *
+     * @example 222748924538****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The username of the RAM user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $userName;

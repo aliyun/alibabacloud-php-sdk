@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateVirtualMFADeviceResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\DecodeDiagnosticMessageRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\DecodeDiagnosticMessageResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteAccessKeyRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteAccessKeyResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteGroupRequest;
@@ -165,10 +167,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Adds a RAM user to a RAM user group.
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroupWithOptions($request, $runtime)
     {
@@ -199,9 +203,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
+     * @summary Adds a RAM user to a RAM user group.
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroup($request)
     {
@@ -211,10 +217,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Attaches a policy to a RAM user group.
+     *  *
+     * @param AttachPolicyToGroupRequest $request AttachPolicyToGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachPolicyToGroupResponse
+     * @return AttachPolicyToGroupResponse AttachPolicyToGroupResponse
      */
     public function attachPolicyToGroupWithOptions($request, $runtime)
     {
@@ -248,9 +256,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToGroupRequest $request
+     * @summary Attaches a policy to a RAM user group.
+     *  *
+     * @param AttachPolicyToGroupRequest $request AttachPolicyToGroupRequest
      *
-     * @return AttachPolicyToGroupResponse
+     * @return AttachPolicyToGroupResponse AttachPolicyToGroupResponse
      */
     public function attachPolicyToGroup($request)
     {
@@ -260,10 +270,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToRoleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Attaches a policy to a RAM role.
+     *  *
+     * @param AttachPolicyToRoleRequest $request AttachPolicyToRoleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachPolicyToRoleResponse
+     * @return AttachPolicyToRoleResponse AttachPolicyToRoleResponse
      */
     public function attachPolicyToRoleWithOptions($request, $runtime)
     {
@@ -297,9 +309,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToRoleRequest $request
+     * @summary Attaches a policy to a RAM role.
+     *  *
+     * @param AttachPolicyToRoleRequest $request AttachPolicyToRoleRequest
      *
-     * @return AttachPolicyToRoleResponse
+     * @return AttachPolicyToRoleResponse AttachPolicyToRoleResponse
      */
     public function attachPolicyToRole($request)
     {
@@ -309,10 +323,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToUserRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Attaches a policy to a RAM user.
+     *  *
+     * @param AttachPolicyToUserRequest $request AttachPolicyToUserRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachPolicyToUserResponse
+     * @return AttachPolicyToUserResponse AttachPolicyToUserResponse
      */
     public function attachPolicyToUserWithOptions($request, $runtime)
     {
@@ -346,9 +362,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyToUserRequest $request
+     * @summary Attaches a policy to a RAM user.
+     *  *
+     * @param AttachPolicyToUserRequest $request AttachPolicyToUserRequest
      *
-     * @return AttachPolicyToUserResponse
+     * @return AttachPolicyToUserResponse AttachPolicyToUserResponse
      */
     public function attachPolicyToUser($request)
     {
@@ -358,10 +376,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param BindMFADeviceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADeviceWithOptions($request, $runtime)
     {
@@ -398,9 +416,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param BindMFADeviceRequest $request
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
      *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADevice($request)
     {
@@ -410,10 +428,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ChangePasswordRequest $request
-     * @param RuntimeOptions        $runtime
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+     *  *
+     * @param ChangePasswordRequest $request ChangePasswordRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePasswordWithOptions($request, $runtime)
     {
@@ -444,9 +464,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ChangePasswordRequest $request
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+     *  *
+     * @param ChangePasswordRequest $request ChangePasswordRequest
      *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePassword($request)
     {
@@ -456,9 +478,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearAccountAliasResponse
+     * @return ClearAccountAliasResponse ClearAccountAliasResponse
      */
     public function clearAccountAliasWithOptions($runtime)
     {
@@ -479,7 +501,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @return ClearAccountAliasResponse
+     * @return ClearAccountAliasResponse ClearAccountAliasResponse
      */
     public function clearAccountAlias()
     {
@@ -489,10 +511,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKeyWithOptions($request, $runtime)
     {
@@ -520,9 +542,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessKeyRequest $request
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
      *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKey($request)
     {
@@ -532,10 +554,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a RAM user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
@@ -566,9 +590,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @summary Creates a RAM user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -578,10 +604,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables console logon for a RAM user.
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfileWithOptions($request, $runtime)
     {
@@ -618,9 +646,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateLoginProfileRequest $request
+     * @summary Enables console logon for a RAM user.
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
      *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfile($request)
     {
@@ -630,10 +660,15 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates a custom policy.
+     *  *
+     * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $runtime)
     {
@@ -667,9 +702,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
+     * @summary Creates a custom policy.
+     *  *
+     * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -679,10 +719,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyVersionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreatePolicyVersionRequest $request CreatePolicyVersionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePolicyVersionResponse
+     * @return CreatePolicyVersionResponse CreatePolicyVersionResponse
      */
     public function createPolicyVersionWithOptions($request, $runtime)
     {
@@ -719,9 +759,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyVersionRequest $request
+     * @param CreatePolicyVersionRequest $request CreatePolicyVersionRequest
      *
-     * @return CreatePolicyVersionResponse
+     * @return CreatePolicyVersionResponse CreatePolicyVersionResponse
      */
     public function createPolicyVersion($request)
     {
@@ -731,10 +771,15 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateRoleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a RAM role.
+     *  *
+     * @description ## Description
+     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRoleWithOptions($request, $runtime)
     {
@@ -771,9 +816,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateRoleRequest $request
+     * @summary Creates a RAM role.
+     *  *
+     * @description ## Description
+     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRole($request)
     {
@@ -783,10 +833,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a Resource Access Management (RAM) user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `alice`.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
@@ -826,9 +880,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @summary Creates a Resource Access Management (RAM) user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `alice`.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -838,10 +896,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADeviceWithOptions($request, $runtime)
     {
@@ -869,9 +927,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
      *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADevice($request)
     {
@@ -881,10 +939,57 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+     *  *
+     * @param DecodeDiagnosticMessageRequest $request DecodeDiagnosticMessageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessKeyResponse
+     * @return DecodeDiagnosticMessageResponse DecodeDiagnosticMessageResponse
+     */
+    public function decodeDiagnosticMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encodedDiagnosticMessage)) {
+            $query['EncodedDiagnosticMessage'] = $request->encodedDiagnosticMessage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DecodeDiagnosticMessage',
+            'version'     => '2015-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DecodeDiagnosticMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+     *  *
+     * @param DecodeDiagnosticMessageRequest $request DecodeDiagnosticMessageRequest
+     *
+     * @return DecodeDiagnosticMessageResponse DecodeDiagnosticMessageResponse
+     */
+    public function decodeDiagnosticMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->decodeDiagnosticMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKeyWithOptions($request, $runtime)
     {
@@ -915,9 +1020,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
      *
-     * @return DeleteAccessKeyResponse
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKey($request)
     {
@@ -927,10 +1032,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
@@ -958,9 +1065,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -970,10 +1079,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfileWithOptions($request, $runtime)
     {
@@ -1001,9 +1110,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
      *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfile($request)
     {
@@ -1013,10 +1122,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
@@ -1044,9 +1153,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
+     * @param DeletePolicyRequest $request DeletePolicyRequest
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -1056,10 +1165,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyVersionResponse
+     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
      */
     public function deletePolicyVersionWithOptions($request, $runtime)
     {
@@ -1090,9 +1199,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request
+     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
      *
-     * @return DeletePolicyVersionResponse
+     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
      */
     public function deletePolicyVersion($request)
     {
@@ -1102,10 +1211,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param DeleteRoleRequest $request DeleteRoleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRoleWithOptions($request, $runtime)
     {
@@ -1133,9 +1242,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request
+     * @param DeleteRoleRequest $request DeleteRoleRequest
      *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRole($request)
     {
@@ -1145,10 +1254,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1176,9 +1287,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1188,10 +1301,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
@@ -1219,9 +1332,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADevice($request)
     {
@@ -1231,10 +1344,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Detaches a policy from a RAM user group.
+     *  *
+     * @param DetachPolicyFromGroupRequest $request DetachPolicyFromGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachPolicyFromGroupResponse
+     * @return DetachPolicyFromGroupResponse DetachPolicyFromGroupResponse
      */
     public function detachPolicyFromGroupWithOptions($request, $runtime)
     {
@@ -1268,9 +1383,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromGroupRequest $request
+     * @summary Detaches a policy from a RAM user group.
+     *  *
+     * @param DetachPolicyFromGroupRequest $request DetachPolicyFromGroupRequest
      *
-     * @return DetachPolicyFromGroupResponse
+     * @return DetachPolicyFromGroupResponse DetachPolicyFromGroupResponse
      */
     public function detachPolicyFromGroup($request)
     {
@@ -1280,10 +1397,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromRoleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Detaches a policy from a RAM role.
+     *  *
+     * @param DetachPolicyFromRoleRequest $request DetachPolicyFromRoleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachPolicyFromRoleResponse
+     * @return DetachPolicyFromRoleResponse DetachPolicyFromRoleResponse
      */
     public function detachPolicyFromRoleWithOptions($request, $runtime)
     {
@@ -1317,9 +1436,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromRoleRequest $request
+     * @summary Detaches a policy from a RAM role.
+     *  *
+     * @param DetachPolicyFromRoleRequest $request DetachPolicyFromRoleRequest
      *
-     * @return DetachPolicyFromRoleResponse
+     * @return DetachPolicyFromRoleResponse DetachPolicyFromRoleResponse
      */
     public function detachPolicyFromRole($request)
     {
@@ -1329,10 +1450,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromUserRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Detaches a policy from a RAM user.
+     *  *
+     * @param DetachPolicyFromUserRequest $request DetachPolicyFromUserRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachPolicyFromUserResponse
+     * @return DetachPolicyFromUserResponse DetachPolicyFromUserResponse
      */
     public function detachPolicyFromUserWithOptions($request, $runtime)
     {
@@ -1366,9 +1489,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyFromUserRequest $request
+     * @summary Detaches a policy from a RAM user.
+     *  *
+     * @param DetachPolicyFromUserRequest $request DetachPolicyFromUserRequest
      *
-     * @return DetachPolicyFromUserResponse
+     * @return DetachPolicyFromUserResponse DetachPolicyFromUserResponse
      */
     public function detachPolicyFromUser($request)
     {
@@ -1378,10 +1503,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsedWithOptions($request, $runtime)
     {
@@ -1412,9 +1537,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
      *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsed($request)
     {
@@ -1424,9 +1549,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountAliasResponse
+     * @return GetAccountAliasResponse GetAccountAliasResponse
      */
     public function getAccountAliasWithOptions($runtime)
     {
@@ -1447,7 +1572,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @return GetAccountAliasResponse
+     * @return GetAccountAliasResponse GetAccountAliasResponse
      */
     public function getAccountAlias()
     {
@@ -1457,10 +1582,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information of a RAM user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
@@ -1488,9 +1615,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * @summary Queries the information of a RAM user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -1500,10 +1629,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetLoginProfileRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfileWithOptions($request, $runtime)
     {
@@ -1531,9 +1660,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetLoginProfileRequest $request
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
      *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfile($request)
     {
@@ -1543,9 +1672,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicyWithOptions($runtime)
     {
@@ -1566,7 +1695,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicy()
     {
@@ -1576,10 +1705,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the information of a policy.
+     *  *
+     * @param GetPolicyRequest $request GetPolicyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicyWithOptions($request, $runtime)
     {
@@ -1610,9 +1741,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
+     * @summary Queries the information of a policy.
+     *  *
+     * @param GetPolicyRequest $request GetPolicyRequest
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicy($request)
     {
@@ -1622,10 +1755,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyVersionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information of a policy version.
+     *  *
+     * @param GetPolicyVersionRequest $request GetPolicyVersionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyVersionResponse
+     * @return GetPolicyVersionResponse GetPolicyVersionResponse
      */
     public function getPolicyVersionWithOptions($request, $runtime)
     {
@@ -1659,9 +1794,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyVersionRequest $request
+     * @summary Queries the information of a policy version.
+     *  *
+     * @param GetPolicyVersionRequest $request GetPolicyVersionRequest
      *
-     * @return GetPolicyVersionResponse
+     * @return GetPolicyVersionResponse GetPolicyVersionResponse
      */
     public function getPolicyVersion($request)
     {
@@ -1671,10 +1808,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetRoleRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries information of a RAM role.
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRoleWithOptions($request, $runtime)
     {
@@ -1702,9 +1841,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetRoleRequest $request
+     * @summary Queries information of a RAM role.
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
      *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRole($request)
     {
@@ -1714,9 +1855,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecurityPreferenceResponse
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreferenceWithOptions($runtime)
     {
@@ -1737,7 +1878,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @return GetSecurityPreferenceResponse
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreference()
     {
@@ -1747,10 +1888,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example on how to query the information about the RAM user `alice`.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
@@ -1778,9 +1923,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example on how to query the information about the RAM user `alice`.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -1790,10 +1939,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfoWithOptions($request, $runtime)
     {
@@ -1821,9 +1970,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
      *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfo($request)
     {
@@ -1833,10 +1982,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListAccessKeysRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeysWithOptions($request, $runtime)
     {
@@ -1864,9 +2015,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListAccessKeysRequest $request
+     * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
      *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeys($request)
     {
@@ -1876,10 +2029,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesForPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the entities to which a policy is attached.
+     *  *
+     * @param ListEntitiesForPolicyRequest $request ListEntitiesForPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEntitiesForPolicyResponse
+     * @return ListEntitiesForPolicyResponse ListEntitiesForPolicyResponse
      */
     public function listEntitiesForPolicyWithOptions($request, $runtime)
     {
@@ -1910,9 +2065,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesForPolicyRequest $request
+     * @summary Queries the entities to which a policy is attached.
+     *  *
+     * @param ListEntitiesForPolicyRequest $request ListEntitiesForPolicyRequest
      *
-     * @return ListEntitiesForPolicyResponse
+     * @return ListEntitiesForPolicyResponse ListEntitiesForPolicyResponse
      */
     public function listEntitiesForPolicy($request)
     {
@@ -1922,10 +2079,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries RAM user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
@@ -1956,9 +2115,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @summary Queries RAM user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -1968,10 +2129,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     *  *
+     * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
@@ -1999,9 +2164,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
+     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     *  *
+     * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -2011,10 +2180,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of policies.
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPoliciesWithOptions($request, $runtime)
     {
@@ -2048,9 +2219,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
+     * @summary Queries a list of policies.
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPolicies($request)
     {
@@ -2060,10 +2233,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the policies that are attached to a RAM user group.
+     *  *
+     * @param ListPoliciesForGroupRequest $request ListPoliciesForGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesForGroupResponse
+     * @return ListPoliciesForGroupResponse ListPoliciesForGroupResponse
      */
     public function listPoliciesForGroupWithOptions($request, $runtime)
     {
@@ -2091,9 +2266,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForGroupRequest $request
+     * @summary Queries the policies that are attached to a RAM user group.
+     *  *
+     * @param ListPoliciesForGroupRequest $request ListPoliciesForGroupRequest
      *
-     * @return ListPoliciesForGroupResponse
+     * @return ListPoliciesForGroupResponse ListPoliciesForGroupResponse
      */
     public function listPoliciesForGroup($request)
     {
@@ -2103,10 +2280,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForRoleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the policies that are attached to a RAM role.
+     *  *
+     * @param ListPoliciesForRoleRequest $request ListPoliciesForRoleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesForRoleResponse
+     * @return ListPoliciesForRoleResponse ListPoliciesForRoleResponse
      */
     public function listPoliciesForRoleWithOptions($request, $runtime)
     {
@@ -2134,9 +2313,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForRoleRequest $request
+     * @summary Queries the policies that are attached to a RAM role.
+     *  *
+     * @param ListPoliciesForRoleRequest $request ListPoliciesForRoleRequest
      *
-     * @return ListPoliciesForRoleResponse
+     * @return ListPoliciesForRoleResponse ListPoliciesForRoleResponse
      */
     public function listPoliciesForRole($request)
     {
@@ -2146,10 +2327,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForUserRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the policies that are attached to a RAM user.
+     *  *
+     * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+     *  *
+     * @param ListPoliciesForUserRequest $request ListPoliciesForUserRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesForUserResponse
+     * @return ListPoliciesForUserResponse ListPoliciesForUserResponse
      */
     public function listPoliciesForUserWithOptions($request, $runtime)
     {
@@ -2177,9 +2362,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForUserRequest $request
+     * @summary Queries the policies that are attached to a RAM user.
+     *  *
+     * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+     *  *
+     * @param ListPoliciesForUserRequest $request ListPoliciesForUserRequest
      *
-     * @return ListPoliciesForUserResponse
+     * @return ListPoliciesForUserResponse ListPoliciesForUserResponse
      */
     public function listPoliciesForUser($request)
     {
@@ -2189,10 +2378,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPolicyVersionsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the versions of a policy.
+     *  *
+     * @param ListPolicyVersionsRequest $request ListPolicyVersionsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPolicyVersionsResponse
+     * @return ListPolicyVersionsResponse ListPolicyVersionsResponse
      */
     public function listPolicyVersionsWithOptions($request, $runtime)
     {
@@ -2223,9 +2414,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListPolicyVersionsRequest $request
+     * @summary Queries the versions of a policy.
+     *  *
+     * @param ListPolicyVersionsRequest $request ListPolicyVersionsRequest
      *
-     * @return ListPolicyVersionsResponse
+     * @return ListPolicyVersionsResponse ListPolicyVersionsResponse
      */
     public function listPolicyVersions($request)
     {
@@ -2235,10 +2428,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the list of all RAM roles.
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRolesWithOptions($request, $runtime)
     {
@@ -2269,9 +2464,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
+     * @summary Queries the list of all RAM roles.
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRoles($request)
     {
@@ -2281,10 +2478,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the information about all RAM users.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -2315,9 +2514,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary Queries the information about all RAM users.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -2327,10 +2528,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
@@ -2364,9 +2565,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -2376,9 +2577,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the list of all multi-factor authentication (MFA) devices.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirtualMFADevicesResponse
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevicesWithOptions($runtime)
     {
@@ -2399,7 +2602,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @return ListVirtualMFADevicesResponse
+     * @summary Queries the list of all multi-factor authentication (MFA) devices.
+     *  *
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevices()
     {
@@ -2409,10 +2614,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
@@ -2443,9 +2648,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroup($request)
     {
@@ -2455,10 +2660,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetAccountAliasRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
+     *  *
+     * @param SetAccountAliasRequest $request SetAccountAliasRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAccountAliasResponse
+     * @return SetAccountAliasResponse SetAccountAliasResponse
      */
     public function setAccountAliasWithOptions($request, $runtime)
     {
@@ -2486,9 +2693,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetAccountAliasRequest $request
+     * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
+     *  *
+     * @param SetAccountAliasRequest $request SetAccountAliasRequest
      *
-     * @return SetAccountAliasResponse
+     * @return SetAccountAliasResponse SetAccountAliasResponse
      */
     public function setAccountAlias($request)
     {
@@ -2498,10 +2707,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultPolicyVersionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Sets the default version of a policy.
+     *  *
+     * @param SetDefaultPolicyVersionRequest $request SetDefaultPolicyVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultPolicyVersionResponse
+     * @return SetDefaultPolicyVersionResponse SetDefaultPolicyVersionResponse
      */
     public function setDefaultPolicyVersionWithOptions($request, $runtime)
     {
@@ -2532,9 +2743,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultPolicyVersionRequest $request
+     * @summary Sets the default version of a policy.
+     *  *
+     * @param SetDefaultPolicyVersionRequest $request SetDefaultPolicyVersionRequest
      *
-     * @return SetDefaultPolicyVersionResponse
+     * @return SetDefaultPolicyVersionResponse SetDefaultPolicyVersionResponse
      */
     public function setDefaultPolicyVersion($request)
     {
@@ -2544,10 +2757,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
@@ -2599,9 +2812,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicy($request)
     {
@@ -2611,10 +2824,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetSecurityPreferenceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSecurityPreferenceResponse
+     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
      */
     public function setSecurityPreferenceWithOptions($request, $runtime)
     {
@@ -2660,9 +2873,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetSecurityPreferenceRequest $request
+     * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      *
-     * @return SetSecurityPreferenceResponse
+     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
      */
     public function setSecurityPreference($request)
     {
@@ -2672,10 +2885,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UnbindMFADeviceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADeviceWithOptions($request, $runtime)
     {
@@ -2703,9 +2916,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UnbindMFADeviceRequest $request
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
      *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADevice($request)
     {
@@ -2715,10 +2928,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKeyWithOptions($request, $runtime)
     {
@@ -2752,9 +2965,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
      *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKey($request)
     {
@@ -2764,10 +2977,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Modifies a RAM user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
@@ -2801,9 +3016,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @summary Modifies a RAM user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -2813,10 +3030,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfileWithOptions($request, $runtime)
     {
@@ -2853,9 +3070,9 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
      *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfile($request)
     {
@@ -2865,10 +3082,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyDescriptionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the description of a custom policy.
+     *  *
+     * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+     *  *
+     * @param UpdatePolicyDescriptionRequest $request UpdatePolicyDescriptionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePolicyDescriptionResponse
+     * @return UpdatePolicyDescriptionResponse UpdatePolicyDescriptionResponse
      */
     public function updatePolicyDescriptionWithOptions($request, $runtime)
     {
@@ -2899,9 +3120,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyDescriptionRequest $request
+     * @summary Modifies the description of a custom policy.
+     *  *
+     * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+     *  *
+     * @param UpdatePolicyDescriptionRequest $request UpdatePolicyDescriptionRequest
      *
-     * @return UpdatePolicyDescriptionResponse
+     * @return UpdatePolicyDescriptionResponse UpdatePolicyDescriptionResponse
      */
     public function updatePolicyDescription($request)
     {
@@ -2911,10 +3136,14 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Changes the description of a RAM role.
+     *  *
+     * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $runtime)
     {
@@ -2951,9 +3180,13 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
+     * @summary Changes the description of a RAM role.
+     *  *
+     * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRole($request)
     {
@@ -2963,10 +3196,12 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
@@ -3009,9 +3244,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {

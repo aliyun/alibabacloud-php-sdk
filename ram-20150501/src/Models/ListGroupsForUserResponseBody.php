@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsForUserResponseBody extends Model
 {
     /**
+     * @description The list of the RAM user groups.
+     *
      * @var groups
      */
     public $groups;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DA772B52-BF9F-54CA-AC77-AA7A2DA89D46
+     *
      * @var string
      */
     public $requestId;

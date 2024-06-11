@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
+     *
      * @var string
      */
     public $requestId;

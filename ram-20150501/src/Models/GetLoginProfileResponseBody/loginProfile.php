@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class loginProfile extends Model
 {
     /**
+     * @description The time when the logon configurations were created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description Indicates whether an MFA device must be attached to the RAM user upon logon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $MFABindRequired;
 
     /**
+     * @description Indicates whether the RAM user must change the password upon logon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $passwordResetRequired;
 
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

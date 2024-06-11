@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolicyDescriptionRequest extends Model
 {
     /**
+     * @description The description of the policy.
+     *
+     * The value of the parameter must be 1 to 1,024 characters in length.
+     * @example This is a test policy.
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example TestPolicy
+     *
      * @var string
      */
     public $policyName;

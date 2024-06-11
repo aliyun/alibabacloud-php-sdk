@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class defaultPolicyVersion extends Model
 {
     /**
+     * @description The time when the default policy version was created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description An attribute in the `DefaultPolicyVersion` parameter. The value of the `IsDefaultVersion` parameter is `true`.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefaultVersion;
 
     /**
+     * @description The script of the default policy version.
+     *
+     * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @description The ID of the default policy version.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $versionId;

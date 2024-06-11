@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ChangePasswordRequest extends Model
 {
     /**
+     * @description The new password that is used to log on to the Alibaba Cloud Management Console.
+     *
+     * The password must meet the complexity requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
+     * @example aw$2****
+     *
      * @var string
      */
     public $newPassword;
 
     /**
+     * @description The old password that is used to log on to the Alibaba Cloud Management Console.
+     *
+     * @example 12****
+     *
      * @var string
      */
     public $oldPassword;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The time when the policy was attached to the RAM user.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $attachDate;
 
     /**
+     * @description The display name of the RAM user.
+     *
+     * @example Zhang*
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The unique ID of the RAM user.
+     *
+     * @example 122748924538****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

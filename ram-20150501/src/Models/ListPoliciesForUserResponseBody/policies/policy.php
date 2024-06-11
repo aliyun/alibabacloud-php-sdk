@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The time at which the policy is attached to the RAM user. The time is displayed in UTC.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $attachDate;
 
     /**
+     * @description The current version.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $defaultVersion;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example OSS administrator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   System: system policy
+     *   Custom: custom policy
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;

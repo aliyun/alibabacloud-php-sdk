@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The display name of the RAM user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the RAM user joined the RAM user group.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $joinDate;
 
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangqiang
+     *
      * @var string
      */
     public $userName;

@@ -12,21 +12,31 @@ use AlibabaCloud\Tea\Model;
 class ListEntitiesForPolicyResponseBody extends Model
 {
     /**
+     * @description The list of the RAM user groups.
+     *
      * @var groups
      */
     public $groups;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of RAM roles.
+     *
      * @var roles
      */
     public $roles;
 
     /**
+     * @description The list of the RAM users to which the policy is attached.
+     *
      * @var users
      */
     public $users;

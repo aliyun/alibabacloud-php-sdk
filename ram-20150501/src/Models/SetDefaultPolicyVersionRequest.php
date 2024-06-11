@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultPolicyVersionRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The ID of the policy version that you want to set as the default version.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $versionId;

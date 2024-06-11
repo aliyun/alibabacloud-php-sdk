@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyVersionRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The ID of the policy version.
+     *
+     * @example v3
+     *
      * @var string
      */
     public $versionId;

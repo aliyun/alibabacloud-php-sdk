@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupResponseBody extends Model
 {
     /**
+     * @description The information about the group.
+     *
      * @var group
      */
     public $group;
 
     /**
+     * @description The request ID.
+     *
+     * @example D3F0679E-9757-95DB-AF2D-04D5188C69C5
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class loginProfilePreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can change their passwords.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToChangePassword;
 
     /**
+     * @description Indicates whether the MFA devices of RAM users are remembered.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableSaveMFATicket;
 
     /**
+     * @description The subnet mask.
+     *
+     * @example 10.0.0.0/8
+     *
      * @var string
      */
     public $loginNetworkMasks;
 
     /**
+     * @description The validity period of the logon session of RAM users.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $loginSessionDuration;

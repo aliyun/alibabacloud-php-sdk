@@ -15,6 +15,8 @@ class GetAccessKeyLastUsedResponseBody extends Model
     public $accessKeyLastUsed;
 
     /**
+     * @example 5CCE804C-6450-49A7-B1DB-2460F7A97416
+     *
      * @var string
      */
     public $requestId;

@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The number of references to the policy.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $attachmentCount;
 
     /**
+     * @description The time when the policy was created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The default version ID of the policy.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $defaultVersion;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example OSS administrator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the policy.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @description The time when the policy was modified.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

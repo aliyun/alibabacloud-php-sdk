@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetAccountAliasRequest extends Model
 {
     /**
+     * @description The alias of the Alibaba Cloud account.
+     *
+     * > It cannot start or end with a hyphen (-), and cannot contain consecutive hyphens (-).
+     * @example myalias
+     *
      * @var string
      */
     public $accountAlias;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserRequest extends Model
 {
     /**
+     * @description The name of the RAM user.
+     *
+     * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description The new description of the RAM user.
+     *
+     * The description must be 1 to 128 characters in length.
+     * @example This is a cloud computing engineer.
+     *
      * @var string
      */
     public $newComments;
 
     /**
+     * @description The new display name of the RAM user.
+     *
+     * The name must be 1 to 128 characters in length.
+     * @example xiaoq****
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @description The new email address of the RAM user.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example xiaoq****@example.com
+     *
      * @var string
      */
     public $newEmail;
 
     /**
+     * @description The new mobile phone number of the RAM user.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example 86-1860000****
+     *
      * @var string
      */
     public $newMobilePhone;
 
     /**
+     * @description The new username of the RAM user.
+     *
+     * The username must be 1 to 64 characters in length, and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+     * @example xiaoq****
+     *
      * @var string
      */
     public $newUserName;
 
     /**
+     * @description The username of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

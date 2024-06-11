@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class virtualMFADevice extends Model
 {
     /**
+     * @description The time when the MFA device was enabled.
+     *
+     * @example 2015-02-18T17:22:08Z
+     *
      * @var string
      */
     public $activateDate;
 
     /**
+     * @description The serial number of the MFA device.
+     *
+     * @example acs:ram::123456789012****:mfa/device002
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The basic information of the RAM user to which the MFA device is attached.
+     *
      * @var user
      */
     public $user;

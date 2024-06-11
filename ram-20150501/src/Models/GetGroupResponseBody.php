@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetGroupResponseBody extends Model
 {
     /**
+     * @description The information of the RAM user group.
+     *
      * @var group
      */
     public $group;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D4065824-E422-3ED6-68B1-1AF7D5C7804C
+     *
      * @var string
      */
     public $requestId;

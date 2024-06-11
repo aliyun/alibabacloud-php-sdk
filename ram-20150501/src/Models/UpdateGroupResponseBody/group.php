@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The description of the RAM user group.
+     *
+     * @example NewDev-Team
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The time when the RAM user group was created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The ID of the RAM user group.
+     *
+     * @example g-FpMEHiMysofp****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The new name of the RAM user group.
+     *
+     * @example NewDev-Team
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The time when the information of the RAM user group was updated.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

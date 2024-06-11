@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetAccountAliasResponseBody extends Model
 {
     /**
+     * @description The alias of the Alibaba Cloud account.
+     *
+     * @example myalias
+     *
      * @var string
      */
     public $accountAlias;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;

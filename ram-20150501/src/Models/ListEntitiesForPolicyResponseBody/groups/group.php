@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The time when the policy was attached to the RAM user group.
+     *
+     * @example 2015-02-18T17:22:08Z
+     *
      * @var string
      */
     public $attachDate;
 
     /**
+     * @description The description of the RAM user group.
+     *
+     * @example Test team
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example QA-Team
+     *
      * @var string
      */
     public $groupName;

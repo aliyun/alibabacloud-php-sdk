@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccessKeyRequest extends Model
 {
     /**
+     * @description The status of the AccessKey pair. Valid values: `Active` and `Inactive`.
+     *
+     * @example Inactive
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The AccessKey ID in the AccessKey pair whose status you want to change.
+     *
+     * @example 0wNEpMMlzy7s****
+     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

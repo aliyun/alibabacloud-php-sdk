@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessKeyRequest extends Model
 {
     /**
+     * @description The name of the RAM user. If a RAM user calls this operation and does not specify this parameter, an AccessKey pair is created for the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

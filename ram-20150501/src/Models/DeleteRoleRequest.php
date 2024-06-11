@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoleRequest extends Model
 {
     /**
+     * @description The name of the RAM role.
+     *
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;

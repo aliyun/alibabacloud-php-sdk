@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class publicKeyPreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can manage their public keys. Valid values:
+     *
+     *   true: RAM users can manage their public keys.
+     *   false: RAM users cannot manage their public keys.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToManagePublicKeys;

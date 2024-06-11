@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetRoleRequest extends Model
 {
     /**
+     * @description The name of the RAM role.
+     *
+     * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;

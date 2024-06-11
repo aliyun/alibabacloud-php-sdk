@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The ID of the user group.
+     *
+     * @example g-FpMEHiMysofp****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the user group.
+     *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

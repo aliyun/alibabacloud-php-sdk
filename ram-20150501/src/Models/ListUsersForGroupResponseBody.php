@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListUsersForGroupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the response is truncated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @description The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the value of IsTruncated is `true`, you can call this operation again and set `marker` to obtain the truncated part.
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of the RAM users.
+     *
      * @var users
      */
     public $users;

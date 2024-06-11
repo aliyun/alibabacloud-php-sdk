@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A07EF215-B9B3-8CB2-2899-3F9575C6E320
+     *
      * @var string
      */
     public $requestId;

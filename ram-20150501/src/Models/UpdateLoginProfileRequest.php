@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateLoginProfileRequest extends Model
 {
     /**
+     * @description Specifies whether an MFA device must be attached to the RAM user upon logon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $MFABindRequired;
 
     /**
+     * @description The logon password of the RAM user. The password must meet the password strength requirements.
+     *
+     * @example mypassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description Specifies whether the RAM user must change the password upon logon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $passwordResetRequired;
 
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

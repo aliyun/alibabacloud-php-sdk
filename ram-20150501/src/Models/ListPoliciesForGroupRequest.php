@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesForGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example dev
+     *
      * @var string
      */
     public $groupName;

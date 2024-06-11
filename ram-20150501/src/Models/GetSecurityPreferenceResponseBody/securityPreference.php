@@ -13,21 +13,30 @@ use AlibabaCloud\Tea\Model;
 class securityPreference extends Model
 {
     /**
+     * @description The AccessKey pair preference.
+     *
      * @var accessKeyPreference
      */
     public $accessKeyPreference;
 
     /**
+     * @description The logon preferences.
+     *
      * @var loginProfilePreference
      */
     public $loginProfilePreference;
 
     /**
+     * @description The MFA preference.
+     *
      * @var MFAPreference
      */
     public $MFAPreference;
 
     /**
+     * @description The public key preference.
+     *
+     * >  The public key preference is valid only for the Japan site.
      * @var publicKeyPreference
      */
     public $publicKeyPreference;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetLoginProfileRequest extends Model
 {
     /**
+     * @description The name of the RAM user.
+     *
+     * @example zhangq****
+     *
      * @var string
      */
     public $userName;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DetachPolicyFromGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example dev
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values: `System` and `Custom`.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;

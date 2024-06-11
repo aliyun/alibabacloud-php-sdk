@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesForRoleRequest extends Model
 {
     /**
+     * @description The name of the RAM role.
+     *
+     * @example AdminRole
+     *
      * @var string
      */
     public $roleName;

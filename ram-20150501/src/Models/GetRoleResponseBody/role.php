@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     *
+     * @example acs:ram::123456789012****:role/ECSAdmin
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The content of the policy that specifies one or more entities entrusted to assume the RAM role.
+     *
+     * @example { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
+     *
      * @var string
      */
     public $assumeRolePolicyDocument;
 
     /**
+     * @description The time when the RAM role was created.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The description of the RAM role.
+     *
+     * @example ECS administrator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The maximum session duration of the RAM role.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $maxSessionDuration;
 
     /**
+     * @description The ID of the RAM role.
+     *
+     * @example 901234567890****
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @description The name of the RAM role.
+     *
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @description The time when the RAM role was modified.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $updateDate;

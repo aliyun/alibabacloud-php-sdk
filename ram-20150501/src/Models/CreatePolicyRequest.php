@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyRequest extends Model
 {
     /**
+     * @description The description of the policy.
+     *
+     * The description must be 1 to 1,024 characters in length.
+     * @example Query ECS instances in a specific region
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The document of the policy.
+     *
+     * For more information about policy elements and sample policies, see [Policy elements](https://help.aliyun.com/document_detail/93738.html) and [Overview of sample policies](https://help.aliyun.com/document_detail/210969.html).
+     * @example {"Statement": [{"Effect": "Allow","Action": "ecs:Describe*","Resource": "acs:ecs:cn-qingdao:*:instance/*"}],"Version": "1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, and hyphens (-).
+     * @example View-ECS-instances-in-a-specific-region
+     *
      * @var string
      */
     public $policyName;

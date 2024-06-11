@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesRequest extends Model
 {
     /**
+     * @description The `Marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+     *
+     * Valid values: 1 to 1000. Default value: 100.
+     * @example 100
+     *
      * @var int
      */
     public $maxItems;
 
     /**
+     * @description The type of the `Policy`. Valid values: `System` and `Custom`. If you do not specify the parameter, all policies are returned.
+     *
+     * @example System
+     *
      * @var string
      */
     public $policyType;

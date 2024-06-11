@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyVersionRequest extends Model
 {
     /**
+     * @description The document of the policy. The document can be up to 6,144 bytes in length.
+     *
+     * @example {"Statement":[{"Action":["oss:*"],"Effect":"Allow","Resource":["acs:oss:*:*:*"]}],"Version":"1"}
+     *
      * @var string
      */
     public $policyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The rotation strategy of the policy. The rotation strategy can be used to delete an early policy version.
+     *
+     * Valid values:
+     *
+     *   `None`: disables the rotation strategy.
+     *   `DeleteOldestNonDefaultVersionWhenLimitExceeded`: deletes the earliest non-active version if the number of versions exceeds the limit.
+     *
+     * Default value: `None`.
+     * @example None
+     *
      * @var string
      */
     public $rotateStrategy;
 
     /**
+     * @description Specifies whether to set this policy as the default policy. Default value: `false`.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $setAsDefault;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * If you want to query the name of a RAM user group, call the [ListGroups](https://help.aliyun.com/document_detail/28703.html) operation.
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

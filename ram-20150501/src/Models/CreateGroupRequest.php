@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * The value can be up to 128 characters in length.
+     * @example Dev-Team
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The name of the user group.
+     *
+     * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_).
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;

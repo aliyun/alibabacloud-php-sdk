@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * @example OSS-Administrator
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values: `System` and `Custom`.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $policyType;

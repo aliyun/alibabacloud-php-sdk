@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
+     * @description The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @description The number of entries per page. If a response is truncated because it reaches the value of MaxItems, the value of `IsTruncatedg` will be `true`.
+     *
+     * Valid values: 1 to 1000. Default value: 100.
+     * @example 100
+     *
      * @var int
      */
     public $maxItems;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     *
+     * @example acs:ram::123456789012****:role/ECSAdmin
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The time when the policy was attached to the RAM user.
+     *
+     * @example 2015-01-23T12:33:18Z
+     *
      * @var string
      */
     public $attachDate;
 
     /**
+     * @description The description of the RAM role.
+     *
+     * @example ECS administrator
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the RAM role.
+     *
+     * @example 122748924538****
+     *
      * @var string
      */
     public $roleId;
 
     /**
+     * @description The name of the RAM role.
+     *
+     * @example ECSAdmin
+     *
      * @var string
      */
     public $roleName;

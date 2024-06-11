@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetUserMFAInfoRequest extends Model
 {
     /**
+     * @description The username of the RAM user.
+     *
+     * @example test
+     *
      * @var string
      */
     public $userName;
