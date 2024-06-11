@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
 use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsShrinkRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendRequest;
@@ -70,6 +73,67 @@ class Umengapm extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 删除符号表记录
+     *  *
+     * @param DeleteSymRecordsRequest $tmpReq  DeleteSymRecordsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSymRecordsResponse DeleteSymRecordsResponse
+     */
+    public function deleteSymRecordsWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteSymRecordsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->appVersions)) {
+            $request->appVersionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appVersions, 'appVersions', 'simple');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appVersionsShrink)) {
+            $body['appVersions'] = $request->appVersionsShrink;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['fileType'] = $request->fileType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSymRecords',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/deleteSymRecords',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSymRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除符号表记录
+     *  *
+     * @param DeleteSymRecordsRequest $request DeleteSymRecordsRequest
+     *
+     * @return DeleteSymRecordsResponse DeleteSymRecordsResponse
+     */
+    public function deleteSymRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSymRecordsWithOptions($request, $headers, $runtime);
     }
 
     /**
