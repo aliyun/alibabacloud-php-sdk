@@ -11,7 +11,7 @@ class GetAggregateConfigRuleSummaryByRiskLevelRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-3a58626622af0005****
      *
      * @var string

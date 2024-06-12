@@ -123,7 +123,7 @@ class complianceList extends Model
     /**
      * @description The tags of the resource.
      *
-     * @example {\"\"hc\"\":[\"\"value2\"\"]}
+     * @example {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
      *
      * @var string
      */

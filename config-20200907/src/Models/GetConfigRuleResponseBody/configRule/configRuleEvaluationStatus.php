@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configRuleEvaluationStatus extends Model
 {
     /**
-     * @description The timestamp when the rule was first triggered. Unit: milliseconds.
+     * @description The timestamp generated when the rule was first triggered. Unit: millisecond.
      *
      * @example 1624932221993
      *
@@ -18,10 +18,10 @@ class configRuleEvaluationStatus extends Model
     public $firstActivatedTimestamp;
 
     /**
-     * @description Indicates whether resources were evaluated based on the rule. Valid values:
+     * @description Indicates whether resource configurations were evaluated based on the rule. Valid values:
      *
-     *   true: Resources were evaluated based on the rule.
-     *   false: Resources were not evaluated based on the rule.
+     *   true: Resource configurations were evaluated based on the rule.
+     *   false: Resource configurations were not evaluated based on the rule.
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class configRuleEvaluationStatus extends Model
     public $firstEvaluationStarted;
 
     /**
-     * @description The error code returned for the last failed compliance evaluation.
+     * @description The error code returned for the previous failed compliance evaluation.
      *
      * @example TimeOut
      *
@@ -39,7 +39,7 @@ class configRuleEvaluationStatus extends Model
     public $lastErrorCode;
 
     /**
-     * @description The error message returned for the last failed compliance evaluation.
+     * @description The error message returned for the previous failed compliance evaluation.
      *
      * @example Time out
      *
@@ -48,7 +48,7 @@ class configRuleEvaluationStatus extends Model
     public $lastErrorMessage;
 
     /**
-     * @description The timestamp when the last failed compliance evaluation of the rule ended. Unit: milliseconds.
+     * @description The timestamp generated when the previous failed compliance evaluation of the rule ended. Unit: millisecond.
      *
      * @example 1614687022000
      *
@@ -57,7 +57,7 @@ class configRuleEvaluationStatus extends Model
     public $lastFailedEvaluationTimestamp;
 
     /**
-     * @description The timestamp when the last failed compliance evaluation of the rule started. Unit: milliseconds.
+     * @description The timestamp generated when the previous failed compliance evaluation of the rule started. Unit: millisecond.
      *
      * @example 1614687022000
      *
@@ -66,7 +66,7 @@ class configRuleEvaluationStatus extends Model
     public $lastFailedInvocationTimestamp;
 
     /**
-     * @description The timestamp when the last successful compliance evaluation of the rule ended. Unit: milliseconds.
+     * @description The timestamp generated when the previous successful compliance evaluation of the rule ended. Unit: millisecond.
      *
      * @example 1624932227486
      *
@@ -75,7 +75,7 @@ class configRuleEvaluationStatus extends Model
     public $lastSuccessfulEvaluationTimestamp;
 
     /**
-     * @description The timestamp when the last successful compliance evaluation of the rule started. Unit: milliseconds.
+     * @description The timestamp generated when the previous successful compliance evaluation of the rule started. Unit: millisecond.
      *
      * @example 1624932227476
      *

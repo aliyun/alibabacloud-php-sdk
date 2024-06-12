@@ -21,6 +21,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the tag.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -44,6 +45,7 @@ class ListTagResourcesRequest extends Model
      *   `ACS::Config::CompliancePack`
      *   `ACS::Config::AggregateCompliancePack`
      *
+     * This parameter is required.
      * @example ACS::Config:rule
      *
      * @var string

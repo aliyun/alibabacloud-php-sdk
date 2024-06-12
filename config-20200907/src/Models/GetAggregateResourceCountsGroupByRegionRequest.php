@@ -11,7 +11,7 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a260626622af0005****
      *
      * @var string
@@ -19,7 +19,7 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the folder in the resource directory. For more information about how to obtain the ID of a folder, see [View the basic information of a folder](~~111223~~).
+     * @description The ID of the folder in the resource directory. For more information about how to obtain the ID of a folder, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
      *
      * @example r-BU****
      *
@@ -47,7 +47,7 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     /**
      * @description The resource type.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
      * @example ACS::ECS::Instance
      *
      * @var string

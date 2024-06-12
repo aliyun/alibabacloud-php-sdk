@@ -11,6 +11,7 @@ class TagResourcesShrinkRequest extends Model
     /**
      * @description The region ID of the tags.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -20,6 +21,7 @@ class TagResourcesShrinkRequest extends Model
     /**
      * @description The resource IDs. You can add tags to up to 50 resources.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -33,6 +35,7 @@ class TagResourcesShrinkRequest extends Model
      *   `ACS::Config::CompliancePack`
      *   `ACS::Config::AggregateCompliancePack`
      *
+     * This parameter is required.
      * @example ACS::Config::Rule
      *
      * @var string
@@ -42,7 +45,7 @@ class TagResourcesShrinkRequest extends Model
     /**
      * @description The tag value of the resource.
      *
-     * You can specify up to 20 tag values.
+     * This parameter is required.
      * @var string
      */
     public $tagShrink;

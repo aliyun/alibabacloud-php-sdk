@@ -11,7 +11,7 @@ class UpdateDeliveryChannelRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
      *
-     * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25693~~)
+     * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html)
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
      * @var string
@@ -74,7 +74,7 @@ class UpdateDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For more information about how to obtain the ID of the delivery channel, see [DescribeDeliveryChannels](~~174466~~).
+     * This parameter is required.
      * @example cdc-8e45ff4e06a3a8****
      *
      * @var string

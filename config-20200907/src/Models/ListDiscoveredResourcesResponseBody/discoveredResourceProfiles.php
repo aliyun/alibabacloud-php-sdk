@@ -26,7 +26,7 @@ class discoveredResourceProfiles extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example 161259599160****
      *

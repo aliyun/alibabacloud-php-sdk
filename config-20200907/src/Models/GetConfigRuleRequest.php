@@ -11,7 +11,7 @@ class GetConfigRuleRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-7f7d626622af0041****
      *
      * @var string

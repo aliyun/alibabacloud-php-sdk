@@ -29,6 +29,7 @@ class ListResourceRelationsRequest extends Model
     /**
      * @description The ID of the region in which the resource resides.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -41,20 +42,10 @@ class ListResourceRelationsRequest extends Model
      * Valid values:
      *
      *   IsContained: The object is included as part of the resource.
-     *
-     * <!-- -->
-     *
      *   IsAttachedTo: The object is added to the resource.
-     *
-     * <!-- -->
-     *
      *   IsAssociatedIn: The object is associated with the resource.
+     *   Contains: The object contains the resource.
      *
-     * <!-- -->
-     *
-     *   Contains: The actual value contains the expected value.
-     *
-     * <!-- -->
      * @example IsAttachedTo
      *
      * @var string
@@ -64,6 +55,7 @@ class ListResourceRelationsRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example i-j6cajg9yrfoh4sas****
      *
      * @var string
@@ -73,6 +65,7 @@ class ListResourceRelationsRequest extends Model
     /**
      * @description The type of the resource.
      *
+     * This parameter is required.
      * @example ACS::ECS::Instance
      *
      * @var string

@@ -11,7 +11,7 @@ class DeleteAggregateCompliancePacksRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-04b3fd170e340007****
      *
      * @var string
@@ -30,7 +30,7 @@ class DeleteAggregateCompliancePacksRequest extends Model
     /**
      * @description The ID of the compliance package. Separate multiple compliance package IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * This parameter is required.
      * @example cp-541e626622af0087****
      *
      * @var string

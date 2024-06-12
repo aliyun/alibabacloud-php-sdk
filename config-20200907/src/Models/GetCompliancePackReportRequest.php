@@ -11,7 +11,7 @@ class GetCompliancePackReportRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * This parameter is required.
      * @example cp-fdc8626622af00f9****
      *
      * @var string

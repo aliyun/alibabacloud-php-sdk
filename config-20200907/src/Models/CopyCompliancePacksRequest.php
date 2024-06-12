@@ -21,7 +21,7 @@ class CopyCompliancePacksRequest extends Model
     /**
      * @description The ID of the account group to which the compliance packages belong.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
      * @example ca-05e6626622af0050****
      *
      * @var string
@@ -31,7 +31,7 @@ class CopyCompliancePacksRequest extends Model
     /**
      * @description The IDs of the compliance packages. Separate multiple compliance package IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * This parameter is required.
      * @example cp-4c02626622af0050****,cp-47c1626622af0050****
      *
      * @var string

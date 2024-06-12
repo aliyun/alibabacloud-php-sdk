@@ -12,6 +12,7 @@ class ListRemediationsResponseBody extends Model
     /**
      * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -21,6 +22,7 @@ class ListRemediationsResponseBody extends Model
     /**
      * @description The number of entries per page. Valid values: 1 to 50.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -46,6 +48,7 @@ class ListRemediationsResponseBody extends Model
     /**
      * @description The total number of remediation settings.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

@@ -11,6 +11,7 @@ class remediationTemplates extends Model
     /**
      * @description The ID of the supported rule template.
      *
+     * This parameter is required.
      * @example alb-delete-protection-enabled
      *
      * @var string
@@ -18,7 +19,7 @@ class remediationTemplates extends Model
     public $managedRuleIdentifier;
 
     /**
-     * @description The type of the automatic remediation template. Valid value: OOS.
+     * @description The type of the automatic remediation template. The value is set to OOS.
      *
      * @example OOS
      *
@@ -36,12 +37,13 @@ class remediationTemplates extends Model
     /**
      * @description The description of the automatic remediation template.
      *
+     * This parameter is required.
      * @var string
      */
     public $templateDescription;
 
     /**
-     * @description The identifier of the automatic remediation template.
+     * @description The ID of the automatic remediation template.
      *
      * @example ACS-ALB-BulkyEnableDeletionProtection
      *

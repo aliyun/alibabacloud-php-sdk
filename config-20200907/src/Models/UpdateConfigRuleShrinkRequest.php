@@ -20,7 +20,7 @@ class UpdateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * For more information about how to query the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-a260626622af0005****
      *
      * @var string
@@ -30,7 +30,7 @@ class UpdateConfigRuleShrinkRequest extends Model
     /**
      * @description The name of the rule.
      *
-     * For more information about how to query the name of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @var string
      */
     public $configRuleName;

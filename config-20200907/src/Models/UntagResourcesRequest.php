@@ -23,6 +23,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the tag.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -32,7 +33,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource ID.
      *
-     * You can remove tags from up to 50 resources at a time.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -46,6 +47,7 @@ class UntagResourcesRequest extends Model
      *   `ACS::Config::CompliancePack`
      *   `ACS::Config::AggregateCompliancePack`
      *
+     * This parameter is required.
      * @example ACS::Config::Rule
      *
      * @var string

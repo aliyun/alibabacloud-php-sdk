@@ -11,6 +11,7 @@ class GetAggregateResourceComplianceGroupByResourceTypeRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-cdbd626622af0042****
      *
      * @var string

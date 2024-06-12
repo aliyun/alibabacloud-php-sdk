@@ -11,7 +11,7 @@ class DetachAggregateConfigRuleToCompliancePackRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-75b4626622af00c3****
      *
      * @var string
@@ -21,7 +21,7 @@ class DetachAggregateConfigRuleToCompliancePackRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * This parameter is required.
      * @example cp-5bb1626622af00bd****
      *
      * @var string
@@ -31,7 +31,7 @@ class DetachAggregateConfigRuleToCompliancePackRequest extends Model
     /**
      * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * This parameter is required.
      * @example cr-a124626622af00e7****
      *
      * @var string

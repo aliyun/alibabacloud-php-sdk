@@ -21,7 +21,7 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * This parameter is required.
      * @example cp-a8a8626622af0082****
      *
      * @var string
@@ -31,7 +31,7 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The name of the compliance package.
      *
-     * For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
      * @var string
      */
     public $compliancePackName;
@@ -47,7 +47,7 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The description of the compliance package.
      *
-     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
      * @var string
      */
     public $description;

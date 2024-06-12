@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregatorShrinkRequest extends Model
 {
     /**
-     * @description The type of the member account. Valid value: ResourceDirectory.
+     * @description The information about the member accounts in the account group. Example:
      *
+     * [{
+     * "accountId": 171322098523****,
+     * }, {
+     * "accountId": 100532098349****,
+     * >  If `AggregatorType` is set to `RD` or `FOLDER`, this parameter can be left empty, which indicates that all accounts in the resource directory are added to the global account group.
      * @var string
      */
     public $aggregatorAccountsShrink;
@@ -18,6 +23,7 @@ class CreateAggregatorShrinkRequest extends Model
     /**
      * @description The name of the account group.
      *
+     * This parameter is required.
      * @example Test_Group
      *
      * @var string
@@ -27,8 +33,9 @@ class CreateAggregatorShrinkRequest extends Model
     /**
      * @description The type of the account group. Valid values:
      *
-     *   RD: global account group
-     *   CUSTOM (default): custom account group
+     *   RD: global account group.
+     *   FOLDER: account group of the folder.
+     *   CUSTOM (default): custom account group.
      *
      * @example CUSTOM
      *
@@ -48,6 +55,7 @@ class CreateAggregatorShrinkRequest extends Model
     /**
      * @description The description of the account group.
      *
+     * This parameter is required.
      * @example Aggregator description.
      *
      * @var string
@@ -55,6 +63,10 @@ class CreateAggregatorShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
+     *
+     * @example fd-brHdgv****
+     *
      * @var string
      */
     public $folderId;

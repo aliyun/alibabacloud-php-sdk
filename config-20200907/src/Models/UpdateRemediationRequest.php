@@ -43,7 +43,7 @@ class UpdateRemediationRequest extends Model
     /**
      * @description The ID of the remediation setting.
      *
-     * You can call the [ListRemediations](~~270772~~) operation to obtain the ID of the remediation setting.
+     * This parameter is required.
      * @example crr-909ba2d4716700eb****
      *
      * @var string
@@ -53,7 +53,7 @@ class UpdateRemediationRequest extends Model
     /**
      * @description The ID of the remediation template.
      *
-     * You can call the [ListRemediationTemplates](~~270066~~) operation to obtain the ID of the remediation template.
+     * You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
      * @example ACS-OSS-PutBucketAcl
      *
      * @var string

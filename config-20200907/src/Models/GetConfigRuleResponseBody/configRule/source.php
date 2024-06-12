@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @description The identifier of the evaluation rule.
+     * @description The identifier of the rule.
      *
-     *   If the rule was created based on a managed rule, the value of this parameter is the name of the managed rule.
-     *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+     *   If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
+     *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
      *
      * @example acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/specific-config
      *
@@ -22,7 +22,7 @@ class source extends Model
     public $identifier;
 
     /**
-     * @description The method that is used to create the rule. Valid values:
+     * @description The type of the rule. Valid values:
      *
      *   CUSTOM_FC: a custom rule.
      *   ALIYUN: a managed rule.

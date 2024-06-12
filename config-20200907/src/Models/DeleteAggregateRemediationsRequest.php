@@ -11,7 +11,7 @@ class DeleteAggregateRemediationsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteAggregateRemediationsRequest extends Model
     /**
      * @description The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a remediation template, see [ListAggregateRemediations](~~270036~~).
+     * This parameter is required.
      * @example crr-909ba2d4716700eb****
      *
      * @var string

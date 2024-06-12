@@ -10,28 +10,28 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultList extends Model
 {
     /**
-     * @description The annotation to the resource that is evaluated as incompliant. The following section describe the parameters that can be returned:
+     * @description The annotation to the resource that is evaluated as non-compliant. The following parameters may be returned:
      *
      *   `configuration`: the current resource configuration that is evaluated as incompliant by using the rule.
-     *   `desiredValue`: the expected resource configuration that is evaluated as compliant by using the rule.
-     *   `operator`: the operator that is used to compare the current configuration with the expected configuration of the resource.
+     *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
+     *   `operator`: the operator that compares the current configuration with the expected configuration of the resource.
      *   `property`: the JSON path of the current configuration in the resource property struct.
-     *   `reason`: the reason why the resource is evaluated as incompliant.
+     *   `reason`: the reason why the resource is evaluated as non-compliant.
      *
-     * @example {\"configuration\":\"LRS\",\"desiredValue\":\"ZRS\",\"operator\":\"StringEquals\",\"property\":\"$.DataRedundancyType\"}
+     * @example {\\"configuration\\":\\"LRS\\",\\"desiredValue\\":\\"ZRS\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DataRedundancyType\\"}
      *
      * @var string
      */
     public $annotation;
 
     /**
-     * @description The compliance evaluation result of the resources. Valid values:
+     * @description The compliance evaluation result of the resource. Valid values:
      *
-     *   COMPLIANT: The resources are evaluated as compliant.
-     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resources.
-     *   INSUFFICIENT_DATA: No resource data is available.
-     *   IGNORED: The resources are ignored during compliance evaluation.
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to your resource.
+     *   INSUFFICIENT_DATA: No data is available.
+     *   IGNORED: The resource is ignored during compliance evaluation.
      *
      * @example NON_COMPLIANT
      *
@@ -49,7 +49,7 @@ class evaluationResultList extends Model
     public $configRuleInvokedTimestamp;
 
     /**
-     * @description The identifier of the compliance evaluation result.
+     * @description The identifying information about the compliance evaluation result.
      *
      * @var evaluationResultIdentifier
      */
@@ -70,7 +70,9 @@ class evaluationResultList extends Model
     /**
      * @description Indicates whether the remediation template is enabled. Valid values:
      *
-     * - false: The remediation template is disabled.
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -78,7 +80,7 @@ class evaluationResultList extends Model
     public $remediationEnabled;
 
     /**
-     * @description The timestamp when the compliance evaluation result was generated. Unit: milliseconds.
+     * @description The timestamp when the compliance evaluation result was recorded. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * @example 1624869013065
      *
@@ -87,11 +89,11 @@ class evaluationResultList extends Model
     public $resultRecordedTimestamp;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium.
+     *   3: low.
      *
      * @example 1
      *

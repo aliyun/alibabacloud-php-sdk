@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregatorResponseBody extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description The account group ID.
      *
      * @example ca-dacf86d8314e00eb****
      *

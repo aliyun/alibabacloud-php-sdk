@@ -11,7 +11,7 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-f632626622af0079****
      *
      * @var string
@@ -30,7 +30,7 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * This parameter is required.
      * @example cp-fdc8626622af00f9****
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAggregatorsResponseBody extends Model
 {
     /**
-     * @description The account groups returned.
+     * @description The account groups.
      *
      * @var aggregatorsResult
      */
     public $aggregatorsResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20C8526D-12C5-4336-BC72-EBD5D1BA732F
      *

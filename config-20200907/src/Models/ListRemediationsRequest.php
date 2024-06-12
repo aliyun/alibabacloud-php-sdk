@@ -11,7 +11,7 @@ class ListRemediationsRequest extends Model
     /**
      * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
      * @example cr-6b7c626622af00b4****
      *
      * @var string

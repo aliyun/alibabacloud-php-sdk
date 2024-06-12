@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The rule list.
+     * @description The details of the rule.
      *
      * @var configRuleList[]
      */

@@ -20,6 +20,7 @@ class CreateConfigRuleRequest extends Model
     /**
      * @description The name of the rule.
      *
+     * This parameter is required.
      * @var string
      */
     public $configRuleName;
@@ -30,7 +31,7 @@ class CreateConfigRuleRequest extends Model
      *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
      *   ScheduledNotification: The rule is periodically triggered.
      *
-     * >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+     * This parameter is required.
      * @example ConfigurationItemChangeNotification
      *
      * @var string
@@ -102,6 +103,7 @@ class CreateConfigRuleRequest extends Model
     /**
      * @description The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
      *
+     * This parameter is required.
      * @example ACS::ECS::Instance
      *
      * @var string[]
@@ -109,12 +111,13 @@ class CreateConfigRuleRequest extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high.
+     *   2: medium.
+     *   3: low.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -127,7 +130,7 @@ class CreateConfigRuleRequest extends Model
      *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
      *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
      *
-     * For more information about how to query the name of a managed rule, see [Managed rules](~~127404~~).
+     * This parameter is required.
      * @example required-tags
      *
      * @var string
@@ -140,6 +143,7 @@ class CreateConfigRuleRequest extends Model
      *   ALIYUN: managed rule.
      *   CUSTOM_FC: custom rule.
      *
+     * This parameter is required.
      * @example ALIYUN
      *
      * @var string
@@ -147,10 +151,10 @@ class CreateConfigRuleRequest extends Model
     public $sourceOwner;
 
     /**
-     * @description The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     * @description The logical relationship among the tag keys if you specify multiple tag keys for `TagKeyScope`. For example, if you set `TagKeyScope` to `ECS,OSS` and set TagKeyLogicScope to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
      *
-     *   AND: logical AND
-     *   OR: logical OR
+     *   AND
+     *   OR
      *
      * @example AND
      *
@@ -159,9 +163,9 @@ class CreateConfigRuleRequest extends Model
     public $tagKeyLogicScope;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with a specified tag key.
+     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
      * @example ECS
      *
      * @var string
@@ -169,9 +173,9 @@ class CreateConfigRuleRequest extends Model
     public $tagKeyScope;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+     * @description The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * >  This parameter applies only to managed rules. You must specify both `TagKeyScope` and `TagValueScope`.
      * @example test
      *
      * @var string

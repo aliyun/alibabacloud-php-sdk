@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRulesRequest extends Model
 {
     /**
-     * @description The compliance evaluation result. Valid values:
+     * @description The compliance evaluation result of the rule. Valid values:
      *
      *   COMPLIANT: The resources are evaluated as compliant.
      *   NON_COMPLIANT: The resources are evaluated as non-compliant.
@@ -36,7 +36,7 @@ class ListConfigRulesRequest extends Model
      *
      *   ACTIVE: The rule is enabled.
      *   DELETING: The rule is being deleted.
-     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+     *   EVALUATING: The rule is being used to evaluate resource configurations.
      *   INACTIVE: The rule is disabled.
      *
      * @example ACTIVE
@@ -58,7 +58,7 @@ class ListConfigRulesRequest extends Model
     /**
      * @description The page number.
      *
-     * Pages start from page 1. Default value: 1
+     * Page numbers start from 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -68,7 +68,7 @@ class ListConfigRulesRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+     * Valid values: 1 to 100. A minimum of 1 entry can be returned per page. Default value: 10.
      * @example 10
      *
      * @var int

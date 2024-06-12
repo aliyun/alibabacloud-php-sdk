@@ -11,7 +11,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -30,6 +30,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The rule name.
      *
+     * This parameter is required.
      * @var string
      */
     public $configRuleName;
@@ -40,6 +41,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
      *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
      *   ScheduledNotification: The rule is periodically triggered.
      *
+     * This parameter is required.
      * @example ConfigurationItemChangeNotification
      *
      * @var string
@@ -151,6 +153,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
      *
+     * This parameter is required.
      * @example ACS::ECS::Instance
      *
      * @var string
@@ -164,6 +167,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
      *   2: medium risk level
      *   3: low risk level
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -176,7 +180,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
      *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
      *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
      *
-     * For more information about how to query the name of a managed rule, see [Managed rules](~~127404~~).
+     * This parameter is required.
      * @example required-tags
      *
      * @var string
@@ -189,6 +193,7 @@ class CreateAggregateConfigRuleShrinkRequest extends Model
      *   ALIYUN: managed rule
      *   CUSTOM_FC: custom rule
      *
+     * This parameter is required.
      * @example ALIYUN
      *
      * @var string

@@ -11,7 +11,7 @@ class GetConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](~~429841~~).
+     * This parameter is required.
      * @example cdc-d9106457e0d900b1****
      *
      * @var string

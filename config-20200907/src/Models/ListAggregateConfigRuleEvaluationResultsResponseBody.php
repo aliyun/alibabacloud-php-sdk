@@ -17,7 +17,7 @@ class ListAggregateConfigRuleEvaluationResultsResponseBody extends Model
     public $evaluationResults;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A6662516-D056-4325-B6A7-CD3E89C97C39
      *

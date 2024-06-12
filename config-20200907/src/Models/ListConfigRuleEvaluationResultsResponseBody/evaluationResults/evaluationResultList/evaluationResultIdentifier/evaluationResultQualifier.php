@@ -18,7 +18,7 @@ class evaluationResultQualifier extends Model
     public $compliancePackId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the rule.
+     * @description The ARN of the rule.
      *
      * @example acs:config::120886317861****:rule/cr-cac56457e0d900d3****
      *
@@ -27,7 +27,7 @@ class evaluationResultQualifier extends Model
     public $configRuleArn;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-cac56457e0d900d3****
      *
@@ -36,7 +36,7 @@ class evaluationResultQualifier extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example test-rule-name
      *
@@ -47,7 +47,7 @@ class evaluationResultQualifier extends Model
     /**
      * @description The date on which the system automatically re-evaluates the ignored incompliant resources.
      *
-     * >  If this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
+     * >  If the value of this parameter is left empty, the system does not automatically re-evaluate the ignored incompliant resources. You must manually re-evaluate the ignored incompliant resources.
      * @example 2022-06-01
      *
      * @var string
@@ -55,7 +55,7 @@ class evaluationResultQualifier extends Model
     public $ignoreDate;
 
     /**
-     * @description The ID of the region where the resource resides.
+     * @description The ID of the region in which your resources reside.
      *
      * @example cn-hangzhou
      *
@@ -64,7 +64,7 @@ class evaluationResultQualifier extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example i-hp3e4kvhzqn2s11t****
      *
@@ -73,7 +73,7 @@ class evaluationResultQualifier extends Model
     public $resourceId;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example iZuf6j91r34rnwawoox****
      *
@@ -82,7 +82,7 @@ class evaluationResultQualifier extends Model
     public $resourceName;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resources belong.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 120886317861****
      *
@@ -91,7 +91,7 @@ class evaluationResultQualifier extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource.
+     * @description The type of the resource that is monitored by Cloud Config.
      *
      * @example ACS::ECS::Instance
      *

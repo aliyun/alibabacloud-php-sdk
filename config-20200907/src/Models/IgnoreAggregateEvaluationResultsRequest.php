@@ -12,7 +12,7 @@ class IgnoreAggregateEvaluationResultsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-5b6c626622af008f****
      *
      * @var string
@@ -22,7 +22,7 @@ class IgnoreAggregateEvaluationResultsRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * This parameter is required.
      * @example cr-7e72626622af0051****
      *
      * @var string
@@ -49,6 +49,7 @@ class IgnoreAggregateEvaluationResultsRequest extends Model
     /**
      * @description The resources to be ignored.
      *
+     * This parameter is required.
      * @var resources[]
      */
     public $resources;

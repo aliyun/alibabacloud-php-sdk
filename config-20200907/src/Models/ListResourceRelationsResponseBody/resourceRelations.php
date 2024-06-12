@@ -28,25 +28,8 @@ class resourceRelations extends Model
     public $nextToken;
 
     /**
-     * @description The type of the relationship between the resource and the object.
+     * @description An array that contains the relationships.
      *
-     * Valid values:
-     *
-     *   IsContained: The object is included as part of the resource.
-     *
-     * <!-- -->
-     *
-     *   IsAttachedTo: The object is added to the resource.
-     *
-     * <!-- -->
-     *
-     *   IsAssociatedIn: The object is associated with the resource.
-     *
-     * <!-- -->
-     *
-     *   Contains: The actual value contains the expected value.
-     *
-     * <!-- -->
      * @var resourceRelationList[]
      */
     public $resourceRelationList;

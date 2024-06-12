@@ -20,6 +20,7 @@ class GenerateAggregateResourceInventoryRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-a91d626622af0035****
      *
      * @var string
@@ -36,6 +37,11 @@ class GenerateAggregateResourceInventoryRequest extends Model
     public $regions;
 
     /**
+     * @var int
+     */
+    public $resourceDeleted;
+
+    /**
      * @description The resource types. Separate multiple resource types with commas (,).
      *
      * @example ACS::ECS::Instance
@@ -44,10 +50,11 @@ class GenerateAggregateResourceInventoryRequest extends Model
      */
     public $resourceTypes;
     protected $_name = [
-        'accountIds'    => 'AccountIds',
-        'aggregatorId'  => 'AggregatorId',
-        'regions'       => 'Regions',
-        'resourceTypes' => 'ResourceTypes',
+        'accountIds'      => 'AccountIds',
+        'aggregatorId'    => 'AggregatorId',
+        'regions'         => 'Regions',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceTypes'   => 'ResourceTypes',
     ];
 
     public function validate()
@@ -65,6 +72,9 @@ class GenerateAggregateResourceInventoryRequest extends Model
         }
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
+        }
+        if (null !== $this->resourceDeleted) {
+            $res['ResourceDeleted'] = $this->resourceDeleted;
         }
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
@@ -89,6 +99,9 @@ class GenerateAggregateResourceInventoryRequest extends Model
         }
         if (isset($map['Regions'])) {
             $model->regions = $map['Regions'];
+        }
+        if (isset($map['ResourceDeleted'])) {
+            $model->resourceDeleted = $map['ResourceDeleted'];
         }
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];

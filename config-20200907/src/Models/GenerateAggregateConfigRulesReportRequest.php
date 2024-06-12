@@ -11,7 +11,7 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-f632626622af0079****
      *
      * @var string
@@ -30,7 +30,7 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     /**
      * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-25d86457e0d900b5****
      *
      * @var string

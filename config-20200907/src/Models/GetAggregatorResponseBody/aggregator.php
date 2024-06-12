@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class aggregator extends Model
 {
     /**
-     * @description The ID of the management account used to create the account group.
+     * @description The ID of the management account that is used to create the account group.
      *
      * @example 100931896542****
      *
@@ -35,7 +35,7 @@ class aggregator extends Model
     public $aggregatorAccounts;
 
     /**
-     * @description The timestamp when the account group was created.
+     * @description The timestamp generated when the account group was created.
      *
      * @example 1623034091000
      *
@@ -65,7 +65,7 @@ class aggregator extends Model
      * @description The status of the account group. Valid values:
      *
      *   0: The account group is being created.
-     *   1: The account group has been created.
+     *   1: The account group was created.
      *
      * @example 1
      *
@@ -76,8 +76,9 @@ class aggregator extends Model
     /**
      * @description The type of the account group. Valid values:
      *
-     *   RD: global account group
-     *   CUSTOM: custom account group
+     *   RD: a global account group.
+     *   FOLDER: an account group for a folder.
+     *   CUSTOM: a custom account group.
      *
      * @example CUSTOM
      *
@@ -95,6 +96,10 @@ class aggregator extends Model
     public $description;
 
     /**
+     * @description The ID of the attached folder of the account group.
+     *
+     * @example fd-brHdgv****
+     *
      * @var string
      */
     public $folderId;

@@ -107,7 +107,7 @@ class discoveredResourceProfileList extends Model
     /**
      * @description The tags of the resource.
      *
-     * @example {\"key1\":[\"value2\"]}
+     * @example {\\"key1\\":[\\"value2\\"]}
      *
      * @var string
      */

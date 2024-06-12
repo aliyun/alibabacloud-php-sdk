@@ -11,7 +11,7 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
      * @example cp-f1e3326622af00cb****
      *
      * @var string
@@ -21,9 +21,9 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     /**
      * @description The compliance evaluation result of the resource. Valid values:
      *
-     *   COMPLIANT: The resource is evaluated as compliant.
-     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resources.
      *   INSUFFICIENT_DATA: No data is available.
      *   IGNORED: The resource is ignored during compliance evaluation.
      *
@@ -34,9 +34,9 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public $complianceType;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
      * @example cr-cac56457e0d900d3****
      *
      * @var string
@@ -53,7 +53,7 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request. If the response to the current request is truncated, this token is used to initiate another request and obtain the remaining entries.``
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *

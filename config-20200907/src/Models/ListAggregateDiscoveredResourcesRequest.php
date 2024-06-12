@@ -11,7 +11,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-c560626622af0005****
      *
      * @var string
@@ -21,6 +21,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     /**
      * @description The maximum number of entries to return for a single request. Valid values: 1 to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -46,7 +47,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $regions;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resources in the account group belong.
+     * @description The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
      *
      * @example 100931896542****
      *
@@ -57,8 +58,8 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     /**
      * @description The status of the resource. Valid values:
      *
-     *   0: The resource is deleted.
-     *   1 (default): The resource is retained.
+     *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
+     *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
      *
      * @example 1
      *

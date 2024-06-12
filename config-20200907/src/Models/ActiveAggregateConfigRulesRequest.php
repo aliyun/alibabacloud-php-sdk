@@ -11,7 +11,7 @@ class ActiveAggregateConfigRulesRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -21,7 +21,7 @@ class ActiveAggregateConfigRulesRequest extends Model
     /**
      * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * This parameter is required.
      * @example cr-5772ba41209e007b****
      *
      * @var string

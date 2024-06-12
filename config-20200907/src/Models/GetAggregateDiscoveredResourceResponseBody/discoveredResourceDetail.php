@@ -27,9 +27,14 @@ class discoveredResourceDetail extends Model
     public $availabilityZone;
 
     /**
+     * @var string
+     */
+    public $complianceType;
+
+    /**
      * @description The configuration of the resource.
      *
-     * @example {\"AccessControlList\":{\"Grant\":\"private\"},\"ServerSideEncryptionRule\":{\"SSEAlgorithm\":\"None\"},\"Comment\":\"\",\"CreationDate\":\"2021-06-29T10:05:12.000Z\",\"Owner\":{\"DisplayName\":\"100931896542****\",\"ID\":\"100931896542****\"},\"StorageClass\":\"Standard\",\"DataRedundancyType\":\"LRS\",\"AllowEmptyReferer\":\"true\",\"Name\":\"new-bucket\",\"BucketPolicy\":{\"LogPrefix\":\"\",\"LogBucket\":\"\"},\"ExtranetEndpoint\":\"oss-cn-hangzhou.aliyuncs.com\",\"IntranetEndpoint\":\"oss-cn-hangzhou-internal.aliyuncs.com\",\"Location\":\"oss-cn-hangzhou\"}
+     * @example {\\"AccessControlList\\":{\\"Grant\\":\\"private\\"},\\"ServerSideEncryptionRule\\":{\\"SSEAlgorithm\\":\\"None\\"},\\"Comment\\":\\"\\",\\"CreationDate\\":\\"2021-06-29T10:05:12.000Z\\",\\"Owner\\":{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"},\\"StorageClass\\":\\"Standard\\",\\"DataRedundancyType\\":\\"LRS\\",\\"AllowEmptyReferer\\":\\"true\\",\\"Name\\":\\"new-bucket\\",\\"BucketPolicy\\":{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"},\\"ExtranetEndpoint\\":\\"oss-cn-hangzhou.aliyuncs.com\\",\\"IntranetEndpoint\\":\\"oss-cn-hangzhou-internal.aliyuncs.com\\",\\"Location\\":\\"oss-cn-hangzhou\\"}
      *
      * @var string
      */
@@ -107,7 +112,7 @@ class discoveredResourceDetail extends Model
     /**
      * @description The tags of the resource.
      *
-     * @example {\"\"hc\"\":[\"\"value2\"\"]}
+     * @example {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
      *
      * @var string
      */
@@ -115,6 +120,7 @@ class discoveredResourceDetail extends Model
     protected $_name = [
         'accountId'            => 'AccountId',
         'availabilityZone'     => 'AvailabilityZone',
+        'complianceType'       => 'ComplianceType',
         'configuration'        => 'Configuration',
         'region'               => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
@@ -138,6 +144,9 @@ class discoveredResourceDetail extends Model
         }
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
+        }
+        if (null !== $this->complianceType) {
+            $res['ComplianceType'] = $this->complianceType;
         }
         if (null !== $this->configuration) {
             $res['Configuration'] = $this->configuration;
@@ -183,6 +192,9 @@ class discoveredResourceDetail extends Model
         }
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
+        }
+        if (isset($map['ComplianceType'])) {
+            $model->complianceType = $map['ComplianceType'];
         }
         if (isset($map['Configuration'])) {
             $model->configuration = $map['Configuration'];

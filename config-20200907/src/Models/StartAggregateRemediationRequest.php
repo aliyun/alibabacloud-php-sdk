@@ -11,7 +11,7 @@ class StartAggregateRemediationRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -21,7 +21,7 @@ class StartAggregateRemediationRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * This parameter is required.
      * @example cr-6b7c626622af00b4****
      *
      * @var string

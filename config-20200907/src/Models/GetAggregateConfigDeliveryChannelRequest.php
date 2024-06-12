@@ -11,7 +11,7 @@ class GetAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -21,7 +21,7 @@ class GetAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](~~429842~~).
+     * This parameter is required.
      * @example cdc-d9106457e0d900b1****
      *
      * @var string

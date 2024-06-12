@@ -38,6 +38,7 @@ class GetResourceComplianceTimelineRequest extends Model
     /**
      * @description The ID of the region where the resource resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,7 +48,7 @@ class GetResourceComplianceTimelineRequest extends Model
     /**
      * @description The ID of the resource.
      *
-     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
+     * This parameter is required.
      * @example new-bucket
      *
      * @var string
@@ -57,7 +58,7 @@ class GetResourceComplianceTimelineRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * This parameter is required.
      * @example ACS::OSS::Bucket
      *
      * @var string

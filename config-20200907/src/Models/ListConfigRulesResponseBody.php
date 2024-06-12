@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRulesResponseBody extends Model
 {
     /**
-     * @description The queried rules.
+     * @description The information about the rules.
      *
      * @var configRules
      */

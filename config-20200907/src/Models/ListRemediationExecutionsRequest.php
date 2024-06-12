@@ -11,6 +11,7 @@ class ListRemediationExecutionsRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example cr-5392626622af0000****
      *
      * @var string

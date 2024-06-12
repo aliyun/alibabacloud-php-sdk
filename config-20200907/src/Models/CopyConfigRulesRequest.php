@@ -21,7 +21,7 @@ class CopyConfigRulesRequest extends Model
     /**
      * @description The ID of the account group to which the rules belong.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
      * @example ca-24db626622af0060****
      *
      * @var string
@@ -31,6 +31,7 @@ class CopyConfigRulesRequest extends Model
     /**
      * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
+     * This parameter is required.
      * @example cr-4b57626622af0065****,cr-47c1626622af0050****
      *
      * @var string

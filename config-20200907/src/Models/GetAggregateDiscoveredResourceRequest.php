@@ -11,7 +11,7 @@ class GetAggregateDiscoveredResourceRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-5885626622af0008****
      *
      * @var string
@@ -19,9 +19,14 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $aggregatorId;
 
     /**
+     * @var int
+     */
+    public $complianceOption;
+
+    /**
      * @description The ID of the region in which the resource resides.
      *
-     * For more information about how to query the ID of a region in which the resource resides, see [ListAggregateDiscoveredResources](~~411691~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,7 +45,7 @@ class GetAggregateDiscoveredResourceRequest extends Model
     /**
      * @description The resource ID.
      *
-     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+     * This parameter is required.
      * @example new-bucket
      *
      * @var string
@@ -57,7 +62,7 @@ class GetAggregateDiscoveredResourceRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
+     * This parameter is required.
      * @example ACS::OSS::Bucket
      *
      * @var string
@@ -65,6 +70,7 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $resourceType;
     protected $_name = [
         'aggregatorId'      => 'AggregatorId',
+        'complianceOption'  => 'ComplianceOption',
         'region'            => 'Region',
         'resourceAccountId' => 'ResourceAccountId',
         'resourceId'        => 'ResourceId',
@@ -81,6 +87,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->complianceOption) {
+            $res['ComplianceOption'] = $this->complianceOption;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -111,6 +120,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ComplianceOption'])) {
+            $model->complianceOption = $map['ComplianceOption'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

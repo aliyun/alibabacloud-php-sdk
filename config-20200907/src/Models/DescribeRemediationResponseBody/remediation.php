@@ -84,6 +84,7 @@ class remediation extends Model
     /**
      * @description The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
      *
+     * This parameter is required.
      * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
      *
      * @var string

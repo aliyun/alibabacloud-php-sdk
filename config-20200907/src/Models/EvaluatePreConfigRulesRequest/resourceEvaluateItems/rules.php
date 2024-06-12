@@ -11,7 +11,7 @@ class rules extends Model
     /**
      * @description The identifier of the evaluation rule.
      *
-     * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](~~467810~~).
+     * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
      * @example ecs-instance-deletion-protection-enabled
      *
      * @var string

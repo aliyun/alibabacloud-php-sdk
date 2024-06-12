@@ -12,7 +12,7 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-f632626622af0079****
      *
      * @var string
@@ -31,7 +31,7 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * This parameter is required.
      * @example cp-fdc8626622af00f9****
      *
      * @var string
@@ -41,7 +41,7 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The name of the compliance package.
      *
-     * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
      * @example test-pack-name
      *
      * @var string
@@ -59,7 +59,7 @@ class UpdateAggregateCompliancePackRequest extends Model
     /**
      * @description The description of the compliance package.
      *
-     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](~~262059~~).
+     * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
      * @example Test compliance pack description.
      *
      * @var string

@@ -12,7 +12,7 @@ class IgnoreEvaluationResultsRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-7e72626622af0051****
      *
      * @var string
@@ -41,6 +41,7 @@ class IgnoreEvaluationResultsRequest extends Model
     /**
      * @description The resources to be ignored.
      *
+     * This parameter is required.
      * @var resources[]
      */
     public $resources;

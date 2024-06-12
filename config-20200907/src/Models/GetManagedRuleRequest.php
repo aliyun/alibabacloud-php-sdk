@@ -11,7 +11,7 @@ class GetManagedRuleRequest extends Model
     /**
      * @description The identifier of the managed rule.
      *
-     * You can call the [ListManagedRules](~~421144~~) operation to obtain the managed rule identifier.
+     * This parameter is required.
      * @example cdn-domain-https-enabled
      *
      * @var string

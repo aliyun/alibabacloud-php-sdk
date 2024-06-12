@@ -11,7 +11,7 @@ class rules extends Model
     /**
      * @description The reason why the resource was evaluated as incompliant.
      *
-     * @example {\"configuration\":\"false\",\"desiredValue\":\"True\",\"operator\":\"StringEquals\",\"property\":\"$.DeletionProtection\"}
+     * @example {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DeletionProtection\\"}
      *
      * @var string
      */

@@ -27,7 +27,7 @@ class remediationExecutions extends Model
     public $executionInvocationId;
 
     /**
-     * @description The IDs of the remediated resources. Multiple resource IDs are separated with commas (,).
+     * @description The IDs of the resources to which the remediation belongs. Separate multiple resource IDs with commas (,).
      *
      * @example rm-0jlk629z240l8****
      *
@@ -45,7 +45,7 @@ class remediationExecutions extends Model
     public $executionResourceType;
 
     /**
-     * @description The status of the remediation. Valid values:
+     * @description The status of the remediation record. Valid values:
      *
      *   Success
      *   Failed

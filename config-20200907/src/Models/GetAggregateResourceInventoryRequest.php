@@ -11,7 +11,7 @@ class GetAggregateResourceInventoryRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a91d626622af0035****
      *
      * @var string

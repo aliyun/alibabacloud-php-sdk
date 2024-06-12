@@ -11,6 +11,7 @@ class GetAggregatorRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-88ea626622af0055****
      *
      * @var string

@@ -18,7 +18,7 @@ class evaluationResultList extends Model
      *   `property`: the JSON path of the current configuration in the resource property struct.
      *   `reason`: the reason why the resource is evaluated as incompliant.
      *
-     * @example {\"configuration\":\"false\",\"desiredValue\":\"True\",\"operator\":\"StringEquals\",\"property\":\"$.LoginProfile.MFABindRequired\"}
+     * @example {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.LoginProfile.MFABindRequired\\"}
      *
      * @var string
      */

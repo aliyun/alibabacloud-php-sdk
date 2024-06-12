@@ -44,7 +44,7 @@ class ListResourceEvaluationResultsRequest extends Model
     /**
      * @description The ID of the region where one or more resources you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
      *
-     * For more information about how to obtain the ID of the region where a resource resides, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to obtain the ID of the region where a resource resides, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
      * @example global
      *
      * @var string
@@ -54,7 +54,7 @@ class ListResourceEvaluationResultsRequest extends Model
     /**
      * @description The ID of the resource.
      *
-     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
      * @example 23642660635396****
      *
      * @var string
@@ -64,7 +64,7 @@ class ListResourceEvaluationResultsRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about how to query the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to query the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
      * @example ACS::RAM::User
      *
      * @var string

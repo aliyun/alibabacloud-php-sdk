@@ -12,7 +12,7 @@ class evaluationResultList extends Model
     /**
      * @description The annotation to the resource that is evaluated as incompliant.
      *
-     * @example {\"configuration\":\"false\",\"desiredValue\":\"True\",\"operator\":\"StringEquals\",\"property\":\"$.LoginProfile.MFABindRequired\"}
+     * @example {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.LoginProfile.MFABindRequired\\"}
      *
      * @var string
      */

@@ -19,7 +19,7 @@ class UpdateAggregatorShrinkRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-dacf86d8314e00eb****
      *
      * @var string
@@ -29,7 +29,7 @@ class UpdateAggregatorShrinkRequest extends Model
     /**
      * @description The name of the account group.
      *
-     * For more information about how to obtain the name of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the name of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
      * @example Test_Group
      *
      * @var string
@@ -48,7 +48,7 @@ class UpdateAggregatorShrinkRequest extends Model
     /**
      * @description The description of the account group.
      *
-     * For more information about how to obtain the description of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
      * @var string
      */
     public $description;

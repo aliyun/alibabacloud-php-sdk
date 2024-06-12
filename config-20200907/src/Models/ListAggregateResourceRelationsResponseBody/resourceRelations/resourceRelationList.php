@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resourceRelationList extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The Alibaba Cloud account ID of the resource owner.
      *
      * @example 100931896542****
      *
@@ -23,20 +23,10 @@ class resourceRelationList extends Model
      * Valid values:
      *
      *   IsContained: The object is included as part of the resource.
-     *
-     * <!-- -->
-     *
      *   IsAttachedTo: The object is added to the resource.
-     *
-     * <!-- -->
-     *
      *   IsAssociatedIn: The object is associated with the resource.
-     *
-     * <!-- -->
-     *
      *   Contains: The object contains the resource.
      *
-     * <!-- -->
      * @example IsAttachedTo
      *
      * @var string
@@ -44,7 +34,7 @@ class resourceRelationList extends Model
     public $relationType;
 
     /**
-     * @description The resource ID.
+     * @description The resource ID of the current resource.
      *
      * @example i-j6cajg9yrfoh4sas****
      *
@@ -53,7 +43,7 @@ class resourceRelationList extends Model
     public $sourceResourceId;
 
     /**
-     * @description The ID of the region to which the current resource belongs.
+     * @description The region ID of the current resource.
      *
      * @example cn-shanghai
      *
@@ -71,7 +61,7 @@ class resourceRelationList extends Model
     public $sourceResourceType;
 
     /**
-     * @description The ID of the resource that is associated with the object.
+     * @description The resource ID of the resource that is associated with the object.
      *
      * @example d-j6c8k731qbrc7fxi****
      *

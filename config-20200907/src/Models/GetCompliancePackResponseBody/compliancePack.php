@@ -100,6 +100,8 @@ class compliancePack extends Model
     public $status;
 
     /**
+     * @description The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+     *
      * @var string
      */
     public $templateContent;

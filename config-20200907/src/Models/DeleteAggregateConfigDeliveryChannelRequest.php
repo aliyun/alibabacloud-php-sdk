@@ -11,6 +11,7 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-23c6626622af0041****
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](~~429842~~).
+     * This parameter is required.
      * @example cdc-38c3013b46c9002c****
      *
      * @var string

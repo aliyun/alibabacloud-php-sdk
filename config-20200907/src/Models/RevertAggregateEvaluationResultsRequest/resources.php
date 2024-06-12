@@ -11,7 +11,7 @@ class resources extends Model
     /**
      * @description The ID of the region where the resource resides.
      *
-     * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -21,7 +21,7 @@ class resources extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
-     * > You must specify the ID of the current management account or a member account in the account group of the management account.
+     * This parameter is required.
      * @example 120886317861****
      *
      * @var int
@@ -31,7 +31,7 @@ class resources extends Model
     /**
      * @description The resource ID.
      *
-     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example lb-hp3a3b4ztyfm2plgm****
      *
      * @var string
@@ -41,7 +41,7 @@ class resources extends Model
     /**
      * @description The type of resource.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example ACS::SLB::LoadBalancer
      *
      * @var string

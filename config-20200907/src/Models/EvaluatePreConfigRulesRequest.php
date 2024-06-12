@@ -25,6 +25,7 @@ class EvaluatePreConfigRulesRequest extends Model
     /**
      * @description The resources that you want to evaluate.
      *
+     * This parameter is required.
      * @var resourceEvaluateItems[]
      */
     public $resourceEvaluateItems;

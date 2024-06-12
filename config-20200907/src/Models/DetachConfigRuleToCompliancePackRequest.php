@@ -11,7 +11,7 @@ class DetachConfigRuleToCompliancePackRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](~~263332~~).
+     * This parameter is required.
      * @example cp-5bb1626622af00bd****
      *
      * @var string
@@ -21,7 +21,7 @@ class DetachConfigRuleToCompliancePackRequest extends Model
     /**
      * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-6cc4626622af00e7****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class createBy extends Model
 {
     /**
-     * @description The ID of the compliance package.
+     * @description The compliance package ID.
      *
      * @example cp-fdc8626622af00f9****
      *

@@ -11,7 +11,7 @@ class ListCompliancePackTemplatesRequest extends Model
     /**
      * @description The ID of the compliance package template.
      *
-     * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](~~261176~~).
+     * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
      * @example ct-d254ff4e06a300cf****
      *
      * @var string

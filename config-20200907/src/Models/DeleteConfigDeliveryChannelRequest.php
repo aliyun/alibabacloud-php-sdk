@@ -11,7 +11,7 @@ class DeleteConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For more information about how to obtain the ID of a delivery channel, see [DescribeDeliveryChannels](~~429841~~).
+     * This parameter is required.
      * @example cdc-38c32e87cadb002c****
      *
      * @var string

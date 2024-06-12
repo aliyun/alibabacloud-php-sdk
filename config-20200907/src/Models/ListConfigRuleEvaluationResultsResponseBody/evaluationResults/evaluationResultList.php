@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultList extends Model
 {
     /**
-     * @description The annotation to the resource that is evaluated as non-compliant. The following parameters may be returned:
+     * @description The annotation to the resource that is evaluated as non-compliant. The following section describe the parameters that can be returned:
      *
      *   `configuration`: the current resource configuration that is evaluated as non-compliant.
      *   `desiredValue`: the expected resource configuration that is evaluated as compliant.
@@ -18,19 +18,19 @@ class evaluationResultList extends Model
      *   `property`: the JSON path of the current configuration in the resource property struct.
      *   `reason`: the reason why the resource is evaluated as non-compliant.
      *
-     * @example {\"configuration\":\"\",\"desiredValue\":\"\",\"operator\":\"IsNotStringEmpty\",\"property\":\"$.KeyPairName\",\"reason\":\"No property contains.\"}
+     * @example {\\"configuration\\":\\"\\",\\"desiredValue\\":\\"\\",\\"operator\\":\\"IsNotStringEmpty\\",\\"property\\":\\"$.KeyPairName\\",\\"reason\\":\\"No property contains.\\"}
      *
      * @var string
      */
     public $annotation;
 
     /**
-     * @description The compliance evaluation result of the resources. Valid values:
+     * @description The compliance evaluation result of the resource. Valid values:
      *
      *   COMPLIANT: The resources are evaluated as compliant.
      *   NON_COMPLIANT: The resources are evaluated as non-compliant.
      *   NOT_APPLICABLE: The rule does not apply to the resources.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     *   INSUFFICIENT_DATA: No data is available.
      *   IGNORED: The resource is ignored during compliance evaluation.
      *
      * @example NON_COMPLIANT
@@ -49,7 +49,7 @@ class evaluationResultList extends Model
     public $configRuleInvokedTimestamp;
 
     /**
-     * @description The identifier of the compliance evaluation result.
+     * @description The identifying information about the compliance evaluation result.
      *
      * @var evaluationResultIdentifier
      */
@@ -70,7 +70,9 @@ class evaluationResultList extends Model
     /**
      * @description Indicates whether the remediation template is enabled. Valid values:
      *
-     * - false: The remediation template is disabled.
+     *   true: The remediation template is enabled.
+     *   false: The remediation template is disabled.
+     *
      * @example false
      *
      * @var bool
@@ -87,11 +89,11 @@ class evaluationResultList extends Model
     public $resultRecordedTimestamp;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

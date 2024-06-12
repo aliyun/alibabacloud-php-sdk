@@ -11,7 +11,7 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-7f00626622af0041****
      *
      * @var string
@@ -54,7 +54,7 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @description The ID of the region where one or more resources that you want to query reside. For example, the value `global` indicates global regions and the value `cn-hangzhou` indicates the China (Hangzhou) region.
      *
-     * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](~~265983~~).
+     * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
      * @example global
      *
      * @var string
@@ -64,7 +64,7 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @description The ID of the resource.
      *
-     * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
      * @example 23642660635396****
      *
      * @var string
@@ -74,7 +74,7 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/265983.html).
      * @example ACS::RAM::User
      *
      * @var string

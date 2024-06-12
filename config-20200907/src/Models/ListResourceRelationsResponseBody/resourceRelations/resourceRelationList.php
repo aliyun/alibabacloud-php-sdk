@@ -23,20 +23,10 @@ class resourceRelationList extends Model
      * Valid values:
      *
      *   IsContained: The object is included as part of the resource.
-     *
-     * <!-- -->
-     *
      *   IsAttachedTo: The object is added to the resource.
-     *
-     * <!-- -->
-     *
      *   IsAssociatedIn: The object is associated with the resource.
-     *
-     * <!-- -->
-     *
      *   Contains: The object contains the resource.
      *
-     * <!-- -->
      * @example IsAttachedTo
      *
      * @var string
@@ -53,7 +43,7 @@ class resourceRelationList extends Model
     public $sourceResourceId;
 
     /**
-     * @description The ID of the region to which the current resource belongs.
+     * @description The ID of the region in which the resource resides.
      *
      * @example cn-shanghai
      *
@@ -71,7 +61,7 @@ class resourceRelationList extends Model
     public $sourceResourceType;
 
     /**
-     * @description The ID of the resource that is associated with the object.
+     * @description The ID of the associated resource.
      *
      * @example d-j6c8k731qbrc7fxi****
      *
@@ -80,7 +70,7 @@ class resourceRelationList extends Model
     public $targetResourceId;
 
     /**
-     * @description The type of the resource that is associated with the object.
+     * @description The type of the associated resource.
      *
      * @example ACS::ECS::Disk
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateResourcesByAdvancedSearchResponseBody extends Model
 {
     /**
-     * @description The result of the request.
+     * @description The returned data.
      *
      * @var queryResults
      */

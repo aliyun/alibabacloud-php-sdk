@@ -11,7 +11,7 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-3a58626622af0005****
      *
      * @var string
@@ -31,7 +31,7 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-c169626622af009f****
      *
      * @var string

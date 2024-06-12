@@ -11,7 +11,7 @@ class RevertEvaluationResultsShrinkRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-7e72626622af0051****
      *
      * @var string
@@ -21,6 +21,7 @@ class RevertEvaluationResultsShrinkRequest extends Model
     /**
      * @description The resources that are to be re-evaluated.
      *
+     * This parameter is required.
      * @var string
      */
     public $resourcesShrink;

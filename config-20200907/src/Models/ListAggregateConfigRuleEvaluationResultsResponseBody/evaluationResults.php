@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class evaluationResults extends Model
 {
     /**
-     * @description The details of the compliance evaluation results.
+     * @description The details of the compliance evaluation result.
      *
      * @var evaluationResultList[]
      */
     public $evaluationResultList;
 
     /**
-     * @description The maximum number of entries returned per page.
+     * @description The maximum number of entries returned on each page.
      *
      * @example 10
      *
@@ -26,7 +26,7 @@ class evaluationResults extends Model
     public $maxResults;
 
     /**
-     * @description The token that was used to initiate the next request.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *

@@ -11,6 +11,7 @@ class UpdateConfigurationRecorderRequest extends Model
     /**
      * @description The resource types. Separate multiple resource types with commas (,).
      *
+     * This parameter is required.
      * @example ACS::ECS::Instance
      *
      * @var string

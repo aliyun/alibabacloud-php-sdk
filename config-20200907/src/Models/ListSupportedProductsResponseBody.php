@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSupportedProductsResponseBody extends Model
 {
     /**
-     * @description The maximum number of entries returned for a single request. Valid values: 1 to 500.
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 500.
      *
      * @example 100
      *

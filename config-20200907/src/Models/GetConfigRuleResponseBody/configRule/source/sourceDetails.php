@@ -11,7 +11,7 @@ class sourceDetails extends Model
     /**
      * @description The event source.
      *
-     * >  Only events related to Cloud Config are supported. Valid value: aliyun.config.
+     * >  Only aliyun.config is returned, which indicates that only events related to Cloud Config are supported.
      * @example aliyun.config
      *
      * @var string
@@ -21,11 +21,11 @@ class sourceDetails extends Model
     /**
      * @description The interval at which the rule is triggered. Valid values:
      *
-     *   One_Hour: 1 hour
-     *   Three_Hours: 3 hours
-     *   Six_Hours: 6 hours
-     *   Twelve_Hours: 12 hours
-     *   TwentyFour_Hours: 24 hours
+     *   One_Hour
+     *   Three_Hours
+     *   Six_Hours
+     *   Twelve_Hours
+     *   TwentyFour_Hours
      *
      * >  This parameter is returned if the rule is periodically triggered.
      * @example One_Hour

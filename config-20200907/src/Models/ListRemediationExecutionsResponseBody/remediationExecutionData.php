@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class remediationExecutionData extends Model
 {
     /**
-     * @description The maximum number of entries returned for a single request.
+     * @description The maximum number of entries to return for a single request.
      *
      * @example 10
      *

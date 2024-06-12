@@ -11,7 +11,7 @@ class GetIntegratedServiceStatusRequest extends Model
     /**
      * @description The product code of the cloud product. Valid values:
      *
-     * cadt: Cloud Architecture Design Tool
+     * This parameter is required.
      * @example cadt
      *
      * @var string

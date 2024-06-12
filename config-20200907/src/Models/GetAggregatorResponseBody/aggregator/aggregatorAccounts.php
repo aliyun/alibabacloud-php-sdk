@@ -27,7 +27,7 @@ class aggregatorAccounts extends Model
     public $accountName;
 
     /**
-     * @description The affiliation of the member account. The value is fixed to ResourceDirectory.
+     * @description The type of the member account. Only ResourceDirectory is returned, which indicates that the account is a resource directory account.
      *
      * @example ResourceDirectory
      *
@@ -38,9 +38,9 @@ class aggregatorAccounts extends Model
     /**
      * @description The status of the configuration recorder for the member account. Valid values:
      *
-     *   REGISTRABLE: The configuration recorder has not been registered.
+     *   REGISTRABLE: The configuration recorder is not registered.
      *   BUILDING: The configuration recorder is being deployed.
-     *   REGISTERED: The configuration recorder has been registered.
+     *   REGISTERED: The configuration recorder is registered.
      *   REBUILDING: The configuration recorder is being redeployed.
      *
      * @example REGISTERED

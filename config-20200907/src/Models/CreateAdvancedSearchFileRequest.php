@@ -11,7 +11,8 @@ class CreateAdvancedSearchFileRequest extends Model
     /**
      * @description The SQL statement used to query resources.
      *
-     * @example SELECT * WHERE ResourceType = \"ACS::ECS::Instance\"
+     * This parameter is required.
+     * @example SELECT * WHERE ResourceType = \\"ACS::ECS::Instance\\"
      *
      * @var string
      */

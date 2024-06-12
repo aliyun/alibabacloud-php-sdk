@@ -11,6 +11,7 @@ class ListDiscoveredResourcesRequest extends Model
     /**
      * @description The maximum number of entries returned for a single request. Valid values: 1 to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -38,8 +39,8 @@ class ListDiscoveredResourcesRequest extends Model
     /**
      * @description The status of the resource. Valid values:
      *
-     *   0: The resource is deleted.
-     *   1 (default): The resource is retained.
+     *   0: The resource is deleted. If a resource is deleted from the desired cloud service, **Deleted** is displayed in the resource list in the Cloud Config console.
+     *   1 (default): The resource is retained. If a resource is managed as expected, **Active** is displayed in the resource list in the Cloud Config console.
      *
      * @example 1
      *

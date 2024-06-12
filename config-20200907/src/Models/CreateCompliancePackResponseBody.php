@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCompliancePackResponseBody extends Model
 {
     /**
-     * @description The ID of the compliance package.
+     * @description The compliance package ID.
      *
      * @example cp-a8a8626622af0082****
      *
@@ -18,7 +18,7 @@ class CreateCompliancePackResponseBody extends Model
     public $compliancePackId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
      *

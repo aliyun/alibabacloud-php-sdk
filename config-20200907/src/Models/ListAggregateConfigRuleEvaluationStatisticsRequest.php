@@ -11,7 +11,7 @@ class ListAggregateConfigRuleEvaluationStatisticsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-edd3626622af00b3****
      *
      * @var string

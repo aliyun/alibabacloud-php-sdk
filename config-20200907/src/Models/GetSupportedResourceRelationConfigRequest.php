@@ -11,6 +11,7 @@ class GetSupportedResourceRelationConfigRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example ACS::ECS::Instance
      *
      * @var string

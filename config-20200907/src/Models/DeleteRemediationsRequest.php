@@ -11,7 +11,7 @@ class DeleteRemediationsRequest extends Model
     /**
      * @description The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a remediation template, see [ListRemediations](~~270772~~).
+     * This parameter is required.
      * @example crr-909ba2d4716700eb****
      *
      * @var string

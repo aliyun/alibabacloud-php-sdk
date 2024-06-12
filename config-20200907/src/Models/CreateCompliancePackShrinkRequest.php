@@ -20,6 +20,7 @@ class CreateCompliancePackShrinkRequest extends Model
     /**
      * @description The name of the compliance package.
      *
+     * This parameter is required.
      * @example test-pack-name
      *
      * @var string
@@ -29,7 +30,7 @@ class CreateCompliancePackShrinkRequest extends Model
     /**
      * @description The ID of the compliance package template.
      *
-     * For more information about how to obtain the ID of a compliance package template, see [ListCompliancePackTemplates](~~261176~~).
+     * You can call the [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html) operation to obtain the ID of the compliance package.
      * @example ct-5f26ff4e06a300c4****
      *
      * @var string
@@ -37,7 +38,7 @@ class CreateCompliancePackShrinkRequest extends Model
     public $compliancePackTemplateId;
 
     /**
-     * @description The rules in the compliance package.
+     * @description The rules in the compliance package. You must specify either this parameter or TemplateContent.
      *
      * @var string
      */
@@ -92,11 +93,11 @@ class CreateCompliancePackShrinkRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+     * @description The risk level of the resources that are not compliant with the rules in the compliance package. Default value: 2. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high.
+     *   2: medium.
+     *   3: low.
      *
      * @example 1
      *
@@ -124,6 +125,10 @@ class CreateCompliancePackShrinkRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description The information about the template that is used to generate the compliance package. You can call an API operation to view the details of an existing compliance package or write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html). You must specify one of ConfigRules and TemplateContent.
+     *
+     * @example { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
+     *
      * @var string
      */
     public $templateContent;

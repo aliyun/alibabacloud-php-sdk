@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $complianceOption;
+
+    /**
      * @description The ID of the region in which the resource resides.
      *
-     * For more information about how to query the region ID of a resource, see [ListDiscoveredResources](~~411702~~).
+     * For more information about how to query the region ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -21,7 +26,7 @@ class GetDiscoveredResourceRequest extends Model
     /**
      * @description The resource IDs.
      *
-     * For more information about how to query the ID of a resource, see [ListDiscoveredResources](~~411702~~).
+     * This parameter is required.
      * @example new-bucket
      *
      * @var string
@@ -31,16 +36,17 @@ class GetDiscoveredResourceRequest extends Model
     /**
      * @description The resource type.
      *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~411702~~).
+     * This parameter is required.
      * @example ACS::OSS::Bucket
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'region'       => 'Region',
-        'resourceId'   => 'ResourceId',
-        'resourceType' => 'ResourceType',
+        'complianceOption' => 'ComplianceOption',
+        'region'           => 'Region',
+        'resourceId'       => 'ResourceId',
+        'resourceType'     => 'ResourceType',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class GetDiscoveredResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->complianceOption) {
+            $res['ComplianceOption'] = $this->complianceOption;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -71,6 +80,9 @@ class GetDiscoveredResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComplianceOption'])) {
+            $model->complianceOption = $map['ComplianceOption'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

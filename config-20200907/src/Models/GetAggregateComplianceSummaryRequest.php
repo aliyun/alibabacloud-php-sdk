@@ -11,6 +11,7 @@ class GetAggregateComplianceSummaryRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-a91d626622af0035****
      *
      * @var string

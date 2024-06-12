@@ -11,7 +11,7 @@ class DeactiveConfigRulesRequest extends Model
     /**
      * @description The ID of the rule. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-19a56457e0d90058****
      *
      * @var string

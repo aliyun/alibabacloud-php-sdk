@@ -18,6 +18,11 @@ class GenerateResourceInventoryRequest extends Model
     public $regions;
 
     /**
+     * @var int
+     */
+    public $resourceDeleted;
+
+    /**
      * @description The resource types. Separate multiple resource types with commas (,).
      *
      * @example ACS::ECS::Instance
@@ -26,8 +31,9 @@ class GenerateResourceInventoryRequest extends Model
      */
     public $resourceTypes;
     protected $_name = [
-        'regions'       => 'Regions',
-        'resourceTypes' => 'ResourceTypes',
+        'regions'         => 'Regions',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceTypes'   => 'ResourceTypes',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class GenerateResourceInventoryRequest extends Model
         $res = [];
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
+        }
+        if (null !== $this->resourceDeleted) {
+            $res['ResourceDeleted'] = $this->resourceDeleted;
         }
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
@@ -57,6 +66,9 @@ class GenerateResourceInventoryRequest extends Model
         $model = new self();
         if (isset($map['Regions'])) {
             $model->regions = $map['Regions'];
+        }
+        if (isset($map['ResourceDeleted'])) {
+            $model->resourceDeleted = $map['ResourceDeleted'];
         }
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];

@@ -20,7 +20,7 @@ class CreateRemediationRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-8a973ac2e2be00a2****
      *
      * @var string
@@ -35,6 +35,7 @@ class CreateRemediationRequest extends Model
      *   MANUAL_EXECUTION: The remediation template is manually executed.
      *   NOT_CONFIG: The execution mode is not specified.
      *
+     * This parameter is required.
      * @example MANUAL_EXECUTION
      *
      * @var string
@@ -44,7 +45,7 @@ class CreateRemediationRequest extends Model
     /**
      * @description The configuration of the remediation template.
      *
-     * For more information about how to obtain the remediation template configuration, see the `TemplateDefinition` response parameter provided in [ListRemediationTemplates](~~416781~~).
+     * This parameter is required.
      * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
      *
      * @var string
@@ -54,9 +55,10 @@ class CreateRemediationRequest extends Model
     /**
      * @description The ID of the remediation template.
      *
-     *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](~~416781~~).
+     *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
      *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
      *
+     * This parameter is required.
      * @example ACS-OSS-PutBucketAcl
      *
      * @var string
@@ -69,6 +71,7 @@ class CreateRemediationRequest extends Model
      *   OOS: Operation Orchestration Service (official remediation)
      *   FC: Function Compute (custom remediation)
      *
+     * This parameter is required.
      * @example OOS
      *
      * @var string

@@ -25,7 +25,7 @@ class GetResourceComplianceByConfigRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
+     * This parameter is required.
      * @example cr-d369626622af008e****
      *
      * @var string

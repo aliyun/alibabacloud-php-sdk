@@ -56,7 +56,7 @@ class configRule extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the defense rule.
+     * @description The name of the rule.
      *
      * @var string
      */
@@ -65,10 +65,10 @@ class configRule extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   ACTIVE: The rule was being used to monitor resource configurations.
-     *   DELETING: The rule was being deleted.
-     *   EVALUATING: The rule was triggered and is being used to monitor resource configurations.
-     *   INACTIVE: The rule was disabled.
+     *   ACTIVE: The rule is enabled.
+     *   DELETING: The rule is being deleted.
+     *   EVALUATING: The rule is being used to evaluate resource configurations.
+     *   INACTIVE: The rule is disabled.
      *
      * @example ACTIVE
      *
@@ -96,7 +96,7 @@ class configRule extends Model
     public $createBy;
 
     /**
-     * @description The timestamp when the rule was created. Unit: milliseconds.
+     * @description The timestamp generated when the rule was created. Unit: millisecond.
      *
      * @example 1604684022000
      *
@@ -121,7 +121,7 @@ class configRule extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The details of the input parameters of the rule.
+     * @description The input parameters of the rule.
      *
      * @var mixed[]
      */
@@ -135,15 +135,15 @@ class configRule extends Model
     public $managedRule;
 
     /**
-     * @description The interval at which the rule was triggered. Valid values:
+     * @description The interval at which the rule is triggered. Valid values:
      *
-     *   One_Hour: 1 hour.
-     *   Three_Hours: 3 hours.
-     *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours.
-     *   TwentyFour_Hours: 24 hours.
+     *   One_Hour
+     *   Three_Hours
+     *   Six_Hours
+     *   Twelve_Hours
+     *   TwentyFour_Hours
      *
-     * > This parameter is returned if the managed rule is periodically triggered.
+     * >  This parameter is returned if the rule is periodically triggered.
      * @example One_Hour
      *
      * @var string
@@ -151,7 +151,7 @@ class configRule extends Model
     public $maximumExecutionFrequency;
 
     /**
-     * @description The timestamp when the rule was last updated. Unit: milliseconds.
+     * @description The timestamp generated when the rule was last updated. Unit: millisecond.
      *
      * @example 1614687022000
      *
@@ -187,11 +187,11 @@ class configRule extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high.
+     *   2: medium.
+     *   3: low.
      *
      * @example 1
      *

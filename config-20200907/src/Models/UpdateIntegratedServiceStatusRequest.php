@@ -25,6 +25,7 @@ class UpdateIntegratedServiceStatusRequest extends Model
      *
      *   cadt: Cloud Architecture Design Tool
      *
+     * This parameter is required.
      * @example cadt
      *
      * @var string
@@ -37,6 +38,7 @@ class UpdateIntegratedServiceStatusRequest extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

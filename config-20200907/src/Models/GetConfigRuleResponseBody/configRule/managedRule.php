@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class managedRule extends Model
 {
     /**
-     * @description The required input parameters of the managed rule.
+     * @description The settings of the required input parameters for the managed rule.
      *
      * @var mixed[]
      */
@@ -24,7 +24,7 @@ class managedRule extends Model
     public $description;
 
     /**
-     * @description The ID of the managed rule.
+     * @description The identifier of the managed rule.
      *
      * @example ram-user-mfa-check
      *
@@ -33,7 +33,7 @@ class managedRule extends Model
     public $identifier;
 
     /**
-     * @description The list of rule tags.
+     * @description The rule tags.
      *
      * @var string[]
      */
@@ -47,7 +47,7 @@ class managedRule extends Model
     public $managedRuleName;
 
     /**
-     * @description The optional input parameters of the managed rule.
+     * @description The settings of the optional input parameters for the managed rule.
      *
      * @var mixed[]
      */

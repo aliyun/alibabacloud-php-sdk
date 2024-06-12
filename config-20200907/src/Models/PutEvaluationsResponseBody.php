@@ -18,10 +18,10 @@ class PutEvaluationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The submission status of the evaluation results of the custom rule. Valid values:
+     * @description Indicates whether the evaluation results of the custom rule are submitted. Valid values:
      *
      *   true: The evaluation results are submitted.
-     *   false: The evaluation results failed to be submitted.
+     *   false: The evaluation results fail to be submitted.
      *
      * @example true
      *

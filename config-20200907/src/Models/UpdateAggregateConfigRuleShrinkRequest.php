@@ -11,7 +11,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -30,7 +30,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the rule.
      *
-     * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * This parameter is required.
      * @example cr-4e3d626622af0080****
      *
      * @var string
@@ -40,7 +40,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @description The name of the rule.
      *
-     * For more information about how to query the name of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @var string
      */
     public $configRuleName;

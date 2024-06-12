@@ -17,7 +17,7 @@ class GetAggregatorResponseBody extends Model
     public $aggregator;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 733DD93C-2277-4905-AE0C-0BA95C04B8BC
      *

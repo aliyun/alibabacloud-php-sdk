@@ -11,7 +11,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * This parameter is required.
      * @example ca-5885626622af0008****
      *
      * @var string
@@ -48,7 +48,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     /**
      * @description The ID of the region in which the resource resides.
      *
-     * For more information about how to obtain the ID of a region, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,7 +67,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     /**
      * @description The resource ID.
      *
-     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example new-bucket
      *
      * @var string
@@ -84,7 +84,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * This parameter is required.
      * @example ACS::OSS::Bucket
      *
      * @var string

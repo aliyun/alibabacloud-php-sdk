@@ -21,7 +21,7 @@ class StartConfigRuleEvaluationRequest extends Model
     /**
      * @description The rule ID.
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~609222~~).
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/609222.html).
      * @example cr-9920626622af0035****
      *
      * @var string

@@ -11,7 +11,7 @@ class GetDiscoveredResourceCountsGroupByRegionRequest extends Model
     /**
      * @description The resource type.
      *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
      * @example ACS::ECS::Instance
      *
      * @var string

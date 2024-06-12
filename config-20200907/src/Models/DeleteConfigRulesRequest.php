@@ -11,7 +11,7 @@ class DeleteConfigRulesRequest extends Model
     /**
      * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~609222~~).
+     * This parameter is required.
      * @example cr-9908626622af0035****
      *
      * @var string

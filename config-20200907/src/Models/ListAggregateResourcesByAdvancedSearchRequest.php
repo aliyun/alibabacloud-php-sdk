@@ -11,6 +11,7 @@ class ListAggregateResourcesByAdvancedSearchRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example ca-4b05626622af000c****
      *
      * @var string
@@ -18,9 +19,10 @@ class ListAggregateResourcesByAdvancedSearchRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The SQL statement used to query resources.
+     * @description The SQL query statement.
      *
-     * @example SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\"business:online\"
+     * This parameter is required.
+     * @example SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\\"business:online\\"
      *
      * @var string
      */

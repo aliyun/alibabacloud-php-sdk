@@ -11,6 +11,7 @@ class DeleteAggregatorsRequest extends Model
     /**
      * @description The ID of the account group. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example ca-9190626622af00a9****
      *
      * @var string

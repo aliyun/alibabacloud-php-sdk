@@ -19,7 +19,7 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The supported resource relationships.
+     * @description An array that contains the relationships.
      *
      * @var resourceRelationConfigList[]
      */
