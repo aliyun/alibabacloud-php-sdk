@@ -3,15 +3,22 @@
 
 ### Using AccessKey call
 
-```java
+```php
+<?php
+namespace demo;
 
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
+require_once __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'autoload.php';
+
+
+use AlibabaCloud\SDK\ImageSearch\V20201214\ImageSearch;
+use Darabonba\OpenApi\Models\Config;
 
 $config                  = new Config();
-$config->accessKeyId     = "<Access-Key-Id>";
-$config->accessKeySecret = "<Access-Key-Secret>";
+// Required, please ensure that the code running environment has set environment indicators ALIBABA_CLOUD_ACCESS_KEY_ID.
+$config->accessKeyId     = getenv("ALIBABA_CLOUD_ACCESS_KEY_ID");
+// Required, please ensure that the code running environment has set environment indicators ALIBABA_CLOUD_ACCESS_KEY_SECRET.
+$config->accessKeySecret = getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET");
 $client                  = new ImageSearch($config);
-
 ```
 
 ### Use the default credential provider chain
