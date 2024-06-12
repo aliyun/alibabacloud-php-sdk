@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $authEnabled;
+
+    /**
      * @description A reserved parameter.
      *
      * @example none
@@ -101,6 +106,11 @@ class data extends Model
      * @var bool
      */
     public $consoleUIEnabled;
+
+    /**
+     * @var bool
+     */
+    public $enable4lw;
 
     /**
      * @description Indicates whether access port 8761 was enabled for Eureka. If this port is disabled, applications cannot use the Eureka protocol for service registration and discovery.
@@ -319,6 +329,7 @@ class data extends Model
      */
     public $userName;
     protected $_name = [
+        'authEnabled'                  => 'AuthEnabled',
         'autopurgePurgeInterval'       => 'AutopurgePurgeInterval',
         'autopurgeSnapRetainCount'     => 'AutopurgeSnapRetainCount',
         'clusterName'                  => 'ClusterName',
@@ -328,6 +339,7 @@ class data extends Model
         'configSecretEnabled'          => 'ConfigSecretEnabled',
         'configSecretSupported'        => 'ConfigSecretSupported',
         'consoleUIEnabled'             => 'ConsoleUIEnabled',
+        'enable4lw'                    => 'Enable4lw',
         'eurekaSupported'              => 'EurekaSupported',
         'extendedTypesEnable'          => 'ExtendedTypesEnable',
         'initLimit'                    => 'InitLimit',
@@ -359,6 +371,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authEnabled) {
+            $res['AuthEnabled'] = $this->authEnabled;
+        }
         if (null !== $this->autopurgePurgeInterval) {
             $res['AutopurgePurgeInterval'] = $this->autopurgePurgeInterval;
         }
@@ -385,6 +400,9 @@ class data extends Model
         }
         if (null !== $this->consoleUIEnabled) {
             $res['ConsoleUIEnabled'] = $this->consoleUIEnabled;
+        }
+        if (null !== $this->enable4lw) {
+            $res['Enable4lw'] = $this->enable4lw;
         }
         if (null !== $this->eurekaSupported) {
             $res['EurekaSupported'] = $this->eurekaSupported;
@@ -464,6 +482,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthEnabled'])) {
+            $model->authEnabled = $map['AuthEnabled'];
+        }
         if (isset($map['AutopurgePurgeInterval'])) {
             $model->autopurgePurgeInterval = $map['AutopurgePurgeInterval'];
         }
@@ -490,6 +511,9 @@ class data extends Model
         }
         if (isset($map['ConsoleUIEnabled'])) {
             $model->consoleUIEnabled = $map['ConsoleUIEnabled'];
+        }
+        if (isset($map['Enable4lw'])) {
+            $model->enable4lw = $map['Enable4lw'];
         }
         if (isset($map['EurekaSupported'])) {
             $model->eurekaSupported = $map['EurekaSupported'];

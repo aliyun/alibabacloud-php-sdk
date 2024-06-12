@@ -12041,6 +12041,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->authEnabled)) {
+            $query['AuthEnabled'] = $request->authEnabled;
+        }
         if (!Utils::isUnset($request->autopurgePurgeInterval)) {
             $query['AutopurgePurgeInterval'] = $request->autopurgePurgeInterval;
         }
@@ -12061,6 +12064,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->consoleUIEnabled)) {
             $query['ConsoleUIEnabled'] = $request->consoleUIEnabled;
+        }
+        if (!Utils::isUnset($request->enable4lw)) {
+            $query['Enable4lw'] = $request->enable4lw;
         }
         if (!Utils::isUnset($request->eurekaSupported)) {
             $query['EurekaSupported'] = $request->eurekaSupported;

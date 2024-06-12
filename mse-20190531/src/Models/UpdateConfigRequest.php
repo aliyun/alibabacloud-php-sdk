@@ -21,6 +21,11 @@ class UpdateConfigRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var bool
+     */
+    public $authEnabled;
+
+    /**
      * @description A reserved parameter.
      *
      * @example none
@@ -86,6 +91,11 @@ class UpdateConfigRequest extends Model
      * @var bool
      */
     public $consoleUIEnabled;
+
+    /**
+     * @var bool
+     */
+    public $enable4lw;
 
     /**
      * @example true
@@ -259,6 +269,7 @@ class UpdateConfigRequest extends Model
     public $userName;
     protected $_name = [
         'acceptLanguage'           => 'AcceptLanguage',
+        'authEnabled'              => 'AuthEnabled',
         'autopurgePurgeInterval'   => 'AutopurgePurgeInterval',
         'autopurgeSnapRetainCount' => 'AutopurgeSnapRetainCount',
         'clusterId'                => 'ClusterId',
@@ -266,6 +277,7 @@ class UpdateConfigRequest extends Model
         'configSecretEnabled'      => 'ConfigSecretEnabled',
         'configType'               => 'ConfigType',
         'consoleUIEnabled'         => 'ConsoleUIEnabled',
+        'enable4lw'                => 'Enable4lw',
         'eurekaSupported'          => 'EurekaSupported',
         'extendedTypesEnable'      => 'ExtendedTypesEnable',
         'initLimit'                => 'InitLimit',
@@ -296,6 +308,9 @@ class UpdateConfigRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->authEnabled) {
+            $res['AuthEnabled'] = $this->authEnabled;
+        }
         if (null !== $this->autopurgePurgeInterval) {
             $res['AutopurgePurgeInterval'] = $this->autopurgePurgeInterval;
         }
@@ -316,6 +331,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->consoleUIEnabled) {
             $res['ConsoleUIEnabled'] = $this->consoleUIEnabled;
+        }
+        if (null !== $this->enable4lw) {
+            $res['Enable4lw'] = $this->enable4lw;
         }
         if (null !== $this->eurekaSupported) {
             $res['EurekaSupported'] = $this->eurekaSupported;
@@ -386,6 +404,9 @@ class UpdateConfigRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['AuthEnabled'])) {
+            $model->authEnabled = $map['AuthEnabled'];
+        }
         if (isset($map['AutopurgePurgeInterval'])) {
             $model->autopurgePurgeInterval = $map['AutopurgePurgeInterval'];
         }
@@ -406,6 +427,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['ConsoleUIEnabled'])) {
             $model->consoleUIEnabled = $map['ConsoleUIEnabled'];
+        }
+        if (isset($map['Enable4lw'])) {
+            $model->enable4lw = $map['Enable4lw'];
         }
         if (isset($map['EurekaSupported'])) {
             $model->eurekaSupported = $map['EurekaSupported'];
