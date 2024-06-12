@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AttachAlbServerGroupsRequest extends Model
 {
     /**
-     * @description Details of the ALB server group.
+     * @description The information about the ALB server groups.
      *
      * This parameter is required.
      * @var albServerGroups[]
@@ -18,8 +18,9 @@ class AttachAlbServerGroupsRequest extends Model
     public $albServerGroups;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25965.html).
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -27,10 +28,10 @@ class AttachAlbServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to add Elastic Compute Service (ECS) instances in the scaling group to new ALB server groups. Valid values:
+     * @description Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the ALB server group. Valid values:
      *
-     *   true: adds ECS instances in the scaling group to new ALB server groups and returns the value of `ScalingActivityId`. You can check whether ECS instances are added to new ALB server groups by the scaling activity ID.
-     *   false: does not add ECS instances in the scaling group to new ALB server groups.
+     *   true: adds the existing ECS instances or elastic container instances in the scaling group to the ALB server group. In this case, the system returns the value of `ScalingActivityId`.
+     *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the ALB server group.
      *
      * Default value: false.
      * @example false
@@ -45,7 +46,7 @@ class AttachAlbServerGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the scaling group, such as cn-hangzhou and cn-shanghai. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     * @description The region ID of the scaling group.
      *
      * This parameter is required.
      * @example cn-hangzhou

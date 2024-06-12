@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The key of the dimension. Valid values:
+     * @description The dimension key of the metric. Valid values:
      *
-     *   user_id: the ID of your Alibaba Cloud account
-     *   scaling_group: the scaling group that you want to monitor
-     *   device: the type of the NIC
-     *   state: the state of the TCP connection
+     *   user_id: the ID of your Alibaba Cloud account.
+     *   scaling_group: the scaling group that is monitored by the event-triggered task.
+     *   device: the NIC type.
+     *   state: the status of the TCP connection.
      *
      * @example device
      *
@@ -23,21 +23,21 @@ class dimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description The value of the dimension. The value of the DimensionValue parameter varies based on the value of the DimensionKey parameter.
+     * @description The dimension value of the metric. The value of DimensionValue varies based on the value of DimensionKey.
      *
-     *   If you set the DimensionKey parameter to `user_id`, the system specifies the value of the DimensionValue parameter.
+     *   If you set DimensionKey to `user_id`, the system specifies the value of DimensionValue.
      *
-     *   If you set the DimensionKey parameter to `scaling_group`, the system specifies the value of the DimensionValue parameter.
+     *   If you set DimensionKey to `scaling_group`, the system specifies the value of DimensionValue.
      *
-     *   If you set the DimensionKey parameter to `device`, you can set the DimensionValue parameter to eth0 or eth1.
+     *   If you set DimensionKey to `device`, you can set DimensionValue to eth0 or eth1.
      *
-     *   For instances that reside in the classic network type, eth0 specifies the internal NIC. Only one eth0 NIC exists on each instance that resides in a VPC.
-     *   For instances that reside in the classic network, eth1 specifies the public NIC.
+     *   For instances of the classic network type, eth0 indicates the internal NIC. Only one eth0 NIC exists on each instance that resides in VPCs.
+     *   For instances of the classic network type, eth1 indicates the public NIC.
      *
-     *   If you set the DimensionKey parameter to `state`, you can set the DimensionValue parameter to TCP_TOTAL or ESTABLISHED.
+     *   If you set DimensionKey to `state`, you can set DimensionValue to TCP_TOTAL or ESTABLISHED.
      *
-     *   TCP_TOTAL specifies the total number of TCP connections.
-     *   ESTABLISHED specifies the number of established TCP connections.
+     *   TCP_TOTAL indicates the total number of TCP connections.
+     *   ESTABLISHED indicates the number of TCP connections that are established.
      *
      * @example eth0
      *

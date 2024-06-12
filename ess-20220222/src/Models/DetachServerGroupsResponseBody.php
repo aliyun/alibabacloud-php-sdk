@@ -18,9 +18,9 @@ class DetachServerGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the scaling activity in which you detach the server group from the scaling group and Auto Scaling removes the ECS instances from the server group.
+     * @description The ID of the scaling activity. During the scaling activity, the server group is detached from the scaling group and the existing servers, which are the ECS instances or elastic container instances in the scaling group, are removed from the server group.
      *
-     * > This parameter is returned only if you set the ForceAttach parameter to true.
+     * >  This parameter is returned only if you set `ForceDetach` to `true`.
      * @example asa-bp1gbswjhjrw8tko****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
-     * @description The name of the environment variable. The name must be 1 to 128 characters in length and can contain letters, underscores (_), and digits. The name cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
+     * @description The name of the environment variable. The name can be 1 to 128 characters in length and can contain letters, underscores (_), and digits. It cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
      *
      * @example PATH
      *

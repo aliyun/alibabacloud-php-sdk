@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class albServerGroups extends Model
 {
     /**
-     * @description The ID of the ALB server group.
+     * @description The ID of the Application Load Balancer (ALB) server group.
      *
      * @example sgp-ddwb0y0g6y9bjm****
      *
@@ -18,7 +18,7 @@ class albServerGroups extends Model
     public $albServerGroupId;
 
     /**
-     * @description The port number of an ECS instance as a backend server in the ALB server group.
+     * @description The port number used by an ECS instance as a backend server in the ALB server group.
      *
      * @example 80
      *

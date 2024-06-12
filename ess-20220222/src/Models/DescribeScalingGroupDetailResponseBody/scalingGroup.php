@@ -152,7 +152,7 @@ class scalingGroup extends Model
     public $groupDeletionProtection;
 
     /**
-     * @description The type of instances that are managed by the scaling group. Valid values:
+     * @description The type of the instances that are managed by the scaling group. Valid values:
      *
      *   ECS: ECS instances
      *   ECI: elastic container instances
@@ -253,7 +253,7 @@ class scalingGroup extends Model
     public $loadBalancerIds;
 
     /**
-     * @description The maximum life span of an ECS instance in the scaling group. Unit: seconds.
+     * @description The maximum life span of an instance in the scaling group. Unit: seconds.
      *
      * >  This parameter is not supported by scaling groups of the Elastic Container Instance type and scaling groups whose ScalingPolicy is set to Recycle.
      * @example null
@@ -416,8 +416,9 @@ class scalingGroup extends Model
     public $scalingGroupId;
 
     /**
-     * @description The name of the scaling group. The name of a scaling group must be unique in a region. The name must be 2 to 64 characters in length, and can contain digits, underscores (_), hyphens (-), and periods (.). It must start with a letter or digit.
+     * @description The name of the scaling group. The name of each scaling group must be unique in a region.
      *
+     * The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). It must start with a letter or digit.
      * @example dyrSuvBOtO1dEdIlIbp****
      *
      * @var string
@@ -430,6 +431,7 @@ class scalingGroup extends Model
      *   recycle: economical mode
      *   release: release mode
      *   forcerelease: forced release mode
+     *   forcerecycle: forced recycle mode
      *
      * For more information, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
      * @example recycle
@@ -441,7 +443,7 @@ class scalingGroup extends Model
     /**
      * @description The information about the server groups.
      *
-     * >  You can use this parameter to obtain information about ALB server groups and Network Load Balancer (NLB) server groups that are associated with your scaling group.
+     * >  You can use this parameter to obtain information about ALB server groups and Network Load Balancer (NLB) server groups attached to your scaling group.
      * @var serverGroups[]
      */
     public $serverGroups;

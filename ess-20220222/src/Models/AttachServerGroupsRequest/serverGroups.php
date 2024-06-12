@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
-     * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the server group. Valid values: 1 to 65535.
+     * @description The port used by ECS instances or elastic container instances after being added as backend servers to the server group.
      *
      * This parameter is required.
      * @example 22
@@ -42,7 +42,7 @@ class serverGroups extends Model
     public $type;
 
     /**
-     * @description The weight of an ECS instance after Auto Scaling adds the ECS instance to the server group as a backend server.
+     * @description The weight of an ECS instance or elastic container instance as a backend server of the server group. Valid values: 0 to 100.
      *
      * This parameter is required.
      * @example 100

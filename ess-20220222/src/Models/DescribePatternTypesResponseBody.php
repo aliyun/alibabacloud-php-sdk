@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePatternTypesResponseBody extends Model
 {
     /**
+     * @description The instance types that meet the specified requirements.
+     *
      * @var patternTypes[]
      */
     public $patternTypes;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

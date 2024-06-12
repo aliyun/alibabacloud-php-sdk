@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateOverrides extends Model
 {
     /**
-     * @description The instance type. The instance type specified by using InstanceType overrides the instance type specified in the launch template.
+     * @description The instance type. The instance type that is specified by using this parameter overwrites the instance type of the launch template.
      *
      * @example ecs.c5.xlarge
      *
@@ -20,7 +20,7 @@ class launchTemplateOverrides extends Model
     /**
      * @description The maximum bid price of the instance type that is specified by `LaunchTemplateOverride.InstanceType`.
      *
-     * >  This parameter takes effect only if you use `LaunchTemplateId` to specify a launch template.
+     * >  This parameter takes effect only if you specify `LaunchTemplateId`.
      * @example 0.025
      *
      * @var float
@@ -28,7 +28,7 @@ class launchTemplateOverrides extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The weight of the instance type. The value of this parameter indicates the capacity of a single instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
+     * @description The weight of the instance type. The value of this parameter indicates the capacity of an instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
      *
      * @example 4
      *

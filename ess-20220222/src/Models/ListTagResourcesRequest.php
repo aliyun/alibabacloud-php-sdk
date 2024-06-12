@@ -24,7 +24,7 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Auto Scaling resource. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -46,7 +46,7 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The type of the Auto Scaling resource. Only scaling groups are supported. Set the value to scalinggroup.
+     * @description The resource type. Set the value to scalinggroup.
      *
      * This parameter is required.
      * @example scalinggroup

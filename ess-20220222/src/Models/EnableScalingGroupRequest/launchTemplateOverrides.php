@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateOverrides extends Model
 {
     /**
-     * @description The instance type. The instance type that you specify by using the InstanceType parameter overwrites the instance type that is specified in the launch template.
+     * @description The instance type. If you want to scale instances based on instance type weights in the scaling group, you must specify `LaunchTemplateOverrides.WeightedCapacity` after you specify this parameter.
      *
-     * You can use the InstanceType parameter to specify only instance types that are available for purchase.
+     * You can use this parameter to specify any instance types that are available for purchase.
      * @example ecs.c5.xlarge
      *
      * @var string
@@ -19,7 +19,7 @@ class launchTemplateOverrides extends Model
     public $instanceType;
 
     /**
-     * @description The weight of the instance type. The weight specifies the capacity of a single instance of the specified instance type in the scaling group. If you want Auto Scaling to scale instances in the scaling group based on the weighted capacity of instances, you must specify the WeightedCapacity parameter after you specify the InstanceType parameter.
+     * @description The weight of the instance type. If you want to scale instances based on instance type weights in the scaling group, you must specify this parameter after you specify `LaunchTemplateOverrides.InstanceType`.
      *
      * Example:
      *
@@ -27,7 +27,7 @@ class launchTemplateOverrides extends Model
      *   Expected capacity: 6
      *   Capacity of ecs.c5.xlarge: 4
      *
-     * Valid values of the WeightedCapacity parameter: 1 to 500.
+     * Valid values of WeightedCapacity: 1 to 500.
      * @example 4
      *
      * @var int

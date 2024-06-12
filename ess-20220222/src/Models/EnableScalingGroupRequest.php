@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class EnableScalingGroupRequest extends Model
 {
     /**
-     * @description The ID of the scaling configuration that you want to put into the Active state.
+     * @description The ID of the scaling configuration that you want to enable in the scaling group.
      *
      * @example asc-bp1ffogfdauy0nu5****
      *
@@ -19,16 +19,16 @@ class EnableScalingGroupRequest extends Model
     public $activeScalingConfigurationId;
 
     /**
-     * @description The IDs of ECS instances that you want to add to the scaling group after you enable the scaling group.
+     * @description The IDs of the ECS instances that you want to add to the scaling group after the scaling group is enabled.
      *
-     * The ECS instances must meet the following requirements:
+     * Before you add ECS instances to the scaling group, make sure that the instances meet the following requirements:
      *
-     *   The instances and the scaling group must reside in the same region.
+     *   The instances must reside in the same region as the scaling group.
      *   The instances must be in the Running state.
-     *   The instances are not added to other scaling groups.
-     *   The instances must use the subscription or pay-as-you-go billing method or be preemptible instances.
-     *   If you specify the VswitchID parameter for the scaling group, the instances must reside in the same virtual private cloud (VPC) as the specified vSwitch. You cannot add instances that reside in the classic network or other VPCs to the scaling group.
-     *   If you do not specify the VswitchID parameter for the scaling group, you cannot add instances that reside in VPCs to the scaling group.
+     *   The instances do not belong to another scaling group.
+     *   The instances are billed on a subscription or pay-as-you-go basis, or the instances are preemptible instances.
+     *   If you specify VswitchID for the scaling group, the instances must share the same VPC as the scaling group.
+     *   If you do not specify VswitchID for the scaling group, the instances must use the classic network.
      *
      * @var string[]
      */
@@ -44,7 +44,7 @@ class EnableScalingGroupRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description Details of the instance types that are specified in the extended configurations of the launch template.
+     * @description The information about the instance types that you want to extend in the launch template.
      *
      * @var launchTemplateOverrides[]
      */
@@ -64,7 +64,7 @@ class EnableScalingGroupRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The weight of an ECS instance as a backend server in the associated vServer group.
+     * @description The weights of ECS instances or elastic container instances as backend servers.
      *
      * Default value: 50.
      * @var int[]

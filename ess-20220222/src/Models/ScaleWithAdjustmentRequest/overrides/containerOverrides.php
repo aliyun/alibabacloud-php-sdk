@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class containerOverrides extends Model
 {
     /**
-     * @description The container startup arguments. You can specify up to 10 arguments.
+     * @description The arguments that correspond to the startup commands of the container. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The container startup commands. You can specify up to 20 commands. Each command contains up to 256 characters.
+     * @description The startup commands of the container. You can specify up to 20 commands. Each command can contain up to 256 characters.
      *
      * @var string[]
      */

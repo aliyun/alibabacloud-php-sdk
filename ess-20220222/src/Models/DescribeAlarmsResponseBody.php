@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmsResponseBody extends Model
 {
     /**
-     * @description The list of event-triggered tasks.
+     * @description The event-triggered tasks.
      *
      * @var alarmList[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
-     * @description The port number of an ECS instance as a backend server in the server group.
+     * @description The port number used by an ECS instance as a backend server in the server group.
      *
      * @example 80
      *

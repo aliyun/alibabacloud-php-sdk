@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupDetailResponseBody extends Model
 {
     /**
-     * @description The output details of the scaling group of the Elastic Container Instance type. The output is a Kubernetes Deployment file in the YAML format.
+     * @description The output details of the scaling group of the Elastic Container Instance type. Currently, the output is displayed in a Kubernetes Deployment YAML file.
      *
      * @example apiVersion: apps/v1
      * - containerPort: 80
@@ -28,7 +28,7 @@ class DescribeScalingGroupDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the scaling group.
+     * @description The information about the scaling groups.
      *
      * @var scalingGroup
      */

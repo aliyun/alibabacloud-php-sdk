@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group to which you want to move the scaling group.
      *
+     * This parameter is required.
      * @example rg-aek2ckjqe3*****
      *
      * @var string
@@ -32,8 +33,9 @@ class ChangeResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group that you want to move from the current resource group to another resource group.
      *
+     * This parameter is required.
      * @example asg-bp17xb4x1vr29lgt****
      *
      * @var string
@@ -46,6 +48,8 @@ class ChangeResourceGroupRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. Set the value to scalinggroup.
+     *
      * @example scalinggroup
      *
      * @var string

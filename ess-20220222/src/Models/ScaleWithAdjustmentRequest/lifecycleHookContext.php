@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class lifecycleHookContext extends Model
 {
     /**
-     * @description Specifies whether to disable the lifecycle hook.
+     * @description Specifies whether to disable the Lifecycle Hook feature. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *

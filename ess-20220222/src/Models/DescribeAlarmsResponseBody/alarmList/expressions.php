@@ -11,12 +11,11 @@ class expressions extends Model
     /**
      * @description The operator that is used to compare the metric value and the threshold.
      *
-     *   Valid value if the metric value is greater than or equal to the threshold: >=
-     *   Valid value if the metric value is less than or equal to the threshold: <=
-     *   Valid value if the metric value is greater than the threshold: >
-     *   Valid value if the metric value is less than the threshold: <
+     *   Valid value if the metric value is greater than or equal to the threshold: >=.
+     *   Valid value if the metric value is less than or equal to the threshold: <=.
+     *   Valid value if the metric value is greater than the threshold: >.
+     *   Valid value if the metric value is less than the threshold: <.
      *
-     * Default value: >=.
      * @example >=
      *
      * @var string
@@ -27,28 +26,32 @@ class expressions extends Model
      * @description The name of the metric that is specified in the multi-metric alert rule. Valid values:
      *
      *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
-     *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
-     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
-     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
-     *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
-     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
-     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
-     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
-     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
-     *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
-     *   GpuUtilizationAgent: the GPU utilization of an agent. Unit: %.
-     *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
-     *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
-     *   MemoryUtilization: the memory usage of an agent. Unit: %.
-     *   LoadAverage: the average system load of an agent.
-     *   TcpConnection: the total number of TCP connections of an agent.
-     *   TcpConnection: the number of established TCP connections of an agent.
-     *   PackagesNetOut: the number of packets that are sent by the internal NIC used by an agent.
-     *   PackagesNetIn: the number of packets that are received by the internal NIC used by an agent.
-     *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
-     *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
+     *   ConcurrentConnections: the number of current connections to an ECS instance.
+     *   IntranetTx: the outbound traffic over an internal network. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over an internal network. Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over a VPC. Unit: KB/min.
+     *   VpcInternetRx: the inbound traffic over a VPC. Unit: KB/min.
+     *   SystemDiskReadBps: the number of bytes read from the system disk per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk per second.
+     *   SystemDiskReadOps: the read IOPS of the system disk. Unit: counts/s.
+     *   SystemDiskWriteOps: the write IOPS of the system disk. Unit: counts/s.
+     *   CpuUtilizationAgent: the CPU utilization. Unit: %.
+     *   GpuUtilizationAgent: the GPU utilization. Unit: %.
+     *   GpuMemoryFreeUtilizationAgent: the idle GPU memory usage. Unit: %.
+     *   GpuMemoryUtilizationAgent: the GPU memory usage. Unit: %.
+     *   MemoryUtilization: the memory usage. Unit: %.
+     *   LoadAverage: the average system load.
+     *   TcpConnection: the total number of TCP connections.
+     *   TcpConnection: the number of established TCP connections.
+     *   PackagesNetOut: the number of packets sent by the internal NIC. Unit: counts/s.
+     *   PackagesNetIn: the number of packets received by the internal NIC. Unit: counts/s.
+     *   PackagesNetOut: the number of packets sent by the public NIC. Unit: counts/s.
+     *   PackagesNetIn: the number of packets received by the public NIC. Unit: counts/s.
+     *   EciPodCpuUtilization: the CPU utilization. Unit: %.
+     *   EciPodMemoryUtilization: the memory usage. Unit: %.
+     *   LoadBalancerRealServerAverageQps: the QPS of an instance.
      *
-     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
+     * For more information, see [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -56,7 +59,7 @@ class expressions extends Model
     public $metricName;
 
     /**
-     * @description The period of time during which statistics about the metrics in the multi-metric alert rule is collected. Unit: seconds. Valid values:
+     * @description The statistical period of the metric data in the multi-metric alert rule. Unit: seconds. Valid values:
      *
      *   15
      *   60
@@ -64,7 +67,7 @@ class expressions extends Model
      *   300
      *   900
      *
-     * > If your scaling group is of the ECS type and the event-triggered task associated with your scaling group monitors CloudMonitor metrics, you can set the Period parameter to 15. In most cases, the name of a CloudMonitor metric contains Agent.
+     * >  If your scaling group is of the ECS type and the event-triggered task that is associated with your scaling group monitors CloudMonitor metrics, you can set Period to 15. In most cases, the name of a CloudMonitor metric contains Agent.
      * @example 900
      *
      * @var int
@@ -74,9 +77,9 @@ class expressions extends Model
     /**
      * @description The method that is used to aggregate statistics about the metrics in the multi-metric alert rule. Valid values:
      *
-     *   Average
-     *   Minimum
-     *   Maximum
+     *   Average: the average value
+     *   Minimum: the minimum value
+     *   Maximum: the maximum value
      *
      * @example Average
      *
@@ -85,7 +88,7 @@ class expressions extends Model
     public $statistics;
 
     /**
-     * @description The thresholds of the metric values in the multi-metric alert rule. If the thresholds are reached the specified number of times within the specified period, a scaling rule is executed.
+     * @description The threshold of the metric value. If the threshold is reached the specified number of times within the specified period, a scaling rule is executed.
      *
      * @example 40.0
      *

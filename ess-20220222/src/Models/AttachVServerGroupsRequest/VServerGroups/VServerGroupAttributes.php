@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VServerGroupAttributes extends Model
 {
     /**
-     * @description The port number that is used when Auto Scaling adds ECS instances to the vServer group. Valid values: 1 to 65535.
+     * @description The port number over which Auto Scaling adds ECS instances or elastic container instances to the new vServer group. Valid values: 1 to 65535.
      *
      * @example 22
      *
@@ -27,7 +27,7 @@ class VServerGroupAttributes extends Model
     public $VServerGroupId;
 
     /**
-     * @description The weight of an ECS instance as a backend server in the vServer group. Valid values: 0 to 100.
+     * @description The weight of an ECS instance or elastic container instance as a backend server. Valid values: 0 to 100.
      *
      * Default value: 50.
      * @example 100

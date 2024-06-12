@@ -23,7 +23,7 @@ class DescribeScalingGroupDetailRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the scaling group. For more information, see the "Regions and zones" topic.
+     * @description The region ID of the scaling group. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      *
      * This parameter is required.
      * @example cn-hangzhou

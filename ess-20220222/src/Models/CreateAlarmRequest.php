@@ -81,7 +81,7 @@ class CreateAlarmRequest extends Model
     public $evaluationCount;
 
     /**
-     * @description The expressions that are specified in the multi-metric alert rule.
+     * @description The information about the multi-metric alert rules.
      *
      * @var expressions[]
      */
@@ -110,35 +110,39 @@ class CreateAlarmRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the metric. The valid values vary based on the metric type.
+     * @description The metric name. The valid values of this parameter vary based on the metric type.
      *
-     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
+     *   If you set MetricType to custom, the valid values are the metrics that you have.
      *
-     *   If you set the MetricType parameter to system, the MetricName parameter has the following valid values:
+     *   If you set MetricType to system, this parameter has the following valid values:
      *
-     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
-     *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
-     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a virtual private cloud (VPC). Unit: KB/min.
-     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
-     *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
-     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
-     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
-     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
-     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
-     *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
-     *   GpuUtilizationAgent: the GPU utilization of an agent. Unit: %.
-     *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
-     *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
-     *   MemoryUtilization: the memory usage of an agent. Unit: %.
-     *   LoadAverage: the average system load of an agent.
-     *   TcpConnection: the total number of TCP connections of an agent.
-     *   TcpConnection: the number of established TCP connections of an agent.
-     *   PackagesNetOut: the number of packets that are sent by the internal network interface controller (NIC) used by an agent.
-     *   PackagesNetIn: the number of packets that are received by the internal NIC used by an agent.
-     *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
-     *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
+     *   CpuUtilization: the CPU utilization. Unit: %.
+     *   ConcurrentConnections: the number of concurrent connections.
+     *   IntranetTx: the outbound traffic over an internal network. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over an internal network. Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over a virtual private cloud (VPC). Unit: KB/min.
+     *   VpcInternetRx: the inbound traffic over a VPC. Unit: KB/min.
+     *   SystemDiskReadBps: the number of bytes read from the system disk per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk per second.
+     *   SystemDiskReadOps: the read IOPS of the system disk. Unit: counts/s.
+     *   SystemDiskWriteOps: the write IOPS of the system disk. Unit: counts/s.
+     *   CpuUtilizationAgent: the CPU utilization. Unit: %.
+     *   GpuUtilizationAgent: the GPU utilization. Unit: %.
+     *   GpuMemoryFreeUtilizationAgent: the idle GPU memory usage. Unit: %.
+     *   GpuMemoryUtilizationAgent: the GPU memory usage. Unit: %.
+     *   MemoryUtilization: the memory usage. Unit: %.
+     *   LoadAverage: the average system load.
+     *   TcpConnection: the total number of TCP connections.
+     *   TcpConnection: the number of established TCP connections.
+     *   PackagesNetOut: the number of packets sent by the internal network interface controller (NIC). Unit: counts/s.
+     *   PackagesNetIn: the number of packets received by the internal NIC. Unit: counts/s.
+     *   PackagesNetOut: the number of packets sent by the public NIC. Unit: counts/s.
+     *   PackagesNetIn: the number of packets received by the public NIC. Unit: counts/s.
+     *   EciPodCpuUtilization: the CPU utilization. Unit: %.
+     *   EciPodMemoryUtilization: the memory usage. Unit: %.
+     *   LoadBalancerRealServerAverageQps: the queries per second (QPS) of an instance.
      *
-     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
+     * For more information, see [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -172,7 +176,7 @@ class CreateAlarmRequest extends Model
     public $ownerId;
 
     /**
-     * @description The period during which the statistical value of the metric is collected. Unit: seconds. Valid values:
+     * @description The statistical period of the metric data. Unit: seconds. Valid values:
      *
      *   15
      *   60

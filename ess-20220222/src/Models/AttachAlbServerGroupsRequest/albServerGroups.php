@@ -19,7 +19,7 @@ class albServerGroups extends Model
     public $albServerGroupId;
 
     /**
-     * @description The port number used by the ECS instance after the ECS instance is added to the ALB server group. Valid values: 1 to 65535.
+     * @description The port used by ECS instances or elastic container instances after being added as backend servers to the ALB server group.
      *
      * This parameter is required.
      * @example 22
@@ -29,7 +29,7 @@ class albServerGroups extends Model
     public $port;
 
     /**
-     * @description The weight of the ECS instance as a backend server after the instance is added to the ALB server group.
+     * @description The weight of an ECS instance or elastic container instance after being added as a backend server to the ALB server group. Valid values: 0 to 100.
      *
      * This parameter is required.
      * @example 100

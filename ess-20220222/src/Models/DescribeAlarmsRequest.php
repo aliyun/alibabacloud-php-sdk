@@ -30,7 +30,7 @@ class DescribeAlarmsRequest extends Model
     public $isEnable;
 
     /**
-     * @description The name of the event-triggered task.
+     * @description The metric name.
      *
      * @example CpuUtilization
      *
@@ -39,10 +39,10 @@ class DescribeAlarmsRequest extends Model
     public $metricName;
 
     /**
-     * @description The type of the metric. Valid values:
+     * @description The metric type. Valid values:
      *
      *   system: system metrics of CloudMonitor
-     *   custom: custom metrics that are reported to CloudMonitor
+     *   custom: custom metrics that are reported to CloudMonitor.
      *
      * @example true
      *

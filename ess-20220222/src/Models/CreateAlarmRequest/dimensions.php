@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The key of the metric dimension. The valid values vary based on the metric type.
+     * @description The dimension key of the metric. The valid values vary based on the metric type.
      *
-     *   If you set the MetricType parameter to custom, you can specify this parameter based on your business requirements.
+     *   If you set MetricType to custom, you can specify this parameter based on your business requirements.
      *
-     *   If you set the MetricType parameter to system, this parameter has the following valid values:
+     *   If you set MetricType to system, this parameter has the following valid values:
      *
-     *   user_id: the ID of your Alibaba Cloud account
-     *   scaling_group: the scaling group that you want to monitor
-     *   device: the type of the NIC
-     *   state: the status of the TCP connection
+     *   user_id: the ID of your Alibaba Cloud account.
+     *   scaling_group: the scaling group that you want to monitor by using the event-triggered task.
+     *   device: the NIC type.
+     *   state: the status of the TCP connection.
      *
      * @example device
      *
@@ -27,25 +27,25 @@ class dimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description The value of the metric dimension. The valid values vary based on the value of the DimensionKey parameter.
+     * @description The dimension value of the metric. The valid values of this parameter vary based on the value of Dimensions.DimensionKey.
      *
-     *   If you set the MetricType parameter to custom, you can specify this parameter based on your business requirements.
+     *   If you set MetricType to custom, you can specify this parameter based on your business requirements.
      *
-     *   If you set the MetricType parameter to system, the following rules apply:
+     *   If you set MetricType to system, this parameter has the following valid values:
      *
-     *   If you set the DimensionKey parameter to user_id, the system specifies the value of the DimensionValue parameter.
+     *   user_id: The system specifies the value.
      *
-     *   If you set the DimensionKey parameter to scaling_group, the system specifies the value of the DimensionValue parameter.
+     *   scaling_group: The system specifies the value.
      *
-     *   If you set the DimensionKey parameter to device, you can set the DimensionValue parameter to eth0 or eth1.
+     *   device: You can set this parameter to eth0 or eth1.
      *
-     *   For instances that reside in the classic network, eth0 specifies the internal NIC. Only one eth0 NIC exists on each instance that resides in a VPC.
-     *   For instances that reside in the classic network, eth1 specifies the public NIC.
+     *   For instances of the classic network type, eth0 specifies the internal NIC. Only one eth0 NIC exists on each instance that resides in VPCs.
+     *   For instances of the classic network type, eth1 specifies the public NIC.
      *
-     *   If you set the DimensionKey parameter to state, you can set the DimensionValue parameter to TCP_TOTAL or ESTABLISHED.
+     *   state: You can set this parameter to TCP_TOTAL or ESTABLISHED.
      *
      *   TCP_TOTAL specifies the total number of TCP connections.
-     *   ESTABLISHED specifies the number of established TCP connections.
+     *   ESTABLISHED specifies the number of TCP connections that are established.
      *
      * @example eth0
      *

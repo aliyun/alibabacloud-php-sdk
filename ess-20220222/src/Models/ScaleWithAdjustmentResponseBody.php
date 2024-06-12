@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ScaleWithAdjustmentResponseBody extends Model
 {
     /**
+     * @description The type of the scaling activity.
+     *
+     * This parameter is applicable to only scaling groups that have an expected number of instances.
      * @example CapacityChange
      *
      * @var string

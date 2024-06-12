@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DetachServerGroupsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -20,7 +20,7 @@ class DetachServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to remove the Elastic Compute Service (ECS) instances in the scaling group from the server group that you want to detach.
+     * @description Specifies whether to remove the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group from the server group marked for detachment.
      *
      *   true
      *   false
@@ -63,7 +63,7 @@ class DetachServerGroupsRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description Details of the server groups.
+     * @description The information about the server groups.
      *
      * This parameter is required.
      * @var serverGroups[]

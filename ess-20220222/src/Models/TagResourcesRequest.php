@@ -15,7 +15,7 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -38,7 +38,7 @@ class TagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The type of the resource. Only scaling groups are supported. Set the value to scalinggroup.
+     * @description The resource type. Set the value to scalinggroup.
      *
      * This parameter is required.
      * @example scalinggroup
