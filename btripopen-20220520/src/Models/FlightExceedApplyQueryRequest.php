@@ -9,15 +9,19 @@ use AlibabaCloud\Tea\Model;
 class FlightExceedApplyQueryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @example 175634
      *
      * @var int
      */
     public $applyId;
+
+    /**
+     * @var string
+     */
+    public $businessInstanceId;
     protected $_name = [
-        'applyId' => 'apply_id',
+        'applyId'            => 'apply_id',
+        'businessInstanceId' => 'business_instance_id',
     ];
 
     public function validate()
@@ -29,6 +33,9 @@ class FlightExceedApplyQueryRequest extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+        if (null !== $this->businessInstanceId) {
+            $res['business_instance_id'] = $this->businessInstanceId;
         }
 
         return $res;
@@ -44,6 +51,9 @@ class FlightExceedApplyQueryRequest extends Model
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
+        }
+        if (isset($map['business_instance_id'])) {
+            $model->businessInstanceId = $map['business_instance_id'];
         }
 
         return $model;

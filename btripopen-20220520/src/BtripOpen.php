@@ -49,6 +49,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyTripTaskExecuteHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyTripTaskExecuteRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyTripTaskExecuteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\BaseCityInfoSearchResponse;
@@ -554,6 +557,15 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripCCInfoQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripCCInfoQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripCCInfoQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripTaskQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripTaskQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripTaskQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleResponse;
@@ -1733,6 +1745,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 执行审批任务
+     *  *
+     * @param ApplyTripTaskExecuteRequest $request ApplyTripTaskExecuteRequest
+     * @param ApplyTripTaskExecuteHeaders $headers ApplyTripTaskExecuteHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ApplyTripTaskExecuteResponse ApplyTripTaskExecuteResponse
+     */
+    public function applyTripTaskExecuteWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->actionFrom)) {
+            $body['action_from'] = $request->actionFrom;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $body['comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->taskAction)) {
+            $body['task_action'] = $request->taskAction;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['task_id'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyTripTaskExecute',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/trip-task/action/execute',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyTripTaskExecuteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行审批任务
+     *  *
+     * @param ApplyTripTaskExecuteRequest $request ApplyTripTaskExecuteRequest
+     *
+     * @return ApplyTripTaskExecuteResponse ApplyTripTaskExecuteResponse
+     */
+    public function applyTripTaskExecute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ApplyTripTaskExecuteHeaders([]);
+
+        return $this->applyTripTaskExecuteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
      *  *
      * @param BaseCityInfoSearchRequest $request BaseCityInfoSearchRequest
@@ -2451,6 +2535,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->bizCategory)) {
             $query['biz_category'] = $request->bizCategory;
+        }
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -4220,6 +4307,9 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -6678,6 +6768,9 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -11529,6 +11622,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -12751,6 +12847,201 @@ class BtripOpen extends OpenApiClient
         $headers = new TravelStandardQueryHeaders([]);
 
         return $this->travelStandardQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询业务流程
+     *  *
+     * @param TripBusinessInstanceQueryRequest $request TripBusinessInstanceQueryRequest
+     * @param TripBusinessInstanceQueryHeaders $headers TripBusinessInstanceQueryHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TripBusinessInstanceQueryResponse TripBusinessInstanceQueryResponse
+     */
+    public function tripBusinessInstanceQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
+        }
+        if (!Utils::isUnset($request->thirdBusinessId)) {
+            $query['third_business_id'] = $request->thirdBusinessId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TripBusinessInstanceQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/business',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TripBusinessInstanceQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询业务流程
+     *  *
+     * @param TripBusinessInstanceQueryRequest $request TripBusinessInstanceQueryRequest
+     *
+     * @return TripBusinessInstanceQueryResponse TripBusinessInstanceQueryResponse
+     */
+    public function tripBusinessInstanceQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TripBusinessInstanceQueryHeaders([]);
+
+        return $this->tripBusinessInstanceQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询抄送信息
+     *  *
+     * @param TripCCInfoQueryRequest $request TripCCInfoQueryRequest
+     * @param TripCCInfoQueryHeaders $headers TripCCInfoQueryHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TripCCInfoQueryResponse TripCCInfoQueryResponse
+     */
+    public function tripCCInfoQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['node_id'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->thirdBusinessId)) {
+            $query['third_business_id'] = $request->thirdBusinessId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TripCCInfoQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/cc',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TripCCInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询抄送信息
+     *  *
+     * @param TripCCInfoQueryRequest $request TripCCInfoQueryRequest
+     *
+     * @return TripCCInfoQueryResponse TripCCInfoQueryResponse
+     */
+    public function tripCCInfoQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TripCCInfoQueryHeaders([]);
+
+        return $this->tripCCInfoQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询审批任务列表
+     *  *
+     * @param TripTaskQueryRequest $request TripTaskQueryRequest
+     * @param TripTaskQueryHeaders $headers TripTaskQueryHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TripTaskQueryResponse TripTaskQueryResponse
+     */
+    public function tripTaskQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessInstanceId)) {
+            $query['business_instance_id'] = $request->businessInstanceId;
+        }
+        if (!Utils::isUnset($request->thirdBusinessId)) {
+            $query['third_business_id'] = $request->thirdBusinessId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TripTaskQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/tasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TripTaskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批任务列表
+     *  *
+     * @param TripTaskQueryRequest $request TripTaskQueryRequest
+     *
+     * @return TripTaskQueryResponse TripTaskQueryResponse
+     */
+    public function tripTaskQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TripTaskQueryHeaders([]);
+
+        return $this->tripTaskQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

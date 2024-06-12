@@ -96,6 +96,11 @@ class module extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
         'applyId'                  => 'apply_id',
         'applyIntentionInfoDo'     => 'apply_intention_info_do',
@@ -111,6 +116,7 @@ class module extends Model
         'thirdpartApplyId'         => 'thirdpart_apply_id',
         'thirdpartCorpId'          => 'thirdpart_corp_id',
         'userId'                   => 'user_id',
+        'userName'                 => 'user_name',
     ];
 
     public function validate()
@@ -167,6 +173,9 @@ class module extends Model
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -227,6 +236,9 @@ class module extends Model
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
+        }
+        if (isset($map['user_name'])) {
+            $model->userName = $map['user_name'];
         }
 
         return $model;

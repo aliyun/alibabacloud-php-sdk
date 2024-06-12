@@ -6,38 +6,38 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CommonApplyQueryRequest extends Model
+class TripBusinessInstanceQueryRequest extends Model
 {
     /**
-     * @example 1003366164
+     * @example 12345
      *
-     * @var int
-     */
-    public $applyId;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
-     * @var int
-     */
-    public $bizCategory;
-
-    /**
      * @var string
      */
     public $businessInstanceId;
 
     /**
+     * @example 12345
+     *
+     * @var string
+     */
+    public $thirdBusinessId;
+
+    /**
+     * @example thirdpart12138
+     *
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
-        'applyId'            => 'apply_id',
-        'bizCategory'        => 'biz_category',
         'businessInstanceId' => 'business_instance_id',
+        'thirdBusinessId'    => 'third_business_id',
         'userId'             => 'user_id',
+        'userName'           => 'user_name',
     ];
 
     public function validate()
@@ -47,17 +47,17 @@ class CommonApplyQueryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applyId) {
-            $res['apply_id'] = $this->applyId;
-        }
-        if (null !== $this->bizCategory) {
-            $res['biz_category'] = $this->bizCategory;
-        }
         if (null !== $this->businessInstanceId) {
             $res['business_instance_id'] = $this->businessInstanceId;
         }
+        if (null !== $this->thirdBusinessId) {
+            $res['third_business_id'] = $this->thirdBusinessId;
+        }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
+        }
+        if (null !== $this->userName) {
+            $res['user_name'] = $this->userName;
         }
 
         return $res;
@@ -66,22 +66,22 @@ class CommonApplyQueryRequest extends Model
     /**
      * @param array $map
      *
-     * @return CommonApplyQueryRequest
+     * @return TripBusinessInstanceQueryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['apply_id'])) {
-            $model->applyId = $map['apply_id'];
-        }
-        if (isset($map['biz_category'])) {
-            $model->bizCategory = $map['biz_category'];
-        }
         if (isset($map['business_instance_id'])) {
             $model->businessInstanceId = $map['business_instance_id'];
         }
+        if (isset($map['third_business_id'])) {
+            $model->thirdBusinessId = $map['third_business_id'];
+        }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
+        }
+        if (isset($map['user_name'])) {
+            $model->userName = $map['user_name'];
         }
 
         return $model;
