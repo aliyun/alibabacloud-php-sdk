@@ -27,8 +27,8 @@ class data extends Model
      *
      *   **-1**: No usage period information is available for the phone number.
      *   **0**: The phone number status is abnormal. For example, the phone number is a nonexistent number.
-     *   **1** :\[0-3) months.
-     *   **2** :\[3-6] months.
+     *   **1** :[0-3) months.
+     *   **2** :[3-6] months.
      *   **3** :(6-12] months.
      *   **4** :(12-24] months.
      *   **5** :(24,+) months.

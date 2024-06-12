@@ -12,6 +12,8 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
      * @description The authorization code.
      *
      * >  On the ****[**Labels**](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can obtain an authorization code.
+     *
+     * This parameter is required.
      * @example HwD***nG
      *
      * @var string
@@ -21,6 +23,7 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
     /**
      * @description The phone number to be queried.
      *
+     * This parameter is required.
      * @example 187****5620
      *
      * @var string

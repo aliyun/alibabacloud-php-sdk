@@ -12,6 +12,8 @@ class PhoneNumberStatusForVirtualRequest extends Model
      * @description The authorization code.
      *
      * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization ID.
+     *
+     * This parameter is required.
      * @example Dd1r***4id
      *
      * @var string
@@ -25,7 +27,7 @@ class PhoneNumberStatusForVirtualRequest extends Model
      *   If the value of Mask is MD5, the value of this field is a 32-bit encrypted string.
      *   If the value of Mask is SHA256, the value of this field is a 64-bit encrypted string.
      *
-     * >  Letters in the encrypted strings are not case-sensitive.
+     * This parameter is required.
      * @example 139****0000
      *
      * @var string
@@ -39,6 +41,7 @@ class PhoneNumberStatusForVirtualRequest extends Model
      *   **MD5**
      *   **SHA256**
      *
+     * This parameter is required.
      * @example NORMAL
      *
      * @var string

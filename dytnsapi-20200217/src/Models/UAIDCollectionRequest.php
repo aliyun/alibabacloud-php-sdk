@@ -6,39 +6,39 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberAnalysisRequest extends Model
+class UAIDCollectionRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example QASDW@#**
+     * @example 示例值
      *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 示例值
+     *
+     * @var string
+     */
+    public $carrier;
+
+    /**
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $ip;
+
+    /**
      * @description This parameter is required.
      *
-     * @example 1310000****
+     * @example 示例值示例值
      *
      * @var string
      */
-    public $inputNumber;
-
-    /**
-     * @example MD5
-     *
-     * @var string
-     */
-    public $mask;
-
-    /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $numberType;
+    public $outId;
 
     /**
      * @var int
@@ -46,11 +46,11 @@ class DescribePhoneNumberAnalysisRequest extends Model
     public $ownerId;
 
     /**
-     * @example 10
+     * @example 示例值示例值
      *
-     * @var int
+     * @var string
      */
-    public $rate;
+    public $province;
 
     /**
      * @var string
@@ -61,15 +61,33 @@ class DescribePhoneNumberAnalysisRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $token;
+
+    /**
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $userGrantId;
     protected $_name = [
         'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'numberType'           => 'NumberType',
+        'carrier'              => 'Carrier',
+        'ip'                   => 'Ip',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
-        'rate'                 => 'Rate',
+        'province'             => 'Province',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'token'                => 'Token',
+        'userGrantId'          => 'UserGrantId',
     ];
 
     public function validate()
@@ -82,26 +100,32 @@ class DescribePhoneNumberAnalysisRequest extends Model
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
-        if (null !== $this->inputNumber) {
-            $res['InputNumber'] = $this->inputNumber;
+        if (null !== $this->carrier) {
+            $res['Carrier'] = $this->carrier;
         }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
-        if (null !== $this->numberType) {
-            $res['NumberType'] = $this->numberType;
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
+        if (null !== $this->province) {
+            $res['Province'] = $this->province;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
+        }
+        if (null !== $this->userGrantId) {
+            $res['UserGrantId'] = $this->userGrantId;
         }
 
         return $res;
@@ -110,7 +134,7 @@ class DescribePhoneNumberAnalysisRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberAnalysisRequest
+     * @return UAIDCollectionRequest
      */
     public static function fromMap($map = [])
     {
@@ -118,26 +142,32 @@ class DescribePhoneNumberAnalysisRequest extends Model
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
-        if (isset($map['InputNumber'])) {
-            $model->inputNumber = $map['InputNumber'];
+        if (isset($map['Carrier'])) {
+            $model->carrier = $map['Carrier'];
         }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
-        if (isset($map['NumberType'])) {
-            $model->numberType = $map['NumberType'];
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
+        if (isset($map['Province'])) {
+            $model->province = $map['Province'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
+        }
+        if (isset($map['UserGrantId'])) {
+            $model->userGrantId = $map['UserGrantId'];
         }
 
         return $model;

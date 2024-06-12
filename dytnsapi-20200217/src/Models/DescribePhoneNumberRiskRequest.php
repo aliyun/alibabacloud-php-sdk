@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberRiskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePhoneNumberRiskRequest extends Model
     public $authCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribePhoneNumberRiskRequest extends Model
     public $inputNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值
      *
      * @var string

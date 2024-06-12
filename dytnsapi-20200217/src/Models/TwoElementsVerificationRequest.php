@@ -12,6 +12,8 @@ class TwoElementsVerificationRequest extends Model
      * @description The authorization code.
      *
      * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+     *
+     * This parameter is required.
      * @example QASDW@#**
      *
      * @var string
@@ -25,7 +27,7 @@ class TwoElementsVerificationRequest extends Model
      *   If the value of Mask is MD5, specify a MD5-encrypted value for this field.
      *   If the value of Mask is SHA256, specify a SHA256-encrypted value for this field.
      *
-     * >  Letters in the encrypted strings are not case-sensitive.
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -39,6 +41,7 @@ class TwoElementsVerificationRequest extends Model
      *   **MD5**
      *   **SHA256**
      *
+     * This parameter is required.
      * @example MD5
      *
      * @var string
@@ -52,7 +55,7 @@ class TwoElementsVerificationRequest extends Model
      *   If the value of Mask is MD5, specify a MD5-encrypted value for this field.
      *   If the value of Mask is SHA256, specify a SHA256-encrypted value for this field.
      *
-     * >  Letters in the encrypted strings are not case-sensitive.
+     * This parameter is required.
      * @example Aliyun
      *
      * @var string

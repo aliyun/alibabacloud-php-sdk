@@ -12,6 +12,8 @@ class PhoneNumberEncryptRequest extends Model
      * @description The authorization code.
      *
      * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+     *
+     * This parameter is required.
      * @example QASDW@#**
      *
      * @var string
@@ -21,7 +23,7 @@ class PhoneNumberEncryptRequest extends Model
     /**
      * @description The phone number to be queried.
      *
-     * >  You can query only one phone number at a time.
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -31,7 +33,7 @@ class PhoneNumberEncryptRequest extends Model
     /**
      * @description The encryption method of the phone number. Set the value to **NORMAL**.
      *
-     * >  Only the NORMAL encryption method is supported.
+     * This parameter is required.
      * @example NORMAL
      *
      * @var string

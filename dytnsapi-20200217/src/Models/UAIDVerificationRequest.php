@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UAIDVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example HwD97InG
      *
      * @var string
@@ -16,6 +18,8 @@ class UAIDVerificationRequest extends Model
     public $authCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CM
      *
      * @var string
@@ -59,6 +63,8 @@ class UAIDVerificationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MIGfMA0********3DQEBAQUAA4GNADCB
      *
      * @var string

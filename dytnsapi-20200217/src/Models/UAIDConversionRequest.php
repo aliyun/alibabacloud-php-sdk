@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberAnalysisRequest extends Model
+class UAIDConversionRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example QASDW@#**
+     * @example 示例值
      *
      * @var string
      */
@@ -20,37 +20,23 @@ class DescribePhoneNumberAnalysisRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example 1310000****
+     * @example 示例值示例值
      *
      * @var string
      */
-    public $inputNumber;
+    public $carrier;
 
     /**
-     * @example MD5
+     * @example 示例值示例值示例值
      *
      * @var string
      */
-    public $mask;
-
-    /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $numberType;
+    public $outId;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $rate;
 
     /**
      * @var string
@@ -61,15 +47,21 @@ class DescribePhoneNumberAnalysisRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $uaidList;
     protected $_name = [
         'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'numberType'           => 'NumberType',
+        'carrier'              => 'Carrier',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
-        'rate'                 => 'Rate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'uaidList'             => 'UaidList',
     ];
 
     public function validate()
@@ -82,26 +74,23 @@ class DescribePhoneNumberAnalysisRequest extends Model
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
-        if (null !== $this->inputNumber) {
-            $res['InputNumber'] = $this->inputNumber;
+        if (null !== $this->carrier) {
+            $res['Carrier'] = $this->carrier;
         }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
-        }
-        if (null !== $this->numberType) {
-            $res['NumberType'] = $this->numberType;
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->uaidList) {
+            $res['UaidList'] = $this->uaidList;
         }
 
         return $res;
@@ -110,7 +99,7 @@ class DescribePhoneNumberAnalysisRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberAnalysisRequest
+     * @return UAIDConversionRequest
      */
     public static function fromMap($map = [])
     {
@@ -118,26 +107,23 @@ class DescribePhoneNumberAnalysisRequest extends Model
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
-        if (isset($map['InputNumber'])) {
-            $model->inputNumber = $map['InputNumber'];
+        if (isset($map['Carrier'])) {
+            $model->carrier = $map['Carrier'];
         }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
-        }
-        if (isset($map['NumberType'])) {
-            $model->numberType = $map['NumberType'];
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['UaidList'])) {
+            $model->uaidList = $map['UaidList'];
         }
 
         return $model;

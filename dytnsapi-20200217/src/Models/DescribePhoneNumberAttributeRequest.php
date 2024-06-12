@@ -16,6 +16,7 @@ class DescribePhoneNumberAttributeRequest extends Model
     /**
      * @description The phone number that you want to query.
      *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string

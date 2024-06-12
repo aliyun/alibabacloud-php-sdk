@@ -12,6 +12,8 @@ class PhoneNumberStatusForPublicRequest extends Model
      * @description The authorization code.
      *
      * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization ID.
+     *
+     * This parameter is required.
      * @example Dd1r***4id
      *
      * @var string
@@ -39,6 +41,7 @@ class PhoneNumberStatusForPublicRequest extends Model
      *   **MD5**
      *   **SHA256**
      *
+     * This parameter is required.
      * @example NORMAL
      *
      * @var string

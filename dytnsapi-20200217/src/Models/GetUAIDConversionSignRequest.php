@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUAIDApplyTokenSignRequest extends Model
+class GetUAIDConversionSignRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example HwD97InG
+     * @example 示例值示例值
      *
      * @var string
      */
@@ -20,32 +20,28 @@ class GetUAIDApplyTokenSignRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example CM
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $carrier;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30300
+     * @example 示例值
      *
      * @var string
      */
     public $clientType;
 
     /**
-     * @example 示例值示例值
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $format;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example b8b5b3a*******0b9893484fdf412c99
+     * @example 示例值示例值示例值
      *
      * @var string
      */
@@ -57,14 +53,14 @@ class GetUAIDApplyTokenSignRequest extends Model
     public $ownerId;
 
     /**
-     * @example 955EC1A869852EA8BC66F********D7C6E92017BBD5B001C736EFEAFB775C232
+     * @example 示例值示例值
      *
      * @var string
      */
     public $paramKey;
 
     /**
-     * @example B2F0D4CD7A216D16CE2AF4BBC********29A454FDDD991F919106C12CB89ABA8
+     * @example 示例值示例值
      *
      * @var string
      */
@@ -81,9 +77,7 @@ class GetUAIDApplyTokenSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20121227180001165
+     * @example 示例值示例值
      *
      * @var string
      */
@@ -149,7 +143,7 @@ class GetUAIDApplyTokenSignRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetUAIDApplyTokenSignRequest
+     * @return GetUAIDConversionSignRequest
      */
     public static function fromMap($map = [])
     {

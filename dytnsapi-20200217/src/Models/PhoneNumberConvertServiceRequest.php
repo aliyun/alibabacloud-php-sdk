@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberConvertServiceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mask;

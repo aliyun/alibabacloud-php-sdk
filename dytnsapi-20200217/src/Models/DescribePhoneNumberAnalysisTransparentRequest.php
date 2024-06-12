@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberAnalysisTransparentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example QASDW@#**
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePhoneNumberAnalysisTransparentRequest extends Model
     public $authCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 187****5620
      *
      * @var string
@@ -30,6 +34,8 @@ class DescribePhoneNumberAnalysisTransparentRequest extends Model
     public $ip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值示例值
      *
      * @var string

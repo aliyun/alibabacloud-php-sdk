@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CertNoTwoElementVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example QASDW@#**
      *
      * @var string
@@ -16,6 +18,8 @@ class CertNoTwoElementVerificationRequest extends Model
     public $authCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值
      *
      * @var string
@@ -23,6 +27,8 @@ class CertNoTwoElementVerificationRequest extends Model
     public $certName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 331021200001010000
      *
      * @var string

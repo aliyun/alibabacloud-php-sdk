@@ -4,54 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOnlineTimeResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberOnlineTimeResponseBody extends Model
+class GetUAIDConversionSignResponseBody extends Model
 {
     /**
-     * @description The response code. Valid values:
-     *
-     *   **OK**: The request is successful.
-     *   **PortabilityNumberNotSupported**: The phone number that is involved in mobile number portability is not supported.
-     *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
-     *
-     * >  You are charged if the value of Code is OK and the value of VerifyResult is not -1. For more information, see [Pricing](https://help.aliyun.com/document_detail/154751.html).
-     * @example OK
-     *
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var string
      */
     public $code;
 
     /**
-     * @description The response parameters.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'data'               => 'Data',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -61,6 +48,9 @@ class DescribePhoneNumberOnlineTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -80,11 +70,14 @@ class DescribePhoneNumberOnlineTimeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberOnlineTimeResponseBody
+     * @return GetUAIDConversionSignResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

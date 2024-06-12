@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDCollectionResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberAnalysisAIResponseBody extends Model
+class UAIDCollectionResponseBody extends Model
 {
     /**
      * @var string
@@ -15,36 +15,26 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The response code. Valid values:
-     *
-     *   OK: The request is successful.
-     *
-     * @example OK
+     * @example 示例值
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The response parameters.
-     *
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @description The returned message.
-     *
-     * @example OK
+     * @example 示例值示例值
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 68A40250-50CD-034C-B728-0BD******177
+     * @var model_
+     */
+    public $model;
+
+    /**
+     * @example 示例值示例值示例值
      *
      * @var string
      */
@@ -52,8 +42,8 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code'               => 'Code',
-        'data'               => 'Data',
         'message'            => 'Message',
+        'model'              => 'Model',
         'requestId'          => 'RequestId',
     ];
 
@@ -70,11 +60,11 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -86,7 +76,7 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberAnalysisAIResponseBody
+     * @return UAIDCollectionResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -97,11 +87,11 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = model_::fromMap($map['Model']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
