@@ -14,6 +14,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsReques
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
@@ -344,6 +350,150 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResourceStockWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建安卓实例组
+     *  *
+     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     */
+    public function createAndroidInstanceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceGroupName)) {
+            $query['InstanceGroupName'] = $request->instanceGroupName;
+        }
+        if (!Utils::isUnset($request->instanceGroupSpec)) {
+            $query['InstanceGroupSpec'] = $request->instanceGroupSpec;
+        }
+        if (!Utils::isUnset($request->numberOfInstances)) {
+            $query['NumberOfInstances'] = $request->numberOfInstances;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->policyGroupId)) {
+            $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAndroidInstanceGroup',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建安卓实例组
+     *  *
+     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
+     *
+     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     */
+    public function createAndroidInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAndroidInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAppRequest $request CreateAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppResponse CreateAppResponse
+     */
+    public function createAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['FilePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->iconUrl)) {
+            $query['IconUrl'] = $request->iconUrl;
+        }
+        if (!Utils::isUnset($request->installParam)) {
+            $query['InstallParam'] = $request->installParam;
+        }
+        if (!Utils::isUnset($request->ossAppUrl)) {
+            $query['OssAppUrl'] = $request->ossAppUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApp',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppRequest $request CreateAppRequest
+     *
+     * @return CreateAppResponse CreateAppResponse
+     */
+    public function createApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppWithOptions($request, $runtime);
     }
 
     /**
@@ -887,6 +1037,68 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAndroidInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询app
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppsResponse DescribeAppsResponse
+     */
+    public function describeAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appIdList)) {
+            $query['AppIdList'] = $request->appIdList;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->installationStatus)) {
+            $query['InstallationStatus'] = $request->installationStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApps',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询app
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
+     *
+     * @return DescribeAppsResponse DescribeAppsResponse
+     */
+    public function describeApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppsWithOptions($request, $runtime);
     }
 
     /**
