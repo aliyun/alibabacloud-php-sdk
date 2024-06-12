@@ -11,8 +11,8 @@
 ## 通过 Composer 来管理项目依赖(推荐)
 
 ```bash
-# require alibabacloud/imagesearch-20200212 for example
-composer require alibabacloud/imagesearch-20200212
+# require alibabacloud/imagesearch-20201214 for example
+composer require alibabacloud/imagesearch-20201214
 ```
 
 # 快速使用
@@ -30,35 +30,43 @@ composer require alibabacloud/imagesearch-20200212
 5. 发起请求并处理应答或异常。
 
 ```php
+<?php
 namespace demo;
 
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'autoload.php';
 
-use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
+use AlibabaCloud\SDK\ImageSearch\V20201214\ImageSearch;
+use Darabonba\OpenApi\Models\Config;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameRequest;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\Tea\Exception\TeaUnableRetryError;
 
-$config                  = new Config();
-$config->accessKeyId     = "<Access-Key-Id>";
-$config->accessKeySecret = "<Access-Key-Secret>";
-$config->regionId        = "cn-shanghai";
-$config->endpoint        = "imagesearch.cn-shanghai.aliyuncs.com";
-$client                  = new ImageSearch($config);
-$request                 = new ImageSearch\SearchImageByNameRequest();
-$request->picName        = 'test';
+$config = new Config();
+// 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_ID。
+$config->accessKeyId = getenv("ALIBABA_CLOUD_ACCESS_KEY_ID");
+// 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_SECRET。
+$config->accessKeySecret = getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET");
+$config->regionId = "cn-shanghai";
+$config->endpoint = "imagesearch.cn-shanghai.aliyuncs.com";
+$client = new ImageSearch($config);
+$request = new SearchImageByNameRequest();
+$request->instanceName = "phimagesearch";
+$request->picName = 'test';
+$request->productId = "TEST";
 
-$runtime                 = new RuntimeOptions();
-$runtime->maxIdleConns   = 3;
+$runtime = new RuntimeOptions();
+$runtime->maxIdleConns = 3;
 $runtime->connectTimeout = 10000;
-$runtime->readTimeout    = 10000;
+$runtime->readTimeout = 10000;
+$headers = [];
 try {
-    $response = $client->searchImageByName($request, $runtime);
-    var_dump($response->toMap());
+    $response = $client->searchImageByNameWithOptions($request, $runtime);
+    var_dump($response);
 } catch (TeaUnableRetryError $e) {
     var_dump($e->getMessage());
-    var_dump($e->getErrorInfo());
-    var_dump($e->getLastException());
-    var_dump($e->getLastRequest());
+    // var_dump($e->getErrorInfo());
+    // var_dump($e->getLastException());
+    // var_dump($e->getLastRequest());
 }
 ```
 

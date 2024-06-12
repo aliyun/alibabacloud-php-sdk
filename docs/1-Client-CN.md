@@ -3,13 +3,22 @@
 
 ### 使用 AccessKey 调用
 
-```java
+```php
 
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
+<?php
+namespace demo;
+
+require_once __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . 'vendor' . \DIRECTORY_SEPARATOR . 'autoload.php';
+
+
+use AlibabaCloud\SDK\ImageSearch\V20201214\ImageSearch;
+use Darabonba\OpenApi\Models\Config;
 
 $config                  = new Config();
-$config->accessKeyId     = "<Access-Key-Id>";
-$config->accessKeySecret = "<Access-Key-Secret>";
+// 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_ID。
+$config->accessKeyId     = getenv("ALIBABA_CLOUD_ACCESS_KEY_ID");
+// 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_SECRET。
+$config->accessKeySecret = getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET");
 $client                  = new ImageSearch($config);
 
 ```
