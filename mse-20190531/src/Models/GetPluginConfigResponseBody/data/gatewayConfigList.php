@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetPluginConfigResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetPluginConfigResponseBody\data\gatewayConfigList\resourceList;
 use AlibabaCloud\Tea\Model;
 
 class gatewayConfigList extends Model
@@ -89,6 +90,11 @@ class gatewayConfigList extends Model
      * @var int
      */
     public $pluginId;
+
+    /**
+     * @var resourceList[]
+     */
+    public $resourceList;
     protected $_name = [
         'config'          => 'Config',
         'configLevel'     => 'ConfigLevel',
@@ -99,6 +105,7 @@ class gatewayConfigList extends Model
         'gmtModified'     => 'GmtModified',
         'id'              => 'Id',
         'pluginId'        => 'PluginId',
+        'resourceList'    => 'ResourceList',
     ];
 
     public function validate()
@@ -134,6 +141,15 @@ class gatewayConfigList extends Model
         }
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
+        }
+        if (null !== $this->resourceList) {
+            $res['ResourceList'] = [];
+            if (null !== $this->resourceList && \is_array($this->resourceList)) {
+                $n = 0;
+                foreach ($this->resourceList as $item) {
+                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -173,6 +189,15 @@ class gatewayConfigList extends Model
         }
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
+        }
+        if (isset($map['ResourceList'])) {
+            if (!empty($map['ResourceList'])) {
+                $model->resourceList = [];
+                $n                   = 0;
+                foreach ($map['ResourceList'] as $item) {
+                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

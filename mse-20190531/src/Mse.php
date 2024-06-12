@@ -283,6 +283,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayZoneRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayZoneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListIsolationRulesRequest;
@@ -467,6 +469,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdatePluginConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdatePluginConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdatePluginConfigShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceShrinkRequest;
@@ -8926,6 +8929,53 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 获取网关可用区列表
+     *  *
+     * @param ListGatewayZoneRequest $request ListGatewayZoneRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListGatewayZoneResponse ListGatewayZoneResponse
+     */
+    public function listGatewayZoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayZone',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取网关可用区列表
+     *  *
+     * @param ListGatewayZoneRequest $request ListGatewayZoneRequest
+     *
+     * @return ListGatewayZoneResponse ListGatewayZoneResponse
+     */
+    public function listGatewayZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayZoneWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Displays the number of nodes that can be deployed for an instance.
      *  *
      * @param ListInstanceCountRequest $request ListInstanceCountRequest
@@ -14329,14 +14379,19 @@ class Mse extends OpenApiClient
     /**
      * @summary Updates the configuration of a plug-in.
      *  *
-     * @param UpdatePluginConfigRequest $request UpdatePluginConfigRequest
+     * @param UpdatePluginConfigRequest $tmpReq  UpdatePluginConfigRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdatePluginConfigResponse UpdatePluginConfigResponse
      */
-    public function updatePluginConfigWithOptions($request, $runtime)
+    public function updatePluginConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdatePluginConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIdList)) {
+            $request->resourceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIdList, 'ResourceIdList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -14367,6 +14422,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->pluginId)) {
             $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->resourceIdListShrink)) {
+            $query['ResourceIdList'] = $request->resourceIdListShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

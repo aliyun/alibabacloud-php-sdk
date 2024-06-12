@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdatePluginConfigRequest extends Model
+class UpdatePluginConfigShrinkRequest extends Model
 {
     /**
      * @description The language of the response. Valid values:
@@ -110,21 +110,21 @@ class UpdatePluginConfigRequest extends Model
     public $pluginId;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $resourceIdList;
+    public $resourceIdListShrink;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'config'          => 'Config',
-        'configLevel'     => 'ConfigLevel',
-        'enable'          => 'Enable',
-        'gatewayId'       => 'GatewayId',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'pluginId'        => 'PluginId',
-        'resourceIdList'  => 'ResourceIdList',
+        'acceptLanguage'       => 'AcceptLanguage',
+        'config'               => 'Config',
+        'configLevel'          => 'ConfigLevel',
+        'enable'               => 'Enable',
+        'gatewayId'            => 'GatewayId',
+        'gatewayUniqueId'      => 'GatewayUniqueId',
+        'gmtCreate'            => 'GmtCreate',
+        'gmtModified'          => 'GmtModified',
+        'id'                   => 'Id',
+        'pluginId'             => 'PluginId',
+        'resourceIdListShrink' => 'ResourceIdList',
     ];
 
     public function validate()
@@ -164,8 +164,8 @@ class UpdatePluginConfigRequest extends Model
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
         }
-        if (null !== $this->resourceIdList) {
-            $res['ResourceIdList'] = $this->resourceIdList;
+        if (null !== $this->resourceIdListShrink) {
+            $res['ResourceIdList'] = $this->resourceIdListShrink;
         }
 
         return $res;
@@ -174,7 +174,7 @@ class UpdatePluginConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdatePluginConfigRequest
+     * @return UpdatePluginConfigShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -210,9 +210,7 @@ class UpdatePluginConfigRequest extends Model
             $model->pluginId = $map['PluginId'];
         }
         if (isset($map['ResourceIdList'])) {
-            if (!empty($map['ResourceIdList'])) {
-                $model->resourceIdList = $map['ResourceIdList'];
-            }
+            $model->resourceIdListShrink = $map['ResourceIdList'];
         }
 
         return $model;

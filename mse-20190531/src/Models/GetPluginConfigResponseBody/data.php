@@ -29,11 +29,30 @@ class data extends Model
     public $configCheck;
 
     /**
+     * @var string
+     */
+    public $configExample;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $domainConfigStartIndex;
+
+    /**
      * @description The list of gateway plug-in configurations.
      *
      * @var gatewayConfigList[]
      */
     public $gatewayConfigList;
+
+    /**
+     * @example 7
+     *
+     * @var int
+     */
+    public $gatewayConfigStartIndex;
 
     /**
      * @description The ID of the plug-in.
@@ -127,6 +146,13 @@ class data extends Model
     public $readmeEn;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $routeConfigStartIndex;
+
+    /**
      * @description Indicates whether the plug-in is enabled. Valid values:
      *
      * 1: enabled
@@ -178,25 +204,29 @@ class data extends Model
      */
     public $wasmLang;
     protected $_name = [
-        'category'          => 'Category',
-        'configCheck'       => 'ConfigCheck',
-        'gatewayConfigList' => 'GatewayConfigList',
-        'id'                => 'Id',
-        'imageName'         => 'ImageName',
-        'mode'              => 'Mode',
-        'name'              => 'Name',
-        'phase'             => 'Phase',
-        'primaryUser'       => 'PrimaryUser',
-        'priority'          => 'Priority',
-        'publishState'      => 'PublishState',
-        'readme'            => 'Readme',
-        'readmeEn'          => 'ReadmeEn',
-        'status'            => 'Status',
-        'summary'           => 'Summary',
-        'type'              => 'Type',
-        'version'           => 'Version',
-        'versionJson'       => 'VersionJson',
-        'wasmLang'          => 'WasmLang',
+        'category'                => 'Category',
+        'configCheck'             => 'ConfigCheck',
+        'configExample'           => 'ConfigExample',
+        'domainConfigStartIndex'  => 'DomainConfigStartIndex',
+        'gatewayConfigList'       => 'GatewayConfigList',
+        'gatewayConfigStartIndex' => 'GatewayConfigStartIndex',
+        'id'                      => 'Id',
+        'imageName'               => 'ImageName',
+        'mode'                    => 'Mode',
+        'name'                    => 'Name',
+        'phase'                   => 'Phase',
+        'primaryUser'             => 'PrimaryUser',
+        'priority'                => 'Priority',
+        'publishState'            => 'PublishState',
+        'readme'                  => 'Readme',
+        'readmeEn'                => 'ReadmeEn',
+        'routeConfigStartIndex'   => 'RouteConfigStartIndex',
+        'status'                  => 'Status',
+        'summary'                 => 'Summary',
+        'type'                    => 'Type',
+        'version'                 => 'Version',
+        'versionJson'             => 'VersionJson',
+        'wasmLang'                => 'WasmLang',
     ];
 
     public function validate()
@@ -212,6 +242,12 @@ class data extends Model
         if (null !== $this->configCheck) {
             $res['ConfigCheck'] = $this->configCheck;
         }
+        if (null !== $this->configExample) {
+            $res['ConfigExample'] = $this->configExample;
+        }
+        if (null !== $this->domainConfigStartIndex) {
+            $res['DomainConfigStartIndex'] = $this->domainConfigStartIndex;
+        }
         if (null !== $this->gatewayConfigList) {
             $res['GatewayConfigList'] = [];
             if (null !== $this->gatewayConfigList && \is_array($this->gatewayConfigList)) {
@@ -220,6 +256,9 @@ class data extends Model
                     $res['GatewayConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->gatewayConfigStartIndex) {
+            $res['GatewayConfigStartIndex'] = $this->gatewayConfigStartIndex;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -250,6 +289,9 @@ class data extends Model
         }
         if (null !== $this->readmeEn) {
             $res['ReadmeEn'] = $this->readmeEn;
+        }
+        if (null !== $this->routeConfigStartIndex) {
+            $res['RouteConfigStartIndex'] = $this->routeConfigStartIndex;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -287,6 +329,12 @@ class data extends Model
         if (isset($map['ConfigCheck'])) {
             $model->configCheck = $map['ConfigCheck'];
         }
+        if (isset($map['ConfigExample'])) {
+            $model->configExample = $map['ConfigExample'];
+        }
+        if (isset($map['DomainConfigStartIndex'])) {
+            $model->domainConfigStartIndex = $map['DomainConfigStartIndex'];
+        }
         if (isset($map['GatewayConfigList'])) {
             if (!empty($map['GatewayConfigList'])) {
                 $model->gatewayConfigList = [];
@@ -295,6 +343,9 @@ class data extends Model
                     $model->gatewayConfigList[$n++] = null !== $item ? gatewayConfigList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['GatewayConfigStartIndex'])) {
+            $model->gatewayConfigStartIndex = $map['GatewayConfigStartIndex'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -325,6 +376,9 @@ class data extends Model
         }
         if (isset($map['ReadmeEn'])) {
             $model->readmeEn = $map['ReadmeEn'];
+        }
+        if (isset($map['RouteConfigStartIndex'])) {
+            $model->routeConfigStartIndex = $map['RouteConfigStartIndex'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
