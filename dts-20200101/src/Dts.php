@@ -907,6 +907,21 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->sourceEndpointUserName)) {
             $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
+        if (!Utils::isUnset($request->srcCaCertificateOssUrl)) {
+            $query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
+        }
+        if (!Utils::isUnset($request->srcCaCertificatePassword)) {
+            $query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
+        }
+        if (!Utils::isUnset($request->srcClientCertOssUrl)) {
+            $query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
+        }
+        if (!Utils::isUnset($request->srcClientKeyOssUrl)) {
+            $query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
+        }
+        if (!Utils::isUnset($request->srcClientPassword)) {
+            $query['SrcClientPassword'] = $request->srcClientPassword;
+        }
         if (!Utils::isUnset($request->subscriptionDataTypeDDL)) {
             $query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
         }

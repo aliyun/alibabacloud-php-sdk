@@ -289,6 +289,31 @@ class ConfigureSubscriptionRequest extends Model
     public $sourceEndpointUserName;
 
     /**
+     * @var string
+     */
+    public $srcCaCertificateOssUrl;
+
+    /**
+     * @var string
+     */
+    public $srcCaCertificatePassword;
+
+    /**
+     * @var string
+     */
+    public $srcClientCertOssUrl;
+
+    /**
+     * @var string
+     */
+    public $srcClientKeyOssUrl;
+
+    /**
+     * @var string
+     */
+    public $srcClientPassword;
+
+    /**
      * @description Specifies whether to track DDL statements. Default value: true. Valid values:
      *
      *   **true**: tracks DDL statements.
@@ -375,6 +400,11 @@ class ConfigureSubscriptionRequest extends Model
         'sourceEndpointRegion'            => 'SourceEndpointRegion',
         'sourceEndpointRole'              => 'SourceEndpointRole',
         'sourceEndpointUserName'          => 'SourceEndpointUserName',
+        'srcCaCertificateOssUrl'          => 'SrcCaCertificateOssUrl',
+        'srcCaCertificatePassword'        => 'SrcCaCertificatePassword',
+        'srcClientCertOssUrl'             => 'SrcClientCertOssUrl',
+        'srcClientKeyOssUrl'              => 'SrcClientKeyOssUrl',
+        'srcClientPassword'               => 'SrcClientPassword',
         'subscriptionDataTypeDDL'         => 'SubscriptionDataTypeDDL',
         'subscriptionDataTypeDML'         => 'SubscriptionDataTypeDML',
         'subscriptionInstanceNetworkType' => 'SubscriptionInstanceNetworkType',
@@ -475,6 +505,21 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (null !== $this->sourceEndpointUserName) {
             $res['SourceEndpointUserName'] = $this->sourceEndpointUserName;
+        }
+        if (null !== $this->srcCaCertificateOssUrl) {
+            $res['SrcCaCertificateOssUrl'] = $this->srcCaCertificateOssUrl;
+        }
+        if (null !== $this->srcCaCertificatePassword) {
+            $res['SrcCaCertificatePassword'] = $this->srcCaCertificatePassword;
+        }
+        if (null !== $this->srcClientCertOssUrl) {
+            $res['SrcClientCertOssUrl'] = $this->srcClientCertOssUrl;
+        }
+        if (null !== $this->srcClientKeyOssUrl) {
+            $res['SrcClientKeyOssUrl'] = $this->srcClientKeyOssUrl;
+        }
+        if (null !== $this->srcClientPassword) {
+            $res['SrcClientPassword'] = $this->srcClientPassword;
         }
         if (null !== $this->subscriptionDataTypeDDL) {
             $res['SubscriptionDataTypeDDL'] = $this->subscriptionDataTypeDDL;
@@ -589,6 +634,21 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (isset($map['SourceEndpointUserName'])) {
             $model->sourceEndpointUserName = $map['SourceEndpointUserName'];
+        }
+        if (isset($map['SrcCaCertificateOssUrl'])) {
+            $model->srcCaCertificateOssUrl = $map['SrcCaCertificateOssUrl'];
+        }
+        if (isset($map['SrcCaCertificatePassword'])) {
+            $model->srcCaCertificatePassword = $map['SrcCaCertificatePassword'];
+        }
+        if (isset($map['SrcClientCertOssUrl'])) {
+            $model->srcClientCertOssUrl = $map['SrcClientCertOssUrl'];
+        }
+        if (isset($map['SrcClientKeyOssUrl'])) {
+            $model->srcClientKeyOssUrl = $map['SrcClientKeyOssUrl'];
+        }
+        if (isset($map['SrcClientPassword'])) {
+            $model->srcClientPassword = $map['SrcClientPassword'];
         }
         if (isset($map['SubscriptionDataTypeDDL'])) {
             $model->subscriptionDataTypeDDL = $map['SubscriptionDataTypeDDL'];
