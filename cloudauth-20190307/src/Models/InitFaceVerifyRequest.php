@@ -187,6 +187,11 @@ class InitFaceVerifyRequest extends Model
     public $suitableType;
 
     /**
+     * @var string
+     */
+    public $uiCustomUrl;
+
+    /**
      * @example 123456789
      *
      * @var string
@@ -233,6 +238,7 @@ class InitFaceVerifyRequest extends Model
         'returnUrl'                  => 'ReturnUrl',
         'sceneId'                    => 'SceneId',
         'suitableType'               => 'SuitableType',
+        'uiCustomUrl'                => 'UiCustomUrl',
         'userId'                     => 'UserId',
         'validityDate'               => 'ValidityDate',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
@@ -334,6 +340,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->suitableType) {
             $res['SuitableType'] = $this->suitableType;
+        }
+        if (null !== $this->uiCustomUrl) {
+            $res['UiCustomUrl'] = $this->uiCustomUrl;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -445,6 +454,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['SuitableType'])) {
             $model->suitableType = $map['SuitableType'];
+        }
+        if (isset($map['UiCustomUrl'])) {
+            $model->uiCustomUrl = $map['UiCustomUrl'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

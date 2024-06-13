@@ -1361,6 +1361,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->suitableType)) {
             $query['SuitableType'] = $request->suitableType;
         }
+        if (!Utils::isUnset($request->uiCustomUrl)) {
+            $query['UiCustomUrl'] = $request->uiCustomUrl;
+        }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }
