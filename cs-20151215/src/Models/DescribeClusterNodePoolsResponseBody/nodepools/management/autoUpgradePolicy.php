@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoUpgradePolicy extends Model
 {
     /**
-     * @description Indicates whether the kubelet is automatically updated.
+     * @description Specifies whether to allow auto update of the kubelet.
      *
      * @example true
      *

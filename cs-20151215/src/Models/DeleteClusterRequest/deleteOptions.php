@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class deleteOptions extends Model
 {
     /**
+     * @description The deletion policy for the specified type of resource. Valid values:
+     *
+     *   delete: deletes the specified type of resource.
+     *   retain: retains the specified type of resource.
+     *
+     * @example delete
+     *
      * @var string
      */
     public $deleteMode;
 
     /**
+     * @description Valid values:
+     *
+     *   SLB: SLB resources created for Services. By default, the SLB resources are automatically deleted.
+     *   ALB: Application Load Balancer (ALB) resources created by the ALB Ingress controller. By default, the ALB resources are retained.
+     *   SLS_Data: Simple Log Service projects used by the cluster logging feature. By default, the Simple Log Service projects are retained.
+     *   SLS_ControlPlane: Simple Log Service projects used to store the logs of control planes in ACK managed clusters. By default, the Simple Log Service projects are retained.
+     *   PrivateZone: PrivateZone resources created by ACK Serverless clusters. By default, the PrivateZone resources are retained.
+     *
+     * @example SLS_Data
+     *
      * @var string
      */
     public $resourceType;

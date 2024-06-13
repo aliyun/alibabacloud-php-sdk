@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description The maximum bandwidth of the EIP.
+     * @description The maximum bandwidth of the elastic IP address (EIP).
      *
      * @example 5
      *
@@ -18,10 +18,10 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description The metering method of the elastic IP address (EIP). Valid values:
+     * @description The billing method of the EIP. Valid values:
      *
-     *   `PayByBandwidth`: pay-by-bandwidth
-     *   `PayByTraffic`: pay-by-data-transfer
+     *   `PayByBandwidth`: pay-by-bandwidth.
+     *   `PayByTraffic`: pay-by-data-transfer.
      *
      * @example PayByBandwidth
      *
@@ -30,10 +30,10 @@ class autoScaling extends Model
     public $eipInternetChargeType;
 
     /**
-     * @description Indicates whether auto scaling is enabled. Valid values:
+     * @description Specifies whether to enable auto scaling. Valid values:
      *
-     *   `true`: Auto scaling is enabled for the node pool.
-     *   `false`: Auto scaling is disabled for the node pool. If the value of this parameter is `false`, other parameters in the `auto_scaling` section do not take effect.
+     *   `true`
+     *   `false`: If you set this parameter to `false`, other parameters in `auto_scaling` do not take effect.
      *
      * @example true
      *
@@ -42,10 +42,10 @@ class autoScaling extends Model
     public $enable;
 
     /**
-     * @description Indicates whether an EIP is associated with the node pool. Valid values:
+     * @description Specifies whether to associate an EIP with the node pool. Valid values:
      *
-     *   `true`: An EIP is associated with the node pool.
-     *   `false`: No EIP is associated with the node pool.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class autoScaling extends Model
     public $isBondEip;
 
     /**
-     * @description The maximum number of instances.
+     * @description The maximum number of Elastic Compute Service (ECS) instances that can be created in the node pool.
      *
      * @example 10
      *
@@ -63,7 +63,7 @@ class autoScaling extends Model
     public $maxInstances;
 
     /**
-     * @description The minimum number of instances.
+     * @description The minimum number of ECS instances that must be retained in the node pool.
      *
      * @example 2
      *
@@ -74,10 +74,10 @@ class autoScaling extends Model
     /**
      * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
      *
-     *   `cpu`: regular instance
-     *   `gpu`: GPU-accelerated instance
-     *   `gpushare`: shared GPU-accelerated instance
-     *   `spot`: preemptible instance
+     *   `cpu`: regular instance.
+     *   `gpu`: GPU-accelerated instance.
+     *   `gpushare`: shared GPU-accelerated instance.
+     *   `spot`: preemptible instance.
      *
      * @example cpu
      *

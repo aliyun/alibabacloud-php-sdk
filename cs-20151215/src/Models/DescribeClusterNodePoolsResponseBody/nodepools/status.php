@@ -67,7 +67,7 @@ class status extends Model
      *
      *   `active`: The node pool is active.
      *   `scaling`: The node pool is being scaled.
-     *   `removing`: Nodes are being removed from the node pool.
+     *   `removing`: The nodes are being removed from the node pool.
      *   `deleting`: The node pool is being deleted.
      *   `updating`: The node pool is being updated.
      *

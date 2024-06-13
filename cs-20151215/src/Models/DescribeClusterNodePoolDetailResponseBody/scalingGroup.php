@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResp
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\privatePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\spotPriceLimit;
+use AlibabaCloud\SDK\CS\V20151215\Models\InstancePatterns;
 use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 use AlibabaCloud\Tea\Model;
 
@@ -111,6 +112,11 @@ class scalingGroup extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var InstancePatterns
+     */
+    public $instancePatterns;
 
     /**
      * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
@@ -467,6 +473,7 @@ class scalingGroup extends Model
         'imageId'                             => 'image_id',
         'imageType'                           => 'image_type',
         'instanceChargeType'                  => 'instance_charge_type',
+        'instancePatterns'                    => 'instance_patterns',
         'instanceTypes'                       => 'instance_types',
         'internetChargeType'                  => 'internet_charge_type',
         'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
@@ -547,6 +554,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->instanceChargeType) {
             $res['instance_charge_type'] = $this->instanceChargeType;
+        }
+        if (null !== $this->instancePatterns) {
+            $res['instance_patterns'] = null !== $this->instancePatterns ? $this->instancePatterns->toMap() : null;
         }
         if (null !== $this->instanceTypes) {
             $res['instance_types'] = $this->instanceTypes;
@@ -715,6 +725,9 @@ class scalingGroup extends Model
         }
         if (isset($map['instance_charge_type'])) {
             $model->instanceChargeType = $map['instance_charge_type'];
+        }
+        if (isset($map['instance_patterns'])) {
+            $model->instancePatterns = InstancePatterns::fromMap($map['instance_patterns']);
         }
         if (isset($map['instance_types'])) {
             if (!empty($map['instance_types'])) {

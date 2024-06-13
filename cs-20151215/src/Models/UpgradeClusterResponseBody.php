@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterResponseBody extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c82e6987e2961451182edacd74faf****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 请求ID。
+     *
+     * @example 0527ac9a-c899-4341-a21a-****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 任务ID。
+     *
+     * @example T-5faa48fb31b6b8078d00****
+     *
      * @var string
      */
     public $taskId;

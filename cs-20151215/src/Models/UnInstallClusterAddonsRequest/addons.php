@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
-     * @description Whether to clean up cloud resources.
+     * @description Specifies whether to release cloud resources.
      *
      * @example true
      *

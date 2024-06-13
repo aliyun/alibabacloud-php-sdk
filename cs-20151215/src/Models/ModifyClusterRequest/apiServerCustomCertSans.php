@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiServerCustomCertSans extends Model
 {
     /**
+     * @example append
+     *
      * @var string
      */
     public $action;

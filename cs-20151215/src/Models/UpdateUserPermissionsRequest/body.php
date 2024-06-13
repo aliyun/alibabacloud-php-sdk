@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the cluster on which you want to grant permissions to the RAM role or RAM role.
+     *
+     *   Set this parameter to an empty string if `role_type` is set to `all-clusters`.
+     *
      * @example c796c60***
      *
      * @var string
@@ -16,6 +20,8 @@ class body extends Model
     public $cluster;
 
     /**
+     * @description Specifies whether to assign a custom role to the RAM user or RAM role. If you want to assign a custom role to the RAM user or RAM role, set `role_name` to the name of the custom role.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +29,8 @@ class body extends Model
     public $isCustom;
 
     /**
+     * @description Specifies whether to use a RAM role to grant permissions.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +38,8 @@ class body extends Model
     public $isRamRole;
 
     /**
+     * @description The namespace that you want to authorize the RAM user or RAM role to manage. This parameter is required only if you set role_type to namespace.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +47,14 @@ class body extends Model
     public $namespace;
 
     /**
+     * @description The predefined role. Valid values:
+     *
+     *   `admin`: administrator
+     *   `ops`: O\\&M engineer
+     *   `dev`: developer
+     *   `restricted`: restricted user
+     *   Custom role
+     *
      * @example ops
      *
      * @var string
@@ -44,6 +62,12 @@ class body extends Model
     public $roleName;
 
     /**
+     * @description The authorization type. Valid values:
+     *
+     *   `cluster`: authorizes the RAM user or RAM role to manage the specified clusters.
+     *   `namespace`: authorizes the RAM user or RAM role to manage the specified namepsaces.
+     *   `all-clusters`: authorizes the RAM user or RAM role to manage all clusters.
+     *
      * @example cluster
      *
      * @var string

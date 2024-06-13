@@ -21,14 +21,14 @@ class DeployPolicyInstanceRequest extends Model
     public $action;
 
     /**
-     * @description The applicable scope of the policy instance. If you leave this parameter empty, the policy instance is applicable to all namespaces.
+     * @description The namespaces to which the policy applies. If you leave this parameter empty, the policy is applicable to all namespaces of the cluster.
      *
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description The parameters of the policy instance.
+     * @description The parameter settings of the policy. For more information about the parameters supported by each policy, see [Predefined security policies of ACK](https://www.alibabacloud.com/help/doc-detail/359819.html).
      *
      * @example {"restrictedNamespaces": [ "test" ]}
      *

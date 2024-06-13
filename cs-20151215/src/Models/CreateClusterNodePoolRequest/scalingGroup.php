@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGro
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\spotPriceLimit;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\tags;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
+use AlibabaCloud\SDK\CS\V20151215\Models\InstancePatterns;
 use AlibabaCloud\Tea\Model;
 
 class scalingGroup extends Model
@@ -122,6 +123,11 @@ class scalingGroup extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var InstancePatterns
+     */
+    public $instancePatterns;
 
     /**
      * @description The instance types of nodes in the node pool. A node that is added to the node pool is assigned one of the specified instance types that is the most appropriate. You can specify 1 to 10 instance types.
@@ -486,6 +492,7 @@ class scalingGroup extends Model
         'imageId'                             => 'image_id',
         'imageType'                           => 'image_type',
         'instanceChargeType'                  => 'instance_charge_type',
+        'instancePatterns'                    => 'instance_patterns',
         'instanceTypes'                       => 'instance_types',
         'internetChargeType'                  => 'internet_charge_type',
         'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
@@ -564,6 +571,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->instanceChargeType) {
             $res['instance_charge_type'] = $this->instanceChargeType;
+        }
+        if (null !== $this->instancePatterns) {
+            $res['instance_patterns'] = null !== $this->instancePatterns ? $this->instancePatterns->toMap() : null;
         }
         if (null !== $this->instanceTypes) {
             $res['instance_types'] = $this->instanceTypes;
@@ -726,6 +736,9 @@ class scalingGroup extends Model
         }
         if (isset($map['instance_charge_type'])) {
             $model->instanceChargeType = $map['instance_charge_type'];
+        }
+        if (isset($map['instance_patterns'])) {
+            $model->instancePatterns = InstancePatterns::fromMap($map['instance_patterns']);
         }
         if (isset($map['instance_types'])) {
             if (!empty($map['instance_types'])) {

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rollingPolicy extends Model
 {
     /**
-     * @description The maximum number of nodes in the Unschedulable state.
+     * @description The maximum number of unavailable nodes.
      *
      * @example 3
      *

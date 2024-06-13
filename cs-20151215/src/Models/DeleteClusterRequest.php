@@ -10,15 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterRequest extends Model
 {
     /**
+     * @description The type of cluster resource that you want to delete or retain.
+     *
      * @var deleteOptions[]
      */
     public $deleteOptions;
 
     /**
-     * @description Specifies whether to retain the Server Load Balancer (SLB) resources that are created by the cluster.
+     * @description Specifies whether to retain the Server Load Balancer (SLB) instances that are created by the cluster.
      *
-     *   `true`: retains the SLB resources that are created by the cluster.
-     *   `false`: does not retain the SLB resources that are created by the cluster.
+     *   `true`: retains the SLB instances that are created by the cluster.
+     *   `false`: does not retain the SLB instances that are created by the cluster.
      *
      * Default value: `false`.
      * @example false

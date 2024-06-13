@@ -18,22 +18,22 @@ use AlibabaCloud\Tea\Model;
 class nodepools extends Model
 {
     /**
-     * @description The configuration of auto scaling.
+     * @description The configurations of auto scaling.
      *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
+     * The network configurations of the edge node pool. This parameter takes effect only on edge node pools.
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
-     * @description The network type of the edge node pool. Valid values: basic and dedicated. This parameter takes effect only for edge node pools.
+     * @description The network type of the edge node pool. Valid values: basic and dedicated. This parameter takes effect only on edge node pools.
      *
      * @example improved
      *
@@ -42,14 +42,14 @@ class nodepools extends Model
     public $interconnectMode;
 
     /**
-     * @description The configuration of the cluster.
+     * @description The configurations of the cluster.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configuration of the managed node pool feature. The configuration takes effect only for ACK Pro managed clusters.
+     * @description The configurations of managed node pools. Managed node pools are available only in professional managed Kubernetes clusters.
      *
      * @var management
      */
@@ -65,7 +65,7 @@ class nodepools extends Model
     public $maxNodes;
 
     /**
-     * @description The node configuration.
+     * @description The configurations of nodes.
      *
      * @var nodeConfig
      */
@@ -79,21 +79,21 @@ class nodepools extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configuration of the scaling group.
+     * @description The configurations of the scaling group.
      *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description The status details about the node pool.
+     * @description The status details of the node pool.
      *
      * @var status
      */
     public $status;
 
     /**
-     * @description The configuration of confidential computing.
+     * @description The configurations of confidential computing.
      *
      * @var teeConfig
      */

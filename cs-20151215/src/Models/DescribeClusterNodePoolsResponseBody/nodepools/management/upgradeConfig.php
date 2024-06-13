@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @description Indicates whether auto update is enabled. Valid values:
+     * @description Specifies whether to enable auto update. Valid values:
      *
-     *   `true`: Auto update is enabled.
-     *   `false`: Auto update is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -23,7 +23,7 @@ class upgradeConfig extends Model
     /**
      * @description The maximum number of unavailable nodes. Valid values: 1 to 1000.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -40,7 +40,7 @@ class upgradeConfig extends Model
     public $surge;
 
     /**
-     * @description The percentage of additional nodes to the total nodes in the node pool. Either this parameter or the `surge` parameter is specified.
+     * @description The percentage of additional nodes to the total nodes in the node pool. You must specify this parameter or the `surge` parameter.
      *
      * The number of additional nodes = The percentage of additional nodes × The number of nodes in the node pool. For example, if the percentage of additional nodes is 50% and the number of nodes in the node pool is 6, the number of additional nodes is 3.
      * @example 50

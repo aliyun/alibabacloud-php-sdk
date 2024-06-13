@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodePoolNodeConfigRequest extends Model
 {
     /**
-     * @description The kubelet configuration.
+     * @description The parameter settings of the kubelet.
      *
      * @var KubeletConfig
      */
@@ -23,7 +23,7 @@ class ModifyNodePoolNodeConfigRequest extends Model
     public $osConfig;
 
     /**
-     * @description The rotation configuration.
+     * @description The rotation configurations.
      *
      * @var rollingPolicy
      */

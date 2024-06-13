@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class clusterAutoUpgrade extends Model
 {
     /**
+     * @example patch
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;

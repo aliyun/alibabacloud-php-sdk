@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserPermissionsRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var body[]
      */
     public $body;
 
     /**
+     * @description The authorization method. Valid values:
+     *
+     *   `apply`: updates all permissions of the RAM user or RAM role. If you use this method, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation.
+     *   `delete`: revokes the specified permissions from the RAM user or RAM role. If you use this method, only the permissions that you specify are revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
+     *   `patch`: grants the specified permissions to the RAM user or role. If you use this method, only the permissions that you specify are granted, other permissions of the RAM user or RAM role on the cluster are not affected.
+     *
+     * Default value: `apply`
      * @example apply
      *
      * @var string

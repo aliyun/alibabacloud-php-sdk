@@ -32,10 +32,9 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description The type of cluster. Valid values:
      *
-     *   `Kubernetes`: ACK dedicated cluster
-     *   `ManagedKubernetes`: ACK managed cluster
-     *   `Ask`: ACK Serverless cluster
-     *   `ExternalKubernetes`: registered cluster
+     *   `Kubernetes`: ACK dedicated cluster.
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Pro clusters, ACK Basic clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, and ACK Edge Basic clusters.
+     *   `ExternalKubernetes`: registered cluster.
      *
      * @example Kubernetes
      *
@@ -246,7 +245,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $subnetCidr;
 
     /**
-     * @description The resource labels of the cluster.
+     * @description The resource tags of the cluster.
      *
      * @var Tag[]
      */

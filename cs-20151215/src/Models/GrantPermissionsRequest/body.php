@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description The ID of the cluster that you want to manage.
+     * @description The ID of the cluster on which you want to grant permissions to the RAM role or RAM role.
      *
-     *   When the `role_type` parameter is set to `all-clusters`, this parameter is set to an empty string.
+     *   Set this parameter to an empty string if `role_type` is set to `all-clusters`.
      *
      * This parameter is required.
      * @example c796c60***
@@ -21,7 +21,7 @@ class body extends Model
     public $cluster;
 
     /**
-     * @description Specifies whether to perform a custom authorization. To perform a custom authorization, set `role_name` to a custom cluster role.
+     * @description Specifies whether to assign a custom role to the RAM user or RAM role. If you want to assign a custom role to the RAM user or RAM role, set `role_name` to the name of the custom role.
      *
      * @example false
      *
@@ -30,7 +30,7 @@ class body extends Model
     public $isCustom;
 
     /**
-     * @description Specifies whether the permissions are granted to a RAM role.
+     * @description Specifies whether to use a RAM role to grant permissions.
      *
      * @example false
      *
@@ -39,7 +39,7 @@ class body extends Model
     public $isRamRole;
 
     /**
-     * @description The namespace to which the permissions are scoped. This parameter is required only if you set role_type to namespace.
+     * @description The namespace that you want to authorize the RAM user or RAM role to manage. This parameter is required only if you set role_type to namespace.
      *
      * @example test
      *
@@ -48,13 +48,13 @@ class body extends Model
     public $namespace;
 
     /**
-     * @description The predefined role name. Valid values:
+     * @description The predefined role. Valid values:
      *
      *   `admin`: administrator
      *   `ops`: O\\&M engineer
      *   `dev`: developer
      *   `restricted`: restricted user
-     *   The custom cluster role.
+     *   Custom role
      *
      * This parameter is required.
      * @example ops
@@ -66,9 +66,9 @@ class body extends Model
     /**
      * @description The authorization type. Valid values:
      *
-     *   `cluster`: indicates that the permissions are scoped to a cluster.
-     *   `namespace`: specifies that the permissions are scoped to a namespace of a cluster.
-     *   `all-clusters`: specifies that the permissions are scoped to all clusters.
+     *   `cluster`: authorizes the RAM user or RAM role to manage the specified clusters.
+     *   `namespace`: authorizes the RAM user or RAM role to manage the specified namepsaces.
+     *   `all-clusters`: authorizes the RAM user or RAM role to manage all clusters.
      *
      * This parameter is required.
      * @example cluster

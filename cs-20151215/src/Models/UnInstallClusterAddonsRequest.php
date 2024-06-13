@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UnInstallClusterAddonsRequest extends Model
 {
     /**
-     * @description The list of components that you want to uninstall. The list is an array.
+     * @description The components that you want to uninstall. The list is an array.
      *
      * @var addons[]
      */

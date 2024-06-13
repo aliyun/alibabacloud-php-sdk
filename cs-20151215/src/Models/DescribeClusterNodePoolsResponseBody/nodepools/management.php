@@ -13,10 +13,10 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
-     * @description Indicates whether auto repair is enabled. This parameter takes effect only when `enable` is set to true. Valid values:
+     * @description Specifies whether to enable auto repair. This parameter takes effect only if `enable` is set to true. Valid values:
      *
-     *   `true`: Auto repair is enabled.
-     *   `false`: Auto repair is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -32,7 +32,7 @@ class management extends Model
     public $autoRepairPolicy;
 
     /**
-     * @description Indicates whether auto update is enabled.
+     * @description Specifies whether to enable auto update.
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class management extends Model
     public $autoUpgradePolicy;
 
     /**
-     * @description Indicates whether auto Common Vulnerabilities and Exposures (CVE) patching is enabled.
+     * @description Specifies whether to enable auto Common Vulnerabilities and Exposures (CVE) patching.
      *
      * @example true
      *
@@ -64,10 +64,10 @@ class management extends Model
     public $autoVulFixPolicy;
 
     /**
-     * @description Indicates whether the managed node pool feature is enabled. Valid values:
+     * @description Specifies whether to enable the managed node pool feature. Valid values:
      *
-     *   `true`: The managed node pool feature is enabled.
-     *   `false`: The managed node pool feature is disabled. Other parameters in this section take effect only if the value of `enable` is true.
+     *   `true`
+     *   `false`: If you set this parameter to false, other parameters of `management` do not take effect.
      *
      * @example true
      *
@@ -76,7 +76,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configuration of auto update. The configuration take effects only if the value of `enable` is true.
+     * @description The configurations of auto update. The configurations take effect only if `enable` is set to true.
      *
      * @var upgradeConfig
      */
