@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSqlLogTaskRequest extends Model
 {
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
      *
      * @example 1608888296000
      *
@@ -26,7 +26,7 @@ class CreateSqlLogTaskRequest extends Model
     public $filters;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the database instance.
      *
      * @example pc-2ze8g2am97624****
      *
@@ -35,7 +35,7 @@ class CreateSqlLogTaskRequest extends Model
     public $instanceId;
 
     /**
-     * @description The task name.
+     * @description The name of the task.
      *
      * @example test01
      *
@@ -46,6 +46,7 @@ class CreateSqlLogTaskRequest extends Model
     /**
      * @description The node ID.
      *
+     * >  This parameter is available only for instances that run in a cluster architecture. You can specify this parameter to query the offline tasks of a specific node. By default, if this parameter is not specified, the information about the offline tasks of the primary node is returned.
      * @example pi-uf6k5f6g3912i0dqz
      *
      * @var string
@@ -53,10 +54,10 @@ class CreateSqlLogTaskRequest extends Model
     public $nodeId;
 
     /**
-     * @description The role of the node in the PolarDB-X 2.0 instance. Valid values:
+     * @description The role of the node of the PolarDB-X 2.0 database instance. Valid values:
      *
-     *   **polarx_cn**: compute node.
-     *   **polarx_dn**: data node.
+     *   **polarx_cn**: compute node
+     *   **polarx_dn**: data node
      *
      * @example polarx_cn
      *
@@ -65,7 +66,7 @@ class CreateSqlLogTaskRequest extends Model
     public $role;
 
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
      *
      * @example 1596177993000
      *
@@ -76,8 +77,9 @@ class CreateSqlLogTaskRequest extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   Export
-     *   Query
+     *   **Export**
+     *   **Query**
+     *   **Insight**
      *
      * @example Export
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogConfigResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
+     * @description The response code.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class DescribeSqlLogConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description SqlLogConfig
+     * @description The data returned.
      *
      * @var data
      */
@@ -28,7 +28,7 @@ class DescribeSqlLogConfigResponseBody extends Model
     /**
      * @description The returned message.
      *
-     * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+     * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
      * @example Successful
      *
      * @var string
@@ -47,8 +47,8 @@ class DescribeSqlLogConfigResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *

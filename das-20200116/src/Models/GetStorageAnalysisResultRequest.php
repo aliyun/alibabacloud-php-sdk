@@ -29,7 +29,7 @@ class GetStorageAnalysisResultRequest extends Model
     public $nodeId;
 
     /**
-     * @description The task ID, which is returned after you call the CreateStorageAnalysisTask operation.
+     * @description The task ID. You can obtain the task ID from the response of the [CreateStorageAnalysisTask](https://help.aliyun.com/document_detail/2639140.html) operation.
      *
      * This parameter is required.
      * @example 910f83f4b96df0524ddc5749f615****

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogStatisticResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,13 +19,16 @@ class DescribeSqlLogStatisticResponseBody extends Model
     public $code;
 
     /**
-     * @description SqlLogStatistic
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
      * @example Successful
      *
      * @var string
@@ -31,6 +36,8 @@ class DescribeSqlLogStatisticResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example B6D17591-B48B-4D31-9CD6-9B9796B2****
      *
      * @var string
@@ -38,6 +45,11 @@ class DescribeSqlLogStatisticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

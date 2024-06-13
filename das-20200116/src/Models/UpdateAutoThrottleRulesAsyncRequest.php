@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateAutoThrottleRulesAsyncRequest extends Model
 {
     /**
-     * @description The duration threshold for triggering automatic SQL throttling. Set this parameter to a positive integer that is greater than or equal to 2. Unit: minutes.
+     * @description The duration threshold for triggering automatic SQL throttling. Set this parameter to an integer that is greater than or equal to 2. Unit: minutes.
      *
      * This parameter is required.
      * @example 2
@@ -19,10 +19,10 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     public $abnormalDuration;
 
     /**
-     * @description The maximum number of active sessions.
+     * @description The threshold for the number of active sessions.
      *
-     *   Specify an integer that is greater than or equal to 16 when the CPU utilization threshold and the maximum number of active sessions are in the **OR** relationship.
-     *   Specify an integer that is greater than or equal to 2 when the CPU utilization threshold and the maximum number of active sessions are in the **AND** relationship.
+     *   If this parameter and CpuUsage are in the **OR** relationship, set this parameter to an integer that is greater than or equal to 16.
+     *   If this parameter and CpuUsage are in the **AND** relationship, set this parameter to an integer that is greater than or equal to 2.
      *
      * This parameter is required.
      * @example 16
@@ -54,7 +54,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description Specifies whether to terminate abnormal SQL statements in execution at the same time. Valid values:
      *
-     * >  Abnormal SQL statements use the same template as the SQL statements that need to be throttled.
+     * >  Abnormal SQL statements use the same template as the SQL statements to be throttled.
      *
      *   **true**
      *   **false**
@@ -89,7 +89,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     public $cpuSessionRelation;
 
     /**
-     * @description The CPU utilization threshold, in percentages. Valid values: 70 to 100.
+     * @description The threshold for CPU utilization. Valid values: 70% to 100%.
      *
      * This parameter is required.
      * @example 70

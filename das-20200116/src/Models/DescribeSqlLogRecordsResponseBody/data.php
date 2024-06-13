@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1608888296000
      *
      * @var int
@@ -17,6 +19,12 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether the task was complete. Valid values:
+     *
+     *   **0**: The task failed.
+     *   **1**: The task was complete.
+     *
+     * >  If the value of **Finish** is 0 and the value of **JobId** is returned, the request is an asynchronous request and the return result cannot be directly obtained. You must query the return result by using the value of **JobId**. Specify JobId as the key of **Filters** and the value of **JobId** as the value of Filters. Example: `Filters=[{"Key": "JobId", "Value": "******"}]`.
      * @example 1
      *
      * @var string
@@ -24,11 +32,15 @@ class data extends Model
     public $finish;
 
     /**
+     * @description The data.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example MzI4NTZfUUlOR0RBT19DTTlfTlUyMF9NWVNRTF9PREJTX0xWU18zMjg1Nl9teXNxbF9XZWQgTWFyIDA2IDE0OjUwOjQ3IENTVCAyMDI0XzBfMzBfRXhlY3V0ZVRpbWVfREVTQ19XZWQgTWFyIDA2IDE0OjM1OjQ3IENTVCAyMDI0Xw==_1709708406465
      *
      * @var string
@@ -36,6 +48,8 @@ class data extends Model
     public $jobId;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1596177993000
      *
      * @var int
@@ -43,6 +57,8 @@ class data extends Model
     public $startTime;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

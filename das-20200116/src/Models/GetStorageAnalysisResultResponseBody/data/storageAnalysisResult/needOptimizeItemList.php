@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class needOptimizeItemList extends Model
 {
     /**
-     * @description The data associated with items to be optimized.
+     * @description The data associated with the items to be optimized, which is in the JSON format.
      *
      * @example {
      * }
@@ -18,7 +18,7 @@ class needOptimizeItemList extends Model
     public $associatedData;
 
     /**
-     * @description The database name.
+     * @description The name of the database.
      *
      * @example testdb01
      *
@@ -29,8 +29,14 @@ class needOptimizeItemList extends Model
     /**
      * @description The optimization suggestion. Valid values:
      *
-     *   **NEED_ANALYZE_TABLE**: You can execute the ANALYZE TABLE statement on the related table during off-peak hours.
-     *   **NEED_OPTIMIZE_TABLE**: You can reclaim fragments during off-peak hours.
+     *   **NEED_ANALYZE_TABLE**: Execute the `ANALYZE TABLE` statement on the table during off-peak hours.
+     *   **NEED_OPTIMIZE_TABLE**: Reclaim space fragments during off-peak hours.
+     *   **CHANGE_TABLE_ENGINE_IF_NECESSARY**: Change the storage engine type of a table after risk assessment.
+     *   **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: Pay attention to the usage of auto-increment IDs.
+     *   **DUPLICATE_INDEX**: Optimize indexes of tables.
+     *   **TABLE_SIZE**: Pay attention to the table size.
+     *   **TABLE_ROWS_AND_AVG_ROW_LENGTH**: Pay attention to the number of rows in a table and the average row length.
+     *   **STORAGE_USED_PERCENT**: Pay attention to the space usage to prevent the instance from being locked if the instance is full.
      *
      * @example NEED_OPTIMIZE_TABLE
      *
@@ -41,8 +47,15 @@ class needOptimizeItemList extends Model
     /**
      * @description The item to be optimized. Valid values:
      *
-     *   **NEED_ANALYZE_TABLE**: The statistical data in information_schema.tables differs greatly from the physical file size.
-     *   **NEED_OPTIMIZE_TABLE**: The fragmentation degree of the table is high.
+     *   **NEED_ANALYZE_TABLE**: tables whose storage statistics obtained from `information_schema.tables` are 50 GB larger or smaller than the physical file sizes.
+     *   **NEED_OPTIMIZE_TABLE**: tables whose space fragments are larger than 6 GB and whose fragmentation rates are greater than 30%. The fragmentation rate of a table is generally calculated based on the following formula: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, PhyTotalSize = DataSize + IndexSize + DataFree. Thus, the fragmentation rate can be calculated based on the following formula: `Fragmentation rate = DataFree/PhyTotalSize`.
+     *   **TABLE_ENGINE**: tables whose storage engines are not InnoDB or XEngine.
+     *   **AUTO_INCREMENT_ID_BE_TO_RUN_OUT**: tables whose usages of auto-increment IDs exceed 80%.
+     *   **DUPLICATE_INDEX**: tables whose indexes are redundant or duplicate.
+     *   **TABLE_SIZE**: single tables whose sizes are larger than 50 GB.
+     *   **TABLE_ROWS_AND_AVG_ROW_LENGTH**: single tables that contain more than 5 million rows and whose average row lengths exceed 10 KB.
+     *   **TOTAL_DATA_FREE**: instances whose reclaimable spaces are larger than 60 GB and whose total fragmentation rate is larger than 5%.
+     *   **STORAGE_USED_PERCENT**: instances whose space usage is larger than 90%.
      *
      * @example NEED_OPTIMIZE_TABLE
      *
@@ -51,7 +64,7 @@ class needOptimizeItemList extends Model
     public $optimizeItemName;
 
     /**
-     * @description The table name.
+     * @description The name of the table.
      *
      * @example test_table
      *

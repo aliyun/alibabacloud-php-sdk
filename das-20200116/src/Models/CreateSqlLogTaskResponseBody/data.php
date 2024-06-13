@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The time when the task was created.
+     * @description The time when the task was created. This value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1681363254423
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The end of the time range to query.
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1608888296000
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $end;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the database instance.
      *
      * @example pc-2ze8g2am97624****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The task name.
+     * @description The name of the task.
      *
      * @example Export_test
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1596177993000
      *
@@ -54,8 +54,15 @@ class data extends Model
     public $start;
 
     /**
-     * @description The status of the task.
+     * @description The state of the task. Valid values:
      *
+     *   **INIT**: The task is to be scheduled.
+     *   **RUNNING**: The task is running.
+     *   **FAILED**: The task failed.
+     *   **CANCELED**: The task is canceled.
+     *   **COMPLETED**: The task is complete.
+     *
+     * >  You can view the result of a task that is in the **COMPLETED** state.
      * @example COMPLETED
      *
      * @var string

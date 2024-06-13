@@ -32,9 +32,8 @@ class storageAnalysisResult extends Model
     public $analysisSuccess;
 
     /**
-     * @description The estimated daily storage usage increment in the last seven days.
+     * @description The estimated average daily growth of the used storage space in the previous seven days. Unit: bytes.
      *
-     * >  Unit: bytes.
      * @example 0
      *
      * @var int
@@ -42,7 +41,7 @@ class storageAnalysisResult extends Model
     public $dailyIncrement;
 
     /**
-     * @description The estimated number of days before the remaining storage runs out.
+     * @description The estimated number of days for which the remaining storage space is available.
      *
      * @example 99
      *
@@ -51,7 +50,7 @@ class storageAnalysisResult extends Model
     public $estimateAvailableDays;
 
     /**
-     * @description The list of items to be optimized.
+     * @description The items to be optimized, which are generated based on DAS default rules. You can ignore these items based on your business requirements, and create custom rules to generate items to be optimized based on other basic data that is returned.
      *
      * @var needOptimizeItemList[]
      */

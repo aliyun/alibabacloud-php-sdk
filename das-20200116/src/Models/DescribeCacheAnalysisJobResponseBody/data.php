@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponse
 
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\bigKeys;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\bigKeysOfNum;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\expiryKeysLevelCount;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\keyPrefixes;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\unexBigKeysOfBytes;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCacheAnalysisJobResponseBody\data\unexBigKeysOfNum;
@@ -26,6 +27,11 @@ class data extends Model
      * @var bigKeysOfNum
      */
     public $bigKeysOfNum;
+
+    /**
+     * @var expiryKeysLevelCount
+     */
+    public $expiryKeysLevelCount;
 
     /**
      * @description The instance ID.
@@ -99,16 +105,17 @@ class data extends Model
      */
     public $unexBigKeysOfNum;
     protected $_name = [
-        'bigKeys'            => 'BigKeys',
-        'bigKeysOfNum'       => 'BigKeysOfNum',
-        'instanceId'         => 'InstanceId',
-        'jobId'              => 'JobId',
-        'keyPrefixes'        => 'KeyPrefixes',
-        'message'            => 'Message',
-        'nodeId'             => 'NodeId',
-        'taskState'          => 'TaskState',
-        'unexBigKeysOfBytes' => 'UnexBigKeysOfBytes',
-        'unexBigKeysOfNum'   => 'UnexBigKeysOfNum',
+        'bigKeys'              => 'BigKeys',
+        'bigKeysOfNum'         => 'BigKeysOfNum',
+        'expiryKeysLevelCount' => 'ExpiryKeysLevelCount',
+        'instanceId'           => 'InstanceId',
+        'jobId'                => 'JobId',
+        'keyPrefixes'          => 'KeyPrefixes',
+        'message'              => 'Message',
+        'nodeId'               => 'NodeId',
+        'taskState'            => 'TaskState',
+        'unexBigKeysOfBytes'   => 'UnexBigKeysOfBytes',
+        'unexBigKeysOfNum'     => 'UnexBigKeysOfNum',
     ];
 
     public function validate()
@@ -123,6 +130,9 @@ class data extends Model
         }
         if (null !== $this->bigKeysOfNum) {
             $res['BigKeysOfNum'] = null !== $this->bigKeysOfNum ? $this->bigKeysOfNum->toMap() : null;
+        }
+        if (null !== $this->expiryKeysLevelCount) {
+            $res['ExpiryKeysLevelCount'] = null !== $this->expiryKeysLevelCount ? $this->expiryKeysLevelCount->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -165,6 +175,9 @@ class data extends Model
         }
         if (isset($map['BigKeysOfNum'])) {
             $model->bigKeysOfNum = bigKeysOfNum::fromMap($map['BigKeysOfNum']);
+        }
+        if (isset($map['ExpiryKeysLevelCount'])) {
+            $model->expiryKeysLevelCount = expiryKeysLevelCount::fromMap($map['ExpiryKeysLevelCount']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

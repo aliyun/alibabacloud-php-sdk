@@ -9,165 +9,299 @@ use AlibabaCloud\Tea\Model;
 class queries extends Model
 {
     /**
+     * @description The database account.
+     *
+     * @example testname
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The execution duration. Unit: millisecond.
+     *
+     * @example 58
+     *
      * @var int
      */
     public $consume;
 
     /**
+     * @description The CPU execution time. Unit: microsecond.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $cpuTime;
 
     /**
+     * @description The database name.
+     *
+     * @example testdb01
+     *
      * @var string
      */
     public $DBName;
 
     /**
-     * @description yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\"
+     * @description The execution time. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2023-12-07T02:15:32Z
      *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @description The extended information. This parameter is a reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $ext;
 
     /**
+     * @description The number of rows pulled by the CNs of the PolarDB-X 2.0 instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $frows;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 11.197.XX.XX
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The lock wait time. Unit: millisecond.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $lockTime;
 
     /**
+     * @description The number of logical reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $logicRead;
 
     /**
+     * @description The ID of the child node.
+     *
+     * @example pi-bp1o58x3ib7e6****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description ts unix
+     * @description The execution timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1701886532000
      *
      * @var int
      */
     public $originTime;
 
     /**
+     * @description The wait time of parallel queries in the queue in the PolarDB for MySQL instance. Unit: millisecond.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $parallelDegree;
 
     /**
+     * @description The degree of parallelism (DOP) value of the PolarDB for MySQL instance.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $parallelQueueTime;
 
     /**
+     * @description The number of physical asynchronous reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $physicAsyncRead;
 
     /**
+     * @description The total number of physical reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $physicRead;
 
     /**
+     * @description The number of physical synchronous reads.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $physicSyncRead;
 
     /**
+     * @description The number of rows returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $returnRows;
 
     /**
+     * @description The total number of rows updated or returned by the CNs of the PolarDB-X 2.0 instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $rows;
 
     /**
+     * @description The number of rows scanned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanRows;
 
     /**
+     * @description The number of requests from the compute nodes (CNs) to the data nodes (DNs) in the PolarDB-X 2.0 instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $scnt;
 
     /**
+     * @description The ID of the SQL statement.
+     *
+     * @example a4111670e80596c5bf42cf5154438a91
+     *
      * @var string
      */
     public $sqlId;
 
     /**
+     * @description The queried SQL statement.
+     *
+     * @example SELECT @@session.transaction_read_only
+     *
      * @var string
      */
     public $sqlText;
 
     /**
+     * @description The type of the SQL statement. Valid values:
+     *
+     *   **SELECT**
+     *   **UPDATE**
+     *   **DELETE**
+     *
+     * @example SELECT
+     *
      * @var string
      */
     public $sqlType;
 
     /**
+     * @description The execution result of the SQL statement. Valid values:
+     *
+     *   **0**: The execution was successful.
+     *   **1**: The execution failed.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The thread ID.
+     *
+     * @example None
+     *
      * @var int
      */
     public $threadId;
 
     /**
+     * @description The trace ID of the PolarDB-X 2.0 instance, which is the execution ID of the SQL statement on the DN.
+     *
+     * @example 14c93b7c7bf00000
+     *
      * @var string
      */
     public $traceId;
 
     /**
-     * @var int
+     * @description The transaction ID.
+     *
+     * @example 200000
+     *
+     * @var string
      */
     public $trxId;
 
     /**
+     * @description The number of rows updated.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $updateRows;
 
     /**
+     * @description Indicates whether the PolarDB for MySQL instance uses In-Memory Column Indexes (IMCIs). Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $useImciEngine;
 
     /**
+     * @description The IP address to which the endpoint used for query is resolved.
+     *
+     * @example 10.146.XX.XX
+     *
      * @var string
      */
     public $vip;
 
     /**
+     * @description The number of writes to the ApsaraDB RDS for SQL Server instance.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $writes;

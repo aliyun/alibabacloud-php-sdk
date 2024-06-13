@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableStats extends Model
 {
     /**
-     * @description The average row length.
+     * @description The average length of rows. Unit: bytes.
      *
-     * >  Unit: bytes.
      * @example 154
      *
      * @var int
@@ -19,9 +18,8 @@ class tableStats extends Model
     public $avgRowLength;
 
     /**
-     * @description The size of storage occupied by fragments.
+     * @description The size of space fragments. Unit: bytes.
      *
-     * >  Unit: bytes.
      * @example 7340032
      *
      * @var int
@@ -29,9 +27,8 @@ class tableStats extends Model
     public $dataFree;
 
     /**
-     * @description The size of storage occupied by the table data.
+     * @description The storage space occupied by data. Unit: bytes.
      *
-     * >  Unit: bytes.
      * @example 1982857216
      *
      * @var int
@@ -39,7 +36,7 @@ class tableStats extends Model
     public $dataSize;
 
     /**
-     * @description The database name.
+     * @description The name of the database.
      *
      * @example testdb01
      *
@@ -48,7 +45,7 @@ class tableStats extends Model
     public $dbName;
 
     /**
-     * @description The type of the engine used by the table.
+     * @description The type of the storage engine used by the table.
      *
      * @example InnoDB
      *
@@ -57,14 +54,18 @@ class tableStats extends Model
     public $engine;
 
     /**
+     * @description 可回收空间大小（碎片空间大小），单位为Byte。
+     *
+     * > 该参数仅适用于MongoDB实例。表碎片率计算方式为：`FragmentSize/PhyTotalSize`。
+     * @example 362221568
+     *
      * @var int
      */
     public $fragmentSize;
 
     /**
-     * @description The size of storage occupied by indexes.
+     * @description The storage space occupied by indexes. Unit: bytes.
      *
-     * >  Unit: bytes.
      * @example 1022296064
      *
      * @var int
@@ -72,9 +73,9 @@ class tableStats extends Model
     public $indexSize;
 
     /**
-     * @description The size of the table storage.
+     * @description The storage space of the table. Unit: bytes.
      *
-     * >  Unit: byte. The value of the parameter is the sum of DataSize, IndexSize, and DataFree.
+     * >  The value of this parameter is the sum of the values of **DataSize**, **IndexSize**, and **DataFree**.
      * @example 3012493312
      *
      * @var int
@@ -82,9 +83,9 @@ class tableStats extends Model
     public $phyTotalSize;
 
     /**
-     * @description The physical file size of the table.
+     * @description The physical file size of the table. Unit: bytes.
      *
-     * >  Unit: byte. You may fail to obtain the physical file size because of the deployment mode of the database instance.
+     * >  You may fail to obtain the physical file size because of the deployment mode of the database instance.
      * @example 3057655808
      *
      * @var int
@@ -92,7 +93,7 @@ class tableStats extends Model
     public $physicalFileSize;
 
     /**
-     * @description The table name.
+     * @description The name of the table.
      *
      * @example test_table
      *
@@ -110,7 +111,7 @@ class tableStats extends Model
     public $tableRows;
 
     /**
-     * @description The table type.
+     * @description The type of the table.
      *
      * @example BASE TABLE
      *
@@ -119,9 +120,9 @@ class tableStats extends Model
     public $tableType;
 
     /**
-     * @description The size of storage occupied by table data and indexes.
+     * @description The storage space occupied by table data and indexes. Unit: bytes.
      *
-     * >  Unit: byte. The value of the parameter is the sum of DataSize and IndexSize.
+     * >  The value of this parameter is the sum of the values of **DataSize** and **IndexSize**.
      * @example 3005153280
      *
      * @var int

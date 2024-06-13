@@ -11,6 +11,7 @@ class filters extends Model
     /**
      * @description The name of the filter parameter.
      *
+     * >  For more information about the supported filter parameters and their valid values, see the following **supplement about the Key parameter**.
      * @example KeyWords
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The time when the analysis task was complete.
+     * @description The time when the analysis task was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1712751923000
      *
@@ -19,8 +19,9 @@ class list_ extends Model
     public $analysisTaskFinishTime;
 
     /**
-     * @description The status of the analysis task.
+     * @description The state of the analysis task.
      *
+     * >  This parameter is a system parameter. You do not need to pay attention to the parameter.
      * @example SCAN_ANALYZE_COMPLETED
      *
      * @var string
@@ -28,7 +29,7 @@ class list_ extends Model
     public $analysisTaskStatus;
 
     /**
-     * @description The time when the task was created.
+     * @description The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1681363254423
      *
@@ -37,7 +38,7 @@ class list_ extends Model
     public $createTime;
 
     /**
-     * @description The end of the time range to query.
+     * @description The time when the task ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1705975320000
      *
@@ -46,7 +47,10 @@ class list_ extends Model
     public $end;
 
     /**
-     * @description Indicates whether the task expires.
+     * @description Indicates whether the task expired. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -55,14 +59,14 @@ class list_ extends Model
     public $expire;
 
     /**
-     * @description The filter conditions.
+     * @description The filter parameters.
      *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the database instance.
      *
      * @example rm-2zew761kf7ho18752
      *
@@ -71,7 +75,7 @@ class list_ extends Model
     public $instanceId;
 
     /**
-     * @description The number of log records
+     * @description The number of log records.
      *
      * @example 99999
      *
@@ -98,7 +102,7 @@ class list_ extends Model
     public $progress;
 
     /**
-     * @description The Object Storage Service (OSS) URL or other information.
+     * @description The URL that is returned if the value of TaskType is **Export**.
      *
      * @example https://das-sqllog-download-cn-shanghai.oss-cn-shanghai.aliyuncs.com/la
      *
@@ -107,7 +111,7 @@ class list_ extends Model
     public $result;
 
     /**
-     * @description The number of files scanned
+     * @description The number of files that are scanned.
      *
      * @example 3000
      *
@@ -116,7 +120,7 @@ class list_ extends Model
     public $scanFileSize;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The time when the task started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1683859555482
      *
@@ -125,8 +129,15 @@ class list_ extends Model
     public $start;
 
     /**
-     * @description The status of the task.
+     * @description The task state. Valid values:
      *
+     *   **INIT**: The task is to be scheduled.
+     *   **RUNNING**: The task is running.
+     *   **FAILED**: The task failed.
+     *   **CANCELED**: The task is canceled.
+     *   **COMPLETED**: The task is complete.
+     *
+     * >  If a task is in the **COMPLETED** state, you can view the results of the task.
      * @example RUNNING
      *
      * @var string
@@ -143,10 +154,10 @@ class list_ extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The task type. Valid values:
      *
-     *   Export
-     *   Query
+     *   **Export**
+     *   **Query**
      *
      * @example Export
      *

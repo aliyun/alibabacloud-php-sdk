@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of tasks.
      *
      * @example 40
      *

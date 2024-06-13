@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The SQL log data.
+     *
      * @var SQLLogRecord[]
      */
     public $SQLLogRecord;

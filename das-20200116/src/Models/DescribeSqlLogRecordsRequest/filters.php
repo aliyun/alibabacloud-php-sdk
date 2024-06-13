@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description Parameter filtering
+     * @description The name of the filter parameter.
      *
+     * >  For more information about the supported filter parameters and their valid values, see the following **supplement about the Key parameter**.
      * @example keyWords
      *
      * @var string
@@ -18,6 +19,8 @@ class filters extends Model
     public $key;
 
     /**
+     * @description The value of the filter parameter.
+     *
      * @example select
      *
      * @var string

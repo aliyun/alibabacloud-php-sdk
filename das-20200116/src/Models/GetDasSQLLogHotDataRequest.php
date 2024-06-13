@@ -238,7 +238,7 @@ class GetDasSQLLogHotDataRequest extends Model
     public $sqlType;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: millisecond.
      *
      * This parameter is required.
      * @example 1684734297000

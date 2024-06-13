@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogRecordsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+     *
      * @example 1608888296000
      *
      * @var int
@@ -17,13 +19,16 @@ class DescribeSqlLogRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the database instance.
      *
+     * This parameter is required.
      * @example pc-2ze8g2am97624****
      *
      * @var string
@@ -31,6 +36,11 @@ class DescribeSqlLogRecordsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The node ID.
+     *
+     *   For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter is available only for Cluster Edition instances. By default, if this parameter is not specified, the information about the logs of the primary node is returned.
+     *   Set this parameter to **polarx_cn** or **polarx_dn** if the node that you want to query belongs to a PolarDB-X 2.0 database instance. A value of polarx_cn indicates a compute node. A value of polarx_dn indicates a data node.
+     *
      * @example pi-uf6k5f6g3912i****
      *
      * @var string
@@ -38,6 +48,8 @@ class DescribeSqlLogRecordsRequest extends Model
     public $nodeId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +57,8 @@ class DescribeSqlLogRecordsRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -52,6 +66,11 @@ class DescribeSqlLogRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The role of the node of the PolarDB-X 2.0 database instance. Valid values:
+     *
+     *   \\*\\*polarx_cn\\*\\*: compute node
+     *   \\*\\*polarx_dn\\*\\*: data node
+     *
      * @example polarx_cn
      *
      * @var string
@@ -59,6 +78,8 @@ class DescribeSqlLogRecordsRequest extends Model
     public $role;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+     *
      * @example 1596177993000
      *
      * @var int

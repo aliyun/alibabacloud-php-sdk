@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The cold storage duration.
+     * @description Indicates whether the cold data storage is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class data extends Model
     public $coldEnable;
 
     /**
-     * @description The cold storage duration.
+     * @description The number of days for which the SQL Explorer and Audit data is stored in cold storage.
      *
      * @example 23
      *
@@ -27,7 +30,7 @@ class data extends Model
     public $coldRetention;
 
     /**
-     * @description The time when cold storage was enabled.
+     * @description The time when the cold data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1683712800000
      *
@@ -36,7 +39,15 @@ class data extends Model
     public $coldStartTime;
 
     /**
-     * @description The version of the collector.
+     * @description The collector version. Valid values:
+     *
+     *   **MYSQL_V0**
+     *   **MYSQL_V1**
+     *   **MYSQL_V2**
+     *   **MYSQL_V3**
+     *   **PG_V1**
+     *   **rdspg_v1**
+     *   **polarpg_v1**
      *
      * @example MYSQL_V3
      *
@@ -45,7 +56,10 @@ class data extends Model
     public $collectorVersion;
 
     /**
-     * @description Indicates whether hot storage was enabled.
+     * @description Indicates whether the hot data storage is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -54,7 +68,7 @@ class data extends Model
     public $hotEnable;
 
     /**
-     * @description The hot storage duration.
+     * @description The number of days for which the SQL Explorer and Audit data is stored in hot storage.
      *
      * @example 7
      *
@@ -63,7 +77,7 @@ class data extends Model
     public $hotRetention;
 
     /**
-     * @description The time when hot storage was enabled.
+     * @description The time when the hot data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1683712800000
      *
@@ -81,7 +95,10 @@ class data extends Model
     public $logFilter;
 
     /**
-     * @description Indicates whether SQL Explorer and Audit was enabled.
+     * @description Indicates whether the SQL Explorer feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -90,7 +107,7 @@ class data extends Model
     public $requestEnable;
 
     /**
-     * @description The time when SQL Explorer and Audit was enabled.
+     * @description The time when the SQL Explorer feature was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1683712800000
      *
@@ -99,9 +116,8 @@ class data extends Model
     public $requestStartTime;
 
     /**
-     * @description The time when SQL Explorer and Audit was disabled.
+     * @description The time when DAS Enterprise Edition V1 expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  If DAS Enterprise Edition V1 was enabled, this parameter indicates the time when DAS Enterprise Edition expired.
      * @example 1715335200000
      *
      * @var int
@@ -109,7 +125,7 @@ class data extends Model
     public $requestStopTime;
 
     /**
-     * @description The storage duration of the SQL Explorer and Audit data.
+     * @description The total storage duration of the SQL Explorer and Audit data. The value of this parameter is the sum of the values of **HotRetention** and **ColdRetention**. Unit: day.
      *
      * @example 30
      *
@@ -118,7 +134,10 @@ class data extends Model
     public $retention;
 
     /**
-     * @description Indicates whether DAS Enterprise Edition was enabled.
+     * @description Indicates whether DAS Enterprise Edition is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -127,7 +146,11 @@ class data extends Model
     public $sqlLogEnable;
 
     /**
-     * @description The status of data migration.
+     * @description The state of data migration. Valid values:
+     *
+     *   **FINISH**: The historical data is migrated.
+     *   **RUNNING**: The historical data is being migrated.
+     *   **FAILURE**: The historical data fails to be migrated.
      *
      * @example FINISH
      *
@@ -136,7 +159,7 @@ class data extends Model
     public $sqlLogState;
 
     /**
-     * @description The time when SQL Explorer and Audit was enabled.
+     * @description The time when DAS Enterprise Edition was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1683712800000
      *
@@ -145,7 +168,14 @@ class data extends Model
     public $sqlLogVisibleTime;
 
     /**
-     * @description The supported versions of Database Autonomy Service (DAS) Enterprise Edition.
+     * @description The latest version of DAS Enterprise Edition that supports the database instance. Valid values:
+     *
+     *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
+     *   **SQL_LOG_V1**: DAS Enterprise version V1.
+     *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
+     *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
+     *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
+     *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
      *
      * @example SQL_LOG_V3
      *
@@ -154,7 +184,14 @@ class data extends Model
     public $supportVersion;
 
     /**
-     * @description The version of SQL Explorer and Audit.
+     * @description The version of DAS Enterprise Edition that is enabled for the database instance. Valid values:
+     *
+     *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
+     *   **SQL_LOG_V1**: DAS Enterprise version V1.
+     *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
+     *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
+     *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
+     *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
      *
      * @example SQL_LOG_V3
      *

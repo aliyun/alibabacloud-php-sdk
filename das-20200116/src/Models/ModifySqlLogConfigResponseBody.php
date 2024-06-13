@@ -26,9 +26,9 @@ class ModifySqlLogConfigResponseBody extends Model
     public $data;
 
     /**
-     * @description The message that is returned for the request.
+     * @description The returned message.
      *
-     * >  If the request was successful, **Successful** is returned. If the request failed, error information such as an error code is returned.
+     * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
      * @example Successful
      *
      * @var string

@@ -11,61 +11,116 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1681363254423
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1608888296000
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @description Indicates whether the task has expired. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expire;
 
     /**
+     * @description The download URL of the export task.
+     *
+     * @example "https://das-sqllog-download-cn-hongkong.oss-cn-hongkong.aliyuncs.com/****"
+     *
      * @var string
      */
     public $export;
 
     /**
+     * @description The filter parameters.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The task name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The results of the offline querying task.
+     *
      * @var queries[]
      */
     public $queries;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1596177993000
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **INIT**: The task is to be scheduled.
+     *   **RUNNING**: The task is running.
+     *   **FAILED**: The task failed.
+     *   **CANCELED**: The task is canceled.
+     *   **COMPLETED**: The task is complete.
+     *
+     * >  If a task is in the **COMPLETED** state, you can view the results of the task.
+     * @example COMPLETED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID.
+     *
+     * @example 9a4f5c4494dbd6713185d87a97aa53e8
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **Export**
+     *   **Query**
+     *
+     * @example Query
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The total number of tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
