@@ -1752,7 +1752,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关实例
+     * @summary Creates an API Gateway instance.
      *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1824,7 +1824,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关实例
+     * @summary Creates an API Gateway instance.
      *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
@@ -5000,6 +5000,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the APIs with which an application is associated.
+     *  *
      * @param DescribeApisByAppRequest $request DescribeApisByAppRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5055,6 +5057,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the APIs with which an application is associated.
+     *  *
      * @param DescribeApisByAppRequest $request DescribeApisByAppRequest
      *
      * @return DescribeApisByAppResponse DescribeApisByAppResponse
@@ -6693,6 +6697,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the historical versions of an API.
+     *  *
      * @param DescribeHistoryApisRequest $request DescribeHistoryApisRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6742,6 +6748,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Queries the historical versions of an API.
+     *  *
      * @param DescribeHistoryApisRequest $request DescribeHistoryApisRequest
      *
      * @return DescribeHistoryApisResponse DescribeHistoryApisResponse
@@ -7802,7 +7810,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 根据查询查询绑定的API列表
+     * @summary Queries the APIs to which a specified plug-in is bound.
      *  *
      * @param DescribePluginApisRequest $request DescribePluginApisRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -7862,7 +7870,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 根据查询查询绑定的API列表
+     * @summary Queries the APIs to which a specified plug-in is bound.
      *  *
      * @param DescribePluginApisRequest $request DescribePluginApisRequest
      *
@@ -12707,9 +12715,6 @@ class CloudAPI extends OpenApiClient
     /**
      * @summary Binds a signature key to APIs.
      *  *
-     * @description *   This API is intended for API providers.
-     * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
-     *  *
      * @param SetSignatureApisRequest $request SetSignatureApisRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -12754,9 +12759,6 @@ class CloudAPI extends OpenApiClient
 
     /**
      * @summary Binds a signature key to APIs.
-     *  *
-     * @description *   This API is intended for API providers.
-     * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
      *  *
      * @param SetSignatureApisRequest $request SetSignatureApisRequest
      *

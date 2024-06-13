@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description Instance ID
+     *
      * @example apigateway-hz-b3c5dadd5***
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateInstanceResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description Request ID
+     *
      * @example CEB6EC62-B6C7-5082-A45A-45A204724AC2
      *
      * @var string
@@ -23,6 +27,10 @@ class CreateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the tag exists. Valid values: **true** and **false**.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $tagStatus;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryApisRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example a12068f555964ca8a0c9c33288f1e5a7
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHistoryApisRequest extends Model
     public $apiId;
 
     /**
+     * @description The name of the API. The name is used for fuzzy match.
+     *
      * @example getPersonInfo
      *
      * @var string
@@ -23,8 +27,9 @@ class DescribeHistoryApisRequest extends Model
     public $apiName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the API group.
      *
+     * This parameter is required.
      * @example 0ccb66aadb5345b78a40f57d192d8aa4
      *
      * @var string
@@ -32,6 +37,8 @@ class DescribeHistoryApisRequest extends Model
     public $groupId;
 
     /**
+     * @description The page number of the current page.
+     *
      * @example 2
      *
      * @var string
@@ -39,6 +46,8 @@ class DescribeHistoryApisRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var string
@@ -51,6 +60,11 @@ class DescribeHistoryApisRequest extends Model
     public $securityToken;
 
     /**
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
      * @example RELEASE
      *
      * @var string

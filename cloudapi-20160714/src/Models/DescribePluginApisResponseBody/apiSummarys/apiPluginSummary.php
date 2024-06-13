@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiPluginSummary extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example accc8c68b7294b1cb4928741********
      *
      * @var string
@@ -16,6 +18,8 @@ class apiPluginSummary extends Model
     public $apiId;
 
     /**
+     * @description The API name.
+     *
      * @example fhosQueryDayOfStock_V2
      *
      * @var string
@@ -23,11 +27,17 @@ class apiPluginSummary extends Model
     public $apiName;
 
     /**
+     * @description The API description.
+     *
+     * @example API description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 5f51f89261854fd9ad5116be********
      *
      * @var string
@@ -35,6 +45,8 @@ class apiPluginSummary extends Model
     public $groupId;
 
     /**
+     * @description The API group to which the API belongs.
+     *
      * @example myGroup2
      *
      * @var string
@@ -42,6 +54,8 @@ class apiPluginSummary extends Model
     public $groupName;
 
     /**
+     * @description The HTTP method of the API.
+     *
      * @example GET
      *
      * @var string
@@ -49,6 +63,8 @@ class apiPluginSummary extends Model
     public $method;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /mqTest
      *
      * @var string
@@ -56,6 +72,8 @@ class apiPluginSummary extends Model
     public $path;
 
     /**
+     * @description The ID of the region in which the API resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -63,11 +81,21 @@ class apiPluginSummary extends Model
     public $regionId;
 
     /**
+     * @description The environment alias.
+     *
+     * @example Production
+     *
      * @var string
      */
     public $stageAlias;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the pre-release environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string

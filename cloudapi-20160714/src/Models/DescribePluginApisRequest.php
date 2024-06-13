@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginApisRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example c6b0dd188b0e4e408e12f926********
      *
      * @var string
@@ -16,16 +18,26 @@ class DescribePluginApisRequest extends Model
     public $apiId;
 
     /**
+     * @description The name of the API.
+     *
+     * @example API
+     *
      * @var string
      */
     public $apiName;
 
     /**
+     * @description The description of the API.
+     *
+     * @example API description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 231a4bb81ee94da785733c29********
      *
      * @var string
@@ -33,6 +45,8 @@ class DescribePluginApisRequest extends Model
     public $groupId;
 
     /**
+     * @description The request HTTP method of the API.
+     *
      * @example GET
      *
      * @var string
@@ -40,6 +54,8 @@ class DescribePluginApisRequest extends Model
     public $method;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +63,8 @@ class DescribePluginApisRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     * Default value:10.
      * @example 10
      *
      * @var int
@@ -54,6 +72,8 @@ class DescribePluginApisRequest extends Model
     public $pageSize;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /sendVerifyCode
      *
      * @var string
@@ -61,8 +81,9 @@ class DescribePluginApisRequest extends Model
     public $path;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the gateway plug-in.
      *
+     * This parameter is required.
      * @example bf6583efcef44c51adb00c4e********
      *
      * @var string

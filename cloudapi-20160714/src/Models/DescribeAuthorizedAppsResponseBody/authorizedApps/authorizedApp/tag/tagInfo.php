@@ -2,26 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes\vpcAccessAttribute\tags;
+namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps\authorizedApp\tag;
 
 use AlibabaCloud\Tea\Model;
 
 class tagInfo extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example PROJECT
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     * @example 6427a17ae6041d1be62414e4
-     *
      * @var string
      */
     public $value;

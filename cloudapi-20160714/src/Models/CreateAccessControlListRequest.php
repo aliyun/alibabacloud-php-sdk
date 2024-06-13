@@ -19,7 +19,10 @@ class CreateAccessControlListRequest extends Model
     public $aclName;
 
     /**
-     * @description The IP version. Valid values: **ipv4** and **ipv6**.
+     * @description The IP version of the Classic Load Balancer (CLB) instance with which the ACL is associated. Valid values:
+     *
+     *   **ipv4**
+     *   **ipv6**
      *
      * @example ipv4
      *

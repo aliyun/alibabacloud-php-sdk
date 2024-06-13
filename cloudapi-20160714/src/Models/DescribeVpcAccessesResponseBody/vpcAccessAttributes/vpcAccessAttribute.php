@@ -28,7 +28,7 @@ class vpcAccessAttribute extends Model
     public $description;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
+     * @description The ID of an Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
      *
      * @example i-uf6bzcg1pr4oh5jjmxxx
      *
@@ -55,7 +55,7 @@ class vpcAccessAttribute extends Model
     public $port;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -64,7 +64,7 @@ class vpcAccessAttribute extends Model
     public $regionId;
 
     /**
-     * @description The list of tags.
+     * @description The tags.
      *
      * @var tags
      */
@@ -80,7 +80,7 @@ class vpcAccessAttribute extends Model
     public $vpcAccessId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-uf657qec7lx42paw3qxxx
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginApisResponseBody extends Model
 {
     /**
+     * @description The information about APIs.
+     *
      * @var apiSummarys
      */
     public $apiSummarys;
 
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribePluginApisResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribePluginApisResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example F9C5C4A5-BC6C-57A3-839F-AB08********
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribePluginApisResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 7
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByAppResponseBody extends Model
 {
     /**
+     * @description The API authorizations.
+     *
      * @var appApiRelationInfos
      */
     public $appApiRelationInfos;

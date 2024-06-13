@@ -78,10 +78,11 @@ class DescribeAuthorizedAppsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
+     * @description The environment. Valid values:
      *
-     *   **RELEASE**
-     *   **TEST**
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
      *
      * @example RELEASE
      *

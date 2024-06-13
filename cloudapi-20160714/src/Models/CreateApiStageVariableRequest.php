@@ -34,6 +34,10 @@ class CreateApiStageVariableRequest extends Model
     public $stageId;
 
     /**
+     * @description Environmental routing model.
+     *
+     * @example {
+     * }
      * @deprecated
      *
      * @var string

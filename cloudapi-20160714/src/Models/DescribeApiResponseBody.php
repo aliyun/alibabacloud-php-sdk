@@ -321,6 +321,8 @@ class DescribeApiResponseBody extends Model
     public $systemParameters;
 
     /**
+     * @description Tag List.
+     *
      * @var tagList
      */
     public $tagList;

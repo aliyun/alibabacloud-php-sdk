@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description Whether to automatically pay when renewing. Value:
+     *
+     * Default value: False.
      * @example false
      *
      * @var bool
@@ -18,13 +21,22 @@ class CreateInstanceRequest extends Model
     public $autoPay;
 
     /**
-     * @description This parameter is required.
+     * @description The billing method of the instance. Valid values: PostPaid (pay-as-you-go) and PrePaid (subscription).
      *
+     * This parameter is required.
+     * @example PostPaid
+     * PrePaid
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The subscription duration of the instance.
+     *
+     *   Valid values if PricingCycle is set to **Month**: **1** to **9**
+     *   Valid values if PricingCycle is set to **Year**: **1** to **3**
+     *
+     * >  This parameter is available and required only if the ChargeType parameter is set to **PrePaid**.
      * @example 1
      *
      * @var int
@@ -32,6 +44,8 @@ class CreateInstanceRequest extends Model
     public $duration;
 
     /**
+     * @description The HTTPS policy.
+     *
      * @example HTTPS2_TLS1_2
      *
      * @var string
@@ -39,13 +53,26 @@ class CreateInstanceRequest extends Model
     public $httpsPolicy;
 
     /**
+     * @description The CIDR block of the VPC integration instance.
+     *
+     *   192.168.0.0/16
+     *   172.16.0.0/12
+     *
+     **
+     *
+     **Warning** The VPC integration instance is connected to the specified CIDR block. Plan your CIDR block carefully to prevent overlaps with the private IP addresses of cloud services.
+     *
+     * >  This parameter is in invitational preview and not available for public use.
+     * @example 172.16.0.0/12
+     *
      * @var string
      */
     public $instanceCidr;
 
     /**
-     * @description This parameter is required.
+     * @description Instance Name
      *
+     * This parameter is required.
      * @example ApigatewayInstance
      *
      * @var string
@@ -53,8 +80,9 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description This parameter is required.
+     * @description Instance specifications
      *
+     * This parameter is required.
      * @example api.s1.small
      *
      * @var string
@@ -62,11 +90,25 @@ class CreateInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The type of the dedicated instance. Valid values:
+     *
+     *   vpc_connect: a VPC integration instance
+     *   normal: a conventional dedicated instance
+     *
+     * >  This parameter is in invitational preview and not available for public use.
+     * @example vpc_connect
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The unit of the subscription duration of the subscription instance. Valid values:
+     *
+     *   **year**
+     *   **month**
+     *
+     * >  This parameter is available and required only if the ChargeType parameter is set to PrePaid.
      * @example Month
      *
      * @var string
@@ -74,13 +116,16 @@ class CreateInstanceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The tags that you want to add to the instance.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description This parameter is required.
+     * @description Passwords are used to prevent duplicate requests from being submitted, please do not reuse them.
      *
+     * This parameter is required.
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
      * @var string
@@ -88,11 +133,18 @@ class CreateInstanceRequest extends Model
     public $token;
 
     /**
+     * @description The ID of the user\\"s VPC to be connected by the VPC integration instance.
+     *
+     * >  This parameter is in invitational preview and not available for public use.
+     * @example vpc-m5eo7khlb4h4f8y9egsdg
+     *
      * @var string
      */
     public $userVpcId;
 
     /**
+     * @description The zone in which you want to create the instance. This parameter is required for a conventional dedicated instance and optional for a virtual private cloud (VPC) integration instance.
+     *
      * @example cn-beijing-MAZ3(c,e)
      *
      * @var string
@@ -100,6 +152,9 @@ class CreateInstanceRequest extends Model
     public $zoneId;
 
     /**
+     * @description The network information when the instance is a VPC integration instance, such as the zone, vSwitch, and security group.
+     *
+     * >  This parameter is in invitational preview and not available for public use.
      * @var zoneVSwitchSecurityGroup[]
      */
     public $zoneVSwitchSecurityGroup;

@@ -36,7 +36,7 @@ class systemParameter extends Model
     public $location;
 
     /**
-     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
+     * @description The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @example CaClientIp
      *

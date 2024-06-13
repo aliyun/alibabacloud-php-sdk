@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class zoneVSwitchSecurityGroup extends Model
 {
     /**
+     * @description The IPv4 CIDR block for the vSwitch.
+     *
+     * @example 192.168.9.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description The ID of the security group. Services in the same security group can access each other.
+     *
+     * @example sg-2ze2ql9nozv8q7kmlt6e
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-0xi349n11cxogmvm866tb
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-beijing-c
+     *
      * @var string
      */
     public $zoneId;

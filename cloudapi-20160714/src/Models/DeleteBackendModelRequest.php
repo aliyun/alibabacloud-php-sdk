@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackendModelRequest extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
      * @example 20bcdc9453524b78a8beb1f6de21edb7
      *
      * @var string
@@ -16,8 +18,9 @@ class DeleteBackendModelRequest extends Model
     public $backendId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the backend model.
      *
+     * This parameter is required.
      * @example 4be6b110b7aa40b0bf0c83cc00b3bd86
      *
      * @var string
@@ -30,6 +33,13 @@ class DeleteBackendModelRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**
+     *   **TEST**
+     *
+     * If you do not specify this parameter, APIs in the draft state are returned.
      * @example TEST
      *
      * @var string

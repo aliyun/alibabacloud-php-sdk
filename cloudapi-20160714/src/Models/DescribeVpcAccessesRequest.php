@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
+     * @description Whether to conduct precise queries
+     *
+     * @example false
+     *
      * @var bool
      */
     public $accurateQuery;
@@ -65,7 +69,7 @@ class DescribeVpcAccessesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
+     * @description The port number.
      *
      * @var tag[]
      */

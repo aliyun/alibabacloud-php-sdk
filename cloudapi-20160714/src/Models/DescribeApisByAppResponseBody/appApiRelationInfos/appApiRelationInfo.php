@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appApiRelationInfo extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example c625795a1e664782a918eaa629e96ab5
      *
      * @var string
@@ -16,6 +18,8 @@ class appApiRelationInfo extends Model
     public $apiId;
 
     /**
+     * @description The API name.
+     *
      * @example sd2_h5_player_history_competition
      *
      * @var string
@@ -23,6 +27,8 @@ class appApiRelationInfo extends Model
     public $apiName;
 
     /**
+     * @description The validity period of the authorization.
+     *
      * @example Sun, 02 Jan 2022 16:00:00 GMT
      *
      * @var string
@@ -30,6 +36,8 @@ class appApiRelationInfo extends Model
     public $authVaildTime;
 
     /**
+     * @description The authorization source.
+     *
      * @example SELF
      *
      * @var string
@@ -37,6 +45,8 @@ class appApiRelationInfo extends Model
     public $authorizationSource;
 
     /**
+     * @description The time when the authorization was created.
+     *
      * @example Sun, 02 Jan 2022 16:00:00 GMT
      *
      * @var string
@@ -44,6 +54,8 @@ class appApiRelationInfo extends Model
     public $createdTime;
 
     /**
+     * @description The authorization description.
+     *
      * @example b1008kz
      *
      * @var string
@@ -51,6 +63,8 @@ class appApiRelationInfo extends Model
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 38bed48d664149e4b9b5ea576319673f
      *
      * @var string
@@ -58,6 +72,8 @@ class appApiRelationInfo extends Model
     public $groupId;
 
     /**
+     * @description The name of the API group.
+     *
      * @example wb2022012101605749
      *
      * @var string
@@ -65,6 +81,8 @@ class appApiRelationInfo extends Model
     public $groupName;
 
     /**
+     * @description The HTTP request method of the API.
+     *
      * @example GET
      *
      * @var string
@@ -72,6 +90,11 @@ class appApiRelationInfo extends Model
     public $method;
 
     /**
+     * @description The authorizer. Valid values:
+     *
+     *   **PROVIDER**: API owner
+     *   **CONSUMER**: API caller
+     *
      * @example PROVIDER
      *
      * @var string
@@ -79,6 +102,8 @@ class appApiRelationInfo extends Model
     public $operator;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /api/offline/cacheData
      *
      * @var string
@@ -86,6 +111,8 @@ class appApiRelationInfo extends Model
     public $path;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -93,11 +120,17 @@ class appApiRelationInfo extends Model
     public $regionId;
 
     /**
+     * @description Environmental alias.
+     *
+     * @example Online
+     *
      * @var string
      */
     public $stageAlias;
 
     /**
+     * @description The environment.
+     *
      * @example RELEASE
      *
      * @var string

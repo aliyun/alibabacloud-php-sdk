@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps\authorizedApp\tag;
 use AlibabaCloud\Tea\Model;
 
 class authorizedApp extends Model
 {
     /**
+     * @description The description of the application.
+     *
+     * @example Production application
+     *
      * @var string
      */
     public $appDescription;
@@ -23,7 +28,7 @@ class authorizedApp extends Model
     public $appId;
 
     /**
-     * @description The name of the app.
+     * @description The application name
      *
      * @example Weather
      *
@@ -32,7 +37,7 @@ class authorizedApp extends Model
     public $appName;
 
     /**
-     * @description The name of the app.
+     * @description The application name.
      *
      * @example 2018-10-05T16:00:00Z
      *
@@ -73,8 +78,8 @@ class authorizedApp extends Model
     /**
      * @description The authorizer. Valid values:
      *
-     *   **PROVIDER: API owner**
-     *   **CONSUMER: API caller**
+     *   **PROVIDER**: API owner
+     *   **CONSUMER**: API caller
      *
      * @example PROVIDER
      *
@@ -83,21 +88,31 @@ class authorizedApp extends Model
     public $operator;
 
     /**
+     * @description The environment alias.
+     *
+     * @example Production
+     *
      * @var string
      */
     public $stageAlias;
 
     /**
-     * @description The name of the runtime environment. Valid values:
+     * @description The environment to which the API is published. Valid values:
      *
-     *   **RELEASE**
-     *   **TEST**
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
      *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
+
+    /**
+     * @var tag
+     */
+    public $tag;
     protected $_name = [
         'appDescription'      => 'AppDescription',
         'appId'               => 'AppId',
@@ -109,6 +124,7 @@ class authorizedApp extends Model
         'operator'            => 'Operator',
         'stageAlias'          => 'StageAlias',
         'stageName'           => 'StageName',
+        'tag'                 => 'Tag',
     ];
 
     public function validate()
@@ -147,6 +163,9 @@ class authorizedApp extends Model
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = null !== $this->tag ? $this->tag->toMap() : null;
         }
 
         return $res;
@@ -189,6 +208,9 @@ class authorizedApp extends Model
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = tag::fromMap($map['Tag']);
         }
 
         return $model;

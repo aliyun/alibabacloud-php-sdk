@@ -19,7 +19,7 @@ class DisableInstanceAccessControlRequest extends Model
     public $aclId;
 
     /**
-     * @description IP版本，可以设置为**ipv4**或者**ipv6**。
+     * @description The IP version. Valid values: **ipv4** and **ipv6**.
      *
      * @example ipv4
      *
