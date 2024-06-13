@@ -1898,14 +1898,14 @@ class EnergyExpertExternal extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['fileName'] = $request->fileName;
+        }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['fileUrl'] = $request->fileUrl;
         }
         if (!Utils::isUnset($request->folderId)) {
             $query['folderId'] = $request->folderId;
-        }
-        if (!Utils::isUnset($request->ossUrl)) {
-            $query['ossUrl'] = $request->ossUrl;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['templateId'] = $request->templateId;
@@ -1995,14 +1995,14 @@ class EnergyExpertExternal extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest([]);
         OpenApiUtilClient::convert($request, $submitDocumentAnalyzeJobReq);
-        if (!Utils::isUnset($request->ossUrlObject)) {
+        if (!Utils::isUnset($request->fileUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
             $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->ossUrlObject,
+                'content'     => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
@@ -2018,7 +2018,7 @@ class EnergyExpertExternal extends OpenApiClient
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $submitDocumentAnalyzeJobReq->ossUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+            $submitDocumentAnalyzeJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->submitDocumentAnalyzeJobWithOptions($submitDocumentAnalyzeJobReq, $headers, $runtime);

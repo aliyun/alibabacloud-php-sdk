@@ -21,7 +21,6 @@ class GetGasConstituteRequest extends Model
     /**
      * @description Module code.
      *
-     * This parameter is required.
      * @example carbonInventory.check.scope_1_direct_ghg_emissions
      *
      * @var string
