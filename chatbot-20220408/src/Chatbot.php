@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAgentInfoRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAgentInfoResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetBotSessionDataRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetBotSessionDataResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetPublishTaskStateRequest;
@@ -2789,6 +2791,62 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAsyncResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询机器人接待人次和对话轮次
+     *  *
+     * @param GetBotSessionDataRequest $request GetBotSessionDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBotSessionDataResponse GetBotSessionDataResponse
+     */
+    public function getBotSessionDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBotSessionData',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBotSessionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询机器人接待人次和对话轮次
+     *  *
+     * @param GetBotSessionDataRequest $request GetBotSessionDataRequest
+     *
+     * @return GetBotSessionDataResponse GetBotSessionDataResponse
+     */
+    public function getBotSessionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBotSessionDataWithOptions($request, $runtime);
     }
 
     /**
