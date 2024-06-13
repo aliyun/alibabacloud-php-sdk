@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsRequest;
@@ -76,6 +78,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsRequest;
@@ -90,6 +94,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameRequest;
@@ -1175,6 +1181,64 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @param DescribeImageListRequest $request DescribeImageListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeImageListResponse DescribeImageListResponse
+     */
+    public function describeImageListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $body['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $body['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $body['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageList',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageListRequest $request DescribeImageListRequest
+     *
+     * @return DescribeImageListResponse DescribeImageListResponse
+     */
+    public function describeImageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询命令结果
      *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
@@ -2061,6 +2125,53 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 重启安卓实例
+     *  *
+     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     */
+    public function rebootAndroidInstancesInGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->androidInstanceIds)) {
+            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootAndroidInstancesInGroup',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重启安卓实例
+     *  *
+     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
+     *
+     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     */
+    public function rebootAndroidInstancesInGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootAndroidInstancesInGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecoveryFileRequest $request RecoveryFileRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2421,6 +2532,53 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 实例关机
+     *  *
+     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     */
+    public function stopAndroidInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->androidInstanceIds)) {
+            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopAndroidInstance',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实例关机
+     *  *
+     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
+     *
+     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     */
+    public function stopAndroidInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAndroidInstanceWithOptions($request, $runtime);
     }
 
     /**
