@@ -96,7 +96,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @var InstancePatterns
+     * @var InstancePatterns[]
      */
     public $instancePatterns;
 
@@ -466,7 +466,13 @@ class scalingGroup extends Model
             $res['instance_charge_type'] = $this->instanceChargeType;
         }
         if (null !== $this->instancePatterns) {
-            $res['instance_patterns'] = null !== $this->instancePatterns ? $this->instancePatterns->toMap() : null;
+            $res['instance_patterns'] = [];
+            if (null !== $this->instancePatterns && \is_array($this->instancePatterns)) {
+                $n = 0;
+                foreach ($this->instancePatterns as $item) {
+                    $res['instance_patterns'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceTypes) {
             $res['instance_types'] = $this->instanceTypes;
@@ -610,7 +616,13 @@ class scalingGroup extends Model
             $model->instanceChargeType = $map['instance_charge_type'];
         }
         if (isset($map['instance_patterns'])) {
-            $model->instancePatterns = InstancePatterns::fromMap($map['instance_patterns']);
+            if (!empty($map['instance_patterns'])) {
+                $model->instancePatterns = [];
+                $n                       = 0;
+                foreach ($map['instance_patterns'] as $item) {
+                    $model->instancePatterns[$n++] = null !== $item ? InstancePatterns::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['instance_types'])) {
             if (!empty($map['instance_types'])) {

@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterRespon
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesStatusResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeResourcesDeleteProtectionRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeResourcesDeleteProtectionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeSubaccountK8sClusterUserConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeSubaccountK8sClusterUserConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponse;
@@ -211,6 +213,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateResourcesDeleteProtectionRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateResourcesDeleteProtectionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateUserPermissionsRequest;
@@ -4096,6 +4100,63 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 修改资源删除保护配置
+     *  *
+     * @param string                                   $ClusterId
+     * @param string                                   $ResourceType
+     * @param DescribeResourcesDeleteProtectionRequest $request      DescribeResourcesDeleteProtectionRequest
+     * @param string[]                                 $headers      map
+     * @param RuntimeOptions                           $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return DescribeResourcesDeleteProtectionResponse DescribeResourcesDeleteProtectionResponse
+     */
+    public function describeResourcesDeleteProtectionWithOptions($ClusterId, $ResourceType, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourcesDeleteProtection',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources/' . OpenApiUtilClient::getEncodeParam($ResourceType) . '/protection',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return DescribeResourcesDeleteProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改资源删除保护配置
+     *  *
+     * @param string                                   $ClusterId
+     * @param string                                   $ResourceType
+     * @param DescribeResourcesDeleteProtectionRequest $request      DescribeResourcesDeleteProtectionRequest
+     *
+     * @return DescribeResourcesDeleteProtectionResponse DescribeResourcesDeleteProtectionResponse
+     */
+    public function describeResourcesDeleteProtection($ClusterId, $ResourceType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeResourcesDeleteProtectionWithOptions($ClusterId, $ResourceType, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
      *  *
      * @description **
@@ -7475,6 +7536,67 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 修改资源删除保护配置
+     *  *
+     * @param string                                 $ClusterId
+     * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest
+     * @param string[]                               $headers   map
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return UpdateResourcesDeleteProtectionResponse UpdateResourcesDeleteProtectionResponse
+     */
+    public function updateResourcesDeleteProtectionWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resource_type'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $body['resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourcesDeleteProtection',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources/protection',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateResourcesDeleteProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改资源删除保护配置
+     *  *
+     * @param string                                 $ClusterId
+     * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest
+     *
+     * @return UpdateResourcesDeleteProtectionResponse UpdateResourcesDeleteProtectionResponse
+     */
+    public function updateResourcesDeleteProtection($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateResourcesDeleteProtectionWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
