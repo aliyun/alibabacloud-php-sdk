@@ -52,6 +52,11 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $orderType;
+
+    /**
      * @description The type of resource attached to the transit router.
      *
      * Only **VPN** may be returned, which indicates that an IPsec-VPN connection is attached to the transit router.
@@ -156,6 +161,7 @@ class transitRouterAttachments extends Model
         'cenId'                              => 'CenId',
         'chargeType'                         => 'ChargeType',
         'creationTime'                       => 'CreationTime',
+        'orderType'                          => 'OrderType',
         'resourceType'                       => 'ResourceType',
         'status'                             => 'Status',
         'tags'                               => 'Tags',
@@ -187,6 +193,9 @@ class transitRouterAttachments extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -256,6 +265,9 @@ class transitRouterAttachments extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
