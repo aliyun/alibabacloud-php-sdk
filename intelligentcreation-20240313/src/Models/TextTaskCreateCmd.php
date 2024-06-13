@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TextTaskCreateCmd extends Model
 {
     /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
      * @example 极氪007新车上市
      *
      * @var string
@@ -93,6 +98,7 @@ class TextTaskCreateCmd extends Model
      */
     public $themes;
     protected $_name = [
+        'agentId'            => 'agentId',
         'contentRequirement' => 'contentRequirement',
         'idempotentId'       => 'idempotentId',
         'industry'           => 'industry',
@@ -115,6 +121,9 @@ class TextTaskCreateCmd extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['agentId'] = $this->agentId;
+        }
         if (null !== $this->contentRequirement) {
             $res['contentRequirement'] = $this->contentRequirement;
         }
@@ -166,6 +175,9 @@ class TextTaskCreateCmd extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentId'])) {
+            $model->agentId = $map['agentId'];
+        }
         if (isset($map['contentRequirement'])) {
             $model->contentRequirement = $map['contentRequirement'];
         }

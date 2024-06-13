@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class TextTask extends Model
 {
     /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
+     * @var string
+     */
+    public $agentName;
+
+    /**
      * @example 九寨沟三日游攻略
      *
      * @var string
@@ -91,6 +101,11 @@ class TextTask extends Model
     public $textTaskStatus;
 
     /**
+     * @var Text
+     */
+    public $texts;
+
+    /**
      * @example 旅游路线
      *
      * @var string
@@ -102,6 +117,8 @@ class TextTask extends Model
      */
     public $themeDesc;
     protected $_name = [
+        'agentId'            => 'agentId',
+        'agentName'          => 'agentName',
         'contentRequirement' => 'contentRequirement',
         'gmtCreate'          => 'gmtCreate',
         'gmtModified'        => 'gmtModified',
@@ -116,6 +133,7 @@ class TextTask extends Model
         'textModeType'       => 'textModeType',
         'textTaskId'         => 'textTaskId',
         'textTaskStatus'     => 'textTaskStatus',
+        'texts'              => 'texts',
         'theme'              => 'theme',
         'themeDesc'          => 'themeDesc',
     ];
@@ -127,6 +145,12 @@ class TextTask extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['agentId'] = $this->agentId;
+        }
+        if (null !== $this->agentName) {
+            $res['agentName'] = $this->agentName;
+        }
         if (null !== $this->contentRequirement) {
             $res['contentRequirement'] = $this->contentRequirement;
         }
@@ -169,6 +193,9 @@ class TextTask extends Model
         if (null !== $this->textTaskStatus) {
             $res['textTaskStatus'] = $this->textTaskStatus;
         }
+        if (null !== $this->texts) {
+            $res['texts'] = null !== $this->texts ? $this->texts->toMap() : null;
+        }
         if (null !== $this->theme) {
             $res['theme'] = $this->theme;
         }
@@ -187,6 +214,12 @@ class TextTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentId'])) {
+            $model->agentId = $map['agentId'];
+        }
+        if (isset($map['agentName'])) {
+            $model->agentName = $map['agentName'];
+        }
         if (isset($map['contentRequirement'])) {
             $model->contentRequirement = $map['contentRequirement'];
         }
@@ -230,6 +263,9 @@ class TextTask extends Model
         }
         if (isset($map['textTaskStatus'])) {
             $model->textTaskStatus = $map['textTaskStatus'];
+        }
+        if (isset($map['texts'])) {
+            $model->texts = Text::fromMap($map['texts']);
         }
         if (isset($map['theme'])) {
             $model->theme = $map['theme'];

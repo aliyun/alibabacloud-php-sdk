@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Text extends Model
 {
     /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
+     * @var string
+     */
+    public $agentName;
+
+    /**
      * @description This parameter is required.
      *
      * @example xxx
@@ -116,6 +126,8 @@ class Text extends Model
      */
     public $userNameModified;
     protected $_name = [
+        'agentId'                => 'agentId',
+        'agentName'              => 'agentName',
         'desc'                   => 'desc',
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
@@ -141,6 +153,12 @@ class Text extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['agentId'] = $this->agentId;
+        }
+        if (null !== $this->agentName) {
+            $res['agentName'] = $this->agentName;
+        }
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
@@ -201,6 +219,12 @@ class Text extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentId'])) {
+            $model->agentId = $map['agentId'];
+        }
+        if (isset($map['agentName'])) {
+            $model->agentName = $map['agentName'];
+        }
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
