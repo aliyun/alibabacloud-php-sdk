@@ -11,6 +11,7 @@ class DeleteIndexRequest extends Model
     /**
      * @description The data source
      *
+     * This parameter is required.
      * @example ha-cn-pl32rf0js04_test
      *
      * @var string

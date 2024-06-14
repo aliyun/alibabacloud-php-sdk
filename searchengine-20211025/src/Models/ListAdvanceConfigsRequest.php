@@ -19,6 +19,11 @@ class ListAdvanceConfigsRequest extends Model
     public $indexName;
 
     /**
+     * @var bool
+     */
+    public $newMode;
+
+    /**
      * @description The type of the advanced configurations. Valid values: online and offline. - online The default value is offline.
      *
      * @example online
@@ -29,6 +34,7 @@ class ListAdvanceConfigsRequest extends Model
     protected $_name = [
         'dataSourceName' => 'dataSourceName',
         'indexName'      => 'indexName',
+        'newMode'        => 'newMode',
         'type'           => 'type',
     ];
 
@@ -44,6 +50,9 @@ class ListAdvanceConfigsRequest extends Model
         }
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
+        }
+        if (null !== $this->newMode) {
+            $res['newMode'] = $this->newMode;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -65,6 +74,9 @@ class ListAdvanceConfigsRequest extends Model
         }
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
+        }
+        if (isset($map['newMode'])) {
+            $model->newMode = $map['newMode'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

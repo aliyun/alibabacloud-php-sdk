@@ -4,24 +4,25 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetNodeConfigResponseBody extends Model
+class StopIndexResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description id of request
      *
-     * @example 2AE63638-5420-56DC-BF59-37D8174039A0
+     * @example E7B7D598-B080-5C8E-AA35-D43EC0D5F886
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The configurations of the node.
+     * @description Map
      *
-     * @var result
+     * @example {}
+     *
+     * @var mixed[]
      */
     public $result;
     protected $_name = [
@@ -40,7 +41,7 @@ class GetNodeConfigResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = $this->result;
         }
 
         return $res;
@@ -49,7 +50,7 @@ class GetNodeConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetNodeConfigResponseBody
+     * @return StopIndexResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -58,7 +59,7 @@ class GetNodeConfigResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
         if (isset($map['result'])) {
-            $model->result = result::fromMap($map['result']);
+            $model->result = $map['result'];
         }
 
         return $model;

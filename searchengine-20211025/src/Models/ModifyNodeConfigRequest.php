@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the index.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The number of data replicas.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dataDuplicateNumber;
 
     /**
+     * @description The number of data shards.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dataFragmentNumber;
 
     /**
+     * @description The traffic percentage.
+     *
+     * @example -100
+     *
      * @var int
      */
     public $flowRatio;
 
     /**
+     * @description The minimum service ratio.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $minServicePercent;
 
     /**
+     * @description Specifies whether to mount the cluster.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $published;
@@ -59,6 +83,7 @@ class ModifyNodeConfigRequest extends Model
     /**
      * @description The original name of the node.
      *
+     * This parameter is required.
      * @example ha-cn-zvp2iv9a401_qrs
      *
      * @var string
@@ -74,6 +99,7 @@ class ModifyNodeConfigRequest extends Model
      *   hint indicates the hint model.
      *   suggest indicates the drop-down suggestion model.
      *
+     * This parameter is required.
      * @example " "
      *
      * @var string

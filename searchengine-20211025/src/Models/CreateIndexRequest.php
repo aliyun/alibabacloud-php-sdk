@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $buildParallelNum;
+
+    /**
      * @description The content of the index.
      *
-     * @example {\"summarys\":{\"summary_fields\":[\"id\"]},\"indexs\":[{\"index_name\":\"index_id\",\"index_type\":\"PRIMARYKEY64\",\"index_fields\":\"id\",\"has_primary_key_attribute\":true,\"is_primary_key_sorted\":false}],\"attributes\":[\"id\"],\"fields\":[{\"field_name\":\"id\",\"field_type\":\"UINT16\"}],\"table_name\":\"index_2\"}
+     * @example {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
      *
      * @var string
      */
@@ -53,6 +58,11 @@ class CreateIndexRequest extends Model
     public $extend;
 
     /**
+     * @var int
+     */
+    public $mergeParallelNum;
+
+    /**
      * @description The name of the index.
      *
      * @example ha-cn-zvp2qr1sk01_qrs
@@ -77,14 +87,16 @@ class CreateIndexRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'content'        => 'content',
-        'dataSource'     => 'dataSource',
-        'dataSourceInfo' => 'dataSourceInfo',
-        'domain'         => 'domain',
-        'extend'         => 'extend',
-        'name'           => 'name',
-        'partition'      => 'partition',
-        'dryRun'         => 'dryRun',
+        'buildParallelNum' => 'buildParallelNum',
+        'content'          => 'content',
+        'dataSource'       => 'dataSource',
+        'dataSourceInfo'   => 'dataSourceInfo',
+        'domain'           => 'domain',
+        'extend'           => 'extend',
+        'mergeParallelNum' => 'mergeParallelNum',
+        'name'             => 'name',
+        'partition'        => 'partition',
+        'dryRun'           => 'dryRun',
     ];
 
     public function validate()
@@ -94,6 +106,9 @@ class CreateIndexRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildParallelNum) {
+            $res['buildParallelNum'] = $this->buildParallelNum;
+        }
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -108,6 +123,9 @@ class CreateIndexRequest extends Model
         }
         if (null !== $this->extend) {
             $res['extend'] = $this->extend;
+        }
+        if (null !== $this->mergeParallelNum) {
+            $res['mergeParallelNum'] = $this->mergeParallelNum;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -130,6 +148,9 @@ class CreateIndexRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['buildParallelNum'])) {
+            $model->buildParallelNum = $map['buildParallelNum'];
+        }
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -144,6 +165,9 @@ class CreateIndexRequest extends Model
         }
         if (isset($map['extend'])) {
             $model->extend = $map['extend'];
+        }
+        if (isset($map['mergeParallelNum'])) {
+            $model->mergeParallelNum = $map['mergeParallelNum'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

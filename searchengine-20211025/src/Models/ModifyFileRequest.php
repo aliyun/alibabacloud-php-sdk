@@ -18,9 +18,9 @@ class ModifyFileRequest extends Model
     public $content;
 
     /**
-     * @description The data partition. This parameter is required if the dataSourceType parameter is set to odps.
+     * @description This parameter is required when index building for full data in a MaxCompute data source is triggered.
      *
-     * @example 1
+     * @example ds=20220713
      *
      * @var int
      */
@@ -29,6 +29,7 @@ class ModifyFileRequest extends Model
     /**
      * @description The name of the file in the full path
      *
+     * This parameter is required.
      * @example /schemas/generation_schema.json
      *
      * @var string

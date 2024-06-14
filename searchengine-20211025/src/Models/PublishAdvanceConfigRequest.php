@@ -4,20 +4,23 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishAdvanceConfigRequest\files;
 use AlibabaCloud\Tea\Model;
 
 class PublishAdvanceConfigRequest extends Model
 {
     /**
-     * @description The structure of the request
-     *
-     * @example {\"desc\":\"new version\"}
-     *
-     * @var mixed[]
+     * @var string
      */
-    public $body;
+    public $desc;
+
+    /**
+     * @var files[]
+     */
+    public $files;
     protected $_name = [
-        'body' => 'body',
+        'desc'  => 'desc',
+        'files' => 'files',
     ];
 
     public function validate()
@@ -27,8 +30,17 @@ class PublishAdvanceConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->desc) {
+            $res['desc'] = $this->desc;
+        }
+        if (null !== $this->files) {
+            $res['files'] = [];
+            if (null !== $this->files && \is_array($this->files)) {
+                $n = 0;
+                foreach ($this->files as $item) {
+                    $res['files'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -42,8 +54,17 @@ class PublishAdvanceConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['desc'])) {
+            $model->desc = $map['desc'];
+        }
+        if (isset($map['files'])) {
+            if (!empty($map['files'])) {
+                $model->files = [];
+                $n            = 0;
+                foreach ($map['files'] as $item) {
+                    $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

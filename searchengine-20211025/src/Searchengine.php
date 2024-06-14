@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\RecoverIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\RemoveClusterResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\StartIndexResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\StopIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\StopTaskResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceResponse;
@@ -148,11 +150,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     POST
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/actions/build-index.
-     *   *
+     * @summary Triggers reindexing.
+     *  *
+     * @description ## Method
+     *     POST
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/actions/build-index
+     *  *
      * @param string            $instanceId
      * @param BuildIndexRequest $request    BuildIndexRequest
      * @param string[]          $headers    map
@@ -205,11 +209,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     POST
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/actions/build-index.
-     *   *
+     * @summary Triggers reindexing.
+     *  *
+     * @description ## Method
+     *     POST
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/actions/build-index
+     *  *
      * @param string            $instanceId
      * @param BuildIndexRequest $request    BuildIndexRequest
      *
@@ -224,11 +230,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/clusters`.
-     *   *
+     * @summary Creates a cluster.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/clusters`
+     *  *
      * @param string               $instanceId
      * @param CreateClusterRequest $request    CreateClusterRequest
      * @param string[]             $headers    map
@@ -275,11 +283,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/clusters`.
-     *   *
+     * @summary Creates a cluster.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/clusters`
+     *  *
      * @param string               $instanceId
      * @param CreateClusterRequest $request    CreateClusterRequest
      *
@@ -294,12 +304,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Creates data sources.
+     *  *
      * @param string                  $instanceId
-     * @param CreateDataSourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateDataSourceRequest $request    CreateDataSourceRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateDataSourceResponse
+     * @return CreateDataSourceResponse CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -348,10 +360,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Creates data sources.
+     *  *
      * @param string                  $instanceId
-     * @param CreateDataSourceRequest $request
+     * @param CreateDataSourceRequest $request    CreateDataSourceRequest
      *
-     * @return CreateDataSourceResponse
+     * @return CreateDataSourceResponse CreateDataSourceResponse
      */
     public function createDataSource($instanceId, $request)
     {
@@ -362,15 +376,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * POST
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/indexes
-     *   * ```.
-     *   *
+     * @summary Creates an index.
+     *  *
+     * @description ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes
+     * ```
+     *  *
      * @param string             $instanceId
      * @param CreateIndexRequest $request    CreateIndexRequest
      * @param string[]           $headers    map
@@ -386,6 +402,9 @@ class Searchengine extends OpenApiClient
             $query['dryRun'] = $request->dryRun;
         }
         $body = [];
+        if (!Utils::isUnset($request->buildParallelNum)) {
+            $body['buildParallelNum'] = $request->buildParallelNum;
+        }
         if (!Utils::isUnset($request->content)) {
             $body['content'] = $request->content;
         }
@@ -400,6 +419,9 @@ class Searchengine extends OpenApiClient
         }
         if (!Utils::isUnset($request->extend)) {
             $body['extend'] = $request->extend;
+        }
+        if (!Utils::isUnset($request->mergeParallelNum)) {
+            $body['mergeParallelNum'] = $request->mergeParallelNum;
         }
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
@@ -428,15 +450,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * POST
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/indexes
-     *   * ```.
-     *   *
+     * @summary Creates an index.
+     *  *
+     * @description ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes
+     * ```
+     *  *
      * @param string             $instanceId
      * @param CreateIndexRequest $request    CreateIndexRequest
      *
@@ -451,11 +475,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/api/instances?dryRun=false`.
-     *   *
+     * @summary Creates a Havenask instance.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/api/instances?dryRun=false`
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -495,11 +521,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/api/instances?dryRun=false`.
-     *   *
+     * @summary Creates a Havenask instance.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/api/instances?dryRun=false`
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse
@@ -513,12 +541,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引V2
+     *  *
      * @param string             $instanceId
-     * @param CreateTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param CreateTableRequest $request    CreateTableRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTableWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -576,10 +606,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 创建索引V2
+     *  *
      * @param string             $instanceId
-     * @param CreateTableRequest $request
+     * @param CreateTableRequest $request    CreateTableRequest
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTable($instanceId, $request)
     {
@@ -590,11 +622,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}.
-     *   *
+     * @summary Deletes the details about advanced configurations.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     *  *
      * @param string         $instanceId
      * @param string         $configName
      * @param string[]       $headers    map
@@ -623,11 +657,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}.
-     *   *
+     * @summary Deletes the details about advanced configurations.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     *  *
      * @param string $instanceId
      * @param string $configName
      *
@@ -642,11 +678,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `DELETE`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Deletes a specified data source.
+     *  *
+     * @description ## Method
+     * `DELETE`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string         $instanceId
      * @param string         $dataSourceName
      * @param string[]       $headers        map
@@ -675,11 +713,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `DELETE`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Deletes a specified data source.
+     *  *
+     * @description ## Method
+     * `DELETE`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string $instanceId
      * @param string $dataSourceName
      *
@@ -694,11 +734,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx.
-     *   *
+     * @summary Deletes an index.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
+     *  *
      * @param string             $instanceId
      * @param string             $indexName
      * @param DeleteIndexRequest $request    DeleteIndexRequest
@@ -737,11 +779,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx.
-     *   *
+     * @summary Deletes an index.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
+     *  *
      * @param string             $instanceId
      * @param string             $indexName
      * @param DeleteIndexRequest $request    DeleteIndexRequest
@@ -757,11 +801,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}.
-     *   *
+     * @summary Deletes the version of an index.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
+     *  *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
@@ -791,11 +837,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     DELETE
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}.
-     *   *
+     * @summary Deletes the version of an index.
+     *  *
+     * @description ## Method
+     *     DELETE
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
+     *  *
      * @param string $instanceId
      * @param string $indexName
      * @param string $versionName
@@ -811,11 +859,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `DELETE`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Deletes a specified instance.
+     *  *
+     * @description ### Method
+     * `DELETE`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -843,11 +893,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `DELETE`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Deletes a specified instance.
+     *  *
+     * @description ### Method
+     * `DELETE`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string $instanceId
      *
      * @return DeleteInstanceResponse DeleteInstanceResponse
@@ -861,12 +913,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 删除索引表V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTableWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -889,10 +943,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 删除索引表V2
+     *  *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTable($instanceId, $tableName)
     {
@@ -903,11 +959,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
@@ -936,9 +992,9 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -949,15 +1005,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * \\### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
-     *   * ```.
-     *   *
+     * @summary Performs a forced switchover.
+     *  *
+     * @description \\### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string         $fsmId
      * @param string[]       $headers    map
@@ -986,15 +1044,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * \\### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
-     *   * ```.
-     *   *
+     * @summary Performs a forced switchover.
+     *  *
+     * @description \\### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
+     * ```
+     *  *
      * @param string $instanceId
      * @param string $fsmId
      *
@@ -1009,11 +1069,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}.
-     *   *
+     * @summary Queries the information about a dictionary.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     *  *
      * @param string                  $instanceId
      * @param string                  $configName
      * @param GetAdvanceConfigRequest $request    GetAdvanceConfigRequest
@@ -1049,11 +1111,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}.
-     *   *
+     * @summary Queries the information about a dictionary.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     *  *
      * @param string                  $instanceId
      * @param string                  $configName
      * @param GetAdvanceConfigRequest $request    GetAdvanceConfigRequest
@@ -1069,11 +1133,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}.
-     *   *
+     * @summary Obtains the information in a specified advanced configuration file.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param GetAdvanceConfigFileRequest $request    GetAdvanceConfigFileRequest
@@ -1109,11 +1175,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}.
-     *   *
+     * @summary Obtains the information in a specified advanced configuration file.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param GetAdvanceConfigFileRequest $request    GetAdvanceConfigFileRequest
@@ -1129,11 +1197,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`.
-     *   *
+     * @summary Queries the details of a cluster.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
+     *  *
      * @param string         $instanceId
      * @param string         $clusterName
      * @param string[]       $headers     map
@@ -1162,11 +1232,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`.
-     *   *
+     * @summary Queries the details of a cluster.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
+     *  *
      * @param string $instanceId
      * @param string $clusterName
      *
@@ -1181,11 +1253,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * GET
-     *   * ### URI
-     *   * /openapi/ha3/instances/{instanceId}/cluster-run-time-info.
-     *   *
+     * @summary Queries the runtime information about a specified cluster.
+     *  *
+     * @description ### Method
+     * GET
+     * ### URI
+     * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -1213,11 +1287,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * GET
-     *   * ### URI
-     *   * /openapi/ha3/instances/{instanceId}/cluster-run-time-info.
-     *   *
+     * @summary Queries the runtime information about a specified cluster.
+     *  *
+     * @description ### Method
+     * GET
+     * ### URI
+     * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
+     *  *
      * @param string $instanceId
      *
      * @return GetClusterRunTimeInfoResponse GetClusterRunTimeInfoResponse
@@ -1231,11 +1307,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Obtains a data source.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string         $instanceId
      * @param string         $dataSourceName
      * @param string[]       $headers        map
@@ -1264,11 +1342,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Obtains a data source.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string $instanceId
      * @param string $dataSourceName
      *
@@ -1283,13 +1363,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源部署信息
+     *  *
      * @param string         $instanceId
      * @param string         $deployName
      * @param string         $dataSourceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetDataSourceDeployResponse
+     * @return GetDataSourceDeployResponse GetDataSourceDeployResponse
      */
     public function getDataSourceDeployWithOptions($instanceId, $deployName, $dataSourceName, $headers, $runtime)
     {
@@ -1312,11 +1394,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源部署信息
+     *  *
      * @param string $instanceId
      * @param string $deployName
      * @param string $dataSourceName
      *
-     * @return GetDataSourceDeployResponse
+     * @return GetDataSourceDeployResponse GetDataSourceDeployResponse
      */
     public function getDataSourceDeploy($instanceId, $deployName, $dataSourceName)
     {
@@ -1327,13 +1411,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * GET
-     *   * ## URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/deploy-graph
-     *   * ```.
-     *   *
+     * @summary Displays the overview of the deployment.
+     *  *
+     * @description ## Method
+     * GET
+     * ## URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/deploy-graph
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -1361,13 +1447,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * GET
-     *   * ## URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/deploy-graph
-     *   * ```.
-     *   *
+     * @summary Displays the overview of the deployment.
+     *  *
+     * @description ## Method
+     * GET
+     * ## URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/deploy-graph
+     * ```
+     *  *
      * @param string $instanceId
      *
      * @return GetDeployGraphResponse GetDeployGraphResponse
@@ -1381,11 +1469,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt.
-     *   *
+     * @summary Queries details about the version information of an index table.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     *  *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
@@ -1422,11 +1512,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt.
-     *   *
+     * @summary Queries details about the version information of an index table.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     *  *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
@@ -1443,12 +1535,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an index version.
+     *  *
      * @param string         $instanceId
      * @param string         $indexName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetIndexResponse
+     * @return GetIndexResponse GetIndexResponse
      */
     public function getIndexWithOptions($instanceId, $indexName, $headers, $runtime)
     {
@@ -1471,10 +1565,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an index version.
+     *  *
      * @param string $instanceId
      * @param string $indexName
      *
-     * @return GetIndexResponse
+     * @return GetIndexResponse GetIndexResponse
      */
     public function getIndex($instanceId, $indexName)
     {
@@ -1485,11 +1581,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version.
-     *   *
+     * @summary Obtains the information about index versions that the current index version can be rolled back to.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+     *  *
      * @param string         $instanceId
      * @param string         $clusterName
      * @param string[]       $headers     map
@@ -1518,11 +1616,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version.
-     *   *
+     * @summary Obtains the information about index versions that the current index version can be rolled back to.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+     *  *
      * @param string $instanceId
      * @param string $clusterName
      *
@@ -1537,11 +1637,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Queries the details of an instance based on a specified instance ID.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -1569,11 +1671,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Queries the details of an instance based on a specified instance ID.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string $instanceId
      *
      * @return GetInstanceResponse GetInstanceResponse
@@ -1587,12 +1691,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Gets the configuration information of a node.
+     *  *
      * @param string               $instanceId
-     * @param GetNodeConfigRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetNodeConfigRequest $request    GetNodeConfigRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetNodeConfigResponse
+     * @return GetNodeConfigResponse GetNodeConfigResponse
      */
     public function getNodeConfigWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -1627,10 +1733,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary Gets the configuration information of a node.
+     *  *
      * @param string               $instanceId
-     * @param GetNodeConfigRequest $request
+     * @param GetNodeConfigRequest $request    GetNodeConfigRequest
      *
-     * @return GetNodeConfigResponse
+     * @return GetNodeConfigResponse GetNodeConfigResponse
      */
     public function getNodeConfig($instanceId, $request)
     {
@@ -1641,12 +1749,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引表信息V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTableResponse
+     * @return GetTableResponse GetTableResponse
      */
     public function getTableWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -1669,10 +1779,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引表信息V2
+     *  *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return GetTableResponse
+     * @return GetTableResponse GetTableResponse
      */
     public function getTable($instanceId, $tableName)
     {
@@ -1683,13 +1795,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 根据generationId获取某个索引版本状态V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
      * @param string         $generationId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetTableGenerationResponse
+     * @return GetTableGenerationResponse GetTableGenerationResponse
      */
     public function getTableGenerationWithOptions($instanceId, $tableName, $generationId, $headers, $runtime)
     {
@@ -1712,11 +1826,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 根据generationId获取某个索引版本状态V2
+     *  *
      * @param string $instanceId
      * @param string $tableName
      * @param string $generationId
      *
-     * @return GetTableGenerationResponse
+     * @return GetTableGenerationResponse GetTableGenerationResponse
      */
     public function getTableGeneration($instanceId, $tableName, $generationId)
     {
@@ -1727,11 +1843,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`.
-     *   *
+     * @summary Obtains the file list in an advanced configuration directory.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param ListAdvanceConfigDirRequest $request    ListAdvanceConfigDirRequest
@@ -1767,11 +1885,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`.
-     *   *
+     * @summary Obtains the file list in an advanced configuration directory.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param ListAdvanceConfigDirRequest $request    ListAdvanceConfigDirRequest
@@ -1787,9 +1907,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Sample requests
-     *   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`.
-     *   *
+     * @summary Obtains a list of advanced configurations.
+     *  *
+     * @description ## Sample requests
+     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     *  *
      * @param string                    $instanceId
      * @param ListAdvanceConfigsRequest $request    ListAdvanceConfigsRequest
      * @param string[]                  $headers    map
@@ -1806,6 +1928,9 @@ class Searchengine extends OpenApiClient
         }
         if (!Utils::isUnset($request->indexName)) {
             $query['indexName'] = $request->indexName;
+        }
+        if (!Utils::isUnset($request->newMode)) {
+            $query['newMode'] = $request->newMode;
         }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
@@ -1830,9 +1955,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Sample requests
-     *   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`.
-     *   *
+     * @summary Obtains a list of advanced configurations.
+     *  *
+     * @description ## Sample requests
+     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     *  *
      * @param string                    $instanceId
      * @param ListAdvanceConfigsRequest $request    ListAdvanceConfigsRequest
      *
@@ -1847,11 +1974,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * GET
-     *   * ### URI
-     *   * /openapi/ha3/instances/{instanceId}/cluster-names.
-     *   *
+     * @summary Queries cluster names.
+     *  *
+     * @description ### Method
+     * GET
+     * ### URI
+     * /openapi/ha3/instances/{instanceId}/cluster-names
+     *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1878,11 +2007,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * GET
-     *   * ### URI
-     *   * /openapi/ha3/instances/{instanceId}/cluster-names.
-     *   *
+     * @summary Queries cluster names.
+     *  *
+     * @description ### Method
+     * GET
+     * ### URI
+     * /openapi/ha3/instances/{instanceId}/cluster-names
+     *  *
      * @return ListClusterNamesResponse ListClusterNamesResponse
      */
     public function listClusterNames()
@@ -1894,15 +2025,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/cluster-tasks
-     *   * ```.
-     *   *
+     * @summary Displays cluster tasks .
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/cluster-tasks
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -1930,15 +2063,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/cluster-tasks
-     *   * ```.
-     *   *
+     * @summary Displays cluster tasks .
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/cluster-tasks
+     * ```
+     *  *
      * @param string $instanceId
      *
      * @return ListClusterTasksResponse ListClusterTasksResponse
@@ -1952,15 +2087,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/clusters
-     *   * ```.
-     *   *
+     * @summary Queries the list of clusters.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -1988,15 +2125,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/clusters
-     *   * ```.
-     *   *
+     * @summary Queries the list of clusters.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters
+     * ```
+     *  *
      * @param string $instanceId
      *
      * @return ListClustersResponse ListClustersResponse
@@ -2010,11 +2149,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`.
-     *   *
+     * @summary Obtains the schema information of a specified data source.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
+     *  *
      * @param string         $instanceId
      * @param string         $dataSourceName
      * @param string[]       $headers        map
@@ -2043,11 +2184,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`.
-     *   *
+     * @summary Obtains the schema information of a specified data source.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
+     *  *
      * @param string $instanceId
      * @param string $dataSourceName
      *
@@ -2062,15 +2205,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/data-source-tasks
-     *   * ```.
-     *   *
+     * @summary Displays data source tasks.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-source-tasks
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -2098,15 +2243,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/data-source-tasks
-     *   * ```.
-     *   *
+     * @summary Displays data source tasks.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-source-tasks
+     * ```
+     *  *
      * @param string $instanceId
      *
      * @return ListDataSourceTasksResponse ListDataSourceTasksResponse
@@ -2120,11 +2267,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources`.
-     *   *
+     * @summary Obtains the list of data sources.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources`
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -2152,11 +2301,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `GET`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources`.
-     *   *
+     * @summary Obtains the list of data sources.
+     *  *
+     * @description ## Method
+     * `GET`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources`
+     *  *
      * @param string $instanceId
      *
      * @return ListDataSourcesResponse ListDataSourcesResponse
@@ -2170,11 +2321,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`.
-     *   *
+     * @summary Obtains the data restoration version of a data source.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+     *  *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
      * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
@@ -2213,11 +2366,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`.
-     *   *
+     * @summary Obtains the data restoration version of a data source.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+     *  *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
      * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
@@ -2233,11 +2388,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes.
-     *   *
+     * @summary Obtains the index list.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes
+     *  *
      * @param string             $instanceId
      * @param ListIndexesRequest $request    ListIndexesRequest
      * @param string[]           $headers    map
@@ -2272,11 +2429,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     GET
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes.
-     *   *
+     * @summary Obtains the index list.
+     *  *
+     * @description ## Method
+     *     GET
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes
+     *  *
      * @param string             $instanceId
      * @param ListIndexesRequest $request    ListIndexesRequest
      *
@@ -2291,11 +2450,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
+     *  *
      * @param string                   $instanceId
      * @param ListInstanceSpecsRequest $request    ListInstanceSpecsRequest
      * @param string[]                 $headers    map
@@ -2330,11 +2491,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
+     *  *
      * @param string                   $instanceId
      * @param ListInstanceSpecsRequest $request    ListInstanceSpecsRequest
      *
@@ -2349,11 +2512,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/[code]/instances`.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/[code]/instances`
+     *  *
      * @param ListInstancesRequest $tmpReq  ListInstancesRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2410,11 +2575,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/[code]/instances`.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/[code]/instances`
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      *
      * @return ListInstancesResponse ListInstancesResponse
@@ -2428,15 +2595,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
-     *   * ```.
-     *   *
+     * @summary Obtains the details of online configurations.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
+     * ```
+     *  *
      * @param string                   $instanceId
      * @param string                   $nodeName
      * @param ListOnlineConfigsRequest $request    ListOnlineConfigsRequest
@@ -2472,15 +2641,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * GET
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
-     *   * ```.
-     *   *
+     * @summary Obtains the details of online configurations.
+     *  *
+     * @description ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
+     * ```
+     *  *
      * @param string                   $instanceId
      * @param string                   $nodeName
      * @param ListOnlineConfigsRequest $request    ListOnlineConfigsRequest
@@ -2496,11 +2667,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`.
-     *   *
+     * @summary Queries the query result.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
+     *  *
      * @param string                 $instanceId
      * @param ListQueryResultRequest $request    ListQueryResultRequest
      * @param string[]               $headers    map
@@ -2538,11 +2711,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `GET`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`.
-     *   *
+     * @summary Queries the query result.
+     *  *
+     * @description ### Method
+     * `GET`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
+     *  *
      * @param string                 $instanceId
      * @param ListQueryResultRequest $request    ListQueryResultRequest
      *
@@ -2557,12 +2732,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引generation列表V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTableGenerationsResponse
+     * @return ListTableGenerationsResponse ListTableGenerationsResponse
      */
     public function listTableGenerationsWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -2585,10 +2762,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引generation列表V2
+     *  *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return ListTableGenerationsResponse
+     * @return ListTableGenerationsResponse ListTableGenerationsResponse
      */
     public function listTableGenerations($instanceId, $tableName)
     {
@@ -2599,12 +2778,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引列表V2
+     *  *
      * @param string            $instanceId
-     * @param ListTablesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListTablesRequest $request    ListTablesRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -2633,10 +2814,12 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 获取索引列表V2
+     *  *
      * @param string            $instanceId
-     * @param ListTablesRequest $request
+     * @param ListTablesRequest $request    ListTablesRequest
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($instanceId, $request)
     {
@@ -2647,11 +2830,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     put
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}.
-     *   *
+     * @summary Modifies the advanced configurations.
+     *  *
+     * @description ## Method
+     *     put
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     *  *
      * @param string                         $instanceId
      * @param string                         $configName
      * @param ModifyAdvanceConfigFileRequest $request    ModifyAdvanceConfigFileRequest
@@ -2695,11 +2880,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     put
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}.
-     *   *
+     * @summary Modifies the advanced configurations.
+     *  *
+     * @description ## Method
+     *     put
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     *  *
      * @param string                         $instanceId
      * @param string                         $configName
      * @param ModifyAdvanceConfigFileRequest $request    ModifyAdvanceConfigFileRequest
@@ -2715,11 +2902,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`.
-     *   *
+     * @summary Modifies the description of a specified cluster.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
+     *  *
      * @param string                   $instanceId
      * @param string                   $clusterName
      * @param ModifyClusterDescRequest $request     ModifyClusterDescRequest
@@ -2755,11 +2944,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`.
-     *   *
+     * @summary Modifies the description of a specified cluster.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
+     *  *
      * @param string                   $instanceId
      * @param string                   $clusterName
      * @param ModifyClusterDescRequest $request     ModifyClusterDescRequest
@@ -2775,9 +2966,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Request syntax
-     *   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config.
-     *   *
+     * @summary Modifies the configuration information of a cluster.
+     *  *
+     * @description ## Request syntax
+     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     *  *
      * @param string                            $instanceId
      * @param ModifyClusterOfflineConfigRequest $request    ModifyClusterOfflineConfigRequest
      * @param string[]                          $headers    map
@@ -2836,9 +3029,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Request syntax
-     *   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config.
-     *   *
+     * @summary Modifies the configuration information of a cluster.
+     *  *
+     * @description ## Request syntax
+     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     *  *
      * @param string                            $instanceId
      * @param ModifyClusterOfflineConfigRequest $request    ModifyClusterOfflineConfigRequest
      *
@@ -2853,11 +3048,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/cluster-online-config`.
-     *   *
+     * @summary Modifies the online configurations of a cluster.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
+     *  *
      * @param string                           $instanceId
      * @param ModifyClusterOnlineConfigRequest $request    ModifyClusterOnlineConfigRequest
      * @param string[]                         $headers    map
@@ -2895,11 +3092,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/cluster-online-config`.
-     *   *
+     * @summary Modifies the online configurations of a cluster.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
+     *  *
      * @param string                           $instanceId
      * @param ModifyClusterOnlineConfigRequest $request    ModifyClusterOnlineConfigRequest
      *
@@ -2914,11 +3113,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `PUT`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Modifies a data source.
+     *  *
+     * @description ## Method
+     * `PUT`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string                  $instanceId
      * @param string                  $dataSourceName
      * @param ModifyDataSourceRequest $request        ModifyDataSourceRequest
@@ -2959,11 +3160,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * `PUT`
-     *   * ## URI
-     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
-     *   *
+     * @summary Modifies a data source.
+     *  *
+     * @description ## Method
+     * `PUT`
+     * ## URI
+     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
+     *  *
      * @param string                  $instanceId
      * @param string                  $dataSourceName
      * @param ModifyDataSourceRequest $request        ModifyDataSourceRequest
@@ -2979,11 +3182,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     PUT
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt.
-     *   *
+     * @summary Modifies a file.
+     *  *
+     * @description ## Method
+     *     PUT
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     *  *
      * @param string            $instanceId
      * @param string            $indexName
      * @param string            $versionName
@@ -3028,11 +3233,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     PUT
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt.
-     *   *
+     * @summary Modifies a file.
+     *  *
+     * @description ## Method
+     *     PUT
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     *  *
      * @param string            $instanceId
      * @param string            $indexName
      * @param string            $versionName
@@ -3049,11 +3256,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/index-partition`.
-     *   *
+     * @summary Modifies the information about index partitions.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/index-partition`
+     *  *
      * @param string                      $instanceId
      * @param ModifyIndexPartitionRequest $request    ModifyIndexPartitionRequest
      * @param string[]                    $headers    map
@@ -3097,11 +3306,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/index-partition`.
-     *   *
+     * @summary Modifies the information about index partitions.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/index-partition`
+     *  *
      * @param string                      $instanceId
      * @param ModifyIndexPartitionRequest $request    ModifyIndexPartitionRequest
      *
@@ -3116,11 +3327,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     PUT
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version.
-     *   *
+     * @summary Modifies the index version of a cluster (an index version rollback).
+     *  *
+     * @description ## Method
+     *     PUT
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+     *  *
      * @param string                    $instanceId
      * @param string                    $clusterName
      * @param ModifyIndexVersionRequest $request     ModifyIndexVersionRequest
@@ -3152,11 +3365,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     PUT
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version.
-     *   *
+     * @summary Modifies the index version of a cluster (an index version rollback).
+     *  *
+     * @description ## Method
+     *     PUT
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
+     *  *
      * @param string                    $instanceId
      * @param string                    $clusterName
      * @param ModifyIndexVersionRequest $request     ModifyIndexVersionRequest
@@ -3172,15 +3387,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-     *   * ```.
-     *   *
+     * @summary Modifies the configurations of a node.
+     *  *
+     * @description ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
+     * ```
+     *  *
      * @param string                  $instanceId
      * @param ModifyNodeConfigRequest $request    ModifyNodeConfigRequest
      * @param string[]                $headers    map
@@ -3244,15 +3461,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
-     *   * ```.
-     *   *
+     * @summary Modifies the configurations of a node.
+     *  *
+     * @description ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
+     * ```
+     *  *
      * @param string                  $instanceId
      * @param ModifyNodeConfigRequest $request    ModifyNodeConfigRequest
      *
@@ -3267,15 +3486,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * put
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
-     *   * ```.
-     *   *
+     * @summary Modifies online configurations.
+     *  *
+     * @description ### Method
+     * ```java
+     * put
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
+     * ```
+     *  *
      * @param string                    $instanceId
      * @param string                    $nodeName
      * @param string                    $indexName
@@ -3312,15 +3533,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * put
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
-     *   * ```.
-     *   *
+     * @summary Modifies online configurations.
+     *  *
+     * @description ### Method
+     * ```java
+     * put
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
+     * ```
+     *  *
      * @param string                    $instanceId
      * @param string                    $nodeName
      * @param string                    $indexName
@@ -3337,11 +3560,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/password`.
-     *   *
+     * @summary 修改实例的密码
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/password`
+     *  *
      * @param string                $instanceId
      * @param ModifyPasswordRequest $request    ModifyPasswordRequest
      * @param string[]              $headers    map
@@ -3379,11 +3604,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/password`.
-     *   *
+     * @summary 修改实例的密码
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/password`
+     *  *
      * @param string                $instanceId
      * @param ModifyPasswordRequest $request    ModifyPasswordRequest
      *
@@ -3398,13 +3625,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 修改索引V2
+     *  *
      * @param string             $instanceId
      * @param string             $tableName
-     * @param ModifyTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ModifyTableRequest $request    ModifyTableRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyTableResponse
+     * @return ModifyTableResponse ModifyTableResponse
      */
     public function modifyTableWithOptions($instanceId, $tableName, $request, $headers, $runtime)
     {
@@ -3456,11 +3685,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 修改索引V2
+     *  *
      * @param string             $instanceId
      * @param string             $tableName
-     * @param ModifyTableRequest $request
+     * @param ModifyTableRequest $request    ModifyTableRequest
      *
-     * @return ModifyTableResponse
+     * @return ModifyTableResponse ModifyTableResponse
      */
     public function modifyTable($instanceId, $tableName, $request)
     {
@@ -3471,15 +3702,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * ~~~
-     *   * POST
-     *   * ~~~
-     *   * ## URI
-     *   * ~~~
-     *   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-     *   * ~~~.
-     *   *
+     * @summary Publishes a version of advanced configurations.
+     *  *
+     * @description ## Method
+     * ~~~
+     * POST
+     * ~~~
+     * ## URI
+     * ~~~
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
+     * ~~~
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param PublishAdvanceConfigRequest $request    PublishAdvanceConfigRequest
@@ -3492,8 +3725,11 @@ class Searchengine extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (!Utils::isUnset($request->desc)) {
+            $body['desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->files)) {
+            $body['files'] = $request->files;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3515,15 +3751,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   * ~~~
-     *   * POST
-     *   * ~~~
-     *   * ## URI
-     *   * ~~~
-     *   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-     *   * ~~~.
-     *   *
+     * @summary Publishes a version of advanced configurations.
+     *  *
+     * @description ## Method
+     * ~~~
+     * POST
+     * ~~~
+     * ## URI
+     * ~~~
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
+     * ~~~
+     *  *
      * @param string                      $instanceId
      * @param string                      $configName
      * @param PublishAdvanceConfigRequest $request    PublishAdvanceConfigRequest
@@ -3539,11 +3777,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     POST
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish.
-     *   *
+     * @summary Publishes a specified index version.
+     *  *
+     * @description ## Method
+     *     POST
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     *  *
      * @param string                     $instanceId
      * @param string                     $indexName
      * @param PublishIndexVersionRequest $request    PublishIndexVersionRequest
@@ -3579,11 +3819,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ## Method
-     *   *     POST
-     *   * ## URI
-     *   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish.
-     *   *
+     * @summary Publishes a specified index version.
+     *  *
+     * @description ## Method
+     *     POST
+     * ## URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     *  *
      * @param string                     $instanceId
      * @param string                     $indexName
      * @param PublishIndexVersionRequest $request    PublishIndexVersionRequest
@@ -3599,11 +3841,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/recover-index`.
-     *   *
+     * @summary Restores data from an index.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/recover-index`
+     *  *
      * @param string              $instanceId
      * @param RecoverIndexRequest $request    RecoverIndexRequest
      * @param string[]            $headers    map
@@ -3647,11 +3891,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `POST`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}/recover-index`.
-     *   *
+     * @summary Restores data from an index.
+     *  *
+     * @description ### Method
+     * `POST`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}/recover-index`
+     *  *
      * @param string              $instanceId
      * @param RecoverIndexRequest $request    RecoverIndexRequest
      *
@@ -3666,13 +3912,15 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 索引重建V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param ReindexRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param ReindexRequest $request    ReindexRequest
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ReindexResponse
+     * @return ReindexResponse ReindexResponse
      */
     public function reindexWithOptions($instanceId, $tableName, $request, $headers, $runtime)
     {
@@ -3707,11 +3955,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 索引重建V2
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param ReindexRequest $request
+     * @param ReindexRequest $request    ReindexRequest
      *
-     * @return ReindexResponse
+     * @return ReindexResponse ReindexResponse
      */
     public function reindex($instanceId, $tableName, $request)
     {
@@ -3722,15 +3972,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * DELETE
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
-     *   * ```.
-     *   *
+     * @summary Deletes a cluster.
+     *  *
+     * @description ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string         $clusterName
      * @param string[]       $headers     map
@@ -3759,15 +4011,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * DELETE
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
-     *   * ```.
-     *   *
+     * @summary Deletes a cluster.
+     *  *
+     * @description ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
+     * ```
+     *  *
      * @param string $instanceId
      * @param string $clusterName
      *
@@ -3782,15 +4036,101 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
-     *   * ```.
-     *   *
+     * @param string         $instanceId
+     * @param string         $indexName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return StartIndexResponse StartIndexResponse
+     */
+    public function startIndexWithOptions($instanceId, $indexName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartIndex',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/startIndex',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $indexName
+     *
+     * @return StartIndexResponse StartIndexResponse
+     */
+    public function startIndex($instanceId, $indexName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startIndexWithOptions($instanceId, $indexName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $indexName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return StopIndexResponse StopIndexResponse
+     */
+    public function stopIndexWithOptions($instanceId, $indexName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopIndex',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/stopIndex',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $indexName
+     *
+     * @return StopIndexResponse StopIndexResponse
+     */
+    public function stopIndex($instanceId, $indexName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopIndexWithOptions($instanceId, $indexName, $headers, $runtime);
+    }
+
+    /**
+     * @summary Stops an FSM task.
+     *  *
+     * @description ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+     * ```
+     *  *
      * @param string         $instanceId
      * @param string         $fsmId
      * @param string[]       $headers    map
@@ -3819,15 +4159,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * ```java
-     *   * PUT
-     *   * ```
-     *   * ### URI
-     *   * ```java
-     *   * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
-     *   * ```.
-     *   *
+     * @summary Stops an FSM task.
+     *  *
+     * @description ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
+     * ```
+     *  *
      * @param string $instanceId
      * @param string $fsmId
      *
@@ -3842,11 +4184,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Modifies the configuration of a specified instance.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string                $instanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      * @param string[]              $headers    map
@@ -3887,11 +4231,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * ### Method
-     *   * `PUT`
-     *   * ### URI
-     *   * `/openapi/ha3/instances/{instanceId}`.
-     *   *
+     * @summary Modifies the configuration of a specified instance.
+     *  *
+     * @description ### Method
+     * `PUT`
+     * ### URI
+     * `/openapi/ha3/instances/{instanceId}`
+     *  *
      * @param string                $instanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *

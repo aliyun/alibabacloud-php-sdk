@@ -16,8 +16,14 @@ class dataNode extends Model
      * @var int
      */
     public $number;
+
+    /**
+     * @var string
+     */
+    public $partition;
     protected $_name = [
-        'number' => 'number',
+        'number'    => 'number',
+        'partition' => 'partition',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class dataNode extends Model
         $res = [];
         if (null !== $this->number) {
             $res['number'] = $this->number;
+        }
+        if (null !== $this->partition) {
+            $res['partition'] = $this->partition;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class dataNode extends Model
         $model = new self();
         if (isset($map['number'])) {
             $model->number = $map['number'];
+        }
+        if (isset($map['partition'])) {
+            $model->partition = $map['partition'];
         }
 
         return $model;

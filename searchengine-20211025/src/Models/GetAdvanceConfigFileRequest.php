@@ -11,6 +11,7 @@ class GetAdvanceConfigFileRequest extends Model
     /**
      * @description The name of the file
      *
+     * This parameter is required.
      * @example /intervene_dict/chn_ecommerce_general.dict
      *
      * @var string

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var mixed[][]
+     */
+    public $config;
+
+    /**
      * @description The time when the cluster was updated.
      *
      * @example 2021-08-09 00:01:02
@@ -18,6 +23,11 @@ class result extends Model
      * @var string
      */
     public $configUpdateTime;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @description The effective advanced configuration version.
@@ -96,7 +106,9 @@ class result extends Model
      */
     public $status;
     protected $_name = [
+        'config'                      => 'config',
         'configUpdateTime'            => 'configUpdateTime',
+        'createTime'                  => 'createTime',
         'currentAdvanceConfigVersion' => 'currentAdvanceConfigVersion',
         'currentOnlineConfigVersion'  => 'currentOnlineConfigVersion',
         'dataNode'                    => 'dataNode',
@@ -115,8 +127,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
+        }
         if (null !== $this->configUpdateTime) {
             $res['configUpdateTime'] = $this->configUpdateTime;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->currentAdvanceConfigVersion) {
             $res['currentAdvanceConfigVersion'] = $this->currentAdvanceConfigVersion;
@@ -157,8 +175,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
+        }
         if (isset($map['configUpdateTime'])) {
             $model->configUpdateTime = $map['configUpdateTime'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['currentAdvanceConfigVersion'])) {
             $model->currentAdvanceConfigVersion = $map['currentAdvanceConfigVersion'];

@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @description The configuration information
      *
-     * @example {\"specItems\":[{\"specKey\":\"YQ_KEYWORD_NUMBER_PLUS\",\"value\":\"1\"}]}
+     * @example {\\"specItems\\":[{\\"specKey\\":\\"YQ_KEYWORD_NUMBER_PLUS\\",\\"value\\":\\"1\\"}]}
      *
      * @var string
      */

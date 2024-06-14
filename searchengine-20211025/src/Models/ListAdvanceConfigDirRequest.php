@@ -11,6 +11,7 @@ class ListAdvanceConfigDirRequest extends Model
     /**
      * @description The name of the directory
      *
+     * This parameter is required.
      * @example /zones/general
      *
      * @var string

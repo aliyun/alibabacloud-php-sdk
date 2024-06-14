@@ -36,6 +36,10 @@ class result extends Model
     public $dataFragmentNumber;
 
     /**
+     * @description The traffic percentage.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $flowRatio;

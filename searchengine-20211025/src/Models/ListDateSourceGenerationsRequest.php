@@ -11,6 +11,7 @@ class ListDateSourceGenerationsRequest extends Model
     /**
      * @description The data center where the data source is deployed.
      *
+     * This parameter is required.
      * @example bj_vpc_domain_1
      *
      * @var string

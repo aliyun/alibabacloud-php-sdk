@@ -12,12 +12,22 @@ class result extends Model
     /**
      * @var string
      */
+    public $advanceConfigType;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
      * @var string
      */
     public $contentType;
+
+    /**
+     * @var string
+     */
+    public $creator;
 
     /**
      * @description The description.
@@ -62,13 +72,15 @@ class result extends Model
      */
     public $updateTime;
     protected $_name = [
-        'content'     => 'content',
-        'contentType' => 'contentType',
-        'desc'        => 'desc',
-        'files'       => 'files',
-        'name'        => 'name',
-        'status'      => 'status',
-        'updateTime'  => 'updateTime',
+        'advanceConfigType' => 'advanceConfigType',
+        'content'           => 'content',
+        'contentType'       => 'contentType',
+        'creator'           => 'creator',
+        'desc'              => 'desc',
+        'files'             => 'files',
+        'name'              => 'name',
+        'status'            => 'status',
+        'updateTime'        => 'updateTime',
     ];
 
     public function validate()
@@ -78,11 +90,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advanceConfigType) {
+            $res['advanceConfigType'] = $this->advanceConfigType;
+        }
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
+        }
+        if (null !== $this->creator) {
+            $res['creator'] = $this->creator;
         }
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
@@ -117,11 +135,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['advanceConfigType'])) {
+            $model->advanceConfigType = $map['advanceConfigType'];
+        }
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
+        }
+        if (isset($map['creator'])) {
+            $model->creator = $map['creator'];
         }
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];

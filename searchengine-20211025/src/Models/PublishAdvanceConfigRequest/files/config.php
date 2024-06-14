@@ -2,41 +2,25 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
+namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishAdvanceConfigRequest\files;
 
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\FilesConfigVariablesValue;
 use AlibabaCloud\Tea\Model;
 
-class ModifyAdvanceConfigFileRequest extends Model
+class config extends Model
 {
     /**
-     * @description The content of the file.
-     *
-     * @example "ha3"
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The variable.
-     *
-     * @var VariablesValue[]
+     * @var FilesConfigVariablesValue[]
      */
     public $variables;
-
-    /**
-     * @description The name of the file.
-     *
-     * This parameter is required.
-     * @example /qrs.json
-     *
-     * @var string
-     */
-    public $fileName;
     protected $_name = [
         'content'   => 'content',
         'variables' => 'variables',
-        'fileName'  => 'fileName',
     ];
 
     public function validate()
@@ -57,9 +41,6 @@ class ModifyAdvanceConfigFileRequest extends Model
                 }
             }
         }
-        if (null !== $this->fileName) {
-            $res['fileName'] = $this->fileName;
-        }
 
         return $res;
     }
@@ -67,7 +48,7 @@ class ModifyAdvanceConfigFileRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyAdvanceConfigFileRequest
+     * @return config
      */
     public static function fromMap($map = [])
     {
@@ -77,9 +58,6 @@ class ModifyAdvanceConfigFileRequest extends Model
         }
         if (isset($map['variables'])) {
             $model->variables = $map['variables'];
-        }
-        if (isset($map['fileName'])) {
-            $model->fileName = $map['fileName'];
         }
 
         return $model;

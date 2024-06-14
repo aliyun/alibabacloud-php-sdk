@@ -39,6 +39,11 @@ class dataSourceInfo extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $processParallelNum;
+
+    /**
      * @description The number of resources used for data update.
      *
      * @var int
@@ -63,6 +68,7 @@ class dataSourceInfo extends Model
         'config'                => 'config',
         'domain'                => 'domain',
         'name'                  => 'name',
+        'processParallelNum'    => 'processParallelNum',
         'processPartitionCount' => 'processPartitionCount',
         'saroConfig'            => 'saroConfig',
         'type'                  => 'type',
@@ -86,6 +92,9 @@ class dataSourceInfo extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->processParallelNum) {
+            $res['processParallelNum'] = $this->processParallelNum;
         }
         if (null !== $this->processPartitionCount) {
             $res['processPartitionCount'] = $this->processPartitionCount;
@@ -119,6 +128,9 @@ class dataSourceInfo extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['processParallelNum'])) {
+            $model->processParallelNum = $map['processParallelNum'];
         }
         if (isset($map['processPartitionCount'])) {
             $model->processPartitionCount = $map['processPartitionCount'];

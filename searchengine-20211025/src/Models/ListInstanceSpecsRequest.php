@@ -11,6 +11,7 @@ class ListInstanceSpecsRequest extends Model
     /**
      * @description The node type. Valid values: qrs, search, index, and cluster. qrs indicates a query node, search indicates a data node, index indicates an index node, and cluster indicates a cluster.
      *
+     * This parameter is required.
      * @example search
      *
      * @var string

@@ -36,7 +36,7 @@ class BuildIndexRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The timestamp in seconds. It is of the INT type. This parameter is required for the API-pushed data source.
+     * @description The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
      *
      * @example 1640867288
      *
@@ -45,7 +45,7 @@ class BuildIndexRequest extends Model
     public $dataTimeSec;
 
     /**
-     * @description The data center where the data source is deployed.
+     * @description The data center in which the data source resides.
      *
      * @example test
      *
@@ -63,7 +63,7 @@ class BuildIndexRequest extends Model
     public $generation;
 
     /**
-     * @description This parameter is required for the odps data source.
+     * @description The data partition. This parameter is required if dataSourceType is set to odps.
      *
      * @example 20201010
      *

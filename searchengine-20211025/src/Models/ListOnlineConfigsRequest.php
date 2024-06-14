@@ -11,6 +11,7 @@ class ListOnlineConfigsRequest extends Model
     /**
      * @description The name of the domain
      *
+     * This parameter is required.
      * @example sz_vpc_domain_1
      *
      * @var string

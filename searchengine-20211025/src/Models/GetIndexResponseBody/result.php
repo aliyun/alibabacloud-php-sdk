@@ -6,10 +6,26 @@ namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexResponseBody;
 
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexResponseBody\result\dataSourceInfo;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexResponseBody\result\versions;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ResultClusterValue;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
+    /**
+     * @var ResultClusterValue[]
+     */
+    public $cluster;
+
+    /**
+     * @var mixed[][]
+     */
+    public $config;
+
+    /**
+     * @var mixed[][]
+     */
+    public $configWhenBuild;
+
     /**
      * @description The content of the index.
      *
@@ -99,19 +115,22 @@ class result extends Model
      */
     public $versions;
     protected $_name = [
-        'content'        => 'content',
-        'dataSource'     => 'dataSource',
-        'dataSourceInfo' => 'dataSourceInfo',
-        'description'    => 'description',
-        'domain'         => 'domain',
-        'fullUpdateTime' => 'fullUpdateTime',
-        'fullVersion'    => 'fullVersion',
-        'incUpdateTime'  => 'incUpdateTime',
-        'indexSize'      => 'indexSize',
-        'indexStatus'    => 'indexStatus',
-        'name'           => 'name',
-        'partition'      => 'partition',
-        'versions'       => 'versions',
+        'cluster'         => 'cluster',
+        'config'          => 'config',
+        'configWhenBuild' => 'configWhenBuild',
+        'content'         => 'content',
+        'dataSource'      => 'dataSource',
+        'dataSourceInfo'  => 'dataSourceInfo',
+        'description'     => 'description',
+        'domain'          => 'domain',
+        'fullUpdateTime'  => 'fullUpdateTime',
+        'fullVersion'     => 'fullVersion',
+        'incUpdateTime'   => 'incUpdateTime',
+        'indexSize'       => 'indexSize',
+        'indexStatus'     => 'indexStatus',
+        'name'            => 'name',
+        'partition'       => 'partition',
+        'versions'        => 'versions',
     ];
 
     public function validate()
@@ -121,6 +140,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cluster) {
+            $res['cluster'] = [];
+            if (null !== $this->cluster && \is_array($this->cluster)) {
+                foreach ($this->cluster as $key => $val) {
+                    $res['cluster'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
+        }
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
+        }
+        if (null !== $this->configWhenBuild) {
+            $res['configWhenBuild'] = $this->configWhenBuild;
+        }
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -178,6 +211,15 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster'])) {
+            $model->cluster = $map['cluster'];
+        }
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
+        }
+        if (isset($map['configWhenBuild'])) {
+            $model->configWhenBuild = $map['configWhenBuild'];
+        }
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
