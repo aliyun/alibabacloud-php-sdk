@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @description The resource ID.
+     * @description The ID of the resource.
      *
      * @example ob317v4uif****
      *

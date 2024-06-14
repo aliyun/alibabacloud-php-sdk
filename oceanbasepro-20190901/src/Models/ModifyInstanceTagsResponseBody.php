@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTagsResponseBody extends Model
 {
     /**
+     * @description The tag modification result.
+     *
      * @example done
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyInstanceTagsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string

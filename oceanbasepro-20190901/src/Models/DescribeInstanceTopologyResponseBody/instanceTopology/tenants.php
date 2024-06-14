@@ -37,6 +37,11 @@ class tenants extends Model
     public $tenantDeployType;
 
     /**
+     * @var float
+     */
+    public $tenantDiskSize;
+
+    /**
      * @description The size of used memory of the node, in GB.
      *
      * @example t33h8y08k****
@@ -82,6 +87,16 @@ class tenants extends Model
     public $tenantStatus;
 
     /**
+     * @var float
+     */
+    public $tenantUnitCpu;
+
+    /**
+     * @var float
+     */
+    public $tenantUnitMemory;
+
+    /**
      * @description The number of CPU cores of the tenant.
      *
      * @example 1
@@ -100,11 +115,14 @@ class tenants extends Model
         'primaryZoneDeployType' => 'PrimaryZoneDeployType',
         'tenantCpu'             => 'TenantCpu',
         'tenantDeployType'      => 'TenantDeployType',
+        'tenantDiskSize'        => 'TenantDiskSize',
         'tenantId'              => 'TenantId',
         'tenantMemory'          => 'TenantMemory',
         'tenantMode'            => 'TenantMode',
         'tenantName'            => 'TenantName',
         'tenantStatus'          => 'TenantStatus',
+        'tenantUnitCpu'         => 'TenantUnitCpu',
+        'tenantUnitMemory'      => 'TenantUnitMemory',
         'tenantUnitNum'         => 'TenantUnitNum',
         'tenantZones'           => 'TenantZones',
     ];
@@ -125,6 +143,9 @@ class tenants extends Model
         if (null !== $this->tenantDeployType) {
             $res['TenantDeployType'] = $this->tenantDeployType;
         }
+        if (null !== $this->tenantDiskSize) {
+            $res['TenantDiskSize'] = $this->tenantDiskSize;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -139,6 +160,12 @@ class tenants extends Model
         }
         if (null !== $this->tenantStatus) {
             $res['TenantStatus'] = $this->tenantStatus;
+        }
+        if (null !== $this->tenantUnitCpu) {
+            $res['TenantUnitCpu'] = $this->tenantUnitCpu;
+        }
+        if (null !== $this->tenantUnitMemory) {
+            $res['TenantUnitMemory'] = $this->tenantUnitMemory;
         }
         if (null !== $this->tenantUnitNum) {
             $res['TenantUnitNum'] = $this->tenantUnitNum;
@@ -173,6 +200,9 @@ class tenants extends Model
         if (isset($map['TenantDeployType'])) {
             $model->tenantDeployType = $map['TenantDeployType'];
         }
+        if (isset($map['TenantDiskSize'])) {
+            $model->tenantDiskSize = $map['TenantDiskSize'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
@@ -187,6 +217,12 @@ class tenants extends Model
         }
         if (isset($map['TenantStatus'])) {
             $model->tenantStatus = $map['TenantStatus'];
+        }
+        if (isset($map['TenantUnitCpu'])) {
+            $model->tenantUnitCpu = $map['TenantUnitCpu'];
+        }
+        if (isset($map['TenantUnitMemory'])) {
+            $model->tenantUnitMemory = $map['TenantUnitMemory'];
         }
         if (isset($map['TenantUnitNum'])) {
             $model->tenantUnitNum = $map['TenantUnitNum'];

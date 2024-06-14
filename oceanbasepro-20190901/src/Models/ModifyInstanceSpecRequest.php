@@ -53,12 +53,18 @@ class ModifyInstanceSpecRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $upgradeSpecNative;
     protected $_name = [
-        'diskSize'      => 'DiskSize',
-        'diskType'      => 'DiskType',
-        'dryRun'        => 'DryRun',
-        'instanceClass' => 'InstanceClass',
-        'instanceId'    => 'InstanceId',
+        'diskSize'          => 'DiskSize',
+        'diskType'          => 'DiskType',
+        'dryRun'            => 'DryRun',
+        'instanceClass'     => 'InstanceClass',
+        'instanceId'        => 'InstanceId',
+        'upgradeSpecNative' => 'UpgradeSpecNative',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->upgradeSpecNative) {
+            $res['UpgradeSpecNative'] = $this->upgradeSpecNative;
         }
 
         return $res;
@@ -109,6 +118,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['UpgradeSpecNative'])) {
+            $model->upgradeSpecNative = $map['UpgradeSpecNative'];
         }
 
         return $model;

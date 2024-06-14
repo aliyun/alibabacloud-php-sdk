@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTagValueRequest extends Model
 {
     /**
+     * @description The identifier of the client.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,14 +18,20 @@ class CreateTagValueRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the tag group.
+     *
+     * This parameter is required.
+     * @example Tag group 1
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the tag.
+     *
+     * This parameter is required.
+     * @example Tag 1
      *
      * @var string
      */

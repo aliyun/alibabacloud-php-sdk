@@ -213,6 +213,11 @@ class tenant extends Model
     public $readOnlyResource;
 
     /**
+     * @var string
+     */
+    public $recycleBinStatus;
+
+    /**
      * @description <DescribeTenantResponse>
      * <Tenant>
      * <TenantId>t33h8y08k****</TenantId>
@@ -332,6 +337,7 @@ class tenant extends Model
         'primaryZone'                  => 'PrimaryZone',
         'primaryZoneDeployType'        => 'PrimaryZoneDeployType',
         'readOnlyResource'             => 'ReadOnlyResource',
+        'recycleBinStatus'             => 'RecycleBinStatus',
         'series'                       => 'Series',
         'status'                       => 'Status',
         'tenantConnections'            => 'TenantConnections',
@@ -423,6 +429,9 @@ class tenant extends Model
         }
         if (null !== $this->readOnlyResource) {
             $res['ReadOnlyResource'] = null !== $this->readOnlyResource ? $this->readOnlyResource->toMap() : null;
+        }
+        if (null !== $this->recycleBinStatus) {
+            $res['RecycleBinStatus'] = $this->recycleBinStatus;
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
@@ -554,6 +563,9 @@ class tenant extends Model
         }
         if (isset($map['ReadOnlyResource'])) {
             $model->readOnlyResource = readOnlyResource::fromMap($map['ReadOnlyResource']);
+        }
+        if (isset($map['RecycleBinStatus'])) {
+            $model->recycleBinStatus = $map['RecycleBinStatus'];
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];

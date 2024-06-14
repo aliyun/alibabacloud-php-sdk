@@ -6,12 +6,11 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyTenantTagsRequest extends Model
+class DescribeTenantReadableScnRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -19,19 +18,8 @@ class ModifyTenantTagsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The tags.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example [{"Key": "xxx", "Value", "xxx"}]
-     *
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @description The ID of the tenant.
-     *
-     * This parameter is required.
      * @example t33h8y08k****
      *
      * @var string
@@ -39,7 +27,6 @@ class ModifyTenantTagsRequest extends Model
     public $tenantId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tags'       => 'Tags',
         'tenantId'   => 'TenantId',
     ];
 
@@ -53,9 +40,6 @@ class ModifyTenantTagsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -66,16 +50,13 @@ class ModifyTenantTagsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyTenantTagsRequest
+     * @return DescribeTenantReadableScnRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

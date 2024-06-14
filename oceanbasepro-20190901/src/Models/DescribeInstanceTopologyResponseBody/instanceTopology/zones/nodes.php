@@ -15,6 +15,11 @@ class nodes extends Model
     public $fullCopyId;
 
     /**
+     * @var string
+     */
+    public $logicalZone;
+
+    /**
      * @description The information of zones.
      *
      * @example 1
@@ -59,6 +64,7 @@ class nodes extends Model
     public $replicaType;
     protected $_name = [
         'fullCopyId'     => 'FullCopyId',
+        'logicalZone'    => 'LogicalZone',
         'nodeCopyId'     => 'NodeCopyId',
         'nodeId'         => 'NodeId',
         'nodeResource'   => 'NodeResource',
@@ -76,6 +82,9 @@ class nodes extends Model
         $res = [];
         if (null !== $this->fullCopyId) {
             $res['FullCopyId'] = $this->fullCopyId;
+        }
+        if (null !== $this->logicalZone) {
+            $res['LogicalZone'] = $this->logicalZone;
         }
         if (null !== $this->nodeCopyId) {
             $res['NodeCopyId'] = $this->nodeCopyId;
@@ -115,6 +124,9 @@ class nodes extends Model
         $model = new self();
         if (isset($map['FullCopyId'])) {
             $model->fullCopyId = $map['FullCopyId'];
+        }
+        if (isset($map['LogicalZone'])) {
+            $model->logicalZone = $map['LogicalZone'];
         }
         if (isset($map['NodeCopyId'])) {
             $model->nodeCopyId = $map['NodeCopyId'];

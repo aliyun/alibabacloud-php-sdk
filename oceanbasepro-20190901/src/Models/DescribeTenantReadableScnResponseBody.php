@@ -4,29 +4,24 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantReadableScnResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ModifyTenantTagsResponseBody extends Model
+class DescribeTenantReadableScnResponseBody extends Model
 {
     /**
-     * @description The tag modification result.
-     *
-     * @example done
-     *
-     * @var string
+     * @var data
      */
-    public $message;
+    public $data;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example 8442BB1E-3171-1192-B9DC-F6F4E53B2673
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -37,8 +32,8 @@ class ModifyTenantTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,13 +45,13 @@ class ModifyTenantTagsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyTenantTagsResponseBody
+     * @return DescribeTenantReadableScnResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

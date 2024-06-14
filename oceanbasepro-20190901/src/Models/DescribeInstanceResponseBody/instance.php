@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowModifyInternetAddressConnectionLimit;
+
+    /**
      * @description The operation that you want to perform. <br>Set the value to **DescribeInstance**.
      *
      * @example true
@@ -286,6 +291,11 @@ class instance extends Model
     public $sharedUnitNumLimit;
 
     /**
+     * @var string
+     */
+    public $specType;
+
+    /**
      * @description The information about cluster resources.
      *
      * @example ONLINE
@@ -318,50 +328,52 @@ class instance extends Model
      */
     public $zones;
     protected $_name = [
-        'autoRenewal'                     => 'AutoRenewal',
-        'autoUpgradeObVersion'            => 'AutoUpgradeObVersion',
-        'availableZones'                  => 'AvailableZones',
-        'cpuArchitecture'                 => 'CpuArchitecture',
-        'createTime'                      => 'CreateTime',
-        'dataDiskAutoScale'               => 'DataDiskAutoScale',
-        'dataDiskAutoScaleConfig'         => 'DataDiskAutoScaleConfig',
-        'dataMergeTime'                   => 'DataMergeTime',
-        'deployMode'                      => 'DeployMode',
-        'deployType'                      => 'DeployType',
-        'diskType'                        => 'DiskType',
-        'enableIsolationOptimization'     => 'EnableIsolationOptimization',
-        'enableProxyService'              => 'EnableProxyService',
-        'enableReadOnlyReplica'           => 'EnableReadOnlyReplica',
-        'enableReadOnlyReplicaManagement' => 'EnableReadOnlyReplicaManagement',
-        'enableUpgradeLogDisk'            => 'EnableUpgradeLogDisk',
-        'exclusiveUnitNumLimit'           => 'ExclusiveUnitNumLimit',
-        'expireTime'                      => 'ExpireTime',
-        'inTempCapacityStatus'            => 'InTempCapacityStatus',
-        'instanceClass'                   => 'InstanceClass',
-        'instanceId'                      => 'InstanceId',
-        'instanceName'                    => 'InstanceName',
-        'instanceRole'                    => 'InstanceRole',
-        'isLatestObVersion'               => 'IsLatestObVersion',
-        'isTrustEcs'                      => 'IsTrustEcs',
-        'isolationOptimization'           => 'IsolationOptimization',
-        'maintainTime'                    => 'MaintainTime',
-        'nodeNum'                         => 'NodeNum',
-        'obRpmVersion'                    => 'ObRpmVersion',
-        'payType'                         => 'PayType',
-        'primaryInstance'                 => 'PrimaryInstance',
-        'primaryRegion'                   => 'PrimaryRegion',
-        'proxyClusterId'                  => 'ProxyClusterId',
-        'proxyServiceStatus'              => 'ProxyServiceStatus',
-        'readOnlyResource'                => 'ReadOnlyResource',
-        'replicaMode'                     => 'ReplicaMode',
-        'resource'                        => 'Resource',
-        'series'                          => 'Series',
-        'sharedUnitNumLimit'              => 'SharedUnitNumLimit',
-        'status'                          => 'Status',
-        'tenantCreatable'                 => 'TenantCreatable',
-        'unitSpec'                        => 'UnitSpec',
-        'version'                         => 'Version',
-        'zones'                           => 'Zones',
+        'allowModifyInternetAddressConnectionLimit' => 'AllowModifyInternetAddressConnectionLimit',
+        'autoRenewal'                               => 'AutoRenewal',
+        'autoUpgradeObVersion'                      => 'AutoUpgradeObVersion',
+        'availableZones'                            => 'AvailableZones',
+        'cpuArchitecture'                           => 'CpuArchitecture',
+        'createTime'                                => 'CreateTime',
+        'dataDiskAutoScale'                         => 'DataDiskAutoScale',
+        'dataDiskAutoScaleConfig'                   => 'DataDiskAutoScaleConfig',
+        'dataMergeTime'                             => 'DataMergeTime',
+        'deployMode'                                => 'DeployMode',
+        'deployType'                                => 'DeployType',
+        'diskType'                                  => 'DiskType',
+        'enableIsolationOptimization'               => 'EnableIsolationOptimization',
+        'enableProxyService'                        => 'EnableProxyService',
+        'enableReadOnlyReplica'                     => 'EnableReadOnlyReplica',
+        'enableReadOnlyReplicaManagement'           => 'EnableReadOnlyReplicaManagement',
+        'enableUpgradeLogDisk'                      => 'EnableUpgradeLogDisk',
+        'exclusiveUnitNumLimit'                     => 'ExclusiveUnitNumLimit',
+        'expireTime'                                => 'ExpireTime',
+        'inTempCapacityStatus'                      => 'InTempCapacityStatus',
+        'instanceClass'                             => 'InstanceClass',
+        'instanceId'                                => 'InstanceId',
+        'instanceName'                              => 'InstanceName',
+        'instanceRole'                              => 'InstanceRole',
+        'isLatestObVersion'                         => 'IsLatestObVersion',
+        'isTrustEcs'                                => 'IsTrustEcs',
+        'isolationOptimization'                     => 'IsolationOptimization',
+        'maintainTime'                              => 'MaintainTime',
+        'nodeNum'                                   => 'NodeNum',
+        'obRpmVersion'                              => 'ObRpmVersion',
+        'payType'                                   => 'PayType',
+        'primaryInstance'                           => 'PrimaryInstance',
+        'primaryRegion'                             => 'PrimaryRegion',
+        'proxyClusterId'                            => 'ProxyClusterId',
+        'proxyServiceStatus'                        => 'ProxyServiceStatus',
+        'readOnlyResource'                          => 'ReadOnlyResource',
+        'replicaMode'                               => 'ReplicaMode',
+        'resource'                                  => 'Resource',
+        'series'                                    => 'Series',
+        'sharedUnitNumLimit'                        => 'SharedUnitNumLimit',
+        'specType'                                  => 'SpecType',
+        'status'                                    => 'Status',
+        'tenantCreatable'                           => 'TenantCreatable',
+        'unitSpec'                                  => 'UnitSpec',
+        'version'                                   => 'Version',
+        'zones'                                     => 'Zones',
     ];
 
     public function validate()
@@ -371,6 +383,9 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowModifyInternetAddressConnectionLimit) {
+            $res['AllowModifyInternetAddressConnectionLimit'] = $this->allowModifyInternetAddressConnectionLimit;
+        }
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
@@ -488,6 +503,9 @@ class instance extends Model
         if (null !== $this->sharedUnitNumLimit) {
             $res['SharedUnitNumLimit'] = $this->sharedUnitNumLimit;
         }
+        if (null !== $this->specType) {
+            $res['SpecType'] = $this->specType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -515,6 +533,9 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowModifyInternetAddressConnectionLimit'])) {
+            $model->allowModifyInternetAddressConnectionLimit = $map['AllowModifyInternetAddressConnectionLimit'];
+        }
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
@@ -633,6 +654,9 @@ class instance extends Model
         }
         if (isset($map['SharedUnitNumLimit'])) {
             $model->sharedUnitNumLimit = $map['SharedUnitNumLimit'];
+        }
+        if (isset($map['SpecType'])) {
+            $model->specType = $map['SpecType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

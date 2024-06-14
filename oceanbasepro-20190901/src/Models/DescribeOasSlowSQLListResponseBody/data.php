@@ -483,7 +483,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var float
+     * @var int
      */
     public $retCode4012Count;
 
@@ -492,7 +492,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var float
+     * @var int
      */
     public $retCode4013Count;
 

@@ -18,6 +18,11 @@ class tenantConnections extends Model
     public $addressType;
 
     /**
+     * @var string[]
+     */
+    public $connectionLogicalZones;
+
+    /**
      * @var string
      */
     public $connectionReplicaType;
@@ -55,6 +60,16 @@ class tenantConnections extends Model
     public $internetAddressStatus;
 
     /**
+     * @var int
+     */
+    public $internetMaxConnectionLimit;
+
+    /**
+     * @var int
+     */
+    public $internetMaxConnectionNum;
+
+    /**
      * @description 实例类型
      *
      * @example 3306
@@ -62,6 +77,11 @@ class tenantConnections extends Model
      * @var int
      */
     public $internetPort;
+
+    /**
+     * @var int
+     */
+    public $internetRpcPort;
 
     /**
      * @description The deployment type of the cluster. Valid values:
@@ -109,6 +129,16 @@ class tenantConnections extends Model
     public $intranetPort;
 
     /**
+     * @var int
+     */
+    public $intranetRpcPort;
+
+    /**
+     * @var int
+     */
+    public $maxConnectionLimit;
+
+    /**
      * @example 5000
      *
      * @var int
@@ -119,6 +149,11 @@ class tenantConnections extends Model
      * @var int
      */
     public $parallelQueryDegree;
+
+    /**
+     * @var string
+     */
+    public $proxyClusterId;
 
     /**
      * @example obe-4tw51gp7****
@@ -155,19 +190,26 @@ class tenantConnections extends Model
     public $vpcId;
     protected $_name = [
         'addressType'                 => 'AddressType',
+        'connectionLogicalZones'      => 'ConnectionLogicalZones',
         'connectionReplicaType'       => 'ConnectionReplicaType',
         'connectionZones'             => 'ConnectionZones',
         'enableTransactionSplit'      => 'EnableTransactionSplit',
         'internetAddress'             => 'InternetAddress',
         'internetAddressStatus'       => 'InternetAddressStatus',
+        'internetMaxConnectionLimit'  => 'InternetMaxConnectionLimit',
+        'internetMaxConnectionNum'    => 'InternetMaxConnectionNum',
         'internetPort'                => 'InternetPort',
+        'internetRpcPort'             => 'InternetRpcPort',
         'intranetAddress'             => 'IntranetAddress',
         'intranetAddressMasterZoneId' => 'IntranetAddressMasterZoneId',
         'intranetAddressSlaveZoneId'  => 'IntranetAddressSlaveZoneId',
         'intranetAddressStatus'       => 'IntranetAddressStatus',
         'intranetPort'                => 'IntranetPort',
+        'intranetRpcPort'             => 'IntranetRpcPort',
+        'maxConnectionLimit'          => 'MaxConnectionLimit',
         'maxConnectionNum'            => 'MaxConnectionNum',
         'parallelQueryDegree'         => 'ParallelQueryDegree',
+        'proxyClusterId'              => 'ProxyClusterId',
         'tenantEndpointId'            => 'TenantEndpointId',
         'transactionSplit'            => 'TransactionSplit',
         'vSwitchId'                   => 'VSwitchId',
@@ -184,6 +226,9 @@ class tenantConnections extends Model
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
         }
+        if (null !== $this->connectionLogicalZones) {
+            $res['ConnectionLogicalZones'] = $this->connectionLogicalZones;
+        }
         if (null !== $this->connectionReplicaType) {
             $res['ConnectionReplicaType'] = $this->connectionReplicaType;
         }
@@ -199,8 +244,17 @@ class tenantConnections extends Model
         if (null !== $this->internetAddressStatus) {
             $res['InternetAddressStatus'] = $this->internetAddressStatus;
         }
+        if (null !== $this->internetMaxConnectionLimit) {
+            $res['InternetMaxConnectionLimit'] = $this->internetMaxConnectionLimit;
+        }
+        if (null !== $this->internetMaxConnectionNum) {
+            $res['InternetMaxConnectionNum'] = $this->internetMaxConnectionNum;
+        }
         if (null !== $this->internetPort) {
             $res['InternetPort'] = $this->internetPort;
+        }
+        if (null !== $this->internetRpcPort) {
+            $res['InternetRpcPort'] = $this->internetRpcPort;
         }
         if (null !== $this->intranetAddress) {
             $res['IntranetAddress'] = $this->intranetAddress;
@@ -217,11 +271,20 @@ class tenantConnections extends Model
         if (null !== $this->intranetPort) {
             $res['IntranetPort'] = $this->intranetPort;
         }
+        if (null !== $this->intranetRpcPort) {
+            $res['IntranetRpcPort'] = $this->intranetRpcPort;
+        }
+        if (null !== $this->maxConnectionLimit) {
+            $res['MaxConnectionLimit'] = $this->maxConnectionLimit;
+        }
         if (null !== $this->maxConnectionNum) {
             $res['MaxConnectionNum'] = $this->maxConnectionNum;
         }
         if (null !== $this->parallelQueryDegree) {
             $res['ParallelQueryDegree'] = $this->parallelQueryDegree;
+        }
+        if (null !== $this->proxyClusterId) {
+            $res['ProxyClusterId'] = $this->proxyClusterId;
         }
         if (null !== $this->tenantEndpointId) {
             $res['TenantEndpointId'] = $this->tenantEndpointId;
@@ -250,6 +313,11 @@ class tenantConnections extends Model
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
         }
+        if (isset($map['ConnectionLogicalZones'])) {
+            if (!empty($map['ConnectionLogicalZones'])) {
+                $model->connectionLogicalZones = $map['ConnectionLogicalZones'];
+            }
+        }
         if (isset($map['ConnectionReplicaType'])) {
             $model->connectionReplicaType = $map['ConnectionReplicaType'];
         }
@@ -267,8 +335,17 @@ class tenantConnections extends Model
         if (isset($map['InternetAddressStatus'])) {
             $model->internetAddressStatus = $map['InternetAddressStatus'];
         }
+        if (isset($map['InternetMaxConnectionLimit'])) {
+            $model->internetMaxConnectionLimit = $map['InternetMaxConnectionLimit'];
+        }
+        if (isset($map['InternetMaxConnectionNum'])) {
+            $model->internetMaxConnectionNum = $map['InternetMaxConnectionNum'];
+        }
         if (isset($map['InternetPort'])) {
             $model->internetPort = $map['InternetPort'];
+        }
+        if (isset($map['InternetRpcPort'])) {
+            $model->internetRpcPort = $map['InternetRpcPort'];
         }
         if (isset($map['IntranetAddress'])) {
             $model->intranetAddress = $map['IntranetAddress'];
@@ -285,11 +362,20 @@ class tenantConnections extends Model
         if (isset($map['IntranetPort'])) {
             $model->intranetPort = $map['IntranetPort'];
         }
+        if (isset($map['IntranetRpcPort'])) {
+            $model->intranetRpcPort = $map['IntranetRpcPort'];
+        }
+        if (isset($map['MaxConnectionLimit'])) {
+            $model->maxConnectionLimit = $map['MaxConnectionLimit'];
+        }
         if (isset($map['MaxConnectionNum'])) {
             $model->maxConnectionNum = $map['MaxConnectionNum'];
         }
         if (isset($map['ParallelQueryDegree'])) {
             $model->parallelQueryDegree = $map['ParallelQueryDegree'];
+        }
+        if (isset($map['ProxyClusterId'])) {
+            $model->proxyClusterId = $map['ProxyClusterId'];
         }
         if (isset($map['TenantEndpointId'])) {
             $model->tenantEndpointId = $map['TenantEndpointId'];

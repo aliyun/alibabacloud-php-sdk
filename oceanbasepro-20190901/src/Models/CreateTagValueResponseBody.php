@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTagValueResponseBody extends Model
 {
     /**
+     * @description The tag creation result.
+     *
      * @example create tag value success
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTagValueResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
      *
      * @var string

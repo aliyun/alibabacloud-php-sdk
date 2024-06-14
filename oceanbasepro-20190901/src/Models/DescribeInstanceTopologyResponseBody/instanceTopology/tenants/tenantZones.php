@@ -19,6 +19,16 @@ class tenantZones extends Model
     public $isPrimaryTenantZone;
 
     /**
+     * @var string
+     */
+    public $logicalZone;
+
+    /**
+     * @var string
+     */
+    public $replicaType;
+
+    /**
      * @description The server with the highest disk usage.
      *
      * @example cn-hangzhou-h
@@ -44,6 +54,8 @@ class tenantZones extends Model
     public $units;
     protected $_name = [
         'isPrimaryTenantZone' => 'IsPrimaryTenantZone',
+        'logicalZone'         => 'LogicalZone',
+        'replicaType'         => 'ReplicaType',
         'tenantZoneId'        => 'TenantZoneId',
         'tenantZoneRole'      => 'TenantZoneRole',
         'units'               => 'Units',
@@ -58,6 +70,12 @@ class tenantZones extends Model
         $res = [];
         if (null !== $this->isPrimaryTenantZone) {
             $res['IsPrimaryTenantZone'] = $this->isPrimaryTenantZone;
+        }
+        if (null !== $this->logicalZone) {
+            $res['LogicalZone'] = $this->logicalZone;
+        }
+        if (null !== $this->replicaType) {
+            $res['ReplicaType'] = $this->replicaType;
         }
         if (null !== $this->tenantZoneId) {
             $res['TenantZoneId'] = $this->tenantZoneId;
@@ -88,6 +106,12 @@ class tenantZones extends Model
         $model = new self();
         if (isset($map['IsPrimaryTenantZone'])) {
             $model->isPrimaryTenantZone = $map['IsPrimaryTenantZone'];
+        }
+        if (isset($map['LogicalZone'])) {
+            $model->logicalZone = $map['LogicalZone'];
+        }
+        if (isset($map['ReplicaType'])) {
+            $model->replicaType = $map['ReplicaType'];
         }
         if (isset($map['TenantZoneId'])) {
             $model->tenantZoneId = $map['TenantZoneId'];

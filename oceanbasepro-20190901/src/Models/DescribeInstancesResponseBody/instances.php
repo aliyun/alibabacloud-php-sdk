@@ -239,6 +239,11 @@ class instances extends Model
     public $series;
 
     /**
+     * @var string
+     */
+    public $specType;
+
+    /**
      * @description The status of the cluster. Valid values:
      * > Generally, the cluster is in the ONLINE state.
      * @example ONLINE
@@ -300,6 +305,7 @@ class instances extends Model
         'resource'                        => 'Resource',
         'resourceGroupId'                 => 'ResourceGroupId',
         'series'                          => 'Series',
+        'specType'                        => 'SpecType',
         'state'                           => 'State',
         'usedDiskSize'                    => 'UsedDiskSize',
         'version'                         => 'Version',
@@ -390,6 +396,9 @@ class instances extends Model
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
+        }
+        if (null !== $this->specType) {
+            $res['SpecType'] = $this->specType;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -494,6 +503,9 @@ class instances extends Model
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
+        }
+        if (isset($map['SpecType'])) {
+            $model->specType = $map['SpecType'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

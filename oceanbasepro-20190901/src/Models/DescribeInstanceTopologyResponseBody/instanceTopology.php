@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\replicas;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\tenants;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones;
 use AlibabaCloud\Tea\Model;
 
 class instanceTopology extends Model
 {
+    /**
+     * @var replicas[]
+     */
+    public $replicas;
+
     /**
      * @description The total number of CPU cores for the node.
      *
@@ -24,8 +30,9 @@ class instanceTopology extends Model
      */
     public $zones;
     protected $_name = [
-        'tenants' => 'Tenants',
-        'zones'   => 'Zones',
+        'replicas' => 'Replicas',
+        'tenants'  => 'Tenants',
+        'zones'    => 'Zones',
     ];
 
     public function validate()
@@ -35,6 +42,15 @@ class instanceTopology extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->replicas) {
+            $res['Replicas'] = [];
+            if (null !== $this->replicas && \is_array($this->replicas)) {
+                $n = 0;
+                foreach ($this->replicas as $item) {
+                    $res['Replicas'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tenants) {
             $res['Tenants'] = [];
             if (null !== $this->tenants && \is_array($this->tenants)) {
@@ -65,6 +81,15 @@ class instanceTopology extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Replicas'])) {
+            if (!empty($map['Replicas'])) {
+                $model->replicas = [];
+                $n               = 0;
+                foreach ($map['Replicas'] as $item) {
+                    $model->replicas[$n++] = null !== $item ? replicas::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Tenants'])) {
             if (!empty($map['Tenants'])) {
                 $model->tenants = [];

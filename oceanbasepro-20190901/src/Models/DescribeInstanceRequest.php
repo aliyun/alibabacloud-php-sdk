@@ -19,6 +19,11 @@ class DescribeInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $maxConnectionLimit;
+
+    /**
      * @description The information about the storage resources of the cluster.
      *
      * @example 1
@@ -27,8 +32,9 @@ class DescribeInstanceRequest extends Model
      */
     public $pageNumber;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
+        'instanceId'         => 'InstanceId',
+        'maxConnectionLimit' => 'MaxConnectionLimit',
+        'pageNumber'         => 'PageNumber',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class DescribeInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxConnectionLimit) {
+            $res['MaxConnectionLimit'] = $this->maxConnectionLimit;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -58,6 +67,9 @@ class DescribeInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaxConnectionLimit'])) {
+            $model->maxConnectionLimit = $map['MaxConnectionLimit'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

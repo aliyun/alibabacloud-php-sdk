@@ -161,6 +161,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionReque
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantReadableScnRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantReadableScnResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsRequest;
@@ -212,6 +214,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNodeNumRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNodeNumResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSSLRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSSLResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTemporaryCapacityRequest;
@@ -1265,6 +1269,8 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary You can call this operation to create a tag.
+     *  *
      * @param CreateTagValueRequest $request CreateTagValueRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1302,6 +1308,8 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary You can call this operation to create a tag.
+     *  *
      * @param CreateTagValueRequest $request CreateTagValueRequest
      *
      * @return CreateTagValueResponse CreateTagValueResponse
@@ -2675,6 +2683,9 @@ class OceanBasePro extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxConnectionLimit)) {
+            $body['MaxConnectionLimit'] = $request->maxConnectionLimit;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['PageNumber'] = $request->pageNumber;
@@ -4984,6 +4995,56 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary 查询租户同步位点信息
+     *  *
+     * @param DescribeTenantReadableScnRequest $request DescribeTenantReadableScnRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTenantReadableScnResponse DescribeTenantReadableScnResponse
+     */
+    public function describeTenantReadableScnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTenantReadableScn',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTenantReadableScnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询租户同步位点信息
+     *  *
+     * @param DescribeTenantReadableScnRequest $request DescribeTenantReadableScnRequest
+     *
+     * @return DescribeTenantReadableScnResponse DescribeTenantReadableScnResponse
+     */
+    public function describeTenantReadableScn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTenantReadableScnWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary You can call this operation to query security check items of an OceanBase Database tenant.
      *  *
      * @param DescribeTenantSecurityConfigsRequest $request DescribeTenantSecurityConfigsRequest
@@ -5087,7 +5148,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to view tenant tags.
+     * @summary You can call this operation to query the tags of tenants in a cluster.
      *  *
      * @param DescribeTenantTagsRequest $request DescribeTenantTagsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -5126,7 +5187,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to view tenant tags.
+     * @summary You can call this operation to query the tags of tenants in a cluster.
      *  *
      * @param DescribeTenantTagsRequest $request DescribeTenantTagsRequest
      *
@@ -6245,6 +6306,60 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+     *  *
+     * @description There is currently no authorization information disclosed in the API.
+     *  *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
+     */
+    public function modifyInstanceSSLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enableSSL)) {
+            $body['EnableSSL'] = $request->enableSSL;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceSSL',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to modify the Secure Sockets Layer (SSL) setting for an OceanBase cluster instance.
+     *  *
+     * @description There is currently no authorization information disclosed in the API.
+     *  *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
+     *
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
+     */
+    public function modifyInstanceSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary You can call this operation to modify the cluster specifications and storage space.
      *  *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
@@ -6270,6 +6385,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->upgradeSpecNative)) {
+            $body['UpgradeSpecNative'] = $request->upgradeSpecNative;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -6304,7 +6422,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary The returned response.
+     * @summary You can call this operation to modify the tags of a cluster.
      *  *
      * @param ModifyInstanceTagsRequest $request ModifyInstanceTagsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6340,7 +6458,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary The returned response.
+     * @summary You can call this operation to modify the tags of a cluster.
      *  *
      * @param ModifyInstanceTagsRequest $request ModifyInstanceTagsRequest
      *
@@ -6866,7 +6984,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to modify tenant tags.
+     * @summary You can call this operation to modify the tags of a tenant.
      *  *
      * @param ModifyTenantTagsRequest $request ModifyTenantTagsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6905,7 +7023,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to modify tenant tags.
+     * @summary You can call this operation to modify the tags of a tenant.
      *  *
      * @param ModifyTenantTagsRequest $request ModifyTenantTagsRequest
      *

@@ -21,7 +21,7 @@ class DescribeTenantTagsRequest extends Model
     /**
      * @description The tags.
      *
-     * @example [{"Key": "xxx", "Value", "xxx"},{}]
+     * @example [{"Key": "xxx", "Value", "xxx"}]
      *
      * @var string
      */
@@ -31,7 +31,7 @@ class DescribeTenantTagsRequest extends Model
      * @description The JSON string of the tenant ID.
      *
      * This parameter is required.
-     * @example ["xxx", "xxx"]
+     * @example ["t5r0x2f6q****", "t33h8y08k****", "t5r41rtl7****"]
      *
      * @var string
      */

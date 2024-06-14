@@ -2,34 +2,33 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
+namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSSLResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceTagsRequest extends Model
+class instanceSSL extends Model
 {
+    /**
+     * @description The operation to modify the SSL status. Valid values:
+     *
+     * - close: Disable SSL encryption.
+     * @example open
+     *
+     * @var string
+     */
+    public $enableSSL;
+
     /**
      * @description The ID of the OceanBase cluster.
      *
-     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @description The tags.
-     *
-     * This parameter is required.
-     * @example [{"Key": "xxx", "Value", "xxx"},{}]
-     *
-     * @var string
-     */
-    public $tags;
     protected $_name = [
+        'enableSSL'  => 'EnableSSL',
         'instanceId' => 'InstanceId',
-        'tags'       => 'Tags',
     ];
 
     public function validate()
@@ -39,11 +38,11 @@ class ModifyInstanceTagsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -52,16 +51,16 @@ class ModifyInstanceTagsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceTagsRequest
+     * @return instanceSSL
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

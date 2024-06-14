@@ -4,30 +4,29 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSSLResponseBody\instanceSSL;
 use AlibabaCloud\Tea\Model;
 
-class ModifyTenantTagsResponseBody extends Model
+class ModifyInstanceSSLResponseBody extends Model
 {
     /**
-     * @description The tag modification result.
+     * @description The SSL setting of the OceanBase cluster instance.
      *
-     * @example done
-     *
-     * @var string
+     * @var instanceSSL
      */
-    public $message;
+    public $instanceSSL;
 
     /**
      * @description The ID of the request.
      *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'instanceSSL' => 'InstanceSSL',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -37,8 +36,8 @@ class ModifyTenantTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->instanceSSL) {
+            $res['InstanceSSL'] = null !== $this->instanceSSL ? $this->instanceSSL->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,13 +49,13 @@ class ModifyTenantTagsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyTenantTagsResponseBody
+     * @return ModifyInstanceSSLResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['InstanceSSL'])) {
+            $model->instanceSSL = instanceSSL::fromMap($map['InstanceSSL']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
