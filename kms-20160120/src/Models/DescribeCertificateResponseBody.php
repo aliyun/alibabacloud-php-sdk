@@ -166,7 +166,7 @@ class DescribeCertificateResponseBody extends Model
     /**
      * @description The tag of the certificate.
      *
-     * @example [{\"TagKey\":\"S1key1\",\"TagValue\":\"S1val1\"},{\"TagKey\":\"S1key2\",\"TagValue\":\"S2val2\"}]
+     * @example [{\\"TagKey\\":\\"S1key1\\",\\"TagValue\\":\\"S1val1\\"},{\\"TagKey\\":\\"S1key2\\",\\"TagValue\\":\\"S2val2\\"}]
      *
      * @var mixed[]
      */

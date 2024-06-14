@@ -14,6 +14,7 @@ class UpdateSecretRotationPolicyRequest extends Model
      *   true: enables automatic rotation.
      *   false: does not enable automatic rotation. This is the default value.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -33,6 +34,7 @@ class UpdateSecretRotationPolicyRequest extends Model
     /**
      * @description The name of the secret.
      *
+     * This parameter is required.
      * @example RdsSecret/Mysql5.4/MyCred
      *
      * @var string

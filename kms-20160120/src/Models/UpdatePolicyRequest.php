@@ -11,7 +11,7 @@ class UpdatePolicyRequest extends Model
     /**
      * @description The access control rule.
      *
-     * > For more information about how to query created access control rules, see [ListNetworkRules](~~2539433~~).
+     * > For more information about how to query created access control rules, see [ListNetworkRules](https://help.aliyun.com/document_detail/2539433.html).
      * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
      *
      * @var string
@@ -30,6 +30,7 @@ class UpdatePolicyRequest extends Model
     /**
      * @description The name of the permission policy that you want to update.
      *
+     * This parameter is required.
      * @example policy_test
      *
      * @var string
@@ -52,8 +53,8 @@ class UpdatePolicyRequest extends Model
     /**
      * @description The key and secret that are allowed to access after the update.
      *
-     *   Key: Enter a key in the `key/${KeyId}` format. To allow access to all keys of a KMS instance, enter key/\*.
-     *   Secret: Enter a secret in the `secret/${SecretName}` format. To allow access to all secrets of a KMS instance, enter secret/\*.
+     *   Key: Enter a key in the `key/${KeyId}` format. To allow access to all keys of a KMS instance, enter key/\\*.
+     *   Secret: Enter a secret in the `secret/${SecretName}` format. To allow access to all secrets of a KMS instance, enter secret/\\*.
      *
      * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
      *

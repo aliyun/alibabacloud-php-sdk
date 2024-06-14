@@ -34,6 +34,7 @@ class UpdateSecretVersionStageRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **UpdateSecretVersionStage**.
      *
+     * This parameter is required.
      * @example secret001
      *
      * @var string
@@ -43,6 +44,7 @@ class UpdateSecretVersionStageRequest extends Model
     /**
      * @description The name of the secret.
      *
+     * This parameter is required.
      * @example ACSCurrent
      *
      * @var string

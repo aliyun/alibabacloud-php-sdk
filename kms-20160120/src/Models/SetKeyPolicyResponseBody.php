@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetKeyPolicyResponseBody extends Model
 {
     /**
+     * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C8
+     *
      * @var string
      */
     public $requestId;

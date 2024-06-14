@@ -45,7 +45,7 @@ class CreateClientKeyResponseBody extends Model
     public $notBefore;
 
     /**
-     * @description The algorithm that is used to encrypt the private key of the client key. Currently, only RSA\_2048 is supported.
+     * @description The algorithm that is used to encrypt the private key of the client key. Currently, only RSA_2048 is supported.
      *
      * @example MIIJqwIBAzCCCXcGCSqGSIb3DQEHAaCCCWgEgglkMIIJYDCCBBcGCSqGSIb3DQEHBqCCBAgwgg******
      *

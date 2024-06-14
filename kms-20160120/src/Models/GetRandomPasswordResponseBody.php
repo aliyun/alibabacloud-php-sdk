@@ -11,7 +11,7 @@ class GetRandomPasswordResponseBody extends Model
     /**
      * @description The generated random password.
      *
-     * @example IxGn>NMmNB(y?iZ<Yc,_H/{2GC\"U****
+     * @example IxGn>NMmNB(y?iZ<Yc,_H/{2GC\\"U****
      *
      * @var string
      */

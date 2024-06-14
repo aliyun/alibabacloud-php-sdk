@@ -11,6 +11,7 @@ class UpdateKeyDescriptionRequest extends Model
     /**
      * @description The description of the CMK. This description includes the purpose of the CMK, such as the types of data that you want to protect and applications that can use the CMK.
      *
+     * This parameter is required.
      * @example key description example
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateKeyDescriptionRequest extends Model
     /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
+     * This parameter is required.
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string

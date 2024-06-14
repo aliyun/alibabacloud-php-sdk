@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SetKeyPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example key-hzz630494463ejqjx****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example {"Statement":[{"Action":["kms:*"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:*"]},"Resource":["*"],"Sid":"kms default key policy"},{"Action":["kms:List*","kms:Describe*","kms:Create*","kms:Enable*","kms:Disable*","kms:Get*","kms:Set*","kms:Update*","kms:Delete*","kms:Cancel*","kms:TagResource","kms:UntagResource","kms:ImportKeyMaterial","kms:ScheduleKeyDeletion"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:user/for_test_policy"]},"Resource":["*"]}],"Version":"1"}
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyName;

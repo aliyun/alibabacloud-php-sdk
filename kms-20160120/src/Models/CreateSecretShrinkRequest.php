@@ -79,6 +79,7 @@ class CreateSecretShrinkRequest extends Model
     /**
      * @description The tags of the secret.
      *
+     * This parameter is required.
      * @example The type of the secret. Valid values:
      *
      *   Generic: specifies a generic secret.
@@ -146,6 +147,7 @@ class CreateSecretShrinkRequest extends Model
      *   `{"UserName":"","Password": ""}`: In the format, `UserName` specifies the username that is used to log on to the ECS instance, and `Password` specifies the password that is used to log on to the ECS instance.
      *   `{"UserName":"","PublicKey": "", "PrivateKey": ""}`: In the format, `PublicKey` indicates the SSH public key that is used to log on to the ECS instance, and `PrivateKey` specifies the SSH private key that is used to log on to the ECS instance.
      *
+     * This parameter is required.
      * @example mydbconninfo
      *
      * @var string
@@ -165,7 +167,7 @@ class CreateSecretShrinkRequest extends Model
      * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
      *
      * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or if the EnableAutomaticRotation parameter is not configured.
-     * @example [{\"TagKey\":\"key1\",\"TagValue\":\"val1\"},{\"TagKey\":\"key2\",\"TagValue\":\"val2\"}]
+     * @example [{\\"TagKey\\":\\"key1\\",\\"TagValue\\":\\"val1\\"},{\\"TagKey\\":\\"key2\\",\\"TagValue\\":\\"val2\\"}]
      *
      * @var string
      */
@@ -177,7 +179,7 @@ class CreateSecretShrinkRequest extends Model
      *   text
      *   binary
      *
-     * >  If you set the SecretType parameter to Rds, RAMCredentials, or ECS, the SecretDataType parameter must be set to text.
+     * This parameter is required.
      * @example v1
      *
      * @var string

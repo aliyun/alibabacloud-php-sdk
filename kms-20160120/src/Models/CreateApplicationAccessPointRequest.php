@@ -29,6 +29,7 @@ class CreateApplicationAccessPointRequest extends Model
     /**
      * @description The name of the AAP.
      *
+     * This parameter is required.
      * @example aap_test
      *
      * @var string
@@ -38,7 +39,7 @@ class CreateApplicationAccessPointRequest extends Model
     /**
      * @description The permission policy.
      *
-     * > You can bind up to three permission policies to each AAP.
+     * This parameter is required.
      * @example ["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]
      *
      * @var string

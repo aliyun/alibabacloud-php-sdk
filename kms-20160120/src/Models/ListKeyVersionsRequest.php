@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListKeyVersionsRequest extends Model
 {
     /**
-     * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](~~68522~~).
+     * @description The globally unique ID of the CMK. You can also set this parameter to an alias that is bound to the CMK. For more information, see [Use aliases](https://help.aliyun.com/document_detail/68522.html).
      *
+     * This parameter is required.
      * @example 0b30658a-ed1a-4922-b8f7-a673ca9c****
      *
      * @var string

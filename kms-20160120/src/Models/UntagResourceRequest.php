@@ -32,6 +32,8 @@ class UntagResourceRequest extends Model
     public $secretName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["tagkey1","tagkey2"]
      *
      * @var string

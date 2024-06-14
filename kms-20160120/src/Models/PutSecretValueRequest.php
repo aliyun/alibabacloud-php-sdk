@@ -11,6 +11,7 @@ class PutSecretValueRequest extends Model
     /**
      * @description The secret value. The value is encrypted and then stored in the new version.
      *
+     * This parameter is required.
      * @example importantdata
      *
      * @var string
@@ -32,6 +33,7 @@ class PutSecretValueRequest extends Model
     /**
      * @description The name of the secret.
      *
+     * This parameter is required.
      * @example secret001
      *
      * @var string
@@ -41,6 +43,7 @@ class PutSecretValueRequest extends Model
     /**
      * @description The new version of the secret value. Version numbers must be unique in each secret.
      *
+     * This parameter is required.
      * @example 00000000000000000000000000000000203
      *
      * @var string

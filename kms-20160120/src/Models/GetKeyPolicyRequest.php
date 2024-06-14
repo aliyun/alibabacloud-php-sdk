@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetKeyPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example key-hzz630494463ejqjx****
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyName;

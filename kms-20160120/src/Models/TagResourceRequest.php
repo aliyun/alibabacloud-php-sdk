@@ -46,6 +46,7 @@ class TagResourceRequest extends Model
      *   TagKey: the tag key.
      *   TagValue: the tag value.
      *
+     * This parameter is required.
      * @example [{"TagKey":"S1key1","TagValue":"S1val1"},{"TagKey":"S1key2","TagValue":"S2val2"}]
      *
      * @var string

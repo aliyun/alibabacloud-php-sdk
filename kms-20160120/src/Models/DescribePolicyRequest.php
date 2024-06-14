@@ -11,6 +11,7 @@ class DescribePolicyRequest extends Model
     /**
      * @description The name of the permission policy that you want to query.
      *
+     * This parameter is required.
      * @example policy_test
      *
      * @var string

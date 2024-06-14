@@ -11,6 +11,7 @@ class DeleteNetworkRuleRequest extends Model
     /**
      * @description The name of the network access rule that you want to delete.
      *
+     * This parameter is required.
      * @example networkrule_test
      *
      * @var string

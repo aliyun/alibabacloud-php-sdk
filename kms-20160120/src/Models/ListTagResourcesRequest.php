@@ -22,7 +22,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * >  You can call the [DescribeRegions](~~601478~~) to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +43,7 @@ class ListTagResourcesRequest extends Model
      *   key
      *   secret
      *
+     * This parameter is required.
      * @example key
      *
      * @var string

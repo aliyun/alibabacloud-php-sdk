@@ -11,6 +11,7 @@ class UpdateCertificateStatusRequest extends Model
     /**
      * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
      *
+     * This parameter is required.
      * @example 9a28de48-8d8b-484d-a766-dec4****
      *
      * @var string
@@ -26,7 +27,7 @@ class UpdateCertificateStatusRequest extends Model
      *
      *   REVOKED: The certificate is revoked.
      *
-     * > If the certificate is in the REVOKED state, you can use the certificate only to verify a signature, but not to generate a signature.
+     * This parameter is required.
      * @example INACTIVE
      *
      * @var string

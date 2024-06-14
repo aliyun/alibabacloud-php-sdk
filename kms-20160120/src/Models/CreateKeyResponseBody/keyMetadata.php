@@ -94,7 +94,7 @@ class keyMetadata extends Model
     /**
      * @description The status of the key.
      *
-     * For more information, see [Impacts of key status on API operations](~~44211~~).
+     * For more information, see [Impacts of key status on API operations](https://help.aliyun.com/document_detail/44211.html).
      * @example Enabled
      *
      * @var string

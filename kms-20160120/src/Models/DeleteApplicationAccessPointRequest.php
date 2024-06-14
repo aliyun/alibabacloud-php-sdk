@@ -11,6 +11,7 @@ class DeleteApplicationAccessPointRequest extends Model
     /**
      * @description The name of the AAP that you want to delete.
      *
+     * This parameter is required.
      * @example aap_test
      *
      * @var string

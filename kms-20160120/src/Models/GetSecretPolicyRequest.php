@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetSecretPolicyRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example secret_test
+     *
      * @var string
      */
     public $secretName;

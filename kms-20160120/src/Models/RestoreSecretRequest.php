@@ -11,6 +11,7 @@ class RestoreSecretRequest extends Model
     /**
      * @description The name of the secret you want to restore.
      *
+     * This parameter is required.
      * @example secret001
      *
      * @var string

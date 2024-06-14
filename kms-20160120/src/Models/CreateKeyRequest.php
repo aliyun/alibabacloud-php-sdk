@@ -31,7 +31,7 @@ class CreateKeyRequest extends Model
     /**
      * @description Specifies whether to enable automatic key rotation. Valid values:
      *
-     * This parameter is valid only when the key belongs to an instance type that supports automatic rotation. For more information, see [Key rotation](~~2358146~~).
+     * This parameter is valid only when the key belongs to an instance type that supports automatic rotation. For more information, see [Key rotation](https://help.aliyun.com/document_detail/2358146.html).
      * @example true
      *
      * @var bool
@@ -39,7 +39,7 @@ class CreateKeyRequest extends Model
     public $enableAutomaticRotation;
 
     /**
-     * @description The key specification. The valid values vary based on the KMS instance type. For more information, see [Overview](~~480159~~).
+     * @description The key specification. The valid values vary based on the KMS instance type. For more information, see [Overview](https://help.aliyun.com/document_detail/480159.html).
      *
      * > If you do not specify a value for this parameter, the default key specification is Aliyun_AES_256.
      * @example Aliyun_AES_256
@@ -61,7 +61,7 @@ class CreateKeyRequest extends Model
     /**
      * @description The key material origin. Valid values:
      *
-     * > - If you set Origin to EXTERNAL, you must import key material. For more information, see [Import key material into a symmetric key](~~607841~~) or [Import key material into an asymmetric key](~~608827~~).
+     * > - If you set Origin to EXTERNAL, you must import key material. For more information, see [Import key material into a symmetric key](https://help.aliyun.com/document_detail/607841.html) or [Import key material into an asymmetric key](https://help.aliyun.com/document_detail/608827.html).
      * @example Aliyun_KMS
      *
      * @var string

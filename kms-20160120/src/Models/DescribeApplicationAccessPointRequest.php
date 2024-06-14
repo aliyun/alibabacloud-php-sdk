@@ -11,6 +11,7 @@ class DescribeApplicationAccessPointRequest extends Model
     /**
      * @description The name of the AAP that you want to query.
      *
+     * This parameter is required.
      * @example aap_test
      *
      * @var string

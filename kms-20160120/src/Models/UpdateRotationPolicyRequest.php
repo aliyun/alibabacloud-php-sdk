@@ -14,6 +14,7 @@ class UpdateRotationPolicyRequest extends Model
      *   true: enables automatic key rotation.
      *   false: disables automatic key rotation.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -23,6 +24,7 @@ class UpdateRotationPolicyRequest extends Model
     /**
      * @description The ID of the customer master key (CMK). The ID must be globally unique.
      *
+     * This parameter is required.
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
@@ -30,7 +32,7 @@ class UpdateRotationPolicyRequest extends Model
     public $keyId;
 
     /**
-     * @description The period of automatic key rotation. Specify the value in the integer\[unit] format. The following units are supported: d (day), h (hour), m (minute), and s (second). For example, you can use either 7d or 604800s to specify a seven-day period. The period can range from 7 days to 730 days.
+     * @description The period of automatic key rotation. Specify the value in the integer[unit] format. The following units are supported: d (day), h (hour), m (minute), and s (second). For example, you can use either 7d or 604800s to specify a seven-day period. The period can range from 7 days to 730 days.
      *
      * >  If you set the EnableAutomaticRotation parameter to true, you must also specify this parameter. If you set the EnableAutomaticRotation parameter to false, you can leave this parameter unspecified.
      * @example 30d

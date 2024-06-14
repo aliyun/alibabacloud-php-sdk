@@ -20,7 +20,7 @@ class kmsInstance extends Model
     /**
      * @description The content of the certificate authority (CA) certificate of the KMS instance.
      *
-     * @example -----BEGIN CERTIFICATE-----\r\nMIIDuzCCAqOgAwIBAgIJALTKwWAjvbMiMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV****-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\r\\nMIIDuzCCAqOgAwIBAgIJALTKwWAjvbMiMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV****-----END CERTIFICATE-----
      *
      * @var string
      */

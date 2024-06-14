@@ -37,7 +37,7 @@ class CreateSecretResponseBody extends Model
     public $DKMSInstanceId;
 
     /**
-     * @example {\"SecretSubType\":\"SingleUser\", \"DBInstanceId\":\"rm-uf667446pc955****\",  \"CustomData\":{} }
+     * @example {\\"SecretSubType\\":\\"SingleUser\\", \\"DBInstanceId\\":\\"rm-uf667446pc955****\\",  \\"CustomData\\":{} }
      *
      * @var string
      */

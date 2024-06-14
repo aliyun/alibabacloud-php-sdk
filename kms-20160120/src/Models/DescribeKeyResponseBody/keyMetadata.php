@@ -119,7 +119,7 @@ class keyMetadata extends Model
     /**
      * @description The status of the CMK.
      *
-     * For more information, see [Impact of CMK status on API operations](~~44211~~).
+     * For more information, see [Impact of CMK status on API operations](https://help.aliyun.com/document_detail/44211.html).
      * @example Enabled
      *
      * @var string

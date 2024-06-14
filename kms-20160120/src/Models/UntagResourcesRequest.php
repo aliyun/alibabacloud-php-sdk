@@ -24,7 +24,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * >  You can call the [DescribeRegions](~~601478~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -34,7 +34,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the resources from which you want to remove tags. You can enter up to 50 resource IDs.
      *
-     * Enter multiple resource IDs in the `["ResourceId.1","ResourceId.2",...]` format.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -45,6 +45,7 @@ class UntagResourcesRequest extends Model
      *   key
      *   secret
      *
+     * This parameter is required.
      * @example key
      *
      * @var string

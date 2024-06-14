@@ -11,6 +11,7 @@ class UploadCertificateRequest extends Model
     /**
      * @description The certificate issued by the CA, which is in the Privacy Enhanced Mail (PEM) format.
      *
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE-----  (X.509 Certificate PEM Content)  -----END CERTIFICATE-----
      *
      * @var string
@@ -29,6 +30,7 @@ class UploadCertificateRequest extends Model
     /**
      * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
      *
+     * This parameter is required.
      * @example 12345678-1234-1234-1234-12345678****
      *
      * @var string

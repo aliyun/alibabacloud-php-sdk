@@ -11,6 +11,7 @@ class CreateClientKeyRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **CreateClientKey**.
      *
+     * This parameter is required.
      * @example aap_test
      *
      * @var string
@@ -44,6 +45,7 @@ class CreateClientKeyRequest extends Model
     /**
      * @description The name of the AAP.
      *
+     * This parameter is required.
      * @example bcfefe15-46f0****
      *
      * @var string

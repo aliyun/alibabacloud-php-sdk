@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSecretPolicyResponseBody extends Model
 {
     /**
+     * @example {"Version":"1","Statement": [{"Sid":"kms default secret policy","Effect":"Allow","Principal":{"RAM": ["acs:ram::119285303511****:*"]},"Action":["kms:*"],"Resource": ["*"] }] }
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C8
+     *
      * @var string
      */
     public $requestId;

@@ -11,7 +11,7 @@ class GetParametersForImportResponseBody extends Model
     /**
      * @description The token that is used to import key material.
      *
-     * The token is valid for 24 hours. The value of this parameter is required when you call the [ImportKeyMaterial](~~68622~~) operation.
+     * The token is valid for 24 hours. The value of this parameter is required when you call the [ImportKeyMaterial](https://help.aliyun.com/document_detail/68622.html) operation.
      * @example Base64String
      *
      * @var string
@@ -21,7 +21,7 @@ class GetParametersForImportResponseBody extends Model
     /**
      * @description The globally unique ID of the CMK.
      *
-     * The value of this parameter is required when you call the [ImportKeyMaterial](~~68622~~) operation.
+     * The value of this parameter is required when you call the [ImportKeyMaterial](https://help.aliyun.com/document_detail/68622.html) operation.
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string

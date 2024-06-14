@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The value of the tag. A tag consists of a key-value pair.
      *
-     * Each value can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\), underscores (\_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
+     * Each value can be up to 128 characters in length and can contain letters, digits, forward slashes (/), backslashes (\\\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
      * @example true
      *
      * @var string

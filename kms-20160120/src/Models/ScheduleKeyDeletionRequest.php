@@ -11,6 +11,7 @@ class ScheduleKeyDeletionRequest extends Model
     /**
      * @description The ID of the customer master key (CMK). The ID must be globally unique.
      *
+     * This parameter is required.
      * @example 7906979c-8e06-46a2-be2d-68e3ccbc****
      *
      * @var string
@@ -20,7 +21,7 @@ class ScheduleKeyDeletionRequest extends Model
     /**
      * @description The scheduled period after which the CMK is deleted. During this period, the CMK is in the PendingDeletion state. After this period ends, you cannot cancel the key deletion task.
      *
-     * Unit: days.
+     * This parameter is required.
      * @example 7
      *
      * @var int

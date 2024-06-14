@@ -11,7 +11,7 @@ class DescribeKeyRequest extends Model
     /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
-     * You can also set this parameter to an alias that is bound to the CMK. For more information, see [Overview of aliases](~~68522~~).
+     * This parameter is required.
      * @example 05754286-3ba2-4fa6-8d41-4323aca6****
      *
      * @var string

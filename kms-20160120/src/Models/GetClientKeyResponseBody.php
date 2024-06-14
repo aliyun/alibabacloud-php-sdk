@@ -75,7 +75,7 @@ class GetClientKeyResponseBody extends Model
     /**
      * @description The content of the public key of the client key.
      *
-     * @example -----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIQT/sAVRxwYp54mrw****-----END CERTIFICATE-----
+     * @example -----BEGIN CERTIFICATE-----\\nMIIDcjCCAlqgAwIBAgIQT/sAVRxwYp54mrw****-----END CERTIFICATE-----
      *
      * @var string
      */

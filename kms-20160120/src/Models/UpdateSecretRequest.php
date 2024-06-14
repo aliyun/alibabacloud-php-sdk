@@ -26,6 +26,7 @@ class UpdateSecretRequest extends Model
     /**
      * @description The name of the secret.
      *
+     * This parameter is required.
      * @example secret001
      *
      * @var string

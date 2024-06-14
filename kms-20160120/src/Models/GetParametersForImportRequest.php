@@ -11,7 +11,7 @@ class GetParametersForImportRequest extends Model
     /**
      * @description The globally unique ID of the CMK.
      *
-     * >  You can import key material only for CMKs whose Origin parameter is set to EXTERNAL.
+     * This parameter is required.
      * @example 202b9877-5a25-46e3-a763-e20791b5****
      *
      * @var string
@@ -21,6 +21,7 @@ class GetParametersForImportRequest extends Model
     /**
      * @description The algorithm that is used to encrypt key material.
      *
+     * This parameter is required.
      * @example RSAES_PKCS1_V1_5
      *
      * @var string
@@ -30,6 +31,7 @@ class GetParametersForImportRequest extends Model
     /**
      * @description The type of the public key that is used to encrypt key material.
      *
+     * This parameter is required.
      * @example RSA_2048
      *
      * @var string

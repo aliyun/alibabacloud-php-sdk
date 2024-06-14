@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SetSecretPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example {"Version":"1","Statement": [{"Sid":"kms default secret policy","Effect":"Allow","Principal":{"RAM": ["acs:ram::119285303511****:*"]},"Action":["kms:*"],"Resource": ["*"] }] }
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example secret_test
+     *
      * @var string
      */
     public $secretName;

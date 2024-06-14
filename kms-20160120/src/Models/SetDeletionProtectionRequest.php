@@ -24,6 +24,7 @@ class SetDeletionProtectionRequest extends Model
      *   true: enables deletion protection.
      *   false: disables deletion protection.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -33,7 +34,7 @@ class SetDeletionProtectionRequest extends Model
     /**
      * @description The ARN of the CMK for which you want to set deletion protection.
      *
-     * You can call the [DescribeKey](~~28952~~) operation to query the CMK ARN.
+     * This parameter is required.
      * @example acs:kms:cn-hangzhou:123213123****:key/0225f411-b21d-46d1-be5b-93931c82****
      *
      * @var string

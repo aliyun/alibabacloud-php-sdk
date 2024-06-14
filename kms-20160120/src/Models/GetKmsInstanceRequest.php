@@ -11,6 +11,7 @@ class GetKmsInstanceRequest extends Model
     /**
      * @description The ID of the KMS instance that you want to query.
      *
+     * This parameter is required.
      * @example kst-bjj62f5ba3dnpb6v8****
      *
      * @var string

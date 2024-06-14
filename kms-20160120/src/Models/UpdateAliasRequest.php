@@ -11,7 +11,7 @@ class UpdateAliasRequest extends Model
     /**
      * @description The alias that you want to bind.
      *
-     * The value must be 1 to 255 characters in length and must include the alias/ prefix.
+     * This parameter is required.
      * @example alias/example
      *
      * @var string
@@ -21,6 +21,7 @@ class UpdateAliasRequest extends Model
     /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
+     * This parameter is required.
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string

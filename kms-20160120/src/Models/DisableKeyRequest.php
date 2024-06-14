@@ -11,6 +11,7 @@ class DisableKeyRequest extends Model
     /**
      * @description The ID of the CMK. The ID must be globally unique.
      *
+     * This parameter is required.
      * @example 1234abcd-12ab-34cd-56ef-12345678****
      *
      * @var string
