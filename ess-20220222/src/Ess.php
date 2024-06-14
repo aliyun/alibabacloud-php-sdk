@@ -63,6 +63,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsRequest;
@@ -131,6 +133,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlarmRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlarmResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlertConfigurationRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyAlertConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyInstanceAttributeRequest;
@@ -2930,6 +2934,58 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param DescribeAlertConfigurationRequest $request DescribeAlertConfigurationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAlertConfigurationResponse DescribeAlertConfigurationResponse
+     */
+    public function describeAlertConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAlertConfiguration',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertConfigurationRequest $request DescribeAlertConfigurationRequest
+     *
+     * @return DescribeAlertConfigurationResponse DescribeAlertConfigurationResponse
+     */
+    public function describeAlertConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries scaling configurations of the Elastic Container Instance type to learn the scaling configuration details. This allows you to select an appropriate template when you create elastic container instances. If you set OutputFormat to yaml, the output is a Kubernetes Deployment file in the YAML format.
      *  *
      * @param DescribeEciScalingConfigurationDetailRequest $request DescribeEciScalingConfigurationDetailRequest
@@ -5344,6 +5400,61 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAlarmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAlertConfigurationRequest $request ModifyAlertConfigurationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAlertConfigurationResponse ModifyAlertConfigurationResponse
+     */
+    public function modifyAlertConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->scaleStatuses)) {
+            $query['ScaleStatuses'] = $request->scaleStatuses;
+        }
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAlertConfiguration',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAlertConfigurationRequest $request ModifyAlertConfigurationRequest
+     *
+     * @return ModifyAlertConfigurationResponse ModifyAlertConfigurationResponse
+     */
+    public function modifyAlertConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAlertConfigurationWithOptions($request, $runtime);
     }
 
     /**
