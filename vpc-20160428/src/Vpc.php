@@ -11032,6 +11032,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
+        if (!Utils::isUnset($request->internetMode)) {
+            $query['InternetMode'] = $request->internetMode;
+        }
         if (!Utils::isUnset($request->ipv4GatewayId)) {
             $query['Ipv4GatewayId'] = $request->ipv4GatewayId;
         }
@@ -16981,8 +16984,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead
+     *  *
      * @summary Queries route tables.
      *  *
+     * Deprecated
+     *
      * @param DescribeRouteTablesRequest $request DescribeRouteTablesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -17053,8 +17060,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead
+     *  *
      * @summary Queries route tables.
      *  *
+     * Deprecated
+     *
      * @param DescribeRouteTablesRequest $request DescribeRouteTablesRequest
      *
      * @return DescribeRouteTablesResponse DescribeRouteTablesResponse

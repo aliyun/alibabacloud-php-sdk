@@ -33,6 +33,11 @@ class DeleteIpv4GatewayRequest extends Model
     public $dryRun;
 
     /**
+     * @var string
+     */
+    public $internetMode;
+
+    /**
      * @description The ID of the IPv4 gateway that you want to delete.
      *
      * This parameter is required.
@@ -74,6 +79,7 @@ class DeleteIpv4GatewayRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'dryRun'               => 'DryRun',
+        'internetMode'         => 'InternetMode',
         'ipv4GatewayId'        => 'Ipv4GatewayId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -94,6 +100,9 @@ class DeleteIpv4GatewayRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->internetMode) {
+            $res['InternetMode'] = $this->internetMode;
         }
         if (null !== $this->ipv4GatewayId) {
             $res['Ipv4GatewayId'] = $this->ipv4GatewayId;
@@ -130,6 +139,9 @@ class DeleteIpv4GatewayRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['InternetMode'])) {
+            $model->internetMode = $map['InternetMode'];
         }
         if (isset($map['Ipv4GatewayId'])) {
             $model->ipv4GatewayId = $map['Ipv4GatewayId'];
