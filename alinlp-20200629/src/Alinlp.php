@@ -131,6 +131,9 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISConvRewriterShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRerankRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRerankResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRerankShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostISRetrieveRouterShrinkRequest;
@@ -3254,6 +3257,73 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->postISConvRewriterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 通用排序模型
+     *  *
+     * @param PostISRerankRequest $tmpReq  PostISRerankRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PostISRerankResponse PostISRerankResponse
+     */
+    public function postISRerankWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostISRerankShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $body['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->debug)) {
+            $body['Debug'] = $request->debug;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostISRerank',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostISRerankResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通用排序模型
+     *  *
+     * @param PostISRerankRequest $request PostISRerankRequest
+     *
+     * @return PostISRerankResponse PostISRerankResponse
+     */
+    public function postISRerank($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postISRerankWithOptions($request, $runtime);
     }
 
     /**
