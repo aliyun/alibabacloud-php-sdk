@@ -101,7 +101,7 @@ class TextTask extends Model
     public $textTaskStatus;
 
     /**
-     * @var Text
+     * @var Text[]
      */
     public $texts;
 
@@ -194,7 +194,13 @@ class TextTask extends Model
             $res['textTaskStatus'] = $this->textTaskStatus;
         }
         if (null !== $this->texts) {
-            $res['texts'] = null !== $this->texts ? $this->texts->toMap() : null;
+            $res['texts'] = [];
+            if (null !== $this->texts && \is_array($this->texts)) {
+                $n = 0;
+                foreach ($this->texts as $item) {
+                    $res['texts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->theme) {
             $res['theme'] = $this->theme;
@@ -265,7 +271,13 @@ class TextTask extends Model
             $model->textTaskStatus = $map['textTaskStatus'];
         }
         if (isset($map['texts'])) {
-            $model->texts = Text::fromMap($map['texts']);
+            if (!empty($map['texts'])) {
+                $model->texts = [];
+                $n            = 0;
+                foreach ($map['texts'] as $item) {
+                    $model->texts[$n++] = null !== $item ? Text::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['theme'])) {
             $model->theme = $map['theme'];
