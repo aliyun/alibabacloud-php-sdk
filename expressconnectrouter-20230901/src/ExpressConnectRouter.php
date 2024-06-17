@@ -48,16 +48,24 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpres
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListExpressConnectRouterSupportedRegionRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListExpressConnectRouterSupportedRegionResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterAssociationAllowedPrefixRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterAssociationAllowedPrefixResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterInterRegionTransitModeRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterInterRegionTransitModeResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\RevokeInstanceFromExpressConnectRouterRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\RevokeInstanceFromExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\SynchronizeExpressConnectRouterInterRegionBandwidthRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\SynchronizeExpressConnectRouterInterRegionBandwidthResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1328,6 +1336,61 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2023-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyExpressConnectRouterRequest $request ModifyExpressConnectRouterRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1493,6 +1556,61 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2023-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     *
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RevokeInstanceFromExpressConnectRouterRequest $request RevokeInstanceFromExpressConnectRouterRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -1600,5 +1718,118 @@ class ExpressConnectRouter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->synchronizeExpressConnectRouterInterRegionBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2023-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->all)) {
+            $body['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $body['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $body['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2023-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 }
