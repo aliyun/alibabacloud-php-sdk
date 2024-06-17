@@ -2159,6 +2159,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->grafanaWorkspaceId)) {
             $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
+        if (!Utils::isUnset($request->initEnvironment)) {
+            $query['InitEnvironment'] = $request->initEnvironment;
+        }
         if (!Utils::isUnset($request->managedType)) {
             $query['ManagedType'] = $request->managedType;
         }
