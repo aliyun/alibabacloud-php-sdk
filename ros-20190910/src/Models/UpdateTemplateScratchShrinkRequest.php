@@ -83,6 +83,7 @@ class UpdateTemplateScratchShrinkRequest extends Model
     /**
      * @description The source resource group.
      *
+     * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
      * @var string
      */
     public $sourceResourceGroupShrink;
@@ -90,7 +91,7 @@ class UpdateTemplateScratchShrinkRequest extends Model
     /**
      * @description The source resources.
      *
-     * If you set TemplateScratchType to ArchitectureDetection, you can specify up to 20 source resources for SourceResources. In other cases, you can specify up to 200 source resources.
+     * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
      * @var string
      */
     public $sourceResourcesShrink;
@@ -98,12 +99,13 @@ class UpdateTemplateScratchShrinkRequest extends Model
     /**
      * @description The source tag.
      *
+     * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
      * @var string
      */
     public $sourceTagShrink;
 
     /**
-     * @description The ID of the scenario.
+     * @description The ID of the resource scenario.
      *
      * This parameter is required.
      * @example ts-7f7a704cf71c49a6****

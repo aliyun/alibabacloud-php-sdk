@@ -18,7 +18,7 @@ class GenerateTemplateByScratchRequest extends Model
     public $provisionRegionId;
 
     /**
-     * @description The region ID of the scenario.
+     * @description The region ID of the resource scenario.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -28,7 +28,7 @@ class GenerateTemplateByScratchRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the scenario.
+     * @description The ID of the resource scenario.
      *
      * This parameter is required.
      * @example ts-aa9c62feab844a6b****

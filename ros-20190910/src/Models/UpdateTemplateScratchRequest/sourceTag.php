@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceTag extends Model
 {
     /**
-     * @description The source tags that consist of key-value pairs.
+     * @description The source tags. A tag contains a tag key and a tag value.
      *
      * This parameter is required.
      * @example {"a": "b"}

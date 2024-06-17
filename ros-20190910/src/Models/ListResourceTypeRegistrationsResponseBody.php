@@ -19,7 +19,7 @@ class ListResourceTypeRegistrationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The registration records.
+     * @description The registration records of the resource.
      *
      * @var registrations[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class registrations extends Model
 {
     /**
-     * @description The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+     * @description The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
      *
      * @example 2023-03-02T07:28:35
      *
@@ -47,9 +47,9 @@ class registrations extends Model
     /**
      * @description The registration state. Valid values:
      *
-     *   IN_PROGRESS
-     *   COMPLETE
-     *   FAILED
+     *   IN_PROGRESS: The registration is in progress.
+     *   COMPLETE: The registration is successful.
+     *   FAILED: The registration failed.
      *
      * @example COMPLETE
      *
