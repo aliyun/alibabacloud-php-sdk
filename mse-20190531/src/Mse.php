@@ -146,6 +146,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\EnableProxyProtocolRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\EnableProxyProtocolResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataRequest;
@@ -4943,6 +4945,59 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteZnodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Proxy Protocol开关
+     *  *
+     * @param EnableProxyProtocolRequest $request EnableProxyProtocolRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableProxyProtocolResponse EnableProxyProtocolResponse
+     */
+    public function enableProxyProtocolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->enableProxyProtocol)) {
+            $query['EnableProxyProtocol'] = $request->enableProxyProtocol;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableProxyProtocol',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableProxyProtocolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Proxy Protocol开关
+     *  *
+     * @param EnableProxyProtocolRequest $request EnableProxyProtocolRequest
+     *
+     * @return EnableProxyProtocolResponse EnableProxyProtocolResponse
+     */
+    public function enableProxyProtocol($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableProxyProtocolWithOptions($request, $runtime);
     }
 
     /**
