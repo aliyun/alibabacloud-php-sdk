@@ -25,28 +25,28 @@ class ruleActions extends Model
     public $corsConfig;
 
     /**
-     * @description The configuration of the custom response. You can specify at most 20 responses.
+     * @description The configuration of the custom response. You can specify at most 20 custom responses.
      *
      * @var fixedResponseConfig
      */
     public $fixedResponseConfig;
 
     /**
-     * @description The configuration of the server group. You can add at most 20 server groups.
+     * @description The configuration of the server group. You can specify at most 20 server groups.
      *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
-     * @description The configuration of the header to be inserted. You can specify at most 20 headers.
+     * @description The key of the header to be inserted. You can specify at most 20 headers.
      *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify priorities for at most 20 actions.
+     * @description The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 action priorities.
      *
      * This parameter is required.
      * @example 1
@@ -63,7 +63,7 @@ class ruleActions extends Model
     public $redirectConfig;
 
     /**
-     * @description The configuration of the header to be removed.
+     * @description The HTTP header to be removed.
      *
      * @var removeHeaderConfig
      */
@@ -77,36 +77,36 @@ class ruleActions extends Model
     public $rewriteConfig;
 
     /**
-     * @description The configuration of traffic throttling. You can add at most 20 configuration records.
+     * @description The configuration of traffic throttling. You can specify at most 20 traffic throttling rules.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description The configuration of traffic mirroring. You can add at most 20 traffic mirrors.
+     * @description The configuration of traffic mirroring. You can specify at most 20 traffic mirroring rules.
      *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description The action type. You can specify at most 11 types of actions. Valid values:
+     * @description The action type. You can specify at most 11 types of action. Valid values:
      *
      *   **ForwardGroup**: distributes requests to multiple vServer groups.
-     *   **Redirect**: redirects a request.
+     *   **Redirect**: redirects requests.
      *   **FixedResponse**: returns a custom response.
-     *   **Rewrite**: rewrites a request.
-     *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig:** deletes the header of a request.
+     *   **Rewrite**: rewrites requests.
+     *   **InsertHeader**: inserts headers.
+     *   **RemoveHeaderConfig**: deletes a header.
      *   **TrafficLimit**: throttles traffic.
-     *   **trafficMirror**: mirrors network traffic.
+     *   **TrafficMirror**: mirrors network traffic.
      *   **Cors**: enables cross-origin resource sharing (CORS).
      *
-     * The following action types are supported:
+     * You can specify the last action and the actions that you want to perform before the last action:
      *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: one or more actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify an ExtType action, you must specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+     *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * This parameter is required.
      * @example ForwardGroup

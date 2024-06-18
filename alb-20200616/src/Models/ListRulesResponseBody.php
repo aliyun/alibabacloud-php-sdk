@@ -40,7 +40,7 @@ class ListRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The forwarding rules.
+     * @description The details about the forwarding rule.
      *
      * @var rules[]
      */

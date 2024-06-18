@@ -17,7 +17,7 @@ class securityPolicies extends Model
     public $ciphers;
 
     /**
-     * @description The time when the resource was created.
+     * @description The time when the ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2023-02-15T07:37:33Z
      *

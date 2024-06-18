@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class healthCheckTemplates extends Model
 {
     /**
-     * @description The HTTP status codes.
+     * @description The HTTP status codes that indicate healthy backend servers.
      *
      * @var string[]
      */
@@ -21,7 +21,7 @@ class healthCheckTemplates extends Model
      *
      * Valid values: \\*\\* 0 to 65535\\*\\*.
      *
-     * Default value: **0**. This value indicates that the port on a backend server is used for health checks.
+     * The default value is **0**, which specifies that the port of a backend server is used for health checks.
      * @example 80
      *
      * @var int
@@ -31,11 +31,10 @@ class healthCheckTemplates extends Model
     /**
      * @description The domain name that is used for health checks. Valid values:
      *
-     **$SERVER_IP** (default): the private IP addresses of backend servers. If HealthCheckHost is not specified or set to $SERVER_IP, SLB uses the private IP addresses of backend servers for health checks.
+     *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP address of each backend server as the domain name for health checks.
+     *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
      *
-     **domain**: The domain name must be 1 to 80 characters in length and can contain letters, digits, periods (.), and hyphens (-).
-     *
-     * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP**.
+     * >  This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
      * @example $_ip
      *
      * @var string
@@ -43,13 +42,13 @@ class healthCheckTemplates extends Model
     public $healthCheckHost;
 
     /**
-     * @description The HTTP version that is used for health checks.
+     * @description The HTTP version for health checks.
      *
      * Valid values: **HTTP 1.0** and **HTTP 1.1**.
      *
      * Default value: **HTTP 1.1**.
      *
-     * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP**.
+     * >  This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
      * @example HTTP 1.0
      *
      * @var string
@@ -66,13 +65,13 @@ class healthCheckTemplates extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The HTTP method that is used for health checks. Valid values:
+     * @description The HTTP method that is used for health checks. Valid value:
      *
-     *   **HEAD** (default): By default, HTTP health checks use the HEAD method.
+     *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-     *   **POST**: By default, gRPC health checks use the POST method.
+     *   **POST**: gRPC health checks use the POST method by default.
      *
-     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **gRPC**.
+     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
      * @example HEAD
      *
      * @var string
@@ -80,9 +79,9 @@ class healthCheckTemplates extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The URL that is used for health checks.
+     * @description The URL path that you want to use for health checks.
      *
-     * The URL must be 1 to 80 characters in length and can contain only letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). The URL can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+     * The URL must be 1 to 80 characters in length, and can contain letters, digits, the following special characters: - / . % ? # &, and the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
      * @example /test/index.html
      *
      * @var string
@@ -90,12 +89,14 @@ class healthCheckTemplates extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that is used for health checks. Valid values:
+     * @description The protocol that is used for health checks. Valid value:
      *
-     *   **HTTP** (default): The SLB instance sends HEAD or GET requests to a backend server to simulate access from a browser and check whether the backend server is healthy.
-     *   **TCP**: To perform TCP health checks, SLB sends SYN packets to the backend server to check whether the port of the backend server is available to receive requests.
-     *   **gRPC**: To perform gRPC health checks, SLB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTP** (default): The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy.
+     *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS provides higher security because HTTPS supports data encryption.
+     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+     *   **gRPC**: The ALB instance sends POST or GET requests to a backend server to check whether the backend server is healthy.
      *
+     * >  HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
      * @example HTTP
      *
      * @var string
@@ -114,7 +115,7 @@ class healthCheckTemplates extends Model
     /**
      * @description The name of the health check template.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 character characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
      * @example HealthCheckTemplate1
      *
      * @var string
@@ -122,13 +123,13 @@ class healthCheckTemplates extends Model
     public $healthCheckTemplateName;
 
     /**
-     * @description The timeout period for a health check response. If a backend Elastic Compute Service (ECS) instance does not return a health check response within the specified timeout period, the backend server fails the health check.
+     * @description The timeout period of a health check response. If a backend Elastic Compute Service (ECS) instance does not respond within the specified timeout period, the ECS instance fails to pass the health check.
      *
      * Valid values: **1 to 300**. Unit: seconds.
      *
      * Default value: **5**.
      *
-     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, the value of **HealthCHeckTimeout** is ignored and the value of **HealthCheckInterval** is used.
+     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, **HealthCHeckTimeout** does not take effect. The value of **HealthCheckInterval** specifies the timeout period.
      * @example 3
      *
      * @var int

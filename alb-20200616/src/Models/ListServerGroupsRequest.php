@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupsRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -62,6 +62,8 @@ class ListServerGroupsRequest extends Model
 
     /**
      * @description The tags that are added to the server group. You can specify up to 10 tags in each call.
+     *
+     * @example Instance
      *
      * @var tag[]
      */

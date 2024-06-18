@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class acls extends Model
 {
     /**
-     * @description The ID of the network ACL.
+     * @description The ACL ID.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -19,7 +19,7 @@ class acls extends Model
     public $aclId;
 
     /**
-     * @description The name of the network ACL.
+     * @description The name of the ACL.
      *
      * @example test-acl
      *
@@ -28,11 +28,11 @@ class acls extends Model
     public $aclName;
 
     /**
-     * @description The status of the network ACL. Valid values:
+     * @description The status of the ACL. Valid values:
      *
      *   **Creating**: The network ACL is being created.
      *   **Available**: The network ACL is available.
-     *   **Configuring**: The network ACL is being configured.
+     *   **Configuring**
      *
      * @example Available
      *
@@ -41,7 +41,7 @@ class acls extends Model
     public $aclStatus;
 
     /**
-     * @description The IP version. **IPv4** is returned.
+     * @description The IP version of the ACL. Only **IPv4** may be returned.
      *
      * @example IPv4
      *
@@ -50,10 +50,10 @@ class acls extends Model
     public $addressIPVersion;
 
     /**
-     * @description The status of configuration management. Valid values:
+     * @description Indicates whether configuration management is enabled. Valid values:
      *
-     *   **true**: configuration management is enabled.
-     *   **false**: configuration management is disabled.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -62,7 +62,7 @@ class acls extends Model
     public $configManagedEnabled;
 
     /**
-     * @description The time when the resource was created.
+     * @description The time when the ACL was created. The follows the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2023-02-15T07:37:33Z
      *

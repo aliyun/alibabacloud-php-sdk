@@ -17,6 +17,10 @@ class trafficMirrorConfig extends Model
     public $mirrorGroupConfig;
 
     /**
+     * @description The destination to which traffic is mirrored. The destination can be a server group.
+     *
+     * @example ForwardGroupMirror
+     *
      * @var string
      */
     public $targetType;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stickySessionConfig extends Model
 {
     /**
-     * @description The cookie that is configured on the server.
+     * @description The cookie configured for the server.
      *
      * @example B490B5EBF6F3CD402E515D22BCDA****
      *
@@ -18,7 +18,7 @@ class stickySessionConfig extends Model
     public $cookie;
 
     /**
-     * @description The timeout period of a cookie. Unit: seconds. Valid values: **1** to **86400**.
+     * @description The timeout period of the cookie. Unit: seconds. Valid values: **1** to **86400**.
      *
      * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
      * @example 1000
@@ -28,7 +28,7 @@ class stickySessionConfig extends Model
     public $cookieTimeout;
 
     /**
-     * @description Indicates whether session persistence is enabled. Valid values:
+     * @description Indicates whether session persistence is enabled. Valid value:
      *
      *   **true**
      *   **false**
@@ -40,10 +40,10 @@ class stickySessionConfig extends Model
     public $stickySessionEnabled;
 
     /**
-     * @description The method that is used to handle a cookie. Valid values:
+     * @description The method that is used to handle the cookie. Valid value:
      *
-     *   **Insert**: inserts a cookie. ALB inserts a cookie (SERVERID) into the first HTTP or HTTPS response packet that is sent to a client. The next request from the client contains this cookie and the listener distributes this request to the recorded backend server.
-     *   **Server**: rewrites a cookie. When ALB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. Subsequent requests to ALB carry this user-defined cookie, and ALB determines the destination servers of the requests based on the cookies.
+     *   **insert**: inserts the cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+     *   **Server**: rewrites the cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
      *
      * @example Insert
      *

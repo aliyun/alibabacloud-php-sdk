@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
-     * @description Indicates whether configuration management is enabled. Valid values:
+     * @description Indicates whether configuration management is enabled. Valid value:
      *
      *   **true**
      *   **false**
@@ -27,6 +27,13 @@ class serverGroups extends Model
     public $configManagedEnabled;
 
     /**
+     * @description The configurations of connection draining.
+     *
+     * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+     *
+     * > *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
+     * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
+     * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
@@ -41,14 +48,14 @@ class serverGroups extends Model
     public $createTime;
 
     /**
-     * @description The health check configuration.
+     * @description The health check configurations.
      *
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
 
     /**
-     * @description Indicates whether IPv6 is supported. Valid values:
+     * @description Indicates whether IPv6 is supported. Valid value:
      *
      *   **true**
      *   **false**
@@ -60,11 +67,11 @@ class serverGroups extends Model
     public $ipv6Enabled;
 
     /**
-     * @description The backend protocol. Valid values:
+     * @description The backend protocol. Valid value:
      *
      *   **HTTP**: allows you to associate HTTPS, HTTP, or QUIC listeners with backend servers.
-     *   **HTTPS**: allows you to associate an HTTPS listener with the server group.
-     *   **GRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
+     *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+     *   **GRPC**: allows you to associate HTTPS and QUIC listeners with backend servers.
      *
      * @example HTTP
      *
@@ -73,12 +80,14 @@ class serverGroups extends Model
     public $protocol;
 
     /**
+     * @description The ID of the ALB instance associated with the server group.
+     *
      * @var string[]
      */
     public $relatedLoadBalancerIds;
 
     /**
-     * @description The resource group ID to which the GA instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-atstuj3rtop****
      *
@@ -87,11 +96,11 @@ class serverGroups extends Model
     public $resourceGroupId;
 
     /**
-     * @description The scheduling algorithm. Valid values:
+     * @description The scheduling algorithm. Valid value:
      *
      *   **Wrr**: Backend servers with higher weights receive more requests than backend servers with lower weights.
      *   **Wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least number of connections.
-     *   **Sch**: The consistent hashing algorithm is used. Requests from the same source IP address are distributed to the same backend server.
+     *   **Sch**: consistent hashing. Requests that have the same hash factors are distributed to the same backend server. If you do not specify the UchConfig parameter, the source IP address is used as the hash factor by default. Requests that are from the same IP address are distributed to the same backend server. If you specify the UchConfig parameter, the URL string is used as the hash factor. Requests that have the same URL string are distributed to the same backend server.
      *
      * @example Wrr
      *
@@ -109,7 +118,7 @@ class serverGroups extends Model
     public $serverCount;
 
     /**
-     * @description The ID of the server group.
+     * @description The server group ID.
      *
      * @example sgp-cige6j****
      *
@@ -118,7 +127,7 @@ class serverGroups extends Model
     public $serverGroupId;
 
     /**
-     * @description The name of the server group.
+     * @description The server group name.
      *
      * @example Group3
      *
@@ -127,9 +136,9 @@ class serverGroups extends Model
     public $serverGroupName;
 
     /**
-     * @description The status of the server group. Valid values:
+     * @description The status of the server group. Valid value:
      *
-     *   **Creating**
+     *   **Creating**.
      *   **Available**
      *   **Configuring**
      *
@@ -140,11 +149,11 @@ class serverGroups extends Model
     public $serverGroupStatus;
 
     /**
-     * @description The type of server group. Valid values:
+     * @description The server group type. Valid value:
      *
-     *   **Instance**
-     *   **Ip**
-     *   **Fc**
+     *   **Instance**: instances, including Elastic Compute Service (ECS) instances, elastic network interfaces (ENIs), and elastic container instances.
+     *   **Ip**: IP addresses.
+     *   **Fc**: Function Compute
      *
      * @example Instance
      *
@@ -153,7 +162,7 @@ class serverGroups extends Model
     public $serverGroupType;
 
     /**
-     * @description The service name.
+     * @description The name of the server group.
      *
      * @example test
      *
@@ -162,6 +171,13 @@ class serverGroups extends Model
     public $serviceName;
 
     /**
+     * @description The configurations of slow starts.
+     *
+     * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+     *
+     * > *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
+     * >*   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+     * >*   Slow start is supported only by the weighted round-robin scheduling algorithm.
      * @var slowStartConfig
      */
     public $slowStartConfig;
@@ -188,7 +204,7 @@ class serverGroups extends Model
     public $uchConfig;
 
     /**
-     * @description Indicates whether long-lived TCP connections are enabled. Valid values:
+     * @description Indicates whether persistent TCP connections are enabled. Valid value:
      *
      *   **true**
      *   **false**
@@ -200,7 +216,7 @@ class serverGroups extends Model
     public $upstreamKeepaliveEnabled;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the ALB instance belongs.
      *
      * @example vpc-bp15zckdt37pq72zv****
      *

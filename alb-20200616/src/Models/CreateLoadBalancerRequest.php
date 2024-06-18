@@ -13,10 +13,10 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerRequest extends Model
 {
     /**
-     * @description The mode used to assign IP addresses to zones of the ALB instance. Default value: Dynamic. Valid values:
+     * @description The mode in which IP addresses are allocated. Valid values:
      *
-     *   **Fixed:** assigns a static IP address to the ALB instance.
-     *   **Dynamic:** dynamically assigns an IP address to each zone of the ALB instance.
+     *   **Fixed**: The ALB instance uses a static IP address.
+     *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
      *
      * @example Dynamic
      *
@@ -86,7 +86,7 @@ class CreateLoadBalancerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The configuration of the billing method of the ALB instance.
+     * @description The billing method of the ALB instance.
      *
      * This parameter is required.
      * @var loadBalancerBillingConfig

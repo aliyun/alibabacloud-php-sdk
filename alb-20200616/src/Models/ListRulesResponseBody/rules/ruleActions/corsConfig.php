@@ -21,14 +21,14 @@ class corsConfig extends Model
     public $allowCredentials;
 
     /**
-     * @description The allowed headers for CORS requests.
+     * @description The allowed headers of CORS requests.
      *
      * @var string[]
      */
     public $allowHeaders;
 
     /**
-     * @description The allowed HTTP methods for CORS requests.
+     * @description The allowed HTTP methods of CORS requests.
      *
      * @var string[]
      */
@@ -49,7 +49,7 @@ class corsConfig extends Model
     public $exposeHeaders;
 
     /**
-     * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
+     * @description The maximum cache time of dry runs in the browser. Unit: seconds.
      *
      * Valid values: **-1** to **172800**.
      * @example 1000

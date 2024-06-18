@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class accessLogTracingConfig extends Model
 {
     /**
-     * @description Indicates whether Xtrace is enabled. Valid values:
+     * @description Indicates whether xtrace is enabled. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * >  This parameter can be set to **true** only if **AccessLogEnabled** is set to true.
+     * >  This parameter can be set to **true** only when the access log feature of ALB is enabled by setting **AccessLogEnabled** to true.
      * @example true
      *
      * @var bool
@@ -22,9 +22,9 @@ class accessLogTracingConfig extends Model
     public $tracingEnabled;
 
     /**
-     * @description The sampling rate of Xtrace. Valid values: **1 to 10000**.
+     * @description The sampling rate of xtrace. Valid values: **1 to 10000**.
      *
-     * >  This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * >  This parameter takes effect when **TracingEnabled** is set to **true**.
      * @example 100
      *
      * @var int
@@ -32,9 +32,9 @@ class accessLogTracingConfig extends Model
     public $tracingSample;
 
     /**
-     * @description The Xtrace type. Only **Zipkin** may be returned.
+     * @description The type of xtrace. The value is set to **Zipkin**.
      *
-     * >  This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * >  This parameter takes effect when **TracingEnabled** is set to **true**.
      * @example Zipkin
      *
      * @var string

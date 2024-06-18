@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerBillingConfig extends Model
 {
     /**
-     * @description The ID of the Elastic IP Address (EIP) bandwidth plan that is associated with the ALB instance if the ALB instance uses a public IP address.
+     * @description The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing ALB instance.
      *
      * @example cbwp-bp1vevu8h3ieh****
      *

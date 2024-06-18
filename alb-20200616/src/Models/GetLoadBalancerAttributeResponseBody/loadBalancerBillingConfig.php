@@ -11,7 +11,7 @@ class loadBalancerBillingConfig extends Model
     /**
      * @description The billing method.
      *
-     * Only **PostPay** may be returned. The value indicates the pay-as-you-go billing method.
+     * Set the value to **PostPay**, which indicates the pay-as-you-go billing method.
      * @example PostPay
      *
      * @var string

@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configuration of the cookie.
+     * @description The key-value pairs of the cookie.
      *
      * @var cookieConfig
      */
@@ -32,7 +32,7 @@ class ruleConditions extends Model
     public $headerConfig;
 
     /**
-     * @description The configurations of the hosts.
+     * @description The configuration of the hosts.
      *
      * @var hostConfig
      */
@@ -46,7 +46,7 @@ class ruleConditions extends Model
     public $methodConfig;
 
     /**
-     * @description The configurations of the paths.
+     * @description The configurations of the forwarding URLs.
      *
      * @var pathConfig
      */
@@ -60,7 +60,7 @@ class ruleConditions extends Model
     public $queryStringConfig;
 
     /**
-     * @description The configuration of the HTTP response header.
+     * @description The HTTP header in responses.
      *
      * @var responseHeaderConfig
      */
@@ -74,7 +74,7 @@ class ruleConditions extends Model
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP addresses based on which user traffic is matched.
+     * @description Traffic matching based on source IP addresses.
      *
      * @var sourceIpConfig
      */
@@ -83,13 +83,13 @@ class ruleConditions extends Model
     /**
      * @description The type of forwarding rule. Valid values:
      *
-     *   **Host**: Requests are forwarded based on hosts.
-     *   **Path**: Requests are forwarded based on paths.
-     *   **Header**: Requests are forwarded based on HTTP headers.
-     *   **QueryString**: Requests are forwarded based on query strings.
-     *   **Method**: Requests are forwarded based on request methods.
-     *   **Cookie**: Requests are forwarded based on cookies.
-     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *   **Host**: Responses are forwarded based on hosts.
+     *   **Path**: Responses are forwarded based on URLs.
+     *   **Header**: Responses are forwarded based on HTTP headers.
+     *   **QueryString**: Responses are forwarded based on query strings.
+     *   **Method**: Responses are forwarded based on request methods.
+     *   **Cookie**: Responses are forwarded based on cookies.
+     *   **SourceIp**: Responses are forwarded based on source IP addresses.
      *
      * @example Host
      *

@@ -40,7 +40,7 @@ class ListSecurityPoliciesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security policy IDs. You can specify up to 20 IDs.
+     * @description The security policy IDs. You can specify at most 20 security policies.
      *
      * @var string[]
      */

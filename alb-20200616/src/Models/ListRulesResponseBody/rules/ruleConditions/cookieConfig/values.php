@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description The key of the cookie. The key is 1 to 100 characters in length, and can contain printable characters such as lowercase letters, asterisks (\\*), and question marks (?). The key cannot contain uppercase letters, space characters, or the following special characters: `# [ ] { } \\ | < > &`.
+     * @description The cookie key. The cookie key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class values extends Model
     public $key;
 
     /**
-     * @description The value of the cookie. The value is 1 to 128 characters in length, and can contain printable characters such as lowercase letters, asterisks (\\*), and question marks (?). Uppercase letters, space characters, and the following special characters are not supported: `# [ ] { } \\ | < > &`.
+     * @description The cookie value. The cookie value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
      *
      * @example test
      *

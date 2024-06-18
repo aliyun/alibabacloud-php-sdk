@@ -11,8 +11,8 @@ class serverGroupStickySession extends Model
     /**
      * @description Specifies whether to enable session persistence. Valid values:
      *
-     *   **true**: enables session persistence.
-     *   **false** (default): disables session persistence.
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *

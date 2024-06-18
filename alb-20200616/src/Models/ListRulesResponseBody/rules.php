@@ -14,16 +14,18 @@ class rules extends Model
     /**
      * @description The direction to which the forwarding rule is applied. Valid values:
      *
-     *   Request (default): The rule applies to client requests.
-     *   Response: The rule applies to responses from backend servers.
+     *   Request (default): The forwarding rule is applied to requests. The forwarding action is performed on packets that are forwarded from clients to ALB.
+     *   Responses: The forwarding rule is applied to responses. The forwarding action is performed on packets that are returned from backend servers to ALB.
      *
-     * > Response is not supported by basic ALB instances.
+     * >  Basic ALB instances support only the Response direction.
+     * @example Request
+     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The ID of the listener to which the forwarding rule belongs.
+     * @description The ID of the listener that is associated with the forwarding rule.
      *
      * @example lsn-i35udpz3pxsmnf****
      *
@@ -32,7 +34,7 @@ class rules extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the ALB instance to which the forwarding rule belongs.
+     * @description The ID of the Application Load Balancer (ALB) instance that is associated with the forwarding rule.
      *
      * @example alb-x30o38azsuj0sx****
      *
@@ -43,7 +45,7 @@ class rules extends Model
     /**
      * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
      *
-     * > The priority of each forwarding rule added to a listener must be unique.
+     * >  The priority of each forwarding rule added to a listener must be unique.
      * @example 1
      *
      * @var int
@@ -65,7 +67,7 @@ class rules extends Model
     public $ruleConditions;
 
     /**
-     * @description The forwarding rule ID.
+     * @description The ID of the forwarding rule.
      *
      * @example rule-bpn0kn908w4nbw****
      *
@@ -74,7 +76,7 @@ class rules extends Model
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+     * @description The name of the forwarding rule. The name must be 2 to 128 letters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
      * @example rule-instance-test
      *
@@ -85,9 +87,9 @@ class rules extends Model
     /**
      * @description The status of the forwarding rule. Valid values:
      *
-     *   **Provisioning**
-     *   **Configuring**
-     *   **Available**
+     *   **Provisioning**: The forwarding rule is being created.
+     *   **Configuring**: The forwarding rule is being modified.
+     *   **Available**: The forwarding rule is available.
      *
      * @example Available
      *
@@ -96,6 +98,8 @@ class rules extends Model
     public $ruleStatus;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

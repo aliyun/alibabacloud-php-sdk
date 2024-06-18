@@ -121,6 +121,10 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerJoinSecurityGroupRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerJoinSecurityGroupResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerLeaveSecurityGroupRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerLeaveSecurityGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveEntriesFromAclRequest;
@@ -3882,6 +3886,118 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建访问控制信息
+     *  *
+     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     */
+    public function loadBalancerJoinSecurityGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LoadBalancerJoinSecurityGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建访问控制信息
+     *  *
+     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     */
+    public function loadBalancerJoinSecurityGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->loadBalancerJoinSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建访问控制信息
+     *  *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     */
+    public function loadBalancerLeaveSecurityGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LoadBalancerLeaveSecurityGroup',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建访问控制信息
+     *  *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     */
+    public function loadBalancerLeaveSecurityGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->loadBalancerLeaveSecurityGroupWithOptions($request, $runtime);
     }
 
     /**

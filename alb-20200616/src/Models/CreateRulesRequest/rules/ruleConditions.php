@@ -18,21 +18,21 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configurations of the cookies. You can add at most 20 cookies.
+     * @description The key-value pairs of the cookie. You can specify at most 20 cookies.
      *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description The configuration of the header. You can add at most 20 headers.
+     * @description The configuration of the header. You can specify at most 20 headers.
      *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description The configurations of the hosts. You can specify up to 20 resources.
+     * @description The configuration of the hosts. You can specify at most 20 hosts.
      *
      * @var hostConfig
      */
@@ -46,7 +46,7 @@ class ruleConditions extends Model
     public $methodConfig;
 
     /**
-     * @description The configurations of the paths. You can specify at most 20 paths.
+     * @description The configurations of the forwarding URLs. You can specify at most 20 forwarding URLs.
      *
      * @var pathConfig
      */
@@ -60,7 +60,7 @@ class ruleConditions extends Model
     public $queryStringConfig;
 
     /**
-     * @description The configuration of the header. You can add at most 20 headers.
+     * @description The configuration of the header. You can specify at most 20 headers.
      *
      * @var responseHeaderConfig
      */
@@ -74,24 +74,24 @@ class ruleConditions extends Model
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP addresses based on which user traffic is matched. This parameter is required and takes effect only when **Type** is set to **SourceIP**. You can specify at most five values for **SourceIp**.
+     * @description Traffic matching based on source IP addresses. This parameter is required and valid when **Type** is set to **SourceIP**. You can specify up to five IP addresses or CIDR blocks in the **SourceIpConfig** parameter.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The type of forwarding rule. You can specify at most seven types. Valid values:
+     * @description The type of forwarding rule. You can specify at most seven types of forwarding rules. Valid values:
      *
-     *   **Host**: Responses are forwarded based on hosts.
-     *   **Path**: Responses are forwarded based on paths.
-     *   **Header**: Responses are forwarded based on HTTP headers.
-     *   **QueryString**: Responses are forwarded based on query strings.
-     *   **Method**: Responses are forwarded based on request methods.
-     *   **Cookie**: Responses are forwarded based on cookies.
-     *   **SourceIp:**: Responses are forwarded based on source IP addresses.
-     *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
-     *   **ResponseStatusCode**: Responses are forwarded based on response status codes.
+     *   **Host**: Requests are forwarded based on hosts.
+     *   **Path**: Requests are forwarded based on URLs.
+     *   **Header**: Requests are forwarded based on HTTP headers.
+     *   **QueryString**: Requests are forwarded based on query strings.
+     *   **Method**: Requests are forwarded based on request methods.
+     *   **Cookie**: Requests are forwarded based on cookies.
+     *   **SourceIp**: Requests are forwarded based on source IP addresses.
+     *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+     *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
      *
      * This parameter is required.
      * @example Host

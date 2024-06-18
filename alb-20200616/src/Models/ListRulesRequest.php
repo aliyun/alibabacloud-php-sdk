@@ -67,6 +67,8 @@ class ListRulesRequest extends Model
     public $ruleIds;
 
     /**
+     * @description The tag.
+     *
      * @var tag[]
      */
     public $tag;

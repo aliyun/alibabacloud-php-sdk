@@ -39,14 +39,14 @@ class ruleActions extends Model
     public $forwardGroupConfig;
 
     /**
-     * @description The configuration of the header to be inserted.
+     * @description The key of the header to be inserted.
      *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is not empty. The priority of each action within a forwarding rule is unique.
+     * @description The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique.
      *
      * @example 1
      *
@@ -62,7 +62,7 @@ class ruleActions extends Model
     public $redirectConfig;
 
     /**
-     * @description The configuration of the header to be removed.
+     * @description The HTTP header to be removed.
      *
      * @var removeHeaderConfig
      */
@@ -76,14 +76,14 @@ class ruleActions extends Model
     public $rewriteConfig;
 
     /**
-     * @description The configuration of the action to throttle traffic.
+     * @description The configuration of traffic throttling.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description The configuration of the action to mirror traffic.
+     * @description The configuration of traffic mirroring.
      *
      * @var trafficMirrorConfig
      */
@@ -93,19 +93,19 @@ class ruleActions extends Model
      * @description The action. Valid values:
      *
      *   **ForwardGroup**: distributes requests to multiple vServer groups.
-     *   **Redirect**: redirects a request.
+     *   **Redirect**: redirects requests.
      *   **FixedResponse**: returns a custom response.
-     *   **Rewrite**: rewrites a request.
-     *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig**: deletes a header.
+     *   **Rewrite**: rewrites requests.
+     *   **InsertHeader**: inserts headers.
+     *   **RemoveHeaderConfig**: removes headers.
      *   **TrafficLimitConfig**: throttles network traffic.
-     *   **TrafficMirrorConfig**: mirrors traffic.
+     *   **TrafficMirrorConfig**: mirrors network traffic.
      *   **CorsConfig**: forwards requests based on CORS.
      *
      * The preceding actions can be classified into two broad types:
      *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: one or more actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify an ExtType action, you must specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+     *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * @example ForwardGroup
      *

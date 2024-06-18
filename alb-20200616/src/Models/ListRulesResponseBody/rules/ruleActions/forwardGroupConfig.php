@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
+     * @description The session persistence configurations of the server group.
+     *
      * @var serverGroupStickySession
      */
     public $serverGroupStickySession;

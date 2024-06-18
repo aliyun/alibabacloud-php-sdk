@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerAddresses extends Model
 {
     /**
-     * @description The ID of the zone where the ALB instance was deployed.
+     * @description An IPv4 address.
      *
-     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the zones of the ALB instance.
+     * This parameter takes effect when **AddressIPVersion** is set to **IPv4** or **DualStack**. The network type is determined by the value of **AddressType**.
      * @example 192.168.10.1
      *
      * @var string
@@ -19,6 +19,8 @@ class loadBalancerAddresses extends Model
     public $address;
 
     /**
+     * @description The elastic IP address (EIP).
+     *
      * @example eip-uf6wm****1zj9
      *
      * @var string
@@ -26,6 +28,12 @@ class loadBalancerAddresses extends Model
     public $allocationId;
 
     /**
+     * @description The type of EIP. Valid values:
+     *
+     *   **Common**: an EIP.
+     *   **Anycast**: an Anycast EIP.
+     *
+     * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
      * @example Common
      *
      * @var string
@@ -33,16 +41,18 @@ class loadBalancerAddresses extends Model
     public $eipType;
 
     /**
+     * @description The private IPv4 address.
+     *
+     * @example 10.0.1.181
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
-     * @description The protocol version. Valid values:
+     * @description An IPv6 address.
      *
-     *   **IPv4:** IPv4.
-     *   **DualStack:** dual stack.
-     *
+     * This parameter takes effect only when **AddressIPVersion** is set to **DualStack**. The network type is determined by the value of **Ipv6AddressType**.
      * @example 2408:XXXX:39d:eb00::/56
      *
      * @var string

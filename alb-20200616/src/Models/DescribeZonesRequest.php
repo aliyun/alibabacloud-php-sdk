@@ -11,7 +11,7 @@ class DescribeZonesRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   **zh-CN**: Chinese
+     *   **zh-CN** (default): Chinese
      *   **en-US**: English
      *   **ja**: Japanese
      *

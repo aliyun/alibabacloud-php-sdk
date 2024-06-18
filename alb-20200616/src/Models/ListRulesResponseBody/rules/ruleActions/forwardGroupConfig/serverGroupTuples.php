@@ -18,7 +18,7 @@ class serverGroupTuples extends Model
     public $serverGroupId;
 
     /**
-     * @description The weight. Valid values: **0** to **100**.
+     * @description The weight of the server group. Valid values: **0** to **100**.
      *
      * @example 2
      *

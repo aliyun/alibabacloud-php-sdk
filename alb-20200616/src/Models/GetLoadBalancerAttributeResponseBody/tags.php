@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The zones and the vSwitches. You must specify at least two zones.
+     * @description The tag key.
      *
+     * The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
      * @example FinanceDept
      *
      * @var string
@@ -18,8 +19,9 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The IP addresses that are used by the ALB instance.
+     * @description The tag value.
      *
+     * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
      * @example FinanceJoshua
      *
      * @var string

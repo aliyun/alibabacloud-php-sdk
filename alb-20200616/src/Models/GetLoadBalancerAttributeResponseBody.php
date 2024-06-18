@@ -105,7 +105,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $ipv6AddressType;
 
     /**
-     * @description The configuration of the billing method of the ALB instance.
+     * @description The billing method of the ALB instance.
      *
      * @var loadBalancerBillingConfig
      */
@@ -217,6 +217,11 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $securityGroupIds;
+
+    /**
      * @description The tag value.
      *
      * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
@@ -261,6 +266,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
         'regionId'                     => 'RegionId',
         'requestId'                    => 'RequestId',
         'resourceGroupId'              => 'ResourceGroupId',
+        'securityGroupIds'             => 'SecurityGroupIds',
         'tags'                         => 'Tags',
         'vpcId'                        => 'VpcId',
         'zoneMappings'                 => 'ZoneMappings',
@@ -338,6 +344,9 @@ class GetLoadBalancerAttributeResponseBody extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -437,6 +446,11 @@ class GetLoadBalancerAttributeResponseBody extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

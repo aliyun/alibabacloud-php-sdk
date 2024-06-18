@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class connectionDrainConfig extends Model
 {
     /**
+     * @description Indicates whether connection draining is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $connectionDrainEnabled;
 
     /**
+     * @description The timeout period of connection draining.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $connectionDrainTimeout;

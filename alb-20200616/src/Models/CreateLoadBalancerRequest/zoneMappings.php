@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description 公网实例绑定的EIP实例ID。至少需要添加2个可用区，最多支持添加10个可用区。
-     *
      * @example eip-bp1aedxso6u80u0qf****
      *
      * @var string

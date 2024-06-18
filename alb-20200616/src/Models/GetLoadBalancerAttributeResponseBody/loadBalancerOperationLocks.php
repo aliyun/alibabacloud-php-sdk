@@ -9,16 +9,20 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerOperationLocks extends Model
 {
     /**
-     * @description The configuration of the configuration read-only mode.
+     * @description The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
      *
      * @var string
      */
     public $lockReason;
 
     /**
-     * @description The reason why the configuration read-only mode was enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+     * @description The type of the lock. Valid values:
      *
-     * This parameter is valid only if you set the **ModificationProtectionStatus** parameter to **ConsoleProtection**.
+     *   **SecurityLocked**: The ALB instance is locked due to security reasons.
+     *   **RelatedResourceLocked**: The ALB instance is locked due to other resources that are associated with the ALB instance.
+     *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+     *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
+     *
      * @example FinancialLocked
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateAclsWithListenerRequest extends Model
 {
     /**
-     * @description The ACL IDs. You can specify up to three IDs in each call.
+     * @description The IDs of the ACLs. You can specify up to three IDs in each call.
      *
      * This parameter is required.
      * @var string[]
@@ -34,7 +34,7 @@ class AssociateAclsWithListenerRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -54,7 +54,7 @@ class AssociateAclsWithListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The listener ID.
+     * @description The ID of the listener.
      *
      * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****

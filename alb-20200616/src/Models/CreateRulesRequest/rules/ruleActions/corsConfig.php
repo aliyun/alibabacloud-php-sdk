@@ -11,8 +11,8 @@ class corsConfig extends Model
     /**
      * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
      *
-     *   **on**: allows credentials to be carried in CORS requests.
-     *   **off**: does not allow credentials to be carried in CORS requests.
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -21,21 +21,24 @@ class corsConfig extends Model
     public $allowCredentials;
 
     /**
-     * @description The allowed headers for CORS requests.
+     * @description The trusted headers of CORS requests.
      *
      * @var string[]
      */
     public $allowHeaders;
 
     /**
-     * @description The allowed HTTP methods for CORS requests.
+     * @description The trusted HTTP methods of CORS requests.
      *
      * @var string[]
      */
     public $allowMethods;
 
     /**
-     * @description The allowed origins of CORS requests.
+     * @description The trusted origins of CORS requests. One or more values are supported. Asterisks (`*`) can be used as wildcard characters.
+     *
+     *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
+     *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.
      *
      * @var string[]
      */
@@ -49,7 +52,7 @@ class corsConfig extends Model
     public $exposeHeaders;
 
     /**
-     * @description The maximum cache time of preflight requests in the browser. Unit: seconds.
+     * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
      *
      * Valid values: **-1** to **172800**.
      * @example 1000

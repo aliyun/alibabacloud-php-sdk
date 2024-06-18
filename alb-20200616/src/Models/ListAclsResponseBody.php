@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclsResponseBody extends Model
 {
     /**
-     * @description The network ACLs.
+     * @description A list of ACLs.
      *
      * @var acls[]
      */
@@ -38,7 +38,7 @@ class ListAclsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *

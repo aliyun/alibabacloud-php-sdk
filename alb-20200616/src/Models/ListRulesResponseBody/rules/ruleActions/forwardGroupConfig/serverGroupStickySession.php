@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class serverGroupStickySession extends Model
 {
     /**
+     * @description If the value of N in ServerGroupTuple.N is larger than 1, you can enable or disable session persistence for server groups.
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description If Enabled is set to True, you can specify a session persistence timeout period.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $timeout;

@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class CreateListenerRequest extends Model
 {
     /**
+     * @description The certificate authority (CA) certificates.
+     *
      * @var caCertificates[]
      */
     public $caCertificates;
@@ -32,6 +34,8 @@ class CreateListenerRequest extends Model
     public $caEnabled;
 
     /**
+     * @description The details about each certificate.
+     *
      * @var certificates[]
      */
     public $certificates;
@@ -49,8 +53,9 @@ class CreateListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The actions of the forwarding rule.
      *
+     * This parameter is required.
      * @var defaultActions[]
      */
     public $defaultActions;
@@ -151,6 +156,8 @@ class CreateListenerRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description Select a QUIC listener and associate it with the ALB instance.
+     *
      * @var quicConfig
      */
     public $quicConfig;
@@ -189,6 +196,8 @@ class CreateListenerRequest extends Model
     public $tag;
 
     /**
+     * @description The configuration of the XForward header.
+     *
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;

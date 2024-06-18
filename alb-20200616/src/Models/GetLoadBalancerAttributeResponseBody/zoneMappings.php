@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description The ID of the vSwitch in the zone. Each zone can contain only one vSwitch and one subnet.
+     * @description The IP address of the ALB instance.
      *
      * @var loadBalancerAddresses[]
      */
     public $loadBalancerAddresses;
 
     /**
-     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
-     *
-     *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-     *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     * @description The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance.
      *
      * @example vsw-bp12mw1f8k3jgy****
      *
@@ -29,6 +26,9 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone ID of the ALB instance.
+     *
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
      * @example cn-hangzhou-a
      *
      * @var string

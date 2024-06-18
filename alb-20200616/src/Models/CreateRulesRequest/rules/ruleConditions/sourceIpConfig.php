@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceIpConfig extends Model
 {
     /**
-     * @description The configuration of the source IP addresses based on which user traffic is matched.
+     * @description Traffic matching based on source IP addresses.
      *
      * @var string[]
      */

@@ -11,14 +11,14 @@ class redirectConfig extends Model
     /**
      * @description The hostname to which requests are redirected. Valid values:
      *
-     *   **${host}** (default): If ${host} is returned, no other character is appended.
+     *   **${host}** (default): If ${host} is returned, no other characters are appended.
      *
-     *   Limits on a custom value:
+     *   A custom value. Make sure that the custom value meets the following requirements:
      *
-     *   The hostname is 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\\*) and question marks (?) can be used as wildcard characters.
-     *   The hostname contains at least one period (.) but does not start or end with a period (.).
-     *   The rightmost domain label contains only letters and wildcard characters. It does not contain digits or hyphens (-).
-     *   The domain labels do not start or end with hyphens (-).
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+     *   The domain labels cannot start or end with a hyphen (-).
      *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
      *
      * @example www.example.com
@@ -28,7 +28,7 @@ class redirectConfig extends Model
     public $host;
 
     /**
-     * @description The redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+     * @description The forwarding method. Valid values: **301**, **302**, **303**, **307**, and **308**.
      *
      * @example 301
      *
@@ -37,14 +37,14 @@ class redirectConfig extends Model
     public $httpCode;
 
     /**
-     * @description The path to which requests are redirected. Valid values:
+     * @description The URL to which requests are redirected. Valid values:
      *
-     *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}**, and**${port}**. The path can consist of **${host}**,**${protocol}**, and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
+     *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}**, and**${port}**. The URL can consist of **${host}**,**${protocol}**, and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     *   Limits on a custom value:
+     *   A custom value. Make sure that the custom value meets the following requirements:
      *
-     *   The value is 1 to 128 characters in length.
-     *   It starts with a forward slash (/) and contains letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+     *   The URL must be 1 to 128 characters in length.
+     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
      *
      * @example /test
      *
@@ -55,7 +55,7 @@ class redirectConfig extends Model
     /**
      * @description The port to which requests are redirected. Valid values:
      *
-     *   **${port}** (default): If ${port} is returned, no other character is appended.
+     *   **${port}** (default): If ${port} is returned, no other characters are appended.
      *   Other valid values: **1 to 63335**.
      *
      * @example 10
@@ -67,10 +67,10 @@ class redirectConfig extends Model
     /**
      * @description The redirect protocol. Valid values:
      *
-     *   **${protocol}** (default): If ${protocol} is returned, no other character is appended.
-     *   **HTTP** or **HTTPS**.
+     *   **${protocol}** (default): If ${protocol} is returned, no other characters are appended.
+     *   **HTTP** or **HTTPS**
      *
-     * > HTTPS listeners support only HTTP to HTTPS redirection.
+     * >  HTTPS listeners supports only HTTPS redirects.
      * @example HTTP
      *
      * @var string
@@ -78,7 +78,7 @@ class redirectConfig extends Model
     public $protocol;
 
     /**
-     * @description The query string to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+     * @description The query string of the URL to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
      *
      * @example quert
      *

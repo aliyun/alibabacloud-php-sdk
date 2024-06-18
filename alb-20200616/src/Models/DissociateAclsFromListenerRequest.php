@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerRequest extends Model
 {
     /**
-     * @description The ACL IDs.
+     * @description The access control list (ACL) IDs.
      *
      * This parameter is required.
      * @var string[]
@@ -21,7 +21,7 @@ class DissociateAclsFromListenerRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -41,7 +41,7 @@ class DissociateAclsFromListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The listener ID.
+     * @description The ID of the listener.
      *
      * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****

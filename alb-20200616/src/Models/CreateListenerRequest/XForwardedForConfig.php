@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
-     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+     * @description The name of the custom header. This parameter takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
      *
      * >  Only HTTPS listeners support this parameter.
      * @example test_client-verify-alias_123456
@@ -21,8 +21,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Clientcert-clientverify header.
-     *   **false** (default): does not use the X-Forwarded-Clientcert-clientverify header.
+     *   **true**:
+     *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
      * @example true
@@ -44,8 +44,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header to retrieve the fingerprint of the client certificate. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Clientcert-fingerprint header.
-     *   **false** (default): does not use the X-Forwarded-Clientcert-fingerprint header.
+     *   **true**
+     *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
      * @example true
@@ -67,8 +67,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Clientcert-issuerdn header.
-     *   **false** (default): does not use the X-Forwarded-Clientcert-issuerdn header.
+     *   **true**:
+     *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
      * @example true
@@ -90,8 +90,8 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Clientcert-subjectdn header.
-     *   **false** (default): does not use the X-Forwarded-Clientcert-subjectdn header.
+     *   **true**:
+     *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
      * @example true
@@ -101,12 +101,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientCertSubjectDNEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Client-Ip` header to obtain the source IP address of the ALB instance. Valid values:
+     * @description Specifies whether to allow the ALB instance to retrieve client IP addresses from the X-Forwarded-For header. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Client-Ip header.
-     *   **false** (default): does not use the X-Forwarded-Client-Ip header.
+     *   **true**:
+     *   **false** (default)
      *
-     * >  HTTP, HTTPS, and QUIC listeners support this parameter. The feature corresponding to this parameter is not available by default. If you want to use this feature, submit a ticket.
+     * >  This parameter is supported only by HTTP and HTTPS listeners.
      * @example false
      *
      * @var bool
@@ -116,7 +116,7 @@ class XForwardedForConfig extends Model
     /**
      * @description The trusted proxy IP address.
      *
-     * ALB traverses `X-Forwarded-For` backwards and selects the first IP address that is not in the trusted IP list as the originating IP address of the client, which will be throttled if source IP address throttling is enabled.
+     * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
      * @example 10.1.1.0/24
      *
      * @var string
@@ -126,10 +126,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Client-Port` header to retrieve the client port. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Client-Port header.
-     *   **false** (default): does not use the X-Forwarded-Client-Port header.
+     *   **true**:
+     *   **false** (default)
      *
-     * >  HTTP and HTTPS listeners support this parameter.
+     * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -139,10 +139,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
      *
-     *   **true** (default): uses the X-Forwarded-For header.
-     *   **false**: does not use the X-Forwarded-For header.
+     *   **true** (default)
+     *   **false**
      *
-     * >  HTTP and HTTPS listeners support this parameter.
+     * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -150,12 +150,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listening protocol of the ALB instance. Valid values:
+     * @description Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Proto header.
-     *   **false** (default): does not use the X-Forwarded-Proto header.
+     *   **true**:
+     *   **false** (default)
      *
-     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
      * @example false
      *
      * @var bool
@@ -165,10 +165,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
      *
-     *   **true**: uses the SLB-ID header.
-     *   **false** (default): does not use the SLB-ID header.
+     *   **true**:
+     *   **false** (default)
      *
-     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
      * @example false
      *
      * @var bool
@@ -176,12 +176,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForSLBIdEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Port` header to retrieve the listening port of the ALB instance. Valid values:
+     * @description Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
      *
-     *   **true**: uses the X-Forwarded-Port header.
-     *   **false** (default): does not use the X-Forwarded-Port header.
+     *   **true**:
+     *   **false** (default)
      *
-     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
      * @example false
      *
      * @var bool

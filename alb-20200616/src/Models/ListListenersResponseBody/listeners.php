@@ -38,7 +38,7 @@ class listeners extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is returned only for HTTPS listeners.
+     * >  Only HTTPS listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -48,7 +48,7 @@ class listeners extends Model
     /**
      * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
      *
-     * If no request is received within the specified timeout period, ALB closes the connection. ALB re-establishes the connection when a new connection request is received.
+     * If no request is received within the specified timeout period, ALB closes the connection. ALB establishes the connection again when a new connection request is received.
      * @example 3
      *
      * @var int
@@ -65,7 +65,7 @@ class listeners extends Model
     public $listenerDescription;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -83,7 +83,7 @@ class listeners extends Model
     public $listenerPort;
 
     /**
-     * @description The listener protocol. Valid values:
+     * @description The listener protocol of the instance. Valid values:
      *
      *   **HTTP**
      *   **HTTPS**
@@ -98,10 +98,10 @@ class listeners extends Model
     /**
      * @description The status of the listener. Valid values:
      *
-     *   **Provisioning**
-     *   **Running**
-     *   **Configuring**
-     *   **Stopped**
+     *   **Provisioning**: The listener is being created.
+     *   **Running**: The listener is running.
+     *   **Configuring**: The listener is being configured.
+     *   **Stopped**: The listener is disabled.
      *
      * @example Running
      *
@@ -110,7 +110,7 @@ class listeners extends Model
     public $listenerStatus;
 
     /**
-     * @description The ID of the ALB instance.
+     * @description The ALB instance ID.
      *
      * @example lb-bp1b6c719dfa08ex*****
      *
@@ -126,7 +126,7 @@ class listeners extends Model
     public $logConfig;
 
     /**
-     * @description The configuration information when the listener is associated with a QUIC listener.
+     * @description The configurations of the QUIC listener associated with the ALB instance.
      *
      * @var quicConfig
      */
@@ -145,7 +145,7 @@ class listeners extends Model
     /**
      * @description The security policy.
      *
-     * >  This parameter is returned only for HTTPS listeners.
+     * >  Only HTTPS listeners support this parameter.
      * @example tls_cipher_policy_1_1
      *
      * @var string
@@ -153,14 +153,14 @@ class listeners extends Model
     public $securityPolicyId;
 
     /**
-     * @description The tags.
+     * @description The tags of the dataset.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The configuration of the `XForward` headers.
+     * @description The configuration of the `XForward` header.
      *
      * @var XForwardedForConfig
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
-     * @description The server group ID.
+     * @description The ID of the server group.
      *
      * @example srg-00mkgijak0w4qgz9****
      *
@@ -18,7 +18,7 @@ class serverGroupTuples extends Model
     public $serverGroupId;
 
     /**
-     * @description The weight. Valid values: **0** to **100**.
+     * @description The weight of the server group. Valid values: **0** to **100**.
      *
      * @example 2
      *

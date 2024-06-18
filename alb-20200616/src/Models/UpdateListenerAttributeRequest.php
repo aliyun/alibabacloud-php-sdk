@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerAttributeRequest extends Model
 {
     /**
-     * @description The certificate authority (CA) certificates.
+     * @description The information about the CA certificate.
      *
      * @var caCertificates[]
      */
@@ -33,7 +33,7 @@ class UpdateListenerAttributeRequest extends Model
     public $caEnabled;
 
     /**
-     * @description The certificates.
+     * @description The details about the certificates.
      *
      * @var certificates[]
      */
@@ -44,7 +44,7 @@ class UpdateListenerAttributeRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -52,7 +52,7 @@ class UpdateListenerAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The default actions in the forwarding rules.
+     * @description The actions of the default forwarding rule.
      *
      * @var defaultActions[]
      */
@@ -116,7 +116,7 @@ class UpdateListenerAttributeRequest extends Model
     public $listenerDescription;
 
     /**
-     * @description The ID of the Application Load Balancer (ALB) listener.
+     * @description The ID of the Application Load Balancer (ALB) instance.
      *
      * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
@@ -153,7 +153,7 @@ class UpdateListenerAttributeRequest extends Model
     public $securityPolicyId;
 
     /**
-     * @description The configuration of the XForwardFor headers.
+     * @description The configurations of the X-Forwarded-For header.
      *
      * @var XForwardedForConfig
      */

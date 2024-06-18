@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class rewriteConfig extends Model
 {
     /**
-     * @description The hostname to which requests are forwarded. Valid values:
+     * @description The hostname to which requests are redirected. Valid values:
      *
-     *   **${host}** (default): If ${host} is returned, no other character is appended.
+     *   **${host}** (default): If ${host} is returned, no other characters are appended.
      *
-     *   Limits on a custom value:
+     *   A custom value. Make sure that the custom value meets the following requirements:
      *
-     *   The hostname is 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\\*) and question marks (?) can be used as wildcard characters.
-     *   The hostname contains at least one period (.) but does not start or end with a period (.).
-     *   The rightmost domain label contains only letters and wildcard characters. It does not contain digits or hyphens (-).
-     *   The domain labels do not start or end with hyphens (-).
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
+     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
+     *   The domain labels cannot start or end with a hyphen (-).
      *   You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
      *
      * @example www.example.com
@@ -28,7 +28,7 @@ class rewriteConfig extends Model
     public $host;
 
     /**
-     * @description The path to which requests are forwarded. The path is 1 to 128 characters in length and starts with a forward slash (/). The path can contain letters, digits, asterisks (\\*), question marks (?), and the following special characters: `$ - _ . + / & ~ @ :`. The path does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`.
+     * @description The URL to which requests are redirected. The URL must be 1 to 128 characters in length, and can contain letters, digits, asterisks (\\*), question marks (?), and the following special characters: `$ - _ . + / & ~ @ :`. It must start with a forward slash (/) and does not contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`.
      *
      * @example /tsdf
      *
@@ -37,7 +37,7 @@ class rewriteConfig extends Model
     public $path;
 
     /**
-     * @description The query string of the URL to which requests are forwarded. The query string is 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
+     * @description The query string of the URL to which requests are redirected. The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
      *
      * @example quedsa
      *

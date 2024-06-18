@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class caCertificates extends Model
 {
     /**
+     * @description The ID of the CA certificate. You can specify only one CA certificate.
+     *
+     * >  This parameter is required if **CaEnabled** is set to **true**.
+     * @example 123359******
+     *
      * @var string
      */
     public $certificateId;

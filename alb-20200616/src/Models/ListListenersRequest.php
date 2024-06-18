@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListListenersRequest extends Model
 {
     /**
-     * @description The listener IDs. You can specify up to 20 IDs.
+     * @description The listener IDs. You can specify at most 20 listener IDs.
      *
      * @var string[]
      */

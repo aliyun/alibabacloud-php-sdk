@@ -11,9 +11,9 @@ class responseHeaderConfig extends Model
     /**
      * @description The key of the header.
      *
-     *   The key must be 1 to 40 characters in length.
-     *   It can contain lowercase letters, digits, hyphens (-), and underscores (_).
-     *   You cannot specify Cookie or Host.
+     *   The header key must be 1 to 40 characters in length.
+     *   It can contain letters, digits, hyphens (-), and underscores (_).
+     *   Cookie and Host are not supported.
      *
      * @example Port
      *
@@ -22,7 +22,7 @@ class responseHeaderConfig extends Model
     public $key;
 
     /**
-     * @description The values of the header.
+     * @description The value of the header.
      *
      * @var string[]
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
-     * @description The ID of the certificate. Only server certificates are supported. You can specify up to 20 certificate IDs.
+     * @description The ID of the certificate. Only server certificates are supported. You can specify at most 20 certificates IDs.
      *
+     * >  This parameter is required when you set **ListenerProtocol** to **HTTPS** or **QUIC**.
      * @example 12315790212_166f8204689_1714763408_70998****
      *
      * @var string

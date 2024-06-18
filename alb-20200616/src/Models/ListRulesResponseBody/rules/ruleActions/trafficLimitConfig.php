@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class trafficLimitConfig extends Model
 {
     /**
-     * @description The QPS of each IP address. Valid values: **1 to 100000**.
+     * @description The number of requests per IP address. Valid values: **1 to 100000**.
      *
-     * > If you specify this parameter and **QPS**, the value of **PerIpQps** must be smaller than the value of **QPS**.
+     * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
      * @example 80
      *
      * @var int

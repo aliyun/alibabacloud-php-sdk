@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclsRequest extends Model
 {
     /**
-     * @description The ID of the network ACL. You can specify at most 20 network ACL IDs in each request.
+     * @description Filter access control lists (ACLs) by ACL ID.
      *
      * @var string[]
      */

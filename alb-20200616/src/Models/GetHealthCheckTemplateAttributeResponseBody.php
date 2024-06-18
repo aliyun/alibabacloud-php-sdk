@@ -10,12 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetHealthCheckTemplateAttributeResponseBody extends Model
 {
     /**
-     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     * @description The HTTP status codes that indicate healthy backend servers.
      *
-     *   If **HealthCheckProtocol** is set to **HTTP**, **HealthCheckCodes** can be set to **http_2xx** (default), **http_3xx**, **http_4xx**, and **http_5xx**. Separate multiple HTTP status codes with a comma (,).
-     *   If **HealthCheckProtocol** is set to **gRPC**, **HealthCheckCodes** can be set to **0 to 99**. Default value: **0**. Value ranges are supported. You can enter up to 20 value ranges and separate them with a comma (,).
-     *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
      * @var string[]
      */
     public $healthCheckCodes;

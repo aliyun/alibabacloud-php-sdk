@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateAdditionalCertificatesWithListenerRequest extends Model
 {
     /**
-     * @description The additional certificates.
+     * @description The extended validation certificates that you want to add to the listener.
      *
      * This parameter is required.
      * @var certificates[]
@@ -22,7 +22,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -42,7 +42,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
+     * @description The listener ID. This parameter is supported only by HTTPS and QUIC listeners.
      *
      * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
