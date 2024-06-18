@@ -28,7 +28,7 @@ class DescribeAccountsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The page number. Default value: **1**. Valid values: any non-zero positive integer.
+     * @description The page number. Default value: **1**. Pages start from page 1.
      *
      * @example 1
      *

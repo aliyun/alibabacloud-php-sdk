@@ -32,8 +32,6 @@ class ModifyDBInstanceConnectionModeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @example testuser@aliyun.com
-     *
      * @var string
      */
     public $ownerAccount;

@@ -12,7 +12,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
      * @description The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
      *
      *   **cert**
-     *   **perfer**
+     *   **prefer**
      *   **verify-ca**
      *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
      *
@@ -108,7 +108,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
      * @description The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
      *
      *   **cert**
-     *   **perfer**
+     *   **prefer**
      *   **verify-ca**
      *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
      *

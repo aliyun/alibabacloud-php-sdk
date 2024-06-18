@@ -12,8 +12,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description Order parameters.
+     * @description The order parameters.
      *
+     * >  If the **OrderParamOut** parameter is set to **true**, the value of the OrderParams parameter is returned.
      * @example {\\"autoPay\\":false}"
      *
      * @var string
@@ -44,7 +45,7 @@ class DescribePriceResponseBody extends Model
     public $rules;
 
     /**
-     * @description Serverless price information.
+     * @description The pricing information about a serverless RDS instance.
      *
      * @var serverlessPrice
      */

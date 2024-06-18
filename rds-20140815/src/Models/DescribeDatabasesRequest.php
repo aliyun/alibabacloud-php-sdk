@@ -51,7 +51,7 @@ class DescribeDatabasesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1

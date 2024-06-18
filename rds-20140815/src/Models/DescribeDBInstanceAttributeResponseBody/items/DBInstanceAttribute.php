@@ -83,6 +83,8 @@ class DBInstanceAttribute extends Model
     public $burstingEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canTempUpgrade;
@@ -156,7 +158,7 @@ class DBInstanceAttribute extends Model
     public $consoleVersion;
 
     /**
-     * @description The creation time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2011-05-30T12:11:04Z
      *
@@ -261,7 +263,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
+     * @description The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
@@ -283,7 +285,7 @@ class DBInstanceAttribute extends Model
      *
      *   **local_ssd** or **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD).
+     *   **cloud_essd**: Enterprise SSD (ESSD)
      *   **general_essd**: general ESSD
      *
      * @example local_ssd
@@ -370,7 +372,7 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
-     * @description The extended information.
+     * @description The extended information of the instance.
      *
      * @var extra
      */
@@ -549,7 +551,7 @@ class DBInstanceAttribute extends Model
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
-     *   **SERVERLESS**
+     *   **SERVERLESS**: serverless
      *
      * @example Postpaid
      *
@@ -670,11 +672,15 @@ class DBInstanceAttribute extends Model
     public $tempDBInstanceId;
 
     /**
+     * @example 2024-05-30 00:00:00
+     *
      * @var string
      */
     public $tempUpgradeTimeEnd;
 
     /**
+     * @example 2024-05-29 00:00:00
+     *
      * @var string
      */
     public $tempUpgradeTimeStart;
@@ -701,7 +707,7 @@ class DBInstanceAttribute extends Model
      * @description The severity of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
-     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
      *
      * @example 1
      *
@@ -728,7 +734,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The virtual private cloud (VPC) ID.
+     * @description The VPC ID.
      *
      * @example vpc-*****
      *

@@ -49,7 +49,7 @@ class DBInstanceAttribute extends Model
      * @description The connection mode of the instance. Valid values:
      *
      *   **Performance**: standard mode.
-     *   **Safety**: safe mode.
+     *   **Safety**: enhanced mode
      *
      * @example Performance
      *
@@ -58,7 +58,7 @@ class DBInstanceAttribute extends Model
     public $connectionMode;
 
     /**
-     * @description The internal endpoint of the instance.
+     * @description The internal endpoint.
      *
      * @example rm-uf6wjk5xxxxxxxxxx.mysql.rds.aliyuncs.com
      *
@@ -103,7 +103,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceClassType;
 
     /**
-     * @description The description of the instance.
+     * @description The instance description.
      *
      * @example 0
      *
@@ -132,8 +132,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Internet**: Internet
-     *   **Intranet**: internal network
+     *   **Internet**
+     *   **Intranet**
      *
      * @example Internet
      *
@@ -142,7 +142,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The status of the instance.
+     * @description The instance status.
      *
      * @example Running
      *
@@ -160,10 +160,10 @@ class DBInstanceAttribute extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The type of the instance. Valid values:
+     * @description The instance type. Valid values:
      *
      *   **Primary**: primary instance
-     *   **Readonly**: read-only instance
+     *   **ReadOnly**: read-only instance
      *   **Guard**: disaster recovery instance
      *   **Temp**: temporary instance
      *
@@ -192,7 +192,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The engine version of the instance.
+     * @description The engine version.
      *
      * @example 8.0
      *
@@ -210,7 +210,7 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
-     * @description A deprecated parameter. You do not need to configure this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example API
      *
@@ -219,7 +219,7 @@ class DBInstanceAttribute extends Model
     public $exportKey;
 
     /**
-     * @description The ID of the disaster recovery instance that is attached to the instance.
+     * @description The ID of the disaster recovery instance that is attached to the primary instance.
      *
      * @example rm-uf64zsuxxxxxxxxxx
      *
@@ -228,7 +228,7 @@ class DBInstanceAttribute extends Model
     public $guardDBInstanceId;
 
     /**
-     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance comes from its primary instance. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -264,7 +264,7 @@ class DBInstanceAttribute extends Model
     public $lockReason;
 
     /**
-     * @description The maintenance window of the instance. The time is displayed in UTC. Take note that the maintenance window that is displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
+     * @description The maintenance window of the instance. The time follows the ISO 8601 standard and is displayed in UTC. In the ApsaraDB RDS console, the maintenance window is displayed in UTC+8.
      *
      * @example 00:00Z-02:00Z
      *
@@ -273,7 +273,7 @@ class DBInstanceAttribute extends Model
     public $maintainTime;
 
     /**
-     * @description The ID of the primary instance.
+     * @description The primary instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -336,7 +336,7 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
-     * @description The IP address whitelist.
+     * @description The IP addresses in the whitelist.
      *
      * @example 42.xx.xx.xx
      *
@@ -345,7 +345,7 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
-     * @description A deprecated parameter. You do not need to configure this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @var slaveZones
      */
@@ -370,7 +370,7 @@ class DBInstanceAttribute extends Model
     public $tags;
 
     /**
-     * @description The ID of the temporary instance that is attached to the instance.
+     * @description The ID of the temporary instance that is attached to the primary instance.
      *
      * @example rm-uf64zsuxxxxxxxxxx
      *
@@ -388,7 +388,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-uf6f7l4fg90xxxxxxxxxx
      *

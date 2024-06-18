@@ -18,7 +18,7 @@ class DescribeSQLLogRecordsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
      * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
@@ -49,10 +49,10 @@ class DescribeSQLLogRecordsRequest extends Model
     /**
      * @description Specifies whether to generate an SQL audit log file or return SQL audit log entries. Valid values:
      *
-     *   **File**: If you set this parameter to File, this operation generates an SQL audit log file and returns only common response parameters. After you call this operation, you must call the [DescribeSQLLogFiles](https://help.aliyun.com/document_detail/26295.html) operation to obtain the download URL of the SQL audit log file.
+     *   **File**: If you set this parameter to File, this operation generates an SQL audit log file and returns only common response parameters. After you call this operation, you must call the DescribeSQLLogFiles operation to obtain the download URL of the SQL audit log file.
      *   **Stream** (default): If you set this parameter to Stream, this operation returns SQL audit log entries.
      *
-     * > If you set this parameter to **File**, only ApsaraDB RDS for MySQL instances that use local disks and ApsaraDB RDS for SQL Server instances are supported, and a maximum of 1 million log entries are returned.
+     * >  If you set this parameter to **File**, only ApsaraDB RDS for MySQL instances that use local disks and ApsaraDB RDS for SQL Server instances are supported, and a maximum of one million log entries are returned.
      * @example Stream
      *
      * @var string
@@ -70,7 +70,7 @@ class DescribeSQLLogRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from 1.
      *
      * Default value: **1**.
      * @example 1
@@ -80,7 +80,7 @@ class DescribeSQLLogRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     * @description The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
      *
      * @example 30
      *

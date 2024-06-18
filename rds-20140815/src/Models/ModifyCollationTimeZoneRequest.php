@@ -23,12 +23,8 @@ class ModifyCollationTimeZoneRequest extends Model
      *   **Chinese_Taiwan_Stroke_CI_AS**
      *   **Chinese_Taiwan_Stroke_CS_AS**
      *
-     * >
-     *
-     *   The default character set collation of the instance is **Chinese_PRC_CI_AS**.
-     *
-     *   You must specify one of the **Collation** and **Timezone** parameters.
-     *
+     * > *   The default character set collation of the instance is **Chinese_PRC_CI_AS**.
+     * > *   You must specify one of the **Collation** and **Timezone** parameters.
      * @example Latin1_General_CI_AS
      *
      * @var string
@@ -63,12 +59,8 @@ class ModifyCollationTimeZoneRequest extends Model
     /**
      * @description The time zone of the instance. By default, the system does not modify the time zone.
      *
-     * >
-     *
-     *   The default time zone of the instance is **China Standard Time**.
-     *
-     *   You must specify one of the **Collation** and **Timezone** parameters.
-     *
+     * > *   The default time zone of the instance is **China Standard Time**.
+     * > *   You must specify one of the **Collation** and **Timezone** parameters.
      * @example China Standard Time
      *
      * @var string

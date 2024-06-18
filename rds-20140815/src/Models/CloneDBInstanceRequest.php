@@ -10,12 +10,12 @@ use AlibabaCloud\Tea\Model;
 class CloneDBInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically complete the payment. Valid values:
+     * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     * 1.  **true**: automatically completes the payment. You must make sure that your account balance is sufficient.
-     * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
+     * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
+     * 2.  **false**: disables the feature. An unpaid order is generated.
      *
-     * > The default value is true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can pay for the order in the ApsaraDB RDS console.
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example true
      *
      * @var bool
@@ -153,8 +153,8 @@ class CloneDBInstanceRequest extends Model
     /**
      * @description Specifies whether to enable the release protection feature for the instance. Valid values:
      *
-     *   **true**: enables the feature.
-     *   **false** (default): disables the feature.
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -204,7 +204,7 @@ class CloneDBInstanceRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * > If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
+     * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
      * @example Year
      *
      * @var string

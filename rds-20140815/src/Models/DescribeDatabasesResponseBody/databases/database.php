@@ -45,7 +45,7 @@ class database extends Model
     public $characterSetName;
 
     /**
-     * @description The collation of the character set. The example value C stands for localization.
+     * @description The collation of the character set. The example value C indicates localization.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
      * @example C
@@ -107,6 +107,7 @@ class database extends Model
      *   **Creating**
      *   **Running**
      *   **Deleting**
+     *   **Cold**
      *
      * @example Creating
      *
@@ -124,7 +125,7 @@ class database extends Model
     public $engine;
 
     /**
-     * @description The page number.
+     * @description The page number of the page to return.
      *
      * @example 1
      *

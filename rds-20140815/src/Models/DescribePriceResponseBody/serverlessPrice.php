@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverlessPrice extends Model
 {
     /**
-     * @description MaxRCU discount amount.
+     * @description The discount amount of the maximum number of RCUs.
      *
      * @example 1**.*
      *
@@ -18,7 +18,7 @@ class serverlessPrice extends Model
     public $RCUDiscountMaxAmount;
 
     /**
-     * @description MinRCU discount amount.
+     * @description The discount amount of the minimum number of RCUs.
      *
      * @example 1*.*
      *
@@ -27,7 +27,7 @@ class serverlessPrice extends Model
     public $RCUDiscountMinAmount;
 
     /**
-     * @description MaxRCU price.
+     * @description The price of the maximum number of RCUs.
      *
      * @example 2**.*
      *
@@ -36,7 +36,7 @@ class serverlessPrice extends Model
     public $RCUOriginalMaxAmount;
 
     /**
-     * @description MinRCU price.
+     * @description The price of the minimum number of RCUs.
      *
      * @example 3*.*
      *
@@ -45,7 +45,7 @@ class serverlessPrice extends Model
     public $RCUOriginalMinAmount;
 
     /**
-     * @description Original price of the disk.
+     * @description The original price of the disk capacity.
      *
      * @example 1*
      *
@@ -54,7 +54,7 @@ class serverlessPrice extends Model
     public $storageOriginalAmount;
 
     /**
-     * @description Maximum total price before discount.
+     * @description The maximum total price before the discount.
      *
      * @example 2**.*
      *
@@ -72,7 +72,7 @@ class serverlessPrice extends Model
     public $totalOriginalMinAmount;
 
     /**
-     * @description MaxRCU transaction price.
+     * @description The transaction price of the maximum number of RCUs.
      *
      * @example 1**.*
      *
@@ -81,7 +81,7 @@ class serverlessPrice extends Model
     public $tradeMaxRCUAmount;
 
     /**
-     * @description MinRCU transaction price.
+     * @description The transaction price of the minimum number of RCUs.
      *
      * @example 2*.*
      *
@@ -90,7 +90,7 @@ class serverlessPrice extends Model
     public $tradeMinRCUAmount;
 
     /**
-     * @description Disk discount price.
+     * @description The discounted price of the disk capacity.
      *
      * @example 2.*
      *

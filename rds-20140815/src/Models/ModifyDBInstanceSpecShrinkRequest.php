@@ -225,6 +225,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     /**
      * @description The specifications that you want to change for a serverless instance.
      *
+     * >  This parameter is available only on the China site (aliyun.com).
      * @var string
      */
     public $serverlessConfigurationShrink;

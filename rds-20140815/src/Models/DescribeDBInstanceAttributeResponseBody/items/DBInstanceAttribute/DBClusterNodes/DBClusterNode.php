@@ -18,7 +18,7 @@ class DBClusterNode extends Model
     public $classCode;
 
     /**
-     * @description The node type. Valid values:
+     * @description The node type. Default value: true. Valid values:
      *
      *   d: dedicated node type
      *   x: general-purpose node type
@@ -87,7 +87,7 @@ class DBClusterNode extends Model
     public $nodeZoneId;
 
     /**
-     * @description The node status. Valid values:
+     * @description The node status. Default value: true. Valid values:
      *
      *   active
      *   creating

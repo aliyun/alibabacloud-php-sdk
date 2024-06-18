@@ -44,7 +44,7 @@ class priceInfo extends Model
     public $discountPrice;
 
     /**
-     * @description Order Information
+     * @description The order information.
      *
      * @example Order Information
      *
@@ -69,7 +69,7 @@ class priceInfo extends Model
     public $ruleIds;
 
     /**
-     * @description Estimated hourly cost calculated based on the maximum RCU selected by the user.
+     * @description The estimated hourly cost that is calculated based on the maximum number of RCUs you specify.
      *
      * @example 1**
      *
@@ -78,7 +78,7 @@ class priceInfo extends Model
     public $tradeMaxRCUAmount;
 
     /**
-     * @description Estimated hourly cost calculated based on the minimum RCU selected by the user.
+     * @description The estimated hourly cost that is calculated based on the minimum number of RCUs you specify.
      *
      * @example 2**
      *
