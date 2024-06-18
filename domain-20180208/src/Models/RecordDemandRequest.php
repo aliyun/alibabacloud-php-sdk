@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecordDemandRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SE20183A0Q7C5556
      *
      * @var string
@@ -16,6 +18,8 @@ class RecordDemandRequest extends Model
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example some message
      *
      * @var string

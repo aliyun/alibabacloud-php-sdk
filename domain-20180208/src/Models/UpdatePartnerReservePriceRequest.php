@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdatePartnerReservePriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $biddingId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $partnerType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $reservePrice;

@@ -16,6 +16,8 @@ class ReserveDomainRequest extends Model
     public $channels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aliyun.com
      *
      * @var string

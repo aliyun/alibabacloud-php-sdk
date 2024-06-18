@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SelectedDomainListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 20231109
      *
      * @var string

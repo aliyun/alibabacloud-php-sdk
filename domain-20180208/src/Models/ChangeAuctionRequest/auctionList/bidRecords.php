@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class bidRecords extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $price;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;

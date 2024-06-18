@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BidDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12345678
      *
      * @var string
@@ -16,6 +18,8 @@ class BidDomainRequest extends Model
     public $auctionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RMB
      *
      * @var string
@@ -23,6 +27,8 @@ class BidDomainRequest extends Model
     public $currency;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var float

@@ -15,11 +15,15 @@ class auctionList extends Model
     public $bidRecords;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
@@ -50,11 +54,15 @@ class auctionList extends Model
     public $timeLeft;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $winner;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $winnerPrice;

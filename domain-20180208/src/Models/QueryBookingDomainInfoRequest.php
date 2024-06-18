@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryBookingDomainInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example abc.com
      *
      * @var string

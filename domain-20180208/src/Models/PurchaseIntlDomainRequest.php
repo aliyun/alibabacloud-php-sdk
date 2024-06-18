@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PurchaseIntlDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $auctionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float
      */
     public $price;

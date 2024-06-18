@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RequestPayDemandRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SE20183A0Q7C5556
      *
      * @var string
@@ -16,6 +18,8 @@ class RequestPayDemandRequest extends Model
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test.com
      *
      * @var string
@@ -30,6 +34,8 @@ class RequestPayDemandRequest extends Model
     public $message;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var float

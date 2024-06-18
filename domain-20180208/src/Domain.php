@@ -100,10 +100,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param AcceptDemandRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param AcceptDemandRequest $request AcceptDemandRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptDemandResponse
+     * @return AcceptDemandResponse AcceptDemandResponse
      */
     public function acceptDemandWithOptions($request, $runtime)
     {
@@ -134,9 +134,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param AcceptDemandRequest $request
+     * @param AcceptDemandRequest $request AcceptDemandRequest
      *
-     * @return AcceptDemandResponse
+     * @return AcceptDemandResponse AcceptDemandResponse
      */
     public function acceptDemand($request)
     {
@@ -146,10 +146,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param BidDomainRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param BidDomainRequest $request BidDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BidDomainResponse
+     * @return BidDomainResponse BidDomainResponse
      */
     public function bidDomainWithOptions($request, $runtime)
     {
@@ -183,9 +183,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param BidDomainRequest $request
+     * @param BidDomainRequest $request BidDomainRequest
      *
-     * @return BidDomainResponse
+     * @return BidDomainResponse BidDomainResponse
      */
     public function bidDomain($request)
     {
@@ -195,10 +195,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ChangeAuctionRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ChangeAuctionRequest $request ChangeAuctionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeAuctionResponse
+     * @return ChangeAuctionResponse ChangeAuctionResponse
      */
     public function changeAuctionWithOptions($request, $runtime)
     {
@@ -226,9 +226,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ChangeAuctionRequest $request
+     * @param ChangeAuctionRequest $request ChangeAuctionRequest
      *
-     * @return ChangeAuctionResponse
+     * @return ChangeAuctionResponse ChangeAuctionResponse
      */
     public function changeAuction($request)
     {
@@ -238,10 +238,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 校验域名在售状态
+     *  *
+     * @param CheckDomainStatusRequest $request CheckDomainStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainStatusResponse
+     * @return CheckDomainStatusResponse CheckDomainStatusResponse
      */
     public function checkDomainStatusWithOptions($request, $runtime)
     {
@@ -266,9 +268,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainStatusRequest $request
+     * @summary 校验域名在售状态
+     *  *
+     * @param CheckDomainStatusRequest $request CheckDomainStatusRequest
      *
-     * @return CheckDomainStatusResponse
+     * @return CheckDomainStatusResponse CheckDomainStatusResponse
      */
     public function checkDomainStatus($request)
     {
@@ -278,10 +282,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckSelectedDomainStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 一口价严选询价接口
+     *  *
+     * @param CheckSelectedDomainStatusRequest $request CheckSelectedDomainStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckSelectedDomainStatusResponse
+     * @return CheckSelectedDomainStatusResponse CheckSelectedDomainStatusResponse
      */
     public function checkSelectedDomainStatusWithOptions($request, $runtime)
     {
@@ -309,9 +315,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckSelectedDomainStatusRequest $request
+     * @summary 一口价严选询价接口
+     *  *
+     * @param CheckSelectedDomainStatusRequest $request CheckSelectedDomainStatusRequest
      *
-     * @return CheckSelectedDomainStatusResponse
+     * @return CheckSelectedDomainStatusResponse CheckSelectedDomainStatusResponse
      */
     public function checkSelectedDomainStatus($request)
     {
@@ -321,10 +329,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CreateFixedPriceDemandOrderRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建一口价需求单
+     *  *
+     * @param CreateFixedPriceDemandOrderRequest $request CreateFixedPriceDemandOrderRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFixedPriceDemandOrderResponse
+     * @return CreateFixedPriceDemandOrderResponse CreateFixedPriceDemandOrderResponse
      */
     public function createFixedPriceDemandOrderWithOptions($request, $runtime)
     {
@@ -361,9 +371,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CreateFixedPriceDemandOrderRequest $request
+     * @summary 创建一口价需求单
+     *  *
+     * @param CreateFixedPriceDemandOrderRequest $request CreateFixedPriceDemandOrderRequest
      *
-     * @return CreateFixedPriceDemandOrderResponse
+     * @return CreateFixedPriceDemandOrderResponse CreateFixedPriceDemandOrderResponse
      */
     public function createFixedPriceDemandOrder($request)
     {
@@ -373,10 +385,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CreateFixedPriceSelectedOrderRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
+     *  *
+     * @param CreateFixedPriceSelectedOrderRequest $request CreateFixedPriceSelectedOrderRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFixedPriceSelectedOrderResponse
+     * @return CreateFixedPriceSelectedOrderResponse CreateFixedPriceSelectedOrderResponse
      */
     public function createFixedPriceSelectedOrderWithOptions($request, $runtime)
     {
@@ -416,9 +430,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CreateFixedPriceSelectedOrderRequest $request
+     * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
+     *  *
+     * @param CreateFixedPriceSelectedOrderRequest $request CreateFixedPriceSelectedOrderRequest
      *
-     * @return CreateFixedPriceSelectedOrderResponse
+     * @return CreateFixedPriceSelectedOrderResponse CreateFixedPriceSelectedOrderResponse
      */
     public function createFixedPriceSelectedOrder($request)
     {
@@ -428,10 +444,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FailDemandRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param FailDemandRequest $request FailDemandRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return FailDemandResponse
+     * @return FailDemandResponse FailDemandResponse
      */
     public function failDemandWithOptions($request, $runtime)
     {
@@ -462,9 +478,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FailDemandRequest $request
+     * @param FailDemandRequest $request FailDemandRequest
      *
-     * @return FailDemandResponse
+     * @return FailDemandResponse FailDemandResponse
      */
     public function failDemand($request)
     {
@@ -474,10 +490,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FinishDemandRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param FinishDemandRequest $request FinishDemandRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return FinishDemandResponse
+     * @return FinishDemandResponse FinishDemandResponse
      */
     public function finishDemandWithOptions($request, $runtime)
     {
@@ -508,9 +524,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FinishDemandRequest $request
+     * @param FinishDemandRequest $request FinishDemandRequest
      *
-     * @return FinishDemandResponse
+     * @return FinishDemandResponse FinishDemandResponse
      */
     public function finishDemand($request)
     {
@@ -520,9 +536,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIntlDomainDownloadUrlResponse
+     * @return GetIntlDomainDownloadUrlResponse GetIntlDomainDownloadUrlResponse
      */
     public function getIntlDomainDownloadUrlWithOptions($runtime)
     {
@@ -543,7 +559,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @return GetIntlDomainDownloadUrlResponse
+     * @return GetIntlDomainDownloadUrlResponse GetIntlDomainDownloadUrlResponse
      */
     public function getIntlDomainDownloadUrl()
     {
@@ -553,9 +569,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetReserveDomainUrlResponse
+     * @return GetReserveDomainUrlResponse GetReserveDomainUrlResponse
      */
     public function getReserveDomainUrlWithOptions($runtime)
     {
@@ -576,7 +592,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @return GetReserveDomainUrlResponse
+     * @return GetReserveDomainUrlResponse GetReserveDomainUrlResponse
      */
     public function getReserveDomainUrl()
     {
@@ -586,10 +602,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param PurchaseIntlDomainRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 购买国际站预释放域名
+     *  *
+     * @param PurchaseIntlDomainRequest $request PurchaseIntlDomainRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return PurchaseIntlDomainResponse
+     * @return PurchaseIntlDomainResponse PurchaseIntlDomainResponse
      */
     public function purchaseIntlDomainWithOptions($request, $runtime)
     {
@@ -623,9 +641,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param PurchaseIntlDomainRequest $request
+     * @summary 购买国际站预释放域名
+     *  *
+     * @param PurchaseIntlDomainRequest $request PurchaseIntlDomainRequest
      *
-     * @return PurchaseIntlDomainResponse
+     * @return PurchaseIntlDomainResponse PurchaseIntlDomainResponse
      */
     public function purchaseIntlDomain($request)
     {
@@ -635,10 +655,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryAuctionDetailRequest $request QueryAuctionDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAuctionDetailResponse
+     * @return QueryAuctionDetailResponse QueryAuctionDetailResponse
      */
     public function queryAuctionDetailWithOptions($request, $runtime)
     {
@@ -666,9 +686,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionDetailRequest $request
+     * @param QueryAuctionDetailRequest $request QueryAuctionDetailRequest
      *
-     * @return QueryAuctionDetailResponse
+     * @return QueryAuctionDetailResponse QueryAuctionDetailResponse
      */
     public function queryAuctionDetail($request)
     {
@@ -678,15 +698,18 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param QueryAuctionsRequest $request QueryAuctionsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAuctionsResponse
+     * @return QueryAuctionsResponse QueryAuctionsResponse
      */
     public function queryAuctionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->auctionEndTimeOrder)) {
+            $body['AuctionEndTimeOrder'] = $request->auctionEndTimeOrder;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $body['CurrentPage'] = $request->currentPage;
         }
@@ -695,6 +718,9 @@ class Domain extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->statuses)) {
+            $body['Statuses'] = $request->statuses;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -715,9 +741,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionsRequest $request
+     * @param QueryAuctionsRequest $request QueryAuctionsRequest
      *
-     * @return QueryAuctionsResponse
+     * @return QueryAuctionsResponse QueryAuctionsResponse
      */
     public function queryAuctions($request)
     {
@@ -727,10 +753,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBidRecordsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryBidRecordsRequest $request QueryBidRecordsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBidRecordsResponse
+     * @return QueryBidRecordsResponse QueryBidRecordsResponse
      */
     public function queryBidRecordsWithOptions($request, $runtime)
     {
@@ -764,9 +790,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBidRecordsRequest $request
+     * @param QueryBidRecordsRequest $request QueryBidRecordsRequest
      *
-     * @return QueryBidRecordsResponse
+     * @return QueryBidRecordsResponse QueryBidRecordsResponse
      */
     public function queryBidRecords($request)
     {
@@ -776,10 +802,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBookingDomainInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param QueryBookingDomainInfoRequest $request QueryBookingDomainInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBookingDomainInfoResponse
+     * @return QueryBookingDomainInfoResponse QueryBookingDomainInfoResponse
      */
     public function queryBookingDomainInfoWithOptions($request, $runtime)
     {
@@ -807,9 +833,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBookingDomainInfoRequest $request
+     * @param QueryBookingDomainInfoRequest $request QueryBookingDomainInfoRequest
      *
-     * @return QueryBookingDomainInfoResponse
+     * @return QueryBookingDomainInfoResponse QueryBookingDomainInfoResponse
      */
     public function queryBookingDomainInfo($request)
     {
@@ -819,10 +845,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBrokerDemandRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询回购订单列表
+     *  *
+     * @param QueryBrokerDemandRequest $request QueryBrokerDemandRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBrokerDemandResponse
+     * @return QueryBrokerDemandResponse QueryBrokerDemandResponse
      */
     public function queryBrokerDemandWithOptions($request, $runtime)
     {
@@ -859,9 +887,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBrokerDemandRequest $request
+     * @summary 查询回购订单列表
+     *  *
+     * @param QueryBrokerDemandRequest $request QueryBrokerDemandRequest
      *
-     * @return QueryBrokerDemandResponse
+     * @return QueryBrokerDemandResponse QueryBrokerDemandResponse
      */
     public function queryBrokerDemand($request)
     {
@@ -871,10 +901,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBrokerDemandRecordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param QueryBrokerDemandRecordRequest $request QueryBrokerDemandRecordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBrokerDemandRecordResponse
+     * @return QueryBrokerDemandRecordResponse QueryBrokerDemandRecordResponse
      */
     public function queryBrokerDemandRecordWithOptions($request, $runtime)
     {
@@ -908,9 +938,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBrokerDemandRecordRequest $request
+     * @param QueryBrokerDemandRecordRequest $request QueryBrokerDemandRecordRequest
      *
-     * @return QueryBrokerDemandRecordResponse
+     * @return QueryBrokerDemandRecordResponse QueryBrokerDemandRecordResponse
      */
     public function queryBrokerDemandRecord($request)
     {
@@ -920,10 +950,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainTransferStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param QueryDomainTransferStatusRequest $request QueryDomainTransferStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainTransferStatusResponse
+     * @return QueryDomainTransferStatusResponse QueryDomainTransferStatusResponse
      */
     public function queryDomainTransferStatusWithOptions($request, $runtime)
     {
@@ -951,9 +981,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainTransferStatusRequest $request
+     * @param QueryDomainTransferStatusRequest $request QueryDomainTransferStatusRequest
      *
-     * @return QueryDomainTransferStatusResponse
+     * @return QueryDomainTransferStatusResponse QueryDomainTransferStatusResponse
      */
     public function queryDomainTransferStatus($request)
     {
@@ -963,10 +993,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryPurchasedDomainsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QueryPurchasedDomainsRequest $request QueryPurchasedDomainsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPurchasedDomainsResponse
+     * @return QueryPurchasedDomainsResponse QueryPurchasedDomainsResponse
      */
     public function queryPurchasedDomainsWithOptions($request, $runtime)
     {
@@ -1018,9 +1048,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryPurchasedDomainsRequest $request
+     * @param QueryPurchasedDomainsRequest $request QueryPurchasedDomainsRequest
      *
-     * @return QueryPurchasedDomainsResponse
+     * @return QueryPurchasedDomainsResponse QueryPurchasedDomainsResponse
      */
     public function queryPurchasedDomains($request)
     {
@@ -1030,10 +1060,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RecordDemandRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param RecordDemandRequest $request RecordDemandRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecordDemandResponse
+     * @return RecordDemandResponse RecordDemandResponse
      */
     public function recordDemandWithOptions($request, $runtime)
     {
@@ -1064,9 +1094,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RecordDemandRequest $request
+     * @param RecordDemandRequest $request RecordDemandRequest
      *
-     * @return RecordDemandResponse
+     * @return RecordDemandResponse RecordDemandResponse
      */
     public function recordDemand($request)
     {
@@ -1076,10 +1106,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RefuseDemandRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param RefuseDemandRequest $request RefuseDemandRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefuseDemandResponse
+     * @return RefuseDemandResponse RefuseDemandResponse
      */
     public function refuseDemandWithOptions($request, $runtime)
     {
@@ -1110,9 +1140,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RefuseDemandRequest $request
+     * @param RefuseDemandRequest $request RefuseDemandRequest
      *
-     * @return RefuseDemandResponse
+     * @return RefuseDemandResponse RefuseDemandResponse
      */
     public function refuseDemand($request)
     {
@@ -1122,10 +1152,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RequestPayDemandRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param RequestPayDemandRequest $request RequestPayDemandRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RequestPayDemandResponse
+     * @return RequestPayDemandResponse RequestPayDemandResponse
      */
     public function requestPayDemandWithOptions($request, $runtime)
     {
@@ -1165,9 +1195,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RequestPayDemandRequest $request
+     * @param RequestPayDemandRequest $request RequestPayDemandRequest
      *
-     * @return RequestPayDemandResponse
+     * @return RequestPayDemandResponse RequestPayDemandResponse
      */
     public function requestPayDemand($request)
     {
@@ -1177,10 +1207,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveDomainRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ReserveDomainRequest $request ReserveDomainRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReserveDomainResponse
+     * @return ReserveDomainResponse ReserveDomainResponse
      */
     public function reserveDomainWithOptions($request, $runtime)
     {
@@ -1211,9 +1241,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveDomainRequest $request
+     * @param ReserveDomainRequest $request ReserveDomainRequest
      *
-     * @return ReserveDomainResponse
+     * @return ReserveDomainResponse ReserveDomainResponse
      */
     public function reserveDomain($request)
     {
@@ -1223,10 +1253,10 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveIntlDomainRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ReserveIntlDomainRequest $request ReserveIntlDomainRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReserveIntlDomainResponse
+     * @return ReserveIntlDomainResponse ReserveIntlDomainResponse
      */
     public function reserveIntlDomainWithOptions($request, $runtime)
     {
@@ -1254,9 +1284,9 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveIntlDomainRequest $request
+     * @param ReserveIntlDomainRequest $request ReserveIntlDomainRequest
      *
-     * @return ReserveIntlDomainResponse
+     * @return ReserveIntlDomainResponse ReserveIntlDomainResponse
      */
     public function reserveIntlDomain($request)
     {
@@ -1266,10 +1296,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SelectedDomainListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+     *  *
+     * @param SelectedDomainListRequest $request SelectedDomainListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SelectedDomainListResponse
+     * @return SelectedDomainListResponse SelectedDomainListResponse
      */
     public function selectedDomainListWithOptions($request, $runtime)
     {
@@ -1297,9 +1329,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SelectedDomainListRequest $request
+     * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
+     *  *
+     * @param SelectedDomainListRequest $request SelectedDomainListRequest
      *
-     * @return SelectedDomainListResponse
+     * @return SelectedDomainListResponse SelectedDomainListResponse
      */
     public function selectedDomainList($request)
     {
@@ -1309,10 +1343,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitPurchaseInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 提交采购信息
+     *  *
+     * @param SubmitPurchaseInfoRequest $request SubmitPurchaseInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitPurchaseInfoResponse
+     * @return SubmitPurchaseInfoResponse SubmitPurchaseInfoResponse
      */
     public function submitPurchaseInfoWithOptions($request, $runtime)
     {
@@ -1349,9 +1385,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SubmitPurchaseInfoRequest $request
+     * @summary 提交采购信息
+     *  *
+     * @param SubmitPurchaseInfoRequest $request SubmitPurchaseInfoRequest
      *
-     * @return SubmitPurchaseInfoResponse
+     * @return SubmitPurchaseInfoResponse SubmitPurchaseInfoResponse
      */
     public function submitPurchaseInfo($request)
     {
@@ -1361,10 +1399,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param UpdatePartnerReservePriceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 合作方同步报价
+     *  *
+     * @param UpdatePartnerReservePriceRequest $request UpdatePartnerReservePriceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePartnerReservePriceResponse
+     * @return UpdatePartnerReservePriceResponse UpdatePartnerReservePriceResponse
      */
     public function updatePartnerReservePriceWithOptions($request, $runtime)
     {
@@ -1401,9 +1441,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param UpdatePartnerReservePriceRequest $request
+     * @summary 合作方同步报价
+     *  *
+     * @param UpdatePartnerReservePriceRequest $request UpdatePartnerReservePriceRequest
      *
-     * @return UpdatePartnerReservePriceResponse
+     * @return UpdatePartnerReservePriceResponse UpdatePartnerReservePriceResponse
      */
     public function updatePartnerReservePrice($request)
     {

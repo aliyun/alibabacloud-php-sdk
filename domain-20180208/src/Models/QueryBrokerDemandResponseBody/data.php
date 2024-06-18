@@ -123,6 +123,11 @@ class data extends Model
     public $servicePayPrice;
 
     /**
+     * @var float
+     */
+    public $settleBasePrice;
+
+    /**
      * @example 1
      *
      * @var string
@@ -147,6 +152,7 @@ class data extends Model
         'publishTime'         => 'PublishTime',
         'purchaseStatus'      => 'PurchaseStatus',
         'servicePayPrice'     => 'ServicePayPrice',
+        'settleBasePrice'     => 'SettleBasePrice',
         'status'              => 'Status',
     ];
 
@@ -210,6 +216,9 @@ class data extends Model
         }
         if (null !== $this->servicePayPrice) {
             $res['ServicePayPrice'] = $this->servicePayPrice;
+        }
+        if (null !== $this->settleBasePrice) {
+            $res['SettleBasePrice'] = $this->settleBasePrice;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -279,6 +288,9 @@ class data extends Model
         }
         if (isset($map['ServicePayPrice'])) {
             $model->servicePayPrice = $map['ServicePayPrice'];
+        }
+        if (isset($map['SettleBasePrice'])) {
+            $model->settleBasePrice = $map['SettleBasePrice'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

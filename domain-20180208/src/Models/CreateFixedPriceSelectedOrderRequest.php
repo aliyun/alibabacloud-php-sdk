@@ -16,6 +16,8 @@ class CreateFixedPriceSelectedOrderRequest extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11935401
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateFixedPriceSelectedOrderRequest extends Model
     public $contactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateFixedPriceSelectedOrderRequest extends Model
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20.00
      *
      * @var float
