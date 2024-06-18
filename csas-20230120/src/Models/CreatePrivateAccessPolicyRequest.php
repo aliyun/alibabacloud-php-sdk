@@ -36,6 +36,11 @@ class CreatePrivateAccessPolicyRequest extends Model
     /**
      * @var string
      */
+    public $deviceAttributeAction;
+
+    /**
+     * @var string
+     */
     public $deviceAttributeId;
 
     /**
@@ -98,18 +103,19 @@ class CreatePrivateAccessPolicyRequest extends Model
      */
     public $userGroupMode;
     protected $_name = [
-        'applicationIds'       => 'ApplicationIds',
-        'applicationType'      => 'ApplicationType',
-        'customUserAttributes' => 'CustomUserAttributes',
-        'description'          => 'Description',
-        'deviceAttributeId'    => 'DeviceAttributeId',
-        'name'                 => 'Name',
-        'policyAction'         => 'PolicyAction',
-        'priority'             => 'Priority',
-        'status'               => 'Status',
-        'tagIds'               => 'TagIds',
-        'userGroupIds'         => 'UserGroupIds',
-        'userGroupMode'        => 'UserGroupMode',
+        'applicationIds'        => 'ApplicationIds',
+        'applicationType'       => 'ApplicationType',
+        'customUserAttributes'  => 'CustomUserAttributes',
+        'description'           => 'Description',
+        'deviceAttributeAction' => 'DeviceAttributeAction',
+        'deviceAttributeId'     => 'DeviceAttributeId',
+        'name'                  => 'Name',
+        'policyAction'          => 'PolicyAction',
+        'priority'              => 'Priority',
+        'status'                => 'Status',
+        'tagIds'                => 'TagIds',
+        'userGroupIds'          => 'UserGroupIds',
+        'userGroupMode'         => 'UserGroupMode',
     ];
 
     public function validate()
@@ -136,6 +142,9 @@ class CreatePrivateAccessPolicyRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->deviceAttributeAction) {
+            $res['DeviceAttributeAction'] = $this->deviceAttributeAction;
         }
         if (null !== $this->deviceAttributeId) {
             $res['DeviceAttributeId'] = $this->deviceAttributeId;
@@ -192,6 +201,9 @@ class CreatePrivateAccessPolicyRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DeviceAttributeAction'])) {
+            $model->deviceAttributeAction = $map['DeviceAttributeAction'];
         }
         if (isset($map['DeviceAttributeId'])) {
             $model->deviceAttributeId = $map['DeviceAttributeId'];

@@ -528,6 +528,9 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->deviceAttributeAction)) {
+            $body['DeviceAttributeAction'] = $request->deviceAttributeAction;
+        }
         if (!Utils::isUnset($request->deviceAttributeId)) {
             $body['DeviceAttributeId'] = $request->deviceAttributeId;
         }
@@ -3460,6 +3463,9 @@ class Csas extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceAttributeAction)) {
+            $body['DeviceAttributeAction'] = $request->deviceAttributeAction;
         }
         if (!Utils::isUnset($request->deviceAttributeId)) {
             $body['DeviceAttributeId'] = $request->deviceAttributeId;
