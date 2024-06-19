@@ -24,7 +24,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @description The ID of the instance. Separate multiple instance IDs with commas (,).
      *
-     * > You can specify up to 30 instance IDs.
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

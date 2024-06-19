@@ -17,7 +17,7 @@ class items extends Model
      *   **cancel**
      *   **modifySwitchTime**: changes the switching or restoration time.
      *
-     * @example {\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}
+     * @example {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
      *
      * @var string
      */
@@ -170,7 +170,7 @@ class items extends Model
     /**
      * @description The task details. The details vary based on the task type.
      *
-     * @example {\"callerUid\":\"test\"}
+     * @example {\\"callerUid\\":\\"test\\"}
      *
      * @var string
      */

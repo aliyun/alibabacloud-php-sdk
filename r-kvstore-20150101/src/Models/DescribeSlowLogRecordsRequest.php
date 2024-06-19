@@ -20,6 +20,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-22T14:11Z
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -136,6 +138,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-10T14:11Z
      *
      * @var string

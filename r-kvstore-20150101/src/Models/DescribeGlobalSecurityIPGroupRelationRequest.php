@@ -11,6 +11,7 @@ class DescribeGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-t4n885e834f6****
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

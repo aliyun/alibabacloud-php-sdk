@@ -30,9 +30,9 @@ class CreateTairInstanceResponseBody extends Model
     public $chargeType;
 
     /**
-     * @description The detailed configurations of the instance. The value is a JSON string. For more information about the parameter description, see [Modify the parameters of an ApsaraDB for Redis instance](~~43885~~).
+     * @description The detailed configurations of the instance. The value is a JSON string. For more information about the parameter description, see [Modify the parameters of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43885.html).
      *
-     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"list-max-ziplist-entries\":512,\"list-max-ziplist-value\":64,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     * @example {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
      *
      * @var string
      */
@@ -87,7 +87,7 @@ class CreateTairInstanceResponseBody extends Model
     public $instanceStatus;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 2084452111111
      *

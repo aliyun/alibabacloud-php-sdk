@@ -186,7 +186,7 @@ class instances extends Model
      *
      *   If the return value is **0**, the proxy mode is disabled for the instance. If the return value is an integer greater than **0**, such as **1**, the proxy mode is enabled for the instance.
      *
-     *   This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](~~52228~~).
+     *   This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
      *
      * @example 1
      *
@@ -206,7 +206,7 @@ class instances extends Model
     /**
      * @description The number of shards.
      *
-     * >  This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](~~52228~~).
+     * >  This parameter is returned only when the instance is a cluster instance. For more information about cluster instances, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
      * @example 3
      *
      * @var int
@@ -214,7 +214,7 @@ class instances extends Model
     public $shardCount;
 
     /**
-     * @description The storage type of the instance. The return value is LOCAL_SSD, which indicates [enhanced SSDs (ESSDs)](~~122389~~).
+     * @description The storage type of the instance. The return value is LOCAL_SSD, which indicates [enhanced SSDs (ESSDs)](https://help.aliyun.com/document_detail/122389.html).
      *
      * @example LOCAL_SSD
      *

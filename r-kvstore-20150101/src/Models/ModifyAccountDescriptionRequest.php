@@ -12,9 +12,10 @@ class ModifyAccountDescriptionRequest extends Model
      * @description The description of the account.
      *
      *   The description must start with a letter and cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, underscores (_), and hyphens (-).
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example testescription
      *
      * @var string
@@ -22,8 +23,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
-     * @description The username of the account. You can call the [DescribeAccounts](~~95802~~) operation to query the username of the account.
+     * @description The username of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
      *
+     * This parameter is required.
      * @example demoaccount
      *
      * @var string
@@ -33,6 +35,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

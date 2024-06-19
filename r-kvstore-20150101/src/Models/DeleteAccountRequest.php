@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
-     * @description The username of the account. You can call the [DescribeAccounts](~~95802~~) operation to query the username of the account.
+     * @description The username of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
      *
+     * This parameter is required.
      * @example demoaccount
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

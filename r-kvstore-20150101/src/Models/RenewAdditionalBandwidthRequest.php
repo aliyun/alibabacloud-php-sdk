@@ -30,8 +30,9 @@ class RenewAdditionalBandwidthRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -41,6 +42,7 @@ class RenewAdditionalBandwidthRequest extends Model
     /**
      * @description The validity period of the bandwidth that you purchase. Unit: days. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceParameterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

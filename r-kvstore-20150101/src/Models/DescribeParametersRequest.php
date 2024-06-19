@@ -11,6 +11,7 @@ class DescribeParametersRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -38,7 +39,7 @@ class DescribeParametersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

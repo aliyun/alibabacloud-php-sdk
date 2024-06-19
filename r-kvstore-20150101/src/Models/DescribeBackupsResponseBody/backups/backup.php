@@ -147,6 +147,11 @@ class backup extends Model
      * @var string
      */
     public $nodeInstanceId;
+
+    /**
+     * @var string
+     */
+    public $recoverConfigMode;
     protected $_name = [
         'backupDBNames'             => 'BackupDBNames',
         'backupDownloadURL'         => 'BackupDownloadURL',
@@ -162,6 +167,7 @@ class backup extends Model
         'backupType'                => 'BackupType',
         'engineVersion'             => 'EngineVersion',
         'nodeInstanceId'            => 'NodeInstanceId',
+        'recoverConfigMode'         => 'RecoverConfigMode',
     ];
 
     public function validate()
@@ -212,6 +218,9 @@ class backup extends Model
         }
         if (null !== $this->nodeInstanceId) {
             $res['NodeInstanceId'] = $this->nodeInstanceId;
+        }
+        if (null !== $this->recoverConfigMode) {
+            $res['RecoverConfigMode'] = $this->recoverConfigMode;
         }
 
         return $res;
@@ -266,6 +275,9 @@ class backup extends Model
         }
         if (isset($map['NodeInstanceId'])) {
             $model->nodeInstanceId = $map['NodeInstanceId'];
+        }
+        if (isset($map['RecoverConfigMode'])) {
+            $model->recoverConfigMode = $map['RecoverConfigMode'];
         }
 
         return $model;

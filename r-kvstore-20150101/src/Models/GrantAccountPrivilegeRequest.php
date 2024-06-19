@@ -11,6 +11,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The name of the account. You can call the [DescribeAccounts](~~DescribeAccounts~~) operation to obtain the name of the account.
      *
+     * This parameter is required.
      * @example demoaccount
      *
      * @var string
@@ -23,6 +24,7 @@ class GrantAccountPrivilegeRequest extends Model
      *   RoleReadOnly: The account has the read-only permissions.
      *   RoleReadWrite: The account has the read and write permissions.
      *
+     * This parameter is required.
      * @example RoleReadWrite
      *
      * @var string
@@ -32,6 +34,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The ID of the instance to which the account belongs.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

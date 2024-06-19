@@ -53,9 +53,8 @@ class CreateTairInstanceRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description The ID of the backup set of the source instance. If you want to create an instance based on a backup set of a specified instance, you can specify this parameter after you specify the **SrcDBInstanceId** parameter. Then, the system creates an instance based on the backup set that is specified by this parameter. You can call the [DescribeBackups](~~61081~~) operation to query the IDs of backup sets.
+     * @description The ID of the backup set of the source instance. The system uses the data stored in the backup set to create an instance. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/61081.html) operation to query the backup set ID.
      *
-     * >  If you want to create an instance based on a backup set of a specified instance, you must specify this parameter after you use the **SrcDBInstanceId** parameter to specify the ID of the source instance. Then, the system creates an instance based on the backup set that is specified by this parameter.
      * @example 11111111
      *
      * @var string
@@ -93,13 +92,10 @@ class CreateTairInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is supported for specific new cluster instances. You can query the backup set ID by using the [DescribeClusterBackupList](~~2679158~~) operation.
+     * @description This parameter is supported for specific new cluster instances. You can query the backup set ID by calling the [DescribeClusterBackupList](https://help.aliyun.com/document_detail/2679158.html) operation.
      *
      *   If this parameter is supported, you can specify the backup set ID. In this case, you do not need to specify the **BackupId** parameter.
-     *
-     * <!---->
-     *
-     *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "11101,11102".
+     *   If this parameter is not supported, set the BackupId parameter to the IDs of backup sets in all shards of the source instance, separated by commas (,). Example: "2158\\*\\*\\*\\*20,2158\\*\\*\\*\\*22".
      *
      * @example cb-hyxdof5x9kqb****
      *
@@ -142,8 +138,13 @@ class CreateTairInstanceRequest extends Model
     public $engineVersion;
 
     /**
-     * @description The ID of the distributed instance.
+     * @description Specifies whether to use the created instance as a child instance of a distributed instance.
      *
+     *   If you want the created instance to be used as the first child instance, enter **true**.
+     *   If you want the created instance to be used as the second or third child instance, enter the ID of the distributed instance, such as gr-bp14rkqrhac\\*\\*\\*\\*.
+     *   If you do not want the created instance to be used as a distributed instance, leave the parameter empty.
+     *
+     * >  If you want the created instance to be used as a distributed instance, the created instance must be a Tair DRAM-based instance.
      * @example gr-bp14rkqrhac****
      *
      * @var string
@@ -162,10 +163,11 @@ class CreateTairInstanceRequest extends Model
     /**
      * @description The instance type. For more information, see the following topics:
      *
-     *   [DRAM-based instances](~~443844~~)
-     *   [Persistent memory-optimized instances](~~443845~~)
-     *   [ESSD-based instances](~~443846~~)
+     *   [DRAM-based instances](https://help.aliyun.com/document_detail/443844.html)
+     *   [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/443845.html)
+     *   [ESSD-based instances](https://help.aliyun.com/document_detail/443846.html)
      *
+     * This parameter is required.
      * @example tair.scm.standard.4m.32d
      *
      * @var string
@@ -191,6 +193,7 @@ class CreateTairInstanceRequest extends Model
      *   **tair_scm**: ApsaraDB for Redis Enhanced Edition (Tair) persistent memory-optimized instance
      *   **tair_essd**: ApsaraDB for Redis Enhanced Edition (Tair) ESSD-based instance
      *
+     * This parameter is required.
      * @example tair_scm
      *
      * @var string
@@ -250,7 +253,7 @@ class CreateTairInstanceRequest extends Model
     /**
      * @description The private IP address of the instance.
      *
-     * > The IP address must be within the CIDR block of the vSwitch to which you want the instance to connect. You can call the [DescribeVSwitches](~~35748~~) operation of the VPC API to query the CIDR block information.
+     * > The IP address must be within the CIDR block of the vSwitch to which you want the instance to connect. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation of the VPC API to query the CIDR block information.
      * @example 172.16.88.***
      *
      * @var string
@@ -258,8 +261,9 @@ class CreateTairInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The number of read-only nodes of the instance. This parameter is available only if you create a read/write splitting instance that uses cloud disks. You can use this parameter to specify a custom number of read-only nodes for the instance. Valid value: 1 to 5.
+     * @description The number of read replicas in the primary zone. This parameter applies only to read/write splitting instances that use cloud disks. You can use this parameter to customize the number of read replicas. Valid values: 1 to 9.
      *
+     * >  The sum of the values of this parameter and SlaveReadOnlyCount cannot be greater than 9.
      * @example 5
      *
      * @var int
@@ -267,8 +271,14 @@ class CreateTairInstanceRequest extends Model
     public $readOnlyCount;
 
     /**
-     * @description The ID of the region where you want to create the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @var string
+     */
+    public $recoverConfigMode;
+
+    /**
+     * @description The ID of the region where you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -280,9 +290,9 @@ class CreateTairInstanceRequest extends Model
      *
      * >
      *
-     *   You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](~~158855~~) operation. For more information, see [View basic information of a resource group](~~151181~~).
+     *   You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
-     *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](~~158866~~) operation to view the current resource group of the instance.
+     *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -301,12 +311,16 @@ class CreateTairInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description If data flashback is enabled for the source instance, you can use this parameter to specify a point in time within the backup retention period of the source instance. The system uses the backup data of the source instance at the point in time to create an instance. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2021-07-06T07:25:57Z
+     *
      * @var string
      */
     public $restoreTime;
 
     /**
-     * @description The ID of the secondary zone. You can call the [DescribeRegions](~~61012~~) operation to query the ID of the secondary zone.
+     * @description The ID of the secondary zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the ID of the secondary zone.
      *
      * > You cannot specify multiple zone IDs or set this parameter to a value that is the same as that of the ZoneId parameter.
      * @example cn-hangzhou-h
@@ -323,10 +337,10 @@ class CreateTairInstanceRequest extends Model
     /**
      * @description The number of data nodes in the instance. Valid values:
      *
-     *   **1**: You can create an instance in the standard architecture that contains only one data node. For more information about the standard architecture, see [Cluster master-replica instances](~~52228~~). This is the default value.
-     *   **2** to **32**: You can create an instance in the cluster architecture that contains the specified number of data nodes. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
+     *   **1** (default): You can create a [standard instance](https://help.aliyun.com/document_detail/52228.html) that contains only a single data node.
+     *   **2** to **32**: You can create a [cluster instance](https://help.aliyun.com/document_detail/52228.html) that contains the specified number of data nodes.
      *
-     * > Only persistent memory-optimized instances can use the cluster architecture. Therefore, you can set this parameter to an integer from **2** to **32** only if you set the **InstanceType** parameter to **tair_scm**.
+     * >  When the **InstanceType** parameter is set to **tair_rdb** or **tair_scm**, this parameter can be set to **2** to **32**. Only DRAM-based and persistent memory-optimized instances support the cluster architecture.
      * @example 1
      *
      * @var int
@@ -346,9 +360,9 @@ class CreateTairInstanceRequest extends Model
     public $shardType;
 
     /**
-     * @description The number of read replicas in the secondary zone. This parameter is used to create a read/write splitting instance that is deployed across multiple zones.
+     * @description The number of read replicas in the secondary zone when you create a multi-zone read/write splitting instance. The sum of the values of this parameter and ReadOnlyCount cannot be greater than 9.
      *
-     * > To create a read/write splitting instance that is deployed across multiple zones, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
+     * > When you create a multi-zone read/write splitting instance, you must specify both SlaveReadOnlyCount and SecondaryZoneId.
      * @example 1
      *
      * @var int
@@ -356,9 +370,9 @@ class CreateTairInstanceRequest extends Model
     public $slaveReadOnlyCount;
 
     /**
-     * @description The ID of the source instance.
+     * @description If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
      *
-     * > If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance and the **BackupId** parameter to the backup set that you want to use.
+     * >  Then, you can use the **BackupId**, **ClusterBackupId**, or **RestoreTime** parameter to specify the backup set that you want to use or the point in time. This parameter must be used in combination with one of the preceding three parameters.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -366,7 +380,7 @@ class CreateTairInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
-     * @description The storage space of cloud disks. Valid values vary based on the instance specifications. For more information, see [ESSD-based instances](~~443846~~).
+     * @description The storage space of cloud disks. Valid values vary based on the instance specifications. For more information, see [ESSD-based instances](https://help.aliyun.com/document_detail/443846.html).
      *
      * > This parameter is available and required only if the **InstanceType** parameter is set to **tair_essd**.
      * @example 60
@@ -393,8 +407,9 @@ class CreateTairInstanceRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the vSwitch that belongs to the VPC. You can call the [DescribeVpcs](~~35739~~) operation to query the ID of the vSwitch.
+     * @description The ID of the vSwitch that belongs to the VPC. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the ID of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-bp1e7clcw529l773d****
      *
      * @var string
@@ -402,8 +417,9 @@ class CreateTairInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC). You can call the [DescribeVpcs](~~35739~~) operation to query the ID of the VPC.
+     * @description The ID of the virtual private cloud (VPC). You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-bp1nme44gek34slfc****
      *
      * @var string
@@ -411,7 +427,7 @@ class CreateTairInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The primary zone ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the IDs of available zones.
+     * @description The primary zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the IDs of available zones.
      *
      * >  You can also set the SecondaryZoneId parameter to specify the secondary zone. The primary and secondary nodes will then be deployed in the specified primary and secondary zones to implement the master-replica zone-disaster recovery architecture. For example, you can set the ZoneId parameter to cn-hangzhou-h and the SecondaryZoneId parameter to cn-hangzhou-g.
      * @example cn-hangzhou-e
@@ -445,6 +461,7 @@ class CreateTairInstanceRequest extends Model
         'port'                   => 'Port',
         'privateIpAddress'       => 'PrivateIpAddress',
         'readOnlyCount'          => 'ReadOnlyCount',
+        'recoverConfigMode'      => 'RecoverConfigMode',
         'regionId'               => 'RegionId',
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
@@ -545,6 +562,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->readOnlyCount) {
             $res['ReadOnlyCount'] = $this->readOnlyCount;
+        }
+        if (null !== $this->recoverConfigMode) {
+            $res['RecoverConfigMode'] = $this->recoverConfigMode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -689,6 +709,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['ReadOnlyCount'])) {
             $model->readOnlyCount = $map['ReadOnlyCount'];
+        }
+        if (isset($map['RecoverConfigMode'])) {
+            $model->recoverConfigMode = $map['RecoverConfigMode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

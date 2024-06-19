@@ -86,7 +86,7 @@ class DescribeEncryptionKeyResponseBody extends Model
     public $materialExpireTime;
 
     /**
-     * @description The source of the custom key. A value of **Aliyun_KMS** indicates [Key Management Service (KMS)](~~28935~~) of Alibaba Cloud.
+     * @description The source of the custom key. A value of **Aliyun_KMS** indicates [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) of Alibaba Cloud.
      *
      * @example Aliyun_KMS
      *

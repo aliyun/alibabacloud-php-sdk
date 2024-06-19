@@ -32,6 +32,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +62,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

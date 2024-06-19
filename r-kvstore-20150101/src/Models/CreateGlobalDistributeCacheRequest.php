@@ -51,6 +51,7 @@ class CreateGlobalDistributeCacheRequest extends Model
     /**
      * @description The ID of the existing instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

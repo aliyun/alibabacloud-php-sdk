@@ -11,6 +11,7 @@ class RemoveSubInstanceRequest extends Model
     /**
      * @description Instance ID.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

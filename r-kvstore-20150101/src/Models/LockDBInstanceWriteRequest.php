@@ -11,6 +11,7 @@ class LockDBInstanceWriteRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -20,6 +21,7 @@ class LockDBInstanceWriteRequest extends Model
     /**
      * @description The reason why write operations on the instance are locked.
      *
+     * This parameter is required.
      * @example lock reason
      *
      * @var string

@@ -12,7 +12,7 @@ class ModifyInstanceSpecRequest extends Model
      * @description Specifies whether to enable auto-renewal. Default value: true. Valid values:
      *
      *   **true**: enables auto-renewal.
-     *   **false**: disables auto-renewal. If you set this parameter to **false**, the instance must be manually renewed before it expires. For more information, see [Renew an instance](~~26352~~).
+     *   **false**: disables auto-renewal. If you set this parameter to **false**, the instance must be manually renewed before it expires. For more information, see [Renew an instance](https://help.aliyun.com/document_detail/26352.html).
      *
      * @example true
      *
@@ -51,7 +51,7 @@ class ModifyInstanceSpecRequest extends Model
      * @description The time when to change the configurations. Default value: Immediately. Valid values:
      *
      *   **Immediately**: The configurations are immediately changed.
-     *   **MaintainTime**: The configurations are changed within the maintenance window. You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to change the maintenance window.
+     *   **MaintainTime**: The configurations are changed within the maintenance window. You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to change the maintenance window.
      *
      * @example Immediately
      *
@@ -84,9 +84,9 @@ class ModifyInstanceSpecRequest extends Model
     public $forceUpgrade;
 
     /**
-     * @description The new instance type. You can call the [DescribeAvailableResource](~~120580~~) operation to query the instance types available for configuration change within the zone to which the instance belongs.
+     * @description The new instance type. You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/120580.html) operation to query the instance types available for configuration change within the zone to which the instance belongs.
      *
-     * >  For more information about the instance types, see [Overview](~~26350~~).
+     * >  For more information about the instance types, see [Overview](https://help.aliyun.com/document_detail/26350.html).
      * @example redis.master.small.default
      *
      * @var string
@@ -94,8 +94,9 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -155,7 +156,7 @@ class ModifyInstanceSpecRequest extends Model
     public $readOnlyCount;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

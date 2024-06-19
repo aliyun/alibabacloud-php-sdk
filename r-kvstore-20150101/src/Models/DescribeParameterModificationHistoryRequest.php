@@ -11,6 +11,7 @@ class DescribeParameterModificationHistoryRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-09-05T09:49:27Z
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeParameterModificationHistoryRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -73,6 +75,7 @@ class DescribeParameterModificationHistoryRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-09-05T08:49:27Z
      *
      * @var string

@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
-     * @description The architecture of the instance. For more information, see [Overview](~~86132~~). Valid values:
+     * @description The architecture of the instance. For more information, see [Overview](https://help.aliyun.com/document_detail/86132.html). Valid values:
      *
      *   **logic**: The instance is a cluster master-replica instance or a read/write splitting instance.
      *   **normal**: The instance is a standard master-replica instance.
      *
+     * This parameter is required.
      * @example logic
      *
      * @var string
@@ -23,6 +24,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The database engine that is run on the instance. Set the value to **Redis**.
      *
+     * This parameter is required.
      * @example Redis
      *
      * @var string
@@ -32,6 +34,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The major version that is run on the instance. Valid values: **2.8**, **4.0**, and **5.0**.
      *
+     * This parameter is required.
      * @example 5.0
      *
      * @var string
@@ -58,9 +61,9 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
      *
-     * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](~~151181~~).
+     * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      * @example rg-acfmyiu4ekp****
      *
      * @var string

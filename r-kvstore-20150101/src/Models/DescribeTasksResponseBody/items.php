@@ -84,7 +84,7 @@ class items extends Model
      * @description The information about the subtask in the JSON format. This includes the expected remaining duration (**remain**), the name of the subtask (**name**), and the task progress (**progress**).
      *
      * >  If the subtask does not exist, this parameter is not returned.
-     * @example [{\"remain\":0,\"name\":\"init_instance\",\"progress\":100},{\"remain\":107,\"name\":\"init_redis\",\"progress\":12.3},{\"remain\":1881,\"name\":\"init_config\",\"progress\":0}]
+     * @example [{\\"remain\\":0,\\"name\\":\\"init_instance\\",\\"progress\\":100},{\\"remain\\":107,\\"name\\":\\"init_redis\\",\\"progress\\":12.3},{\\"remain\\":1881,\\"name\\":\\"init_config\\",\\"progress\\":0}]
      *
      * @var string
      */

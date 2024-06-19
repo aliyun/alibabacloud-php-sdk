@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordRequest extends Model
 {
     /**
-     * @description The username of the account for which you want to change the password. You can call the [DescribeAccounts](~~95802~~) operation to query the username of the account.
+     * @description The username of the account for which you want to change the password. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/95802.html) operation to query the username of the account.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @description The new password to be set for the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
+     * This parameter is required.
      * @example newPassWd888****
      *
      * @var string
@@ -38,7 +41,7 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @description The current password of the account.
      *
-     * > If you forget your password, you can call the [ResetAccountPassword](~~95941~~) operation to reset your password.
+     * This parameter is required.
      * @example oldPassWd999****
      *
      * @var string

@@ -12,7 +12,7 @@ class CreateAccountRequest extends Model
      * @description The description of the account.
      *
      *   The description must start with a letter, and cannot start with `http://` or `https://`.
-     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, underscores (_), and hyphens (-).
      *   The description must be 2 to 256 characters in length.
      *
      * @example testaccount
@@ -26,8 +26,9 @@ class CreateAccountRequest extends Model
      *
      *   The name can contain lowercase letters, digits, and hyphens (-), and must start with a lowercase letter.
      *   The name can be up to 100 characters in length.
-     *   The name cannot be one of the reserved words in the [Reserved words for Redis account names](~~92665~~#title-84o-mok-b6h) section.
+     *   The name cannot be one of the reserved words in the [Reserved words for Redis account names](https://help.aliyun.com/document_detail/92665.html#title-84o-mok-b6h) section.
      *
+     * This parameter is required.
      * @example demoaccount
      *
      * @var string
@@ -37,6 +38,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The password of the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
+     * This parameter is required.
      * @example uWonno21****
      *
      * @var string
@@ -67,6 +69,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

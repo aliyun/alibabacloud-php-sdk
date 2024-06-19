@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoleZoneInfoRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
      *
+     * This parameter is required.
      * @example r-t4nlenc2p04uvb****
      *
      * @var string

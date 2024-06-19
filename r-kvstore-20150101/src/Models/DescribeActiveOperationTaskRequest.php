@@ -52,6 +52,8 @@ class DescribeActiveOperationTaskRequest extends Model
      * @description The region ID of the O&M task. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
      * > A value of **all** indicates all region IDs.
+     *
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -74,12 +76,13 @@ class DescribeActiveOperationTaskRequest extends Model
     public $securityToken;
 
     /**
-     * @description The type of the O\&M task. Valid values:
+     * @description The type of the O\\&M task. Valid values:
      *
      *   **rds_apsaradb_ha**: master-replica switchover
      *   **rds_apsaradb_transfer**: instance migration
      *   **rds_apsaradb_upgrade**: minor version update
      *
+     * This parameter is required.
      * @example all
      *
      * @var string

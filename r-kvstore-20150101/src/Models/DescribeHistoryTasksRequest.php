@@ -20,6 +20,7 @@ class DescribeHistoryTasksRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time.
      *
+     * This parameter is required.
      * @example 2022-01-02T11:31:03Z
      *
      * @var string
@@ -63,7 +64,7 @@ class DescribeHistoryTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
      * @example cn-beijing
      *
@@ -143,6 +144,7 @@ class DescribeHistoryTasksRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried.
      *
+     * This parameter is required.
      * @example 2022-03-02T11:31:03Z
      *
      * @var string

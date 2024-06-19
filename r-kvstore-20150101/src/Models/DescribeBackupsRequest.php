@@ -27,6 +27,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2019-03-14T18:00Z
      *
      * @var string
@@ -36,6 +37,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The ID of the instance whose backup files you want to query.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -101,6 +103,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-11T10:00Z
      *
      * @var string

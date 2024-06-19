@@ -12,7 +12,7 @@ class TransformToPrePaidRequest extends Model
      * @description Specifies whether to enable auto-renewal. Default value: false. Valid values:
      *
      *   **true**: yes
-     *   **false**: no. In this case, you can renew your instance in the ApsaraDB for Redis console. For more information, see [Manually renew an instance](~~26352~~).
+     *   **false**: no. In this case, you can renew your instance in the ApsaraDB for Redis console. For more information, see [Manually renew an instance](https://help.aliyun.com/document_detail/26352.html).
      *
      * @example true
      *
@@ -23,6 +23,7 @@ class TransformToPrePaidRequest extends Model
     /**
      * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -42,6 +43,7 @@ class TransformToPrePaidRequest extends Model
     /**
      * @description The subscription duration of the instance. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
      *
+     * This parameter is required.
      * @example 12
      *
      * @var int

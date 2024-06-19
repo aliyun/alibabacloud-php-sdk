@@ -23,7 +23,7 @@ class DBInstanceAttribute extends Model
     public $architectureType;
 
     /**
-     * @description The retention period of audit logs. Unit: day. A value of 0 indicates that the audit log feature is disabled. For information about how to enable the feature, see [Enable the audit log feature](~~102015~~).
+     * @description The retention period of audit logs. Unit: day. A value of 0 indicates that the audit log feature is disabled. For information about how to enable the feature, see [Enable the audit log feature](https://help.aliyun.com/document_detail/102015.html).
      *
      * @example 15
      *
@@ -45,9 +45,9 @@ class DBInstanceAttribute extends Model
      *
      * >
      *
-     *   This parameter is returned only when the data flashback feature is enabled for the instance. For more information, see [Restore data to a point in time by using the data flashback feature](~~148479~~).
+     *   This parameter is returned only when the data flashback feature is enabled for the instance. For more information, see [Restore data to a point in time by using the data flashback feature](https://help.aliyun.com/document_detail/148479.html).
      *
-     *   When you call the [RestoreInstance](~~61083~~) operation to implement data flashback, you can obtain the earliest point in time for data flashback from the return value of this parameter and set the **RestoreTime** parameter to this point in time.
+     *   When you call the [RestoreInstance](https://help.aliyun.com/document_detail/61083.html) operation to implement data flashback, you can obtain the earliest point in time for data flashback from the return value of this parameter and set the **RestoreTime** parameter to this point in time.
      *
      * @example 2021-07-06T05:49:55Z
      *
@@ -95,9 +95,9 @@ class DBInstanceAttribute extends Model
     public $cloudType;
 
     /**
-     * @description The parameter configurations of the instance in the JSON format. For more information, see [Parameter descriptions](~~43885~~). You can use the [DescribeAuditLogConfig](~~473830~~) operation to query audit log configurations.
+     * @description The parameter configurations of the instance in the JSON format. For more information, see [Parameter descriptions](https://help.aliyun.com/document_detail/43885.html). You can use the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/473830.html) operation to query audit log configurations.
      *
-     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     * @example {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
      *
      * @var string
      */
@@ -180,7 +180,7 @@ class DBInstanceAttribute extends Model
     public $hasRenewChangeOrder;
 
     /**
-     * @description The instance type. For more information, see [Instance types](~~107984~~).
+     * @description The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
      *
      * @example redis.master.small.default
      *
@@ -237,7 +237,7 @@ class DBInstanceAttribute extends Model
      *   **SSLModifying**: The SSL configurations of the instance are being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
      *
-     * >  For more information about instance states, see [Instance states and impacts](~~200740~~).
+     * >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
      * @example Normal
      *
      * @var string
@@ -284,7 +284,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether the transparent data encryption (TDE) feature is supported for the instance. Valid values:
      *
-     *   **true**: This feature is supported. This feature is available only for [DRAM-based](~~443827~~) instances that use local disks.
+     *   **true**: This feature is supported. This feature is available only for [DRAM-based](https://help.aliyun.com/document_detail/443827.html) instances that use local disks.
      *   **false**: This feature is not supported.
      *
      * @example true
@@ -387,7 +387,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description If the instance is a cluster instance that uses cloud disks, this parameter indicates the actual instance type of individual shards in the instance. The InstanceClass parameter indicates the virtual instance type.
      *
-     * >  To query fees for instances of the instance type, you can specify the instance type that is returned by this parameter in the [DescribePrice](~~95612~~) operation.
+     * >  To query fees for instances of the instance type, you can specify the instance type that is returned by this parameter in the [DescribePrice](https://help.aliyun.com/document_detail/95612.html) operation.
      * @example tair.rdb.with.proxy.1g
      *
      * @var string
@@ -508,7 +508,7 @@ class DBInstanceAttribute extends Model
      * @description Indicates whether password authentication is enabled. Valid values:
      *
      *   **Open**: Password authentication is enabled.
-     *   **Close**: Password authentication is disabled and [password-free access](~~85168~~) is enabled.
+     *   **Close**: Password authentication is disabled and [password-free access](https://help.aliyun.com/document_detail/85168.html) is enabled.
      *
      * @example Open
      *

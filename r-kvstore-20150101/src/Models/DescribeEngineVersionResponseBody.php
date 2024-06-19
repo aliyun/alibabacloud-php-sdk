@@ -20,7 +20,7 @@ class DescribeEngineVersionResponseBody extends Model
     /**
      * @description The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
      *
-     * @example {\"releaseInfo\":{\"createTime\":\"2021-07-27\",\"level\":1,\"releaseVersion\":\"0.5.4\",\"releaseNote\":\"功能更新：增强稳定性。\"}],\"versionChangesLevel\":2}
+     * @example {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"功能更新：增强稳定性。\\"}],\\"versionChangesLevel\\":2}
      *
      * @var string
      */
@@ -32,7 +32,7 @@ class DescribeEngineVersionResponseBody extends Model
      *   **true**: The major version can be upgraded.
      *   **false**: The major version is the latest version and cannot be upgraded.
      *
-     * >  To upgrade the major version, call the [ModifyInstanceMajorVersion](~~95259~~) operation.
+     * >  To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/95259.html) operation.
      * @example true
      *
      * @var bool
@@ -45,7 +45,7 @@ class DescribeEngineVersionResponseBody extends Model
      *   **true**: The minor version can be updated.
      *   **false**: The minor version is the latest version and cannot be updated.
      *
-     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
+     * >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) operation.
      * @example true
      *
      * @var bool
@@ -153,7 +153,7 @@ class DescribeEngineVersionResponseBody extends Model
      * @description The release notes for the minor version of proxy nodes. The release notes include the release date, minor version number, release type such as new feature, and description.
      *
      * >  This parameter is returned only for cluster and read/write splitting instances.
-     * @example {\"releaseInfo\":[{\"createTime\":\"2021-06-08\",\"level\":0,\"releaseVersion\":\"6.6.2\",\"releaseNote\":\"新特性：增加对部分内部命令的支持。\"}],\"versionChangesLevel\":2}
+     * @example {\\"releaseInfo\\":[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"新特性：增加对部分内部命令的支持。\\"}],\\"versionChangesLevel\\":2}
      *
      * @var string
      */

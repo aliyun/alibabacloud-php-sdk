@@ -59,6 +59,7 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

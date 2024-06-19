@@ -194,7 +194,7 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
-     * @description Instance\"s secondary zone id.
+     * @description Instance\\"s secondary zone id.
      * > This parameter is only returned when the instance has a secondary zone ID.
      * @example cn-hangzhou-g
      *

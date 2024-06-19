@@ -11,6 +11,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -27,7 +28,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceName;
 
     /**
-     * @description [The release protection state of the instance.](~~165005~~) Valid values:
+     * @description [The release protection state of the instance.](https://help.aliyun.com/document_detail/165005.html) Valid values:
      *
      *   **true**: enabled
      *   **false**: disabled
@@ -40,7 +41,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceReleaseProtection;
 
     /**
-     * @description The new password for the default account. The default account is named after the instance ID. Example: r-bp10noxlhcoim2\*\*\*\*.
+     * @description The new password for the default account. The default account is named after the instance ID. Example: r-bp10noxlhcoim2\\*\\*\\*\\*.
      *
      * > The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
      * @example uW8+nsrp

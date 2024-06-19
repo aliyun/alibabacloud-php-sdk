@@ -11,6 +11,7 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -52,6 +53,7 @@ class ModifyInstanceVpcAuthModeRequest extends Model
      *
      **Description** Default value: **Open**.
      *
+     * This parameter is required.
      * @example Close
      *
      * @var string

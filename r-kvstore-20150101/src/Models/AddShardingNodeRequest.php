@@ -12,7 +12,7 @@ class AddShardingNodeRequest extends Model
      * @description Specifies whether to enable automatic payment. Valid values:
      *
      *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment. In this case, you must manually renew the instance in the console before the instance expires. For more information, see [Renewal](~~26352~~).
+     *   **false**: disables automatic payment. In this case, you must manually renew the instance in the console before the instance expires. For more information, see [Renewal](https://help.aliyun.com/document_detail/26352.html).
      *
      * > The default value is **true**.
      * @example false
@@ -54,6 +54,7 @@ class AddShardingNodeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

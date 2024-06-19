@@ -11,6 +11,7 @@ class ModifyInstanceSSLRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -44,6 +45,7 @@ class ModifyInstanceSSLRequest extends Model
      *   **Enable**: The SSL encryption is enabled.
      *   **Update**: The SSL certificate is updated.
      *
+     * This parameter is required.
      * @example Enable
      *
      * @var string

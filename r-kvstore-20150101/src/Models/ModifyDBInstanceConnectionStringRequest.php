@@ -11,6 +11,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @description The current endpoint of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

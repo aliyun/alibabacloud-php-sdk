@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
-     * @description The number of days for which data backup files are retained. Valid values: 7 to 730. Default value: 7.
+     * @description The number of days for which you want to retain data backup files. Valid values: 7 to 730. Default value: 7.
      *
      * @example 7
      *
@@ -18,11 +18,12 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @description Specifies whether to enable incremental data backup. Default value: 0. Valid values:
+     * @description Enables or disables the data flashback feature for the instance. Valid values:
      *
-     *   **1**: enables incremental data backup.
-     *   **0**: disables incremental data backup.
-     * >This parameter is available only for ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](~~443784~~).
+     *   **1**: enables the data flashback feature. You must also enable AOF persistence by setting `appendonly` to `yes` in the parameter settings of the instance. Then, you can use the data flashback feature.
+     *   **0** (default): disables the data flashback feature.
+     *
+     * >  This parameter is available only for ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](https://help.aliyun.com/document_detail/443784.html).
      * @example 1
      *
      * @var int
@@ -32,6 +33,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -59,7 +61,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * > Separate multiple options with commas (,).
+     * This parameter is required.
      * @example Tuesday
      *
      * @var string
@@ -69,7 +71,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The time range to back up data. Specify the time in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
      *
-     * > The beginning and end of the time range must be on the hour. The duration must be an hour.
+     * This parameter is required.
      * @example 07:00Z-08:00Z
      *
      * @var string

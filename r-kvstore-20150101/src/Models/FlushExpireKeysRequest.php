@@ -14,7 +14,7 @@ class FlushExpireKeysRequest extends Model
      *   **Immediately**: immediately deletes expired keys.
      *   **MaintainTime**:deletes expired key in the maintenance window.
      *
-     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -24,6 +24,7 @@ class FlushExpireKeysRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

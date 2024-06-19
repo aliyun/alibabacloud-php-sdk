@@ -11,7 +11,7 @@ class nodeInfo extends Model
     /**
      * @description The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
      *
-     * > *   You can call the [EnableAdditionalBandwidth](~~206173~~) operation to specify the increased bandwidth.
+     * > *   You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to specify the increased bandwidth.
      * > *   You can also use this parameter to calculate the increased bandwidth. For example, if the default bandwidth of the node is 96 MB/s and the returned value of this parameter is 100, the increased bandwidth is 4 MB/s.
      * @example 100
      *
@@ -71,7 +71,7 @@ class nodeInfo extends Model
      *   **0**: The minor version is not the latest version.
      *   **1**: The minor version is the latest version.
      *
-     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
+     * >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) operation.
      * @example 1
      *
      * @var int

@@ -14,7 +14,7 @@ class ModifyInstanceMinorVersionRequest extends Model
      *   **Immediately**: The minor version is immediately updated.
      *   **MaintainTime**: The minor version is updated within the maintenance window.
      *
-     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyInstanceMinorVersionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

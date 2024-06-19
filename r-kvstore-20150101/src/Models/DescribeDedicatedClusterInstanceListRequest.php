@@ -19,7 +19,7 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the host in the dedicated cluster. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     * @description The ID of the host in the dedicated cluster. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/200944.html) operation to query the host ID.
      *
      * > Separate multiple IDs with commas (,).
      * @example ch-t4n664a9mal4c****
@@ -49,7 +49,7 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > The instance must be created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](~~141455~~)
+     * > The instance must be created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](https://help.aliyun.com/document_detail/141455.html)
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -116,8 +116,9 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -140,7 +141,7 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $securityToken;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-e
      *

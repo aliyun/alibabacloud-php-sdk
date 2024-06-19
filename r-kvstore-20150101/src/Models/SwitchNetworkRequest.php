@@ -15,7 +15,7 @@ class SwitchNetworkRequest extends Model
      *
      *   This parameter is available and required only when the **RetainClassic** parameter is set to **True**.
      *
-     *   After you complete the switchover operation, you can also call the [ModifyInstanceNetExpireTime](~~61010~~) operation to modify the retention period of the classic network endpoint.
+     *   After you complete the switchover operation, you can also call the [ModifyInstanceNetExpireTime](https://help.aliyun.com/document_detail/61010.html) operation to modify the retention period of the classic network endpoint.
      *
      * @example 30
      *
@@ -24,8 +24,9 @@ class SwitchNetworkRequest extends Model
     public $classicExpiredDays;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -80,7 +81,7 @@ class SwitchNetworkRequest extends Model
     public $targetNetworkType;
 
     /**
-     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query the VPC ID.
+     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the VPC ID.
      *
      * > The vSwitch and the ApsaraDB for Redis instance must be deployed in the same zone.
      * @example vsw-bp1e7clcw529l773d****
@@ -90,7 +91,7 @@ class SwitchNetworkRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query the VPC ID.
+     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query the VPC ID.
      *
      * >
      *

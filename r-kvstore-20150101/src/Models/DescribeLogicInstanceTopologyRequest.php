@@ -11,6 +11,7 @@ class DescribeLogicInstanceTopologyRequest extends Model
     /**
      * @description The ID of the instance whose topology information you want to query.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

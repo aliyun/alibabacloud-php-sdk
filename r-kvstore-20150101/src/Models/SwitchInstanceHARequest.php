@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SwitchInstanceHARequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -18,7 +19,7 @@ class SwitchInstanceHARequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the data shard. You can call the [DescribeRoleZoneInfo](~~190794~~) operation to obtain the value of the CustinsId parameter. Separate multiple data shard IDs with commas (,). `all` indicates that all data shards are specified.
+     * @description The ID of the data shard. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to obtain the value of the CustinsId parameter. Separate multiple data shard IDs with commas (,). `all` indicates that all data shards are specified.
      *
      * > This parameter is available and required only for read/write splitting and cluster instances.
      * @example 56****19,56****20
@@ -58,7 +59,7 @@ class SwitchInstanceHARequest extends Model
      *   **0**: immediately performs the switchover.
      *   **1**: performs the switchover during the maintenance window.
      *
-     * > You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example 0
      *
      * @var int

@@ -89,7 +89,7 @@ class DescribeInstancesRequest extends Model
     public $globalInstance;
 
     /**
-     * @description The instance type of the instance. For more information, see [Instance types](~~107984~~).
+     * @description The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
      *
      * @example redis.master.small.default
      *
@@ -126,7 +126,7 @@ class DescribeInstancesRequest extends Model
      *   **SSLModifying**: The SSL certificate of the instance is being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
      *
-     * > For more information about instance states, see [Instance states and impacts](~~200740~~).
+     * > For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
      * @example Normal
      *
      * @var string
@@ -208,7 +208,7 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The ID of the resource group to which the instance belongs.
      *
-     * > You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](~~158855~~) operation. For more information, see [View basic information of a resource group](~~151181~~).
+     * > You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      * @example rg-acfmyiu4ekp****
      *
      * @var string

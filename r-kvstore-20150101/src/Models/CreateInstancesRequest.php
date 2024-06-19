@@ -72,6 +72,7 @@ class CreateInstancesRequest extends Model
     /**
      * @description The JSON-formatted configurations of the instance. For more information, see the "Description of the Instances parameter" section of this topic.
      *
+     * This parameter is required.
      * @example [{	"RegionId": "cn-hangzhou",	"izNo": "cn-hangzhou-b",	"quantity": 2,	"instanceType": "Redis",	"instanceClass": "redis.master.small.default",	"EngineVersion": "5.0",	"ChargeType": "PostPaid"}]
      *
      * @var string

@@ -48,6 +48,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
      *   **PostPaid**: pay-as-you-go
      *
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -57,6 +58,7 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

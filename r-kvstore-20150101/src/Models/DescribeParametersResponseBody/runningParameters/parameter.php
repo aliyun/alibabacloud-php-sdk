@@ -44,7 +44,7 @@ class parameter extends Model
     /**
      * @description The description of the parameter.
      *
-     * @example You can disable some dangerous commands, for example \"keys,flushdb,flushall\", the commands must be in [flushall,flushdb,keys,hgetall,eval,evalsha,script].
+     * @example You can disable some dangerous commands, for example \\"keys,flushdb,flushall\\", the commands must be in [flushall,flushdb,keys,hgetall,eval,evalsha,script].
      *
      * @var string
      */

@@ -80,7 +80,7 @@ class RenewInstanceRequest extends Model
     public $fromApp;
 
     /**
-     * @description The instance type code. For more information, see [Instance specifications overview](~~26350~~). When you renew the instance, you can specify this parameter to change specifications of the instance.
+     * @description The instance type code. For more information, see [Instance specifications overview](https://help.aliyun.com/document_detail/26350.html). When you renew the instance, you can specify this parameter to change specifications of the instance.
      *
      * > To change the specifications when you renew the instance, you must specify at least one of the `Capacity` and `InstanceClass` parameters.
      * @example redis.master.small.default
@@ -92,6 +92,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -111,6 +112,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The renewal period. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**. Unit: months.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int

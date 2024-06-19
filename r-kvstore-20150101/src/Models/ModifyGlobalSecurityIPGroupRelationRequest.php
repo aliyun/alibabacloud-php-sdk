@@ -11,6 +11,7 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-t4n885e834f6****
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The ID of the IP whitelist template.
      *
+     * This parameter is required.
      * @example g-zsldxfiwjmti0kcm****
      *
      * @var string
@@ -39,6 +41,7 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

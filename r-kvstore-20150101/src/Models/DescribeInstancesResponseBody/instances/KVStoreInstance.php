@@ -63,9 +63,9 @@ class KVStoreInstance extends Model
     public $cloudType;
 
     /**
-     * @description The parameter configurations of the instance. For more information, see [Modify parameters of an instance](~~43885~~).
+     * @description The parameter configurations of the instance. For more information, see [Modify parameters of an instance](https://help.aliyun.com/document_detail/43885.html).
      *
-     * @example {\"maxmemory-policy\":\"volatile-lfu\",\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64,\"#no_loose_disabled-commands\":\"flushall,flushdb\",\"lazyfree-lazy-eviction\":\"yes\"}
+     * @example {\\"maxmemory-policy\\":\\"volatile-lfu\\",\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64,\\"#no_loose_disabled-commands\\":\\"flushall,flushdb\\",\\"lazyfree-lazy-eviction\\":\\"yes\\"}
      *
      * @var string
      */
@@ -350,7 +350,7 @@ class KVStoreInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The shard class. For more information about shard classes, see [Overview](~~26350~~).
+     * @description The shard class. For more information about shard classes, see [Overview](https://help.aliyun.com/document_detail/26350.html).
      *
      * >  The overall performance of a cluster instance is calculated by multiplying the class of a single shard (ShardClass) by the number of shards (ShardCount).
      * @example redis.shard.small.ce

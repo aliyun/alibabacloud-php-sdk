@@ -20,6 +20,7 @@ class DescribeClusterBackupListRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2021-05-13T00:00:00Z
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeClusterBackupListRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-t4nj72oug5r5646qog
      *
      * @var string
@@ -64,8 +66,9 @@ class DescribeClusterBackupListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -90,6 +93,7 @@ class DescribeClusterBackupListRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2018-12-03T07:01Z
      *
      * @var string

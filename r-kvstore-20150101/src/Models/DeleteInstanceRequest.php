@@ -20,6 +20,7 @@ class DeleteInstanceRequest extends Model
     /**
      * @description The ID of the instance that you want to release.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

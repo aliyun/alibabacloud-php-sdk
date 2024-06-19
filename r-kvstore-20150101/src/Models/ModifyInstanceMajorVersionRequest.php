@@ -14,7 +14,7 @@ class ModifyInstanceMajorVersionRequest extends Model
      *   **Immediately**: immediately upgrades the major version. This is the default value.
      *   **MaintainTime**: upgrades the major version in the maintenance window.
      *
-     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * >  You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/61000.html) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyInstanceMajorVersionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyInstanceMajorVersionRequest extends Model
     /**
      * @description The major version to which you want to upgrade the instance. Valid values: **4.0** and **5.0**.
      *
+     * This parameter is required.
      * @example 5.0
      *
      * @var string

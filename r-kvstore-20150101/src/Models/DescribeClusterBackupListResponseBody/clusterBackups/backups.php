@@ -121,6 +121,11 @@ class backups extends Model
      * @var string
      */
     public $isAvail;
+
+    /**
+     * @var string
+     */
+    public $recoverConfigMode;
     protected $_name = [
         'backupDownloadURL'         => 'BackupDownloadURL',
         'backupEndTime'             => 'BackupEndTime',
@@ -134,6 +139,7 @@ class backups extends Model
         'extraInfo'                 => 'ExtraInfo',
         'instanceName'              => 'InstanceName',
         'isAvail'                   => 'IsAvail',
+        'recoverConfigMode'         => 'RecoverConfigMode',
     ];
 
     public function validate()
@@ -178,6 +184,9 @@ class backups extends Model
         }
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
+        }
+        if (null !== $this->recoverConfigMode) {
+            $res['RecoverConfigMode'] = $this->recoverConfigMode;
         }
 
         return $res;
@@ -226,6 +235,9 @@ class backups extends Model
         }
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
+        }
+        if (isset($map['RecoverConfigMode'])) {
+            $model->recoverConfigMode = $map['RecoverConfigMode'];
         }
 
         return $model;

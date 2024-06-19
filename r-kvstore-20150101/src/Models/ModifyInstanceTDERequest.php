@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTDERequest extends Model
 {
     /**
-     * @description The ID of the custom key. You can call the [DescribeEncryptionKeyList](~~302339~~) operation to query the key ID.
+     * @description The ID of the custom key. You can call the [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/302339.html) operation to query the key ID.
      *
      * >
      *
-     *   If you do not specify this parameter, [Key Management Service (KMS)](~~28935~~) automatically generates a key.
+     *   If you do not specify this parameter, [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) automatically generates a key.
      *
-     *   To create a custom key, you can call the [CreateKey](~~28947~~) operation of the KMS API.
+     *   To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of the KMS API.
      *
      * @example ad463061-992d-4195-8a94-ed63********
      *
@@ -34,8 +34,9 @@ class ModifyInstanceTDERequest extends Model
     public $encryptionName;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -85,7 +86,7 @@ class ModifyInstanceTDERequest extends Model
     /**
      * @description Specifies whether to enable TDE. Set the value to **Enabled**.
      *
-     * > TDE cannot be disabled after it is enabled. Before you enable it, evaluate whether this feature affects your business. For more information, see [Enable TDE](~~265913~~).
+     * This parameter is required.
      * @example Enabled
      *
      * @var string

@@ -11,6 +11,7 @@ class UnlockDBInstanceWriteRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

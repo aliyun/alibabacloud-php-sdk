@@ -20,9 +20,9 @@ class subInstances extends Model
     /**
      * @description The instance type of the child instance. For more information, see the following topics:
      *
-     *   [Standard DRAM-based instances](~~145228~~)
-     *   [Cluster DRAM-based instances](~~150458~~)
-     *   [Read/write splitting DRAM-based instances](~~150459~~)
+     *   [Standard DRAM-based instances](https://help.aliyun.com/document_detail/145228.html)
+     *   [Cluster DRAM-based instances](https://help.aliyun.com/document_detail/150458.html)
+     *   [Read/write splitting DRAM-based instances](https://help.aliyun.com/document_detail/150459.html)
      *
      * @example redis.amber.logic.sharding.2g.2db.0rodb.6proxy.multithread
      *
@@ -58,7 +58,7 @@ class subInstances extends Model
      *   **SSLModifying**: The SSL certificate of the instance is being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains available during the upgrade.
      *
-     * >  For more information about instance states, see [Instance states and impacts](~~200740~~).
+     * >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
      * @example Normal
      *
      * @var string

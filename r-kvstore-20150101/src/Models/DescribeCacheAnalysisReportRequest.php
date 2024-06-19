@@ -11,6 +11,7 @@ class DescribeCacheAnalysisReportRequest extends Model
     /**
      * @description The type of analytics. Set the value to **BigKey**.
      *
+     * This parameter is required.
      * @example BigKey
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeCacheAnalysisReportRequest extends Model
     /**
      * @description The date to query. You can query the report for one day each time. Specify the date in the *yyyy-MM-dd*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-08-05Z
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeCacheAnalysisReportRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example -bp1zxszhcgatnx****
      *
      * @var string

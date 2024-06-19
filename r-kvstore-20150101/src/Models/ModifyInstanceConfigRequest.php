@@ -13,8 +13,9 @@ class ModifyInstanceConfigRequest extends Model
      *
      **
      *
-     **Description** For more information, see [Supported parameters](~~259681~~).
+     **Description** For more information, see [Supported parameters](https://help.aliyun.com/document_detail/259681.html).
      *
+     * This parameter is required.
      * @example {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
      *
      * @var string
@@ -24,6 +25,7 @@ class ModifyInstanceConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

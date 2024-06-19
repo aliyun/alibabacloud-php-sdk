@@ -11,6 +11,7 @@ class ReleaseInstancePublicConnectionRequest extends Model
     /**
      * @description The public endpoint to be released.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
      *
      * @var string
@@ -20,6 +21,7 @@ class ReleaseInstancePublicConnectionRequest extends Model
     /**
      * @description The ID of the instance for which you want to release a public endpoint.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

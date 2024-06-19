@@ -11,6 +11,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-11-26T01:00Z
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeTasksRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     * @description The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query instance IDs.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -72,6 +74,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-11-20T01:00Z
      *
      * @var string
@@ -88,6 +91,7 @@ class DescribeTasksRequest extends Model
      *   **7**: The task is paused.
      *   **8**: The task is interrupted.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string

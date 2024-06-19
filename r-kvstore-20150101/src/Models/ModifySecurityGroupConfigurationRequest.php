@@ -11,6 +11,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -40,6 +41,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @description The ID of the security group that you want to manage. You can specify up to 10 security groups. Separate multiple security group IDs with commas (,).
      *
+     * This parameter is required.
      * @example sg-bpcfmyiu4ekp****
      *
      * @var string

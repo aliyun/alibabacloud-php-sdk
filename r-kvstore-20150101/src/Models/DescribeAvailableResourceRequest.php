@@ -67,7 +67,7 @@ class DescribeAvailableResourceRequest extends Model
     public $instanceScene;
 
     /**
-     * @description The ID of the data node for which you want to query available resources that can be created. You can call the [DescribeLogicInstanceTopology](~~94665~~) operation to query the ID of the data node. Remove the number sign (`#`) and the content that follows the number sign. For example, retain only r-bp10noxlhcoim2\*\*\*\*-db-0.
+     * @description The ID of the data node for which you want to query available resources that can be created. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/94665.html) operation to query the ID of the data node. Remove the number sign (`#`) and the content that follows the number sign. For example, retain only r-bp10noxlhcoim2\\*\\*\\*\\*-db-0.
      *
      * > Before you specify this parameter, you must set the **InstanceId** parameter to the ID of an instance that uses the cluster or read/write splitting architecture.
      * @example r-bp1zxszhcgatnx****-db-0
@@ -115,8 +115,9 @@ class DescribeAvailableResourceRequest extends Model
     public $productType;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -124,9 +125,9 @@ class DescribeAvailableResourceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
      *
-     * > You can also query the IDs of resource groups in the Resource Management console. For more information, see [View basic information about a resource group](~~151181~~).
+     * > You can also query the IDs of resource groups in the Resource Management console. For more information, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
      * @example rg-acfmyiu4e******
      *
      * @var string
@@ -149,7 +150,7 @@ class DescribeAvailableResourceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/94527.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-h
      *

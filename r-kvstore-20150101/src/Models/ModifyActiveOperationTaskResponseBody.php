@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the O\&M task. IDs are separated by commas (,).
+     * @description The ID of the O\\&M task. IDs are separated by commas (,).
      *
      * @example 11111,22222
      *

@@ -41,7 +41,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @description The configurations of the instance.
      *
-     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     * @example {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
      *
      * @var string
      */
@@ -128,6 +128,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @description The ID of the order.
      *
+     * This parameter is required.
      * @example 2084452111111
      *
      * @var int

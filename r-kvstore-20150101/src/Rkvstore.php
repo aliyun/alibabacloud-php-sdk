@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateParameterGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteParameterGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsRequest;
@@ -104,6 +108,14 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyRequ
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeMonitorItemsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeMonitorItemsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupsRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupSupportParamRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupSupportParamResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupTemplateListRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupTemplateListResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParametersRequest;
@@ -156,6 +168,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceAutoUpgradeRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceAutoUpgradeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupNameRequest;
@@ -190,6 +204,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyIntranetAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyIntranetAttributeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyParameterGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyParameterGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyResourceGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyResourceGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationRequest;
@@ -252,7 +268,6 @@ class Rkvstore extends OpenApiClient
             'cn-heyuan'                   => 'r-kvstore.aliyuncs.com',
             'cn-guangzhou'                => 'r-kvstore.aliyuncs.com',
             'cn-hongkong'                 => 'r-kvstore.aliyuncs.com',
-            'ap-southeast-1'              => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance'         => 'r-kvstore.aliyuncs.com',
             'cn-shanghai-finance-1'       => 'r-kvstore.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'r-kvstore.aliyuncs.com',
@@ -317,8 +332,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for cluster instances that use cloud disks.
-     *   *
+     * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description This operation is available only for cluster instances that use cloud disks.
+     *  *
      * @param AddShardingNodeRequest $request AddShardingNodeRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -386,8 +403,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for cluster instances that use cloud disks.
-     *   *
+     * @summary Adds one or more data shards to an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description This operation is available only for cluster instances that use cloud disks.
+     *  *
      * @param AddShardingNodeRequest $request AddShardingNodeRequest
      *
      * @return AddShardingNodeResponse AddShardingNodeResponse
@@ -400,14 +419,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
-     *   * To call this operation, the instance must meet the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis cluster instance.
-     *   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
-     *   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
-     *   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
-     *   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
-     *   *
+     * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     * To call this operation, the instance must meet the following requirements:
+     * *   The instance is an ApsaraDB for Redis cluster instance.
+     * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+     * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
+     * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
+     * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
+     *  *
      * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -460,14 +481,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
-     *   * To call this operation, the instance must meet the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis cluster instance.
-     *   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
-     *   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
-     *   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
-     *   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
-     *   *
+     * @summary Applies for a private endpoint for an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     * To call this operation, the instance must meet the following requirements:
+     * *   The instance is an ApsaraDB for Redis cluster instance.
+     * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+     * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html) operation to change the network type to VPC.
+     * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation to disable it.
+     * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](https://help.aliyun.com/document_detail/183151.html).
+     *  *
      * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      *
      * @return AllocateDirectConnectionResponse AllocateDirectConnectionResponse
@@ -480,8 +503,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
-     *   *
+     * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -534,8 +559,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
-     *   *
+     * @summary Applies for a public endpoint for an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
      * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
@@ -548,9 +575,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
-     *   *
+     * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+     *  *
+     * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -600,9 +629,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
-     *   *
+     * @summary Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
+     *  *
+     * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable TDE.
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
      * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
@@ -615,12 +646,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
-     *   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
-     *   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
-     *   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
-     *   *
+     * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+     *  *
+     * @description >
+     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+     * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+     * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+     * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -682,12 +715,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
-     *   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
-     *   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
-     *   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
-     *   *
+     * @summary Creates an account that has specific permissions for an ApsaraDB for Redis instance.
+     *  *
+     * @description >
+     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+     * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+     * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+     * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](https://help.aliyun.com/document_detail/92665.html).
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
      * @return CreateAccountResponse CreateAccountResponse
@@ -700,8 +735,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
-     *   *
+     * @summary Backs up an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -748,8 +785,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
-     *   *
+     * @summary Backs up an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](https://help.aliyun.com/document_detail/43886.html).
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
      * @return CreateBackupResponse CreateBackupResponse
@@ -762,14 +801,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
-     *   * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-     *   * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
-     *   *
+     * @summary Manually creates a cache analytics task.
+     *  *
+     * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+     *  *
      * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -816,14 +851,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
-     *   * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
-     *   * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
-     *   *
+     * @summary Manually creates a cache analytics task.
+     *  *
+     * @description This operation is no longer available. Use the new operation. For more information, see [Real-time key statistics and offline key analysis](https://help.aliyun.com/document_detail/184226.html).
+     *  *
      * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      *
      * @return CreateCacheAnalysisTaskResponse CreateCacheAnalysisTaskResponse
@@ -836,11 +867,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-     *   * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
-     *   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
-     *   * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-     *   *
+     * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+     *  *
+     * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
+     * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
+     * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *  *
      * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -893,11 +926,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
-     *   * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
-     *   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
-     *   * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
-     *   *
+     * @summary Converts an existing ApsaraDB for Redis instance to the first child instance of a distributed ApsaraDB for Redis instance.
+     *  *
+     * @description You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     * *   A [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html) of Enhanced Edition is used.
+     * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](https://help.aliyun.com/document_detail/150047.html).
+     * > You can also call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *  *
      * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
      *
      * @return CreateGlobalDistributeCacheResponse CreateGlobalDistributeCacheResponse
@@ -910,10 +945,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -965,9 +1002,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -977,10 +1016,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-     *   * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-     *   *
+     * @summary Creates an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
+     * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1080,6 +1121,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->readOnlyCount)) {
             $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
+        if (!Utils::isUnset($request->recoverConfigMode)) {
+            $query['RecoverConfigMode'] = $request->recoverConfigMode;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1103,6 +1147,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->shardCount)) {
             $query['ShardCount'] = $request->shardCount;
+        }
+        if (!Utils::isUnset($request->slaveReadOnlyCount)) {
+            $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
@@ -1141,10 +1188,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-     *   * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-     *   *
+     * @summary Creates an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/208271.html) operation.
+     * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/26351.html).
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse
@@ -1157,10 +1206,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
-     *   * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
-     *   *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
+     * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
+     * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+     *  *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1231,10 +1281,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
-     *   * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
-     *   *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * >  You can call this operation to create an ApsaraDB for Redis classic instance or a Tair DRAM-based classic instance. We recommend that you use an API operation for creating a single instance:
+     * *   [CreateInstance](https://help.aliyun.com/document_detail/473757.html): creates an ApsaraDB for Redis instance or a Tair DRAM-based classic instance.
+     * *   [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html): creates a Tair cloud-native instance. The instance can be a DRAM-based, persistent memory-optimized, or ESSD/SSD-based instance.
+     *  *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      *
      * @return CreateInstancesResponse CreateInstancesResponse
@@ -1247,11 +1298,93 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
-     *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
-     *   * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
-     *   *
+     * @summary 创建实例参数模板。
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
+     */
+    public function createParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterGroupDesc)) {
+            $query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        }
+        if (!Utils::isUnset($request->parameterGroupName)) {
+            $query['ParameterGroupName'] = $request->parameterGroupName;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateParameterGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建实例参数模板。
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
+     *
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
+     */
+    public function createParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a Tair instance.
+     *  *
+     * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
+     * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
+     *  *
      * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1336,6 +1469,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->readOnlyCount)) {
             $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
+        if (!Utils::isUnset($request->recoverConfigMode)) {
+            $query['RecoverConfigMode'] = $request->recoverConfigMode;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1406,11 +1542,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
-     *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
-     *   * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
-     *   *
+     * @summary Creates a Tair instance.
+     *  *
+     * @description For information about instance selection, see [Select an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/223808.html).
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](https://help.aliyun.com/document_detail/443863.html).
+     * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](https://help.aliyun.com/document_detail/126164.html) instances, you can call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation.
+     *  *
      * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      *
      * @return CreateTairInstanceResponse CreateTairInstanceResponse
@@ -1423,9 +1561,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
-     *   * *   The ApsaraDB for Redis instance must be in the Running state.
-     *   *
+     * @summary Deletes an account from an ApsaraDB for Redis instance.
+     *  *
+     * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+     * *   The ApsaraDB for Redis instance must be in the Running state.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1475,9 +1615,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
-     *   * *   The ApsaraDB for Redis instance must be in the Running state.
-     *   *
+     * @summary Deletes an account from an ApsaraDB for Redis instance.
+     *  *
+     * @description *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+     * *   The ApsaraDB for Redis instance must be in the Running state.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      *
      * @return DeleteAccountResponse DeleteAccountResponse
@@ -1490,8 +1632,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-     *   *
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *  *
      * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1547,8 +1691,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
-     *   *
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @description Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *  *
      * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
      * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
@@ -1561,12 +1707,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
-     *   * *   The instance is charged on a pay-as-you-go basis.
-     *   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-     *   *
+     * @summary Release the Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the running state.
+     * *   The instance is charged on a pay-as-you-go basis.
+     * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1616,12 +1764,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the running state.
-     *   * *   The instance is charged on a pay-as-you-go basis.
-     *   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
-     *   *
+     * @summary Release the Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the running state.
+     * *   The instance is charged on a pay-as-you-go basis.
+     * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
      * @return DeleteInstanceResponse DeleteInstanceResponse
@@ -1634,11 +1784,75 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
-     *   * *   The instance has more than one data shard.
-     *   *
+     * @summary Deletes a parameter template.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
+     */
+    public function deleteParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteParameterGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a parameter template.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
+     *
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
+     */
+    public function deleteParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
+     * *   The instance has more than one data shard.
+     *  *
      * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1694,11 +1908,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
-     *   * *   The instance has more than one data shard.
-     *   *
+     * @summary Removes one or more data shards from an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](https://help.aliyun.com/document_detail/198082.html).\\
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](https://help.aliyun.com/document_detail/183956.html).
+     * *   The instance has more than one data shard.
+     *  *
      * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
      *
      * @return DeleteShardingNodeResponse DeleteShardingNodeResponse
@@ -1711,8 +1927,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   *
+     * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1762,8 +1980,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   *
+     * @summary Queries all accounts or a specified account of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
      * @return DescribeAccountsResponse DescribeAccountsResponse
@@ -1776,8 +1996,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-     *   *
+     * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+     *  *
+     * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+     *  *
      * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1836,8 +2058,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
-     *   *
+     * @summary Queries the detailed information about O&M tasks of an ApsaraDB for Redis instance.
+     *  *
+     * @description After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
+     *  *
      * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      *
      * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
@@ -1850,12 +2074,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
-     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-     *   *
+     * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     *  *
+     * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+     * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+     * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
+     * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+     *  *
      * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1905,12 +2131,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
-     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-     *   *
+     * @summary Queries the audit log configurations of an ApsaraDB for Redis instance. The configurations include whether the audit log feature is enabled and the retention period of audit logs.
+     *  *
+     * @description > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](https://help.aliyun.com/document_detail/102015.html).
+     * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+     * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest minor version.
+     * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+     *  *
      * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
      *
      * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
@@ -1923,12 +2151,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-     *   *
+     * @summary Queries the audit logs of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+     *  *
      * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2002,12 +2232,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
-     *   *
+     * @summary Queries the audit logs of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](https://help.aliyun.com/document_detail/101937.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/130206.html).
+     *  *
      * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      *
      * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
@@ -2020,10 +2252,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
@@ -2096,9 +2330,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
+     * @summary Queries the types of ApsaraDB for Redis instances that can be created in a specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -2108,10 +2344,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -2154,9 +2392,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @summary Queries the backup policy of an ApsaraDB for Redis instance, including the backup cycle and backup time.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -2166,10 +2406,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
@@ -2218,9 +2460,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
+     * @summary Queries the states of backup tasks for an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -2230,10 +2474,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the backup files of the ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2297,9 +2543,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @summary Queries the backup files of the ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2309,11 +2557,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
-     *   *
+     * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+     *  *
+     * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
      * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2375,11 +2625,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
-     *   *
+     * @summary Queries the cache analytics report that is generated on a specified date for an ApsaraDB for Redis instance.
+     *  *
+     * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
      * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      *
      * @return DescribeCacheAnalysisReportResponse DescribeCacheAnalysisReportResponse
@@ -2392,11 +2644,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
-     *   *
+     * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
+     *  *
+     * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
      * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2455,11 +2709,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
-     *   * Before you call this operation, make sure that the instance meets the following requirements:
-     *   * *   The engine version of the instance is Redis 4.0 or later.
-     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
-     *   *
+     * @summary Queries the cache analytics reports of an ApsaraDB for Redis instance.
+     *  *
+     * @description > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](https://help.aliyun.com/document_detail/186019.html).
+     * Before you call this operation, make sure that the instance meets the following requirements:
+     * *   The engine version of the instance is Redis 4.0 or later.
+     * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](https://help.aliyun.com/document_detail/129203.html)
+     *  *
      * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      *
      * @return DescribeCacheAnalysisReportListResponse DescribeCacheAnalysisReportListResponse
@@ -2472,10 +2728,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBackupListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+     *  *
+     * @param DescribeClusterBackupListRequest $request DescribeClusterBackupListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterBackupListResponse
+     * @return DescribeClusterBackupListResponse DescribeClusterBackupListResponse
      */
     public function describeClusterBackupListWithOptions($request, $runtime)
     {
@@ -2500,9 +2758,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBackupListRequest $request
+     * @summary Queries the backup sets of an ApsaraDB for Redis or Tair cluster instance.
+     *  *
+     * @param DescribeClusterBackupListRequest $request DescribeClusterBackupListRequest
      *
-     * @return DescribeClusterBackupListResponse
+     * @return DescribeClusterBackupListResponse DescribeClusterBackupListResponse
      */
     public function describeClusterBackupList($request)
     {
@@ -2512,8 +2772,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
-     *   *
+     * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+     *  *
+     * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+     *  *
      * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2566,8 +2828,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
-     *   *
+     * @summary Queries the configuration information of nodes in an ApsaraDB for Redis cluster instance, such as the specifications and the maximum number of connections.
+     *  *
+     * @description > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](https://help.aliyun.com/document_detail/188068.html) and the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
+     *  *
      * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
      *
      * @return DescribeClusterMemberInfoResponse DescribeClusterMemberInfoResponse
@@ -2580,10 +2844,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the network information of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
@@ -2626,9 +2892,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
+     * @summary Queries the network information of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -2638,8 +2906,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > Only instances that use cloud disks support this operation.
-     *   *
+     * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     *  *
+     * @description > Only instances that use cloud disks support this operation.
+     *  *
      * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2683,8 +2953,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > Only instances that use cloud disks support this operation.
-     *   *
+     * @summary Queries the information about virtual IP addresses (VIPs) of child instances of a cluster instance in direct connection mode.
+     *  *
+     * @description > Only instances that use cloud disks support this operation.
+     *  *
      * @param DescribeDBNodeDirectVipInfoRequest $request DescribeDBNodeDirectVipInfoRequest
      *
      * @return DescribeDBNodeDirectVipInfoResponse DescribeDBNodeDirectVipInfoResponse
@@ -2697,8 +2969,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
-     *   *
+     * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+     *  *
+     * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+     *  *
      * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -2775,8 +3049,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
-     *   *
+     * @summary Queries the information of an ApsaraDB for Redis instance deployed in a dedicated cluster.
+     *  *
+     * @description > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/60996.html) operation.
+     *  *
      * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
      *
      * @return DescribeDedicatedClusterInstanceListResponse DescribeDedicatedClusterInstanceListResponse
@@ -2789,9 +3065,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
-     *   * > For more information about TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+     * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2841,9 +3119,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
-     *   * > For more information about TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Queries the details of a Transparent Data Encryption (TDE) custom key for an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html).
+     * > For more information about TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
      *
      * @return DescribeEncryptionKeyResponse DescribeEncryptionKeyResponse
@@ -2856,9 +3136,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
-     *   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
+     *  *
+     * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+     * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2905,9 +3187,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
-     *   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Queries the custom keys used by an ApsaraDB for Redis instance.
+     *  *
+     * @description *   You can specify a custom key when you call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service (KMS).
+     * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      *
      * @return DescribeEncryptionKeyListResponse DescribeEncryptionKeyListResponse
@@ -2920,9 +3204,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01).
-     *   *
+     * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+     *  *
      * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2969,9 +3255,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01).
-     *   *
+     * @summary Queries the major version and minor version of an ApsaraDB for Redis instance and the release notes for minor versions.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01)
+     *  *
      * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
      *
      * @return DescribeEngineVersionResponse DescribeEngineVersionResponse
@@ -2984,9 +3272,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01).
-     *   *
+     * @summary Queries the details of a distributed ApsaraDB for Redis instance.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+     *  *
      * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3042,9 +3332,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01).
-     *   *
+     * @summary Queries the details of a distributed ApsaraDB for Redis instance.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01)
+     *  *
      * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
      *
      * @return DescribeGlobalDistributeCacheResponse DescribeGlobalDistributeCacheResponse
@@ -3057,10 +3349,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -3085,9 +3379,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -3097,10 +3393,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries information about the global IP whitelist templates associated with an instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -3125,9 +3423,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     * @summary Queries information about the global IP whitelist templates associated with an instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -3137,8 +3437,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
-     *   *
+     * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     *  *
      * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3203,8 +3505,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
-     *   *
+     * @summary Queries the performance monitoring data of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](https://help.aliyun.com/document_detail/43887.html).
+     *  *
      * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
      *
      * @return DescribeHistoryMonitorValuesResponse DescribeHistoryMonitorValuesResponse
@@ -3217,10 +3521,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasksWithOptions($request, $runtime)
     {
@@ -3290,9 +3596,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasks($request)
     {
@@ -3302,10 +3610,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttributeWithOptions($request, $runtime)
     {
@@ -3348,9 +3658,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAttributeRequest $request
+     * @summary Queries the details of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
      *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttribute($request)
     {
@@ -3360,10 +3672,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
@@ -3415,9 +3729,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
+     * @summary Queries whether auto-renewal is enabled for an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttribute($request)
     {
@@ -3427,9 +3743,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for instances that use cloud disks.
-     *   * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
-     *   *
+     * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is available only for instances that use cloud disks.
+     * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+     *  *
      * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3476,9 +3794,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for instances that use cloud disks.
-     *   * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
-     *   *
+     * @summary Queries the parameter settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is available only for instances that use cloud disks.
+     * > You can call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation to query the parameter settings of instances that use local disks.
+     *  *
      * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
      *
      * @return DescribeInstanceConfigResponse DescribeInstanceConfigResponse
@@ -3491,12 +3811,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
-     *   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
-     *   * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
-     *   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-     *   * > After SSL encryption is enabled, the instance may respond slower.
-     *   *
+     * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+     *  *
+     * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+     * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
+     * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * > After SSL encryption is enabled, the instance may respond slower.
+     *  *
      * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3543,12 +3865,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
-     *   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
-     *   * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
-     *   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-     *   * > After SSL encryption is enabled, the instance may respond slower.
-     *   *
+     * @summary Queries whether TLS (SSL) encryption is enabled for an instance.
+     *  *
+     * @description SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+     * *   Call the [ModifyInstanceSSL](https://help.aliyun.com/document_detail/96194.html) operation.
+     * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * > After SSL encryption is enabled, the instance may respond slower.
+     *  *
      * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
      *
      * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
@@ -3561,9 +3885,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
-     *   *
+     * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
+     *  *
      * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3610,9 +3936,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
-     *   * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
-     *   *
+     * @summary Queries whether transparent data encryption (TDE) is enabled for an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about TDE and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     * >  You can call the [ModifyInstanceTDE](https://help.aliyun.com/document_detail/302337.html) to enable or disable TDE.
+     *  *
      * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      *
      * @return DescribeInstanceTDEStatusResponse DescribeInstanceTDEStatusResponse
@@ -3625,10 +3953,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about one or more ApsaraDB for Redis instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -3731,9 +4061,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @summary Queries the information about one or more ApsaraDB for Redis instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -3743,9 +4075,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-     *   * > This operation returns non-paged results.
-     *   *
+     * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
+     *  *
+     * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     * > This operation returns non-paged results.
+     *  *
      * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3837,9 +4171,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-     *   * > This operation returns non-paged results.
-     *   *
+     * @summary Queries the overview information of one or more ApsaraDB for Redis instances.
+     *  *
+     * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     * > This operation returns non-paged results.
+     *  *
      * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
      *
      * @return DescribeInstancesOverviewResponse DescribeInstancesOverviewResponse
@@ -3852,8 +4188,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
-     *   *
+     * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+     *  *
+     * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+     *  *
      * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3903,8 +4241,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
-     *   *
+     * @summary Queries the internal bandwidth of an ApsaraDB for Redis instance. If you have purchased extra internal bandwidth, the expiration time of the purchased bandwidth is also returned.
+     *  *
+     * @description You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to increase the internal bandwidth of an instance.
+     *  *
      * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
      *
      * @return DescribeIntranetAttributeResponse DescribeIntranetAttributeResponse
@@ -3917,8 +4257,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This parameter is supported only for cluster and read/write splitting instances.
-     *   *
+     * @summary Queries the logical topology of an ApsaraDB for Redis instance.
+     *  *
+     * @description This parameter is supported only for cluster and read/write splitting instances.
+     *  *
      * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3965,8 +4307,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This parameter is supported only for cluster and read/write splitting instances.
-     *   *
+     * @summary Queries the logical topology of an ApsaraDB for Redis instance.
+     *  *
+     * @description This parameter is supported only for cluster and read/write splitting instances.
+     *  *
      * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      *
      * @return DescribeLogicInstanceTopologyResponse DescribeLogicInstanceTopologyResponse
@@ -3979,9 +4323,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-     *   *
+     * @summary Queries the metrics of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+     *  *
      * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4025,9 +4371,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
-     *   *
+     * @summary Queries the metrics of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](https://help.aliyun.com/document_detail/189893.html).
+     * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
+     *  *
      * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      *
      * @return DescribeMonitorItemsResponse DescribeMonitorItemsResponse
@@ -4040,10 +4388,254 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterModificationHistoryRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the basic information about a parameter template.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
+     */
+    public function describeParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the basic information about a parameter template.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
+     *
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
+     */
+    public function describeParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+     *  *
+     * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParameterGroupSupportParamResponse DescribeParameterGroupSupportParamResponse
+     */
+    public function describeParameterGroupSupportParamWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterGroupSupportParam',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParameterGroupSupportParamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of parameters that can be configured for different versions of parameter templates.
+     *  *
+     * @param DescribeParameterGroupSupportParamRequest $request DescribeParameterGroupSupportParamRequest
+     *
+     * @return DescribeParameterGroupSupportParamResponse DescribeParameterGroupSupportParamResponse
+     */
+    public function describeParameterGroupSupportParam($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupSupportParamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询参数模板支持设置的参数列表
+     *  *
+     * @param DescribeParameterGroupTemplateListRequest $request DescribeParameterGroupTemplateListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParameterGroupTemplateListResponse DescribeParameterGroupTemplateListResponse
+     */
+    public function describeParameterGroupTemplateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterGroupTemplateList',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParameterGroupTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询参数模板支持设置的参数列表
+     *  *
+     * @param DescribeParameterGroupTemplateListRequest $request DescribeParameterGroupTemplateListRequest
+     *
+     * @return DescribeParameterGroupTemplateListResponse DescribeParameterGroupTemplateListResponse
+     */
+    public function describeParameterGroupTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of available parameter templates.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterGroups',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of available parameter templates.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
+     *
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistoryWithOptions($request, $runtime)
     {
@@ -4098,9 +4690,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterModificationHistoryRequest $request
+     * @summary Queries the parameter modification history of a Tair or ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
      *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistory($request)
     {
@@ -4110,8 +4704,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
-     *   *
+     * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+     *  *
+     * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+     *  *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4170,8 +4766,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
-     *   *
+     * @summary Queries the parameters and their default values that are supported by ApsaraDB for Redis instances of different architectures and major versions.
+     *  *
+     * @description After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/61113.html) operation to reconfigure the parameters of the instance.
+     *  *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
      * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
@@ -4184,9 +4782,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for instances that use local disks.
-     *   * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
-     *   *
+     * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is available only for instances that use local disks.
+     * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4239,9 +4839,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is available only for instances that use local disks.
-     *   * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
-     *   *
+     * @summary Queries the configuration parameters and running parameters of an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is available only for instances that use local disks.
+     * > You can call the [DescribeInstanceConfig](https://help.aliyun.com/document_detail/473846.html) operation to query the parameter settings of instances that use cloud disks.
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      *
      * @return DescribeParametersResponse DescribeParametersResponse
@@ -4254,10 +4856,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -4342,9 +4946,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @summary Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -4354,10 +4960,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -4400,9 +5008,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions in which ApsaraDB for Redis instances can be created.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -4412,10 +5022,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRoleZoneInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfoWithOptions($request, $runtime)
     {
@@ -4467,9 +5079,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRoleZoneInfoRequest $request
+     * @summary Queries the role, type, minor version, and zone of each node in an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfo($request)
     {
@@ -4479,9 +5093,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
-     *   * This operation can be called up to 100 times per minute.
-     *   *
+     * @summary Queries the active logs of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+     * This operation can be called up to 100 times per minute.
+     *  *
      * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4561,9 +5177,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
-     *   * This operation can be called up to 100 times per minute.
-     *   *
+     * @summary Queries the active logs of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](https://help.aliyun.com/document_detail/101713.html).
+     * This operation can be called up to 100 times per minute.
+     *  *
      * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      *
      * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
@@ -4576,10 +5194,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
@@ -4622,9 +5242,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupConfigurationRequest $request
+     * @summary Queries the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfiguration($request)
     {
@@ -4634,10 +5256,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
@@ -4680,9 +5304,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
+     * @summary Queries the IP address whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -4692,8 +5318,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
-     *   *
+     * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+     *  *
+     * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4770,8 +5398,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
-     *   *
+     * @summary Queries the slow logs of an ApsaraDB for Redis instance that are generated within a specified period of time.
+     *  *
+     * @description You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](https://help.aliyun.com/document_detail/95874.html). This operation can be called up to 100 times per minute.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
      * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
@@ -4784,8 +5414,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-     *   *
+     * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+     *  *
+     * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4847,8 +5479,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
-     *   *
+     * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
+     *  *
+     * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      *
      * @return DescribeTasksResponse DescribeTasksResponse
@@ -4861,10 +5495,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the zones available for ApsaraDB for Redis.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -4910,9 +5546,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries the zones available for ApsaraDB for Redis.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -4922,9 +5560,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](~~102588~~).
-     *   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the current bandwidth of each data node in an instance.
-     *   *
+     * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
+     *  *
+     * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+     * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
+     *  *
      * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4998,9 +5638,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](~~102588~~).
-     *   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the current bandwidth of each data node in an instance.
-     *   *
+     * @summary Adjusts the bandwidth of an ApsaraDB for Redis instance.
+     *  *
+     * @description If you enable the bandwidth auto scaling feature and call this operation at the same time, bandwidth auto scaling takes precedence. During bandwidth scale-back, the instance is scaled back to the default bandwidth of the instance type. For more information about the limits, costs, and FAQ about this feature, see [Adjust the bandwidth of an instance](https://help.aliyun.com/document_detail/102588.html).
+     * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the current bandwidth of each data node in an instance.
+     *  *
      * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
      *
      * @return EnableAdditionalBandwidthResponse EnableAdditionalBandwidthResponse
@@ -5013,9 +5655,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
-     *   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+     * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+     *  *
      * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -5065,9 +5709,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
-     *   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes the expired keys from an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](https://help.aliyun.com/document_detail/43881.html).
+     * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
+     *  *
      * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      *
      * @return FlushExpireKeysResponse FlushExpireKeysResponse
@@ -5080,10 +5726,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+     *  *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstanceWithOptions($request, $runtime)
     {
@@ -5126,9 +5774,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceRequest $request
+     * @summary Clears the data of an ApsaraDB for Redis instance. The cleared data cannot be restored.
+     *  *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
      *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstance($request)
     {
@@ -5138,9 +5788,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
-     *   * >  This operation is available only for cloud-native instances that use cloud disks.
-     *   *
+     * @summary Cleans the data of specified databases in an instance.
+     *  *
+     * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+     * >  This operation is available only for cloud-native instances that use cloud disks.
+     *  *
      * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5187,9 +5839,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
-     *   * >  This operation is available only for cloud-native instances that use cloud disks.
-     *   *
+     * @summary Cleans the data of specified databases in an instance.
+     *  *
+     * @description Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](https://help.aliyun.com/document_detail/38688.html)
+     * >  This operation is available only for cloud-native instances that use cloud disks.
+     *  *
      * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
      *
      * @return FlushInstanceForDBResponse FlushInstanceForDBResponse
@@ -5202,10 +5856,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   * *   The ApsaraDB for Redis instance must be in the running state.
-     *   *
+     * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description >
+     * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     * *   The ApsaraDB for Redis instance must be in the running state.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5258,10 +5914,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   * *   The ApsaraDB for Redis instance must be in the running state.
-     *   *
+     * @summary Modifies the permissions of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description >
+     * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     * *   The ApsaraDB for Redis instance must be in the running state.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
      * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
@@ -5274,8 +5932,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
-     *   *
+     * @summary Assigns a service-linked role to ApsaraDB for Redis.
+     *  *
+     * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+     *  *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -5322,8 +5982,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
-     *   *
+     * @summary Assigns a service-linked role to ApsaraDB for Redis.
+     *  *
+     * @description The log management feature of ApsaraDB for Redis requires the resources of [Log Service](https://help.aliyun.com/document_detail/48869.html). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](https://help.aliyun.com/document_detail/184337.html).
+     *  *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      *
      * @return InitializeKvstorePermissionResponse InitializeKvstorePermissionResponse
@@ -5336,8 +5998,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
-     *   *
+     * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
+     *  *
+     * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5393,8 +6057,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
-     *   *
+     * @summary Queries the relationships between ApsaraDB for Redis instances and tags.
+     *  *
+     * @description You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](https://help.aliyun.com/document_detail/119160.html) and [View tags bound to an instance](https://help.aliyun.com/document_detail/134038.html).
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -5407,10 +6073,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param LockDBInstanceWriteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     *  *
+     * @param LockDBInstanceWriteRequest $request LockDBInstanceWriteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockDBInstanceWriteResponse
+     * @return LockDBInstanceWriteResponse LockDBInstanceWriteResponse
      */
     public function lockDBInstanceWriteWithOptions($request, $runtime)
     {
@@ -5456,9 +6124,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param LockDBInstanceWriteRequest $request
+     * @summary Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     *  *
+     * @param LockDBInstanceWriteRequest $request LockDBInstanceWriteRequest
      *
-     * @return LockDBInstanceWriteResponse
+     * @return LockDBInstanceWriteResponse LockDBInstanceWriteResponse
      */
     public function lockDBInstanceWrite($request)
     {
@@ -5468,10 +6138,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
-     *   * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
-     *   * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-     *   *
+     * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
+     *  *
+     * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+     * >
+     * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+     * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5530,10 +6203,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to migrate an instance across zones in the ApsaraDB for Redis console, see [Migrate an instance across zones](~~106272~~).
-     *   * > *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the endpoint of the classic network is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
-     *   * > *   After the data is migrated, the endpoint of an instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
-     *   *
+     * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
+     *  *
+     * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
+     * >
+     * *   If the network type of an ApsaraDB for Redis instance is switched from classic network to Virtual Private Cloud (VPC), and the classic network endpoint is retained, you can migrate the instance across zones only after the classic network endpoint is released upon expiration.
+     * *   After the instance is migrated, the endpoint of the instance remains unchanged. However, the virtual IP address (VIP) is changed. We recommend that you use the endpoint instead of the VIP to connect to the instance.
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
      * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
@@ -5546,8 +6222,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > This operation is supported only for instances that run Redis 4.0 or later.
-     *   *
+     * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description > This operation is supported only for instances that run Redis 4.0 or later.
+     *  *
      * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5600,8 +6278,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > This operation is supported only for instances that run Redis 4.0 or later.
-     *   *
+     * @summary Modifies the description of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description > This operation is supported only for instances that run Redis 4.0 or later.
+     *  *
      * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
      * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
@@ -5614,10 +6294,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
@@ -5669,9 +6351,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
+     * @summary Changes the password of a specific account for an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -5681,8 +6365,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
-     *   *
+     * @summary Changes the scheduled switchover time of an O&M task.
+     *  *
+     * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+     *  *
      * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -5732,8 +6418,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
-     *   *
+     * @summary Changes the scheduled switchover time of an O&M task.
+     *  *
+     * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
+     *  *
      * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      *
      * @return ModifyActiveOperationTaskResponse ModifyActiveOperationTaskResponse
@@ -5746,11 +6434,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
-     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
-     *   *
+     * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+     * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+     * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
+     *  *
      * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5803,11 +6493,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
-     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
-     *   *
+     * @summary Modifies the audit log settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of the audit log feature.
+     * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](https://help.aliyun.com/document_detail/126164.html).
+     * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to check whether the instance uses the latest major version and minor version.
+     *  *
      * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      *
      * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
@@ -5820,10 +6512,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -5878,9 +6572,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @summary Modifies the automatic backup policy of an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -5890,8 +6586,75 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
-     *   *
+     * @summary 修改小版本自动升级开关
+     *  *
+     * @param ModifyDBInstanceAutoUpgradeRequest $request ModifyDBInstanceAutoUpgradeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstanceAutoUpgradeResponse ModifyDBInstanceAutoUpgradeResponse
+     */
+    public function modifyDBInstanceAutoUpgradeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceAutoUpgrade',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceAutoUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改小版本自动升级开关
+     *  *
+     * @param ModifyDBInstanceAutoUpgradeRequest $request ModifyDBInstanceAutoUpgradeRequest
+     *
+     * @return ModifyDBInstanceAutoUpgradeResponse ModifyDBInstanceAutoUpgradeResponse
+     */
+    public function modifyDBInstanceAutoUpgrade($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceAutoUpgradeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+     *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -5950,8 +6713,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
-     *   *
+     * @summary Changes the endpoint or port number of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](https://help.aliyun.com/document_detail/85683.html).
+     *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
      * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
@@ -5964,10 +6729,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -6022,9 +6789,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
+     * @summary Modifies a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -6034,10 +6803,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
@@ -6089,9 +6860,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -6101,10 +6874,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Adds a specified instance to a specified IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -6156,9 +6931,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     * @summary Adds a specified instance to a specified IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -6168,8 +6945,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
-     *   *
+     * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+     *  *
+     * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+     *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6225,8 +7004,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
-     *   *
+     * @summary Changes the information of an ApsaraDB for Redis instance, such as the name and password.
+     *  *
+     * @description You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](https://help.aliyun.com/document_detail/43874.html).
+     *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
      * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
@@ -6239,8 +7020,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > Auto-renewal is triggered seven days before the expiration date of the instance.
-     *   *
+     * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+     *  *
+     * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -6293,8 +7076,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > Auto-renewal is triggered seven days before the expiration date of the instance.
-     *   *
+     * @summary Enables or disables auto-renewal for an ApsaraDB for Redis instance.
+     *  *
+     * @description > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
      * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
@@ -6307,10 +7092,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfigWithOptions($request, $runtime)
     {
@@ -6356,9 +7143,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceConfigRequest $request
+     * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
      *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfig($request)
     {
@@ -6368,8 +7157,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
-     *   *
+     * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+     *  *
+     * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+     *  *
      * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -6422,8 +7213,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
-     *   *
+     * @summary Modifies the maintenance window of an ApsaraDB for Redis instance. Alibaba Cloud maintains ApsaraDB for Redis instances during the specified maintenance window.
+     *  *
+     * @description You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
+     *  *
      * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
      *
      * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
@@ -6436,8 +7229,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
-     *   *
+     * @summary Upgrades the major version of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+     *  *
      * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -6490,8 +7285,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
-     *   *
+     * @summary Upgrades the major version of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](https://help.aliyun.com/document_detail/101764.html).
+     *  *
      * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      *
      * @return ModifyInstanceMajorVersionResponse ModifyInstanceMajorVersionResponse
@@ -6504,11 +7301,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
-     *   * >
-     *   * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
-     *   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-     *   *
+     * @summary Updates the minor version of an ApsaraDB for Redis instance.
+     *  *
+     * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+     * >
+     * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
+     * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+     *  *
      * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -6561,11 +7360,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
-     *   * >
-     *   * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
-     *   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
-     *   *
+     * @summary Updates the minor version of an ApsaraDB for Redis instance.
+     *  *
+     * @description The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](https://help.aliyun.com/document_detail/56450.html).
+     * >
+     * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) operation to query the minor version of the current instance.
+     * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
+     *  *
      * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      *
      * @return ModifyInstanceMinorVersionResponse ModifyInstanceMinorVersionResponse
@@ -6578,9 +7379,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
-     *   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
-     *   *
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+     *  *
+     * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+     * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
+     *  *
      * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -6633,9 +7436,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
-     *   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
-     *   *
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for Redis instance. You can call this operation after you change the network type of the ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC) with the classic network endpoint retained.
+     *  *
+     * @description You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](https://help.aliyun.com/document_detail/60062.html).
+     * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](https://help.aliyun.com/document_detail/61005.html).
+     *  *
      * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
      *
      * @return ModifyInstanceNetExpireTimeResponse ModifyInstanceNetExpireTimeResponse
@@ -6648,10 +7453,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceParameterRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 修改实例参数
+     *  *
+     * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceParameterResponse
+     * @return ModifyInstanceParameterResponse ModifyInstanceParameterResponse
      */
     public function modifyInstanceParameterWithOptions($request, $runtime)
     {
@@ -6700,9 +7507,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceParameterRequest $request
+     * @summary 修改实例参数
+     *  *
+     * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
      *
-     * @return ModifyInstanceParameterResponse
+     * @return ModifyInstanceParameterResponse ModifyInstanceParameterResponse
      */
     public function modifyInstanceParameter($request)
     {
@@ -6712,9 +7521,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-     *   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-     *   *
+     * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
+     *  *
      * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6764,9 +7575,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
-     *   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
-     *   *
+     * @summary Modifies the SSL settings of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](https://help.aliyun.com/document_detail/84898.html).
+     * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
+     *  *
      * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      *
      * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
@@ -6779,8 +7592,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
-     *   *
+     * @summary Changes the specifications of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     *  *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6875,8 +7690,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
-     *   *
+     * @summary Changes the specifications of an ApsaraDB for Redis instance.
+     *  *
+     * @description >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     *  *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
      * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
@@ -6889,8 +7706,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+     *  *
+     * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6949,8 +7768,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
-     *   *
+     * @summary Enables transparent data encryption (TDE) for an ApsaraDB for Redis instance. You can use existing custom keys.
+     *  *
+     * @description > For more information about TDE and the impact of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+     *  *
      * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
      *
      * @return ModifyInstanceTDEResponse ModifyInstanceTDEResponse
@@ -6963,9 +7784,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-     *   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
-     *   *
+     * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+     *  *
+     * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+     * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     *  *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -7015,9 +7838,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
-     *   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
-     *   *
+     * @summary Enables or disables password-free access for an ApsaraDB for Redis instance. This way, you can connect to a database in a convenient and secure manner.
+     *  *
+     * @description When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+     * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](https://help.aliyun.com/document_detail/85168.html).
+     *  *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
      * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
@@ -7030,9 +7855,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
-     *   *
+     * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+     *  *
+     * @description >
+     * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
+     *  *
      * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -7085,9 +7912,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
-     *   *
+     * @summary Temporarily adjusts the internal bandwidth of an ApsaraDB for Redis instance that is deployed in a dedicated cluster.
+     *  *
+     * @description >
+     * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation.
+     *  *
      * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
      *
      * @return ModifyIntranetAttributeResponse ModifyIntranetAttributeResponse
@@ -7100,9 +7929,88 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
-     *   * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
-     *   *
+     * @summary Modifies the settings of a parameter template.
+     *  *
+     * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyParameterGroupResponse ModifyParameterGroupResponse
+     */
+    public function modifyParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterGroupDesc)) {
+            $query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        }
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+        if (!Utils::isUnset($request->parameterGroupName)) {
+            $query['ParameterGroupName'] = $request->parameterGroupName;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyParameterGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the settings of a parameter template.
+     *  *
+     * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
+     *
+     * @return ModifyParameterGroupResponse ModifyParameterGroupResponse
+     */
+    public function modifyParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
+     *  *
+     * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7155,9 +8063,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
-     *   * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
-     *   *
+     * @summary Changes the resource group to which an ApsaraDB for Redis instance belongs.
+     *  *
+     * @description Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     * > For more information about resource group API operations, see [Resource Management API overview](https://help.aliyun.com/document_detail/160024.html).
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
      * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
@@ -7170,8 +8080,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
-     *   *
+     * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -7221,8 +8133,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
-     *   *
+     * @summary Resets the security groups that are added to the whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @description > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](https://help.aliyun.com/document_detail/148267.html).
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
      * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
@@ -7235,8 +8149,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
-     *   *
+     * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7295,8 +8211,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
-     *   *
+     * @summary Modifies the IP address whitelists of an ApsaraDB for Redis instance.
+     *  *
+     * @description You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
      * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
@@ -7309,8 +8227,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
-     *   *
+     * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     *  *
      * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -7357,8 +8277,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
-     *   *
+     * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     *  *
+     * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
+     *  *
      * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
      *
      * @return ReleaseDirectConnectionResponse ReleaseDirectConnectionResponse
@@ -7371,8 +8293,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
-     *   *
+     * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+     *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -7422,8 +8346,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
-     *   *
+     * @summary Releases the public endpoint of an ApsaraDB for Redis instance.
+     *  *
+     * @description For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](https://help.aliyun.com/document_detail/125424.html).
+     *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
      * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
@@ -7436,8 +8362,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-     *   *
+     * @summary Removes a child instance from a distributed instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *  *
      * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7484,8 +8412,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
-     *   *
+     * @summary Removes a child instance from a distributed instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *  *
      * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
      *
      * @return RemoveSubInstanceResponse RemoveSubInstanceResponse
@@ -7498,10 +8428,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
-     *   * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-     *   *
+     * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+     * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+     *  *
      * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7560,10 +8492,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-     *   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
-     *   * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
-     *   *
+     * @summary Renews the purchased bandwidth for an ApsaraDB for Redis instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Redis.
+     * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/102588.html). You can also call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/206173.html) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+     * > Before you call this operation, you can call the [DescribeIntranetAttribute](https://help.aliyun.com/document_detail/128715.html) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+     *  *
      * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
      *
      * @return RenewAdditionalBandwidthResponse RenewAdditionalBandwidthResponse
@@ -7576,8 +8510,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to subscription instances.
-     *   *
+     * @summary Renews an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is applicable only to subscription instances.
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -7651,8 +8587,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to subscription instances.
-     *   *
+     * @summary Renews an ApsaraDB for Redis instance.
+     *  *
+     * @description This operation is applicable only to subscription instances.
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      *
      * @return RenewInstanceResponse RenewInstanceResponse
@@ -7665,8 +8603,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   *
+     * @summary Resets the password of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7719,8 +8659,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
-     *   *
+     * @summary Resets the password of an account for an ApsaraDB for Redis instance.
+     *  *
+     * @description >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
      * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
@@ -7733,10 +8675,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Restarts a running ApsaraDB for Redis instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
@@ -7785,9 +8729,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
+     * @summary Restarts a running ApsaraDB for Redis instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -7797,9 +8743,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
-     *   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
-     *   *
+     * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+     *  *
+     * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+     * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
+     *  *
      * @param RestoreInstanceRequest $request RestoreInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -7861,9 +8809,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
-     *   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
-     *   *
+     * @summary Restores the data in a backup file to a specified ApsaraDB for Redis instance.
+     *  *
+     * @description *   If your instance is a [persistent memory-optimized instance](https://help.aliyun.com/document_detail/443828.html) or [DRAM-based instance](https://help.aliyun.com/document_detail/443827.html) that is compatible with Redis 5.0 and the [data flashback](https://help.aliyun.com/document_detail/443784.html) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+     * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](https://help.aliyun.com/document_detail/60873.html) operation to create an instance. Then, you can restore data to the new instance.
+     *  *
      * @param RestoreInstanceRequest $request RestoreInstanceRequest
      *
      * @return RestoreInstanceResponse RestoreInstanceResponse
@@ -7876,12 +8826,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
-     *   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
-     *   * A call to this operation has the following impacts on your instance:
-     *   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-     *   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-     *   *
+     * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+     *  *
+     * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+     * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
+     * A call to this operation has the following impacts on your instance:
+     * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+     * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *  *
      * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -7937,12 +8889,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
-     *   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
-     *   * A call to this operation has the following impacts on your instance:
-     *   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
-     *   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
-     *   *
+     * @summary Performs a master-replica switchover to switch node roles. This operation is applicable to disaster recovery drills and nearby access to applications that are deployed across zones.
+     *  *
+     * @description > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](https://help.aliyun.com/document_detail/164222.html).
+     * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](https://help.aliyun.com/document_detail/126164.html) instance that uses local disks.
+     * A call to this operation has the following impacts on your instance:
+     * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+     * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *  *
      * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
      *
      * @return SwitchInstanceHAResponse SwitchInstanceHAResponse
@@ -7955,11 +8909,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
-     *   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-     *   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
-     *   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-     *   *
+     * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+     *  *
+     * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+     * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+     * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *  *
      * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8006,11 +8962,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
-     *   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
-     *   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
-     *   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
-     *   *
+     * @summary Enables or disables the proxy mode for an ApsaraDB for Redis cluster instance in a dedicated cluster.
+     *  *
+     * @description For more information about the proxy mode, see [Features of proxy nodes](https://help.aliyun.com/document_detail/142959.html). Before you call this operation, make sure that the following requirements are met:
+     * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](https://help.aliyun.com/document_detail/52228.html).
+     * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](https://help.aliyun.com/document_detail/229522.html) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *  *
      * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
      *
      * @return SwitchInstanceProxyResponse SwitchInstanceProxyResponse
@@ -8023,10 +8981,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchNetworkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     *  *
+     * @param SwitchNetworkRequest $request SwitchNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchNetworkResponse
+     * @return SwitchNetworkResponse SwitchNetworkResponse
      */
     public function switchNetworkWithOptions($request, $runtime)
     {
@@ -8084,9 +9044,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchNetworkRequest $request
+     * @summary Changes the virtual private cloud (VPC) or vSwitch of an ApsaraDB for Redis instance. If the instance is deployed in the classic network, the network type of the instance is changed from the classic network to VPC.
+     *  *
+     * @param SwitchNetworkRequest $request SwitchNetworkRequest
      *
-     * @return SwitchNetworkResponse
+     * @return SwitchNetworkResponse SwitchNetworkResponse
      */
     public function switchNetwork($request)
     {
@@ -8096,10 +9058,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SyncDtsStatusRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+     *  *
+     * @param SyncDtsStatusRequest $request SyncDtsStatusRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncDtsStatusResponse
+     * @return SyncDtsStatusResponse SyncDtsStatusResponse
      */
     public function syncDtsStatusWithOptions($request, $runtime)
     {
@@ -8151,9 +9115,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SyncDtsStatusRequest $request
+     * @summary Disables configuration changes for an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+     *  *
+     * @param SyncDtsStatusRequest $request SyncDtsStatusRequest
      *
-     * @return SyncDtsStatusResponse
+     * @return SyncDtsStatusResponse SyncDtsStatusResponse
      */
     public function syncDtsStatus($request)
     {
@@ -8163,14 +9129,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-     *   * *   You can add up to 20 tags to each instance.
-     *   * *   You can add tags to up to 50 instances in each request.
-     *   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
-     *   *
+     * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+     * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     * *   You can add up to 20 tags to each instance.
+     * *   You can add tags to up to 50 instances in each request.
+     * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -8223,14 +9191,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
-     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
-     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-     *   * *   You can add up to 20 tags to each instance.
-     *   * *   You can add tags to up to 50 instances in each request.
-     *   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
-     *   *
+     * @summary Adds specified tags to one or more ApsaraDB for Redis instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+     * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     * *   You can add up to 20 tags to each instance.
+     * *   You can add tags to up to 50 instances in each request.
+     * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](https://help.aliyun.com/document_detail/118779.html).
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -8243,10 +9213,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-     *   * *   [Change the billing method to subscription](~~54542~~).
-     *   * *   [Change the billing method to pay-as-you-go](~~211549~~).
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+     *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -8308,10 +9280,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
-     *   * *   [Change the billing method to subscription](~~54542~~).
-     *   * *   [Change the billing method to pay-as-you-go](~~211549~~).
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go or from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     * *   [Change the billing method to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * *   [Change the billing method to pay-as-you-go](https://help.aliyun.com/document_detail/211549.html).
+     *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
      * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
@@ -8324,9 +9298,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
-     *   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+     *  *
+     * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
+     *  *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -8379,9 +9355,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
-     *   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
-     *   *
+     * @summary Changes the billing method of an ApsaraDB for Redis instance from pay-as-you-go to subscription.
+     *  *
+     * @description For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](https://help.aliyun.com/document_detail/54542.html).
+     * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
+     *  *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *
      * @return TransformToPrePaidResponse TransformToPrePaidResponse
@@ -8394,10 +9372,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param UnlockDBInstanceWriteRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     *  *
+     * @param UnlockDBInstanceWriteRequest $request UnlockDBInstanceWriteRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockDBInstanceWriteResponse
+     * @return UnlockDBInstanceWriteResponse UnlockDBInstanceWriteResponse
      */
     public function unlockDBInstanceWriteWithOptions($request, $runtime)
     {
@@ -8440,9 +9420,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param UnlockDBInstanceWriteRequest $request
+     * @summary Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     *  *
+     * @param UnlockDBInstanceWriteRequest $request UnlockDBInstanceWriteRequest
      *
-     * @return UnlockDBInstanceWriteResponse
+     * @return UnlockDBInstanceWriteResponse UnlockDBInstanceWriteResponse
      */
     public function unlockDBInstanceWrite($request)
     {
@@ -8452,10 +9434,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   You can remove up to 20 tags at a time.
-     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
-     *   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
-     *   *
+     * @summary Removes tags from one or more ApsaraDB for Redis instances.
+     *  *
+     * @description *   You can remove up to 20 tags at a time.
+     * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+     * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -8511,10 +9495,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * *   You can remove up to 20 tags at a time.
-     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
-     *   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
-     *   *
+     * @summary Removes tags from one or more ApsaraDB for Redis instances.
+     *  *
+     * @description *   You can remove up to 20 tags at a time.
+     * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+     * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](https://help.aliyun.com/document_detail/119157.html).
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse

@@ -51,7 +51,7 @@ class templateRecord extends Model
     public $parameterDescription;
 
     /**
-     * @description The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](~~259681~~).
+     * @description The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](https://help.aliyun.com/document_detail/259681.html).
      *
      * @example appendonly
      *
