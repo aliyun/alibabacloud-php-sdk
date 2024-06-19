@@ -7,8 +7,10 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleRespons
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\compliance;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\configRuleEvaluationStatus;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\createBy;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\excludeTagsScope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\managedRule;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\source;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\tagsScope;
 use AlibabaCloud\Tea\Model;
 
 class configRule extends Model
@@ -21,6 +23,11 @@ class configRule extends Model
      * @var int
      */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $accountIdsScope;
 
     /**
      * @description The details of compliance evaluation results.
@@ -134,6 +141,16 @@ class configRule extends Model
     public $excludeFolderIdsScope;
 
     /**
+     * @var string
+     */
+    public $excludeRegionIdsScope;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceGroupIdsScope;
+
+    /**
      * @description The ID of the resource excluded from the compliance evaluations performed by the rule.
      *
      * @example 23642660635687****
@@ -141,6 +158,11 @@ class configRule extends Model
      * @var string
      */
     public $excludeResourceIdsScope;
+
+    /**
+     * @var excludeTagsScope[]
+     */
+    public $excludeTagsScope;
 
     /**
      * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
@@ -214,6 +236,11 @@ class configRule extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @var string
+     */
+    public $resourceIdsScope;
+
+    /**
      * @description The type of the resource evaluated by the rule.
      *
      * @example ACS::RAM::User
@@ -271,34 +298,45 @@ class configRule extends Model
      * @var string
      */
     public $tagValueScope;
+
+    /**
+     * @var tagsScope[]
+     */
+    public $tagsScope;
     protected $_name = [
-        'accountId'                  => 'AccountId',
-        'compliance'                 => 'Compliance',
-        'configRuleArn'              => 'ConfigRuleArn',
-        'configRuleEvaluationStatus' => 'ConfigRuleEvaluationStatus',
-        'configRuleId'               => 'ConfigRuleId',
-        'configRuleName'             => 'ConfigRuleName',
-        'configRuleState'            => 'ConfigRuleState',
-        'configRuleTriggerTypes'     => 'ConfigRuleTriggerTypes',
-        'createBy'                   => 'CreateBy',
-        'createTimestamp'            => 'CreateTimestamp',
-        'description'                => 'Description',
-        'excludeAccountIdsScope'     => 'ExcludeAccountIdsScope',
-        'excludeFolderIdsScope'      => 'ExcludeFolderIdsScope',
-        'excludeResourceIdsScope'    => 'ExcludeResourceIdsScope',
-        'folderIdsScope'             => 'FolderIdsScope',
-        'inputParameters'            => 'InputParameters',
-        'managedRule'                => 'ManagedRule',
-        'maximumExecutionFrequency'  => 'MaximumExecutionFrequency',
-        'modifiedTimestamp'          => 'ModifiedTimestamp',
-        'regionIdsScope'             => 'RegionIdsScope',
-        'resourceGroupIdsScope'      => 'ResourceGroupIdsScope',
-        'resourceTypesScope'         => 'ResourceTypesScope',
-        'riskLevel'                  => 'RiskLevel',
-        'source'                     => 'Source',
-        'tagKeyLogicScope'           => 'TagKeyLogicScope',
-        'tagKeyScope'                => 'TagKeyScope',
-        'tagValueScope'              => 'TagValueScope',
+        'accountId'                    => 'AccountId',
+        'accountIdsScope'              => 'AccountIdsScope',
+        'compliance'                   => 'Compliance',
+        'configRuleArn'                => 'ConfigRuleArn',
+        'configRuleEvaluationStatus'   => 'ConfigRuleEvaluationStatus',
+        'configRuleId'                 => 'ConfigRuleId',
+        'configRuleName'               => 'ConfigRuleName',
+        'configRuleState'              => 'ConfigRuleState',
+        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
+        'createBy'                     => 'CreateBy',
+        'createTimestamp'              => 'CreateTimestamp',
+        'description'                  => 'Description',
+        'excludeAccountIdsScope'       => 'ExcludeAccountIdsScope',
+        'excludeFolderIdsScope'        => 'ExcludeFolderIdsScope',
+        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
+        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
+        'excludeTagsScope'             => 'ExcludeTagsScope',
+        'folderIdsScope'               => 'FolderIdsScope',
+        'inputParameters'              => 'InputParameters',
+        'managedRule'                  => 'ManagedRule',
+        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
+        'modifiedTimestamp'            => 'ModifiedTimestamp',
+        'regionIdsScope'               => 'RegionIdsScope',
+        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
+        'resourceIdsScope'             => 'ResourceIdsScope',
+        'resourceTypesScope'           => 'ResourceTypesScope',
+        'riskLevel'                    => 'RiskLevel',
+        'source'                       => 'Source',
+        'tagKeyLogicScope'             => 'TagKeyLogicScope',
+        'tagKeyScope'                  => 'TagKeyScope',
+        'tagValueScope'                => 'TagValueScope',
+        'tagsScope'                    => 'TagsScope',
     ];
 
     public function validate()
@@ -310,6 +348,9 @@ class configRule extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->accountIdsScope) {
+            $res['AccountIdsScope'] = $this->accountIdsScope;
         }
         if (null !== $this->compliance) {
             $res['Compliance'] = null !== $this->compliance ? $this->compliance->toMap() : null;
@@ -347,8 +388,23 @@ class configRule extends Model
         if (null !== $this->excludeFolderIdsScope) {
             $res['ExcludeFolderIdsScope'] = $this->excludeFolderIdsScope;
         }
+        if (null !== $this->excludeRegionIdsScope) {
+            $res['ExcludeRegionIdsScope'] = $this->excludeRegionIdsScope;
+        }
+        if (null !== $this->excludeResourceGroupIdsScope) {
+            $res['ExcludeResourceGroupIdsScope'] = $this->excludeResourceGroupIdsScope;
+        }
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->excludeTagsScope) {
+            $res['ExcludeTagsScope'] = [];
+            if (null !== $this->excludeTagsScope && \is_array($this->excludeTagsScope)) {
+                $n = 0;
+                foreach ($this->excludeTagsScope as $item) {
+                    $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->folderIdsScope) {
             $res['FolderIdsScope'] = $this->folderIdsScope;
@@ -371,6 +427,9 @@ class configRule extends Model
         if (null !== $this->resourceGroupIdsScope) {
             $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
         }
+        if (null !== $this->resourceIdsScope) {
+            $res['ResourceIdsScope'] = $this->resourceIdsScope;
+        }
         if (null !== $this->resourceTypesScope) {
             $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
@@ -389,6 +448,15 @@ class configRule extends Model
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
         }
+        if (null !== $this->tagsScope) {
+            $res['TagsScope'] = [];
+            if (null !== $this->tagsScope && \is_array($this->tagsScope)) {
+                $n = 0;
+                foreach ($this->tagsScope as $item) {
+                    $res['TagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -403,6 +471,9 @@ class configRule extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['AccountIdsScope'])) {
+            $model->accountIdsScope = $map['AccountIdsScope'];
         }
         if (isset($map['Compliance'])) {
             $model->compliance = compliance::fromMap($map['Compliance']);
@@ -440,8 +511,23 @@ class configRule extends Model
         if (isset($map['ExcludeFolderIdsScope'])) {
             $model->excludeFolderIdsScope = $map['ExcludeFolderIdsScope'];
         }
+        if (isset($map['ExcludeRegionIdsScope'])) {
+            $model->excludeRegionIdsScope = $map['ExcludeRegionIdsScope'];
+        }
+        if (isset($map['ExcludeResourceGroupIdsScope'])) {
+            $model->excludeResourceGroupIdsScope = $map['ExcludeResourceGroupIdsScope'];
+        }
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['ExcludeTagsScope'])) {
+            if (!empty($map['ExcludeTagsScope'])) {
+                $model->excludeTagsScope = [];
+                $n                       = 0;
+                foreach ($map['ExcludeTagsScope'] as $item) {
+                    $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['FolderIdsScope'])) {
             $model->folderIdsScope = $map['FolderIdsScope'];
@@ -464,6 +550,9 @@ class configRule extends Model
         if (isset($map['ResourceGroupIdsScope'])) {
             $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
         }
+        if (isset($map['ResourceIdsScope'])) {
+            $model->resourceIdsScope = $map['ResourceIdsScope'];
+        }
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
@@ -481,6 +570,15 @@ class configRule extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['TagsScope'])) {
+            if (!empty($map['TagsScope'])) {
+                $model->tagsScope = [];
+                $n                = 0;
+                foreach ($map['TagsScope'] as $item) {
+                    $model->tagsScope[$n++] = null !== $item ? tagsScope::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

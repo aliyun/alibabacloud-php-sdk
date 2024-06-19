@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest\tagsScope;
 use AlibabaCloud\Tea\Model;
 
 class CreateConfigRuleShrinkRequest extends Model
@@ -46,6 +48,16 @@ class CreateConfigRuleShrinkRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $excludeRegionIdsScope;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceGroupIdsScope;
+
+    /**
      * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
      *
      * >  This parameter applies only to managed rules.
@@ -54,6 +66,11 @@ class CreateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $excludeResourceIdsScope;
+
+    /**
+     * @var excludeTagsScope[]
+     */
+    public $excludeTagsScope;
 
     /**
      * @description The input parameter of the rule.
@@ -99,6 +116,11 @@ class CreateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $resourceGroupIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceIdsScope;
 
     /**
      * @description The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
@@ -181,23 +203,33 @@ class CreateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $tagValueScope;
+
+    /**
+     * @var tagsScope[]
+     */
+    public $tagsScope;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
-        'configRuleName'            => 'ConfigRuleName',
-        'configRuleTriggerTypes'    => 'ConfigRuleTriggerTypes',
-        'description'               => 'Description',
-        'excludeResourceIdsScope'   => 'ExcludeResourceIdsScope',
-        'inputParametersShrink'     => 'InputParameters',
-        'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
-        'regionIdsScope'            => 'RegionIdsScope',
-        'resourceGroupIdsScope'     => 'ResourceGroupIdsScope',
-        'resourceTypesScopeShrink'  => 'ResourceTypesScope',
-        'riskLevel'                 => 'RiskLevel',
-        'sourceIdentifier'          => 'SourceIdentifier',
-        'sourceOwner'               => 'SourceOwner',
-        'tagKeyLogicScope'          => 'TagKeyLogicScope',
-        'tagKeyScope'               => 'TagKeyScope',
-        'tagValueScope'             => 'TagValueScope',
+        'clientToken'                  => 'ClientToken',
+        'configRuleName'               => 'ConfigRuleName',
+        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
+        'description'                  => 'Description',
+        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
+        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
+        'excludeTagsScope'             => 'ExcludeTagsScope',
+        'inputParametersShrink'        => 'InputParameters',
+        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
+        'regionIdsScope'               => 'RegionIdsScope',
+        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
+        'resourceIdsScope'             => 'ResourceIdsScope',
+        'resourceTypesScopeShrink'     => 'ResourceTypesScope',
+        'riskLevel'                    => 'RiskLevel',
+        'sourceIdentifier'             => 'SourceIdentifier',
+        'sourceOwner'                  => 'SourceOwner',
+        'tagKeyLogicScope'             => 'TagKeyLogicScope',
+        'tagKeyScope'                  => 'TagKeyScope',
+        'tagValueScope'                => 'TagValueScope',
+        'tagsScope'                    => 'TagsScope',
     ];
 
     public function validate()
@@ -219,8 +251,23 @@ class CreateConfigRuleShrinkRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->excludeRegionIdsScope) {
+            $res['ExcludeRegionIdsScope'] = $this->excludeRegionIdsScope;
+        }
+        if (null !== $this->excludeResourceGroupIdsScope) {
+            $res['ExcludeResourceGroupIdsScope'] = $this->excludeResourceGroupIdsScope;
+        }
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->excludeTagsScope) {
+            $res['ExcludeTagsScope'] = [];
+            if (null !== $this->excludeTagsScope && \is_array($this->excludeTagsScope)) {
+                $n = 0;
+                foreach ($this->excludeTagsScope as $item) {
+                    $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->inputParametersShrink) {
             $res['InputParameters'] = $this->inputParametersShrink;
@@ -233,6 +280,9 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (null !== $this->resourceGroupIdsScope) {
             $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
+        }
+        if (null !== $this->resourceIdsScope) {
+            $res['ResourceIdsScope'] = $this->resourceIdsScope;
         }
         if (null !== $this->resourceTypesScopeShrink) {
             $res['ResourceTypesScope'] = $this->resourceTypesScopeShrink;
@@ -254,6 +304,15 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
+        }
+        if (null !== $this->tagsScope) {
+            $res['TagsScope'] = [];
+            if (null !== $this->tagsScope && \is_array($this->tagsScope)) {
+                $n = 0;
+                foreach ($this->tagsScope as $item) {
+                    $res['TagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -279,8 +338,23 @@ class CreateConfigRuleShrinkRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ExcludeRegionIdsScope'])) {
+            $model->excludeRegionIdsScope = $map['ExcludeRegionIdsScope'];
+        }
+        if (isset($map['ExcludeResourceGroupIdsScope'])) {
+            $model->excludeResourceGroupIdsScope = $map['ExcludeResourceGroupIdsScope'];
+        }
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['ExcludeTagsScope'])) {
+            if (!empty($map['ExcludeTagsScope'])) {
+                $model->excludeTagsScope = [];
+                $n                       = 0;
+                foreach ($map['ExcludeTagsScope'] as $item) {
+                    $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['InputParameters'])) {
             $model->inputParametersShrink = $map['InputParameters'];
@@ -293,6 +367,9 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (isset($map['ResourceGroupIdsScope'])) {
             $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
+        }
+        if (isset($map['ResourceIdsScope'])) {
+            $model->resourceIdsScope = $map['ResourceIdsScope'];
         }
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScopeShrink = $map['ResourceTypesScope'];
@@ -314,6 +391,15 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['TagsScope'])) {
+            if (!empty($map['TagsScope'])) {
+                $model->tagsScope = [];
+                $n                = 0;
+                foreach ($map['TagsScope'] as $item) {
+                    $model->tagsScope[$n++] = null !== $item ? tagsScope::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

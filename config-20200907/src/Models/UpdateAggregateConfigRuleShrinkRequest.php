@@ -4,10 +4,17 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleShrinkRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleShrinkRequest\tagsScope;
 use AlibabaCloud\Tea\Model;
 
 class UpdateAggregateConfigRuleShrinkRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $accountIdsScope;
+
     /**
      * @description The ID of the account group.
      *
@@ -89,6 +96,16 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeFolderIdsScope;
 
     /**
+     * @var string
+     */
+    public $excludeRegionIdsScope;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceGroupIdsScope;
+
+    /**
      * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
      *
      * >  This parameter applies only to a managed rule.
@@ -97,6 +114,11 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $excludeResourceIdsScope;
+
+    /**
+     * @var excludeTagsScope[]
+     */
+    public $excludeTagsScope;
 
     /**
      * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
@@ -157,6 +179,11 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @var string
+     */
+    public $resourceIdsScope;
+
+    /**
      * @description The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
      *
      * @example ACS::ECS::Instance
@@ -209,26 +236,37 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $tagValueScope;
+
+    /**
+     * @var tagsScope[]
+     */
+    public $tagsScope;
     protected $_name = [
-        'aggregatorId'              => 'AggregatorId',
-        'clientToken'               => 'ClientToken',
-        'configRuleId'              => 'ConfigRuleId',
-        'configRuleName'            => 'ConfigRuleName',
-        'configRuleTriggerTypes'    => 'ConfigRuleTriggerTypes',
-        'description'               => 'Description',
-        'excludeAccountIdsScope'    => 'ExcludeAccountIdsScope',
-        'excludeFolderIdsScope'     => 'ExcludeFolderIdsScope',
-        'excludeResourceIdsScope'   => 'ExcludeResourceIdsScope',
-        'folderIdsScope'            => 'FolderIdsScope',
-        'inputParametersShrink'     => 'InputParameters',
-        'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
-        'regionIdsScope'            => 'RegionIdsScope',
-        'resourceGroupIdsScope'     => 'ResourceGroupIdsScope',
-        'resourceTypesScopeShrink'  => 'ResourceTypesScope',
-        'riskLevel'                 => 'RiskLevel',
-        'tagKeyLogicScope'          => 'TagKeyLogicScope',
-        'tagKeyScope'               => 'TagKeyScope',
-        'tagValueScope'             => 'TagValueScope',
+        'accountIdsScope'              => 'AccountIdsScope',
+        'aggregatorId'                 => 'AggregatorId',
+        'clientToken'                  => 'ClientToken',
+        'configRuleId'                 => 'ConfigRuleId',
+        'configRuleName'               => 'ConfigRuleName',
+        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
+        'description'                  => 'Description',
+        'excludeAccountIdsScope'       => 'ExcludeAccountIdsScope',
+        'excludeFolderIdsScope'        => 'ExcludeFolderIdsScope',
+        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
+        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
+        'excludeTagsScope'             => 'ExcludeTagsScope',
+        'folderIdsScope'               => 'FolderIdsScope',
+        'inputParametersShrink'        => 'InputParameters',
+        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
+        'regionIdsScope'               => 'RegionIdsScope',
+        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
+        'resourceIdsScope'             => 'ResourceIdsScope',
+        'resourceTypesScopeShrink'     => 'ResourceTypesScope',
+        'riskLevel'                    => 'RiskLevel',
+        'tagKeyLogicScope'             => 'TagKeyLogicScope',
+        'tagKeyScope'                  => 'TagKeyScope',
+        'tagValueScope'                => 'TagValueScope',
+        'tagsScope'                    => 'TagsScope',
     ];
 
     public function validate()
@@ -238,6 +276,9 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountIdsScope) {
+            $res['AccountIdsScope'] = $this->accountIdsScope;
+        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
@@ -262,8 +303,23 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (null !== $this->excludeFolderIdsScope) {
             $res['ExcludeFolderIdsScope'] = $this->excludeFolderIdsScope;
         }
+        if (null !== $this->excludeRegionIdsScope) {
+            $res['ExcludeRegionIdsScope'] = $this->excludeRegionIdsScope;
+        }
+        if (null !== $this->excludeResourceGroupIdsScope) {
+            $res['ExcludeResourceGroupIdsScope'] = $this->excludeResourceGroupIdsScope;
+        }
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->excludeTagsScope) {
+            $res['ExcludeTagsScope'] = [];
+            if (null !== $this->excludeTagsScope && \is_array($this->excludeTagsScope)) {
+                $n = 0;
+                foreach ($this->excludeTagsScope as $item) {
+                    $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->folderIdsScope) {
             $res['FolderIdsScope'] = $this->folderIdsScope;
@@ -280,6 +336,9 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (null !== $this->resourceGroupIdsScope) {
             $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
         }
+        if (null !== $this->resourceIdsScope) {
+            $res['ResourceIdsScope'] = $this->resourceIdsScope;
+        }
         if (null !== $this->resourceTypesScopeShrink) {
             $res['ResourceTypesScope'] = $this->resourceTypesScopeShrink;
         }
@@ -295,6 +354,15 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
         }
+        if (null !== $this->tagsScope) {
+            $res['TagsScope'] = [];
+            if (null !== $this->tagsScope && \is_array($this->tagsScope)) {
+                $n = 0;
+                foreach ($this->tagsScope as $item) {
+                    $res['TagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -307,6 +375,9 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountIdsScope'])) {
+            $model->accountIdsScope = $map['AccountIdsScope'];
+        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
@@ -331,8 +402,23 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (isset($map['ExcludeFolderIdsScope'])) {
             $model->excludeFolderIdsScope = $map['ExcludeFolderIdsScope'];
         }
+        if (isset($map['ExcludeRegionIdsScope'])) {
+            $model->excludeRegionIdsScope = $map['ExcludeRegionIdsScope'];
+        }
+        if (isset($map['ExcludeResourceGroupIdsScope'])) {
+            $model->excludeResourceGroupIdsScope = $map['ExcludeResourceGroupIdsScope'];
+        }
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['ExcludeTagsScope'])) {
+            if (!empty($map['ExcludeTagsScope'])) {
+                $model->excludeTagsScope = [];
+                $n                       = 0;
+                foreach ($map['ExcludeTagsScope'] as $item) {
+                    $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['FolderIdsScope'])) {
             $model->folderIdsScope = $map['FolderIdsScope'];
@@ -349,6 +435,9 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (isset($map['ResourceGroupIdsScope'])) {
             $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
         }
+        if (isset($map['ResourceIdsScope'])) {
+            $model->resourceIdsScope = $map['ResourceIdsScope'];
+        }
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScopeShrink = $map['ResourceTypesScope'];
         }
@@ -363,6 +452,15 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['TagsScope'])) {
+            if (!empty($map['TagsScope'])) {
+                $model->tagsScope = [];
+                $n                = 0;
+                foreach ($map['TagsScope'] as $item) {
+                    $model->tagsScope[$n++] = null !== $item ? tagsScope::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

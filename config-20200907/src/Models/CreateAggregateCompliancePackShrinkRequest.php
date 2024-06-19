@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrinkRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrinkRequest\tagsScope;
 use AlibabaCloud\Tea\Model;
 
 class CreateAggregateCompliancePackShrinkRequest extends Model
@@ -76,6 +78,16 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $excludeRegionIdsScope;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceGroupIdsScope;
+
+    /**
      * @description The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
      *
      * @example eip-8vbf3x310fn56ijfd****
@@ -83,6 +95,11 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
      * @var string
      */
     public $excludeResourceIdsScope;
+
+    /**
+     * @var excludeTagsScope[]
+     */
+    public $excludeTagsScope;
 
     /**
      * @description The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
@@ -101,6 +118,11 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
      * @var string
      */
     public $resourceGroupIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceIdsScope;
 
     /**
      * @description The risk level of the resources that are not compliant with the rules in the compliance package. Default value: 2. Valid values:
@@ -135,6 +157,11 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
     public $tagValueScope;
 
     /**
+     * @var tagsScope[]
+     */
+    public $tagsScope;
+
+    /**
      * @description The information about the template that is used to create the compliance package. You can call the GetAggregateCompliancePack operation to view the details of an existing compliance package or write a compliance package template. For more information, see [Write a compliance package template in a configuration file](https://help.aliyun.com/document_detail/2659733.html). You must specify one of ConfigRules and TemplateContent.
      *
      * @example { "configRuleTemplates": [ { "configRuleName": "condition-rule-example", "scope": { "complianceResourceTypes": [ "ACS::ECS::Instance" ] }, "description": "", "source": { "owner": "CUSTOM_CONFIGURATION", "identifier": "acs-config-configuration", "sourceDetails": [ { "messageType": "ScheduledNotification", "maximumExecutionFrequency": "Twelve_Hours" }, { "messageType": "ConfigurationItemChangeNotification" } ], "conditions": "{\\\\"ComplianceConditions\\\\":\\\\"{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"and\\\\\\\\\\",\\\\\\\\\\"children\\\\\\\\\\":[{\\\\\\\\\\"operator\\\\\\\\\\":\\\\\\\\\\"GreaterOrEquals\\\\\\\\\\",\\\\\\\\\\"featurePath\\\\\\\\\\":\\\\\\\\\\"$.Cpu\\\\\\\\\\",\\\\\\\\\\"featureSource\\\\\\\\\\":\\\\\\\\\\"CONFIGURATION\\\\\\\\\\",\\\\\\\\\\"desired\\\\\\\\\\":\\\\\\\\\\"2\\\\\\\\\\"}]}\\\\"}" }, "inputParameters": {} }, { "configRuleName": "oss-bucket-referer-limit", "scope": { "complianceResourceTypes": [ "ACS::OSS::Bucket" ] }, "description": "If the hotlink protection feature is enabled for the Object Storage Service (OSS) bucket and the Referer is added to a specific whitelist, the evaluation result is compliant.", "source": { "owner": "ALIYUN", "identifier": "oss-bucket-referer-limit", "sourceDetails": [ { "messageType": "ConfigurationItemChangeNotification" } ] }, "inputParameters": { "allowEmptyReferer": "true", "allowReferers": "http://www.aliyun.com" } } ] }
@@ -143,20 +170,25 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
      */
     public $templateContent;
     protected $_name = [
-        'aggregatorId'             => 'AggregatorId',
-        'clientToken'              => 'ClientToken',
-        'compliancePackName'       => 'CompliancePackName',
-        'compliancePackTemplateId' => 'CompliancePackTemplateId',
-        'configRulesShrink'        => 'ConfigRules',
-        'defaultEnable'            => 'DefaultEnable',
-        'description'              => 'Description',
-        'excludeResourceIdsScope'  => 'ExcludeResourceIdsScope',
-        'regionIdsScope'           => 'RegionIdsScope',
-        'resourceGroupIdsScope'    => 'ResourceGroupIdsScope',
-        'riskLevel'                => 'RiskLevel',
-        'tagKeyScope'              => 'TagKeyScope',
-        'tagValueScope'            => 'TagValueScope',
-        'templateContent'          => 'TemplateContent',
+        'aggregatorId'                 => 'AggregatorId',
+        'clientToken'                  => 'ClientToken',
+        'compliancePackName'           => 'CompliancePackName',
+        'compliancePackTemplateId'     => 'CompliancePackTemplateId',
+        'configRulesShrink'            => 'ConfigRules',
+        'defaultEnable'                => 'DefaultEnable',
+        'description'                  => 'Description',
+        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
+        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
+        'excludeTagsScope'             => 'ExcludeTagsScope',
+        'regionIdsScope'               => 'RegionIdsScope',
+        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
+        'resourceIdsScope'             => 'ResourceIdsScope',
+        'riskLevel'                    => 'RiskLevel',
+        'tagKeyScope'                  => 'TagKeyScope',
+        'tagValueScope'                => 'TagValueScope',
+        'tagsScope'                    => 'TagsScope',
+        'templateContent'              => 'TemplateContent',
     ];
 
     public function validate()
@@ -187,14 +219,32 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->excludeRegionIdsScope) {
+            $res['ExcludeRegionIdsScope'] = $this->excludeRegionIdsScope;
+        }
+        if (null !== $this->excludeResourceGroupIdsScope) {
+            $res['ExcludeResourceGroupIdsScope'] = $this->excludeResourceGroupIdsScope;
+        }
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->excludeTagsScope) {
+            $res['ExcludeTagsScope'] = [];
+            if (null !== $this->excludeTagsScope && \is_array($this->excludeTagsScope)) {
+                $n = 0;
+                foreach ($this->excludeTagsScope as $item) {
+                    $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->regionIdsScope) {
             $res['RegionIdsScope'] = $this->regionIdsScope;
         }
         if (null !== $this->resourceGroupIdsScope) {
             $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
+        }
+        if (null !== $this->resourceIdsScope) {
+            $res['ResourceIdsScope'] = $this->resourceIdsScope;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -204,6 +254,15 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
+        }
+        if (null !== $this->tagsScope) {
+            $res['TagsScope'] = [];
+            if (null !== $this->tagsScope && \is_array($this->tagsScope)) {
+                $n = 0;
+                foreach ($this->tagsScope as $item) {
+                    $res['TagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
@@ -241,14 +300,32 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ExcludeRegionIdsScope'])) {
+            $model->excludeRegionIdsScope = $map['ExcludeRegionIdsScope'];
+        }
+        if (isset($map['ExcludeResourceGroupIdsScope'])) {
+            $model->excludeResourceGroupIdsScope = $map['ExcludeResourceGroupIdsScope'];
+        }
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['ExcludeTagsScope'])) {
+            if (!empty($map['ExcludeTagsScope'])) {
+                $model->excludeTagsScope = [];
+                $n                       = 0;
+                foreach ($map['ExcludeTagsScope'] as $item) {
+                    $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RegionIdsScope'])) {
             $model->regionIdsScope = $map['RegionIdsScope'];
         }
         if (isset($map['ResourceGroupIdsScope'])) {
             $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
+        }
+        if (isset($map['ResourceIdsScope'])) {
+            $model->resourceIdsScope = $map['ResourceIdsScope'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
@@ -258,6 +335,15 @@ class CreateAggregateCompliancePackShrinkRequest extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['TagsScope'])) {
+            if (!empty($map['TagsScope'])) {
+                $model->tagsScope = [];
+                $n                = 0;
+                foreach ($map['TagsScope'] as $item) {
+                    $model->tagsScope[$n++] = null !== $item ? tagsScope::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];

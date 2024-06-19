@@ -293,6 +293,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusReques
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -796,14 +797,27 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->regionIdsScope)) {
             $body['RegionIdsScope'] = $request->regionIdsScope;
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
@@ -814,10 +828,14 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
         if (!Utils::isUnset($request->templateContent)) {
             $body['TemplateContent'] = $request->templateContent;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -961,6 +979,9 @@ class Config extends OpenApiClient
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
         $body = [];
+        if (!Utils::isUnset($request->accountIdsScope)) {
+            $body['AccountIdsScope'] = $request->accountIdsScope;
+        }
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -982,8 +1003,18 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->excludeFolderIdsScope)) {
             $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->folderIdsScope)) {
             $body['FolderIdsScope'] = $request->folderIdsScope;
@@ -999,6 +1030,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
             $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
@@ -1021,7 +1055,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1251,14 +1289,27 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->regionIdsScope)) {
             $body['RegionIdsScope'] = $request->regionIdsScope;
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
@@ -1269,10 +1320,14 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
         if (!Utils::isUnset($request->templateContent)) {
             $body['TemplateContent'] = $request->templateContent;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1423,8 +1478,18 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;
@@ -1437,6 +1502,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
             $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
@@ -1459,7 +1527,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -3159,6 +3231,8 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @summary 获取账号组规则详情
+     *  *
      * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
      *  *
      * @param GetAggregateConfigRuleRequest $request GetAggregateConfigRuleRequest
@@ -3195,6 +3269,8 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @summary 获取账号组规则详情
+     *  *
      * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
      *  *
      * @param GetAggregateConfigRuleRequest $request GetAggregateConfigRuleRequest
@@ -7688,14 +7764,27 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->regionIdsScope)) {
             $body['RegionIdsScope'] = $request->regionIdsScope;
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
@@ -7706,7 +7795,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -7849,6 +7942,9 @@ class Config extends OpenApiClient
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
         $body = [];
+        if (!Utils::isUnset($request->accountIdsScope)) {
+            $body['AccountIdsScope'] = $request->accountIdsScope;
+        }
         if (!Utils::isUnset($request->aggregatorId)) {
             $body['AggregatorId'] = $request->aggregatorId;
         }
@@ -7873,8 +7969,18 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->excludeFolderIdsScope)) {
             $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->folderIdsScope)) {
             $body['FolderIdsScope'] = $request->folderIdsScope;
@@ -7891,6 +7997,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+        }
         if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
             $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
@@ -7906,7 +8015,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -8111,14 +8224,27 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->regionIdsScope)) {
             $body['RegionIdsScope'] = $request->regionIdsScope;
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $body['RiskLevel'] = $request->riskLevel;
@@ -8129,7 +8255,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -8284,8 +8414,18 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
+            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
+            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
         if (!Utils::isUnset($request->excludeResourceIdsScope)) {
             $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->excludeTagsScope)) {
+            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;
@@ -8298,6 +8438,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupIdsScope)) {
             $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+        if (!Utils::isUnset($request->resourceIdsScope)) {
+            $body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
         if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
             $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
@@ -8314,7 +8457,11 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
-        $req = new OpenApiRequest([
+        if (!Utils::isUnset($request->tagsScope)) {
+            $bodyFlat['TagsScope'] = $request->tagsScope;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
