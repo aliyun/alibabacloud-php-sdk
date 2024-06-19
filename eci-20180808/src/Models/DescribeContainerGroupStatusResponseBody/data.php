@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The annotations of the elastic container instance.
+     * @description Annotations that are added to the container groups.
      *
-     * @example "{\"tenancy.x-k8s.io/namespace\":\"redis\"}"
+     * @example "{\\"tenancy.x-k8s.io/namespace\\":\\"redis\\"}"
      *
      * @var string
      */
     public $annotations;
 
     /**
-     * @description The ID of the elastic container instance.
+     * @description The ID of the container group.
      *
      * @example eci-bp1jrgfqqy54kg5hc****
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $containerGroupId;
 
     /**
-     * @description The name of the elastic container instance.
+     * @description The name of the container group.
      *
      * @example nginx
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The namespace where the elastic container instance resides.
+     * @description The namespace in which the container group resides.
      *
      * @example default
      *
@@ -46,14 +46,14 @@ class data extends Model
     public $namespace;
 
     /**
-     * @description The state information about the elastic container instance.
+     * @description The status of the container group.
      *
      * @var podStatus
      */
     public $podStatus;
 
     /**
-     * @description The state of the elastic container instance.
+     * @description The status of the container group.
      *
      * @example Running
      *
@@ -62,7 +62,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The UUID of the elastic container instance. The UUID of an elastic container instance is similar to the UID of a Kubernetes pod in concept and usage.
+     * @description The universally unique identifier (UUID) of the container group, which is similar to the unique identifier (UID) of the Kubernetes pod in terms of the concept and usage.
      *
      * @example 78ee0657-987g-b8b2-1f507dic4****
      *

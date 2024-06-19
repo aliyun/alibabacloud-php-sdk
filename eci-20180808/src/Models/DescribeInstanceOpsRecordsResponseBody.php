@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceOpsRecordsResponseBody extends Model
 {
     /**
-     * @description The details of the O\&M tasks.
+     * @description The details of the O\\&M tasks.
      *
      * @var records[]
      */

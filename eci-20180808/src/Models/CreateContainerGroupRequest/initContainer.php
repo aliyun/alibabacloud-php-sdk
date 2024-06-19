@@ -36,7 +36,7 @@ class initContainer extends Model
     public $command;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the init container. Unit: cores.
+     * @description The number of vCPUs that you want to allocate to the init container.
      *
      * @example 0.5
      *
@@ -70,7 +70,7 @@ class initContainer extends Model
     public $image;
 
     /**
-     * @description The policy for image pulling. Valid values:
+     * @description The policy that you want to use to pull images. Valid values:
      *
      *   Always: Each time instances are created, image pulling is performed.
      *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
@@ -83,7 +83,7 @@ class initContainer extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The memory size of the init container. Unit: GiB.
+     * @description The memory size that you want to allocate to the init container. Unit: GiB.
      *
      * @example 1.0
      *
@@ -92,7 +92,7 @@ class initContainer extends Model
     public $memory;
 
     /**
-     * @description The container name.
+     * @description The name of the init container.
      *
      * @example test-init
      *
@@ -101,7 +101,7 @@ class initContainer extends Model
     public $name;
 
     /**
-     * @description The port number of the init container.
+     * @description The information about the port.
      *
      * @var port[]
      */
@@ -126,7 +126,7 @@ class initContainer extends Model
     public $terminationMessagePolicy;
 
     /**
-     * @description The information about the volume that you want to mount on the init container.
+     * @description The information about the volumes that you want to mount to the init containers.
      *
      * @var volumeMount[]
      */

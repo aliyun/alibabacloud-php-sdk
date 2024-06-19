@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
 {
     /**
-     * @description The key of the custom field in the HTTP GET request header when you use HTTP requests to specify the preStop callback function.
+     * @description The name of the custom field in the HTTP GET request header when you use HTTP requests to specify a presto hook.
      *
      * @example Xiao-Custom-Header
      *
@@ -18,7 +18,7 @@ class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
     public $name;
 
     /**
-     * @description The value of the custom field in the HTTP GET request header when you use HTTP requests to specify the preStop callback function.
+     * @description The value of the custom field in the HTTP GET request header when you use HTTP requests to specify a preStop hook.
      *
      * @example test-preStop
      *

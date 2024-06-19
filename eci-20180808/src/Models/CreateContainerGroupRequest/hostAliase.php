@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostAliase extends Model
 {
     /**
-     * @description The hostname of the elastic container instance.
+     * @description The hostnames of the elastic container instance.
      *
      * @example hehe.com
      *
@@ -18,7 +18,7 @@ class hostAliase extends Model
     public $hostname;
 
     /**
-     * @description The IP address of the host.
+     * @description The IP address of the elastic container instance.
      *
      * @example 1.1.1.1
      *

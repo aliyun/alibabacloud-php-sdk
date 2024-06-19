@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class podIps extends Model
 {
     /**
-     * @description The IP address of the pod.
+     * @description The IP address of the container group.
      *
      * @example 192.168.XX.XX
      *

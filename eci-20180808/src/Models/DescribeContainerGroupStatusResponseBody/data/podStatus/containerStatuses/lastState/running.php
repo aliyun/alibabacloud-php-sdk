@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class running extends Model
 {
     /**
-     * @description The start time.
+     * @description The time when the container started to run.
      *
      * @example 2021-05-23T20:49:31Z
      *

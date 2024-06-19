@@ -19,7 +19,7 @@ class state extends Model
     public $running;
 
     /**
-     * @description The container is terminated and exits after a successful or failed run.
+     * @description The container is terminated and exits after a successful or failed running.
      *
      * @var terminated
      */

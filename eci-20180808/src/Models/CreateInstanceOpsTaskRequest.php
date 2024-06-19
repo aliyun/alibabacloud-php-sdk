@@ -11,6 +11,7 @@ class CreateInstanceOpsTaskRequest extends Model
     /**
      * @description The ID of the container group.
      *
+     * This parameter is required.
      * @example eci-bp1dvysdafbh00t7****
      *
      * @var string
@@ -23,6 +24,7 @@ class CreateInstanceOpsTaskRequest extends Model
      *   coredump
      *   tcpdump
      *
+     * This parameter is required.
      * @example coredump
      *
      * @var string
@@ -30,7 +32,7 @@ class CreateInstanceOpsTaskRequest extends Model
     public $opsType;
 
     /**
-     * @description The value of the O\&M task. You can set this parameter based on the value of OpsType.
+     * @description The value of the O\\&M task. You can set this parameter based on the value of OpsType.
      *
      *   If OpsType is set to coredump, the valid values of OpsValue are:
      *
@@ -53,6 +55,7 @@ class CreateInstanceOpsTaskRequest extends Model
      *   PacketNum: the number of packets to be captured.
      *   FileSize: the size of the destination files on packets. Unit: bytes. Maximum value: 1073741824. 1073741824 bytes is equal to 1 GB.
      *
+     * This parameter is required.
      * @example enable
      *
      * @var string
@@ -72,6 +75,7 @@ class CreateInstanceOpsTaskRequest extends Model
     /**
      * @description The region ID of the O&M task.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

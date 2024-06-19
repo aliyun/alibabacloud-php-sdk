@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
-     * @description The time when the O\&M task was created.
+     * @description The time when the O\\&M task was created.
      *
      * @example 2021-12-29T15:00:00Z
      *
@@ -18,7 +18,7 @@ class records extends Model
     public $createTime;
 
     /**
-     * @description The time when the O\&M task expires.
+     * @description The time when the O\\&M task expires.
      *
      * @example 2099-12-29T15:00:00Z
      *
@@ -27,8 +27,8 @@ class records extends Model
     public $expireTime;
 
     /**
-     * @description The status of the O\&M task.
-     *
+     * @description The status of the O\\&M task.
+     * - Success
      * @example Ready
      *
      * @var string
@@ -36,7 +36,7 @@ class records extends Model
     public $opsStatus;
 
     /**
-     * @description The type of the O\&M task.
+     * @description The type of the O\\&M task.
      *
      * @example coredump
      *
@@ -45,7 +45,7 @@ class records extends Model
     public $opsType;
 
     /**
-     * @description The content of the O\&M result. The content is the download URL of the files that are generated for the O\&M task.
+     * @description The content of the O\\&M result. The content is the download URL of the files that are generated for the O\\&M task.
      *
      * @example https://******
      *
@@ -54,7 +54,7 @@ class records extends Model
     public $resultContent;
 
     /**
-     * @description The type of the O\&M result. Valid value: OSS. This value indicates that the files generated for the O\&M task are saved to Object Storage Service (OSS) buckets.
+     * @description The type of the O\\&M result. Valid value: OSS. This value indicates that the files generated for the O\\&M task are saved to Object Storage Service (OSS) buckets.
      *
      * @example OSS
      *

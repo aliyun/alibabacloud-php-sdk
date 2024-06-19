@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupStatusResponseBody extends Model
 {
     /**
-     * @description The collection of status of the elastic container instances.
+     * @description The collection of the statuses of the container groups.
      *
      * @var data[]
      */

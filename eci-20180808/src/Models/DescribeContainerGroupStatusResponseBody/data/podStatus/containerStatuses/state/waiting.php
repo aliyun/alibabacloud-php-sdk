@@ -18,7 +18,7 @@ class waiting extends Model
     public $message;
 
     /**
-     * @description The cause of the event.
+     * @description The reason for the transition into the current status of the event.
      *
      * @example Started
      *

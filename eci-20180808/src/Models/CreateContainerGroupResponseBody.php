@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the elastic container instance.
+     * @description The ID of the instance.
      *
      * @example eci-uf6fonnghi50u374****
      *
@@ -18,7 +18,7 @@ class CreateContainerGroupResponseBody extends Model
     public $containerGroupId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 89945DD3-9072-47D0-A318-353284CFC7B3
      *

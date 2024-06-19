@@ -14,6 +14,7 @@ class destinationResource extends Model
      *   InstanceTypeFamily: queries instance families. If you use this parameter value, you must also specify the Value parameter.
      *   InstanceType: queries instance types. If you use this parameter value, you must also specify the Value, Cores, and Memory parameters.
      *
+     * This parameter is required.
      * @example InstanceTypeFamily
      *
      * @var string

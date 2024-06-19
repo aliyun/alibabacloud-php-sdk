@@ -12,7 +12,7 @@ class data extends Model
     /**
      * @description The annotations of the elastic container instance.
      *
-     * @example "{\"tenancy.x-k8s.io/namespace\":\"redis\"}"
+     * @example "{\\"tenancy.x-k8s.io/namespace\\":\\"redis\\"}"
      *
      * @var string
      */

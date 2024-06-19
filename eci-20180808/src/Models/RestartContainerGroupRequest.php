@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RestartContainerGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](~~25693~~)
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -20,6 +20,7 @@ class RestartContainerGroupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example eci-2zelg8vwnlzdhf8hv****
      *
      * @var string
@@ -39,6 +40,7 @@ class RestartContainerGroupRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -17,7 +17,7 @@ class volumes extends Model
     public $configFileVolumeConfigFileToPaths;
 
     /**
-     * @description The ID of the disk when you set the Type parameter to DiskVolume.
+     * @description The ID of the disk when you set Type to DiskVolume.
      *
      * @example d-xxxx
      *
@@ -38,7 +38,7 @@ class volumes extends Model
      * @description The storage media for the emptyDir volume. This parameter is empty by default, indicating that the node file system is used as the storage media. Valid values:
      *
      *   Memory: Memory is used as the storage media.
-     *   LocalRaid0: Local disks are formed into RAID 0. This value is valid only if an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](~~114664~~).
+     *   LocalRaid0: Local disks are formed into RAID 0. This value is valid only if an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](https://help.aliyun.com/document_detail/114664.html).
      *
      * @example Memory
      *
@@ -101,7 +101,7 @@ class volumes extends Model
     public $NFSVolumeReadOnly;
 
     /**
-     * @description The endpoint of the server when you set the Type parameter to NFSVolume.
+     * @description The address of the NFS server.
      *
      * @example 0eafxxxxx-xxxxx.cn-hangzhou.nas.aliyuncs.com
      *

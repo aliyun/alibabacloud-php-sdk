@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualNodeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -87,6 +87,7 @@ class CreateVirtualNodeRequest extends Model
     /**
      * @description The region ID of the virtual node.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -115,6 +116,7 @@ class CreateVirtualNodeRequest extends Model
     /**
      * @description The ID of the security group. The VNode and the elastic container instances in the VNode are added to the security group.
      *
+     * This parameter is required.
      * @example sg-2ze81zoc3yl7a3we****
      *
      * @var string
@@ -148,7 +150,7 @@ class CreateVirtualNodeRequest extends Model
     /**
      * @description The ID of the vSwitch. The vSwitch is connected to the VNode and the elastic container instances in the VNode.
      *
-     * You can specify 1 to 10 vSwitches for a VPC.
+     * This parameter is required.
      * @example vsw-2ze23nqzig8inprou****
      *
      * @var string

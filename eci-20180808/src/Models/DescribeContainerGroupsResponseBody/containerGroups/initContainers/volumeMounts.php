@@ -18,11 +18,11 @@ class volumeMounts extends Model
     public $mountPath;
 
     /**
-     * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+     * @description The mount propagation setting of the volume. Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
      *
-     *   None: The volume mount does not receive subsequent mounts that are performed on the volume or on the subdirectories of the volume.
-     *   HostToCotainer: The volume mount receives subsequent mounts that are performed on this volume or the subdirectories of this volume.
-     *   Bidirectional: The volume mount behaves the same as the HostToContainer mount. The volume mount receives subsequent mounts that are performed on the volume or on the subdirectories of the volume. In addition, all volume mounts that are performed on the container are propagated back to the host and all containers of all pods that use the same volume.
+     *   None: The volume mount does not receive subsequent mounts that are performed on this volume or on the subdirectories of this volume.
+     *   HostToCotainer: The volume mount receives subsequent mounts that are performed on this volume or on the subdirectories of this volume.
+     *   Bidirectional: This value is similar to HostToCotainer. The volume mount receives subsequent mounts that are performed on this volume or on the subdirectories of this volume. In addition, all volume mounts that are performed on the container are propagated back to the host and all containers of all pods that use the same volume.
      *
      * @example None
      *
@@ -40,7 +40,7 @@ class volumeMounts extends Model
     public $name;
 
     /**
-     * @description Default value: false.
+     * @description Indicates whether the volume is read-only.
      *
      * @example false
      *

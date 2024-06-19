@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class CreateImageCacheRequest extends Model
 {
     /**
-     * @description Information about the Container Registry Enterprise Edition instance. For more information, see [Pull images from a Container Registry Enterprise Edition instance without using secrets](~~194250~~).
+     * @description Information about the Container Registry Enterprise Edition instance. For more information, see [Pull images from a Container Registry Enterprise Edition instance without using secrets](https://help.aliyun.com/document_detail/194250.html).
      *
      * @var acrRegistryInfo[]
      */
@@ -41,7 +41,7 @@ class CreateImageCacheRequest extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-xxx-xxx-xxxx-42665544xxxx
      *
@@ -94,6 +94,7 @@ class CreateImageCacheRequest extends Model
     /**
      * @description Container image N that is used to create the image cache.
      *
+     * This parameter is required.
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:1.15.10-perl
      *
      * @var string[]
@@ -103,6 +104,7 @@ class CreateImageCacheRequest extends Model
     /**
      * @description The name of the image cache.
      *
+     * This parameter is required.
      * @example testcache
      *
      * @var string
@@ -157,6 +159,7 @@ class CreateImageCacheRequest extends Model
     /**
      * @description The region ID of the image cache.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

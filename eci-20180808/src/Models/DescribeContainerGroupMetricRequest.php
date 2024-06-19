@@ -11,6 +11,7 @@ class DescribeContainerGroupMetricRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example eci-bp17da5olmkuagfr****
      *
      * @var string

@@ -17,7 +17,7 @@ class securityContext extends Model
     public $capability;
 
     /**
-     * @description Indicates whether permissions on the root file system are read-only.
+     * @description Indicates whether permissions on the root file system are read-only. Valid value: true.
      *
      * @example true
      *

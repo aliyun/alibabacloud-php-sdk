@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommitContainerTaskRequest extends Model
 {
     /**
-     * @description The ID of the elastic container instance on which the CommitContainer task is executed.\
+     * @description The ID of the elastic container instance on which the CommitContainer task is executed.\\
      * You must enter the instance ID, the task ID, or both for the request.
      * @example eci-2zelg8vwnlzdhf8hv****
      *
@@ -18,7 +18,7 @@ class DescribeCommitContainerTaskRequest extends Model
     public $containerGroupId;
 
     /**
-     * @description The number of entries to return on each page.\
+     * @description The number of entries to return on each page.\\
      * Default value: 10.
      * @example 20
      *
@@ -48,6 +48,7 @@ class DescribeCommitContainerTaskRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

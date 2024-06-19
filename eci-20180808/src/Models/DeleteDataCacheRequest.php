@@ -18,7 +18,7 @@ class DeleteDataCacheRequest extends Model
     public $bucket;
 
     /**
-     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 5e74729e-ce21-4c3e-9163-cbaf0f02768e
      *
@@ -57,6 +57,7 @@ class DeleteDataCacheRequest extends Model
     /**
      * @description The region ID of the DataCache.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -43,7 +43,7 @@ class readinessProbe extends Model
     public $initialDelaySeconds;
 
     /**
-     * @description The interval at which the health check is performed. Unit: seconds. Default value: 10. Minimum value: 1.
+     * @description The interval at which the health check is performed. Default value: 10. Minimum value: 1. Unit: seconds.
      *
      * @example 1
      *
@@ -52,7 +52,7 @@ class readinessProbe extends Model
     public $periodSeconds;
 
     /**
-     * @description The minimum number of consecutive successes that must occur for the check to be considered successful. Default value: 1. Set the value to 1.
+     * @description The minimum number of consecutive successes that must occur for the check to be considered successful. Default value: 1. The value must be 1.
      *
      * @example 1
      *

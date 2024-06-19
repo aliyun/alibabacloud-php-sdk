@@ -37,7 +37,7 @@ class DescribeImageCachesRequest extends Model
     public $imageCacheName;
 
     /**
-     * @description Specifies whether the image layers of the image caches must contain all image layers of the container image.\
+     * @description Specifies whether the image layers of the image caches must contain all image layers of the container image.\\
      * If you configure MatchImage, you can configure this parameter to further filter query results.
      * @example true
      *
@@ -46,7 +46,7 @@ class DescribeImageCachesRequest extends Model
     public $imageFullMatch;
 
     /**
-     * @description The quantity of image caches whose image layers contain all image layers of the container image.\
+     * @description The quantity of image caches whose image layers contain all image layers of the container image.\\
      * If you configure MatchImage, you can configure this parameter to further filter query results.
      * @example 3
      *
@@ -94,6 +94,7 @@ class DescribeImageCachesRequest extends Model
     /**
      * @description The region ID of the image caches.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -33,7 +33,7 @@ class volumeMount extends Model
     public $mountPropagation;
 
     /**
-     * @description The name of the volume. The name of this parameter is the same as the name of the volume that is mounted to the containers.
+     * @description The name of the volume. The value of this parameter is the same as the value of Volume.N.Name.
      *
      * @example default-volume1
      *

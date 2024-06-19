@@ -29,6 +29,7 @@ class image extends Model
     /**
      * @description The image repository.
      *
+     * This parameter is required.
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/eastest/registry-test
      *
      * @var string
@@ -38,6 +39,7 @@ class image extends Model
     /**
      * @description The tag of the image. This parameter is empty by default, which indicates that the tag is not modified.
      *
+     * This parameter is required.
      * @example 0.0.6
      *
      * @var string

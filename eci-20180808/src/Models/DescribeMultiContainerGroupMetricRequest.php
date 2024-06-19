@@ -11,6 +11,7 @@ class DescribeMultiContainerGroupMetricRequest extends Model
     /**
      * @description The instance ID. The value is a JSON array. You can specify up to 20 instance IDs at a time.
      *
+     * This parameter is required.
      * @example ["eci-2zegym1qhbmdfr1s****","eci-2ze39w5svzj5ic34****"]
      *
      * @var string
@@ -39,6 +40,7 @@ class DescribeMultiContainerGroupMetricRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

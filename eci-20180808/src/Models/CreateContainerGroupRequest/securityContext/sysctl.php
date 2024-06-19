@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sysctl extends Model
 {
     /**
-     * @description The name of the safe sysctl when you configure a security context to modify sysctls. Valid values:
+     * @description The name of the safe sysctl when you modify sysctls by configuring a security context. Valid values:
      *
      *   net.ipv4.ping_group_range
      *   net.ipv4.ip_unprivileged_port_start
@@ -21,7 +21,7 @@ class sysctl extends Model
     public $name;
 
     /**
-     * @description The value of the safe sysctl when you configure a security context to modify sysctls.
+     * @description The value of the safe sysctl when you modify sysctls by configuring a security context.
      *
      * @example 65536
      *

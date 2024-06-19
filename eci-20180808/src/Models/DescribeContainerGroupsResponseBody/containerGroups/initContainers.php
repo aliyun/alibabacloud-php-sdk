@@ -45,7 +45,7 @@ class initContainers extends Model
     public $currentState;
 
     /**
-     * @description The environment variables of the container.
+     * @description The environment variables of the init container.
      *
      * @var environmentVars[]
      */
@@ -73,7 +73,7 @@ class initContainers extends Model
      * @description The image pulling policy. Valid values:
      *
      *   Always: Each time the instance is updated, image pulling is performed.
-     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
+     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
      *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
@@ -101,7 +101,7 @@ class initContainers extends Model
     public $name;
 
     /**
-     * @description The exposed ports and protocols of the container.
+     * @description The exposed port and protocol of the container.
      *
      * @var ports[]
      */
@@ -124,7 +124,7 @@ class initContainers extends Model
     public $ready;
 
     /**
-     * @description The number of times the container restarted.
+     * @description The number of times that the container restarted.
      *
      * @example 5
      *

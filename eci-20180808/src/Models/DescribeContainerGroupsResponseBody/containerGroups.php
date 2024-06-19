@@ -17,7 +17,10 @@ use AlibabaCloud\Tea\Model;
 class containerGroups extends Model
 {
     /**
-     * @description The computing power type of the elastic container instance. A value of economy indicates economic instances.
+     * @description The computing power type of the elastic container instance. Valid values:
+     *
+     *   economy: economic computing power.
+     *   general: general-purpose computing power.
      *
      * @example economy
      *
@@ -60,7 +63,7 @@ class containerGroups extends Model
     public $cpu;
 
     /**
-     * @description The time when the system created the elastic container instance after the system received the request. The time follows the RFC 3339 standard. The time is displayed in UTC.
+     * @description The time when the instance was created. The time follows the RFC 3339 standard. The time is displayed in UTC.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -194,7 +197,7 @@ class containerGroups extends Model
     public $memory;
 
     /**
-     * @description The name of the instance RAM role. The elastic container instance and the ECS instance share a RAM role. For more information, see [Use an instance RAM role by calling API operations](~~61178~~).
+     * @description The name of the instance RAM role. The elastic container instance and the ECS instance share a RAM role. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example ram:PassRole
      *
@@ -212,7 +215,7 @@ class containerGroups extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-8db03793gfrz****
      *
@@ -223,8 +226,8 @@ class containerGroups extends Model
     /**
      * @description The restart policy of the elastic container instance. Valid values:
      *
-     *   Never: Never restarts the instance if a container in the instance exits.
-     *   Always: Always restarts the instance if a container in the instance exits.
+     *   Never: Never restarts the instance if a container in the instance exits upon termination.
+     *   Always: Always restarts the instance if a container in the instance exits upon termination.
      *   OnFailure: Restarts the instance only if a container in the instance exists upon failure with a status code of non-zero.
      *
      * @example Never
@@ -234,7 +237,7 @@ class containerGroups extends Model
     public $restartPolicy;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the instances belong.
      *
      * @example sg-bp12ujq5zpxuyjfo3o8r
      *
@@ -256,8 +259,8 @@ class containerGroups extends Model
      * @description The bid policy for the instance. Default value: NoSpot. Valid values:
      *
      *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance that has a maximum price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is used as the bid price.
+     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -266,7 +269,7 @@ class containerGroups extends Model
     public $spotStrategy;
 
     /**
-     * @description The state of the instance. Valid values:
+     * @description The status of the instance. Valid values:
      *
      *   Pending: The instance is being started.
      *   Running: The instance is running.
@@ -295,7 +298,7 @@ class containerGroups extends Model
     public $succeededTime;
 
     /**
-     * @description The tags of the instance.
+     * @description The tags that are added to the instance.
      *
      * @var tags[]
      */
@@ -347,7 +350,7 @@ class containerGroups extends Model
     public $vSwitchId;
 
     /**
-     * @description Information about the volumes.
+     * @description The information about the volumes.
      *
      * @var volumes[]
      */

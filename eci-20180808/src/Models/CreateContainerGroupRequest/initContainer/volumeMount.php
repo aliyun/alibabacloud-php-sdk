@@ -18,11 +18,11 @@ class volumeMount extends Model
     public $mountPath;
 
     /**
-     * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+     * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one init container to be shared with other init containers in the same pod, or even with other pods on the same node. Valid values:
      *
-     *   None: The volume mount does not receive subsequent mounts that are mounted to the volume or to the subdirectories of the volume.
-     *   HostToCotainer: The volume mount receives subsequent mounts that are mounted to the volume or to the subdirectories of the volume.
-     *   Bidirectional: The volume mount behaves the same as the HostToCotainer mount. The volume mount receives subsequent mounts that are mounted to the volume or to the subdirectories of the volume. In addition, all volume mounts created by the container are propagated back to the host and to all containers of all pods that use the same volume.
+     *   None: The volume mount does not receive subsequent mounts that are performed on this volume or subdirectories of this volume.
+     *   HostToCotainer: The volume mount receives subsequent mounts that are performed on this volume or the subdirectories of this volume.
+     *   Bidirectional: This value is similar to HostToContainer. The volume mount receives subsequent mounts that are performed on this volume or the subdirectories of this volume. In addition, all volume mounts that are mounted on the init container are propagated back to the host and all init containers of all pods that use the same volume.
      *
      * Default value: None.
      * @example None
@@ -32,7 +32,7 @@ class volumeMount extends Model
     public $mountPropagation;
 
     /**
-     * @description The volume name.
+     * @description The name of the volume.
      *
      * @example test-empty
      *
@@ -50,7 +50,7 @@ class volumeMount extends Model
     public $readOnly;
 
     /**
-     * @description The subdirectory of the volume. The pod can mount different directories of the same volume to different directories of the init container.
+     * @description The subdirectory of the volume. The pod can mount different directories of the same volume to different subdirectories of init containers.
      *
      * @example /usr/sub/
      *

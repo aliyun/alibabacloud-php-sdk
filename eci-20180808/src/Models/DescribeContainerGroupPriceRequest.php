@@ -18,7 +18,7 @@ class DescribeContainerGroupPriceRequest extends Model
     public $computeCategory;
 
     /**
-     * @description The number of vCPUs. For information about the vCPU and memory specifications that are supported by Elastic Container Instance, see [vCPU and memory specifications](~~114662~~).
+     * @description The number of vCPUs. For information about the vCPU and memory specifications that are supported by Elastic Container Instance, see [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
      *
      * @example 2.0
      *
@@ -36,7 +36,7 @@ class DescribeContainerGroupPriceRequest extends Model
     public $ephemeralStorage;
 
     /**
-     * @description The instance type of the Elastic Compute Service (ECS) instance that is used to create the elastic container instance. For information about the ECS instance types that are supported by Elastic Container Instance, see [ECS instance types that are supported by Elastic Container Instance](~~114664~~).
+     * @description The instance type of the Elastic Compute Service (ECS) instance that is used to create the elastic container instance. For information about the ECS instance types that are supported by Elastic Container Instance, see [ECS instance types that are supported by Elastic Container Instance](https://help.aliyun.com/document_detail/114664.html).
      *
      * > If you specify this parameter, the specified specifications of vCPUs and memory are ignored. Only the price of the ECS instance type is returned.
      * @example ecs.c5.large
@@ -46,7 +46,7 @@ class DescribeContainerGroupPriceRequest extends Model
     public $instanceType;
 
     /**
-     * @description The size of the memory. Unit: GiB. For information about the vCPU and memory specifications that are supported by Elastic Container Instance, see [vCPU and memory specifications](~~114662~~).
+     * @description The size of the memory. Unit: GiB. For information about the vCPU and memory specifications that are supported by Elastic Container Instance, see [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
      *
      * @example 4.0
      *
@@ -65,8 +65,9 @@ class DescribeContainerGroupPriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~146965~~) operation to query the most recent region and zone list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/146965.html) operation to query the most recent region and zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -116,7 +117,7 @@ class DescribeContainerGroupPriceRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~146965~~) operation to query the most recent region and zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/146965.html) operation to query the most recent region and zone list.
      *
      * @example cn-hangzhou-g
      *

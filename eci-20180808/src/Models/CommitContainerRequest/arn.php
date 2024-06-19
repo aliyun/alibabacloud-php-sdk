@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class arn extends Model
 {
     /**
-     * @description The ARN of the RAM role of the Container Registry Enterprise Edition instance.
+     * @description The ARN of the authorized role.
      *
      * @example acs:ram:xxx
      *
@@ -18,7 +18,7 @@ class arn extends Model
     public $roleArn;
 
     /**
-     * @description The type of the authorization.
+     * @description The authorization type. A value of service indicates that RAM roles are used for authorization.
      *
      * @example user
      *

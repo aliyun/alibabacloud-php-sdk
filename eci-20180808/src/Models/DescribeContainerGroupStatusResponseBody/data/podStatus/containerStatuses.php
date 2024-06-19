@@ -29,14 +29,14 @@ class containerStatuses extends Model
     public $imageID;
 
     /**
-     * @description The most recent state of the container.
+     * @description The last status of the container.
      *
      * @var lastState
      */
     public $lastState;
 
     /**
-     * @description The container name.
+     * @description The name of the container.
      *
      * @example ubuntu
      *
@@ -45,7 +45,7 @@ class containerStatuses extends Model
     public $name;
 
     /**
-     * @description Indicates whether the container is ready for use.
+     * @description Indicates whether the container is ready.
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class containerStatuses extends Model
     public $ready;
 
     /**
-     * @description The number of restarts.
+     * @description The number of times that the container restarted.
      *
      * @example 1
      *
@@ -72,7 +72,7 @@ class containerStatuses extends Model
     public $started;
 
     /**
-     * @description The state of the container. Valid values:
+     * @description The status of the container. Valid values:
      *
      *   Waiting
      *   Running

@@ -13,6 +13,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The information about the resource that you want to query.
      *
+     * This parameter is required.
      * @var destinationResource
      */
     public $destinationResource;
@@ -30,7 +31,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The region ID of the ECS instance families.
      *
-     * You can call the [DescribeRegions](~~146965~~) operation to query the most recent list of regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

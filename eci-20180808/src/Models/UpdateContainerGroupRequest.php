@@ -28,7 +28,7 @@ class UpdateContainerGroupRequest extends Model
     public $acrRegistryInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -46,6 +46,7 @@ class UpdateContainerGroupRequest extends Model
     /**
      * @description The ID of the elastic container instance that you want to update.
      *
+     * This parameter is required.
      * @example eci-2zelg8vwnlzdhf8hv****
      *
      * @var string
@@ -97,6 +98,7 @@ class UpdateContainerGroupRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -54,11 +54,12 @@ class volume extends Model
     public $name;
 
     /**
-     * @description The type of the volume when you set the Type parameter to HostPathVolume. Valid values:
+     * @description The type of the HostPath volume. Valid values:
      *
      *   Directory
      *   File
      *
+     * >  Only users in the whitelist can mount HostPath volumes.
      * @example ConfigFileVolume
      *
      * @var string

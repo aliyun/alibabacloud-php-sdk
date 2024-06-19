@@ -45,7 +45,7 @@ class previousState extends Model
     public $message;
 
     /**
-     * @description The reason why the container is in this state.
+     * @description The reason why the container is in this status.
      *
      * @example completed
      *

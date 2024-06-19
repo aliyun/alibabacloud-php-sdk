@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class acrRegistryInfo extends Model
 {
     /**
-     * @description The RAM role ARN of the account to which permissions are granted during a cross-account authorization.
+     * @description The Alibaba Cloud Resource Access (ARN) of the RAM role that is assigned to the user (the authorized account) in cross-account authorization scenarios.
      *
      * @example acs:ram::1609982529******:role/role-test
      *
@@ -18,7 +18,7 @@ class acrRegistryInfo extends Model
     public $arnService;
 
     /**
-     * @description The RAM role ARN of the account that is used to grant permissions during a cross-account authorization.
+     * @description The ARN of the RAM role that is assigned to the authorizer in cross-account authorization scenarios.
      *
      * @example acs:ram::1298452580******:role/role-test
      *
@@ -36,7 +36,7 @@ class acrRegistryInfo extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region where the Container Registry Enterprise Edition instance resides.
+     * @description The region ID of the Container Registry Enterprise Edition instance.
      *
      * @example cn-hangzhou
      *

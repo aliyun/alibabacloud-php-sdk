@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class acrRegistryInfo extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM roles in the Alibaba Cloud account to which the elastic container instance belongs.
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role in the Alibaba Cloud account to which the elastic container instance belongs.
      *
      * @example acs:ram::1609982529******:role/role-assume
      *
@@ -18,7 +18,7 @@ class acrRegistryInfo extends Model
     public $arnService;
 
     /**
-     * @description The ARN of the RAM roles in the Alibaba Cloud account to which the Container Registry instance belongs.
+     * @description The ARN of the RAM role in the Alibaba Cloud account to which the Container Registry Enterprise Edition instance belongs.
      *
      * @example acs:ram::1298452580******:role/role-acr
      *

@@ -32,7 +32,7 @@ class UpdateImageCacheRequest extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](~~25693~~)
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
      *
      * @example 123e4567-xxx-xxx-xxxx-42665544xxxx
      *
@@ -94,6 +94,7 @@ class UpdateImageCacheRequest extends Model
     /**
      * @description The ID of the image cache.
      *
+     * This parameter is required.
      * @example imc-bp195erqe9o2pb09****
      *
      * @var string
@@ -138,6 +139,7 @@ class UpdateImageCacheRequest extends Model
     /**
      * @description The region ID of the image cache.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

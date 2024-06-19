@@ -35,14 +35,14 @@ class CreateContainerGroupRequest extends Model
     public $securityContext;
 
     /**
-     * @description The information about the Container Registry Enterprise Edition instance. For more information, see [Pull images from a Container Registry Enterprise Edition instance without using secrets](~~194250~~).
+     * @description The information about the Container Registry Enterprise Edition instance that provides the image for the creation of the elastic container instance. For more information, see [Pull images from a Container Registry Enterprise Edition instance without using a secret](https://help.aliyun.com/document_detail/194250.html).
      *
      * @var acrRegistryInfo[]
      */
     public $acrRegistryInfo;
 
     /**
-     * @description The validity period of the elastic container instance. When this period expires, the instance is forced to exit. Unit: seconds.
+     * @description The active period of the elastic container instance. After this period expires, the instance is forced to exit. Unit: seconds.
      *
      * @example 1000
      *
@@ -69,7 +69,7 @@ class CreateContainerGroupRequest extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency of requests?](~~25693~~)
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-xxxx-12d3-xxxx-426655440000
      *
@@ -78,25 +78,27 @@ class CreateContainerGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The computing power type of the instance.
+     * @description The computing power type of the instance. For more information, see [Set the computing power type to economy when you create an elastic container instance](https://help.aliyun.com/document_detail/2638061.html).
      *
      * @var string[]
      */
     public $computeCategory;
 
     /**
-     * @description The information about the containers.
+     * @description The information about the container.
      *
+     * This parameter is required.
      * @var container[]
      */
     public $container;
 
     /**
-     * @description The name of the elastic container instance. Format requirements:
+     * @description The name of the elastic container instance (container group). The name must meet the following requirements:
      *
-     *   The name must be 2 to 128 characters in length
+     *   The name must be 2 to 128 characters in length.
      *   The name can contain lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen (-).
      *
+     * This parameter is required.
      * @example nginx-test
      *
      * @var string
@@ -113,9 +115,9 @@ class CreateContainerGroupRequest extends Model
     public $containerResourceView;
 
     /**
-     * @description The path to store core dump files. For more information, see [Save core files to volumes](~~167801~~).
+     * @description The path to core dump files. For more information, see [Save core files to volumes](https://help.aliyun.com/document_detail/167801.html).
      *
-     * > The path cannot start with a vertical bar (`|`). You cannot use core dump files to configure executable programs.
+     * >  The path cannot start with |. You cannot use core dump files to configure executable programs.``
      * @example /xx/xx/core
      *
      * @var string
@@ -123,7 +125,7 @@ class CreateContainerGroupRequest extends Model
     public $corePattern;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the elastic container instance.
+     * @description The number of vCPUs that you want to allocate to the instance.
      *
      * @example 1.0
      *
@@ -144,7 +146,7 @@ class CreateContainerGroupRequest extends Model
     public $cpuArchitecture;
 
     /**
-     * @description The number of physical CPU cores. You can specify this parameter only for specific instance types. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The number of physical CPU cores. You can specify this parameter for only specific ECS instance types.
      *
      * @example 2
      *
@@ -162,7 +164,7 @@ class CreateContainerGroupRequest extends Model
     public $cpuOptionsNuma;
 
     /**
-     * @description The number of threads per core. You can specify this parameter only for specific instance types. If you set this parameter to 1, Hyper-Threading is disabled. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The number of threads per core. You can specify this parameter for only specific ECS instance types. A value of 1 specifies that Hyper-Threading is disabled.
      *
      * @example 2
      *
@@ -171,7 +173,7 @@ class CreateContainerGroupRequest extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
-     * @description The bucket to store data caches.
+     * @description The bucket that stores the data cache.
      *
      * @example default
      *
@@ -180,7 +182,7 @@ class CreateContainerGroupRequest extends Model
     public $dataCacheBucket;
 
     /**
-     * @description Specifies whether to enable the performance burst feature when ESSDs AutoPL are used for data caching. For more information, see [ESSDs AutoPL](~~368372~~).
+     * @description Specifies whether to enable the performance burst feature when ESSDs AutoPL are used to store data caches. For more information, see [ESSDs AutoPL](https://help.aliyun.com/document_detail/368372.html).
      *
      * @example false
      *
@@ -189,8 +191,8 @@ class CreateContainerGroupRequest extends Model
     public $dataCacheBurstingEnabled;
 
     /**
-     * @description The performance level of the disk used by data caches.\
-     * Enhanced SSDs (ESSDs) are preferentially used. The default performance level is PL1.
+     * @description The performance level (PL) of the disk that you want to use to store data caches.\\
+     * Enhanced SSDs (ESSDs) are preferentially used to store data caches. The default performance level is PL1.
      * @example PL1
      *
      * @var string
@@ -198,8 +200,8 @@ class CreateContainerGroupRequest extends Model
     public $dataCachePL;
 
     /**
-     * @description The input/output operations per second (IOPS) provisioned for ESSDs AutoPL when ESSDs AutoPL are used for data caching.\
-     * For more information, see [ESSDs AutoPL](~~368372~~).
+     * @description The input/output operations per second (IOPS) provisioned for ESSDs AutoPL when ESSDs AutoPL are used to store data caches.\\
+     * For more information, see [ESSDs AutoPL](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -209,7 +211,7 @@ class CreateContainerGroupRequest extends Model
     /**
      * @description The Domain Name System (DNS) policy. Valid values:
      *
-     *   None: uses the DNS that is specified for DnsConfig-related parameters.
+     *   None: uses the DNS that is specified by DnsConfig.
      *   Default: uses the DNS that is specified for the runtime environment.
      *
      * @example Default
@@ -219,10 +221,10 @@ class CreateContainerGroupRequest extends Model
     public $dnsPolicy;
 
     /**
-     * @description Specifies whether to perform only a dry run without performing the actual request. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs only a dry run without creating an elastic container instance. The check items include the request format, service limits, resource inventory, and whether the required parameters are specified. If the request fails the dry run, an error is returned. If the request passes the dry run, the DryRun.Success error code is returned.
-     *   false (default): performs a dry run, and creates an elastic container instance after the request passes the dry run.
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and available resources. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
+     *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, the elastic container instance is created.
      *
      * @example false
      *
@@ -231,7 +233,7 @@ class CreateContainerGroupRequest extends Model
     public $dryRun;
 
     /**
-     * @description The maximum outbound bandwidth. Unit: bytes.
+     * @description The maximum outbound bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -240,8 +242,8 @@ class CreateContainerGroupRequest extends Model
     public $egressBandwidth;
 
     /**
-     * @description The bandwidth of the EIP. Unit: Mbit/s. Default value: 5.\
-     * You can specify this parameter when you set AutoCreateEip to true.
+     * @description The maximum bandwidth value for the EIP. Unit: Mbit/s. Default value: 5.\\
+     * This parameter is valid only when AutoCreateEip is set to true.
      * @example 5
      *
      * @var int
@@ -249,7 +251,7 @@ class CreateContainerGroupRequest extends Model
     public $eipBandwidth;
 
     /**
-     * @description Specifies the EIP bandwidth plan that you want to use.
+     * @description The EIP bandwidth plan that you want to associate with the instance.
      *
      * @example cbwp-2zeukbj916scmj51m****
      *
@@ -258,10 +260,10 @@ class CreateContainerGroupRequest extends Model
     public $eipCommonBandwidthPackage;
 
     /**
-     * @description The line type of the elastic IP address (EIP). Valid values:
+     * @description The line type of the EIP. Default value: BGP. Valid values:
      *
-     *   BGP: BGP (Multi-ISP) lines
-     *   BGP_PRO: BGP (Multi-ISP) Pro lines
+     *   BGP: BGP (Multi-ISP) line
+     *   BGP_PRO: BGP (Multi-ISP) Pro line
      *
      * @example BPG
      *
@@ -279,8 +281,8 @@ class CreateContainerGroupRequest extends Model
     public $eipInstanceId;
 
     /**
-     * @description The increased storage capacity of the temporary storage space. Unit: GiB.\
-     * For more information, see [Increase the storage capacity of the temporary storage space](~~204066~~).
+     * @description The increased capacity of the temporary storage space. Unit: GiB.\\
+     * For more information, see [Increase the size of the temporary storage space](https://help.aliyun.com/document_detail/204066.html).
      * @example 20
      *
      * @var int
@@ -288,7 +290,7 @@ class CreateContainerGroupRequest extends Model
     public $ephemeralStorage;
 
     /**
-     * @description Specifies whether to configure the instance to use a fixed IP address. For more information, see [Configure an elastic container instance to use a fixed IP address](~~2381086~~).
+     * @description Specifies whether to configure the instance to use a fixed IP address. For more information, see [Configure an elastic container instance to use a fixed IP address](https://help.aliyun.com/document_detail/2381086.html).
      *
      * @example true
      *
@@ -306,6 +308,14 @@ class CreateContainerGroupRequest extends Model
     public $fixedIpRetainHour;
 
     /**
+     * @description The version of the GPU driver. Default value: tesla=470.82.01. Valid values:
+     *
+     *   tesla=470.82.01
+     *   tesla=525.85.12
+     *
+     * >  You can switch the GPU driver version only for a few Elastic Compute Service (ECS) instance types. For more information, see [Specify GPU-accelerated ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/2579486.html).
+     * @example tesla=525.85.12
+     *
      * @var string
      */
     public $gpuDriverVersion;
@@ -318,7 +328,7 @@ class CreateContainerGroupRequest extends Model
     public $hostAliase;
 
     /**
-     * @description The hostname of the instance.
+     * @description The hostname.
      *
      * @example test
      *
@@ -329,10 +339,10 @@ class CreateContainerGroupRequest extends Model
     /**
      * @description The image acceleration mode. Valid values:
      *
-     *   nydus: Nydus is used to accelerate image pulling. The images must support Nydus.
-     *   dadi: DADI is used to accelerate image pulling. The images must support DADI.
-     *   p2p: P2P is used to accelerate image pulling. The images must support P2P.
-     *   imc: Image caches are used to accelerate image pulling.
+     *   nydus: uses Nydus to accelerate image pulling. The images must support Nydus.
+     *   dadi: uses DADI to accelerate image pulling. The images must support DADI.
+     *   p2p: uses P2P to accelerate image pulling. The images must support p2p.
+     *   imc: uses image caches to accelerate image pulling.
      *
      * @example imc
      *
@@ -341,14 +351,14 @@ class CreateContainerGroupRequest extends Model
     public $imageAccelerateMode;
 
     /**
-     * @description The information about the image repository.
+     * @description The information about the logon credentials.
      *
      * @var imageRegistryCredential[]
      */
     public $imageRegistryCredential;
 
     /**
-     * @description The ID of the image cache. For more information, see [Use image caches to accelerate the creation of instances](~~141281~~).
+     * @description The ID of the image cache. For more information, see [Use image caches to accelerate the creation of instances](https://help.aliyun.com/document_detail/141281.html).
      *
      * @example imc-2zebxkiifuyzzlhl****
      *
@@ -357,7 +367,7 @@ class CreateContainerGroupRequest extends Model
     public $imageSnapshotId;
 
     /**
-     * @description The maximum inbound bandwidth. Unit: bytes.
+     * @description The maximum inbound bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -382,7 +392,7 @@ class CreateContainerGroupRequest extends Model
     public $insecureRegistry;
 
     /**
-     * @description The ECS instance type. Different instance types are supported. For more information, see [Specify an ECS instance type to create an elastic container instance](~~114664~~).
+     * @description The ECS instance types that you specify to create the elastic container instance. Multiple instance types are supported. For more information, see [Specify ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/114664.html).
      *
      * @example ecs.c5.xlarge
      *
@@ -391,7 +401,7 @@ class CreateContainerGroupRequest extends Model
     public $instanceType;
 
     /**
-     * @description The number of IPv6 addresses. Set the value to 1. You can assign only one IPv6 address to an elastic container instance.
+     * @description The number of IPv6 addresses that are assigned to the instance. Set the value to 1. You can assign only one IPv6 address to an elastic container instance.
      *
      * @example 1
      *
@@ -400,15 +410,15 @@ class CreateContainerGroupRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The peak Internet bandwidth of the IPv6 address when the Ipv6GatewayBandwidthEnable parameter is set to true. Valid values:
+     * @description The maximum IPv6 Internet bandwidth when you set Ipv6GatewayBandwidthEnable to true. Valid values:
      *
-     *   If the billing method for the Internet bandwidth of the IPv6 gateway is pay-by-bandwidth, the Internet bandwidth of the IPv6 address ranges from 1 to 2,000 Mbit/s.
+     *   If the billing method for IPv6 network usage is pay-by-bandwidth, the maximum IPv6 Internet bandwidth ranges from 1 to 2,000 Mbit/s.
      *
-     *   If the billing method for the Internet bandwidth of the IPv6 gateway is pay-by-traffic, the Internet bandwidth range of the IPv6 address is based on the edition of the IPv6 gateway.
+     *   If the billing method for IPv6 network usage is pay-by-traffic, the maximum IPv6 Internet bandwidth varies based on the edition of the IPv6 gateway.
      *
-     *   If the IPv6 gateway is of Free Edition, the Internet bandwidth of the IPv6 address ranges from 1 to 200 Mbit/s.
-     *   If the IPv6 gateway is of Enterprise Edition, the Internet bandwidth of the IPv6 address ranges from 1 to 500 Mbit/s.
-     *   If the IPv6 gateway is of Enhanced Enterprise Edition, the Internet bandwidth of the IPv6 address ranges from 1 to 1,000 Mbit/s.
+     *   If the IPv6 gateway is of Free Edition, the maximum IPv6 Internet bandwidth ranges from 1 to 200 Mbit/s.
+     *   If the IPv6 gateway is of Enterprise Edition, the maximum IPv6 Internet bandwidth ranges from 1 to 500 Mbit/s.
+     *   If the IPv6 gateway is of Enhanced Enterprise Edition, the maximum IPv6 Internet bandwidth ranges from 1 to 1000 Mbit/s.
      *
      * The default value is the maximum value in the Internet bandwidth range of the IPv6 gateway.
      * @example 100
@@ -418,7 +428,7 @@ class CreateContainerGroupRequest extends Model
     public $ipv6GatewayBandwidth;
 
     /**
-     * @description Specifies whether to enable IPv6 Internet access for the elastic container instance.
+     * @description Specifies whether to enable Internet access to the elastic container instance over IPv6 addresses.
      *
      * @example true
      *
@@ -427,7 +437,7 @@ class CreateContainerGroupRequest extends Model
     public $ipv6GatewayBandwidthEnable;
 
     /**
-     * @description The memory size that you want to allocate to the elastic container instance. Unit: GiB.
+     * @description The memory size that you want to allocate to the instance. Unit: GiB.
      *
      * @example 2.0
      *
@@ -436,7 +446,7 @@ class CreateContainerGroupRequest extends Model
     public $memory;
 
     /**
-     * @description The domain names of the NTP server.
+     * @description The endpoints of the Network Time Protocol (NTP) servers.
      *
      * @example ntp.cloud.aliyuncs.com
      *
@@ -475,7 +485,7 @@ class CreateContainerGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The address of the self-managed image repository. When you create an elastic container instance by using an image in a self-managed image repository that uses the HTTP protocol, you must specify this parameter. This allows Elastic Container Instance to pull the image over the HTTP protocol instead over the default HTTPS protocol. This prevents image pull failures caused by different protocols.
+     * @description The address of the self-managed image repository. When you create an elastic container instance by using an image in a self-managed image repository that uses the HTTP protocol, you must specify this parameter. This way, Elastic Container Instance pulls the image over the HTTP protocol instead of the default HTTPS protocol. This prevents image pull failures caused by different protocols.
      *
      * @example "harbor***.pre.com,192.168.XX.XX:5000,reg***.test.com:80"
      *
@@ -493,7 +503,7 @@ class CreateContainerGroupRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The name of the RAM role that you want to associate with the elastic container instance. You can use the RAM role to access elastic container instances and ECS instances. For more information, see [Use an instance RAM role by calling API operations](~~61178~~).
+     * @description The name of the instance Resource Access Management (RAM) role. You can use the same RAM role to access elastic container instances and ECS instances. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example RamTestRole
      *
@@ -504,6 +514,7 @@ class CreateContainerGroupRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -511,7 +522,7 @@ class CreateContainerGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-uf66jeqopgqa9hdn****
      *
@@ -530,11 +541,11 @@ class CreateContainerGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The restart policy of the elastic container instance. Valid values:
+     * @description The restart policy of the instance. Valid values:
      *
-     *   Always: Always restarts the instance.
-     *   Never: Never restarts the instance.
-     *   OnFailure: Restarts the instance when the last start failed.
+     *   Always: Always restarts the instance if a container in the instance exits upon termination.
+     *   Never: Never restarts the instance if a container in the instance exits upon termination.
+     *   OnFailure: Restarts the instance only if a container in the instance exists upon failure with a status code of non-zero.
      *
      * Default value: Always.
      * @example Always
@@ -549,7 +560,7 @@ class CreateContainerGroupRequest extends Model
      *   VSwitchOrdered: The system schedules resources in the sequence of the vSwitches.
      *   VSwitchRandom: The system schedules resources at random.
      *
-     * For more information, see [Specify multiple zones to create an elastic container instance](~~157290~~).
+     * For more information, see [Specify multiple zones to create an elastic container instance](https://help.aliyun.com/document_detail/157290.html).
      * @example VSwitchOrdered
      *
      * @var string
@@ -557,7 +568,7 @@ class CreateContainerGroupRequest extends Model
     public $scheduleStrategy;
 
     /**
-     * @description The ID of the security group to which the instance is assigned. Instances within the same security group can access each other.
+     * @description The ID of the security group to which the instance belongs. Instances in the same security group can access each other.
      *
      * If you do not specify a security group, the system automatically uses the default security group in the region that you selected. Make sure that the inbound rules of the security group contain the container protocols and port numbers that you want to expose. If you do not have a default security group in the region, the system creates a default security group, and then adds the container protocols and port numbers that you specified to the inbound rules of the security group.
      * @example sg-uf66jeqopgqa9hdn****
@@ -576,7 +587,7 @@ class CreateContainerGroupRequest extends Model
     public $shareProcessNamespace;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. A value of 0 indicates no protection period.
+     * @description The protection period of the preemptible elastic container instance. Unit: hours. Default value: 1. A value of 0 indicates no protection period.
      *
      * @example 1
      *
@@ -585,9 +596,9 @@ class CreateContainerGroupRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The maximum hourly price of the preemptible elastic container instance. The value can contain up to three decimal places.
+     * @description The maximum hourly price of the preemptible elastic container instance. The value can be accurate to three decimal places.
      *
-     * If you set SpotStrategy to SpotWithPriceLimit, you must specify SpotPriceLimit.
+     * If you set SpotStrategy to SpotWithPriceLimit, you must specify the SpotPriceLimit parameter.
      * @example 0.025
      *
      * @var float
@@ -595,11 +606,11 @@ class CreateContainerGroupRequest extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the instance. Valid values:
+     * @description The bid policy for the instance. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance whose bidding price is based on the market price at the time of purchase.
+     *   NoSpot: The instance is created as a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance for which you specify the maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * Default value: NoSpot.
      * @example SpotWithPriceLimit
@@ -621,14 +632,14 @@ class CreateContainerGroupRequest extends Model
     public $strictSpot;
 
     /**
-     * @description The tags that you want to bind with the instance. You can bind a maximum of 20 tags. For more information, see [Use tags to manage elastic container instances](~~146608~~).
+     * @description The tags that you want to add to the instance. You can bind a maximum of 20 tags. For more information, see [Use tags to manage elastic container instances](https://help.aliyun.com/document_detail/146608.html).
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The buffer time during which the program handles operations before the program stops. Unit: seconds.
+     * @description The buffer period of time during which the program handles operations before the program is stopped. Unit: seconds.
      *
      * @example 60
      *
@@ -637,9 +648,9 @@ class CreateContainerGroupRequest extends Model
     public $terminationGracePeriodSeconds;
 
     /**
-     * @description The ID of the vSwitch to which the instance is connected. You can specify up to 10 vSwitch IDs. Separate multiple vSwitch IDs with commas (,). Example: `vsw-***,vsw-***`.
+     * @description The IDs of the vSwitches that connect to the instance. You can specify up to 10 vSwitch IDs at a time. Separate multiple vSwitch IDs with commas (,). Example: `vsw-***,vsw-***`.
      *
-     * > The number of IP addresses in the vSwitch CIDR block determines the maximum number of elastic container instances that can be created for the vSwitch. Before you create elastic container instances, plan the CIDR block of the vSwitch.
+     * >  The number of IP addresses in the vSwitch CIDR block determines the maximum number of elastic container instances that you can create for the vSwitch. Before you create elastic container instances, you must plan the CIDR block of the vSwitch.
      * @example vsw-bp1xpiowfm5vo8o3c****,vsw-bp1rkyjgr1xwoho6k****
      *
      * @var string
@@ -647,14 +658,14 @@ class CreateContainerGroupRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description Information about volumes.
+     * @description The information about the volume that you want to mount to the container.
      *
      * @var volume[]
      */
     public $volume;
 
     /**
-     * @description The ID of the zone in which the elastic container instance is deployed. If you do not specify this parameter, the system selects a zone.
+     * @description The zone ID of the instance. If you do not specify this parameter, the system selects a zone.
      *
      * This parameter is empty by default.
      * @example cn-hangzhou-b

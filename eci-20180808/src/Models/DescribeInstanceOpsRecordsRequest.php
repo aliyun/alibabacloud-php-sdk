@@ -11,6 +11,7 @@ class DescribeInstanceOpsRecordsRequest extends Model
     /**
      * @description The ID of the elastic container instance.
      *
+     * This parameter is required.
      * @example eci-bp1dvysdafbh00t7****
      *
      * @var string
@@ -18,11 +19,12 @@ class DescribeInstanceOpsRecordsRequest extends Model
     public $containerGroupId;
 
     /**
-     * @description The type of the O\&M task. Valid values:
+     * @description The type of the O\\&M task. Valid values:
      *
      *   coredump
      *   tcpdump
      *
+     * This parameter is required.
      * @example coredump
      *
      * @var string
@@ -42,6 +44,7 @@ class DescribeInstanceOpsRecordsRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

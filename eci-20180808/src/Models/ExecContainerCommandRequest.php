@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecContainerCommandRequest extends Model
 {
     /**
-     * @description The commands to run in the container. You can specify up to 20 commands. Each command can be up to 256 characters in length.\
-     * The strings must be in the JSON format. Example: `["/bin/sh", "-c", "ls -a"]`.
+     * @description The commands to run in the container. You can specify up to 20 commands. Each command can be up to 256 characters in length.\\
+     * This parameter is required.
      * @example ["/bin/sh", "-c", "ls -a"]
      *
      * @var string
@@ -20,6 +20,7 @@ class ExecContainerCommandRequest extends Model
     /**
      * @description The ID of the elastic container instance.
      *
+     * This parameter is required.
      * @example eci-2zebxkiifulhl****
      *
      * @var string
@@ -29,6 +30,7 @@ class ExecContainerCommandRequest extends Model
     /**
      * @description The name of the container.
      *
+     * This parameter is required.
      * @example nginx
      *
      * @var string
@@ -48,6 +50,7 @@ class ExecContainerCommandRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,8 +77,8 @@ class ExecContainerCommandRequest extends Model
     public $stdin;
 
     /**
-     * @description Specifies whether to run the command immediately and return the result. Default value: false.\
-     * If you set this parameter to true, set the value of TTY to false.
+     * @description Specifies whether to immediately run the command and synchronously return the result. Default value: false.\\
+     * If this parameter is set to true, TTY must be set to false. Command cannot be set to `/bin/bash`.
      * @example false
      *
      * @var bool
@@ -83,8 +86,8 @@ class ExecContainerCommandRequest extends Model
     public $sync;
 
     /**
-     * @description Specifies whether to enable interaction. Default value: false.\
-     * If the command is a /bin/bash command, set the value to true.
+     * @description Specifies whether to enable interaction. Default value: false.\\
+     * If the Command parameter is set to `/bin/bash`, set this parameter to true.
      * @example false
      *
      * @var bool

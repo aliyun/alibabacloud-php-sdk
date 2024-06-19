@@ -11,6 +11,7 @@ class DescribeContainerLogRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example eci-uf6fonnghi50v6nq****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeContainerLogRequest extends Model
     /**
      * @description The name of the container.
      *
+     * This parameter is required.
      * @example nginx
      *
      * @var string
@@ -96,8 +98,8 @@ class DescribeContainerLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The number of log entries that you want to query. Default value: 500. Maximum value: 2000. A maximum of 1 MB of logs can be returned.
-     *
+     * @description The number of the most recent log entries that you want to query. Default value: 500. Maximum value: 2000.\\
+     * A maximum of 1 MB log data can be returned.
      * @example 500
      *
      * @var int

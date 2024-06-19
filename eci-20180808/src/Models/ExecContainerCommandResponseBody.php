@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ExecContainerCommandResponseBody extends Model
 {
     /**
-     * @description The HTTP URL. You can use this URL to enter the container within 30 seconds after this operation is called. For more information, see [Use and integrate the Elastic Container Instance terminal](~~202846~~).
+     * @description The HTTP URL. You can use this URL to enter the container within 30 seconds after this operation is called. For more information, see [Use and integrate the Elastic Container Instance terminal](https://help.aliyun.com/document_detail/202846.html).
      *
      * @example https://eci.console.aliyun.com/terminal?param=X32a****
      *

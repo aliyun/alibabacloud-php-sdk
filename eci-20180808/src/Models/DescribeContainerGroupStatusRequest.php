@@ -29,7 +29,7 @@ class DescribeContainerGroupStatusRequest extends Model
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.\
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.\\
      * You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
      * @example d78f2dd8-5979-42fe-xaee-b16db43be5bc
      *
@@ -40,6 +40,7 @@ class DescribeContainerGroupStatusRequest extends Model
     /**
      * @description The region ID of the instances.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

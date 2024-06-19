@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class dnsConfig extends Model
 {
     /**
-     * @description The IP addresses of the DNS servers.
+     * @description The IP addresses of DNS servers.
      *
      * @example 172.10.*.**
      *
@@ -26,7 +26,7 @@ class dnsConfig extends Model
     public $option;
 
     /**
-     * @description The search domains of the DNS server.
+     * @description The search domains of DNS servers.
      *
      * @example svc.local.kubenetes
      *

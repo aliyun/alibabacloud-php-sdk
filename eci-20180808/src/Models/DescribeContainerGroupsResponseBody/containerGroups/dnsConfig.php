@@ -24,7 +24,7 @@ class dnsConfig extends Model
     public $options;
 
     /**
-     * @description The search domain of the DNS server.
+     * @description The search domains of DNS servers.
      *
      * @var string[]
      */

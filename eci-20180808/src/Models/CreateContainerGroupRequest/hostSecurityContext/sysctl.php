@@ -9,12 +9,13 @@ use AlibabaCloud\Tea\Model;
 class sysctl extends Model
 {
     /**
-     * @description The key of the unsafe sysctl when you modify sysctls by configuring a security context. Valid values:
+     * @description The name of the unsafe sysctl when you modify sysctls by configuring a security context. Valid values:
      *
-     *   kernel.shm \* (except kernel.shm_rmid_forced)
-     *   kernel.msg\*kernel.sem
-     *   fs.mqueue.\*
-     *   net.\*(except net.ipv4.tcp_syncookies, net.ipv4.ping_group_range, and net.ipv4.ip_unprivileged_port_start)
+     *   kernel.shm \\* (except kernel.shm_rmid_forced)
+     *   kernel.msg\\*
+     *   kernel.sem
+     *   fs.mqueue.\\*
+     *   net.\\*(except net.ipv4.tcp_syncookies, net.ipv4.ping_group_range, and net.ipv4.ip_unprivileged_port_start)
      *
      * @example kernel.msgmax
      *

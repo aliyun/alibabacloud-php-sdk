@@ -18,7 +18,7 @@ class port extends Model
     public $port;
 
     /**
-     * @description The protocol type. Valid values:
+     * @description The type of the protocol. Valid values:
      *
      *   TCP
      *   UDP

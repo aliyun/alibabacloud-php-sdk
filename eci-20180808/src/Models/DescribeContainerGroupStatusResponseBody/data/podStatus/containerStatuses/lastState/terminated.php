@@ -27,7 +27,7 @@ class terminated extends Model
     public $exitCode;
 
     /**
-     * @description The end time.
+     * @description The time when the container ends running.
      *
      * @example 2021-05-23T20:49:31Z
      *
@@ -45,7 +45,7 @@ class terminated extends Model
     public $message;
 
     /**
-     * @description The cause of the event.
+     * @description The reason for the transition into the current status of the event.
      *
      * @example Completed
      *
@@ -63,7 +63,7 @@ class terminated extends Model
     public $signal;
 
     /**
-     * @description The start time.
+     * @description The time when the container started to run.
      *
      * @example 2021-05-12T07:02:52Z
      *

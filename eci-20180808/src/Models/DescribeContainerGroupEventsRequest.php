@@ -54,6 +54,7 @@ class DescribeContainerGroupEventsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

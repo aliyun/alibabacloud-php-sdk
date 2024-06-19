@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class podStatus extends Model
 {
     /**
-     * @description The information about the pod conditions.
+     * @description The conditions of the container group.
      *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description The state information about the container.
+     * @description The statuses about the containers.
      *
      * @var containerStatuses[]
      */
@@ -35,7 +35,7 @@ class podStatus extends Model
     public $hostIp;
 
     /**
-     * @description The lifecycle phase of the pod.
+     * @description The lifecycle phase of the container group.
      *
      * @example Running
      *
@@ -44,7 +44,7 @@ class podStatus extends Model
     public $phase;
 
     /**
-     * @description The IP address of the pod.
+     * @description The IP address of the container group.
      *
      * @example 192.168.XX.XX
      *
@@ -53,14 +53,14 @@ class podStatus extends Model
     public $podIp;
 
     /**
-     * @description The collection of pod IP addresses.
+     * @description The IP addresses of the container groups.
      *
      * @var podIps[]
      */
     public $podIps;
 
     /**
-     * @description The quality of service (QoS) of the pod.
+     * @description The quality of service (QoS) of the container group.
      *
      * @example Guaranteed
      *

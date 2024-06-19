@@ -18,7 +18,7 @@ class conditions extends Model
     public $message;
 
     /**
-     * @description The cause of the event.
+     * @description The reason for the transition into the current status of the event.
      *
      * @example Completed
      *
@@ -36,7 +36,7 @@ class conditions extends Model
     public $lastTransitionTime;
 
     /**
-     * @description The state of the pod condition.
+     * @description The status of the condition.
      *
      * @example True
      *
@@ -45,11 +45,15 @@ class conditions extends Model
     public $status;
 
     /**
-     * @description The type of the pod condition. Valid values:
+     * @description The type of the condition. Valid values:
      *
-     *   PodScheduled
-     *   Ready
+     *   PodReadyToStartContainers
      *   Initialized
+     *   Ready
+     *   ContainersReady
+     *   PodScheduled
+     *   ContainerHasSufficientDisk
+     *   ContainerInstanceCreated
      *   Unschedulable
      *
      * @example Ready

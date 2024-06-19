@@ -12,14 +12,15 @@ use AlibabaCloud\Tea\Model;
 class CommitContainerRequest extends Model
 {
     /**
-     * @description The access credential configurations of the Container Registry Enterprise Edition instance.\
-     * If you use a Container Registry Personal Edition instance, you can leave this parameter empty.
+     * @description The access credential configurations of the Container Registry Enterprise Edition instance.
+     *
+     * >  If you use a Container Registry Personal Edition instance, you do not need to configure this parameter. If you use a Container Registry Enterprise Edition instance, you must configure this parameter.
      * @var acrRegistryInfo
      */
     public $acrRegistryInfo;
 
     /**
-     * @description The ARN that is required for authorization.
+     * @description The details about the ARN that is required for authorization.
      *
      * @var arn
      */
@@ -28,6 +29,7 @@ class CommitContainerRequest extends Model
     /**
      * @description The ID of the container group.
      *
+     * This parameter is required.
      * @example eci-bp1do4xz75fa5sd****
      *
      * @var string
@@ -37,6 +39,7 @@ class CommitContainerRequest extends Model
     /**
      * @description The name of the container.
      *
+     * This parameter is required.
      * @example container-1
      *
      * @var string
@@ -63,6 +66,7 @@ class CommitContainerRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

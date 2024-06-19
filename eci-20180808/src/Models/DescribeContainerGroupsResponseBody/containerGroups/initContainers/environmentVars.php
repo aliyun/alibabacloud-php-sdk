@@ -28,7 +28,7 @@ class environmentVars extends Model
     public $value;
 
     /**
-     * @description The source of the environment variable value. This parameter has a value only when the Value parameter is not empty.
+     * @description The source of the environment variable value. This parameter has a value only when the Value parameter is left empty.
      *
      * @var valueFrom
      */
