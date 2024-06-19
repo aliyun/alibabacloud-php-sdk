@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceRequest\businessInfo;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceRequest\commodity;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceRequest\operationMetadata;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceRequest\tag;
@@ -12,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 
 class CreateServiceInstanceRequest extends Model
 {
-    /**
-     * @var businessInfo
-     */
-    public $businessInfo;
-
     /**
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -82,6 +76,8 @@ class CreateServiceInstanceRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -96,6 +92,8 @@ class CreateServiceInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -147,7 +145,6 @@ class CreateServiceInstanceRequest extends Model
      */
     public $trialType;
     protected $_name = [
-        'businessInfo'         => 'BusinessInfo',
         'clientToken'          => 'ClientToken',
         'commodity'            => 'Commodity',
         'contactGroup'         => 'ContactGroup',
@@ -175,9 +172,6 @@ class CreateServiceInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = null !== $this->businessInfo ? $this->businessInfo->toMap() : null;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -250,9 +244,6 @@ class CreateServiceInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = businessInfo::fromMap($map['BusinessInfo']);
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

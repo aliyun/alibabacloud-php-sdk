@@ -33,6 +33,8 @@ class ListServiceInstanceLogsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +42,8 @@ class ListServiceInstanceLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example si-70a3b15bb626435b****
      *
      * @var string

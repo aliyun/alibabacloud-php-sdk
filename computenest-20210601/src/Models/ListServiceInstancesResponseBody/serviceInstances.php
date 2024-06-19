@@ -72,6 +72,11 @@ class serviceInstances extends Model
     public $operationStartTime;
 
     /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
      * @example {"managementUrl": "http://xx.xx"}
      *
      * @var string
@@ -179,6 +184,7 @@ class serviceInstances extends Model
         'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
         'operationEndTime'          => 'OperationEndTime',
         'operationStartTime'        => 'OperationStartTime',
+        'orderId'                   => 'OrderId',
         'outputs'                   => 'Outputs',
         'parameters'                => 'Parameters',
         'payType'                   => 'PayType',
@@ -229,6 +235,9 @@ class serviceInstances extends Model
         }
         if (null !== $this->operationStartTime) {
             $res['OperationStartTime'] = $this->operationStartTime;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
@@ -319,6 +328,9 @@ class serviceInstances extends Model
         }
         if (isset($map['OperationStartTime'])) {
             $model->operationStartTime = $map['OperationStartTime'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];

@@ -25,6 +25,12 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRe
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -65,10 +71,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 资源组转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -105,9 +113,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 资源组转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -117,10 +127,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ContinueDeployServiceInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 继续部署服务实例
+     *  *
+     * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContinueDeployServiceInstanceResponse
+     * @return ContinueDeployServiceInstanceResponse ContinueDeployServiceInstanceResponse
      */
     public function continueDeployServiceInstanceWithOptions($request, $runtime)
     {
@@ -163,9 +175,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ContinueDeployServiceInstanceRequest $request
+     * @summary 继续部署服务实例
+     *  *
+     * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
      *
-     * @return ContinueDeployServiceInstanceResponse
+     * @return ContinueDeployServiceInstanceResponse ContinueDeployServiceInstanceResponse
      */
     public function continueDeployServiceInstance($request)
     {
@@ -175,26 +189,20 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceInstanceRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @param CreateServiceInstanceRequest $tmpReq  CreateServiceInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceInstanceResponse
+     * @return CreateServiceInstanceResponse CreateServiceInstanceResponse
      */
     public function createServiceInstanceWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
         $request = new CreateServiceInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->businessInfo)) {
-            $request->businessInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->businessInfo, 'BusinessInfo', 'json');
-        }
         if (!Utils::isUnset($tmpReq->parameters)) {
             $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
         $query = [];
-        if (!Utils::isUnset($request->businessInfoShrink)) {
-            $query['BusinessInfo'] = $request->businessInfoShrink;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -268,9 +276,9 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceInstanceRequest $request
+     * @param CreateServiceInstanceRequest $request CreateServiceInstanceRequest
      *
-     * @return CreateServiceInstanceResponse
+     * @return CreateServiceInstanceResponse CreateServiceInstanceResponse
      */
     public function createServiceInstance($request)
     {
@@ -280,10 +288,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceInstancesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除服务实例
+     *  *
+     * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstancesWithOptions($request, $runtime)
     {
@@ -317,9 +327,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceInstancesRequest $request
+     * @summary 删除服务实例
+     *  *
+     * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
      *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstances($request)
     {
@@ -329,10 +341,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param GetServiceInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询服务实例详情
+     *  *
+     * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceInstanceResponse
+     * @return GetServiceInstanceResponse GetServiceInstanceResponse
      */
     public function getServiceInstanceWithOptions($request, $runtime)
     {
@@ -366,9 +380,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param GetServiceInstanceRequest $request
+     * @summary 查询服务实例详情
+     *  *
+     * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
      *
-     * @return GetServiceInstanceResponse
+     * @return GetServiceInstanceResponse GetServiceInstanceResponse
      */
     public function getServiceInstance($request)
     {
@@ -378,10 +394,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param GetServiceTemplateParameterConstraintsRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 获取ROS参数限制
+     *  *
+     * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceTemplateParameterConstraintsResponse
+     * @return GetServiceTemplateParameterConstraintsResponse GetServiceTemplateParameterConstraintsResponse
      */
     public function getServiceTemplateParameterConstraintsWithOptions($request, $runtime)
     {
@@ -439,9 +457,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param GetServiceTemplateParameterConstraintsRequest $request
+     * @summary 获取ROS参数限制
+     *  *
+     * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
      *
-     * @return GetServiceTemplateParameterConstraintsResponse
+     * @return GetServiceTemplateParameterConstraintsResponse GetServiceTemplateParameterConstraintsResponse
      */
     public function getServiceTemplateParameterConstraints($request)
     {
@@ -451,10 +471,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstanceLogsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询服务实例部署升级以及应用日志
+     *  *
+     * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceInstanceLogsResponse
+     * @return ListServiceInstanceLogsResponse ListServiceInstanceLogsResponse
      */
     public function listServiceInstanceLogsWithOptions($request, $runtime)
     {
@@ -497,9 +519,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstanceLogsRequest $request
+     * @summary 查询服务实例部署升级以及应用日志
+     *  *
+     * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
      *
-     * @return ListServiceInstanceLogsResponse
+     * @return ListServiceInstanceLogsResponse ListServiceInstanceLogsResponse
      */
     public function listServiceInstanceLogs($request)
     {
@@ -509,10 +533,12 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstanceResourcesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 展示实例资源
+     *  *
+     * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceInstanceResourcesResponse
+     * @return ListServiceInstanceResourcesResponse ListServiceInstanceResourcesResponse
      */
     public function listServiceInstanceResourcesWithOptions($request, $runtime)
     {
@@ -567,9 +593,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstanceResourcesRequest $request
+     * @summary 展示实例资源
+     *  *
+     * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
      *
-     * @return ListServiceInstanceResourcesResponse
+     * @return ListServiceInstanceResourcesResponse ListServiceInstanceResourcesResponse
      */
     public function listServiceInstanceResources($request)
     {
@@ -579,10 +607,10 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstancesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstancesWithOptions($request, $runtime)
     {
@@ -625,14 +653,173 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * @param ListServiceInstancesRequest $request
+     * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
      *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstances($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 重启服务实例
+     *  *
+     * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RestartServiceInstanceResponse RestartServiceInstanceResponse
+     */
+    public function restartServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartServiceInstance',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重启服务实例
+     *  *
+     * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
+     *
+     * @return RestartServiceInstanceResponse RestartServiceInstanceResponse
+     */
+    public function restartServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动服务实例
+     *  *
+     * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartServiceInstanceResponse StartServiceInstanceResponse
+     */
+    public function startServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartServiceInstance',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动服务实例
+     *  *
+     * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
+     *
+     * @return StartServiceInstanceResponse StartServiceInstanceResponse
+     */
+    public function startServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止服务实例
+     *  *
+     * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopServiceInstanceResponse StopServiceInstanceResponse
+     */
+    public function stopServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopServiceInstance',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止服务实例
+     *  *
+     * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
+     *
+     * @return StopServiceInstanceResponse StopServiceInstanceResponse
+     */
+    public function stopServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopServiceInstanceWithOptions($request, $runtime);
     }
 }

@@ -16,6 +16,11 @@ class CreateServiceInstanceResponseBody extends Model
     public $marketInstanceId;
 
     /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D****
      *
      * @var string
@@ -37,6 +42,7 @@ class CreateServiceInstanceResponseBody extends Model
     public $status;
     protected $_name = [
         'marketInstanceId'  => 'MarketInstanceId',
+        'orderId'           => 'OrderId',
         'requestId'         => 'RequestId',
         'serviceInstanceId' => 'ServiceInstanceId',
         'status'            => 'Status',
@@ -51,6 +57,9 @@ class CreateServiceInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->marketInstanceId) {
             $res['MarketInstanceId'] = $this->marketInstanceId;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -75,6 +84,9 @@ class CreateServiceInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['MarketInstanceId'])) {
             $model->marketInstanceId = $map['MarketInstanceId'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

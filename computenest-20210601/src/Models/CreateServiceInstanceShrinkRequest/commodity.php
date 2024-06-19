@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @example 1
      *
      * @var int
@@ -22,6 +32,8 @@ class commodity extends Model
      */
     public $payPeriodUnit;
     protected $_name = [
+        'autoPay'       => 'AutoPay',
+        'autoRenew'     => 'AutoRenew',
         'payPeriod'     => 'PayPeriod',
         'payPeriodUnit' => 'PayPeriodUnit',
     ];
@@ -33,6 +45,12 @@ class commodity extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
         if (null !== $this->payPeriod) {
             $res['PayPeriod'] = $this->payPeriod;
         }
@@ -51,6 +69,12 @@ class commodity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
         if (isset($map['PayPeriod'])) {
             $model->payPeriod = $map['PayPeriod'];
         }

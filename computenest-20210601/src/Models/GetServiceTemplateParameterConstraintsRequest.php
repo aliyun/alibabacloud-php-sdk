@@ -17,6 +17,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +38,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +47,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-731f788406024axxxxxx
      *
      * @var string
@@ -69,6 +75,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $specificationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;

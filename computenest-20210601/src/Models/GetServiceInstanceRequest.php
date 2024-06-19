@@ -16,6 +16,8 @@ class GetServiceInstanceRequest extends Model
     public $marketInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

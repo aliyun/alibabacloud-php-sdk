@@ -6,33 +6,14 @@ namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ContinueDeployServiceInstanceRequest extends Model
+class StopServiceInstanceRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @example false
-     *
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @var string[]
-     */
-    public $option;
-
-    /**
-     * @example {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
-     *
-     * @var string
-     */
-    public $parameters;
 
     /**
      * @description This parameter is required.
@@ -46,16 +27,13 @@ class ContinueDeployServiceInstanceRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example si-0e6fca6a51a54420****
+     * @example si-b58c874912fc4294****
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
         'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
-        'option'            => 'Option',
-        'parameters'        => 'Parameters',
         'regionId'          => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
@@ -70,15 +48,6 @@ class ContinueDeployServiceInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->option) {
-            $res['Option'] = $this->option;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -92,24 +61,13 @@ class ContinueDeployServiceInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ContinueDeployServiceInstanceRequest
+     * @return StopServiceInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['Option'])) {
-            if (!empty($map['Option'])) {
-                $model->option = $map['Option'];
-            }
-        }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponseBody;
 
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponseBody\parameterConstraints\originalConstraints;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponseBody\parameterConstraints\queryErrors;
 use AlibabaCloud\Tea\Model;
 
 class parameterConstraints extends Model
@@ -46,6 +47,11 @@ class parameterConstraints extends Model
     public $parameterKey;
 
     /**
+     * @var queryErrors[]
+     */
+    public $queryErrors;
+
+    /**
      * @example String
      *
      * @var string
@@ -58,6 +64,7 @@ class parameterConstraints extends Model
         'behaviorReason'            => 'BehaviorReason',
         'originalConstraints'       => 'OriginalConstraints',
         'parameterKey'              => 'ParameterKey',
+        'queryErrors'               => 'QueryErrors',
         'type'                      => 'Type',
     ];
 
@@ -91,6 +98,15 @@ class parameterConstraints extends Model
         }
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
+        }
+        if (null !== $this->queryErrors) {
+            $res['QueryErrors'] = [];
+            if (null !== $this->queryErrors && \is_array($this->queryErrors)) {
+                $n = 0;
+                foreach ($this->queryErrors as $item) {
+                    $res['QueryErrors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -134,6 +150,15 @@ class parameterConstraints extends Model
         }
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];
+        }
+        if (isset($map['QueryErrors'])) {
+            if (!empty($map['QueryErrors'])) {
+                $model->queryErrors = [];
+                $n                  = 0;
+                foreach ($map['QueryErrors'] as $item) {
+                    $model->queryErrors[$n++] = null !== $item ? queryErrors::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

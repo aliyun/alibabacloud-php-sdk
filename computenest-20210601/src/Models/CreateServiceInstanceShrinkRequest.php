@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceInstanceShrinkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $businessInfoShrink;
-
-    /**
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -81,6 +76,8 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $parametersShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -95,6 +92,8 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -146,7 +145,6 @@ class CreateServiceInstanceShrinkRequest extends Model
      */
     public $trialType;
     protected $_name = [
-        'businessInfoShrink'   => 'BusinessInfo',
         'clientToken'          => 'ClientToken',
         'commodity'            => 'Commodity',
         'contactGroup'         => 'ContactGroup',
@@ -174,9 +172,6 @@ class CreateServiceInstanceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->businessInfoShrink) {
-            $res['BusinessInfo'] = $this->businessInfoShrink;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -249,9 +244,6 @@ class CreateServiceInstanceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfoShrink = $map['BusinessInfo'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

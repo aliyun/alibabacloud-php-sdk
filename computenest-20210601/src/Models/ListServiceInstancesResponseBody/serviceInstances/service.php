@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances;
 
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances\service\commodity;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances\service\serviceInfos;
 use AlibabaCloud\Tea\Model;
 
 class service extends Model
 {
+    /**
+     * @var commodity
+     */
+    public $commodity;
+
     /**
      * @example ros
      *
@@ -73,6 +79,7 @@ class service extends Model
      */
     public $versionName;
     protected $_name = [
+        'commodity'    => 'Commodity',
         'deployType'   => 'DeployType',
         'publishTime'  => 'PublishTime',
         'serviceId'    => 'ServiceId',
@@ -92,6 +99,9 @@ class service extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commodity) {
+            $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
+        }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
         }
@@ -140,6 +150,9 @@ class service extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Commodity'])) {
+            $model->commodity = commodity::fromMap($map['Commodity']);
+        }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
         }
