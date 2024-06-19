@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
@@ -735,6 +737,64 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->credentialVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 人脸凭证核验服务
+     *  *
+     * @param DeepfakeDetectRequest $request DeepfakeDetectRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeepfakeDetectResponse DeepfakeDetectResponse
+     */
+    public function deepfakeDetectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faceInputType)) {
+            $query['FaceInputType'] = $request->faceInputType;
+        }
+        if (!Utils::isUnset($request->faceUrl)) {
+            $query['FaceUrl'] = $request->faceUrl;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $query['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->faceBase64)) {
+            $body['FaceBase64'] = $request->faceBase64;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeepfakeDetect',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeepfakeDetectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 人脸凭证核验服务
+     *  *
+     * @param DeepfakeDetectRequest $request DeepfakeDetectRequest
+     *
+     * @return DeepfakeDetectResponse DeepfakeDetectResponse
+     */
+    public function deepfakeDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deepfakeDetectWithOptions($request, $runtime);
     }
 
     /**
