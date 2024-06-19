@@ -68,6 +68,8 @@ class UpdateBackupPolicyRequest extends Model
     public $crossRegionLogBackupRetention;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasdyuoo
      *
      * @var string
@@ -123,6 +125,8 @@ class UpdateBackupPolicyRequest extends Model
     public $logLocalRetentionSpace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

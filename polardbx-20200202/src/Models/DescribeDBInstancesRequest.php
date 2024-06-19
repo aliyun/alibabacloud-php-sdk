@@ -35,6 +35,8 @@ class DescribeDBInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -56,7 +58,7 @@ class DescribeDBInstancesRequest extends Model
     public $series;
 
     /**
-     * @example [{\"TagKey\":\"test\",\"TagValue\":\"test-value\"}]
+     * @example [{\\"TagKey\\":\\"test\\",\\"TagValue\\":\\"test-value\\"}]
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelActiveOperationTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 111
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelActiveOperationTasksRequest extends Model
     public $ids;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

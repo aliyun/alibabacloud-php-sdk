@@ -23,6 +23,8 @@ class DescribeAccountListRequest extends Model
     public $accountType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-********
      *
      * @var string
@@ -30,6 +32,8 @@ class DescribeAccountListRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

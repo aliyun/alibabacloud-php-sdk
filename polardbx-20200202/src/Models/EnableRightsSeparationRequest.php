@@ -16,6 +16,8 @@ class EnableRightsSeparationRequest extends Model
     public $auditAccountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example account_audit
      *
      * @var string
@@ -23,6 +25,8 @@ class EnableRightsSeparationRequest extends Model
     public $auditAccountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ******
      *
      * @var string
@@ -30,6 +34,8 @@ class EnableRightsSeparationRequest extends Model
     public $auditAccountPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-htri0ori2r4k9p
      *
      * @var string
@@ -37,6 +43,8 @@ class EnableRightsSeparationRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +59,8 @@ class EnableRightsSeparationRequest extends Model
     public $securityAccountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example account_sec
      *
      * @var string
@@ -58,6 +68,8 @@ class EnableRightsSeparationRequest extends Model
     public $securityAccountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example *****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupSetListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-xxxxxx
      *
      * @var string
@@ -42,6 +44,8 @@ class DescribeBackupSetListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

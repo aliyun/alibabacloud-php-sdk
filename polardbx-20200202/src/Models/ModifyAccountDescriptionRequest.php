@@ -14,6 +14,8 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example account
      *
      * @var string
@@ -21,6 +23,8 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -28,6 +32,8 @@ class ModifyAccountDescriptionRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

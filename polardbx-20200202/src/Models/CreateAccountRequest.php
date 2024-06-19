@@ -16,6 +16,8 @@ class CreateAccountRequest extends Model
     public $accountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testAccount
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Test@1111
      *
      * @var string
@@ -37,6 +41,8 @@ class CreateAccountRequest extends Model
     public $accountPrivilege;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-**************
      *
      * @var string
@@ -51,6 +57,8 @@ class CreateAccountRequest extends Model
     public $DBName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

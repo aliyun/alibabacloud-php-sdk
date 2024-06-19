@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseDescriptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -16,11 +18,15 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testDB
      *
      * @var string
@@ -28,6 +34,8 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

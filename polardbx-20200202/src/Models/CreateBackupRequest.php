@@ -16,6 +16,8 @@ class CreateBackupRequest extends Model
     public $backupType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-**************
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateBackupRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -166,6 +166,8 @@ class DBInstance extends Model
     public $kindCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $LTSVersions;
@@ -229,6 +231,7 @@ class DBInstance extends Model
     /**
      * @description 主可用区。
      *
+     * This parameter is required.
      * @var string
      */
     public $primaryZone;
@@ -281,6 +284,11 @@ class DBInstance extends Model
     public $series;
 
     /**
+     * @var string
+     */
+    public $specCategory;
+
+    /**
      * @example Running
      *
      * @var string
@@ -311,6 +319,8 @@ class DBInstance extends Model
      *
      * - **3azones**：三可用区；
      * - **1azone**：单可用区。
+     *
+     * This parameter is required.
      * @var string
      */
     public $topologyType;
@@ -384,6 +394,7 @@ class DBInstance extends Model
         'rightsSeparationStatus'  => 'RightsSeparationStatus',
         'secondaryZone'           => 'SecondaryZone',
         'series'                  => 'Series',
+        'specCategory'            => 'SpecCategory',
         'status'                  => 'Status',
         'storageUsed'             => 'StorageUsed',
         'tagSet'                  => 'TagSet',
@@ -536,6 +547,9 @@ class DBInstance extends Model
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
+        }
+        if (null !== $this->specCategory) {
+            $res['SpecCategory'] = $this->specCategory;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -722,6 +736,9 @@ class DBInstance extends Model
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
+        }
+        if (isset($map['SpecCategory'])) {
+            $model->specCategory = $map['SpecCategory'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

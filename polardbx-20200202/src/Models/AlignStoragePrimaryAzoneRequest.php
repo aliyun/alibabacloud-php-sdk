@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AlignStoragePrimaryAzoneRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

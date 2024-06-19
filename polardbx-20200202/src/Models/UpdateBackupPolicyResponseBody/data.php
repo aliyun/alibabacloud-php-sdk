@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 1001000
-     *
      * @var string
      */
     public $backupPeriod;
 
     /**
-     * @example 03:00Z
-     *
      * @var string
      */
     public $backupPlanBegin;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $backupSetRetention;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $backupType;
 
     /**
-     * @example P
-     *
      * @var string
      */
     public $backupWay;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $coldDataBackupInterval;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $coldDataBackupRetention;
@@ -68,8 +54,6 @@ class data extends Model
     public $crossRegionLogBackupRetention;
 
     /**
-     * @example pxc-hzjasdyuoo
-     *
      * @var string
      */
     public $DBInstanceName;
@@ -80,8 +64,6 @@ class data extends Model
     public $destCrossRegion;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $forceCleanOnHighSpaceUsage;
@@ -97,15 +79,11 @@ class data extends Model
     public $isCrossRegionLogBackupEnabled;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isEnabled;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $localLogRetention;
@@ -116,15 +94,11 @@ class data extends Model
     public $localLogRetentionNumber;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $logLocalRetentionSpace;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $removeLogRetention;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-********
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

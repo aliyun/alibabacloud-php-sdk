@@ -148,6 +148,8 @@ class DBInstance extends Model
     public $kindCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $LTSVersions;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationMaintainConfRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

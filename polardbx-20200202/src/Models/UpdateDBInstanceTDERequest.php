@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstanceTDERequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateDBInstanceTDERequest extends Model
     public $encryptionKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +41,8 @@ class UpdateDBInstanceTDERequest extends Model
     public $roleArn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

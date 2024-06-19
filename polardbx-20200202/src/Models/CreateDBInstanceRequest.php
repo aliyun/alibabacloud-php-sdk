@@ -57,11 +57,23 @@ class CreateDBInstanceRequest extends Model
     public $dnClass;
 
     /**
+     * @var string
+     */
+    public $dnStorageSpace;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example 2.0
      *
      * @var string
      */
     public $engineVersion;
+
+    /**
+     * @var bool
+     */
+    public $isColumnarReadDBInstance;
 
     /**
      * @example false
@@ -78,6 +90,8 @@ class CreateDBInstanceRequest extends Model
     public $networkType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PREPAY
      *
      * @var string
@@ -106,6 +120,8 @@ class CreateDBInstanceRequest extends Model
     public $primaryZone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -127,6 +143,11 @@ class CreateDBInstanceRequest extends Model
     public $secondaryZone;
 
     /**
+     * @var string
+     */
+    public $series;
+
+    /**
      * @example cn-shenzhen-e
      *
      * @var string
@@ -134,6 +155,8 @@ class CreateDBInstanceRequest extends Model
     public $tertiaryZone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3azones
      *
      * @var string
@@ -170,30 +193,33 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'             => 'AutoRenew',
-        'CNNodeCount'           => 'CNNodeCount',
-        'clientToken'           => 'ClientToken',
-        'cnClass'               => 'CnClass',
-        'DBNodeClass'           => 'DBNodeClass',
-        'DBNodeCount'           => 'DBNodeCount',
-        'DNNodeCount'           => 'DNNodeCount',
-        'dnClass'               => 'DnClass',
-        'engineVersion'         => 'EngineVersion',
-        'isReadDBInstance'      => 'IsReadDBInstance',
-        'networkType'           => 'NetworkType',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'primaryDBInstanceName' => 'PrimaryDBInstanceName',
-        'primaryZone'           => 'PrimaryZone',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'secondaryZone'         => 'SecondaryZone',
-        'tertiaryZone'          => 'TertiaryZone',
-        'topologyType'          => 'TopologyType',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
+        'autoRenew'                => 'AutoRenew',
+        'CNNodeCount'              => 'CNNodeCount',
+        'clientToken'              => 'ClientToken',
+        'cnClass'                  => 'CnClass',
+        'DBNodeClass'              => 'DBNodeClass',
+        'DBNodeCount'              => 'DBNodeCount',
+        'DNNodeCount'              => 'DNNodeCount',
+        'dnClass'                  => 'DnClass',
+        'dnStorageSpace'           => 'DnStorageSpace',
+        'engineVersion'            => 'EngineVersion',
+        'isColumnarReadDBInstance' => 'IsColumnarReadDBInstance',
+        'isReadDBInstance'         => 'IsReadDBInstance',
+        'networkType'              => 'NetworkType',
+        'payType'                  => 'PayType',
+        'period'                   => 'Period',
+        'primaryDBInstanceName'    => 'PrimaryDBInstanceName',
+        'primaryZone'              => 'PrimaryZone',
+        'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'secondaryZone'            => 'SecondaryZone',
+        'series'                   => 'Series',
+        'tertiaryZone'             => 'TertiaryZone',
+        'topologyType'             => 'TopologyType',
+        'usedTime'                 => 'UsedTime',
+        'VPCId'                    => 'VPCId',
+        'vSwitchId'                => 'VSwitchId',
+        'zoneId'                   => 'ZoneId',
     ];
 
     public function validate()
@@ -227,8 +253,14 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->dnClass) {
             $res['DnClass'] = $this->dnClass;
         }
+        if (null !== $this->dnStorageSpace) {
+            $res['DnStorageSpace'] = $this->dnStorageSpace;
+        }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->isColumnarReadDBInstance) {
+            $res['IsColumnarReadDBInstance'] = $this->isColumnarReadDBInstance;
         }
         if (null !== $this->isReadDBInstance) {
             $res['IsReadDBInstance'] = $this->isReadDBInstance;
@@ -256,6 +288,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->secondaryZone) {
             $res['SecondaryZone'] = $this->secondaryZone;
+        }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
         }
         if (null !== $this->tertiaryZone) {
             $res['TertiaryZone'] = $this->tertiaryZone;
@@ -311,8 +346,14 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['DnClass'])) {
             $model->dnClass = $map['DnClass'];
         }
+        if (isset($map['DnStorageSpace'])) {
+            $model->dnStorageSpace = $map['DnStorageSpace'];
+        }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['IsColumnarReadDBInstance'])) {
+            $model->isColumnarReadDBInstance = $map['IsColumnarReadDBInstance'];
         }
         if (isset($map['IsReadDBInstance'])) {
             $model->isReadDBInstance = $map['IsReadDBInstance'];
@@ -340,6 +381,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SecondaryZone'])) {
             $model->secondaryZone = $map['SecondaryZone'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
         }
         if (isset($map['TertiaryZone'])) {
             $model->tertiaryZone = $map['TertiaryZone'];

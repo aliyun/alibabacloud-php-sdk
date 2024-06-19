@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupResponseBody extends Model
 {
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -49,13 +49,7 @@ class CreateBackupResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -79,13 +73,7 @@ class CreateBackupResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

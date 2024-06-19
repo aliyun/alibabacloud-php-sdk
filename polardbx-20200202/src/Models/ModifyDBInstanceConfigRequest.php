@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ENABLE_CONSISTENT_REPLICA_READ
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBInstanceConfigRequest extends Model
     public $configName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDBInstanceConfigRequest extends Model
     public $configValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyDBInstanceConfigRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

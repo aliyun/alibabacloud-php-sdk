@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodePerformanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example polarx_cn
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $characterType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-*******
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-i-******,pxc-i-*******
      *
      * @var string
@@ -37,6 +43,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $DBNodeRole;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2012-06-18T15:00Z
      *
      * @var string
@@ -44,6 +52,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Cpu_Usage,Mem_Usage
      *
      * @var string
@@ -51,6 +61,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +70,8 @@ class DescribeDBNodePerformanceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2012-06-08T15:00Z
      *
      * @var string

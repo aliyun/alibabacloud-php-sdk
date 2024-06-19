@@ -18,7 +18,7 @@ class data extends Model
     /**
      * @example 111
      *
-     * @var int
+     * @var string
      */
     public $backupSetId;
 

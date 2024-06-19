@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScaleOutMigrateTaskListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-********
      *
      * @var string
@@ -26,6 +28,13 @@ class DescribeScaleOutMigrateTaskListRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -38,6 +47,7 @@ class DescribeScaleOutMigrateTaskListRequest extends Model
         'DBInstanceName'       => 'DBInstanceName',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -57,6 +67,9 @@ class DescribeScaleOutMigrateTaskListRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -84,6 +97,9 @@ class DescribeScaleOutMigrateTaskListRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

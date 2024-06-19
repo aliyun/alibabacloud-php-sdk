@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-**************
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $connectionStringPrefix;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-**************
      *
      * @var string
@@ -33,6 +37,8 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3306
      *
      * @var string

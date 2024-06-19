@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceKernelVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -23,6 +25,8 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
     public $minorVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

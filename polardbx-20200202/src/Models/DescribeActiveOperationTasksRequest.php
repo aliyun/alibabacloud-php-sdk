@@ -72,6 +72,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $region;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

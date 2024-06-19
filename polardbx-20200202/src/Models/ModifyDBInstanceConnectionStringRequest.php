@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-unrf5ssig0ecg8.polarx.huhehaote.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $connectionString;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-unrf5ssig0ecg8
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3300
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test2
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newPrefix;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

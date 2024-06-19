@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -30,6 +32,8 @@ class ModifySecurityIpsRequest extends Model
     public $modifyMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +41,8 @@ class ModifySecurityIpsRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 127.0.0.1,192.168.0.0
      *
      * @var string

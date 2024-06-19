@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDBRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateDBRequest extends Model
     public $accountPrivilege;
 
     /**
+     * @description This parameter is required.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateDBRequest extends Model
     public $charset;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-**************
      *
      * @var string
@@ -44,6 +50,8 @@ class CreateDBRequest extends Model
     public $dbDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdb
      *
      * @var string
@@ -58,6 +66,8 @@ class CreateDBRequest extends Model
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -77,6 +87,11 @@ class CreateDBRequest extends Model
      * @var string
      */
     public $securityAccountPassword;
+
+    /**
+     * @var string
+     */
+    public $storagePoolName;
     protected $_name = [
         'accountName'             => 'AccountName',
         'accountPrivilege'        => 'AccountPrivilege',
@@ -88,6 +103,7 @@ class CreateDBRequest extends Model
         'regionId'                => 'RegionId',
         'securityAccountName'     => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
+        'storagePoolName'         => 'StoragePoolName',
     ];
 
     public function validate()
@@ -126,6 +142,9 @@ class CreateDBRequest extends Model
         }
         if (null !== $this->securityAccountPassword) {
             $res['SecurityAccountPassword'] = $this->securityAccountPassword;
+        }
+        if (null !== $this->storagePoolName) {
+            $res['StoragePoolName'] = $this->storagePoolName;
         }
 
         return $res;
@@ -168,6 +187,9 @@ class CreateDBRequest extends Model
         }
         if (isset($map['SecurityAccountPassword'])) {
             $model->securityAccountPassword = $map['SecurityAccountPassword'];
+        }
+        if (isset($map['StoragePoolName'])) {
+            $model->storagePoolName = $map['StoragePoolName'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasdyuoo.polarx.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public $currentConnectionString;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string

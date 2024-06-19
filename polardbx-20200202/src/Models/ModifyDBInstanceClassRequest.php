@@ -21,6 +21,8 @@ class ModifyDBInstanceClassRequest extends Model
     public $cnClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -33,11 +35,33 @@ class ModifyDBInstanceClassRequest extends Model
     public $dnClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $specifiedDNScale;
+
+    /**
+     * @var string
+     */
+    public $specifiedDNSpecMapJson;
+
+    /**
+     * @var string
+     */
+    public $switchTime;
+
+    /**
+     * @var string
+     */
+    public $switchTimeMode;
 
     /**
      * @example polarx.x4.xlarge.2e
@@ -46,12 +70,16 @@ class ModifyDBInstanceClassRequest extends Model
      */
     public $targetDBInstanceClass;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'cnClass'               => 'CnClass',
-        'DBInstanceName'        => 'DBInstanceName',
-        'dnClass'               => 'DnClass',
-        'regionId'              => 'RegionId',
-        'targetDBInstanceClass' => 'TargetDBInstanceClass',
+        'clientToken'            => 'ClientToken',
+        'cnClass'                => 'CnClass',
+        'DBInstanceName'         => 'DBInstanceName',
+        'dnClass'                => 'DnClass',
+        'regionId'               => 'RegionId',
+        'specifiedDNScale'       => 'SpecifiedDNScale',
+        'specifiedDNSpecMapJson' => 'SpecifiedDNSpecMapJson',
+        'switchTime'             => 'SwitchTime',
+        'switchTimeMode'         => 'SwitchTimeMode',
+        'targetDBInstanceClass'  => 'TargetDBInstanceClass',
     ];
 
     public function validate()
@@ -75,6 +103,18 @@ class ModifyDBInstanceClassRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->specifiedDNScale) {
+            $res['SpecifiedDNScale'] = $this->specifiedDNScale;
+        }
+        if (null !== $this->specifiedDNSpecMapJson) {
+            $res['SpecifiedDNSpecMapJson'] = $this->specifiedDNSpecMapJson;
+        }
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->switchTimeMode) {
+            $res['SwitchTimeMode'] = $this->switchTimeMode;
         }
         if (null !== $this->targetDBInstanceClass) {
             $res['TargetDBInstanceClass'] = $this->targetDBInstanceClass;
@@ -105,6 +145,18 @@ class ModifyDBInstanceClassRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SpecifiedDNScale'])) {
+            $model->specifiedDNScale = $map['SpecifiedDNScale'];
+        }
+        if (isset($map['SpecifiedDNSpecMapJson'])) {
+            $model->specifiedDNSpecMapJson = $map['SpecifiedDNSpecMapJson'];
+        }
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['SwitchTimeMode'])) {
+            $model->switchTimeMode = $map['SwitchTimeMode'];
         }
         if (isset($map['TargetDBInstanceClass'])) {
             $model->targetDBInstanceClass = $map['TargetDBInstanceClass'];

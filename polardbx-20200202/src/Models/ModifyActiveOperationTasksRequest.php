@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyActiveOperationTasksRequest extends Model
     public $immediateStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

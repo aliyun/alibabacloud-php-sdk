@@ -16,6 +16,8 @@ class UpdateDBInstanceSSLRequest extends Model
     public $certCommonName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateDBInstanceSSLRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

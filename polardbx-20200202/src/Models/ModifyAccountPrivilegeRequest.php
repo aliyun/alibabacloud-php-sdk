@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPrivilegeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example account_sec
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyAccountPrivilegeRequest extends Model
     public $accountPrivilege;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-htri0ori2r4k9p
      *
      * @var string
@@ -37,6 +41,8 @@ class ModifyAccountPrivilegeRequest extends Model
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

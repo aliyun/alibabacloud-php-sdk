@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolarDBXInstanceNodeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addDNSpec;
+
+    /**
      * @example 2
      *
      * @var string
@@ -23,6 +28,8 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasdyuoo
      *
      * @var string
@@ -44,18 +51,33 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public $dbInstanceNodeCount;
 
     /**
+     * @var string
+     */
+    public $deleteDNIds;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $storagePoolName;
     protected $_name = [
+        'addDNSpec'           => 'AddDNSpec',
         'CNNodeCount'         => 'CNNodeCount',
         'clientToken'         => 'ClientToken',
         'DBInstanceName'      => 'DBInstanceName',
         'DNNodeCount'         => 'DNNodeCount',
         'dbInstanceNodeCount' => 'DbInstanceNodeCount',
+        'deleteDNIds'         => 'DeleteDNIds',
         'regionId'            => 'RegionId',
+        'storagePoolName'     => 'StoragePoolName',
     ];
 
     public function validate()
@@ -65,6 +87,9 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addDNSpec) {
+            $res['AddDNSpec'] = $this->addDNSpec;
+        }
         if (null !== $this->CNNodeCount) {
             $res['CNNodeCount'] = $this->CNNodeCount;
         }
@@ -80,8 +105,14 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
         if (null !== $this->dbInstanceNodeCount) {
             $res['DbInstanceNodeCount'] = $this->dbInstanceNodeCount;
         }
+        if (null !== $this->deleteDNIds) {
+            $res['DeleteDNIds'] = $this->deleteDNIds;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->storagePoolName) {
+            $res['StoragePoolName'] = $this->storagePoolName;
         }
 
         return $res;
@@ -95,6 +126,9 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddDNSpec'])) {
+            $model->addDNSpec = $map['AddDNSpec'];
+        }
         if (isset($map['CNNodeCount'])) {
             $model->CNNodeCount = $map['CNNodeCount'];
         }
@@ -110,8 +144,14 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
         if (isset($map['DbInstanceNodeCount'])) {
             $model->dbInstanceNodeCount = $map['DbInstanceNodeCount'];
         }
+        if (isset($map['DeleteDNIds'])) {
+            $model->deleteDNIds = $map['DeleteDNIds'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StoragePoolName'])) {
+            $model->storagePoolName = $map['StoragePoolName'];
         }
 
         return $model;

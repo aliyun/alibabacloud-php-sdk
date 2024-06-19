@@ -16,6 +16,8 @@ class CreateSuperAccountRequest extends Model
     public $accountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dba
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateSuperAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdbapassword
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateSuperAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-************
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateSuperAccountRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

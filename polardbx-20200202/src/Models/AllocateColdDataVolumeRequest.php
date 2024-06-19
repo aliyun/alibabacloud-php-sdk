@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateColdDataVolumeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzravgpt8q****
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateColdDataVolumeRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

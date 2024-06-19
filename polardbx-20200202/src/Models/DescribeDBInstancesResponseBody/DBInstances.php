@@ -56,6 +56,11 @@ class DBInstances extends Model
     public $containBinlogX;
 
     /**
+     * @var string
+     */
+    public $cpuType;
+
+    /**
      * @example 2021-11-01T03:49:50.000+0000
      *
      * @var string
@@ -185,6 +190,7 @@ class DBInstances extends Model
     /**
      * @description 主可用区。
      *
+     * This parameter is required.
      * @var string
      */
     public $primaryZone;
@@ -260,6 +266,8 @@ class DBInstances extends Model
      *
      * - **3azones**：三可用区；
      * - **1azone**：单可用区。
+     *
+     * This parameter is required.
      * @var string
      */
     public $topologyType;
@@ -286,6 +294,16 @@ class DBInstances extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $gdnRole;
+
+    /**
+     * @var bool
+     */
+    public $isInGdn;
     protected $_name = [
         'cdcInstanceName'         => 'CdcInstanceName',
         'cnNodeClassCode'         => 'CnNodeClassCode',
@@ -294,6 +312,7 @@ class DBInstances extends Model
         'columnarReadDBInstances' => 'ColumnarReadDBInstances',
         'commodityCode'           => 'CommodityCode',
         'containBinlogX'          => 'ContainBinlogX',
+        'cpuType'                 => 'CpuType',
         'createTime'              => 'CreateTime',
         'DBInstanceName'          => 'DBInstanceName',
         'DBType'                  => 'DBType',
@@ -328,6 +347,8 @@ class DBInstances extends Model
         'type'                    => 'Type',
         'VPCId'                   => 'VPCId',
         'zoneId'                  => 'ZoneId',
+        'gdnRole'                 => 'gdnRole',
+        'isInGdn'                 => 'isInGdn',
     ];
 
     public function validate()
@@ -357,6 +378,9 @@ class DBInstances extends Model
         }
         if (null !== $this->containBinlogX) {
             $res['ContainBinlogX'] = $this->containBinlogX;
+        }
+        if (null !== $this->cpuType) {
+            $res['CpuType'] = $this->cpuType;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -472,6 +496,12 @@ class DBInstances extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+        if (null !== $this->gdnRole) {
+            $res['gdnRole'] = $this->gdnRole;
+        }
+        if (null !== $this->isInGdn) {
+            $res['isInGdn'] = $this->isInGdn;
+        }
 
         return $res;
     }
@@ -506,6 +536,9 @@ class DBInstances extends Model
         }
         if (isset($map['ContainBinlogX'])) {
             $model->containBinlogX = $map['ContainBinlogX'];
+        }
+        if (isset($map['CpuType'])) {
+            $model->cpuType = $map['CpuType'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -622,6 +655,12 @@ class DBInstances extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['gdnRole'])) {
+            $model->gdnRole = $map['gdnRole'];
+        }
+        if (isset($map['isInGdn'])) {
+            $model->isInGdn = $map['isInGdn'];
         }
 
         return $model;

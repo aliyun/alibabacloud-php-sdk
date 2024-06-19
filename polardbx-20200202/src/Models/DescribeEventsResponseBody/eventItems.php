@@ -23,7 +23,7 @@ class eventItems extends Model
     public $eventName;
 
     /**
-     * @example {\"Domain\": \"rds-cn-hangzhou.aliyuncs.com\"}
+     * @example {\\"Domain\\": \\"rds-cn-hangzhou.aliyuncs.com\\"}
      *
      * @var string
      */

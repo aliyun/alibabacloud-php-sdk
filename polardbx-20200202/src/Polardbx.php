@@ -234,10 +234,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AlignStoragePrimaryAzoneRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param AlignStoragePrimaryAzoneRequest $request AlignStoragePrimaryAzoneRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AlignStoragePrimaryAzoneResponse
+     * @return AlignStoragePrimaryAzoneResponse AlignStoragePrimaryAzoneResponse
      */
     public function alignStoragePrimaryAzoneWithOptions($request, $runtime)
     {
@@ -277,9 +277,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AlignStoragePrimaryAzoneRequest $request
+     * @param AlignStoragePrimaryAzoneRequest $request AlignStoragePrimaryAzoneRequest
      *
-     * @return AlignStoragePrimaryAzoneResponse
+     * @return AlignStoragePrimaryAzoneResponse AlignStoragePrimaryAzoneResponse
      */
     public function alignStoragePrimaryAzone($request)
     {
@@ -289,10 +289,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AllocateColdDataVolumeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 开通冷存储
+     *  *
+     * @param AllocateColdDataVolumeRequest $request AllocateColdDataVolumeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateColdDataVolumeResponse
+     * @return AllocateColdDataVolumeResponse AllocateColdDataVolumeResponse
      */
     public function allocateColdDataVolumeWithOptions($request, $runtime)
     {
@@ -323,9 +325,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AllocateColdDataVolumeRequest $request
+     * @summary 开通冷存储
+     *  *
+     * @param AllocateColdDataVolumeRequest $request AllocateColdDataVolumeRequest
      *
-     * @return AllocateColdDataVolumeResponse
+     * @return AllocateColdDataVolumeResponse AllocateColdDataVolumeResponse
      */
     public function allocateColdDataVolume($request)
     {
@@ -335,10 +339,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -387,9 +391,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -399,10 +403,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 取消主动运维任务
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -427,9 +433,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request
+     * @summary 取消主动运维任务
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -439,10 +447,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改实例所在资源组.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -479,9 +489,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 修改实例所在资源组.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -491,10 +503,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
@@ -528,9 +540,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorized($request)
     {
@@ -540,10 +552,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -595,9 +607,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -607,10 +619,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
@@ -644,9 +656,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -656,10 +668,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param CreateDBRequest $request CreateDBRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBResponse
+     * @return CreateDBResponse CreateDBResponse
      */
     public function createDBWithOptions($request, $runtime)
     {
@@ -695,6 +707,9 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->securityAccountPassword)) {
             $query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+        if (!Utils::isUnset($request->storagePoolName)) {
+            $query['StoragePoolName'] = $request->storagePoolName;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -714,9 +729,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBRequest $request
+     * @param CreateDBRequest $request CreateDBRequest
      *
-     * @return CreateDBResponse
+     * @return CreateDBResponse CreateDBResponse
      */
     public function createDB($request)
     {
@@ -726,10 +741,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
@@ -759,8 +774,14 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->dnClass)) {
             $query['DnClass'] = $request->dnClass;
         }
+        if (!Utils::isUnset($request->dnStorageSpace)) {
+            $query['DnStorageSpace'] = $request->dnStorageSpace;
+        }
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->isColumnarReadDBInstance)) {
+            $query['IsColumnarReadDBInstance'] = $request->isColumnarReadDBInstance;
         }
         if (!Utils::isUnset($request->isReadDBInstance)) {
             $query['IsReadDBInstance'] = $request->isReadDBInstance;
@@ -788,6 +809,9 @@ class Polardbx extends OpenApiClient
         }
         if (!Utils::isUnset($request->secondaryZone)) {
             $query['SecondaryZone'] = $request->secondaryZone;
+        }
+        if (!Utils::isUnset($request->series)) {
+            $query['Series'] = $request->series;
         }
         if (!Utils::isUnset($request->tertiaryZone)) {
             $query['TertiaryZone'] = $request->tertiaryZone;
@@ -826,9 +850,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -838,10 +862,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateSuperAccountRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateSuperAccountRequest $request CreateSuperAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSuperAccountResponse
+     * @return CreateSuperAccountResponse CreateSuperAccountResponse
      */
     public function createSuperAccountWithOptions($request, $runtime)
     {
@@ -881,9 +905,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateSuperAccountRequest $request
+     * @param CreateSuperAccountRequest $request CreateSuperAccountRequest
      *
-     * @return CreateSuperAccountResponse
+     * @return CreateSuperAccountResponse CreateSuperAccountResponse
      */
     public function createSuperAccount($request)
     {
@@ -893,10 +917,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -936,9 +960,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -948,10 +972,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param DeleteDBRequest $request DeleteDBRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBResponse
+     * @return DeleteDBResponse DeleteDBResponse
      */
     public function deleteDBWithOptions($request, $runtime)
     {
@@ -985,9 +1009,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBRequest $request
+     * @param DeleteDBRequest $request DeleteDBRequest
      *
-     * @return DeleteDBResponse
+     * @return DeleteDBResponse DeleteDBResponse
      */
     public function deleteDB($request)
     {
@@ -997,10 +1021,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
@@ -1031,9 +1055,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -1043,10 +1067,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeAccountListRequest $request DescribeAccountListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountListResponse
+     * @return DescribeAccountListResponse DescribeAccountListResponse
      */
     public function describeAccountListWithOptions($request, $runtime)
     {
@@ -1083,9 +1107,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountListRequest $request
+     * @param DescribeAccountListRequest $request DescribeAccountListRequest
      *
-     * @return DescribeAccountListResponse
+     * @return DescribeAccountListResponse DescribeAccountListResponse
      */
     public function describeAccountList($request)
     {
@@ -1095,10 +1119,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationMaintainConfRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 展示全局运维窗口配置
+     *  *
+     * @param DescribeActiveOperationMaintainConfRequest $request DescribeActiveOperationMaintainConfRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationMaintainConfResponse
+     * @return DescribeActiveOperationMaintainConfResponse DescribeActiveOperationMaintainConfResponse
      */
     public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
     {
@@ -1126,9 +1152,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationMaintainConfRequest $request
+     * @summary 展示全局运维窗口配置
+     *  *
+     * @param DescribeActiveOperationMaintainConfRequest $request DescribeActiveOperationMaintainConfRequest
      *
-     * @return DescribeActiveOperationMaintainConfResponse
+     * @return DescribeActiveOperationMaintainConfResponse DescribeActiveOperationMaintainConfResponse
      */
     public function describeActiveOperationMaintainConf($request)
     {
@@ -1138,10 +1166,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskCountRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 获取主动运维任务数量
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCountWithOptions($request, $runtime)
     {
@@ -1166,9 +1196,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskCountRequest $request
+     * @summary 获取主动运维任务数量
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
      *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCount($request)
     {
@@ -1178,10 +1210,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取待执行自动运维任务列表
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -1206,9 +1240,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
+     * @summary 获取待执行自动运维任务列表
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -1218,10 +1254,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeArchiveTableListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 冷存储表列表
+     *  *
+     * @param DescribeArchiveTableListRequest $request DescribeArchiveTableListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeArchiveTableListResponse
+     * @return DescribeArchiveTableListResponse DescribeArchiveTableListResponse
      */
     public function describeArchiveTableListWithOptions($request, $runtime)
     {
@@ -1267,9 +1305,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeArchiveTableListRequest $request
+     * @summary 冷存储表列表
+     *  *
+     * @param DescribeArchiveTableListRequest $request DescribeArchiveTableListRequest
      *
-     * @return DescribeArchiveTableListResponse
+     * @return DescribeArchiveTableListResponse DescribeArchiveTableListResponse
      */
     public function describeArchiveTableList($request)
     {
@@ -1279,10 +1319,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -1313,9 +1353,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1325,10 +1365,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 备份集详情
+     *  *
+     * @param DescribeBackupSetRequest $request DescribeBackupSetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSetResponse
+     * @return DescribeBackupSetResponse DescribeBackupSetResponse
      */
     public function describeBackupSetWithOptions($request, $runtime)
     {
@@ -1365,9 +1407,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetRequest $request
+     * @summary 备份集详情
+     *  *
+     * @param DescribeBackupSetRequest $request DescribeBackupSetRequest
      *
-     * @return DescribeBackupSetResponse
+     * @return DescribeBackupSetResponse DescribeBackupSetResponse
      */
     public function describeBackupSet($request)
     {
@@ -1377,10 +1421,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeBackupSetListRequest $request DescribeBackupSetListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSetListResponse
+     * @return DescribeBackupSetListResponse DescribeBackupSetListResponse
      */
     public function describeBackupSetListWithOptions($request, $runtime)
     {
@@ -1405,9 +1449,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetListRequest $request
+     * @param DescribeBackupSetListRequest $request DescribeBackupSetListRequest
      *
-     * @return DescribeBackupSetListResponse
+     * @return DescribeBackupSetListResponse DescribeBackupSetListResponse
      */
     public function describeBackupSetList($request)
     {
@@ -1417,10 +1461,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBinaryLogListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeBinaryLogListRequest $request DescribeBinaryLogListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBinaryLogListResponse
+     * @return DescribeBinaryLogListResponse DescribeBinaryLogListResponse
      */
     public function describeBinaryLogListWithOptions($request, $runtime)
     {
@@ -1466,9 +1510,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBinaryLogListRequest $request
+     * @param DescribeBinaryLogListRequest $request DescribeBinaryLogListRequest
      *
-     * @return DescribeBinaryLogListResponse
+     * @return DescribeBinaryLogListResponse DescribeBinaryLogListResponse
      */
     public function describeBinaryLogList($request)
     {
@@ -1478,10 +1522,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharacterSetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeCharacterSetRequest $request DescribeCharacterSetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCharacterSetResponse
+     * @return DescribeCharacterSetResponse DescribeCharacterSetResponse
      */
     public function describeCharacterSetWithOptions($request, $runtime)
     {
@@ -1512,9 +1556,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharacterSetRequest $request
+     * @param DescribeCharacterSetRequest $request DescribeCharacterSetRequest
      *
-     * @return DescribeCharacterSetResponse
+     * @return DescribeCharacterSetResponse DescribeCharacterSetResponse
      */
     public function describeCharacterSet($request)
     {
@@ -1524,10 +1568,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdDataBasicInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 冷存储基础信息
+     *  *
+     * @param DescribeColdDataBasicInfoRequest $request DescribeColdDataBasicInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColdDataBasicInfoResponse
+     * @return DescribeColdDataBasicInfoResponse DescribeColdDataBasicInfoResponse
      */
     public function describeColdDataBasicInfoWithOptions($request, $runtime)
     {
@@ -1552,9 +1598,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdDataBasicInfoRequest $request
+     * @summary 冷存储基础信息
+     *  *
+     * @param DescribeColdDataBasicInfoRequest $request DescribeColdDataBasicInfoRequest
      *
-     * @return DescribeColdDataBasicInfoResponse
+     * @return DescribeColdDataBasicInfoResponse DescribeColdDataBasicInfoResponse
      */
     public function describeColdDataBasicInfo($request)
     {
@@ -1564,10 +1612,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
@@ -1601,9 +1649,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -1613,10 +1661,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeDBInstanceConfigRequest $request DescribeDBInstanceConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceConfigResponse
+     * @return DescribeDBInstanceConfigResponse DescribeDBInstanceConfigResponse
      */
     public function describeDBInstanceConfigWithOptions($request, $runtime)
     {
@@ -1650,9 +1698,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceConfigRequest $request
+     * @param DescribeDBInstanceConfigRequest $request DescribeDBInstanceConfigRequest
      *
-     * @return DescribeDBInstanceConfigResponse
+     * @return DescribeDBInstanceConfigResponse DescribeDBInstanceConfigResponse
      */
     public function describeDBInstanceConfig($request)
     {
@@ -1662,10 +1710,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceHARequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeDBInstanceHARequest $request DescribeDBInstanceHARequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceHAResponse
+     * @return DescribeDBInstanceHAResponse DescribeDBInstanceHAResponse
      */
     public function describeDBInstanceHAWithOptions($request, $runtime)
     {
@@ -1696,9 +1744,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceHARequest $request
+     * @param DescribeDBInstanceHARequest $request DescribeDBInstanceHARequest
      *
-     * @return DescribeDBInstanceHAResponse
+     * @return DescribeDBInstanceHAResponse DescribeDBInstanceHAResponse
      */
     public function describeDBInstanceHA($request)
     {
@@ -1708,10 +1756,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
@@ -1742,9 +1790,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSL($request)
     {
@@ -1754,10 +1802,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTDERequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceTDEResponse
+     * @return DescribeDBInstanceTDEResponse DescribeDBInstanceTDEResponse
      */
     public function describeDBInstanceTDEWithOptions($request, $runtime)
     {
@@ -1788,9 +1836,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTDERequest $request
+     * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
      *
-     * @return DescribeDBInstanceTDEResponse
+     * @return DescribeDBInstanceTDEResponse DescribeDBInstanceTDEResponse
      */
     public function describeDBInstanceTDE($request)
     {
@@ -1800,10 +1848,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTopologyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeDBInstanceTopologyRequest $request DescribeDBInstanceTopologyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceTopologyResponse
+     * @return DescribeDBInstanceTopologyResponse DescribeDBInstanceTopologyResponse
      */
     public function describeDBInstanceTopologyWithOptions($request, $runtime)
     {
@@ -1840,9 +1888,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTopologyRequest $request
+     * @param DescribeDBInstanceTopologyRequest $request DescribeDBInstanceTopologyRequest
      *
-     * @return DescribeDBInstanceTopologyResponse
+     * @return DescribeDBInstanceTopologyResponse DescribeDBInstanceTopologyResponse
      */
     public function describeDBInstanceTopology($request)
     {
@@ -1852,10 +1900,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceViaEndpointRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 通过Endpoint查询实例
+     *  *
+     * @param DescribeDBInstanceViaEndpointRequest $request DescribeDBInstanceViaEndpointRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceViaEndpointResponse
+     * @return DescribeDBInstanceViaEndpointResponse DescribeDBInstanceViaEndpointResponse
      */
     public function describeDBInstanceViaEndpointWithOptions($request, $runtime)
     {
@@ -1886,9 +1936,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceViaEndpointRequest $request
+     * @summary 通过Endpoint查询实例
+     *  *
+     * @param DescribeDBInstanceViaEndpointRequest $request DescribeDBInstanceViaEndpointRequest
      *
-     * @return DescribeDBInstanceViaEndpointResponse
+     * @return DescribeDBInstanceViaEndpointResponse DescribeDBInstanceViaEndpointResponse
      */
     public function describeDBInstanceViaEndpoint($request)
     {
@@ -1898,10 +1950,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($request, $runtime)
     {
@@ -1950,9 +2002,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -1962,10 +2014,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
@@ -2014,9 +2066,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
      *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformance($request)
     {
@@ -2026,10 +2078,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbListRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeDbListRequest $request DescribeDbListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDbListResponse
+     * @return DescribeDbListResponse DescribeDbListResponse
      */
     public function describeDbListWithOptions($request, $runtime)
     {
@@ -2063,9 +2115,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbListRequest $request
+     * @param DescribeDbListRequest $request DescribeDbListRequest
      *
-     * @return DescribeDbListResponse
+     * @return DescribeDbListResponse DescribeDbListResponse
      */
     public function describeDbList($request)
     {
@@ -2075,10 +2127,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributeTableListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDistributeTableListRequest $request DescribeDistributeTableListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDistributeTableListResponse
+     * @return DescribeDistributeTableListResponse DescribeDistributeTableListResponse
      */
     public function describeDistributeTableListWithOptions($request, $runtime)
     {
@@ -2112,9 +2164,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributeTableListRequest $request
+     * @param DescribeDistributeTableListRequest $request DescribeDistributeTableListRequest
      *
-     * @return DescribeDistributeTableListResponse
+     * @return DescribeDistributeTableListResponse DescribeDistributeTableListResponse
      */
     public function describeDistributeTableList($request)
     {
@@ -2124,10 +2176,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 历史事件
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $runtime)
     {
@@ -2152,9 +2206,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventsRequest $request
+     * @summary 历史事件
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
      *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -2164,10 +2220,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
@@ -2201,9 +2257,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -2213,10 +2269,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
@@ -2250,9 +2306,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -2262,9 +2318,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -2285,7 +2341,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2295,10 +2351,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeScaleOutMigrateTaskListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeScaleOutMigrateTaskListRequest $request DescribeScaleOutMigrateTaskListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScaleOutMigrateTaskListResponse
+     * @return DescribeScaleOutMigrateTaskListResponse DescribeScaleOutMigrateTaskListResponse
      */
     public function describeScaleOutMigrateTaskListWithOptions($request, $runtime)
     {
@@ -2312,6 +2368,9 @@ class Polardbx extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2338,9 +2397,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeScaleOutMigrateTaskListRequest $request
+     * @param DescribeScaleOutMigrateTaskListRequest $request DescribeScaleOutMigrateTaskListRequest
      *
-     * @return DescribeScaleOutMigrateTaskListResponse
+     * @return DescribeScaleOutMigrateTaskListResponse DescribeScaleOutMigrateTaskListResponse
      */
     public function describeScaleOutMigrateTaskList($request)
     {
@@ -2350,10 +2409,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
@@ -2384,9 +2443,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
      *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -2396,10 +2455,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 标签列表查询
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -2433,9 +2494,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * @summary 标签列表查询
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -2445,10 +2508,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
@@ -2503,9 +2566,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request
+     * @param DescribeTasksRequest $request DescribeTasksRequest
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -2515,10 +2578,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
@@ -2549,9 +2612,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -2561,10 +2624,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DisableRightsSeparationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DisableRightsSeparationRequest $request DisableRightsSeparationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableRightsSeparationResponse
+     * @return DisableRightsSeparationResponse DisableRightsSeparationResponse
      */
     public function disableRightsSeparationWithOptions($request, $runtime)
     {
@@ -2601,9 +2664,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DisableRightsSeparationRequest $request
+     * @param DisableRightsSeparationRequest $request DisableRightsSeparationRequest
      *
-     * @return DisableRightsSeparationResponse
+     * @return DisableRightsSeparationResponse DisableRightsSeparationResponse
      */
     public function disableRightsSeparation($request)
     {
@@ -2613,10 +2676,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param EnableRightsSeparationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 开启三权分立
+     *  *
+     * @param EnableRightsSeparationRequest $request EnableRightsSeparationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableRightsSeparationResponse
+     * @return EnableRightsSeparationResponse EnableRightsSeparationResponse
      */
     public function enableRightsSeparationWithOptions($request, $runtime)
     {
@@ -2665,9 +2730,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param EnableRightsSeparationRequest $request
+     * @summary 开启三权分立
+     *  *
+     * @param EnableRightsSeparationRequest $request EnableRightsSeparationRequest
      *
-     * @return EnableRightsSeparationResponse
+     * @return EnableRightsSeparationResponse EnableRightsSeparationResponse
      */
     public function enableRightsSeparation($request)
     {
@@ -2677,10 +2744,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查标签接口
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -2720,9 +2789,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary 查标签接口
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2732,10 +2803,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -2772,9 +2843,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -2784,10 +2855,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountPrivilegeResponse
+     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilegeWithOptions($request, $runtime)
     {
@@ -2833,9 +2904,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request
+     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
      *
-     * @return ModifyAccountPrivilegeResponse
+     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilege($request)
     {
@@ -2845,10 +2916,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationMaintainConfRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 修改全局运维窗口信息
+     *  *
+     * @param ModifyActiveOperationMaintainConfRequest $request ModifyActiveOperationMaintainConfRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationMaintainConfResponse
+     * @return ModifyActiveOperationMaintainConfResponse ModifyActiveOperationMaintainConfResponse
      */
     public function modifyActiveOperationMaintainConfWithOptions($request, $runtime)
     {
@@ -2873,9 +2946,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationMaintainConfRequest $request
+     * @summary 修改全局运维窗口信息
+     *  *
+     * @param ModifyActiveOperationMaintainConfRequest $request ModifyActiveOperationMaintainConfRequest
      *
-     * @return ModifyActiveOperationMaintainConfResponse
+     * @return ModifyActiveOperationMaintainConfResponse ModifyActiveOperationMaintainConfResponse
      */
     public function modifyActiveOperationMaintainConf($request)
     {
@@ -2885,10 +2960,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 修改主动运维任务
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -2925,9 +3002,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
+     * @summary 修改主动运维任务
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -2937,10 +3016,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceClassRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ModifyDBInstanceClassRequest $request ModifyDBInstanceClassRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceClassResponse
+     * @return ModifyDBInstanceClassResponse ModifyDBInstanceClassResponse
      */
     public function modifyDBInstanceClassWithOptions($request, $runtime)
     {
@@ -2960,6 +3039,18 @@ class Polardbx extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specifiedDNScale)) {
+            $query['SpecifiedDNScale'] = $request->specifiedDNScale;
+        }
+        if (!Utils::isUnset($request->specifiedDNSpecMapJson)) {
+            $query['SpecifiedDNSpecMapJson'] = $request->specifiedDNSpecMapJson;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
         }
         if (!Utils::isUnset($request->targetDBInstanceClass)) {
             $query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
@@ -2983,9 +3074,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceClassRequest $request
+     * @param ModifyDBInstanceClassRequest $request ModifyDBInstanceClassRequest
      *
-     * @return ModifyDBInstanceClassResponse
+     * @return ModifyDBInstanceClassResponse ModifyDBInstanceClassResponse
      */
     public function modifyDBInstanceClass($request)
     {
@@ -2995,10 +3086,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
@@ -3035,9 +3128,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConfigRequest $request
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfig($request)
     {
@@ -3047,10 +3142,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 修改实例链接串
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
@@ -3090,9 +3187,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
+     * @summary 修改实例链接串
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -3102,10 +3201,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -3139,9 +3238,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -3151,10 +3250,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseDescriptionResponse
+     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescriptionWithOptions($request, $runtime)
     {
@@ -3191,9 +3290,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request
+     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
      *
-     * @return ModifyDatabaseDescriptionResponse
+     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescription($request)
     {
@@ -3203,10 +3302,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyParameterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyParameterRequest $request ModifyParameterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyParameterResponse
+     * @return ModifyParameterResponse ModifyParameterResponse
      */
     public function modifyParameterWithOptions($request, $runtime)
     {
@@ -3246,9 +3345,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyParameterRequest $request
+     * @param ModifyParameterRequest $request ModifyParameterRequest
      *
-     * @return ModifyParameterResponse
+     * @return ModifyParameterResponse ModifyParameterResponse
      */
     public function modifyParameter($request)
     {
@@ -3258,10 +3357,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
@@ -3301,9 +3400,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -3313,10 +3412,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ReleaseColdDataVolumeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 关闭冷存储
+     *  *
+     * @param ReleaseColdDataVolumeRequest $request ReleaseColdDataVolumeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseColdDataVolumeResponse
+     * @return ReleaseColdDataVolumeResponse ReleaseColdDataVolumeResponse
      */
     public function releaseColdDataVolumeWithOptions($request, $runtime)
     {
@@ -3347,9 +3448,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ReleaseColdDataVolumeRequest $request
+     * @summary 关闭冷存储
+     *  *
+     * @param ReleaseColdDataVolumeRequest $request ReleaseColdDataVolumeRequest
      *
-     * @return ReleaseColdDataVolumeResponse
+     * @return ReleaseColdDataVolumeResponse ReleaseColdDataVolumeResponse
      */
     public function releaseColdDataVolume($request)
     {
@@ -3359,10 +3462,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -3408,9 +3511,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -3420,10 +3523,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -3466,9 +3569,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -3478,10 +3581,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param RestartDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
@@ -3512,9 +3615,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param RestartDBInstanceRequest $request
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstance($request)
     {
@@ -3524,10 +3627,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param SwitchDBInstanceHARequest $request
-     * @param RuntimeOptions            $runtime
+     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchDBInstanceHAResponse
+     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHAWithOptions($request, $runtime)
     {
@@ -3570,9 +3673,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param SwitchDBInstanceHARequest $request
+     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      *
-     * @return SwitchDBInstanceHAResponse
+     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHA($request)
     {
@@ -3582,10 +3685,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -3622,9 +3727,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary 打标签接口
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3634,10 +3741,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删标签接口
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -3677,9 +3786,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary 删标签接口
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -3689,10 +3800,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UpdateBackupPolicyRequest $request UpdateBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBackupPolicyResponse
+     * @return UpdateBackupPolicyResponse UpdateBackupPolicyResponse
      */
     public function updateBackupPolicyWithOptions($request, $runtime)
     {
@@ -3777,9 +3888,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateBackupPolicyRequest $request
+     * @param UpdateBackupPolicyRequest $request UpdateBackupPolicyRequest
      *
-     * @return UpdateBackupPolicyResponse
+     * @return UpdateBackupPolicyResponse UpdateBackupPolicyResponse
      */
     public function updateBackupPolicy($request)
     {
@@ -3789,10 +3900,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param UpdateDBInstanceSSLRequest $request UpdateDBInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDBInstanceSSLResponse
+     * @return UpdateDBInstanceSSLResponse UpdateDBInstanceSSLResponse
      */
     public function updateDBInstanceSSLWithOptions($request, $runtime)
     {
@@ -3829,9 +3940,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceSSLRequest $request
+     * @param UpdateDBInstanceSSLRequest $request UpdateDBInstanceSSLRequest
      *
-     * @return UpdateDBInstanceSSLResponse
+     * @return UpdateDBInstanceSSLResponse UpdateDBInstanceSSLResponse
      */
     public function updateDBInstanceSSL($request)
     {
@@ -3841,10 +3952,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceTDERequest $request
-     * @param RuntimeOptions             $runtime
+     * @param UpdateDBInstanceTDERequest $request UpdateDBInstanceTDERequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDBInstanceTDEResponse
+     * @return UpdateDBInstanceTDEResponse UpdateDBInstanceTDEResponse
      */
     public function updateDBInstanceTDEWithOptions($request, $runtime)
     {
@@ -3884,9 +3995,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceTDERequest $request
+     * @param UpdateDBInstanceTDERequest $request UpdateDBInstanceTDERequest
      *
-     * @return UpdateDBInstanceTDEResponse
+     * @return UpdateDBInstanceTDEResponse UpdateDBInstanceTDEResponse
      */
     public function updateDBInstanceTDE($request)
     {
@@ -3896,15 +4007,18 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolarDBXInstanceNodeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param UpdatePolarDBXInstanceNodeRequest $request UpdatePolarDBXInstanceNodeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePolarDBXInstanceNodeResponse
+     * @return UpdatePolarDBXInstanceNodeResponse UpdatePolarDBXInstanceNodeResponse
      */
     public function updatePolarDBXInstanceNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addDNSpec)) {
+            $query['AddDNSpec'] = $request->addDNSpec;
+        }
         if (!Utils::isUnset($request->CNNodeCount)) {
             $query['CNNodeCount'] = $request->CNNodeCount;
         }
@@ -3920,8 +4034,14 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->dbInstanceNodeCount)) {
             $query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
         }
+        if (!Utils::isUnset($request->deleteDNIds)) {
+            $query['DeleteDNIds'] = $request->deleteDNIds;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->storagePoolName)) {
+            $query['StoragePoolName'] = $request->storagePoolName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3942,9 +4062,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolarDBXInstanceNodeRequest $request
+     * @param UpdatePolarDBXInstanceNodeRequest $request UpdatePolarDBXInstanceNodeRequest
      *
-     * @return UpdatePolarDBXInstanceNodeResponse
+     * @return UpdatePolarDBXInstanceNodeResponse UpdatePolarDBXInstanceNodeResponse
      */
     public function updatePolarDBXInstanceNode($request)
     {
@@ -3954,10 +4074,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceKernelVersionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBInstanceKernelVersionResponse
+     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
@@ -3994,9 +4114,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceKernelVersionRequest $request
+     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      *
-     * @return UpgradeDBInstanceKernelVersionResponse
+     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersion($request)
     {

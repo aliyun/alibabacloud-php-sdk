@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDistributeTableListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-********
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDistributeTableListRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sbtest1
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDistributeTableListRequest extends Model
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

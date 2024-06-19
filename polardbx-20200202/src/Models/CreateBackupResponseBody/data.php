@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 627833
-     *
-     * @var int
+     * @var string
      */
     public $backupSetId;
     protected $_name = [

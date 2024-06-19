@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableRightsSeparationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-sprcym7g7w****
      *
      * @var string
@@ -16,6 +18,8 @@ class DisableRightsSeparationRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example account_1
      *
      * @var string
@@ -23,6 +27,8 @@ class DisableRightsSeparationRequest extends Model
     public $dbaAccountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example *****
      *
      * @var string
@@ -30,6 +36,8 @@ class DisableRightsSeparationRequest extends Model
     public $dbaAccountPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hanghzou
      *
      * @var string

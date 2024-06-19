@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeArchiveTableListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

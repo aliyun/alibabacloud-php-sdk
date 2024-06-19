@@ -173,6 +173,11 @@ class items extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageUsed;
+
+    /**
      * @example polarx-cdc-kernel-2.0.0-3985896
      *
      * @var string
@@ -205,6 +210,7 @@ class items extends Model
         'region'                      => 'Region',
         'role'                        => 'Role',
         'status'                      => 'Status',
+        'storageUsed'                 => 'StorageUsed',
         'version'                     => 'Version',
     ];
 
@@ -304,6 +310,9 @@ class items extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageUsed) {
+            $res['StorageUsed'] = $this->storageUsed;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -409,6 +418,9 @@ class items extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageUsed'])) {
+            $model->storageUsed = $map['StorageUsed'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

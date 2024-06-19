@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasd****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTasksRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-11-04
      *
      * @var string
@@ -45,6 +49,8 @@ class DescribeTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +68,8 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-11-01
      *
      * @var string

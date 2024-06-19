@@ -23,6 +23,8 @@ class DescribeActiveOperationTaskCountRequest extends Model
     public $product;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationMaintainConfRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1,2,3,4,5,6,7
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyActiveOperationMaintainConfRequest extends Model
     public $cycleTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Week
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyActiveOperationMaintainConfRequest extends Model
     public $cycleType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 02:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyActiveOperationMaintainConfRequest extends Model
     public $maintainEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 02:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyActiveOperationMaintainConfRequest extends Model
     public $maintainStartTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +54,8 @@ class ModifyActiveOperationMaintainConfRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

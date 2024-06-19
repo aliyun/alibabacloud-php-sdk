@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinaryLogListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hz1fds
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeBinaryLogListRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-11-09 10:27:46
      *
      * @var string
@@ -42,6 +46,8 @@ class DescribeBinaryLogListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +55,8 @@ class DescribeBinaryLogListRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-09-09 10:27:46
      *
      * @var string

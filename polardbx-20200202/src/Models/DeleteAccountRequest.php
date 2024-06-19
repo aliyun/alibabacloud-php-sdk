@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-*********
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteAccountRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

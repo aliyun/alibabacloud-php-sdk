@@ -16,6 +16,8 @@ class ModifyParameterRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pxc-hzjasdyuoo
      *
      * @var string
@@ -30,6 +32,8 @@ class ModifyParameterRequest extends Model
     public $paramLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"CONN_POOL_BLOCK_TIMEOUT":6000}
      *
      * @var string
@@ -37,6 +41,8 @@ class ModifyParameterRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
