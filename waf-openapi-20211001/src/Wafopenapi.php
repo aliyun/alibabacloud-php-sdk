@@ -49,8 +49,14 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendRequest
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsLogStoresRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsLogStoresResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsProjectsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsProjectsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
@@ -163,6 +169,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffRequest;
@@ -1569,6 +1579,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary 获取API安全日志订阅列表
+     *  *
+     * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecLogDeliveriesResponse DescribeApisecLogDeliveriesResponse
+     */
+    public function describeApisecLogDeliveriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecLogDeliveries',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取API安全日志订阅列表
+     *  *
+     * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
+     *
+     * @return DescribeApisecLogDeliveriesResponse DescribeApisecLogDeliveriesResponse
+     */
+    public function describeApisecLogDeliveries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecLogDeliveriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询API安全敏感数据类型统计
      *  *
      * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
@@ -1643,6 +1706,121 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApisecSensitiveDomainStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询日志服务SLS的LogStore列表
+     *  *
+     * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecSlsLogStoresResponse DescribeApisecSlsLogStoresResponse
+     */
+    public function describeApisecSlsLogStoresWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->logRegionId)) {
+            $query['LogRegionId'] = $request->logRegionId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecSlsLogStores',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询日志服务SLS的LogStore列表
+     *  *
+     * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
+     *
+     * @return DescribeApisecSlsLogStoresResponse DescribeApisecSlsLogStoresResponse
+     */
+    public function describeApisecSlsLogStores($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecSlsLogStoresWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询日志服务SLS的Project列表
+     *  *
+     * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecSlsProjectsResponse DescribeApisecSlsProjectsResponse
+     */
+    public function describeApisecSlsProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->logRegionId)) {
+            $query['LogRegionId'] = $request->logRegionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecSlsProjects',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询日志服务SLS的Project列表
+     *  *
+     * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
+     *
+     * @return DescribeApisecSlsProjectsResponse DescribeApisecSlsProjectsResponse
+     */
+    public function describeApisecSlsProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecSlsProjectsWithOptions($request, $runtime);
     }
 
     /**
@@ -5055,6 +5233,130 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改API安全日志订阅
+     *  *
+     * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecLogDeliveryResponse ModifyApisecLogDeliveryResponse
+     */
+    public function modifyApisecLogDeliveryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assertKey)) {
+            $query['AssertKey'] = $request->assertKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->logRegionId)) {
+            $query['LogRegionId'] = $request->logRegionId;
+        }
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecLogDelivery',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改API安全日志订阅
+     *  *
+     * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
+     *
+     * @return ModifyApisecLogDeliveryResponse ModifyApisecLogDeliveryResponse
+     */
+    public function modifyApisecLogDelivery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改API安全日志订阅状态
+     *  *
+     * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecLogDeliveryStatusResponse ModifyApisecLogDeliveryStatusResponse
+     */
+    public function modifyApisecLogDeliveryStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assertKey)) {
+            $query['AssertKey'] = $request->assertKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecLogDeliveryStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改API安全日志订阅状态
+     *  *
+     * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
+     *
+     * @return ModifyApisecLogDeliveryStatusResponse ModifyApisecLogDeliveryStatusResponse
+     */
+    public function modifyApisecLogDeliveryStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecLogDeliveryStatusWithOptions($request, $runtime);
     }
 
     /**

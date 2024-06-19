@@ -140,7 +140,7 @@ class listen extends Model
      *
      * @example 123-cn-hangzhou
      *
-     * @var bool
+     * @var string
      */
     public $SM2CertId;
 

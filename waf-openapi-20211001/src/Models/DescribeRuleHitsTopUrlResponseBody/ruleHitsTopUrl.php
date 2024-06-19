@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ruleHitsTopUrl extends Model
 {
     /**
-     * @description The number of requests from the URL that match protection rules.
+     * @description The number of requests that match protection rules.
      *
      * @example 21862
      *
@@ -20,7 +20,8 @@ class ruleHitsTopUrl extends Model
     /**
      * @description The request URL.
      *
-     * @example www.aliyundoc.com/path3
+     * >  The value is Base64-encoded.
+     * @example d3d3LmFsaXl1bmRvYy5jb20vcGF0aDM=
      *
      * @var string
      */
