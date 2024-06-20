@@ -104,8 +104,6 @@ class propertys extends Model
     /**
      * @description The path of the process.
      *
-     * @example /root/Oracle/Middleware/***\/8888
-     *
      * @var string
      */
     public $path;

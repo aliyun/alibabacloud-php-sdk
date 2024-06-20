@@ -75,8 +75,6 @@ class DescribeCheckWarningDetailResponseBody extends Model
     /**
      * @description The prompt for the risk item.
      *
-     * @example weak passwords (username@host/password):root@****\/12***
-     *
      * @var string
      */
     public $prompt;

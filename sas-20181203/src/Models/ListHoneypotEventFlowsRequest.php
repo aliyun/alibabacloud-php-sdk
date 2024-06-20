@@ -9,64 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotEventFlowsRequest extends Model
 {
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The status of the event. Valid values:
-     *
-     *   **y**: handled
-     *   **n**: unhandled
-     *   **a**: all statuses
-     *
-     * @example n
-     *
      * @var string
      */
     public $dealed;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-     *
-     * >  We recommend that you do not leave this parameter empty.
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example 20540822-520E-54F5-B7E6-236CF1EC987F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the alert event. The ID of the management account of the ListHoneypotEvents resource directory.
-     *
-     * >  You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to query the IDs of alert events.
-     * @example 7455818
-     *
      * @var int
      */
     public $securityEventId;

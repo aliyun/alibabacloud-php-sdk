@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class overallList extends Model
 {
     /**
+     * @var string[]
+     */
+    public $authVersionList;
+
+    /**
      * @description Indicates the status of the switch. Valid values:
      *
      *   **off**
@@ -109,9 +114,10 @@ class overallList extends Model
      */
     public $type;
     protected $_name = [
-        'config'     => 'Config',
-        'totalCount' => 'TotalCount',
-        'type'       => 'Type',
+        'authVersionList' => 'AuthVersionList',
+        'config'          => 'Config',
+        'totalCount'      => 'TotalCount',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -121,6 +127,9 @@ class overallList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authVersionList) {
+            $res['AuthVersionList'] = $this->authVersionList;
+        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
@@ -142,6 +151,11 @@ class overallList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthVersionList'])) {
+            if (!empty($map['AuthVersionList'])) {
+                $model->authVersionList = $map['AuthVersionList'];
+            }
+        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }

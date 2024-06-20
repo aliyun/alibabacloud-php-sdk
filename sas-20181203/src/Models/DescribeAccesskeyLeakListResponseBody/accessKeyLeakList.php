@@ -100,8 +100,6 @@ class accessKeyLeakList extends Model
     /**
      * @description The URL of the platform on which the AccessKey pair leak is detected.
      *
-     * @example https://github.com/hht312/test-ak/blob/0e466d2ecce55b4c924d773a058e5dc602d8****\/1001
-     *
      * @var string
      */
     public $url;

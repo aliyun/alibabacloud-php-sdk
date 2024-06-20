@@ -83,8 +83,6 @@ class propertys extends Model
     /**
      * @description The interval at which the scheduled task is performed.
      *
-     * @example *\/10 * * * *
-     *
      * @var string
      */
     public $period;

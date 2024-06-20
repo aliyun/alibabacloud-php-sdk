@@ -94,8 +94,6 @@ class instances extends Model
     /**
      * @description The detailed address of the cloud asset.
      *
-     * @example https://rdsnext.console.aliyun.com/detail/rm-uf6t6u05n6g48****\/basicInfo?region=cn-shanghai
-     *
      * @var string
      */
     public $detailLink;

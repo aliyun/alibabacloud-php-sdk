@@ -43,8 +43,6 @@ class DisableBruteForceRecordRequest extends Model
     /**
      * @description The port number.
      *
-     * @example *\/*
-     *
      * @var string
      */
     public $port;

@@ -28561,8 +28561,26 @@ class Sas extends OpenApiClient
     public function listHoneypotEventFlowsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->securityEventId)) {
+            $query['SecurityEventId'] = $request->securityEventId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -28570,7 +28588,7 @@ class Sas extends OpenApiClient
             'version'     => '2018-12-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
