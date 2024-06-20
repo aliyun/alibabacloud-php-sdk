@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFabricChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example code-sacc-1pr09q7jm****
      *
      * @var string

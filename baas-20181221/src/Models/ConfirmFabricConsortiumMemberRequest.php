@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ConfirmFabricConsortiumMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example consortium-aaaaaa-akpcsjjac2jd
      *
      * @var string
@@ -17,6 +19,8 @@ class ConfirmFabricConsortiumMemberRequest extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var organization[]
      */
     public $organization;

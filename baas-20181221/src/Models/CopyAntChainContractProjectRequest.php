@@ -16,6 +16,8 @@ class CopyAntChainContractProjectRequest extends Model
     public $projectDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2L9VK68g
      *
      * @var string
@@ -23,6 +25,8 @@ class CopyAntChainContractProjectRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example copyproject
      *
      * @var string
@@ -30,6 +34,8 @@ class CopyAntChainContractProjectRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1.0.1
      *
      * @var string

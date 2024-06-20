@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainDownloadPathsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1q8B5R9p
      *
      * @var string

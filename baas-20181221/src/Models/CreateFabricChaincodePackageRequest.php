@@ -16,6 +16,8 @@ class CreateFabricChaincodePackageRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateFabricChaincodePackageRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hi003/7efbe860-1a40-42c9-9e6b-0bc08d7ee3a4/cmcc.tar.gz
      *
      * @var string

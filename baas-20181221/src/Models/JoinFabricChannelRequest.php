@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JoinFabricChannelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example chan-channelx-1l1hmckuu****
      *
      * @var string
@@ -16,6 +18,8 @@ class JoinFabricChannelRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example accept
      *
      * @var string

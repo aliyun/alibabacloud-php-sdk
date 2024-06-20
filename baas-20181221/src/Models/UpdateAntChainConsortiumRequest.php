@@ -14,6 +14,8 @@ class UpdateAntChainConsortiumRequest extends Model
     public $consortiumDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example q0oWq92P
      *
      * @var string
@@ -21,6 +23,8 @@ class UpdateAntChainConsortiumRequest extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumName;

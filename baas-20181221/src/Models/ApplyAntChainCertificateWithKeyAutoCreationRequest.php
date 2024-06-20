@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1q8B5R9p
      *
      * @var string
@@ -16,6 +18,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example commonName
      *
      * @var string
@@ -23,6 +27,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $commonName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DV80nJXq
      *
      * @var string
@@ -30,6 +36,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example countryName
      *
      * @var string
@@ -37,6 +45,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $countryName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example localityName
      *
      * @var string
@@ -44,6 +54,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $localityName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example organizationName
      *
      * @var string
@@ -51,6 +63,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $organizationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example organizationUnitName
      *
      * @var string
@@ -58,6 +72,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $organizationUnitName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string
@@ -65,6 +81,8 @@ class ApplyAntChainCertificateWithKeyAutoCreationRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example stateOrProvinceName
      *
      * @var string

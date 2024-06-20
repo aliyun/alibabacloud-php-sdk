@@ -16,6 +16,8 @@ class CreateAntChainContractContentRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example newFile
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateAntChainContractContentRequest extends Model
     public $contentName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +41,8 @@ class CreateAntChainContractContentRequest extends Model
     public $parentContentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bDXK1b8Z
      *
      * @var string

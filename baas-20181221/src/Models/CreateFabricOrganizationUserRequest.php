@@ -16,6 +16,8 @@ class CreateFabricOrganizationUserRequest extends Model
     public $attrs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-yidio-1tuigx42b****
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateFabricOrganizationUserRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateFabricOrganizationUserRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

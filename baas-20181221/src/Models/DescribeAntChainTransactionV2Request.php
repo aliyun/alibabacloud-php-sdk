@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 8bd720bde18c4b37b0f4a1c7834db163
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeAntChainTransactionV2Request extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 227072dcd1a5d78098da99ccc8024304b9fb54fc6b65e37ef919d7f2da080061
      *
      * @var string

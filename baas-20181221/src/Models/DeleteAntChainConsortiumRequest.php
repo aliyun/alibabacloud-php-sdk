@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainConsortiumRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example q0oWq92P
      *
      * @var string

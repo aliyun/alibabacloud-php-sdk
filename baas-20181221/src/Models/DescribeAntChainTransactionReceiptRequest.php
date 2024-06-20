@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionReceiptRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pYogqb9v
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAntChainTransactionReceiptRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b3b0d2db83d3e670449d1e2a39d1d13b7e0e6080b0f9c6945f79eca68d1dd2ca
      *
      * @var string

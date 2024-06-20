@@ -23,6 +23,8 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example organization
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 8bd720bde18c4b37b0f4a1c7834db163
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MINI_APP_BROWSER_TRANSACTION
      *
      * @var string

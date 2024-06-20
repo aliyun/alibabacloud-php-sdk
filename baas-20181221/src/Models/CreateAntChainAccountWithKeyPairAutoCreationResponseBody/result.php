@@ -16,7 +16,7 @@ class result extends Model
     public $account;
 
     /**
-     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\nM***8=\n-----END ENCRYPTED PRIVATE KEY-----\n
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\\nM***8=\\n-----END ENCRYPTED PRIVATE KEY-----\\n
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class result extends Model
     public $accountPublicKey;
 
     /**
-     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\nM***Io=\n-----END ENCRYPTED PRIVATE KEY-----\n
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\\nM***Io=\\n-----END ENCRYPTED PRIVATE KEY-----\\n
      *
      * @var string
      */

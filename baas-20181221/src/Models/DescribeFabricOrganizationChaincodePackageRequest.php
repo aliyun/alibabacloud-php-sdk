@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrganizationChaincodePackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string

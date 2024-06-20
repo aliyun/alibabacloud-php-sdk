@@ -37,7 +37,7 @@ class DescribeAntChainContractProjectContentTreeV2ResponseBody extends Model
     public $requestId;
 
     /**
-     * @example "{"description":"","projectId":"","projectName":"","treeContractContent":[{"content":"","fileName":"","id":"","isDir":false,"parentId\":""}],"type":"","version":""}"
+     * @example "{"description":"","projectId":"","projectName":"","treeContractContent":[{"content":"","fileName":"","id":"","isDir":false,"parentId\\":""}],"type":"","version":""}"
      *
      * @var string
      */

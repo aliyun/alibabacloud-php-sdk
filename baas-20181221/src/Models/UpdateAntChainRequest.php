@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAntChainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pYogqb9v
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAntChainRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainName;

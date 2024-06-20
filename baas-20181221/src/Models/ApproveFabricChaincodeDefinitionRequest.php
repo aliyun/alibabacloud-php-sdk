@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApproveFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example code-sacc-jbkuldd3i7ad
      *
      * @var string
@@ -30,6 +32,8 @@ class ApproveFabricChaincodeDefinitionRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string

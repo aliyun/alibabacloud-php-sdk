@@ -16,6 +16,8 @@ class CreateFabricOrganizationRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example domain
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateFabricOrganizationRequest extends Model
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateFabricOrganizationRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateFabricOrganizationRequest extends Model
     public $organizationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -44,6 +52,8 @@ class CreateFabricOrganizationRequest extends Model
     public $paymentDuration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -58,6 +68,8 @@ class CreateFabricOrganizationRequest extends Model
     public $peersCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example basic
      *
      * @var string

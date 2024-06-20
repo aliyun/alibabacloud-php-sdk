@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallFabricChaincodePackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example chan-channelx-1l1hmckuuisxo
      *
      * @var string
@@ -23,6 +25,8 @@ class InstallFabricChaincodePackageRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string

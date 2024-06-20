@@ -16,6 +16,8 @@ class DescribeFabricPeerLogsRequest extends Model
     public $lines;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-test11-tzwny25vqicq
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeFabricPeerLogsRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peer1
      *
      * @var string

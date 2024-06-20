@@ -16,6 +16,8 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w****
      *
      * @var string
@@ -23,6 +25,8 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pwd
      *
      * @var string
@@ -30,6 +34,8 @@ class ResetFabricOrganizationUserPasswordRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

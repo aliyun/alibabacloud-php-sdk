@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example accountname
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     public $account;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1q8B5R9p
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateAntChainAccountWithKeyPairAutoCreationRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ************
      *
      * @var string

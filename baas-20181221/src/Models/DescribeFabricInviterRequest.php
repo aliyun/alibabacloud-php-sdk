@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricInviterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 200
      *
      * @var string

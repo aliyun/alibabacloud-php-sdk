@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricChannelMembersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example chan-channelx-1l1hmckuu****
      *
      * @var string

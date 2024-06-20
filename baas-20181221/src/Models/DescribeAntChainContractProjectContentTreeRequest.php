@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainContractProjectContentTreeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2L9VK68g
      *
      * @var string

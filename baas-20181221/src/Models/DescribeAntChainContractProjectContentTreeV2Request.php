@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainContractProjectContentTreeV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example M8GaMEyX
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAntChainContractProjectContentTreeV2Request extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2L9VK68g
      *
      * @var string

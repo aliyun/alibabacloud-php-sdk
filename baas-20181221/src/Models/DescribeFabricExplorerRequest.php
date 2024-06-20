@@ -16,6 +16,8 @@ class DescribeFabricExplorerRequest extends Model
     public $exBody;
 
     /**
+     * @description This parameter is required.
+     *
      * @example GET
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeFabricExplorerRequest extends Model
     public $exMethod;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /api/v1/channel
      *
      * @var string
@@ -30,6 +34,8 @@ class DescribeFabricExplorerRequest extends Model
     public $exUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-test11-tzwny25vqicq
      *
      * @var string

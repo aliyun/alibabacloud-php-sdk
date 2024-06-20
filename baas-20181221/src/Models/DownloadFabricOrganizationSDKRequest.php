@@ -16,6 +16,8 @@ class DownloadFabricOrganizationSDKRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w****
      *
      * @var string
@@ -23,6 +25,8 @@ class DownloadFabricOrganizationSDKRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

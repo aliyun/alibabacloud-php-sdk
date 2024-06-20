@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sacc_v1.0:698d4e73c5f1d0239fbf0313ac79ddfaf44d5a803ecb02a4d1983cca4a706860
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $chaincodePackageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1.0
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $chaincodeVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example chan-channelx-1l1hmckuuisxo
      *
      * @var string
@@ -37,6 +43,8 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $collectionConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OR ("perf9141MSP.member")
      *
      * @var string
@@ -58,6 +66,8 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sacc
      *
      * @var string
@@ -65,6 +75,8 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w9dt3
      *
      * @var string

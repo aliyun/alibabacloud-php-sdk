@@ -16,6 +16,8 @@ class UpdateAntChainContractContentRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example R6XMn59e
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntChainContractContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example GKX7KZX0
      *
      * @var string

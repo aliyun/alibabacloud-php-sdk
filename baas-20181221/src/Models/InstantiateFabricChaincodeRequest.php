@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstantiateFabricChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc-198jejf8f8****
      *
      * @var string
@@ -16,7 +18,7 @@ class InstantiateFabricChaincodeRequest extends Model
     public $chaincodeId;
 
     /**
-     * @example [{"requiredPeerCount":0,"name":"collectionName","maxPeerCount":3,"blockToLive":0,"policy":"OR(\"Org1MSP.peer\")"}]
+     * @example [{"requiredPeerCount":0,"name":"collectionName","maxPeerCount":3,"blockToLive":0,"policy":"OR(\\"Org1MSP.peer\\")"}]
      *
      * @var string
      */
@@ -37,6 +39,8 @@ class InstantiateFabricChaincodeRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w****
      *
      * @var string

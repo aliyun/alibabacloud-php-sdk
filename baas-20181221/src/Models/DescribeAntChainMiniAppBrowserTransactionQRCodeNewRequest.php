@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bDXK6boZ
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest extends Model
     public $contractId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4a1f1371012cf840a9e4c6bde430d5ba600e422e592d153bd2689783cd1f87d0
      *
      * @var string

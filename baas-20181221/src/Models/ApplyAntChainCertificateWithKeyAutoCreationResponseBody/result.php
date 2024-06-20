@@ -15,7 +15,7 @@ class result extends Model
     public $downloadPath;
 
     /**
-     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\nMII***A=\n-----END ENCRYPTED PRIVATE KEY-----\n
+     * @example -----BEGIN ENCRYPTED PRIVATE KEY-----\\nMII***A=\\n-----END ENCRYPTED PRIVATE KEY-----\\n
      *
      * @var string
      */

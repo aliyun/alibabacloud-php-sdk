@@ -58,7 +58,7 @@ class result extends Model
     public $deployTime;
 
     /**
-     * @example OR (\"aaaaaa1MSP.peer\")
+     * @example OR (\\"aaaaaa1MSP.peer\\")
      *
      * @var string
      */

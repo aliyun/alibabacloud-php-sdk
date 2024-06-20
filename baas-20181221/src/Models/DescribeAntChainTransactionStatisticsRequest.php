@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainTransactionStatisticsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pYogqb9v
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAntChainTransactionStatisticsRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1563897600000
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeAntChainTransactionStatisticsRequest extends Model
     public $end;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1563206400000
      *
      * @var int

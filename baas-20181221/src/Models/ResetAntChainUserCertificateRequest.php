@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetAntChainUserCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bDXK6boZ
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetAntChainUserCertificateRequest extends Model
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example uid-128712635330****
      *
      * @var string

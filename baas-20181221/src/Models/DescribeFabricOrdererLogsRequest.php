@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFabricOrdererLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example consortium-test-iyuso3g773ki
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeFabricOrdererLogsRequest extends Model
     public $lines;
 
     /**
+     * @description This parameter is required.
+     *
      * @example orderer1
      *
      * @var string

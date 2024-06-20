@@ -306,10 +306,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param AcceptFabricInvitationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param AcceptFabricInvitationRequest $request AcceptFabricInvitationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptFabricInvitationResponse
+     * @return AcceptFabricInvitationResponse AcceptFabricInvitationResponse
      */
     public function acceptFabricInvitationWithOptions($request, $runtime)
     {
@@ -340,9 +340,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param AcceptFabricInvitationRequest $request
+     * @param AcceptFabricInvitationRequest $request AcceptFabricInvitationRequest
      *
-     * @return AcceptFabricInvitationResponse
+     * @return AcceptFabricInvitationResponse AcceptFabricInvitationResponse
      */
     public function acceptFabricInvitation($request)
     {
@@ -352,10 +352,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApplyAntChainCertificateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ApplyAntChainCertificateRequest $request ApplyAntChainCertificateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAntChainCertificateResponse
+     * @return ApplyAntChainCertificateResponse ApplyAntChainCertificateResponse
      */
     public function applyAntChainCertificateWithOptions($request, $runtime)
     {
@@ -386,9 +386,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApplyAntChainCertificateRequest $request
+     * @param ApplyAntChainCertificateRequest $request ApplyAntChainCertificateRequest
      *
-     * @return ApplyAntChainCertificateResponse
+     * @return ApplyAntChainCertificateResponse ApplyAntChainCertificateResponse
      */
     public function applyAntChainCertificate($request)
     {
@@ -398,10 +398,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApplyAntChainCertificateWithKeyAutoCreationRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @param ApplyAntChainCertificateWithKeyAutoCreationRequest $request ApplyAntChainCertificateWithKeyAutoCreationRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAntChainCertificateWithKeyAutoCreationResponse
+     * @return ApplyAntChainCertificateWithKeyAutoCreationResponse ApplyAntChainCertificateWithKeyAutoCreationResponse
      */
     public function applyAntChainCertificateWithKeyAutoCreationWithOptions($request, $runtime)
     {
@@ -453,9 +453,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApplyAntChainCertificateWithKeyAutoCreationRequest $request
+     * @param ApplyAntChainCertificateWithKeyAutoCreationRequest $request ApplyAntChainCertificateWithKeyAutoCreationRequest
      *
-     * @return ApplyAntChainCertificateWithKeyAutoCreationResponse
+     * @return ApplyAntChainCertificateWithKeyAutoCreationResponse ApplyAntChainCertificateWithKeyAutoCreationResponse
      */
     public function applyAntChainCertificateWithKeyAutoCreation($request)
     {
@@ -465,10 +465,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApproveFabricChaincodeDefinitionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary ApproveFabricChaincodeDefinition
+     *  *
+     * @param ApproveFabricChaincodeDefinitionRequest $request ApproveFabricChaincodeDefinitionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveFabricChaincodeDefinitionResponse
+     * @return ApproveFabricChaincodeDefinitionResponse ApproveFabricChaincodeDefinitionResponse
      */
     public function approveFabricChaincodeDefinitionWithOptions($request, $runtime)
     {
@@ -505,9 +507,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ApproveFabricChaincodeDefinitionRequest $request
+     * @summary ApproveFabricChaincodeDefinition
+     *  *
+     * @param ApproveFabricChaincodeDefinitionRequest $request ApproveFabricChaincodeDefinitionRequest
      *
-     * @return ApproveFabricChaincodeDefinitionResponse
+     * @return ApproveFabricChaincodeDefinitionResponse ApproveFabricChaincodeDefinitionResponse
      */
     public function approveFabricChaincodeDefinition($request)
     {
@@ -517,10 +521,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest $tmpReq
-     * @param RuntimeOptions                                      $runtime
+     * @param BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest $tmpReq  BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
+     * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
      */
     public function batchAddAntChainMiniAppQRCodeAuthorizedUsersWithOptions($tmpReq, $runtime)
     {
@@ -556,9 +560,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest $request
+     * @param BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest $request BatchAddAntChainMiniAppQRCodeAuthorizedUsersRequest
      *
-     * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
+     * @return BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse BatchAddAntChainMiniAppQRCodeAuthorizedUsersResponse
      */
     public function batchAddAntChainMiniAppQRCodeAuthorizedUsers($request)
     {
@@ -568,10 +572,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CheckFabricConsortiumDomainRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param CheckFabricConsortiumDomainRequest $request CheckFabricConsortiumDomainRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckFabricConsortiumDomainResponse
+     * @return CheckFabricConsortiumDomainResponse CheckFabricConsortiumDomainResponse
      */
     public function checkFabricConsortiumDomainWithOptions($request, $runtime)
     {
@@ -599,9 +603,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CheckFabricConsortiumDomainRequest $request
+     * @param CheckFabricConsortiumDomainRequest $request CheckFabricConsortiumDomainRequest
      *
-     * @return CheckFabricConsortiumDomainResponse
+     * @return CheckFabricConsortiumDomainResponse CheckFabricConsortiumDomainResponse
      */
     public function checkFabricConsortiumDomain($request)
     {
@@ -611,10 +615,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CheckFabricOrganizationDomainRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param CheckFabricOrganizationDomainRequest $request CheckFabricOrganizationDomainRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckFabricOrganizationDomainResponse
+     * @return CheckFabricOrganizationDomainResponse CheckFabricOrganizationDomainResponse
      */
     public function checkFabricOrganizationDomainWithOptions($request, $runtime)
     {
@@ -645,9 +649,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CheckFabricOrganizationDomainRequest $request
+     * @param CheckFabricOrganizationDomainRequest $request CheckFabricOrganizationDomainRequest
      *
-     * @return CheckFabricOrganizationDomainResponse
+     * @return CheckFabricOrganizationDomainResponse CheckFabricOrganizationDomainResponse
      */
     public function checkFabricOrganizationDomain($request)
     {
@@ -657,10 +661,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ConfirmFabricConsortiumMemberRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param ConfirmFabricConsortiumMemberRequest $request ConfirmFabricConsortiumMemberRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmFabricConsortiumMemberResponse
+     * @return ConfirmFabricConsortiumMemberResponse ConfirmFabricConsortiumMemberResponse
      */
     public function confirmFabricConsortiumMemberWithOptions($request, $runtime)
     {
@@ -691,9 +695,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ConfirmFabricConsortiumMemberRequest $request
+     * @param ConfirmFabricConsortiumMemberRequest $request ConfirmFabricConsortiumMemberRequest
      *
-     * @return ConfirmFabricConsortiumMemberResponse
+     * @return ConfirmFabricConsortiumMemberResponse ConfirmFabricConsortiumMemberResponse
      */
     public function confirmFabricConsortiumMember($request)
     {
@@ -703,10 +707,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CopyAntChainContractProjectRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param CopyAntChainContractProjectRequest $request CopyAntChainContractProjectRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyAntChainContractProjectResponse
+     * @return CopyAntChainContractProjectResponse CopyAntChainContractProjectResponse
      */
     public function copyAntChainContractProjectWithOptions($request, $runtime)
     {
@@ -743,9 +747,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CopyAntChainContractProjectRequest $request
+     * @param CopyAntChainContractProjectRequest $request CopyAntChainContractProjectRequest
      *
-     * @return CopyAntChainContractProjectResponse
+     * @return CopyAntChainContractProjectResponse CopyAntChainContractProjectResponse
      */
     public function copyAntChainContractProject($request)
     {
@@ -755,10 +759,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateAntChainAccountRequest $request CreateAntChainAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainAccountResponse
+     * @return CreateAntChainAccountResponse CreateAntChainAccountResponse
      */
     public function createAntChainAccountWithOptions($request, $runtime)
     {
@@ -795,9 +799,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainAccountRequest $request
+     * @param CreateAntChainAccountRequest $request CreateAntChainAccountRequest
      *
-     * @return CreateAntChainAccountResponse
+     * @return CreateAntChainAccountResponse CreateAntChainAccountResponse
      */
     public function createAntChainAccount($request)
     {
@@ -807,10 +811,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainAccountWithKeyPairAutoCreationRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @param CreateAntChainAccountWithKeyPairAutoCreationRequest $request CreateAntChainAccountWithKeyPairAutoCreationRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainAccountWithKeyPairAutoCreationResponse
+     * @return CreateAntChainAccountWithKeyPairAutoCreationResponse CreateAntChainAccountWithKeyPairAutoCreationResponse
      */
     public function createAntChainAccountWithKeyPairAutoCreationWithOptions($request, $runtime)
     {
@@ -847,9 +851,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainAccountWithKeyPairAutoCreationRequest $request
+     * @param CreateAntChainAccountWithKeyPairAutoCreationRequest $request CreateAntChainAccountWithKeyPairAutoCreationRequest
      *
-     * @return CreateAntChainAccountWithKeyPairAutoCreationResponse
+     * @return CreateAntChainAccountWithKeyPairAutoCreationResponse CreateAntChainAccountWithKeyPairAutoCreationResponse
      */
     public function createAntChainAccountWithKeyPairAutoCreation($request)
     {
@@ -859,10 +863,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainConsortiumRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateAntChainConsortiumRequest $request CreateAntChainConsortiumRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainConsortiumResponse
+     * @return CreateAntChainConsortiumResponse CreateAntChainConsortiumResponse
      */
     public function createAntChainConsortiumWithOptions($request, $runtime)
     {
@@ -893,9 +897,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainConsortiumRequest $request
+     * @param CreateAntChainConsortiumRequest $request CreateAntChainConsortiumRequest
      *
-     * @return CreateAntChainConsortiumResponse
+     * @return CreateAntChainConsortiumResponse CreateAntChainConsortiumResponse
      */
     public function createAntChainConsortium($request)
     {
@@ -905,10 +909,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainContractContentRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param CreateAntChainContractContentRequest $request CreateAntChainContractContentRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainContractContentResponse
+     * @return CreateAntChainContractContentResponse CreateAntChainContractContentResponse
      */
     public function createAntChainContractContentWithOptions($request, $runtime)
     {
@@ -948,9 +952,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainContractContentRequest $request
+     * @param CreateAntChainContractContentRequest $request CreateAntChainContractContentRequest
      *
-     * @return CreateAntChainContractContentResponse
+     * @return CreateAntChainContractContentResponse CreateAntChainContractContentResponse
      */
     public function createAntChainContractContent($request)
     {
@@ -960,10 +964,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainContractProjectRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param CreateAntChainContractProjectRequest $request CreateAntChainContractProjectRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainContractProjectResponse
+     * @return CreateAntChainContractProjectResponse CreateAntChainContractProjectResponse
      */
     public function createAntChainContractProjectWithOptions($request, $runtime)
     {
@@ -1000,9 +1004,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainContractProjectRequest $request
+     * @param CreateAntChainContractProjectRequest $request CreateAntChainContractProjectRequest
      *
-     * @return CreateAntChainContractProjectResponse
+     * @return CreateAntChainContractProjectResponse CreateAntChainContractProjectResponse
      */
     public function createAntChainContractProject($request)
     {
@@ -1012,10 +1016,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainKmsAccountNewRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建MyChain托管账户
+     *  *
+     * @param CreateAntChainKmsAccountNewRequest $request CreateAntChainKmsAccountNewRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAntChainKmsAccountNewResponse
+     * @return CreateAntChainKmsAccountNewResponse CreateAntChainKmsAccountNewResponse
      */
     public function createAntChainKmsAccountNewWithOptions($request, $runtime)
     {
@@ -1046,9 +1052,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateAntChainKmsAccountNewRequest $request
+     * @summary 创建MyChain托管账户
+     *  *
+     * @param CreateAntChainKmsAccountNewRequest $request CreateAntChainKmsAccountNewRequest
      *
-     * @return CreateAntChainKmsAccountNewResponse
+     * @return CreateAntChainKmsAccountNewResponse CreateAntChainKmsAccountNewResponse
      */
     public function createAntChainKmsAccountNew($request)
     {
@@ -1058,10 +1066,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChaincodeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateFabricChaincodeRequest $request CreateFabricChaincodeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricChaincodeResponse
+     * @return CreateFabricChaincodeResponse CreateFabricChaincodeResponse
      */
     public function createFabricChaincodeWithOptions($request, $runtime)
     {
@@ -1107,9 +1115,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChaincodeRequest $request
+     * @param CreateFabricChaincodeRequest $request CreateFabricChaincodeRequest
      *
-     * @return CreateFabricChaincodeResponse
+     * @return CreateFabricChaincodeResponse CreateFabricChaincodeResponse
      */
     public function createFabricChaincode($request)
     {
@@ -1119,10 +1127,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChaincodePackageRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary CreateFabricChaincodePackage
+     *  *
+     * @param CreateFabricChaincodePackageRequest $request CreateFabricChaincodePackageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricChaincodePackageResponse
+     * @return CreateFabricChaincodePackageResponse CreateFabricChaincodePackageResponse
      */
     public function createFabricChaincodePackageWithOptions($request, $runtime)
     {
@@ -1156,9 +1166,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChaincodePackageRequest $request
+     * @summary CreateFabricChaincodePackage
+     *  *
+     * @param CreateFabricChaincodePackageRequest $request CreateFabricChaincodePackageRequest
      *
-     * @return CreateFabricChaincodePackageResponse
+     * @return CreateFabricChaincodePackageResponse CreateFabricChaincodePackageResponse
      */
     public function createFabricChaincodePackage($request)
     {
@@ -1168,10 +1180,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChannelRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateFabricChannelRequest $request CreateFabricChannelRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricChannelResponse
+     * @return CreateFabricChannelResponse CreateFabricChannelResponse
      */
     public function createFabricChannelWithOptions($request, $runtime)
     {
@@ -1216,9 +1228,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChannelRequest $request
+     * @param CreateFabricChannelRequest $request CreateFabricChannelRequest
      *
-     * @return CreateFabricChannelResponse
+     * @return CreateFabricChannelResponse CreateFabricChannelResponse
      */
     public function createFabricChannel($request)
     {
@@ -1228,10 +1240,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChannelMemberRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreateFabricChannelMemberRequest $request CreateFabricChannelMemberRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricChannelMemberResponse
+     * @return CreateFabricChannelMemberResponse CreateFabricChannelMemberResponse
      */
     public function createFabricChannelMemberWithOptions($request, $runtime)
     {
@@ -1262,9 +1274,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricChannelMemberRequest $request
+     * @param CreateFabricChannelMemberRequest $request CreateFabricChannelMemberRequest
      *
-     * @return CreateFabricChannelMemberResponse
+     * @return CreateFabricChannelMemberResponse CreateFabricChannelMemberResponse
      */
     public function createFabricChannelMember($request)
     {
@@ -1274,10 +1286,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricConsortiumRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateFabricConsortiumRequest $request CreateFabricConsortiumRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricConsortiumResponse
+     * @return CreateFabricConsortiumResponse CreateFabricConsortiumResponse
      */
     public function createFabricConsortiumWithOptions($request, $runtime)
     {
@@ -1341,9 +1353,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricConsortiumRequest $request
+     * @param CreateFabricConsortiumRequest $request CreateFabricConsortiumRequest
      *
-     * @return CreateFabricConsortiumResponse
+     * @return CreateFabricConsortiumResponse CreateFabricConsortiumResponse
      */
     public function createFabricConsortium($request)
     {
@@ -1353,10 +1365,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricConsortiumMemberRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param CreateFabricConsortiumMemberRequest $request CreateFabricConsortiumMemberRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricConsortiumMemberResponse
+     * @return CreateFabricConsortiumMemberResponse CreateFabricConsortiumMemberResponse
      */
     public function createFabricConsortiumMemberWithOptions($request, $runtime)
     {
@@ -1390,9 +1402,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricConsortiumMemberRequest $request
+     * @param CreateFabricConsortiumMemberRequest $request CreateFabricConsortiumMemberRequest
      *
-     * @return CreateFabricConsortiumMemberResponse
+     * @return CreateFabricConsortiumMemberResponse CreateFabricConsortiumMemberResponse
      */
     public function createFabricConsortiumMember($request)
     {
@@ -1402,10 +1414,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricOrganizationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateFabricOrganizationRequest $request CreateFabricOrganizationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricOrganizationResponse
+     * @return CreateFabricOrganizationResponse CreateFabricOrganizationResponse
      */
     public function createFabricOrganizationWithOptions($request, $runtime)
     {
@@ -1456,9 +1468,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricOrganizationRequest $request
+     * @param CreateFabricOrganizationRequest $request CreateFabricOrganizationRequest
      *
-     * @return CreateFabricOrganizationResponse
+     * @return CreateFabricOrganizationResponse CreateFabricOrganizationResponse
      */
     public function createFabricOrganization($request)
     {
@@ -1468,10 +1480,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricOrganizationUserRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param CreateFabricOrganizationUserRequest $request CreateFabricOrganizationUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFabricOrganizationUserResponse
+     * @return CreateFabricOrganizationUserResponse CreateFabricOrganizationUserResponse
      */
     public function createFabricOrganizationUserWithOptions($request, $runtime)
     {
@@ -1508,9 +1520,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param CreateFabricOrganizationUserRequest $request
+     * @param CreateFabricOrganizationUserRequest $request CreateFabricOrganizationUserRequest
      *
-     * @return CreateFabricOrganizationUserResponse
+     * @return CreateFabricOrganizationUserResponse CreateFabricOrganizationUserResponse
      */
     public function createFabricOrganizationUser($request)
     {
@@ -1520,10 +1532,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainConsortiumRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteAntChainConsortiumRequest $request DeleteAntChainConsortiumRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAntChainConsortiumResponse
+     * @return DeleteAntChainConsortiumResponse DeleteAntChainConsortiumResponse
      */
     public function deleteAntChainConsortiumWithOptions($request, $runtime)
     {
@@ -1551,9 +1563,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainConsortiumRequest $request
+     * @param DeleteAntChainConsortiumRequest $request DeleteAntChainConsortiumRequest
      *
-     * @return DeleteAntChainConsortiumResponse
+     * @return DeleteAntChainConsortiumResponse DeleteAntChainConsortiumResponse
      */
     public function deleteAntChainConsortium($request)
     {
@@ -1563,10 +1575,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainContractContentRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DeleteAntChainContractContentRequest $request DeleteAntChainContractContentRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAntChainContractContentResponse
+     * @return DeleteAntChainContractContentResponse DeleteAntChainContractContentResponse
      */
     public function deleteAntChainContractContentWithOptions($request, $runtime)
     {
@@ -1594,9 +1606,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainContractContentRequest $request
+     * @param DeleteAntChainContractContentRequest $request DeleteAntChainContractContentRequest
      *
-     * @return DeleteAntChainContractContentResponse
+     * @return DeleteAntChainContractContentResponse DeleteAntChainContractContentResponse
      */
     public function deleteAntChainContractContent($request)
     {
@@ -1606,10 +1618,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainContractProjectRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DeleteAntChainContractProjectRequest $request DeleteAntChainContractProjectRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAntChainContractProjectResponse
+     * @return DeleteAntChainContractProjectResponse DeleteAntChainContractProjectResponse
      */
     public function deleteAntChainContractProjectWithOptions($request, $runtime)
     {
@@ -1637,9 +1649,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainContractProjectRequest $request
+     * @param DeleteAntChainContractProjectRequest $request DeleteAntChainContractProjectRequest
      *
-     * @return DeleteAntChainContractProjectResponse
+     * @return DeleteAntChainContractProjectResponse DeleteAntChainContractProjectResponse
      */
     public function deleteAntChainContractProject($request)
     {
@@ -1649,10 +1661,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainMiniAppQRCodeAuthorizedUserRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @param DeleteAntChainMiniAppQRCodeAuthorizedUserRequest $request DeleteAntChainMiniAppQRCodeAuthorizedUserRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
+     * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
      */
     public function deleteAntChainMiniAppQRCodeAuthorizedUserWithOptions($request, $runtime)
     {
@@ -1683,9 +1695,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteAntChainMiniAppQRCodeAuthorizedUserRequest $request
+     * @param DeleteAntChainMiniAppQRCodeAuthorizedUserRequest $request DeleteAntChainMiniAppQRCodeAuthorizedUserRequest
      *
-     * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
+     * @return DeleteAntChainMiniAppQRCodeAuthorizedUserResponse DeleteAntChainMiniAppQRCodeAuthorizedUserResponse
      */
     public function deleteAntChainMiniAppQRCodeAuthorizedUser($request)
     {
@@ -1695,10 +1707,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteFabricChaincodeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DeleteFabricChaincodeRequest $request DeleteFabricChaincodeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFabricChaincodeResponse
+     * @return DeleteFabricChaincodeResponse DeleteFabricChaincodeResponse
      */
     public function deleteFabricChaincodeWithOptions($request, $runtime)
     {
@@ -1726,9 +1738,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DeleteFabricChaincodeRequest $request
+     * @param DeleteFabricChaincodeRequest $request DeleteFabricChaincodeRequest
      *
-     * @return DeleteFabricChaincodeResponse
+     * @return DeleteFabricChaincodeResponse DeleteFabricChaincodeResponse
      */
     public function deleteFabricChaincode($request)
     {
@@ -1738,10 +1750,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainAccountsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeAntChainAccountsRequest $request DescribeAntChainAccountsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainAccountsResponse
+     * @return DescribeAntChainAccountsResponse DescribeAntChainAccountsResponse
      */
     public function describeAntChainAccountsWithOptions($request, $runtime)
     {
@@ -1775,9 +1787,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainAccountsRequest $request
+     * @param DescribeAntChainAccountsRequest $request DescribeAntChainAccountsRequest
      *
-     * @return DescribeAntChainAccountsResponse
+     * @return DescribeAntChainAccountsResponse DescribeAntChainAccountsResponse
      */
     public function describeAntChainAccounts($request)
     {
@@ -1787,10 +1799,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainAccountsV2Request $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeAntChainAccountsV2Request $request DescribeAntChainAccountsV2Request
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainAccountsV2Response
+     * @return DescribeAntChainAccountsV2Response DescribeAntChainAccountsV2Response
      */
     public function describeAntChainAccountsV2WithOptions($request, $runtime)
     {
@@ -1827,9 +1839,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainAccountsV2Request $request
+     * @param DescribeAntChainAccountsV2Request $request DescribeAntChainAccountsV2Request
      *
-     * @return DescribeAntChainAccountsV2Response
+     * @return DescribeAntChainAccountsV2Response DescribeAntChainAccountsV2Response
      */
     public function describeAntChainAccountsV2($request)
     {
@@ -1839,10 +1851,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainBlockRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeAntChainBlockRequest $request DescribeAntChainBlockRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainBlockResponse
+     * @return DescribeAntChainBlockResponse DescribeAntChainBlockResponse
      */
     public function describeAntChainBlockWithOptions($request, $runtime)
     {
@@ -1873,9 +1885,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainBlockRequest $request
+     * @param DescribeAntChainBlockRequest $request DescribeAntChainBlockRequest
      *
-     * @return DescribeAntChainBlockResponse
+     * @return DescribeAntChainBlockResponse DescribeAntChainBlockResponse
      */
     public function describeAntChainBlock($request)
     {
@@ -1885,10 +1897,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainBlockV2Request $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeAntChainBlockV2Request $request DescribeAntChainBlockV2Request
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainBlockV2Response
+     * @return DescribeAntChainBlockV2Response DescribeAntChainBlockV2Response
      */
     public function describeAntChainBlockV2WithOptions($request, $runtime)
     {
@@ -1922,9 +1934,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainBlockV2Request $request
+     * @param DescribeAntChainBlockV2Request $request DescribeAntChainBlockV2Request
      *
-     * @return DescribeAntChainBlockV2Response
+     * @return DescribeAntChainBlockV2Response DescribeAntChainBlockV2Response
      */
     public function describeAntChainBlockV2($request)
     {
@@ -1934,10 +1946,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainCertificateApplicationsRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param DescribeAntChainCertificateApplicationsRequest $request DescribeAntChainCertificateApplicationsRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainCertificateApplicationsResponse
+     * @return DescribeAntChainCertificateApplicationsResponse DescribeAntChainCertificateApplicationsResponse
      */
     public function describeAntChainCertificateApplicationsWithOptions($request, $runtime)
     {
@@ -1974,9 +1986,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainCertificateApplicationsRequest $request
+     * @param DescribeAntChainCertificateApplicationsRequest $request DescribeAntChainCertificateApplicationsRequest
      *
-     * @return DescribeAntChainCertificateApplicationsResponse
+     * @return DescribeAntChainCertificateApplicationsResponse DescribeAntChainCertificateApplicationsResponse
      */
     public function describeAntChainCertificateApplications($request)
     {
@@ -1986,10 +1998,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainCertificateApplicationsV2Request $request
-     * @param RuntimeOptions                                   $runtime
+     * @param DescribeAntChainCertificateApplicationsV2Request $request DescribeAntChainCertificateApplicationsV2Request
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainCertificateApplicationsV2Response
+     * @return DescribeAntChainCertificateApplicationsV2Response DescribeAntChainCertificateApplicationsV2Response
      */
     public function describeAntChainCertificateApplicationsV2WithOptions($request, $runtime)
     {
@@ -2029,9 +2041,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainCertificateApplicationsV2Request $request
+     * @param DescribeAntChainCertificateApplicationsV2Request $request DescribeAntChainCertificateApplicationsV2Request
      *
-     * @return DescribeAntChainCertificateApplicationsV2Response
+     * @return DescribeAntChainCertificateApplicationsV2Response DescribeAntChainCertificateApplicationsV2Response
      */
     public function describeAntChainCertificateApplicationsV2($request)
     {
@@ -2041,10 +2053,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainConsortiumsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeAntChainConsortiumsRequest $request DescribeAntChainConsortiumsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainConsortiumsResponse
+     * @return DescribeAntChainConsortiumsResponse DescribeAntChainConsortiumsResponse
      */
     public function describeAntChainConsortiumsWithOptions($request, $runtime)
     {
@@ -2075,9 +2087,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainConsortiumsRequest $request
+     * @param DescribeAntChainConsortiumsRequest $request DescribeAntChainConsortiumsRequest
      *
-     * @return DescribeAntChainConsortiumsResponse
+     * @return DescribeAntChainConsortiumsResponse DescribeAntChainConsortiumsResponse
      */
     public function describeAntChainConsortiums($request)
     {
@@ -2087,10 +2099,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainConsortiumsV2Request $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeAntChainConsortiumsV2Request $request DescribeAntChainConsortiumsV2Request
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainConsortiumsV2Response
+     * @return DescribeAntChainConsortiumsV2Response DescribeAntChainConsortiumsV2Response
      */
     public function describeAntChainConsortiumsV2WithOptions($request, $runtime)
     {
@@ -2121,9 +2133,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainConsortiumsV2Request $request
+     * @param DescribeAntChainConsortiumsV2Request $request DescribeAntChainConsortiumsV2Request
      *
-     * @return DescribeAntChainConsortiumsV2Response
+     * @return DescribeAntChainConsortiumsV2Response DescribeAntChainConsortiumsV2Response
      */
     public function describeAntChainConsortiumsV2($request)
     {
@@ -2133,10 +2145,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectContentTreeRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @param DescribeAntChainContractProjectContentTreeRequest $request DescribeAntChainContractProjectContentTreeRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainContractProjectContentTreeResponse
+     * @return DescribeAntChainContractProjectContentTreeResponse DescribeAntChainContractProjectContentTreeResponse
      */
     public function describeAntChainContractProjectContentTreeWithOptions($request, $runtime)
     {
@@ -2164,9 +2176,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectContentTreeRequest $request
+     * @param DescribeAntChainContractProjectContentTreeRequest $request DescribeAntChainContractProjectContentTreeRequest
      *
-     * @return DescribeAntChainContractProjectContentTreeResponse
+     * @return DescribeAntChainContractProjectContentTreeResponse DescribeAntChainContractProjectContentTreeResponse
      */
     public function describeAntChainContractProjectContentTree($request)
     {
@@ -2176,10 +2188,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectContentTreeV2Request $request
-     * @param RuntimeOptions                                      $runtime
+     * @param DescribeAntChainContractProjectContentTreeV2Request $request DescribeAntChainContractProjectContentTreeV2Request
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainContractProjectContentTreeV2Response
+     * @return DescribeAntChainContractProjectContentTreeV2Response DescribeAntChainContractProjectContentTreeV2Response
      */
     public function describeAntChainContractProjectContentTreeV2WithOptions($request, $runtime)
     {
@@ -2210,9 +2222,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectContentTreeV2Request $request
+     * @param DescribeAntChainContractProjectContentTreeV2Request $request DescribeAntChainContractProjectContentTreeV2Request
      *
-     * @return DescribeAntChainContractProjectContentTreeV2Response
+     * @return DescribeAntChainContractProjectContentTreeV2Response DescribeAntChainContractProjectContentTreeV2Response
      */
     public function describeAntChainContractProjectContentTreeV2($request)
     {
@@ -2222,10 +2234,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectsRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param DescribeAntChainContractProjectsRequest $request DescribeAntChainContractProjectsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainContractProjectsResponse
+     * @return DescribeAntChainContractProjectsResponse DescribeAntChainContractProjectsResponse
      */
     public function describeAntChainContractProjectsWithOptions($request, $runtime)
     {
@@ -2259,9 +2271,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectsRequest $request
+     * @param DescribeAntChainContractProjectsRequest $request DescribeAntChainContractProjectsRequest
      *
-     * @return DescribeAntChainContractProjectsResponse
+     * @return DescribeAntChainContractProjectsResponse DescribeAntChainContractProjectsResponse
      */
     public function describeAntChainContractProjects($request)
     {
@@ -2271,10 +2283,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectsV2Request $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeAntChainContractProjectsV2Request $request DescribeAntChainContractProjectsV2Request
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainContractProjectsV2Response
+     * @return DescribeAntChainContractProjectsV2Response DescribeAntChainContractProjectsV2Response
      */
     public function describeAntChainContractProjectsV2WithOptions($request, $runtime)
     {
@@ -2308,9 +2320,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainContractProjectsV2Request $request
+     * @param DescribeAntChainContractProjectsV2Request $request DescribeAntChainContractProjectsV2Request
      *
-     * @return DescribeAntChainContractProjectsV2Response
+     * @return DescribeAntChainContractProjectsV2Response DescribeAntChainContractProjectsV2Response
      */
     public function describeAntChainContractProjectsV2($request)
     {
@@ -2320,10 +2332,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainDownloadPathsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeAntChainDownloadPathsRequest $request DescribeAntChainDownloadPathsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainDownloadPathsResponse
+     * @return DescribeAntChainDownloadPathsResponse DescribeAntChainDownloadPathsResponse
      */
     public function describeAntChainDownloadPathsWithOptions($request, $runtime)
     {
@@ -2351,9 +2363,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainDownloadPathsRequest $request
+     * @param DescribeAntChainDownloadPathsRequest $request DescribeAntChainDownloadPathsRequest
      *
-     * @return DescribeAntChainDownloadPathsResponse
+     * @return DescribeAntChainDownloadPathsResponse DescribeAntChainDownloadPathsResponse
      */
     public function describeAntChainDownloadPaths($request)
     {
@@ -2363,10 +2375,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainDownloadPathsV2Request $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeAntChainDownloadPathsV2Request $request DescribeAntChainDownloadPathsV2Request
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainDownloadPathsV2Response
+     * @return DescribeAntChainDownloadPathsV2Response DescribeAntChainDownloadPathsV2Response
      */
     public function describeAntChainDownloadPathsV2WithOptions($request, $runtime)
     {
@@ -2397,9 +2409,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainDownloadPathsV2Request $request
+     * @param DescribeAntChainDownloadPathsV2Request $request DescribeAntChainDownloadPathsV2Request
      *
-     * @return DescribeAntChainDownloadPathsV2Response
+     * @return DescribeAntChainDownloadPathsV2Response DescribeAntChainDownloadPathsV2Response
      */
     public function describeAntChainDownloadPathsV2($request)
     {
@@ -2409,10 +2421,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainInformationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeAntChainInformationRequest $request DescribeAntChainInformationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainInformationResponse
+     * @return DescribeAntChainInformationResponse DescribeAntChainInformationResponse
      */
     public function describeAntChainInformationWithOptions($request, $runtime)
     {
@@ -2440,9 +2452,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainInformationRequest $request
+     * @param DescribeAntChainInformationRequest $request DescribeAntChainInformationRequest
      *
-     * @return DescribeAntChainInformationResponse
+     * @return DescribeAntChainInformationResponse DescribeAntChainInformationResponse
      */
     public function describeAntChainInformation($request)
     {
@@ -2452,10 +2464,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainInformationV2Request $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeAntChainInformationV2Request $request DescribeAntChainInformationV2Request
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainInformationV2Response
+     * @return DescribeAntChainInformationV2Response DescribeAntChainInformationV2Response
      */
     public function describeAntChainInformationV2WithOptions($request, $runtime)
     {
@@ -2486,9 +2498,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainInformationV2Request $request
+     * @param DescribeAntChainInformationV2Request $request DescribeAntChainInformationV2Request
      *
-     * @return DescribeAntChainInformationV2Response
+     * @return DescribeAntChainInformationV2Response DescribeAntChainInformationV2Response
      */
     public function describeAntChainInformationV2($request)
     {
@@ -2498,10 +2510,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestBlocksRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeAntChainLatestBlocksRequest $request DescribeAntChainLatestBlocksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainLatestBlocksResponse
+     * @return DescribeAntChainLatestBlocksResponse DescribeAntChainLatestBlocksResponse
      */
     public function describeAntChainLatestBlocksWithOptions($request, $runtime)
     {
@@ -2529,9 +2541,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestBlocksRequest $request
+     * @param DescribeAntChainLatestBlocksRequest $request DescribeAntChainLatestBlocksRequest
      *
-     * @return DescribeAntChainLatestBlocksResponse
+     * @return DescribeAntChainLatestBlocksResponse DescribeAntChainLatestBlocksResponse
      */
     public function describeAntChainLatestBlocks($request)
     {
@@ -2541,10 +2553,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestBlocksV2Request $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeAntChainLatestBlocksV2Request $request DescribeAntChainLatestBlocksV2Request
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainLatestBlocksV2Response
+     * @return DescribeAntChainLatestBlocksV2Response DescribeAntChainLatestBlocksV2Response
      */
     public function describeAntChainLatestBlocksV2WithOptions($request, $runtime)
     {
@@ -2575,9 +2587,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestBlocksV2Request $request
+     * @param DescribeAntChainLatestBlocksV2Request $request DescribeAntChainLatestBlocksV2Request
      *
-     * @return DescribeAntChainLatestBlocksV2Response
+     * @return DescribeAntChainLatestBlocksV2Response DescribeAntChainLatestBlocksV2Response
      */
     public function describeAntChainLatestBlocksV2($request)
     {
@@ -2587,10 +2599,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestTransactionDigestsRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @param DescribeAntChainLatestTransactionDigestsRequest $request DescribeAntChainLatestTransactionDigestsRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainLatestTransactionDigestsResponse
+     * @return DescribeAntChainLatestTransactionDigestsResponse DescribeAntChainLatestTransactionDigestsResponse
      */
     public function describeAntChainLatestTransactionDigestsWithOptions($request, $runtime)
     {
@@ -2618,9 +2630,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestTransactionDigestsRequest $request
+     * @param DescribeAntChainLatestTransactionDigestsRequest $request DescribeAntChainLatestTransactionDigestsRequest
      *
-     * @return DescribeAntChainLatestTransactionDigestsResponse
+     * @return DescribeAntChainLatestTransactionDigestsResponse DescribeAntChainLatestTransactionDigestsResponse
      */
     public function describeAntChainLatestTransactionDigests($request)
     {
@@ -2630,10 +2642,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestTransactionDigestsV2Request $request
-     * @param RuntimeOptions                                    $runtime
+     * @param DescribeAntChainLatestTransactionDigestsV2Request $request DescribeAntChainLatestTransactionDigestsV2Request
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainLatestTransactionDigestsV2Response
+     * @return DescribeAntChainLatestTransactionDigestsV2Response DescribeAntChainLatestTransactionDigestsV2Response
      */
     public function describeAntChainLatestTransactionDigestsV2WithOptions($request, $runtime)
     {
@@ -2664,9 +2676,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainLatestTransactionDigestsV2Request $request
+     * @param DescribeAntChainLatestTransactionDigestsV2Request $request DescribeAntChainLatestTransactionDigestsV2Request
      *
-     * @return DescribeAntChainLatestTransactionDigestsV2Response
+     * @return DescribeAntChainLatestTransactionDigestsV2Response DescribeAntChainLatestTransactionDigestsV2Response
      */
     public function describeAntChainLatestTransactionDigestsV2($request)
     {
@@ -2676,10 +2688,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMembersRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeAntChainMembersRequest $request DescribeAntChainMembersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMembersResponse
+     * @return DescribeAntChainMembersResponse DescribeAntChainMembersResponse
      */
     public function describeAntChainMembersWithOptions($request, $runtime)
     {
@@ -2713,9 +2725,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMembersRequest $request
+     * @param DescribeAntChainMembersRequest $request DescribeAntChainMembersRequest
      *
-     * @return DescribeAntChainMembersResponse
+     * @return DescribeAntChainMembersResponse DescribeAntChainMembersResponse
      */
     public function describeAntChainMembers($request)
     {
@@ -2725,10 +2737,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMembersV2Request $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeAntChainMembersV2Request $request DescribeAntChainMembersV2Request
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMembersV2Response
+     * @return DescribeAntChainMembersV2Response DescribeAntChainMembersV2Response
      */
     public function describeAntChainMembersV2WithOptions($request, $runtime)
     {
@@ -2762,9 +2774,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMembersV2Request $request
+     * @param DescribeAntChainMembersV2Request $request DescribeAntChainMembersV2Request
      *
-     * @return DescribeAntChainMembersV2Response
+     * @return DescribeAntChainMembersV2Response DescribeAntChainMembersV2Response
      */
     public function describeAntChainMembersV2($request)
     {
@@ -2774,10 +2786,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest $request
-     * @param RuntimeOptions                                       $runtime
+     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest $request DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
+     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
      */
     public function describeAntChainMiniAppBrowserQRCodeAccessLogWithOptions($request, $runtime)
     {
@@ -2808,9 +2820,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest $request
+     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest $request DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
+     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse DescribeAntChainMiniAppBrowserQRCodeAccessLogResponse
      */
     public function describeAntChainMiniAppBrowserQRCodeAccessLog($request)
     {
@@ -2820,10 +2832,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request $request
-     * @param RuntimeOptions                                         $runtime
+     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request $request DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request
+     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
+     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
      */
     public function describeAntChainMiniAppBrowserQRCodeAccessLogV2WithOptions($request, $runtime)
     {
@@ -2854,9 +2866,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request $request
+     * @param DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request $request DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Request
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
+     * @return DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response DescribeAntChainMiniAppBrowserQRCodeAccessLogV2Response
      */
     public function describeAntChainMiniAppBrowserQRCodeAccessLogV2($request)
     {
@@ -2866,10 +2878,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest $request
-     * @param RuntimeOptions                                             $runtime
+     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest $request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest
+     * @param RuntimeOptions                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
+     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
      */
     public function describeAntChainMiniAppBrowserQRCodeAuthorizedUsersWithOptions($request, $runtime)
     {
@@ -2906,9 +2918,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest $request
+     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest $request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersRequest
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
+     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersResponse
      */
     public function describeAntChainMiniAppBrowserQRCodeAuthorizedUsers($request)
     {
@@ -2918,10 +2930,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request $request
-     * @param RuntimeOptions                                               $runtime
+     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request $request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request
+     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
+     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
      */
     public function describeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2WithOptions($request, $runtime)
     {
@@ -2958,9 +2970,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request $request
+     * @param DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request $request DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Request
      *
-     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
+     * @return DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response DescribeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2Response
      */
     public function describeAntChainMiniAppBrowserQRCodeAuthorizedUsersV2($request)
     {
@@ -2970,10 +2982,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeRequest $request
-     * @param RuntimeOptions                                         $runtime
+     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeRequest $request DescribeAntChainMiniAppBrowserTransactionQRCodeRequest
+     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
+     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
      */
     public function describeAntChainMiniAppBrowserTransactionQRCodeWithOptions($request, $runtime)
     {
@@ -3004,9 +3016,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeRequest $request
+     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeRequest $request DescribeAntChainMiniAppBrowserTransactionQRCodeRequest
      *
-     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
+     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeResponse DescribeAntChainMiniAppBrowserTransactionQRCodeResponse
      */
     public function describeAntChainMiniAppBrowserTransactionQRCode($request)
     {
@@ -3016,10 +3028,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest $request
-     * @param RuntimeOptions                                            $runtime
+     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest $request DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
+     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
      */
     public function describeAntChainMiniAppBrowserTransactionQRCodeNewWithOptions($request, $runtime)
     {
@@ -3053,9 +3065,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest $request
+     * @param DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest $request DescribeAntChainMiniAppBrowserTransactionQRCodeNewRequest
      *
-     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
+     * @return DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse DescribeAntChainMiniAppBrowserTransactionQRCodeNewResponse
      */
     public function describeAntChainMiniAppBrowserTransactionQRCodeNew($request)
     {
@@ -3065,10 +3077,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainNodesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeAntChainNodesRequest $request DescribeAntChainNodesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainNodesResponse
+     * @return DescribeAntChainNodesResponse DescribeAntChainNodesResponse
      */
     public function describeAntChainNodesWithOptions($request, $runtime)
     {
@@ -3096,9 +3108,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainNodesRequest $request
+     * @param DescribeAntChainNodesRequest $request DescribeAntChainNodesRequest
      *
-     * @return DescribeAntChainNodesResponse
+     * @return DescribeAntChainNodesResponse DescribeAntChainNodesResponse
      */
     public function describeAntChainNodes($request)
     {
@@ -3108,10 +3120,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainNodesV2Request $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeAntChainNodesV2Request $request DescribeAntChainNodesV2Request
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainNodesV2Response
+     * @return DescribeAntChainNodesV2Response DescribeAntChainNodesV2Response
      */
     public function describeAntChainNodesV2WithOptions($request, $runtime)
     {
@@ -3142,9 +3154,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainNodesV2Request $request
+     * @param DescribeAntChainNodesV2Request $request DescribeAntChainNodesV2Request
      *
-     * @return DescribeAntChainNodesV2Response
+     * @return DescribeAntChainNodesV2Response DescribeAntChainNodesV2Response
      */
     public function describeAntChainNodesV2($request)
     {
@@ -3154,10 +3166,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainQRCodeAuthorizationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param DescribeAntChainQRCodeAuthorizationRequest $request DescribeAntChainQRCodeAuthorizationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainQRCodeAuthorizationResponse
+     * @return DescribeAntChainQRCodeAuthorizationResponse DescribeAntChainQRCodeAuthorizationResponse
      */
     public function describeAntChainQRCodeAuthorizationWithOptions($request, $runtime)
     {
@@ -3188,9 +3200,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainQRCodeAuthorizationRequest $request
+     * @param DescribeAntChainQRCodeAuthorizationRequest $request DescribeAntChainQRCodeAuthorizationRequest
      *
-     * @return DescribeAntChainQRCodeAuthorizationResponse
+     * @return DescribeAntChainQRCodeAuthorizationResponse DescribeAntChainQRCodeAuthorizationResponse
      */
     public function describeAntChainQRCodeAuthorization($request)
     {
@@ -3200,10 +3212,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainQRCodeAuthorizationV2Request $request
-     * @param RuntimeOptions                               $runtime
+     * @param DescribeAntChainQRCodeAuthorizationV2Request $request DescribeAntChainQRCodeAuthorizationV2Request
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainQRCodeAuthorizationV2Response
+     * @return DescribeAntChainQRCodeAuthorizationV2Response DescribeAntChainQRCodeAuthorizationV2Response
      */
     public function describeAntChainQRCodeAuthorizationV2WithOptions($request, $runtime)
     {
@@ -3234,9 +3246,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainQRCodeAuthorizationV2Request $request
+     * @param DescribeAntChainQRCodeAuthorizationV2Request $request DescribeAntChainQRCodeAuthorizationV2Request
      *
-     * @return DescribeAntChainQRCodeAuthorizationV2Response
+     * @return DescribeAntChainQRCodeAuthorizationV2Response DescribeAntChainQRCodeAuthorizationV2Response
      */
     public function describeAntChainQRCodeAuthorizationV2($request)
     {
@@ -3246,10 +3258,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeAntChainTransactionRequest $request DescribeAntChainTransactionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionResponse
+     * @return DescribeAntChainTransactionResponse DescribeAntChainTransactionResponse
      */
     public function describeAntChainTransactionWithOptions($request, $runtime)
     {
@@ -3280,9 +3292,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionRequest $request
+     * @param DescribeAntChainTransactionRequest $request DescribeAntChainTransactionRequest
      *
-     * @return DescribeAntChainTransactionResponse
+     * @return DescribeAntChainTransactionResponse DescribeAntChainTransactionResponse
      */
     public function describeAntChainTransaction($request)
     {
@@ -3292,10 +3304,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionReceiptRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeAntChainTransactionReceiptRequest $request DescribeAntChainTransactionReceiptRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionReceiptResponse
+     * @return DescribeAntChainTransactionReceiptResponse DescribeAntChainTransactionReceiptResponse
      */
     public function describeAntChainTransactionReceiptWithOptions($request, $runtime)
     {
@@ -3326,9 +3338,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionReceiptRequest $request
+     * @param DescribeAntChainTransactionReceiptRequest $request DescribeAntChainTransactionReceiptRequest
      *
-     * @return DescribeAntChainTransactionReceiptResponse
+     * @return DescribeAntChainTransactionReceiptResponse DescribeAntChainTransactionReceiptResponse
      */
     public function describeAntChainTransactionReceipt($request)
     {
@@ -3338,10 +3350,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionReceiptV2Request $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeAntChainTransactionReceiptV2Request $request DescribeAntChainTransactionReceiptV2Request
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionReceiptV2Response
+     * @return DescribeAntChainTransactionReceiptV2Response DescribeAntChainTransactionReceiptV2Response
      */
     public function describeAntChainTransactionReceiptV2WithOptions($request, $runtime)
     {
@@ -3375,9 +3387,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionReceiptV2Request $request
+     * @param DescribeAntChainTransactionReceiptV2Request $request DescribeAntChainTransactionReceiptV2Request
      *
-     * @return DescribeAntChainTransactionReceiptV2Response
+     * @return DescribeAntChainTransactionReceiptV2Response DescribeAntChainTransactionReceiptV2Response
      */
     public function describeAntChainTransactionReceiptV2($request)
     {
@@ -3387,10 +3399,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionStatisticsRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param DescribeAntChainTransactionStatisticsRequest $request DescribeAntChainTransactionStatisticsRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionStatisticsResponse
+     * @return DescribeAntChainTransactionStatisticsResponse DescribeAntChainTransactionStatisticsResponse
      */
     public function describeAntChainTransactionStatisticsWithOptions($request, $runtime)
     {
@@ -3424,9 +3436,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionStatisticsRequest $request
+     * @param DescribeAntChainTransactionStatisticsRequest $request DescribeAntChainTransactionStatisticsRequest
      *
-     * @return DescribeAntChainTransactionStatisticsResponse
+     * @return DescribeAntChainTransactionStatisticsResponse DescribeAntChainTransactionStatisticsResponse
      */
     public function describeAntChainTransactionStatistics($request)
     {
@@ -3436,10 +3448,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionStatisticsV2Request $request
-     * @param RuntimeOptions                                 $runtime
+     * @param DescribeAntChainTransactionStatisticsV2Request $request DescribeAntChainTransactionStatisticsV2Request
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionStatisticsV2Response
+     * @return DescribeAntChainTransactionStatisticsV2Response DescribeAntChainTransactionStatisticsV2Response
      */
     public function describeAntChainTransactionStatisticsV2WithOptions($request, $runtime)
     {
@@ -3476,9 +3488,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionStatisticsV2Request $request
+     * @param DescribeAntChainTransactionStatisticsV2Request $request DescribeAntChainTransactionStatisticsV2Request
      *
-     * @return DescribeAntChainTransactionStatisticsV2Response
+     * @return DescribeAntChainTransactionStatisticsV2Response DescribeAntChainTransactionStatisticsV2Response
      */
     public function describeAntChainTransactionStatisticsV2($request)
     {
@@ -3488,10 +3500,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionV2Request $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeAntChainTransactionV2Request $request DescribeAntChainTransactionV2Request
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainTransactionV2Response
+     * @return DescribeAntChainTransactionV2Response DescribeAntChainTransactionV2Response
      */
     public function describeAntChainTransactionV2WithOptions($request, $runtime)
     {
@@ -3525,9 +3537,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainTransactionV2Request $request
+     * @param DescribeAntChainTransactionV2Request $request DescribeAntChainTransactionV2Request
      *
-     * @return DescribeAntChainTransactionV2Response
+     * @return DescribeAntChainTransactionV2Response DescribeAntChainTransactionV2Response
      */
     public function describeAntChainTransactionV2($request)
     {
@@ -3537,10 +3549,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeAntChainsRequest $request DescribeAntChainsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainsResponse
+     * @return DescribeAntChainsResponse DescribeAntChainsResponse
      */
     public function describeAntChainsWithOptions($request, $runtime)
     {
@@ -3574,9 +3586,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainsRequest $request
+     * @param DescribeAntChainsRequest $request DescribeAntChainsRequest
      *
-     * @return DescribeAntChainsResponse
+     * @return DescribeAntChainsResponse DescribeAntChainsResponse
      */
     public function describeAntChains($request)
     {
@@ -3586,10 +3598,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainsV2Request $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeAntChainsV2Request $request DescribeAntChainsV2Request
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAntChainsV2Response
+     * @return DescribeAntChainsV2Response DescribeAntChainsV2Response
      */
     public function describeAntChainsV2WithOptions($request, $runtime)
     {
@@ -3623,9 +3635,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAntChainsV2Request $request
+     * @param DescribeAntChainsV2Request $request DescribeAntChainsV2Request
      *
-     * @return DescribeAntChainsV2Response
+     * @return DescribeAntChainsV2Response DescribeAntChainsV2Response
      */
     public function describeAntChainsV2($request)
     {
@@ -3635,10 +3647,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEthereumDeletableRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeEthereumDeletableRequest $request DescribeEthereumDeletableRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEthereumDeletableResponse
+     * @return DescribeEthereumDeletableResponse DescribeEthereumDeletableResponse
      */
     public function describeEthereumDeletableWithOptions($request, $runtime)
     {
@@ -3666,9 +3678,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEthereumDeletableRequest $request
+     * @param DescribeEthereumDeletableRequest $request DescribeEthereumDeletableRequest
      *
-     * @return DescribeEthereumDeletableResponse
+     * @return DescribeEthereumDeletableResponse DescribeEthereumDeletableResponse
      */
     public function describeEthereumDeletable($request)
     {
@@ -3678,10 +3690,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricCandidateOrganizationsRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeFabricCandidateOrganizationsRequest $request DescribeFabricCandidateOrganizationsRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricCandidateOrganizationsResponse
+     * @return DescribeFabricCandidateOrganizationsResponse DescribeFabricCandidateOrganizationsResponse
      */
     public function describeFabricCandidateOrganizationsWithOptions($request, $runtime)
     {
@@ -3709,9 +3721,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricCandidateOrganizationsRequest $request
+     * @param DescribeFabricCandidateOrganizationsRequest $request DescribeFabricCandidateOrganizationsRequest
      *
-     * @return DescribeFabricCandidateOrganizationsResponse
+     * @return DescribeFabricCandidateOrganizationsResponse DescribeFabricCandidateOrganizationsResponse
      */
     public function describeFabricCandidateOrganizations($request)
     {
@@ -3721,10 +3733,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChaincodeDefinitionTaskRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary DescribeFabricChaincodeDefinitionTask
+     *  *
+     * @param DescribeFabricChaincodeDefinitionTaskRequest $request DescribeFabricChaincodeDefinitionTaskRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricChaincodeDefinitionTaskResponse
+     * @return DescribeFabricChaincodeDefinitionTaskResponse DescribeFabricChaincodeDefinitionTaskResponse
      */
     public function describeFabricChaincodeDefinitionTaskWithOptions($request, $runtime)
     {
@@ -3755,9 +3769,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChaincodeDefinitionTaskRequest $request
+     * @summary DescribeFabricChaincodeDefinitionTask
+     *  *
+     * @param DescribeFabricChaincodeDefinitionTaskRequest $request DescribeFabricChaincodeDefinitionTaskRequest
      *
-     * @return DescribeFabricChaincodeDefinitionTaskResponse
+     * @return DescribeFabricChaincodeDefinitionTaskResponse DescribeFabricChaincodeDefinitionTaskResponse
      */
     public function describeFabricChaincodeDefinitionTask($request)
     {
@@ -3767,10 +3783,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChaincodeUploadPolicyRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param DescribeFabricChaincodeUploadPolicyRequest $request DescribeFabricChaincodeUploadPolicyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricChaincodeUploadPolicyResponse
+     * @return DescribeFabricChaincodeUploadPolicyResponse DescribeFabricChaincodeUploadPolicyResponse
      */
     public function describeFabricChaincodeUploadPolicyWithOptions($request, $runtime)
     {
@@ -3798,9 +3814,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChaincodeUploadPolicyRequest $request
+     * @param DescribeFabricChaincodeUploadPolicyRequest $request DescribeFabricChaincodeUploadPolicyRequest
      *
-     * @return DescribeFabricChaincodeUploadPolicyResponse
+     * @return DescribeFabricChaincodeUploadPolicyResponse DescribeFabricChaincodeUploadPolicyResponse
      */
     public function describeFabricChaincodeUploadPolicy($request)
     {
@@ -3810,10 +3826,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChannelMembersRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeFabricChannelMembersRequest $request DescribeFabricChannelMembersRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricChannelMembersResponse
+     * @return DescribeFabricChannelMembersResponse DescribeFabricChannelMembersResponse
      */
     public function describeFabricChannelMembersWithOptions($request, $runtime)
     {
@@ -3841,9 +3857,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricChannelMembersRequest $request
+     * @param DescribeFabricChannelMembersRequest $request DescribeFabricChannelMembersRequest
      *
-     * @return DescribeFabricChannelMembersResponse
+     * @return DescribeFabricChannelMembersResponse DescribeFabricChannelMembersResponse
      */
     public function describeFabricChannelMembers($request)
     {
@@ -3853,10 +3869,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumAdminStatusRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param DescribeFabricConsortiumAdminStatusRequest $request DescribeFabricConsortiumAdminStatusRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumAdminStatusResponse
+     * @return DescribeFabricConsortiumAdminStatusResponse DescribeFabricConsortiumAdminStatusResponse
      */
     public function describeFabricConsortiumAdminStatusWithOptions($request, $runtime)
     {
@@ -3884,9 +3900,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumAdminStatusRequest $request
+     * @param DescribeFabricConsortiumAdminStatusRequest $request DescribeFabricConsortiumAdminStatusRequest
      *
-     * @return DescribeFabricConsortiumAdminStatusResponse
+     * @return DescribeFabricConsortiumAdminStatusResponse DescribeFabricConsortiumAdminStatusResponse
      */
     public function describeFabricConsortiumAdminStatus($request)
     {
@@ -3896,10 +3912,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumChaincodesRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeFabricConsortiumChaincodesRequest $request DescribeFabricConsortiumChaincodesRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumChaincodesResponse
+     * @return DescribeFabricConsortiumChaincodesResponse DescribeFabricConsortiumChaincodesResponse
      */
     public function describeFabricConsortiumChaincodesWithOptions($request, $runtime)
     {
@@ -3930,9 +3946,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumChaincodesRequest $request
+     * @param DescribeFabricConsortiumChaincodesRequest $request DescribeFabricConsortiumChaincodesRequest
      *
-     * @return DescribeFabricConsortiumChaincodesResponse
+     * @return DescribeFabricConsortiumChaincodesResponse DescribeFabricConsortiumChaincodesResponse
      */
     public function describeFabricConsortiumChaincodes($request)
     {
@@ -3942,10 +3958,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumChannelsRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param DescribeFabricConsortiumChannelsRequest $request DescribeFabricConsortiumChannelsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumChannelsResponse
+     * @return DescribeFabricConsortiumChannelsResponse DescribeFabricConsortiumChannelsResponse
      */
     public function describeFabricConsortiumChannelsWithOptions($request, $runtime)
     {
@@ -3978,9 +3994,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumChannelsRequest $request
+     * @param DescribeFabricConsortiumChannelsRequest $request DescribeFabricConsortiumChannelsRequest
      *
-     * @return DescribeFabricConsortiumChannelsResponse
+     * @return DescribeFabricConsortiumChannelsResponse DescribeFabricConsortiumChannelsResponse
      */
     public function describeFabricConsortiumChannels($request)
     {
@@ -3990,9 +4006,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumConfigResponse
+     * @return DescribeFabricConsortiumConfigResponse DescribeFabricConsortiumConfigResponse
      */
     public function describeFabricConsortiumConfigWithOptions($runtime)
     {
@@ -4013,7 +4029,7 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @return DescribeFabricConsortiumConfigResponse
+     * @return DescribeFabricConsortiumConfigResponse DescribeFabricConsortiumConfigResponse
      */
     public function describeFabricConsortiumConfig()
     {
@@ -4023,10 +4039,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumDeletableRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeFabricConsortiumDeletableRequest $request DescribeFabricConsortiumDeletableRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumDeletableResponse
+     * @return DescribeFabricConsortiumDeletableResponse DescribeFabricConsortiumDeletableResponse
      */
     public function describeFabricConsortiumDeletableWithOptions($request, $runtime)
     {
@@ -4059,9 +4075,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumDeletableRequest $request
+     * @param DescribeFabricConsortiumDeletableRequest $request DescribeFabricConsortiumDeletableRequest
      *
-     * @return DescribeFabricConsortiumDeletableResponse
+     * @return DescribeFabricConsortiumDeletableResponse DescribeFabricConsortiumDeletableResponse
      */
     public function describeFabricConsortiumDeletable($request)
     {
@@ -4071,10 +4087,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumMemberApprovalRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param DescribeFabricConsortiumMemberApprovalRequest $request DescribeFabricConsortiumMemberApprovalRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumMemberApprovalResponse
+     * @return DescribeFabricConsortiumMemberApprovalResponse DescribeFabricConsortiumMemberApprovalResponse
      */
     public function describeFabricConsortiumMemberApprovalWithOptions($request, $runtime)
     {
@@ -4107,9 +4123,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumMemberApprovalRequest $request
+     * @param DescribeFabricConsortiumMemberApprovalRequest $request DescribeFabricConsortiumMemberApprovalRequest
      *
-     * @return DescribeFabricConsortiumMemberApprovalResponse
+     * @return DescribeFabricConsortiumMemberApprovalResponse DescribeFabricConsortiumMemberApprovalResponse
      */
     public function describeFabricConsortiumMemberApproval($request)
     {
@@ -4119,10 +4135,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumMembersRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeFabricConsortiumMembersRequest $request DescribeFabricConsortiumMembersRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumMembersResponse
+     * @return DescribeFabricConsortiumMembersResponse DescribeFabricConsortiumMembersResponse
      */
     public function describeFabricConsortiumMembersWithOptions($request, $runtime)
     {
@@ -4153,9 +4169,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumMembersRequest $request
+     * @param DescribeFabricConsortiumMembersRequest $request DescribeFabricConsortiumMembersRequest
      *
-     * @return DescribeFabricConsortiumMembersResponse
+     * @return DescribeFabricConsortiumMembersResponse DescribeFabricConsortiumMembersResponse
      */
     public function describeFabricConsortiumMembers($request)
     {
@@ -4165,10 +4181,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumOrderersRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param DescribeFabricConsortiumOrderersRequest $request DescribeFabricConsortiumOrderersRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumOrderersResponse
+     * @return DescribeFabricConsortiumOrderersResponse DescribeFabricConsortiumOrderersResponse
      */
     public function describeFabricConsortiumOrderersWithOptions($request, $runtime)
     {
@@ -4199,9 +4215,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumOrderersRequest $request
+     * @param DescribeFabricConsortiumOrderersRequest $request DescribeFabricConsortiumOrderersRequest
      *
-     * @return DescribeFabricConsortiumOrderersResponse
+     * @return DescribeFabricConsortiumOrderersResponse DescribeFabricConsortiumOrderersResponse
      */
     public function describeFabricConsortiumOrderers($request)
     {
@@ -4211,9 +4227,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumSpecsResponse
+     * @return DescribeFabricConsortiumSpecsResponse DescribeFabricConsortiumSpecsResponse
      */
     public function describeFabricConsortiumSpecsWithOptions($runtime)
     {
@@ -4234,7 +4250,7 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @return DescribeFabricConsortiumSpecsResponse
+     * @return DescribeFabricConsortiumSpecsResponse DescribeFabricConsortiumSpecsResponse
      */
     public function describeFabricConsortiumSpecs()
     {
@@ -4244,10 +4260,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeFabricConsortiumsRequest $request DescribeFabricConsortiumsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricConsortiumsResponse
+     * @return DescribeFabricConsortiumsResponse DescribeFabricConsortiumsResponse
      */
     public function describeFabricConsortiumsWithOptions($request, $runtime)
     {
@@ -4283,9 +4299,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricConsortiumsRequest $request
+     * @param DescribeFabricConsortiumsRequest $request DescribeFabricConsortiumsRequest
      *
-     * @return DescribeFabricConsortiumsResponse
+     * @return DescribeFabricConsortiumsResponse DescribeFabricConsortiumsResponse
      */
     public function describeFabricConsortiums($request)
     {
@@ -4295,10 +4311,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricExplorerRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeFabricExplorerRequest $request DescribeFabricExplorerRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricExplorerResponse
+     * @return DescribeFabricExplorerResponse DescribeFabricExplorerResponse
      */
     public function describeFabricExplorerWithOptions($request, $runtime)
     {
@@ -4337,9 +4353,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricExplorerRequest $request
+     * @param DescribeFabricExplorerRequest $request DescribeFabricExplorerRequest
      *
-     * @return DescribeFabricExplorerResponse
+     * @return DescribeFabricExplorerResponse DescribeFabricExplorerResponse
      */
     public function describeFabricExplorer($request)
     {
@@ -4349,10 +4365,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricInvitationCodeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeFabricInvitationCodeRequest $request DescribeFabricInvitationCodeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricInvitationCodeResponse
+     * @return DescribeFabricInvitationCodeResponse DescribeFabricInvitationCodeResponse
      */
     public function describeFabricInvitationCodeWithOptions($request, $runtime)
     {
@@ -4380,9 +4396,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricInvitationCodeRequest $request
+     * @param DescribeFabricInvitationCodeRequest $request DescribeFabricInvitationCodeRequest
      *
-     * @return DescribeFabricInvitationCodeResponse
+     * @return DescribeFabricInvitationCodeResponse DescribeFabricInvitationCodeResponse
      */
     public function describeFabricInvitationCode($request)
     {
@@ -4392,10 +4408,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricInviterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeFabricInviterRequest $request DescribeFabricInviterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricInviterResponse
+     * @return DescribeFabricInviterResponse DescribeFabricInviterResponse
      */
     public function describeFabricInviterWithOptions($request, $runtime)
     {
@@ -4423,9 +4439,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricInviterRequest $request
+     * @param DescribeFabricInviterRequest $request DescribeFabricInviterRequest
      *
-     * @return DescribeFabricInviterResponse
+     * @return DescribeFabricInviterResponse DescribeFabricInviterResponse
      */
     public function describeFabricInviter($request)
     {
@@ -4435,10 +4451,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrdererLogsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeFabricOrdererLogsRequest $request DescribeFabricOrdererLogsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrdererLogsResponse
+     * @return DescribeFabricOrdererLogsResponse DescribeFabricOrdererLogsResponse
      */
     public function describeFabricOrdererLogsWithOptions($request, $runtime)
     {
@@ -4472,9 +4488,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrdererLogsRequest $request
+     * @param DescribeFabricOrdererLogsRequest $request DescribeFabricOrdererLogsRequest
      *
-     * @return DescribeFabricOrdererLogsResponse
+     * @return DescribeFabricOrdererLogsResponse DescribeFabricOrdererLogsResponse
      */
     public function describeFabricOrdererLogs($request)
     {
@@ -4484,10 +4500,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeFabricOrganizationRequest $request DescribeFabricOrganizationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationResponse
+     * @return DescribeFabricOrganizationResponse DescribeFabricOrganizationResponse
      */
     public function describeFabricOrganizationWithOptions($request, $runtime)
     {
@@ -4523,9 +4539,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationRequest $request
+     * @param DescribeFabricOrganizationRequest $request DescribeFabricOrganizationRequest
      *
-     * @return DescribeFabricOrganizationResponse
+     * @return DescribeFabricOrganizationResponse DescribeFabricOrganizationResponse
      */
     public function describeFabricOrganization($request)
     {
@@ -4535,10 +4551,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChaincodePackageRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary DescribeFabricOrganizationChaincodePackage
+     *  *
+     * @param DescribeFabricOrganizationChaincodePackageRequest $request DescribeFabricOrganizationChaincodePackageRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationChaincodePackageResponse
+     * @return DescribeFabricOrganizationChaincodePackageResponse DescribeFabricOrganizationChaincodePackageResponse
      */
     public function describeFabricOrganizationChaincodePackageWithOptions($request, $runtime)
     {
@@ -4566,9 +4584,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChaincodePackageRequest $request
+     * @summary DescribeFabricOrganizationChaincodePackage
+     *  *
+     * @param DescribeFabricOrganizationChaincodePackageRequest $request DescribeFabricOrganizationChaincodePackageRequest
      *
-     * @return DescribeFabricOrganizationChaincodePackageResponse
+     * @return DescribeFabricOrganizationChaincodePackageResponse DescribeFabricOrganizationChaincodePackageResponse
      */
     public function describeFabricOrganizationChaincodePackage($request)
     {
@@ -4578,10 +4598,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChaincodesRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeFabricOrganizationChaincodesRequest $request DescribeFabricOrganizationChaincodesRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationChaincodesResponse
+     * @return DescribeFabricOrganizationChaincodesResponse DescribeFabricOrganizationChaincodesResponse
      */
     public function describeFabricOrganizationChaincodesWithOptions($request, $runtime)
     {
@@ -4612,9 +4632,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChaincodesRequest $request
+     * @param DescribeFabricOrganizationChaincodesRequest $request DescribeFabricOrganizationChaincodesRequest
      *
-     * @return DescribeFabricOrganizationChaincodesResponse
+     * @return DescribeFabricOrganizationChaincodesResponse DescribeFabricOrganizationChaincodesResponse
      */
     public function describeFabricOrganizationChaincodes($request)
     {
@@ -4624,10 +4644,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChannelsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeFabricOrganizationChannelsRequest $request DescribeFabricOrganizationChannelsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationChannelsResponse
+     * @return DescribeFabricOrganizationChannelsResponse DescribeFabricOrganizationChannelsResponse
      */
     public function describeFabricOrganizationChannelsWithOptions($request, $runtime)
     {
@@ -4660,9 +4680,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationChannelsRequest $request
+     * @param DescribeFabricOrganizationChannelsRequest $request DescribeFabricOrganizationChannelsRequest
      *
-     * @return DescribeFabricOrganizationChannelsResponse
+     * @return DescribeFabricOrganizationChannelsResponse DescribeFabricOrganizationChannelsResponse
      */
     public function describeFabricOrganizationChannels($request)
     {
@@ -4672,10 +4692,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationDeletableRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param DescribeFabricOrganizationDeletableRequest $request DescribeFabricOrganizationDeletableRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationDeletableResponse
+     * @return DescribeFabricOrganizationDeletableResponse DescribeFabricOrganizationDeletableResponse
      */
     public function describeFabricOrganizationDeletableWithOptions($request, $runtime)
     {
@@ -4708,9 +4728,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationDeletableRequest $request
+     * @param DescribeFabricOrganizationDeletableRequest $request DescribeFabricOrganizationDeletableRequest
      *
-     * @return DescribeFabricOrganizationDeletableResponse
+     * @return DescribeFabricOrganizationDeletableResponse DescribeFabricOrganizationDeletableResponse
      */
     public function describeFabricOrganizationDeletable($request)
     {
@@ -4720,10 +4740,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationMembersRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeFabricOrganizationMembersRequest $request DescribeFabricOrganizationMembersRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationMembersResponse
+     * @return DescribeFabricOrganizationMembersResponse DescribeFabricOrganizationMembersResponse
      */
     public function describeFabricOrganizationMembersWithOptions($request, $runtime)
     {
@@ -4754,9 +4774,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationMembersRequest $request
+     * @param DescribeFabricOrganizationMembersRequest $request DescribeFabricOrganizationMembersRequest
      *
-     * @return DescribeFabricOrganizationMembersResponse
+     * @return DescribeFabricOrganizationMembersResponse DescribeFabricOrganizationMembersResponse
      */
     public function describeFabricOrganizationMembers($request)
     {
@@ -4766,10 +4786,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationPeersRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeFabricOrganizationPeersRequest $request DescribeFabricOrganizationPeersRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationPeersResponse
+     * @return DescribeFabricOrganizationPeersResponse DescribeFabricOrganizationPeersResponse
      */
     public function describeFabricOrganizationPeersWithOptions($request, $runtime)
     {
@@ -4802,9 +4822,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationPeersRequest $request
+     * @param DescribeFabricOrganizationPeersRequest $request DescribeFabricOrganizationPeersRequest
      *
-     * @return DescribeFabricOrganizationPeersResponse
+     * @return DescribeFabricOrganizationPeersResponse DescribeFabricOrganizationPeersResponse
      */
     public function describeFabricOrganizationPeers($request)
     {
@@ -4814,9 +4834,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationSpecsResponse
+     * @return DescribeFabricOrganizationSpecsResponse DescribeFabricOrganizationSpecsResponse
      */
     public function describeFabricOrganizationSpecsWithOptions($runtime)
     {
@@ -4837,7 +4857,7 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @return DescribeFabricOrganizationSpecsResponse
+     * @return DescribeFabricOrganizationSpecsResponse DescribeFabricOrganizationSpecsResponse
      */
     public function describeFabricOrganizationSpecs()
     {
@@ -4847,10 +4867,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationUsersRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeFabricOrganizationUsersRequest $request DescribeFabricOrganizationUsersRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationUsersResponse
+     * @return DescribeFabricOrganizationUsersResponse DescribeFabricOrganizationUsersResponse
      */
     public function describeFabricOrganizationUsersWithOptions($request, $runtime)
     {
@@ -4883,9 +4903,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationUsersRequest $request
+     * @param DescribeFabricOrganizationUsersRequest $request DescribeFabricOrganizationUsersRequest
      *
-     * @return DescribeFabricOrganizationUsersResponse
+     * @return DescribeFabricOrganizationUsersResponse DescribeFabricOrganizationUsersResponse
      */
     public function describeFabricOrganizationUsers($request)
     {
@@ -4895,10 +4915,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeFabricOrganizationsRequest $request DescribeFabricOrganizationsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricOrganizationsResponse
+     * @return DescribeFabricOrganizationsResponse DescribeFabricOrganizationsResponse
      */
     public function describeFabricOrganizationsWithOptions($request, $runtime)
     {
@@ -4931,9 +4951,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricOrganizationsRequest $request
+     * @param DescribeFabricOrganizationsRequest $request DescribeFabricOrganizationsRequest
      *
-     * @return DescribeFabricOrganizationsResponse
+     * @return DescribeFabricOrganizationsResponse DescribeFabricOrganizationsResponse
      */
     public function describeFabricOrganizations($request)
     {
@@ -4943,10 +4963,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricPeerLogsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeFabricPeerLogsRequest $request DescribeFabricPeerLogsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFabricPeerLogsResponse
+     * @return DescribeFabricPeerLogsResponse DescribeFabricPeerLogsResponse
      */
     public function describeFabricPeerLogsWithOptions($request, $runtime)
     {
@@ -4980,9 +5000,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeFabricPeerLogsRequest $request
+     * @param DescribeFabricPeerLogsRequest $request DescribeFabricPeerLogsRequest
      *
-     * @return DescribeFabricPeerLogsResponse
+     * @return DescribeFabricPeerLogsResponse DescribeFabricPeerLogsResponse
      */
     public function describeFabricPeerLogs($request)
     {
@@ -4992,10 +5012,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -5026,9 +5046,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -5038,9 +5058,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRootDomainResponse
+     * @return DescribeRootDomainResponse DescribeRootDomainResponse
      */
     public function describeRootDomainWithOptions($runtime)
     {
@@ -5061,7 +5081,7 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @return DescribeRootDomainResponse
+     * @return DescribeRootDomainResponse DescribeRootDomainResponse
      */
     public function describeRootDomain()
     {
@@ -5071,9 +5091,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasksWithOptions($runtime)
     {
@@ -5094,7 +5114,7 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasks()
     {
@@ -5104,10 +5124,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DownloadFabricOrganizationSDKRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DownloadFabricOrganizationSDKRequest $request DownloadFabricOrganizationSDKRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadFabricOrganizationSDKResponse
+     * @return DownloadFabricOrganizationSDKResponse DownloadFabricOrganizationSDKResponse
      */
     public function downloadFabricOrganizationSDKWithOptions($request, $runtime)
     {
@@ -5143,9 +5163,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param DownloadFabricOrganizationSDKRequest $request
+     * @param DownloadFabricOrganizationSDKRequest $request DownloadFabricOrganizationSDKRequest
      *
-     * @return DownloadFabricOrganizationSDKResponse
+     * @return DownloadFabricOrganizationSDKResponse DownloadFabricOrganizationSDKResponse
      */
     public function downloadFabricOrganizationSDK($request)
     {
@@ -5155,10 +5175,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param FreezeAntChainAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param FreezeAntChainAccountRequest $request FreezeAntChainAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return FreezeAntChainAccountResponse
+     * @return FreezeAntChainAccountResponse FreezeAntChainAccountResponse
      */
     public function freezeAntChainAccountWithOptions($request, $runtime)
     {
@@ -5189,9 +5209,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param FreezeAntChainAccountRequest $request
+     * @param FreezeAntChainAccountRequest $request FreezeAntChainAccountRequest
      *
-     * @return FreezeAntChainAccountResponse
+     * @return FreezeAntChainAccountResponse FreezeAntChainAccountResponse
      */
     public function freezeAntChainAccount($request)
     {
@@ -5201,10 +5221,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstallFabricChaincodeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param InstallFabricChaincodeRequest $request InstallFabricChaincodeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallFabricChaincodeResponse
+     * @return InstallFabricChaincodeResponse InstallFabricChaincodeResponse
      */
     public function installFabricChaincodeWithOptions($request, $runtime)
     {
@@ -5238,9 +5258,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstallFabricChaincodeRequest $request
+     * @param InstallFabricChaincodeRequest $request InstallFabricChaincodeRequest
      *
-     * @return InstallFabricChaincodeResponse
+     * @return InstallFabricChaincodeResponse InstallFabricChaincodeResponse
      */
     public function installFabricChaincode($request)
     {
@@ -5250,10 +5270,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstallFabricChaincodePackageRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary InstallFabricChaincodePackage
+     *  *
+     * @param InstallFabricChaincodePackageRequest $request InstallFabricChaincodePackageRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallFabricChaincodePackageResponse
+     * @return InstallFabricChaincodePackageResponse InstallFabricChaincodePackageResponse
      */
     public function installFabricChaincodePackageWithOptions($request, $runtime)
     {
@@ -5287,9 +5309,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstallFabricChaincodePackageRequest $request
+     * @summary InstallFabricChaincodePackage
+     *  *
+     * @param InstallFabricChaincodePackageRequest $request InstallFabricChaincodePackageRequest
      *
-     * @return InstallFabricChaincodePackageResponse
+     * @return InstallFabricChaincodePackageResponse InstallFabricChaincodePackageResponse
      */
     public function installFabricChaincodePackage($request)
     {
@@ -5299,10 +5323,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstantiateFabricChaincodeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param InstantiateFabricChaincodeRequest $request InstantiateFabricChaincodeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstantiateFabricChaincodeResponse
+     * @return InstantiateFabricChaincodeResponse InstantiateFabricChaincodeResponse
      */
     public function instantiateFabricChaincodeWithOptions($request, $runtime)
     {
@@ -5342,9 +5366,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param InstantiateFabricChaincodeRequest $request
+     * @param InstantiateFabricChaincodeRequest $request InstantiateFabricChaincodeRequest
      *
-     * @return InstantiateFabricChaincodeResponse
+     * @return InstantiateFabricChaincodeResponse InstantiateFabricChaincodeResponse
      */
     public function instantiateFabricChaincode($request)
     {
@@ -5354,10 +5378,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param JoinFabricChannelRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param JoinFabricChannelRequest $request JoinFabricChannelRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return JoinFabricChannelResponse
+     * @return JoinFabricChannelResponse JoinFabricChannelResponse
      */
     public function joinFabricChannelWithOptions($request, $runtime)
     {
@@ -5393,9 +5417,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param JoinFabricChannelRequest $request
+     * @param JoinFabricChannelRequest $request JoinFabricChannelRequest
      *
-     * @return JoinFabricChannelResponse
+     * @return JoinFabricChannelResponse JoinFabricChannelResponse
      */
     public function joinFabricChannel($request)
     {
@@ -5405,10 +5429,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5445,9 +5469,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5457,10 +5481,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetAntChainCertificateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ResetAntChainCertificateRequest $request ResetAntChainCertificateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAntChainCertificateResponse
+     * @return ResetAntChainCertificateResponse ResetAntChainCertificateResponse
      */
     public function resetAntChainCertificateWithOptions($request, $runtime)
     {
@@ -5488,9 +5512,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetAntChainCertificateRequest $request
+     * @param ResetAntChainCertificateRequest $request ResetAntChainCertificateRequest
      *
-     * @return ResetAntChainCertificateResponse
+     * @return ResetAntChainCertificateResponse ResetAntChainCertificateResponse
      */
     public function resetAntChainCertificate($request)
     {
@@ -5500,10 +5524,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetAntChainUserCertificateRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param ResetAntChainUserCertificateRequest $request ResetAntChainUserCertificateRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAntChainUserCertificateResponse
+     * @return ResetAntChainUserCertificateResponse ResetAntChainUserCertificateResponse
      */
     public function resetAntChainUserCertificateWithOptions($request, $runtime)
     {
@@ -5534,9 +5558,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetAntChainUserCertificateRequest $request
+     * @param ResetAntChainUserCertificateRequest $request ResetAntChainUserCertificateRequest
      *
-     * @return ResetAntChainUserCertificateResponse
+     * @return ResetAntChainUserCertificateResponse ResetAntChainUserCertificateResponse
      */
     public function resetAntChainUserCertificate($request)
     {
@@ -5546,10 +5570,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetFabricOrganizationUserPasswordRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param ResetFabricOrganizationUserPasswordRequest $request ResetFabricOrganizationUserPasswordRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetFabricOrganizationUserPasswordResponse
+     * @return ResetFabricOrganizationUserPasswordResponse ResetFabricOrganizationUserPasswordResponse
      */
     public function resetFabricOrganizationUserPasswordWithOptions($request, $runtime)
     {
@@ -5586,9 +5610,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param ResetFabricOrganizationUserPasswordRequest $request
+     * @param ResetFabricOrganizationUserPasswordRequest $request ResetFabricOrganizationUserPasswordRequest
      *
-     * @return ResetFabricOrganizationUserPasswordResponse
+     * @return ResetFabricOrganizationUserPasswordResponse ResetFabricOrganizationUserPasswordResponse
      */
     public function resetFabricOrganizationUserPassword($request)
     {
@@ -5598,10 +5622,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param SubmitFabricChaincodeDefinitionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary SubmitFabricChaincodeDefinition
+     *  *
+     * @param SubmitFabricChaincodeDefinitionRequest $request SubmitFabricChaincodeDefinitionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitFabricChaincodeDefinitionResponse
+     * @return SubmitFabricChaincodeDefinitionResponse SubmitFabricChaincodeDefinitionResponse
      */
     public function submitFabricChaincodeDefinitionWithOptions($request, $runtime)
     {
@@ -5653,9 +5679,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param SubmitFabricChaincodeDefinitionRequest $request
+     * @summary SubmitFabricChaincodeDefinition
+     *  *
+     * @param SubmitFabricChaincodeDefinitionRequest $request SubmitFabricChaincodeDefinitionRequest
      *
-     * @return SubmitFabricChaincodeDefinitionResponse
+     * @return SubmitFabricChaincodeDefinitionResponse SubmitFabricChaincodeDefinitionResponse
      */
     public function submitFabricChaincodeDefinition($request)
     {
@@ -5665,10 +5693,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param SynchronizeFabricChaincodeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param SynchronizeFabricChaincodeRequest $request SynchronizeFabricChaincodeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SynchronizeFabricChaincodeResponse
+     * @return SynchronizeFabricChaincodeResponse SynchronizeFabricChaincodeResponse
      */
     public function synchronizeFabricChaincodeWithOptions($request, $runtime)
     {
@@ -5699,9 +5727,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param SynchronizeFabricChaincodeRequest $request
+     * @param SynchronizeFabricChaincodeRequest $request SynchronizeFabricChaincodeRequest
      *
-     * @return SynchronizeFabricChaincodeResponse
+     * @return SynchronizeFabricChaincodeResponse SynchronizeFabricChaincodeResponse
      */
     public function synchronizeFabricChaincode($request)
     {
@@ -5711,10 +5739,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -5748,9 +5776,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5760,10 +5788,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UnfreezeAntChainAccountRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param UnfreezeAntChainAccountRequest $request UnfreezeAntChainAccountRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnfreezeAntChainAccountResponse
+     * @return UnfreezeAntChainAccountResponse UnfreezeAntChainAccountResponse
      */
     public function unfreezeAntChainAccountWithOptions($request, $runtime)
     {
@@ -5794,9 +5822,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UnfreezeAntChainAccountRequest $request
+     * @param UnfreezeAntChainAccountRequest $request UnfreezeAntChainAccountRequest
      *
-     * @return UnfreezeAntChainAccountResponse
+     * @return UnfreezeAntChainAccountResponse UnfreezeAntChainAccountResponse
      */
     public function unfreezeAntChainAccount($request)
     {
@@ -5806,10 +5834,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -5846,9 +5874,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5858,10 +5886,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UpdateAntChainRequest $request UpdateAntChainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainResponse
+     * @return UpdateAntChainResponse UpdateAntChainResponse
      */
     public function updateAntChainWithOptions($request, $runtime)
     {
@@ -5892,9 +5920,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainRequest $request
+     * @param UpdateAntChainRequest $request UpdateAntChainRequest
      *
-     * @return UpdateAntChainResponse
+     * @return UpdateAntChainResponse UpdateAntChainResponse
      */
     public function updateAntChain($request)
     {
@@ -5904,10 +5932,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainConsortiumRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateAntChainConsortiumRequest $request UpdateAntChainConsortiumRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainConsortiumResponse
+     * @return UpdateAntChainConsortiumResponse UpdateAntChainConsortiumResponse
      */
     public function updateAntChainConsortiumWithOptions($request, $runtime)
     {
@@ -5941,9 +5969,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainConsortiumRequest $request
+     * @param UpdateAntChainConsortiumRequest $request UpdateAntChainConsortiumRequest
      *
-     * @return UpdateAntChainConsortiumResponse
+     * @return UpdateAntChainConsortiumResponse UpdateAntChainConsortiumResponse
      */
     public function updateAntChainConsortium($request)
     {
@@ -5953,10 +5981,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainContractContentRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param UpdateAntChainContractContentRequest $request UpdateAntChainContractContentRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainContractContentResponse
+     * @return UpdateAntChainContractContentResponse UpdateAntChainContractContentResponse
      */
     public function updateAntChainContractContentWithOptions($request, $runtime)
     {
@@ -5993,9 +6021,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainContractContentRequest $request
+     * @param UpdateAntChainContractContentRequest $request UpdateAntChainContractContentRequest
      *
-     * @return UpdateAntChainContractContentResponse
+     * @return UpdateAntChainContractContentResponse UpdateAntChainContractContentResponse
      */
     public function updateAntChainContractContent($request)
     {
@@ -6005,10 +6033,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainContractProjectRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param UpdateAntChainContractProjectRequest $request UpdateAntChainContractProjectRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainContractProjectResponse
+     * @return UpdateAntChainContractProjectResponse UpdateAntChainContractProjectResponse
      */
     public function updateAntChainContractProjectWithOptions($request, $runtime)
     {
@@ -6045,9 +6073,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainContractProjectRequest $request
+     * @param UpdateAntChainContractProjectRequest $request UpdateAntChainContractProjectRequest
      *
-     * @return UpdateAntChainContractProjectResponse
+     * @return UpdateAntChainContractProjectResponse UpdateAntChainContractProjectResponse
      */
     public function updateAntChainContractProject($request)
     {
@@ -6057,10 +6085,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainMemberRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateAntChainMemberRequest $request UpdateAntChainMemberRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainMemberResponse
+     * @return UpdateAntChainMemberResponse UpdateAntChainMemberResponse
      */
     public function updateAntChainMemberWithOptions($request, $runtime)
     {
@@ -6094,9 +6122,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainMemberRequest $request
+     * @param UpdateAntChainMemberRequest $request UpdateAntChainMemberRequest
      *
-     * @return UpdateAntChainMemberResponse
+     * @return UpdateAntChainMemberResponse UpdateAntChainMemberResponse
      */
     public function updateAntChainMember($request)
     {
@@ -6106,10 +6134,10 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainQRCodeAuthorizationRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param UpdateAntChainQRCodeAuthorizationRequest $request UpdateAntChainQRCodeAuthorizationRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAntChainQRCodeAuthorizationResponse
+     * @return UpdateAntChainQRCodeAuthorizationResponse UpdateAntChainQRCodeAuthorizationResponse
      */
     public function updateAntChainQRCodeAuthorizationWithOptions($request, $runtime)
     {
@@ -6143,9 +6171,9 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpdateAntChainQRCodeAuthorizationRequest $request
+     * @param UpdateAntChainQRCodeAuthorizationRequest $request UpdateAntChainQRCodeAuthorizationRequest
      *
-     * @return UpdateAntChainQRCodeAuthorizationResponse
+     * @return UpdateAntChainQRCodeAuthorizationResponse UpdateAntChainQRCodeAuthorizationResponse
      */
     public function updateAntChainQRCodeAuthorization($request)
     {
@@ -6155,8 +6183,8 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param UpgradeFabricChaincodeRequest $request UpgradeFabricChaincodeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6200,8 +6228,8 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param UpgradeFabricChaincodeRequest $request UpgradeFabricChaincodeRequest
      *
      * @return UpgradeFabricChaincodeResponse UpgradeFabricChaincodeResponse
@@ -6214,10 +6242,12 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeFabricChaincodeDefinitionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary UpgradeFabricChaincodeDefinition
+     *  *
+     * @param UpgradeFabricChaincodeDefinitionRequest $request UpgradeFabricChaincodeDefinitionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeFabricChaincodeDefinitionResponse
+     * @return UpgradeFabricChaincodeDefinitionResponse UpgradeFabricChaincodeDefinitionResponse
      */
     public function upgradeFabricChaincodeDefinitionWithOptions($request, $runtime)
     {
@@ -6266,9 +6296,11 @@ class Baas extends OpenApiClient
     }
 
     /**
-     * @param UpgradeFabricChaincodeDefinitionRequest $request
+     * @summary UpgradeFabricChaincodeDefinition
+     *  *
+     * @param UpgradeFabricChaincodeDefinitionRequest $request UpgradeFabricChaincodeDefinitionRequest
      *
-     * @return UpgradeFabricChaincodeDefinitionResponse
+     * @return UpgradeFabricChaincodeDefinitionResponse UpgradeFabricChaincodeDefinitionResponse
      */
     public function upgradeFabricChaincodeDefinition($request)
     {

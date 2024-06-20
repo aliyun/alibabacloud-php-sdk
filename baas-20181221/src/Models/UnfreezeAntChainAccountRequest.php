@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnfreezeAntChainAccountRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example accountname
      *
      * @var string
@@ -16,6 +18,8 @@ class UnfreezeAntChainAccountRequest extends Model
     public $account;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1q8B5R9p
      *
      * @var string
