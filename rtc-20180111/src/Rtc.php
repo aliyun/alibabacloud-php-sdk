@@ -150,12 +150,16 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -3622,6 +3626,15 @@ class Rtc extends OpenApiClient
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;
         }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->cropMode)) {
+            $query['CropMode'] = $request->cropMode;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
         }
@@ -3633,6 +3646,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->texts)) {
+            $query['Texts'] = $request->texts;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3918,6 +3934,15 @@ class Rtc extends OpenApiClient
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;
         }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->cropMode)) {
+            $query['CropMode'] = $request->cropMode;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
         }
@@ -3926,6 +3951,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->texts)) {
+            $query['Texts'] = $request->texts;
         }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
@@ -4284,6 +4312,74 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 更新云端录制任务
+     *  *
+     * @param UpdateCloudRecordRequest $request UpdateCloudRecordRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudRecordResponse UpdateCloudRecordResponse
+     */
+    public function updateCloudRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->texts)) {
+            $query['Texts'] = $request->texts;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudRecord',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新云端录制任务
+     *  *
+     * @param UpdateCloudRecordRequest $request UpdateCloudRecordRequest
+     *
+     * @return UpdateCloudRecordResponse UpdateCloudRecordResponse
+     */
+    public function updateCloudRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateMPUTaskRequest $request UpdateMPUTaskRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4575,5 +4671,73 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新旁路推流任务
+     *  *
+     * @param UpdateStreamingOutRequest $request UpdateStreamingOutRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateStreamingOutResponse UpdateStreamingOutResponse
+     */
+    public function updateStreamingOutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->clockWidgets)) {
+            $query['ClockWidgets'] = $request->clockWidgets;
+        }
+        if (!Utils::isUnset($request->images)) {
+            $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->panes)) {
+            $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->texts)) {
+            $query['Texts'] = $request->texts;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStreamingOut',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新旁路推流任务
+     *  *
+     * @param UpdateStreamingOutRequest $request UpdateStreamingOutRequest
+     *
+     * @return UpdateStreamingOutResponse UpdateStreamingOutResponse
+     */
+    public function updateStreamingOut($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStreamingOutWithOptions($request, $runtime);
     }
 }

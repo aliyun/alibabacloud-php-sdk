@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
+namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest;
 
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\images;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\texts;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\panes\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\panes\texts;
 use AlibabaCloud\Tea\Model;
 
 class panes extends Model
@@ -23,23 +23,21 @@ class panes extends Model
     public $paneCropMode;
 
     /**
-     * @description This parameter is required.
+     * @example 1
      *
-     * @example 0
-     *
-     * @var string
+     * @var int
      */
     public $paneId;
 
     /**
-     * @example 1811****
+     * @example 22
      *
      * @var string
      */
     public $source;
 
     /**
-     * @example Video
+     * @example video
      *
      * @var string
      */

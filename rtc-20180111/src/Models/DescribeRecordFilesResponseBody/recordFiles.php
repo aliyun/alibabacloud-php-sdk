@@ -58,8 +58,6 @@ class recordFiles extends Model
     public $taskId;
 
     /**
-     * @example http://rtc-demo.oss-cn-****.aliyuncs.com/record/10-15-1/****\/record-002_yourTaskId/example.m3u8
-     *
      * @var string
      */
     public $url;

@@ -4,19 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\clockWidgets;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\images;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\panes;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\storageConfig;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\texts;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\clockWidgets;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\texts;
 use AlibabaCloud\Tea\Model;
 
-class StartCloudRecordRequest extends Model
+class UpdateCloudRecordRequest extends Model
 {
     /**
-     * @description appId
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example eo85****
      *
      * @var string
@@ -24,9 +22,8 @@ class StartCloudRecordRequest extends Model
     public $appId;
 
     /**
-     * @description channelName
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example testid
      *
      * @var string
@@ -39,34 +36,17 @@ class StartCloudRecordRequest extends Model
     public $clockWidgets;
 
     /**
-     * @example 2
-     *
-     * @var int
-     */
-    public $cropMode;
-
-    /**
      * @var images[]
      */
     public $images;
 
     /**
-     * @description panes
-     *
      * @var panes[]
      */
     public $panes;
 
     /**
-     * @description storageConfig
-     *
-     * This parameter is required.
-     * @var storageConfig
-     */
-    public $storageConfig;
-
-    /**
-     * @description taskId
+     * @description This parameter is required.
      *
      * @example 123
      *
@@ -75,9 +55,8 @@ class StartCloudRecordRequest extends Model
     public $taskId;
 
     /**
-     * @description templateId
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example 567
      *
      * @var string
@@ -89,16 +68,14 @@ class StartCloudRecordRequest extends Model
      */
     public $texts;
     protected $_name = [
-        'appId'         => 'AppId',
-        'channelId'     => 'ChannelId',
-        'clockWidgets'  => 'ClockWidgets',
-        'cropMode'      => 'CropMode',
-        'images'        => 'Images',
-        'panes'         => 'Panes',
-        'storageConfig' => 'StorageConfig',
-        'taskId'        => 'TaskId',
-        'templateId'    => 'TemplateId',
-        'texts'         => 'Texts',
+        'appId'        => 'AppId',
+        'channelId'    => 'ChannelId',
+        'clockWidgets' => 'ClockWidgets',
+        'images'       => 'Images',
+        'panes'        => 'Panes',
+        'taskId'       => 'TaskId',
+        'templateId'   => 'TemplateId',
+        'texts'        => 'Texts',
     ];
 
     public function validate()
@@ -123,9 +100,6 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
-        if (null !== $this->cropMode) {
-            $res['CropMode'] = $this->cropMode;
-        }
         if (null !== $this->images) {
             $res['Images'] = [];
             if (null !== $this->images && \is_array($this->images)) {
@@ -143,9 +117,6 @@ class StartCloudRecordRequest extends Model
                     $res['Panes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->storageConfig) {
-            $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toMap() : null;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -169,7 +140,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartCloudRecordRequest
+     * @return UpdateCloudRecordRequest
      */
     public static function fromMap($map = [])
     {
@@ -189,9 +160,6 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
-        if (isset($map['CropMode'])) {
-            $model->cropMode = $map['CropMode'];
-        }
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
@@ -209,9 +177,6 @@ class StartCloudRecordRequest extends Model
                     $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['StorageConfig'])) {
-            $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
