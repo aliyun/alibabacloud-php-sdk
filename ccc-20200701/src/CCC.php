@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AcceptChatRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AcceptChatResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddBlacklistCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddBlacklistCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CommitContactFlowRequest;
@@ -168,6 +172,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVideoRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVideoResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVisitorLoginDetailsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVisitorLoginDetailsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
@@ -383,6 +389,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\SignOutGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SignOutGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartChatRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartChatResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartChatShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartEditContactFlowRequest;
@@ -519,6 +528,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->abortCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AcceptChatRequest $request AcceptChatRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AcceptChatResponse AcceptChatResponse
+     */
+    public function acceptChatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AcceptChat',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AcceptChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AcceptChatRequest $request AcceptChatRequest
+     *
+     * @return AcceptChatResponse AcceptChatResponse
+     */
+    public function acceptChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->acceptChatWithOptions($request, $runtime);
     }
 
     /**
@@ -1589,6 +1644,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeWorkModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClaimChatRequest $request ClaimChatRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ClaimChatResponse ClaimChatResponse
+     */
+    public function claimChatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClaimChat',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClaimChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClaimChatRequest $request ClaimChatRequest
+     *
+     * @return ClaimChatResponse ClaimChatResponse
+     */
+    public function claimChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->claimChatWithOptions($request, $runtime);
     }
 
     /**
@@ -4546,6 +4650,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVisitorLoginDetailsRequest $request GetVisitorLoginDetailsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetVisitorLoginDetailsResponse GetVisitorLoginDetailsResponse
+     */
+    public function getVisitorLoginDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chatDeviceId)) {
+            $query['ChatDeviceId'] = $request->chatDeviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->visitorId)) {
+            $query['VisitorId'] = $request->visitorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVisitorLoginDetails',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVisitorLoginDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVisitorLoginDetailsRequest $request GetVisitorLoginDetailsRequest
+     *
+     * @return GetVisitorLoginDetailsResponse GetVisitorLoginDetailsResponse
+     */
+    public function getVisitorLoginDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVisitorLoginDetailsWithOptions($request, $runtime);
     }
 
     /**
@@ -10527,6 +10683,63 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startBack2BackCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartChatRequest $tmpReq  StartChatRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartChatResponse StartChatResponse
+     */
+    public function startChatWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartChatShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userList)) {
+            $request->userListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userList, 'UserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accessChannelId)) {
+            $query['AccessChannelId'] = $request->accessChannelId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->userListShrink)) {
+            $query['UserList'] = $request->userListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartChat',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartChatRequest $request StartChatRequest
+     *
+     * @return StartChatResponse StartChatResponse
+     */
+    public function startChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startChatWithOptions($request, $runtime);
     }
 
     /**
