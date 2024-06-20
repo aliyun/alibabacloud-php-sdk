@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class eipInfos extends Model
 {
     /**
+     * @var bool
+     */
+    public $certConfigured;
+
+    /**
      * @description The IP address of the instance.
      *
      * @example 203.117.XX.XX
@@ -16,6 +21,11 @@ class eipInfos extends Model
      * @var string
      */
     public $eip;
+
+    /**
+     * @var string
+     */
+    public $functionVersion;
 
     /**
      * @description The IP address-based forwarding mode of the instance. Valid values:
@@ -42,6 +52,11 @@ class eipInfos extends Model
     public $ipVersion;
 
     /**
+     * @var bool
+     */
+    public $ssl13Enabled;
+
+    /**
      * @description The status of the instance. Valid values:
      *
      *   **normal**: indicates that the instance is normal.
@@ -55,11 +70,20 @@ class eipInfos extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $tlsVersion;
     protected $_name = [
-        'eip'       => 'Eip',
-        'ipMode'    => 'IpMode',
-        'ipVersion' => 'IpVersion',
-        'status'    => 'Status',
+        'certConfigured'  => 'CertConfigured',
+        'eip'             => 'Eip',
+        'functionVersion' => 'FunctionVersion',
+        'ipMode'          => 'IpMode',
+        'ipVersion'       => 'IpVersion',
+        'ssl13Enabled'    => 'Ssl13Enabled',
+        'status'          => 'Status',
+        'tlsVersion'      => 'TlsVersion',
     ];
 
     public function validate()
@@ -69,8 +93,14 @@ class eipInfos extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certConfigured) {
+            $res['CertConfigured'] = $this->certConfigured;
+        }
         if (null !== $this->eip) {
             $res['Eip'] = $this->eip;
+        }
+        if (null !== $this->functionVersion) {
+            $res['FunctionVersion'] = $this->functionVersion;
         }
         if (null !== $this->ipMode) {
             $res['IpMode'] = $this->ipMode;
@@ -78,8 +108,14 @@ class eipInfos extends Model
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+        if (null !== $this->ssl13Enabled) {
+            $res['Ssl13Enabled'] = $this->ssl13Enabled;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tlsVersion) {
+            $res['TlsVersion'] = $this->tlsVersion;
         }
 
         return $res;
@@ -93,8 +129,14 @@ class eipInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertConfigured'])) {
+            $model->certConfigured = $map['CertConfigured'];
+        }
         if (isset($map['Eip'])) {
             $model->eip = $map['Eip'];
+        }
+        if (isset($map['FunctionVersion'])) {
+            $model->functionVersion = $map['FunctionVersion'];
         }
         if (isset($map['IpMode'])) {
             $model->ipMode = $map['IpMode'];
@@ -102,8 +144,14 @@ class eipInfos extends Model
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+        if (isset($map['Ssl13Enabled'])) {
+            $model->ssl13Enabled = $map['Ssl13Enabled'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TlsVersion'])) {
+            $model->tlsVersion = $map['TlsVersion'];
         }
 
         return $model;

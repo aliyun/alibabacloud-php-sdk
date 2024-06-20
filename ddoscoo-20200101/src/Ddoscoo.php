@@ -14,8 +14,12 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AssociateWebCertRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AssociateWebCertResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigDomainSecurityProfileRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigDomainSecurityProfileResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7UsKeepaliveRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7UsKeepaliveResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RealLimitRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RealLimitResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigLayer4RemarkRequest;
@@ -174,6 +178,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7UsKeepaliveRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7UsKeepaliveResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLayer4RulePolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLayer4RulePolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeLogStoreExistStatusRequest;
@@ -639,6 +645,59 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @summary 配置安全概要属性
+     *  *
+     * @param ConfigDomainSecurityProfileRequest $request ConfigDomainSecurityProfileRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfigDomainSecurityProfileResponse ConfigDomainSecurityProfileResponse
+     */
+    public function configDomainSecurityProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cluster)) {
+            $query['Cluster'] = $request->cluster;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigDomainSecurityProfile',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置安全概要属性
+     *  *
+     * @param ConfigDomainSecurityProfileRequest $request ConfigDomainSecurityProfileRequest
+     *
+     * @return ConfigDomainSecurityProfileResponse ConfigDomainSecurityProfileResponse
+     */
+    public function configDomainSecurityProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configDomainSecurityProfileWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Configures a back-to-origin policy for the forwarding rule of a website.
      *  *
      * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
@@ -696,6 +755,56 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->configL7RsPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 配置长连接
+     *  *
+     * @param ConfigL7UsKeepaliveRequest $request ConfigL7UsKeepaliveRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfigL7UsKeepaliveResponse ConfigL7UsKeepaliveResponse
+     */
+    public function configL7UsKeepaliveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->upstreamKeepalive)) {
+            $query['UpstreamKeepalive'] = $request->upstreamKeepalive;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigL7UsKeepalive',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置长连接
+     *  *
+     * @param ConfigL7UsKeepaliveRequest $request ConfigL7UsKeepaliveRequest
+     *
+     * @return ConfigL7UsKeepaliveResponse ConfigL7UsKeepaliveResponse
+     */
+    public function configL7UsKeepalive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configL7UsKeepaliveWithOptions($request, $runtime);
     }
 
     /**
@@ -5058,6 +5167,53 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeL7RsPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询长连接
+     *  *
+     * @param DescribeL7UsKeepaliveRequest $request DescribeL7UsKeepaliveRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeL7UsKeepaliveResponse DescribeL7UsKeepaliveResponse
+     */
+    public function describeL7UsKeepaliveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeL7UsKeepalive',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询长连接
+     *  *
+     * @param DescribeL7UsKeepaliveRequest $request DescribeL7UsKeepaliveRequest
+     *
+     * @return DescribeL7UsKeepaliveResponse DescribeL7UsKeepaliveResponse
+     */
+    public function describeL7UsKeepalive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeL7UsKeepaliveWithOptions($request, $runtime);
     }
 
     /**
