@@ -285,6 +285,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskMonitorsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskMonitorsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppConfigRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppConfigResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceRequest;
@@ -2801,6 +2803,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->sendRecoverMessage)) {
             $body['SendRecoverMessage'] = $request->sendRecoverMessage;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $body['State'] = $request->state;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -7937,6 +7942,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->sourcemapType)) {
+            $query['SourcemapType'] = $request->sourcemapType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8518,6 +8526,53 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTraceAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取应用监控自定义配置
+     *  *
+     * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTraceAppConfigResponse GetTraceAppConfigResponse
+     */
+    public function getTraceAppConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTraceAppConfig',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTraceAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取应用监控自定义配置
+     *  *
+     * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
+     *
+     * @return GetTraceAppConfigResponse GetTraceAppConfigResponse
+     */
+    public function getTraceAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTraceAppConfigWithOptions($request, $runtime);
     }
 
     /**

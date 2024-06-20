@@ -44,12 +44,18 @@ class GetRumExceptionStackRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sourcemapType;
     protected $_name = [
         'exceptionBinaryImages' => 'ExceptionBinaryImages',
         'exceptionStack'        => 'ExceptionStack',
         'exceptionThreadId'     => 'ExceptionThreadId',
         'pid'                   => 'Pid',
         'regionId'              => 'RegionId',
+        'sourcemapType'         => 'SourcemapType',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class GetRumExceptionStackRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->sourcemapType) {
+            $res['SourcemapType'] = $this->sourcemapType;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class GetRumExceptionStackRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SourcemapType'])) {
+            $model->sourcemapType = $map['SourcemapType'];
         }
 
         return $model;

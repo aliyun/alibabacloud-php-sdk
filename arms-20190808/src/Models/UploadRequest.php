@@ -20,6 +20,7 @@ class UploadRequest extends Model
     /**
      * @description The content of the SourceMap file.
      *
+     * This parameter is required.
      * @example test file content
      *
      * @var string

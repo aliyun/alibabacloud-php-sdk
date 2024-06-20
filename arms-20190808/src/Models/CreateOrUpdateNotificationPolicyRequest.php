@@ -140,6 +140,13 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
      * @var bool
      */
     public $sendRecoverMessage;
+
+    /**
+     * @example enable
+     *
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'directedMode'       => 'DirectedMode',
         'escalationPolicyId' => 'EscalationPolicyId',
@@ -154,6 +161,7 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
         'repeat'             => 'Repeat',
         'repeatInterval'     => 'RepeatInterval',
         'sendRecoverMessage' => 'SendRecoverMessage',
+        'state'              => 'State',
     ];
 
     public function validate()
@@ -201,6 +209,9 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
         }
         if (null !== $this->sendRecoverMessage) {
             $res['SendRecoverMessage'] = $this->sendRecoverMessage;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -252,6 +263,9 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
         }
         if (isset($map['SendRecoverMessage'])) {
             $model->sendRecoverMessage = $map['SendRecoverMessage'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

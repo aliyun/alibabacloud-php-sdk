@@ -19,7 +19,7 @@ class CheckCommercialStatusRequest extends Model
 
     /**
      * @description Sub-services:
-     * - xtrace: Managed Service for OpenTelemetry
+     * This parameter is required.
      * @example apm
      *
      * @var string

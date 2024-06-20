@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCommercialStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example arms_app_post
      *
      * @var string
