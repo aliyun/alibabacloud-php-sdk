@@ -26,6 +26,15 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
@@ -66,6 +75,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
@@ -121,6 +134,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordRequest;
@@ -778,6 +793,274 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数字水印暗水印透明底图
+     *  *
+     * @param CreateWmBaseImageRequest $request CreateWmBaseImageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWmBaseImageResponse CreateWmBaseImageResponse
+     */
+    public function createWmBaseImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->height)) {
+            $body['Height'] = $request->height;
+        }
+        if (!Utils::isUnset($request->opacity)) {
+            $body['Opacity'] = $request->opacity;
+        }
+        if (!Utils::isUnset($request->scale)) {
+            $body['Scale'] = $request->scale;
+        }
+        if (!Utils::isUnset($request->width)) {
+            $body['Width'] = $request->width;
+        }
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        }
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
+        }
+        if (!Utils::isUnset($request->wmInfoUint)) {
+            $body['WmInfoUint'] = $request->wmInfoUint;
+        }
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWmBaseImage',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWmBaseImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数字水印暗水印透明底图
+     *  *
+     * @param CreateWmBaseImageRequest $request CreateWmBaseImageRequest
+     *
+     * @return CreateWmBaseImageResponse CreateWmBaseImageResponse
+     */
+    public function createWmBaseImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWmBaseImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建嵌入水印任务
+     *  *
+     * @param CreateWmEmbedTaskRequest $tmpReq  CreateWmEmbedTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWmEmbedTaskResponse CreateWmEmbedTaskResponse
+     */
+    public function createWmEmbedTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateWmEmbedTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documentControl)) {
+            $request->documentControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentControl, 'DocumentControl', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentControlShrink)) {
+            $body['DocumentControl'] = $request->documentControlShrink;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $body['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->imageEmbedJpegQuality)) {
+            $body['ImageEmbedJpegQuality'] = $request->imageEmbedJpegQuality;
+        }
+        if (!Utils::isUnset($request->imageEmbedLevel)) {
+            $body['ImageEmbedLevel'] = $request->imageEmbedLevel;
+        }
+        if (!Utils::isUnset($request->videoBitrate)) {
+            $body['VideoBitrate'] = $request->videoBitrate;
+        }
+        if (!Utils::isUnset($request->videoIsLong)) {
+            $body['VideoIsLong'] = $request->videoIsLong;
+        }
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        }
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
+        }
+        if (!Utils::isUnset($request->wmInfoUint)) {
+            $body['WmInfoUint'] = $request->wmInfoUint;
+        }
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWmEmbedTask',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建嵌入水印任务
+     *  *
+     * @param CreateWmEmbedTaskRequest $request CreateWmEmbedTaskRequest
+     *
+     * @return CreateWmEmbedTaskResponse CreateWmEmbedTaskResponse
+     */
+    public function createWmEmbedTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWmEmbedTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建文件水印提取任务
+     *  *
+     * @param CreateWmExtractTaskRequest $request CreateWmExtractTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWmExtractTaskResponse CreateWmExtractTaskResponse
+     */
+    public function createWmExtractTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->documentIsCapture)) {
+            $body['DocumentIsCapture'] = $request->documentIsCapture;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->filename)) {
+            $body['Filename'] = $request->filename;
+        }
+        if (!Utils::isUnset($request->videoIsLong)) {
+            $body['VideoIsLong'] = $request->videoIsLong;
+        }
+        if (!Utils::isUnset($request->videoSpeed)) {
+            $body['VideoSpeed'] = $request->videoSpeed;
+        }
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
+        }
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWmExtractTask',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建文件水印提取任务
+     *  *
+     * @param CreateWmExtractTaskRequest $request CreateWmExtractTaskRequest
+     *
+     * @return CreateWmExtractTaskResponse CreateWmExtractTaskResponse
+     */
+    public function createWmExtractTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWmExtractTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+     *  *
+     * @param CreateWmInfoMappingRequest $request CreateWmInfoMappingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWmInfoMappingResponse CreateWmInfoMappingResponse
+     */
+    public function createWmInfoMappingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->wmInfoBytesB64)) {
+            $body['WmInfoBytesB64'] = $request->wmInfoBytesB64;
+        }
+        if (!Utils::isUnset($request->wmInfoSize)) {
+            $body['WmInfoSize'] = $request->wmInfoSize;
+        }
+        if (!Utils::isUnset($request->wmType)) {
+            $body['WmType'] = $request->wmType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWmInfoMapping',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+     *  *
+     * @param CreateWmInfoMappingRequest $request CreateWmInfoMappingRequest
+     *
+     * @return CreateWmInfoMappingResponse CreateWmInfoMappingResponse
+     */
+    public function createWmInfoMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWmInfoMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -1743,6 +2026,94 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询嵌入水印任务
+     *  *
+     * @param GetWmEmbedTaskRequest $request GetWmEmbedTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetWmEmbedTaskResponse GetWmEmbedTaskResponse
+     */
+    public function getWmEmbedTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWmEmbedTask',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询嵌入水印任务
+     *  *
+     * @param GetWmEmbedTaskRequest $request GetWmEmbedTaskRequest
+     *
+     * @return GetWmEmbedTaskResponse GetWmEmbedTaskResponse
+     */
+    public function getWmEmbedTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWmEmbedTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询文件水印提取任务详情
+     *  *
+     * @param GetWmExtractTaskRequest $request GetWmExtractTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetWmExtractTaskResponse GetWmExtractTaskResponse
+     */
+    public function getWmExtractTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWmExtractTask',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询文件水印提取任务详情
+     *  *
+     * @param GetWmExtractTaskRequest $request GetWmExtractTaskRequest
+     *
+     * @return GetWmExtractTaskResponse GetWmExtractTaskResponse
+     */
+    public function getWmExtractTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWmExtractTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2968,6 +3339,50 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据数字水印信息查询字符串水印信息
+     *  *
+     * @param LookupWmInfoMappingRequest $request LookupWmInfoMappingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return LookupWmInfoMappingResponse LookupWmInfoMappingResponse
+     */
+    public function lookupWmInfoMappingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LookupWmInfoMapping',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LookupWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据数字水印信息查询字符串水印信息
+     *  *
+     * @param LookupWmInfoMappingRequest $request LookupWmInfoMappingRequest
+     *
+     * @return LookupWmInfoMappingResponse LookupWmInfoMappingResponse
+     */
+    public function lookupWmInfoMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lookupWmInfoMappingWithOptions($request, $runtime);
     }
 
     /**
