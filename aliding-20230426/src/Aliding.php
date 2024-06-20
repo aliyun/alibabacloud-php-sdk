@@ -627,6 +627,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesSummaryHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesSummaryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMinutesSummaryResponse;
@@ -767,6 +772,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\StartInstanceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StartInstanceShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StartMinutesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StartMinutesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StartMinutesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StartMinutesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StartMinutesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StatisticsListByTypeReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StatisticsListByTypeReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StatisticsListByTypeReportResponse;
@@ -782,6 +792,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\StopCloudRecordShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StopMinutesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StopMinutesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StopMinutesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StopMinutesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\StopMinutesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarResponse;
@@ -11265,6 +11280,76 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 查询闪记录音
+     *  *
+     * @param QueryMinutesRequest $tmpReq    QueryMinutesRequest
+     * @param QueryMinutesHeaders $tmpHeader QueryMinutesHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryMinutesResponse QueryMinutesResponse
+     */
+    public function queryMinutesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryMinutesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryMinutesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['conferenceId'] = $request->conferenceId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMinutes',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/queryMinutes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询闪记录音
+     *  *
+     * @param QueryMinutesRequest $request QueryMinutesRequest
+     *
+     * @return QueryMinutesResponse QueryMinutesResponse
+     */
+    public function queryMinutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryMinutesHeaders([]);
+
+        return $this->queryMinutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询会议闪记智能纪要
      *  *
      * @param QueryMinutesSummaryRequest $tmpReq    QueryMinutesSummaryRequest
@@ -13660,6 +13745,82 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 开启闪记
+     *  *
+     * @param StartMinutesRequest $tmpReq    StartMinutesRequest
+     * @param StartMinutesHeaders $tmpHeader StartMinutesHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return StartMinutesResponse StartMinutesResponse
+     */
+    public function startMinutesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartMinutesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new StartMinutesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['conferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->ownerUserId)) {
+            $body['ownerUserId'] = $request->ownerUserId;
+        }
+        if (!Utils::isUnset($request->recordAudio)) {
+            $body['recordAudio'] = $request->recordAudio;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartMinutes',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/startMinutes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启闪记
+     *  *
+     * @param StartMinutesRequest $request StartMinutesRequest
+     *
+     * @return StartMinutesResponse StartMinutesResponse
+     */
+    public function startMinutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StartMinutesHeaders([]);
+
+        return $this->startMinutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取日志相关人员列表
      *  *
      * @param StatisticsListByTypeReportRequest $tmpReq    StatisticsListByTypeReportRequest
@@ -13876,6 +14037,76 @@ class Aliding extends OpenApiClient
         $headers = new StopCloudRecordHeaders([]);
 
         return $this->stopCloudRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 暂停闪记
+     *  *
+     * @param StopMinutesRequest $tmpReq    StopMinutesRequest
+     * @param StopMinutesHeaders $tmpHeader StopMinutesHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return StopMinutesResponse StopMinutesResponse
+     */
+    public function stopMinutesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopMinutesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new StopMinutesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['conferenceId'] = $request->conferenceId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopMinutes',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/stopMinutes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 暂停闪记
+     *  *
+     * @param StopMinutesRequest $request StopMinutesRequest
+     *
+     * @return StopMinutesResponse StopMinutesResponse
+     */
+    public function stopMinutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StopMinutesHeaders([]);
+
+        return $this->stopMinutesWithOptions($request, $headers, $runtime);
     }
 
     /**
