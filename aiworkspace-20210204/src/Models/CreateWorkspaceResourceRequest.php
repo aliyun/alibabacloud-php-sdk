@@ -17,6 +17,8 @@ class CreateWorkspaceResourceRequest extends Model
     public $option;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resources[]
      */
     public $resources;

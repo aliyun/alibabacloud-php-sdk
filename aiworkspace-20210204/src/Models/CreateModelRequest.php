@@ -45,6 +45,8 @@ class CreateModelRequest extends Model
     public $modelDoc;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $modelName;

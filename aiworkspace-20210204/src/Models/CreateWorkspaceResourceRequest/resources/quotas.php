@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class quotas extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 232892******92912
      *
      * @var string

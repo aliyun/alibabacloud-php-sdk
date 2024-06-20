@@ -45,8 +45,6 @@ class images extends Model
     public $imageId;
 
     /**
-     * @example registry-vpc.cn-shanghai.aliyuncs.com/******\/pai:python_3.8.10-tensorflow_2.9.0
-     *
      * @var string
      */
     public $imageUri;

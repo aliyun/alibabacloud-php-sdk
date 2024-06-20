@@ -1,3 +1,8 @@
+2024-06-20 Version: 1.0.7
+- Update API CreateDataset: update param body.
+- Update API GetPermission: add param Option.
+
+
 2024-04-12 Version: 1.0.6
 - Update API GetPermission: add param Option.
 

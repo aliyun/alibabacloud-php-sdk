@@ -119,8 +119,6 @@ class GetModelVersionResponseBody extends Model
     public $trainingSpec;
 
     /**
-     * @example oss://t***.cn-beijing.oss.aliyuncs.com/mod**\/
-     *
      * @var string
      */
     public $uri;

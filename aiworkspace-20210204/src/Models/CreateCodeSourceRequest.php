@@ -51,6 +51,8 @@ class CreateCodeSourceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MyCodeSource1
      *
      * @var string
@@ -65,6 +67,8 @@ class CreateCodeSourceRequest extends Model
     public $mountPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var string

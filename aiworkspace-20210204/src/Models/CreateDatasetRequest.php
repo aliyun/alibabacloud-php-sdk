@@ -16,6 +16,8 @@ class CreateDatasetRequest extends Model
     public $accessibility;
 
     /**
+     * @description This parameter is required.
+     *
      * @example NAS
      *
      * @var string
@@ -40,6 +42,8 @@ class CreateDatasetRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example myName
      *
      * @var string
@@ -54,6 +58,8 @@ class CreateDatasetRequest extends Model
     public $options;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DIRECTORY
      *
      * @var string
@@ -87,11 +93,20 @@ class CreateDatasetRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example nas://09f****f2.cn-hangzhou/
      *
      * @var string
      */
     public $uri;
+
+    /**
+     * @example 29884000000186970
+     *
+     * @var string
+     */
+    public $userId;
 
     /**
      * @example 478**
@@ -113,6 +128,7 @@ class CreateDatasetRequest extends Model
         'sourceId'       => 'SourceId',
         'sourceType'     => 'SourceType',
         'uri'            => 'Uri',
+        'userId'         => 'UserId',
         'workspaceId'    => 'WorkspaceId',
     ];
 
@@ -167,6 +183,9 @@ class CreateDatasetRequest extends Model
         }
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -227,6 +246,9 @@ class CreateDatasetRequest extends Model
         }
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

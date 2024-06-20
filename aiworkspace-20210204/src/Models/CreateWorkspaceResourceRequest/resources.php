@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example prod
      *
      * @var string
@@ -37,6 +39,8 @@ class resources extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ResourceName
      *
      * @var string
@@ -66,6 +70,8 @@ class resources extends Model
     public $spec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

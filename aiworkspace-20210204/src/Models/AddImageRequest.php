@@ -27,6 +27,8 @@ class AddImageRequest extends Model
     public $imageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registry.cn-hangzhou.aliyuncs.com/pai-compression/nlp:gpu
      *
      * @var string
@@ -39,6 +41,8 @@ class AddImageRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example nlp-compression
      *
      * @var string

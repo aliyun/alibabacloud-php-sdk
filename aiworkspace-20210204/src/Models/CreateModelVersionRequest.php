@@ -91,6 +91,8 @@ class CreateModelVersionRequest extends Model
     public $trainingSpec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/
      *
      * @var string

@@ -50,7 +50,7 @@ class quotas extends Model
     public $quotaType;
 
     /**
-     * @example {\"cu\":\"11500\",\"minCu\":\"2300\",\"parentId\":\"0\"}
+     * @example {\\"cu\\":\\"11500\\",\\"minCu\\":\\"2300\\",\\"parentId\\":\\"0\\"}
      *
      * @var specs[]
      */

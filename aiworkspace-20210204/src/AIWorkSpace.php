@@ -148,11 +148,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 增加 Image
+     *  *
+     * @param AddImageRequest $request AddImageRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImageWithOptions($request, $headers, $runtime)
     {
@@ -202,9 +204,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
+     * @summary 增加 Image
+     *  *
+     * @param AddImageRequest $request AddImageRequest
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImage($request)
     {
@@ -215,12 +219,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 增加 Image 的标签
+     *  *
      * @param string                $ImageId
-     * @param AddImageLabelsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param AddImageLabelsRequest $request AddImageLabelsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageLabelsResponse
+     * @return AddImageLabelsResponse AddImageLabelsResponse
      */
     public function addImageLabelsWithOptions($ImageId, $request, $headers, $runtime)
     {
@@ -249,10 +255,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 增加 Image 的标签
+     *  *
      * @param string                $ImageId
-     * @param AddImageLabelsRequest $request
+     * @param AddImageLabelsRequest $request AddImageLabelsRequest
      *
-     * @return AddImageLabelsResponse
+     * @return AddImageLabelsResponse AddImageLabelsResponse
      */
     public function addImageLabels($ImageId, $request)
     {
@@ -263,13 +271,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 增加成员角色
+     *  *
      * @param string         $WorkspaceId
      * @param string         $MemberId
      * @param string         $RoleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return AddMemberRoleResponse
+     * @return AddMemberRoleResponse AddMemberRoleResponse
      */
     public function addMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime)
     {
@@ -292,11 +302,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 增加成员角色
+     *  *
      * @param string $WorkspaceId
      * @param string $MemberId
      * @param string $RoleName
      *
-     * @return AddMemberRoleResponse
+     * @return AddMemberRoleResponse AddMemberRoleResponse
      */
     public function addMemberRole($WorkspaceId, $MemberId, $RoleName)
     {
@@ -307,11 +319,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateCodeSourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建一个代码源配置
+     *  *
+     * @param CreateCodeSourceRequest $request CreateCodeSourceRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCodeSourceResponse
+     * @return CreateCodeSourceResponse CreateCodeSourceResponse
      */
     public function createCodeSourceWithOptions($request, $headers, $runtime)
     {
@@ -364,9 +378,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateCodeSourceRequest $request
+     * @summary 创建一个代码源配置
+     *  *
+     * @param CreateCodeSourceRequest $request CreateCodeSourceRequest
      *
-     * @return CreateCodeSourceResponse
+     * @return CreateCodeSourceResponse CreateCodeSourceResponse
      */
     public function createCodeSource($request)
     {
@@ -377,11 +393,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateDatasetRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建数据集
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDatasetWithOptions($request, $headers, $runtime)
     {
@@ -426,6 +444,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->uri)) {
             $body['Uri'] = $request->uri;
         }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
         }
@@ -449,9 +470,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateDatasetRequest $request
+     * @summary 创建数据集
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
      *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDataset($request)
     {
@@ -462,12 +485,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新 Dataset 的标签
+     *  *
      * @param string                     $DatasetId
-     * @param CreateDatasetLabelsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateDatasetLabelsRequest $request   CreateDatasetLabelsRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateDatasetLabelsResponse
+     * @return CreateDatasetLabelsResponse CreateDatasetLabelsResponse
      */
     public function createDatasetLabelsWithOptions($DatasetId, $request, $headers, $runtime)
     {
@@ -496,10 +521,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新 Dataset 的标签
+     *  *
      * @param string                     $DatasetId
-     * @param CreateDatasetLabelsRequest $request
+     * @param CreateDatasetLabelsRequest $request   CreateDatasetLabelsRequest
      *
-     * @return CreateDatasetLabelsResponse
+     * @return CreateDatasetLabelsResponse CreateDatasetLabelsResponse
      */
     public function createDatasetLabels($DatasetId, $request)
     {
@@ -510,12 +537,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建成员
+     *  *
      * @param string              $WorkspaceId
-     * @param CreateMemberRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateMemberRequest $request     CreateMemberRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateMemberResponse
+     * @return CreateMemberResponse CreateMemberResponse
      */
     public function createMemberWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -544,10 +573,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建成员
+     *  *
      * @param string              $WorkspaceId
-     * @param CreateMemberRequest $request
+     * @param CreateMemberRequest $request     CreateMemberRequest
      *
-     * @return CreateMemberResponse
+     * @return CreateMemberResponse CreateMemberResponse
      */
     public function createMember($WorkspaceId, $request)
     {
@@ -558,11 +589,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateModelRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 创建模型
+     *  *
+     * @param CreateModelRequest $request CreateModelRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateModelResponse
+     * @return CreateModelResponse CreateModelResponse
      */
     public function createModelWithOptions($request, $headers, $runtime)
     {
@@ -624,9 +657,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateModelRequest $request
+     * @summary 创建模型
+     *  *
+     * @param CreateModelRequest $request CreateModelRequest
      *
-     * @return CreateModelResponse
+     * @return CreateModelResponse CreateModelResponse
      */
     public function createModel($request)
     {
@@ -637,12 +672,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新模型的标签
+     *  *
      * @param string                   $ModelId
-     * @param CreateModelLabelsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateModelLabelsRequest $request CreateModelLabelsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateModelLabelsResponse
+     * @return CreateModelLabelsResponse CreateModelLabelsResponse
      */
     public function createModelLabelsWithOptions($ModelId, $request, $headers, $runtime)
     {
@@ -671,10 +708,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新模型的标签
+     *  *
      * @param string                   $ModelId
-     * @param CreateModelLabelsRequest $request
+     * @param CreateModelLabelsRequest $request CreateModelLabelsRequest
      *
-     * @return CreateModelLabelsResponse
+     * @return CreateModelLabelsResponse CreateModelLabelsResponse
      */
     public function createModelLabels($ModelId, $request)
     {
@@ -685,12 +724,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建模型版本
+     *  *
      * @param string                    $ModelId
-     * @param CreateModelVersionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateModelVersionRequest $request CreateModelVersionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateModelVersionResponse
+     * @return CreateModelVersionResponse CreateModelVersionResponse
      */
     public function createModelVersionWithOptions($ModelId, $request, $headers, $runtime)
     {
@@ -761,10 +802,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建模型版本
+     *  *
      * @param string                    $ModelId
-     * @param CreateModelVersionRequest $request
+     * @param CreateModelVersionRequest $request CreateModelVersionRequest
      *
-     * @return CreateModelVersionResponse
+     * @return CreateModelVersionResponse CreateModelVersionResponse
      */
     public function createModelVersion($ModelId, $request)
     {
@@ -775,13 +818,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新模型版本的标签
+     *  *
      * @param string                          $ModelId
      * @param string                          $VersionName
-     * @param CreateModelVersionLabelsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateModelVersionLabelsRequest $request     CreateModelVersionLabelsRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateModelVersionLabelsResponse
+     * @return CreateModelVersionLabelsResponse CreateModelVersionLabelsResponse
      */
     public function createModelVersionLabelsWithOptions($ModelId, $VersionName, $request, $headers, $runtime)
     {
@@ -810,11 +855,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建或更新模型版本的标签
+     *  *
      * @param string                          $ModelId
      * @param string                          $VersionName
-     * @param CreateModelVersionLabelsRequest $request
+     * @param CreateModelVersionLabelsRequest $request     CreateModelVersionLabelsRequest
      *
-     * @return CreateModelVersionLabelsResponse
+     * @return CreateModelVersionLabelsResponse CreateModelVersionLabelsResponse
      */
     public function createModelVersionLabels($ModelId, $VersionName, $request)
     {
@@ -825,11 +872,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateProductOrdersRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 创建产品订单
+     *  *
+     * @param CreateProductOrdersRequest $request CreateProductOrdersRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProductOrdersResponse
+     * @return CreateProductOrdersResponse CreateProductOrdersResponse
      */
     public function createProductOrdersWithOptions($request, $headers, $runtime)
     {
@@ -861,9 +910,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateProductOrdersRequest $request
+     * @summary 创建产品订单
+     *  *
+     * @param CreateProductOrdersRequest $request CreateProductOrdersRequest
      *
-     * @return CreateProductOrdersResponse
+     * @return CreateProductOrdersResponse CreateProductOrdersResponse
      */
     public function createProductOrders($request)
     {
@@ -874,11 +925,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspaceWithOptions($request, $headers, $runtime)
     {
@@ -916,9 +969,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspace($request)
     {
@@ -929,12 +984,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param CreateWorkspaceResourceRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateWorkspaceResourceRequest $request     CreateWorkspaceResourceRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceResourceResponse
+     * @return CreateWorkspaceResourceResponse CreateWorkspaceResourceResponse
      */
     public function createWorkspaceResourceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -966,10 +1023,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param CreateWorkspaceResourceRequest $request
+     * @param CreateWorkspaceResourceRequest $request     CreateWorkspaceResourceRequest
      *
-     * @return CreateWorkspaceResourceResponse
+     * @return CreateWorkspaceResourceResponse CreateWorkspaceResourceResponse
      */
     public function createWorkspaceResource($WorkspaceId, $request)
     {
@@ -980,11 +1039,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个代码源配置
+     *  *
      * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteCodeSourceResponse
+     * @return DeleteCodeSourceResponse DeleteCodeSourceResponse
      */
     public function deleteCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
     {
@@ -1007,9 +1068,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除一个代码源配置
+     *  *
      * @param string $CodeSourceId
      *
-     * @return DeleteCodeSourceResponse
+     * @return DeleteCodeSourceResponse DeleteCodeSourceResponse
      */
     public function deleteCodeSource($CodeSourceId)
     {
@@ -1020,11 +1083,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据集
+     *  *
      * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDatasetWithOptions($DatasetId, $headers, $runtime)
     {
@@ -1047,9 +1112,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据集
+     *  *
      * @param string $DatasetId
      *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDataset($DatasetId)
     {
@@ -1060,12 +1127,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Dataset 的标签
+     *  *
      * @param string                     $DatasetId
-     * @param DeleteDatasetLabelsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DeleteDatasetLabelsRequest $request   DeleteDatasetLabelsRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatasetLabelsResponse
+     * @return DeleteDatasetLabelsResponse DeleteDatasetLabelsResponse
      */
     public function deleteDatasetLabelsWithOptions($DatasetId, $request, $headers, $runtime)
     {
@@ -1094,10 +1163,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Dataset 的标签
+     *  *
      * @param string                     $DatasetId
-     * @param DeleteDatasetLabelsRequest $request
+     * @param DeleteDatasetLabelsRequest $request   DeleteDatasetLabelsRequest
      *
-     * @return DeleteDatasetLabelsResponse
+     * @return DeleteDatasetLabelsResponse DeleteDatasetLabelsResponse
      */
     public function deleteDatasetLabels($DatasetId, $request)
     {
@@ -1108,12 +1179,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间成员
+     *  *
      * @param string               $WorkspaceId
-     * @param DeleteMembersRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteMembersRequest $request     DeleteMembersRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteMembersResponse
+     * @return DeleteMembersResponse DeleteMembersResponse
      */
     public function deleteMembersWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -1142,10 +1215,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间成员
+     *  *
      * @param string               $WorkspaceId
-     * @param DeleteMembersRequest $request
+     * @param DeleteMembersRequest $request     DeleteMembersRequest
      *
-     * @return DeleteMembersResponse
+     * @return DeleteMembersResponse DeleteMembersResponse
      */
     public function deleteMembers($WorkspaceId, $request)
     {
@@ -1156,11 +1231,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型
+     *  *
      * @param string         $ModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteModelResponse
+     * @return DeleteModelResponse DeleteModelResponse
      */
     public function deleteModelWithOptions($ModelId, $headers, $runtime)
     {
@@ -1183,9 +1260,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型
+     *  *
      * @param string $ModelId
      *
-     * @return DeleteModelResponse
+     * @return DeleteModelResponse DeleteModelResponse
      */
     public function deleteModel($ModelId)
     {
@@ -1196,12 +1275,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型的标签
+     *  *
      * @param string                   $ModelId
-     * @param DeleteModelLabelsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteModelLabelsRequest $request DeleteModelLabelsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteModelLabelsResponse
+     * @return DeleteModelLabelsResponse DeleteModelLabelsResponse
      */
     public function deleteModelLabelsWithOptions($ModelId, $request, $headers, $runtime)
     {
@@ -1230,10 +1311,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型的标签
+     *  *
      * @param string                   $ModelId
-     * @param DeleteModelLabelsRequest $request
+     * @param DeleteModelLabelsRequest $request DeleteModelLabelsRequest
      *
-     * @return DeleteModelLabelsResponse
+     * @return DeleteModelLabelsResponse DeleteModelLabelsResponse
      */
     public function deleteModelLabels($ModelId, $request)
     {
@@ -1244,12 +1327,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型版本
+     *  *
      * @param string         $ModelId
      * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteModelVersionResponse
+     * @return DeleteModelVersionResponse DeleteModelVersionResponse
      */
     public function deleteModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime)
     {
@@ -1272,10 +1357,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型版本
+     *  *
      * @param string $ModelId
      * @param string $VersionName
      *
-     * @return DeleteModelVersionResponse
+     * @return DeleteModelVersionResponse DeleteModelVersionResponse
      */
     public function deleteModelVersion($ModelId, $VersionName)
     {
@@ -1286,13 +1373,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型版本的标签
+     *  *
      * @param string                          $ModelId
      * @param string                          $VersionName
-     * @param DeleteModelVersionLabelsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteModelVersionLabelsRequest $request     DeleteModelVersionLabelsRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteModelVersionLabelsResponse
+     * @return DeleteModelVersionLabelsResponse DeleteModelVersionLabelsResponse
      */
     public function deleteModelVersionLabelsWithOptions($ModelId, $VersionName, $request, $headers, $runtime)
     {
@@ -1321,11 +1410,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除模型版本的标签
+     *  *
      * @param string                          $ModelId
      * @param string                          $VersionName
-     * @param DeleteModelVersionLabelsRequest $request
+     * @param DeleteModelVersionLabelsRequest $request     DeleteModelVersionLabelsRequest
      *
-     * @return DeleteModelVersionLabelsResponse
+     * @return DeleteModelVersionLabelsResponse DeleteModelVersionLabelsResponse
      */
     public function deleteModelVersionLabels($ModelId, $VersionName, $request)
     {
@@ -1336,11 +1427,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间
+     *  *
      * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkspaceResponse
+     * @return DeleteWorkspaceResponse DeleteWorkspaceResponse
      */
     public function deleteWorkspaceWithOptions($WorkspaceId, $headers, $runtime)
     {
@@ -1363,9 +1456,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间
+     *  *
      * @param string $WorkspaceId
      *
-     * @return DeleteWorkspaceResponse
+     * @return DeleteWorkspaceResponse DeleteWorkspaceResponse
      */
     public function deleteWorkspace($WorkspaceId)
     {
@@ -1376,12 +1471,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param DeleteWorkspaceResourceRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteWorkspaceResourceRequest $request     DeleteWorkspaceResourceRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkspaceResourceResponse
+     * @return DeleteWorkspaceResourceResponse DeleteWorkspaceResourceResponse
      */
     public function deleteWorkspaceResourceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -1425,10 +1522,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作空间资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param DeleteWorkspaceResourceRequest $request
+     * @param DeleteWorkspaceResourceRequest $request     DeleteWorkspaceResourceRequest
      *
-     * @return DeleteWorkspaceResourceResponse
+     * @return DeleteWorkspaceResourceResponse DeleteWorkspaceResourceResponse
      */
     public function deleteWorkspaceResource($WorkspaceId, $request)
     {
@@ -1439,11 +1538,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个代码源配置
+     *  *
      * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetCodeSourceResponse
+     * @return GetCodeSourceResponse GetCodeSourceResponse
      */
     public function getCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
     {
@@ -1466,9 +1567,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取一个代码源配置
+     *  *
      * @param string $CodeSourceId
      *
-     * @return GetCodeSourceResponse
+     * @return GetCodeSourceResponse GetCodeSourceResponse
      */
     public function getCodeSource($CodeSourceId)
     {
@@ -1479,11 +1582,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据集
+     *  *
      * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetDatasetResponse
+     * @return GetDatasetResponse GetDatasetResponse
      */
     public function getDatasetWithOptions($DatasetId, $headers, $runtime)
     {
@@ -1506,9 +1611,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据集
+     *  *
      * @param string $DatasetId
      *
-     * @return GetDatasetResponse
+     * @return GetDatasetResponse GetDatasetResponse
      */
     public function getDataset($DatasetId)
     {
@@ -1519,11 +1626,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultWorkspaceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 获取默认工作空间
+     *  *
+     * @param GetDefaultWorkspaceRequest $request GetDefaultWorkspaceRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDefaultWorkspaceResponse
+     * @return GetDefaultWorkspaceResponse GetDefaultWorkspaceResponse
      */
     public function getDefaultWorkspaceWithOptions($request, $headers, $runtime)
     {
@@ -1552,9 +1661,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param GetDefaultWorkspaceRequest $request
+     * @summary 获取默认工作空间
+     *  *
+     * @param GetDefaultWorkspaceRequest $request GetDefaultWorkspaceRequest
      *
-     * @return GetDefaultWorkspaceResponse
+     * @return GetDefaultWorkspaceResponse GetDefaultWorkspaceResponse
      */
     public function getDefaultWorkspace($request)
     {
@@ -1565,12 +1676,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取镜像
+     *  *
      * @param string          $ImageId
-     * @param GetImageRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetImageRequest $request GetImageRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImageWithOptions($ImageId, $request, $headers, $runtime)
     {
@@ -1599,10 +1712,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取镜像
+     *  *
      * @param string          $ImageId
-     * @param GetImageRequest $request
+     * @param GetImageRequest $request GetImageRequest
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImage($ImageId, $request)
     {
@@ -1613,12 +1728,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取成员
+     *  *
      * @param string           $WorkspaceId
-     * @param GetMemberRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetMemberRequest $request     GetMemberRequest
+     * @param string[]         $headers     map
+     * @param RuntimeOptions   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetMemberResponse
+     * @return GetMemberResponse GetMemberResponse
      */
     public function getMemberWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -1650,10 +1767,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取成员
+     *  *
      * @param string           $WorkspaceId
-     * @param GetMemberRequest $request
+     * @param GetMemberRequest $request     GetMemberRequest
      *
-     * @return GetMemberResponse
+     * @return GetMemberResponse GetMemberResponse
      */
     public function getMember($WorkspaceId, $request)
     {
@@ -1664,11 +1783,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型
+     *  *
      * @param string         $ModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetModelResponse
+     * @return GetModelResponse GetModelResponse
      */
     public function getModelWithOptions($ModelId, $headers, $runtime)
     {
@@ -1691,9 +1812,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型
+     *  *
      * @param string $ModelId
      *
-     * @return GetModelResponse
+     * @return GetModelResponse GetModelResponse
      */
     public function getModel($ModelId)
     {
@@ -1704,12 +1827,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型版本
+     *  *
      * @param string         $ModelId
      * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetModelVersionResponse
+     * @return GetModelVersionResponse GetModelVersionResponse
      */
     public function getModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime)
     {
@@ -1732,10 +1857,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型版本
+     *  *
      * @param string $ModelId
      * @param string $VersionName
      *
-     * @return GetModelVersionResponse
+     * @return GetModelVersionResponse GetModelVersionResponse
      */
     public function getModelVersion($ModelId, $VersionName)
     {
@@ -1746,13 +1873,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取权限，若无权限则返回错误
+     *  *
      * @param string               $WorkspaceId
      * @param string               $PermissionCode
-     * @param GetPermissionRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetPermissionRequest $request        GetPermissionRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPermissionResponse
+     * @return GetPermissionResponse GetPermissionResponse
      */
     public function getPermissionWithOptions($WorkspaceId, $PermissionCode, $request, $headers, $runtime)
     {
@@ -1790,11 +1919,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取权限，若无权限则返回错误
+     *  *
      * @param string               $WorkspaceId
      * @param string               $PermissionCode
-     * @param GetPermissionRequest $request
+     * @param GetPermissionRequest $request        GetPermissionRequest
      *
-     * @return GetPermissionResponse
+     * @return GetPermissionResponse GetPermissionResponse
      */
     public function getPermission($WorkspaceId, $PermissionCode, $request)
     {
@@ -1805,11 +1936,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务模版
+     *  *
      * @param string         $ServiceTemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetServiceTemplateResponse
+     * @return GetServiceTemplateResponse GetServiceTemplateResponse
      */
     public function getServiceTemplateWithOptions($ServiceTemplateId, $headers, $runtime)
     {
@@ -1832,9 +1965,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务模版
+     *  *
      * @param string $ServiceTemplateId
      *
-     * @return GetServiceTemplateResponse
+     * @return GetServiceTemplateResponse GetServiceTemplateResponse
      */
     public function getServiceTemplate($ServiceTemplateId)
     {
@@ -1845,12 +1980,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作空间
+     *  *
      * @param string              $WorkspaceId
-     * @param GetWorkspaceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetWorkspaceRequest $request     GetWorkspaceRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspaceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -1879,10 +2016,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作空间
+     *  *
      * @param string              $WorkspaceId
-     * @param GetWorkspaceRequest $request
+     * @param GetWorkspaceRequest $request     GetWorkspaceRequest
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspace($WorkspaceId, $request)
     {
@@ -1893,11 +2032,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListCodeSourcesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取代码源配置列表
+     *  *
+     * @param ListCodeSourcesRequest $request ListCodeSourcesRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCodeSourcesResponse
+     * @return ListCodeSourcesResponse ListCodeSourcesResponse
      */
     public function listCodeSourcesWithOptions($request, $headers, $runtime)
     {
@@ -1941,9 +2082,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListCodeSourcesRequest $request
+     * @summary 获取代码源配置列表
+     *  *
+     * @param ListCodeSourcesRequest $request ListCodeSourcesRequest
      *
-     * @return ListCodeSourcesResponse
+     * @return ListCodeSourcesResponse ListCodeSourcesResponse
      */
     public function listCodeSources($request)
     {
@@ -1954,11 +2097,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListDatasetsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 获取数据集列表
+     *  *
+     * @param ListDatasetsRequest $request ListDatasetsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatasetsResponse
+     * @return ListDatasetsResponse ListDatasetsResponse
      */
     public function listDatasetsWithOptions($request, $headers, $runtime)
     {
@@ -2020,9 +2165,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListDatasetsRequest $request
+     * @summary 获取数据集列表
+     *  *
+     * @param ListDatasetsRequest $request ListDatasetsRequest
      *
-     * @return ListDatasetsResponse
+     * @return ListDatasetsResponse ListDatasetsResponse
      */
     public function listDatasets($request)
     {
@@ -2033,11 +2180,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListImageLabelsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 列举标签
+     *  *
+     * @param ListImageLabelsRequest $request ListImageLabelsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImageLabelsResponse
+     * @return ListImageLabelsResponse ListImageLabelsResponse
      */
     public function listImageLabelsWithOptions($request, $headers, $runtime)
     {
@@ -2078,9 +2227,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListImageLabelsRequest $request
+     * @summary 列举标签
+     *  *
+     * @param ListImageLabelsRequest $request ListImageLabelsRequest
      *
-     * @return ListImageLabelsResponse
+     * @return ListImageLabelsResponse ListImageLabelsResponse
      */
     public function listImageLabels($request)
     {
@@ -2091,11 +2242,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListImagesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 列举已注册镜像
+     *  *
+     * @param ListImagesRequest $request ListImagesRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImagesResponse
+     * @return ListImagesResponse ListImagesResponse
      */
     public function listImagesWithOptions($request, $headers, $runtime)
     {
@@ -2157,9 +2310,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListImagesRequest $request
+     * @summary 列举已注册镜像
+     *  *
+     * @param ListImagesRequest $request ListImagesRequest
      *
-     * @return ListImagesResponse
+     * @return ListImagesResponse ListImagesResponse
      */
     public function listImages($request)
     {
@@ -2170,12 +2325,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列举工作空间成员
+     *  *
      * @param string             $WorkspaceId
-     * @param ListMembersRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListMembersRequest $request     ListMembersRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListMembersResponse
+     * @return ListMembersResponse ListMembersResponse
      */
     public function listMembersWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -2213,10 +2370,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列举工作空间成员
+     *  *
      * @param string             $WorkspaceId
-     * @param ListMembersRequest $request
+     * @param ListMembersRequest $request     ListMembersRequest
      *
-     * @return ListMembersResponse
+     * @return ListMembersResponse ListMembersResponse
      */
     public function listMembers($WorkspaceId, $request)
     {
@@ -2227,12 +2386,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型版本列表
+     *  *
      * @param string                   $ModelId
-     * @param ListModelVersionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListModelVersionsRequest $request ListModelVersionsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListModelVersionsResponse
+     * @return ListModelVersionsResponse ListModelVersionsResponse
      */
     public function listModelVersionsWithOptions($ModelId, $request, $headers, $runtime)
     {
@@ -2291,10 +2452,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取模型版本列表
+     *  *
      * @param string                   $ModelId
-     * @param ListModelVersionsRequest $request
+     * @param ListModelVersionsRequest $request ListModelVersionsRequest
      *
-     * @return ListModelVersionsResponse
+     * @return ListModelVersionsResponse ListModelVersionsResponse
      */
     public function listModelVersions($ModelId, $request)
     {
@@ -2305,11 +2468,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListModelsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取模型列表
+     *  *
+     * @param ListModelsRequest $request ListModelsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListModelsResponse
+     * @return ListModelsResponse ListModelsResponse
      */
     public function listModelsWithOptions($request, $headers, $runtime)
     {
@@ -2377,9 +2542,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListModelsRequest $request
+     * @summary 获取模型列表
+     *  *
+     * @param ListModelsRequest $request ListModelsRequest
      *
-     * @return ListModelsResponse
+     * @return ListModelsResponse ListModelsResponse
      */
     public function listModels($request)
     {
@@ -2390,11 +2557,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列举权限
+     *  *
      * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissionsWithOptions($WorkspaceId, $headers, $runtime)
     {
@@ -2417,9 +2586,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列举权限
+     *  *
      * @param string $WorkspaceId
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissions($WorkspaceId)
     {
@@ -2430,11 +2601,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListProductsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 列举产品
+     *  *
+     * @param ListProductsRequest $request ListProductsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductsResponse
+     * @return ListProductsResponse ListProductsResponse
      */
     public function listProductsWithOptions($request, $headers, $runtime)
     {
@@ -2469,9 +2642,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListProductsRequest $request
+     * @summary 列举产品
+     *  *
+     * @param ListProductsRequest $request ListProductsRequest
      *
-     * @return ListProductsResponse
+     * @return ListProductsResponse ListProductsResponse
      */
     public function listProducts($request)
     {
@@ -2482,11 +2657,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取已有配额列表
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotasWithOptions($request, $headers, $runtime)
     {
@@ -2515,9 +2692,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
+     * @summary 获取已有配额列表
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
      *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotas($request)
     {
@@ -2528,11 +2707,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 列举工作空间资源
+     *  *
+     * @param ListResourcesRequest $request ListResourcesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $headers, $runtime)
     {
@@ -2594,9 +2775,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
+     * @summary 列举工作空间资源
+     *  *
+     * @param ListResourcesRequest $request ListResourcesRequest
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -2607,11 +2790,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListServiceTemplatesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 获取服务模版列表
+     *  *
+     * @param ListServiceTemplatesRequest $request ListServiceTemplatesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceTemplatesResponse
+     * @return ListServiceTemplatesResponse ListServiceTemplatesResponse
      */
     public function listServiceTemplatesWithOptions($request, $headers, $runtime)
     {
@@ -2661,9 +2846,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListServiceTemplatesRequest $request
+     * @summary 获取服务模版列表
+     *  *
+     * @param ListServiceTemplatesRequest $request ListServiceTemplatesRequest
      *
-     * @return ListServiceTemplatesResponse
+     * @return ListServiceTemplatesResponse ListServiceTemplatesResponse
      */
     public function listServiceTemplates($request)
     {
@@ -2674,12 +2861,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列出工作空间的可变为成员的用户
+     *  *
      * @param string                    $WorkspaceId
-     * @param ListWorkspaceUsersRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListWorkspaceUsersRequest $request     ListWorkspaceUsersRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspaceUsersResponse
+     * @return ListWorkspaceUsersResponse ListWorkspaceUsersResponse
      */
     public function listWorkspaceUsersWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -2708,10 +2897,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 列出工作空间的可变为成员的用户
+     *  *
      * @param string                    $WorkspaceId
-     * @param ListWorkspaceUsersRequest $request
+     * @param ListWorkspaceUsersRequest $request     ListWorkspaceUsersRequest
      *
-     * @return ListWorkspaceUsersResponse
+     * @return ListWorkspaceUsersResponse ListWorkspaceUsersResponse
      */
     public function listWorkspaceUsers($WorkspaceId, $request)
     {
@@ -2722,11 +2913,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获得工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspacesWithOptions($request, $headers, $runtime)
     {
@@ -2785,9 +2978,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
+     * @summary 获得工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspaces($request)
     {
@@ -2798,11 +2993,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 发布一个代码源配置为本工作空间下所有人可见
+     *  *
      * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PublishCodeSourceResponse
+     * @return PublishCodeSourceResponse PublishCodeSourceResponse
      */
     public function publishCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
     {
@@ -2825,9 +3022,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 发布一个代码源配置为本工作空间下所有人可见
+     *  *
      * @param string $CodeSourceId
      *
-     * @return PublishCodeSourceResponse
+     * @return PublishCodeSourceResponse PublishCodeSourceResponse
      */
     public function publishCodeSource($CodeSourceId)
     {
@@ -2838,11 +3037,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据集
+     *  *
      * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return PublishDatasetResponse
+     * @return PublishDatasetResponse PublishDatasetResponse
      */
     public function publishDatasetWithOptions($DatasetId, $headers, $runtime)
     {
@@ -2865,9 +3066,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据集
+     *  *
      * @param string $DatasetId
      *
-     * @return PublishDatasetResponse
+     * @return PublishDatasetResponse PublishDatasetResponse
      */
     public function publishDataset($DatasetId)
     {
@@ -2878,11 +3081,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 发布 Image
+     *  *
      * @param string         $ImageId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishImageResponse
+     * @return PublishImageResponse PublishImageResponse
      */
     public function publishImageWithOptions($ImageId, $headers, $runtime)
     {
@@ -2905,9 +3110,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 发布 Image
+     *  *
      * @param string $ImageId
      *
-     * @return PublishImageResponse
+     * @return PublishImageResponse PublishImageResponse
      */
     public function publishImage($ImageId)
     {
@@ -2918,11 +3125,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Image
+     *  *
      * @param string         $ImageId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveImageResponse
+     * @return RemoveImageResponse RemoveImageResponse
      */
     public function removeImageWithOptions($ImageId, $headers, $runtime)
     {
@@ -2945,9 +3154,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Image
+     *  *
      * @param string $ImageId
      *
-     * @return RemoveImageResponse
+     * @return RemoveImageResponse RemoveImageResponse
      */
     public function removeImage($ImageId)
     {
@@ -2958,12 +3169,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Image 的标签
+     *  *
      * @param string         $ImageId
      * @param string         $LabelKey
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return RemoveImageLabelsResponse
+     * @return RemoveImageLabelsResponse RemoveImageLabelsResponse
      */
     public function removeImageLabelsWithOptions($ImageId, $LabelKey, $headers, $runtime)
     {
@@ -2986,10 +3199,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除 Image 的标签
+     *  *
      * @param string $ImageId
      * @param string $LabelKey
      *
-     * @return RemoveImageLabelsResponse
+     * @return RemoveImageLabelsResponse RemoveImageLabelsResponse
      */
     public function removeImageLabels($ImageId, $LabelKey)
     {
@@ -3000,13 +3215,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除成员角色
+     *  *
      * @param string         $WorkspaceId
      * @param string         $MemberId
      * @param string         $RoleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RemoveMemberRoleResponse
+     * @return RemoveMemberRoleResponse RemoveMemberRoleResponse
      */
     public function removeMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime)
     {
@@ -3029,11 +3246,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除成员角色
+     *  *
      * @param string $WorkspaceId
      * @param string $MemberId
      * @param string $RoleName
      *
-     * @return RemoveMemberRoleResponse
+     * @return RemoveMemberRoleResponse RemoveMemberRoleResponse
      */
     public function removeMemberRole($WorkspaceId, $MemberId, $RoleName)
     {
@@ -3044,12 +3263,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据集
+     *  *
      * @param string               $DatasetId
-     * @param UpdateDatasetRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateDatasetRequest $request   UpdateDatasetRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateDatasetResponse
+     * @return UpdateDatasetResponse UpdateDatasetResponse
      */
     public function updateDatasetWithOptions($DatasetId, $request, $headers, $runtime)
     {
@@ -3084,10 +3305,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据集
+     *  *
      * @param string               $DatasetId
-     * @param UpdateDatasetRequest $request
+     * @param UpdateDatasetRequest $request   UpdateDatasetRequest
      *
-     * @return UpdateDatasetResponse
+     * @return UpdateDatasetResponse UpdateDatasetResponse
      */
     public function updateDataset($DatasetId, $request)
     {
@@ -3098,11 +3321,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param UpdateDefaultWorkspaceRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 更新默认工作空间
+     *  *
+     * @param UpdateDefaultWorkspaceRequest $request UpdateDefaultWorkspaceRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDefaultWorkspaceResponse
+     * @return UpdateDefaultWorkspaceResponse UpdateDefaultWorkspaceResponse
      */
     public function updateDefaultWorkspaceWithOptions($request, $headers, $runtime)
     {
@@ -3131,9 +3356,11 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @param UpdateDefaultWorkspaceRequest $request
+     * @summary 更新默认工作空间
+     *  *
+     * @param UpdateDefaultWorkspaceRequest $request UpdateDefaultWorkspaceRequest
      *
-     * @return UpdateDefaultWorkspaceResponse
+     * @return UpdateDefaultWorkspaceResponse UpdateDefaultWorkspaceResponse
      */
     public function updateDefaultWorkspace($request)
     {
@@ -3144,12 +3371,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型
+     *  *
      * @param string             $ModelId
-     * @param UpdateModelRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateModelRequest $request UpdateModelRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateModelResponse
+     * @return UpdateModelResponse UpdateModelResponse
      */
     public function updateModelWithOptions($ModelId, $request, $headers, $runtime)
     {
@@ -3205,10 +3434,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型
+     *  *
      * @param string             $ModelId
-     * @param UpdateModelRequest $request
+     * @param UpdateModelRequest $request UpdateModelRequest
      *
-     * @return UpdateModelResponse
+     * @return UpdateModelResponse UpdateModelResponse
      */
     public function updateModel($ModelId, $request)
     {
@@ -3219,13 +3450,15 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型版本
+     *  *
      * @param string                    $ModelId
      * @param string                    $VersionName
-     * @param UpdateModelVersionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateModelVersionRequest $request     UpdateModelVersionRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateModelVersionResponse
+     * @return UpdateModelVersionResponse UpdateModelVersionResponse
      */
     public function updateModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime)
     {
@@ -3281,11 +3514,13 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新模型版本
+     *  *
      * @param string                    $ModelId
      * @param string                    $VersionName
-     * @param UpdateModelVersionRequest $request
+     * @param UpdateModelVersionRequest $request     UpdateModelVersionRequest
      *
-     * @return UpdateModelVersionResponse
+     * @return UpdateModelVersionResponse UpdateModelVersionResponse
      */
     public function updateModelVersion($ModelId, $VersionName, $request)
     {
@@ -3296,12 +3531,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作空间
+     *  *
      * @param string                 $WorkspaceId
-     * @param UpdateWorkspaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateWorkspaceRequest $request     UpdateWorkspaceRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceResponse
+     * @return UpdateWorkspaceResponse UpdateWorkspaceResponse
      */
     public function updateWorkspaceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -3333,10 +3570,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作空间
+     *  *
      * @param string                 $WorkspaceId
-     * @param UpdateWorkspaceRequest $request
+     * @param UpdateWorkspaceRequest $request     UpdateWorkspaceRequest
      *
-     * @return UpdateWorkspaceResponse
+     * @return UpdateWorkspaceResponse UpdateWorkspaceResponse
      */
     public function updateWorkspace($WorkspaceId, $request)
     {
@@ -3347,12 +3586,14 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作空间资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param UpdateWorkspaceResourceRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateWorkspaceResourceRequest $request     UpdateWorkspaceResourceRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceResourceResponse
+     * @return UpdateWorkspaceResourceResponse UpdateWorkspaceResourceResponse
      */
     public function updateWorkspaceResourceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
@@ -3399,10 +3640,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作空间资源
+     *  *
      * @param string                         $WorkspaceId
-     * @param UpdateWorkspaceResourceRequest $request
+     * @param UpdateWorkspaceResourceRequest $request     UpdateWorkspaceResourceRequest
      *
-     * @return UpdateWorkspaceResourceResponse
+     * @return UpdateWorkspaceResourceResponse UpdateWorkspaceResourceResponse
      */
     public function updateWorkspaceResource($WorkspaceId, $request)
     {

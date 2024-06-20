@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddImageLabelsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var labels[]
      */
     public $labels;
