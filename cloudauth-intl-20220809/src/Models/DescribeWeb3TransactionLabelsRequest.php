@@ -18,7 +18,7 @@ class DescribeWeb3TransactionLabelsRequest extends Model
     public $chainShortName;
 
     /**
-     * @description A unique business ID for tracing purpose. For example，the sequence ID from the merchant\"s business-related database.
+     * @description A unique business ID for tracing purpose. For example，the sequence ID from the merchant\\"s business-related database.
      *
      * @example e0c34a353888
      *

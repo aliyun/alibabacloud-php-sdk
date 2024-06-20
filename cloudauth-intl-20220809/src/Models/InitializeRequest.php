@@ -45,6 +45,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $experienceCode;
+
+    /**
+     * @var string
+     */
     public $facePictureBase64;
 
     /**
@@ -88,7 +93,7 @@ class InitializeRequest extends Model
     public $merchantUserId;
 
     /**
-     * @example {\"bioMetaInfo\":\"4.1.0:2916352,0\",\"deviceType\":\"web\",\"ua\":\"Mozilla/5.0 (Macintosh
+     * @example {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
      *
      * @var string
      */
@@ -145,6 +150,7 @@ class InitializeRequest extends Model
         'crop'              => 'Crop',
         'docScanMode'       => 'DocScanMode',
         'docType'           => 'DocType',
+        'experienceCode'    => 'ExperienceCode',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
         'idFaceQuality'     => 'IdFaceQuality',
@@ -186,6 +192,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
+        }
+        if (null !== $this->experienceCode) {
+            $res['ExperienceCode'] = $this->experienceCode;
         }
         if (null !== $this->facePictureBase64) {
             $res['FacePictureBase64'] = $this->facePictureBase64;
@@ -261,6 +270,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
+        }
+        if (isset($map['ExperienceCode'])) {
+            $model->experienceCode = $map['ExperienceCode'];
         }
         if (isset($map['FacePictureBase64'])) {
             $model->facePictureBase64 = $map['FacePictureBase64'];

@@ -84,8 +84,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-     *   *
+     * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
+     *  *
+     * @summary 证件OCR识别纯服务端接口
+     *  *
      * Deprecated
      *
      * @param CardOcrRequest $request CardOcrRequest
@@ -145,8 +147,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
-     *   *
+     * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
+     *  *
+     * @summary 证件OCR识别纯服务端接口
+     *  *
      * Deprecated
      *
      * @param CardOcrRequest $request CardOcrRequest
@@ -161,10 +165,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param CheckResultRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 结果查询
+     *  *
+     * @param CheckResultRequest $request CheckResultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckResultResponse
+     * @return CheckResultResponse CheckResultResponse
      */
     public function checkResultWithOptions($request, $runtime)
     {
@@ -204,9 +210,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param CheckResultRequest $request
+     * @summary 结果查询
+     *  *
+     * @param CheckResultRequest $request CheckResultRequest
      *
-     * @return CheckResultResponse
+     * @return CheckResultResponse CheckResultResponse
      */
     public function checkResult($request)
     {
@@ -216,10 +224,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DeleteVerifyResultRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除用户认证记录结果
+     *  *
+     * @param DeleteVerifyResultRequest $request DeleteVerifyResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVerifyResultResponse
+     * @return DeleteVerifyResultResponse DeleteVerifyResultResponse
      */
     public function deleteVerifyResultWithOptions($request, $runtime)
     {
@@ -253,9 +263,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DeleteVerifyResultRequest $request
+     * @summary 删除用户认证记录结果
+     *  *
+     * @param DeleteVerifyResultRequest $request DeleteVerifyResultRequest
      *
-     * @return DeleteVerifyResultResponse
+     * @return DeleteVerifyResultResponse DeleteVerifyResultResponse
      */
     public function deleteVerifyResult($request)
     {
@@ -265,10 +277,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddressLabelsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询地址标签接口
+     *  *
+     * @param DescribeAddressLabelsRequest $request DescribeAddressLabelsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAddressLabelsResponse
+     * @return DescribeAddressLabelsResponse DescribeAddressLabelsResponse
      */
     public function describeAddressLabelsWithOptions($request, $runtime)
     {
@@ -302,9 +316,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddressLabelsRequest $request
+     * @summary 查询地址标签接口
+     *  *
+     * @param DescribeAddressLabelsRequest $request DescribeAddressLabelsRequest
      *
-     * @return DescribeAddressLabelsResponse
+     * @return DescribeAddressLabelsResponse DescribeAddressLabelsResponse
      */
     public function describeAddressLabels($request)
     {
@@ -314,10 +330,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddressOverviewRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询地址详情接口
+     *  *
+     * @param DescribeAddressOverviewRequest $request DescribeAddressOverviewRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAddressOverviewResponse
+     * @return DescribeAddressOverviewResponse DescribeAddressOverviewResponse
      */
     public function describeAddressOverviewWithOptions($request, $runtime)
     {
@@ -351,9 +369,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddressOverviewRequest $request
+     * @summary 查询地址详情接口
+     *  *
+     * @param DescribeAddressOverviewRequest $request DescribeAddressOverviewRequest
      *
-     * @return DescribeAddressOverviewResponse
+     * @return DescribeAddressOverviewResponse DescribeAddressOverviewResponse
      */
     public function describeAddressOverview($request)
     {
@@ -363,10 +383,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaliciousAddressRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 恶意地址查询
+     *  *
+     * @param DescribeMaliciousAddressRequest $request DescribeMaliciousAddressRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMaliciousAddressResponse
+     * @return DescribeMaliciousAddressResponse DescribeMaliciousAddressResponse
      */
     public function describeMaliciousAddressWithOptions($request, $runtime)
     {
@@ -403,9 +425,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaliciousAddressRequest $request
+     * @summary 恶意地址查询
+     *  *
+     * @param DescribeMaliciousAddressRequest $request DescribeMaliciousAddressRequest
      *
-     * @return DescribeMaliciousAddressResponse
+     * @return DescribeMaliciousAddressResponse DescribeMaliciousAddressResponse
      */
     public function describeMaliciousAddress($request)
     {
@@ -415,10 +439,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskScoreRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询地址风险接口
+     *  *
+     * @param DescribeRiskScoreRequest $request DescribeRiskScoreRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRiskScoreResponse
+     * @return DescribeRiskScoreResponse DescribeRiskScoreResponse
      */
     public function describeRiskScoreWithOptions($request, $runtime)
     {
@@ -452,9 +478,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskScoreRequest $request
+     * @summary 查询地址风险接口
+     *  *
+     * @param DescribeRiskScoreRequest $request DescribeRiskScoreRequest
      *
-     * @return DescribeRiskScoreResponse
+     * @return DescribeRiskScoreResponse DescribeRiskScoreResponse
      */
     public function describeRiskScore($request)
     {
@@ -464,10 +492,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeTransactionsListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询交易接口
+     *  *
+     * @param DescribeTransactionsListRequest $request DescribeTransactionsListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTransactionsListResponse
+     * @return DescribeTransactionsListResponse DescribeTransactionsListResponse
      */
     public function describeTransactionsListWithOptions($request, $runtime)
     {
@@ -513,9 +543,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeTransactionsListRequest $request
+     * @summary 查询交易接口
+     *  *
+     * @param DescribeTransactionsListRequest $request DescribeTransactionsListRequest
      *
-     * @return DescribeTransactionsListResponse
+     * @return DescribeTransactionsListResponse DescribeTransactionsListResponse
      */
     public function describeTransactionsList($request)
     {
@@ -525,10 +557,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3AddressLabelsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Query the Information of address.
+     *  *
+     * @param DescribeWeb3AddressLabelsRequest $request DescribeWeb3AddressLabelsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWeb3AddressLabelsResponse
+     * @return DescribeWeb3AddressLabelsResponse DescribeWeb3AddressLabelsResponse
      */
     public function describeWeb3AddressLabelsWithOptions($request, $runtime)
     {
@@ -562,9 +596,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3AddressLabelsRequest $request
+     * @summary Query the Information of address.
+     *  *
+     * @param DescribeWeb3AddressLabelsRequest $request DescribeWeb3AddressLabelsRequest
      *
-     * @return DescribeWeb3AddressLabelsResponse
+     * @return DescribeWeb3AddressLabelsResponse DescribeWeb3AddressLabelsResponse
      */
     public function describeWeb3AddressLabels($request)
     {
@@ -574,10 +610,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3RiskScoreRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Query risk score, risk detail list for a given address
+     *  *
+     * @param DescribeWeb3RiskScoreRequest $request DescribeWeb3RiskScoreRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWeb3RiskScoreResponse
+     * @return DescribeWeb3RiskScoreResponse DescribeWeb3RiskScoreResponse
      */
     public function describeWeb3RiskScoreWithOptions($request, $runtime)
     {
@@ -617,9 +655,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3RiskScoreRequest $request
+     * @summary Query risk score, risk detail list for a given address
+     *  *
+     * @param DescribeWeb3RiskScoreRequest $request DescribeWeb3RiskScoreRequest
      *
-     * @return DescribeWeb3RiskScoreResponse
+     * @return DescribeWeb3RiskScoreResponse DescribeWeb3RiskScoreResponse
      */
     public function describeWeb3RiskScore($request)
     {
@@ -629,10 +669,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3TransactionLabelsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Query the Information of transaction.
+     *  *
+     * @param DescribeWeb3TransactionLabelsRequest $request DescribeWeb3TransactionLabelsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWeb3TransactionLabelsResponse
+     * @return DescribeWeb3TransactionLabelsResponse DescribeWeb3TransactionLabelsResponse
      */
     public function describeWeb3TransactionLabelsWithOptions($request, $runtime)
     {
@@ -666,9 +708,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DescribeWeb3TransactionLabelsRequest $request
+     * @summary Query the Information of transaction.
+     *  *
+     * @param DescribeWeb3TransactionLabelsRequest $request DescribeWeb3TransactionLabelsRequest
      *
-     * @return DescribeWeb3TransactionLabelsResponse
+     * @return DescribeWeb3TransactionLabelsResponse DescribeWeb3TransactionLabelsResponse
      */
     public function describeWeb3TransactionLabels($request)
     {
@@ -678,10 +722,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DocOcrRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 卡证ocr纯服务端
+     *  *
+     * @param DocOcrRequest  $request DocOcrRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DocOcrResponse
+     * @return DocOcrResponse DocOcrResponse
      */
     public function docOcrWithOptions($request, $runtime)
     {
@@ -735,9 +781,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param DocOcrRequest $request
+     * @summary 卡证ocr纯服务端
+     *  *
+     * @param DocOcrRequest $request DocOcrRequest
      *
-     * @return DocOcrResponse
+     * @return DocOcrResponse DocOcrResponse
      */
     public function docOcr($request)
     {
@@ -747,10 +795,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param EkycVerifyRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary ekyc纯服务端接口
+     *  *
+     * @param EkycVerifyRequest $request EkycVerifyRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EkycVerifyResponse
+     * @return EkycVerifyResponse EkycVerifyResponse
      */
     public function ekycVerifyWithOptions($request, $runtime)
     {
@@ -813,9 +863,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param EkycVerifyRequest $request
+     * @summary ekyc纯服务端接口
+     *  *
+     * @param EkycVerifyRequest $request EkycVerifyRequest
      *
-     * @return EkycVerifyResponse
+     * @return EkycVerifyResponse EkycVerifyResponse
      */
     public function ekycVerify($request)
     {
@@ -825,10 +877,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FaceCompareRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 人脸比对
+     *  *
+     * @param FaceCompareRequest $request FaceCompareRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return FaceCompareResponse
+     * @return FaceCompareResponse FaceCompareResponse
      */
     public function faceCompareWithOptions($request, $runtime)
     {
@@ -870,9 +924,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FaceCompareRequest $request
+     * @summary 人脸比对
+     *  *
+     * @param FaceCompareRequest $request FaceCompareRequest
      *
-     * @return FaceCompareResponse
+     * @return FaceCompareResponse FaceCompareResponse
      */
     public function faceCompare($request)
     {
@@ -882,10 +938,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FaceLivenessRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 静默活体API 纯服务端
+     *  *
+     * @param FaceLivenessRequest $request FaceLivenessRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return FaceLivenessResponse
+     * @return FaceLivenessResponse FaceLivenessResponse
      */
     public function faceLivenessWithOptions($request, $runtime)
     {
@@ -936,9 +994,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FaceLivenessRequest $request
+     * @summary 静默活体API 纯服务端
+     *  *
+     * @param FaceLivenessRequest $request FaceLivenessRequest
      *
-     * @return FaceLivenessResponse
+     * @return FaceLivenessResponse FaceLivenessResponse
      */
     public function faceLiveness($request)
     {
@@ -948,10 +1008,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FraudResultCallBackRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 防伪回调接口
+     *  *
+     * @param FraudResultCallBackRequest $request FraudResultCallBackRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FraudResultCallBackResponse
+     * @return FraudResultCallBackResponse FraudResultCallBackResponse
      */
     public function fraudResultCallBackWithOptions($request, $runtime)
     {
@@ -988,9 +1050,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param FraudResultCallBackRequest $request
+     * @summary 防伪回调接口
+     *  *
+     * @param FraudResultCallBackRequest $request FraudResultCallBackRequest
      *
-     * @return FraudResultCallBackResponse
+     * @return FraudResultCallBackResponse FraudResultCallBackResponse
      */
     public function fraudResultCallBack($request)
     {
@@ -1000,10 +1064,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param Id2MetaVerifyIntlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 身份二要素国际版接口
+     *  *
+     * @param Id2MetaVerifyIntlRequest $request Id2MetaVerifyIntlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return Id2MetaVerifyIntlResponse
+     * @return Id2MetaVerifyIntlResponse Id2MetaVerifyIntlResponse
      */
     public function id2MetaVerifyIntlWithOptions($request, $runtime)
     {
@@ -1040,9 +1106,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param Id2MetaVerifyIntlRequest $request
+     * @summary 身份二要素国际版接口
+     *  *
+     * @param Id2MetaVerifyIntlRequest $request Id2MetaVerifyIntlRequest
      *
-     * @return Id2MetaVerifyIntlResponse
+     * @return Id2MetaVerifyIntlResponse Id2MetaVerifyIntlResponse
      */
     public function id2MetaVerifyIntl($request)
     {
@@ -1052,10 +1120,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param InitializeRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 认证初始化
+     *  *
+     * @param InitializeRequest $request InitializeRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitializeResponse
+     * @return InitializeResponse InitializeResponse
      */
     public function initializeWithOptions($request, $runtime)
     {
@@ -1078,6 +1148,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->experienceCode)) {
+            $query['ExperienceCode'] = $request->experienceCode;
         }
         if (!Utils::isUnset($request->facePictureUrl)) {
             $query['FacePictureUrl'] = $request->facePictureUrl;
@@ -1145,9 +1218,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param InitializeRequest $request
+     * @summary 认证初始化
+     *  *
+     * @param InitializeRequest $request InitializeRequest
      *
-     * @return InitializeResponse
+     * @return InitializeResponse InitializeResponse
      */
     public function initialize($request)
     {
@@ -1157,10 +1232,12 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaVerifyIntlRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 手机号三要素国际版接口
+     *  *
+     * @param Mobile3MetaVerifyIntlRequest $request Mobile3MetaVerifyIntlRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return Mobile3MetaVerifyIntlResponse
+     * @return Mobile3MetaVerifyIntlResponse Mobile3MetaVerifyIntlResponse
      */
     public function mobile3MetaVerifyIntlWithOptions($request, $runtime)
     {
@@ -1200,9 +1277,11 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaVerifyIntlRequest $request
+     * @summary 手机号三要素国际版接口
+     *  *
+     * @param Mobile3MetaVerifyIntlRequest $request Mobile3MetaVerifyIntlRequest
      *
-     * @return Mobile3MetaVerifyIntlResponse
+     * @return Mobile3MetaVerifyIntlResponse Mobile3MetaVerifyIntlResponse
      */
     public function mobile3MetaVerifyIntl($request)
     {

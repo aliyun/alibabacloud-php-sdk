@@ -27,7 +27,7 @@ class DescribeWeb3RiskScoreRequest extends Model
     public $depth;
 
     /**
-     * @description A unique business ID for tracing purpose. For example，the sequence ID from the merchant\"s business-related database.
+     * @description A unique business ID for tracing purpose. For example，the sequence ID from the merchant\\"s business-related database.
      *
      * @example e0c34a353888
      *
