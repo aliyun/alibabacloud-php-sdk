@@ -1964,6 +1964,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->alarmMetadata)) {
             $query['AlarmMetadata'] = $request->alarmMetadata;
         }
+        if (!Utils::isUnset($request->approvalType)) {
+            $query['ApprovalType'] = $request->approvalType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -2008,6 +2011,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceVersion)) {
             $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
         }
         if (!Utils::isUnset($request->tenantType)) {
             $query['TenantType'] = $request->tenantType;

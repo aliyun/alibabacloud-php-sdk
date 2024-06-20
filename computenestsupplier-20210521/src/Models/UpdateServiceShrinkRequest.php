@@ -17,6 +17,11 @@ class UpdateServiceShrinkRequest extends Model
     public $alarmMetadata;
 
     /**
+     * @var string
+     */
+    public $approvalType;
+
+    /**
      * @example 788E7CP0EN9D51P
      *
      * @var string
@@ -118,6 +123,11 @@ class UpdateServiceShrinkRequest extends Model
     public $serviceVersion;
 
     /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
      * @example SingleTenant
      *
      * @var string
@@ -151,6 +161,7 @@ class UpdateServiceShrinkRequest extends Model
     public $versionName;
     protected $_name = [
         'alarmMetadata'      => 'AlarmMetadata',
+        'approvalType'       => 'ApprovalType',
         'clientToken'        => 'ClientToken',
         'deployMetadata'     => 'DeployMetadata',
         'deployType'         => 'DeployType',
@@ -166,6 +177,7 @@ class UpdateServiceShrinkRequest extends Model
         'serviceInfo'        => 'ServiceInfo',
         'serviceType'        => 'ServiceType',
         'serviceVersion'     => 'ServiceVersion',
+        'shareType'          => 'ShareType',
         'tenantType'         => 'TenantType',
         'trialDuration'      => 'TrialDuration',
         'updateOptionShrink' => 'UpdateOption',
@@ -182,6 +194,9 @@ class UpdateServiceShrinkRequest extends Model
         $res = [];
         if (null !== $this->alarmMetadata) {
             $res['AlarmMetadata'] = $this->alarmMetadata;
+        }
+        if (null !== $this->approvalType) {
+            $res['ApprovalType'] = $this->approvalType;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -234,6 +249,9 @@ class UpdateServiceShrinkRequest extends Model
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
         if (null !== $this->tenantType) {
             $res['TenantType'] = $this->tenantType;
         }
@@ -263,6 +281,9 @@ class UpdateServiceShrinkRequest extends Model
         $model = new self();
         if (isset($map['AlarmMetadata'])) {
             $model->alarmMetadata = $map['AlarmMetadata'];
+        }
+        if (isset($map['ApprovalType'])) {
+            $model->approvalType = $map['ApprovalType'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -314,6 +335,9 @@ class UpdateServiceShrinkRequest extends Model
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
         if (isset($map['TenantType'])) {
             $model->tenantType = $map['TenantType'];
