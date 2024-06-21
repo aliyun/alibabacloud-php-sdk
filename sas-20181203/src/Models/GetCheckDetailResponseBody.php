@@ -35,6 +35,8 @@ class GetCheckDetailResponseBody extends Model
     public $description;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $repairReset;
@@ -45,6 +47,8 @@ class GetCheckDetailResponseBody extends Model
     public $repairSetting;
 
     /**
+     * @deprecated
+     *
      * @var int
      */
     public $repairSupportType;

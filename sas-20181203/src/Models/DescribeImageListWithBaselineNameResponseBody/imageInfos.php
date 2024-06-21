@@ -45,6 +45,10 @@ class imageInfos extends Model
     public $digest;
 
     /**
+     * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
+     *
+     * @example 1649814050000
+     *
      * @var int
      */
     public $firstScanTime;
@@ -280,7 +284,9 @@ class imageInfos extends Model
     /**
      * @description The type of the asset on which the baseline check is performed. Valid values:
      *
-     * - ECS_SNAPSHOT: snapshot
+     *   ECS_IMAGE
+     *   ECS_SNAPSHOT
+     *
      * @example ECS_IMAGE
      *
      * @var string

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class repairConfigs extends Model
 {
     /**
+     * @description The ID of the fixing process.
+     *
+     * @example ascgrmscyjgs*********
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description The name of the parameter required for fixing a risk item, which is unique in a check item.
+     *
+     * @example Port
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The operation that you want to perform on the custom configuration item. This parameter is required only if you want to delete the custom configuration item. To delete the custom configuration item, set the value to DELETE.
+     *
      * @example DELETE
      *
      * @var string
@@ -26,6 +36,10 @@ class repairConfigs extends Model
     public $operation;
 
     /**
+     * @description The value of the parameter required for fixing a risk item. The value is a string.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $value;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trialRecordList extends Model
 {
     /**
-     * @description The purchased quota.
+     * @description The quota.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class trialRecordList extends Model
     public $authLimit;
 
     /**
-     * @description List of purchased quotas.
+     * @description The list of quotas. This parameter is available if the value of the ModuleCode parameter is cloudSiem. The value of this parameter consists of the log storage capacity for the threat analysis and response feature and the log data to add. Units: GB and GB-day.
      *
      * @example [1,100]
      *
@@ -45,10 +45,10 @@ class trialRecordList extends Model
     public $gmtStart;
 
     /**
-     * @description The code of the module. Valid values:
+     * @description The code of the feature. Valid values:
      *
-     *   **vulFix**: vulnerability fixing
-     *   **cloudSiem**: threat analysis
+     *   **vulFix**: vulnerability fixing.
+     *   **cloudSiem**: threat analysis and response.
      *
      * @example vulFix
      *
@@ -59,8 +59,8 @@ class trialRecordList extends Model
     /**
      * @description The status of the trial use. Valid values:
      *
-     *   **1**: enabled
-     *   **0**: finished
+     *   **1**: The feature is in trial use.
+     *   **0**: The trial use ends.
      *
      * @example 1
      *

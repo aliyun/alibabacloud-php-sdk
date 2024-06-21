@@ -54,7 +54,7 @@ class DescribeImageSensitiveFileListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the sensitive file.
+     * @description An array that consists of the information about the sensitive files.
      *
      * @var sensitiveFileList[]
      */

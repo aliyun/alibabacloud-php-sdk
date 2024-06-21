@@ -20,10 +20,10 @@ class uniBackupPolicies extends Model
     /**
      * @description The status of the agent. Valid values:
      *
-     *   **UNKNOWN**: unknown
-     *   **INSTALLED**: installed
-     *   **INSTALL_FAILED**: installation failed
-     *   **UNINSTALL_FAILED**: uninstallation failed
+     *   **UNKNOWN**
+     *   **INSTALLED**
+     *   **INSTALL_FAILED**
+     *   **UNINSTALL_FAILED**
      *
      * @example INSTALLED
      *
@@ -131,12 +131,12 @@ class uniBackupPolicies extends Model
     /**
      * @description The status of the backup task. Valid values:
      *
-     *   **init**: initializing
-     *   **running**: running
-     *   **completed**: complete
-     *   **restoring**: restoring
-     *   **creating**: creating
-     *   **created**: created
+     *   **init**
+     *   **running**
+     *   **completed**
+     *   **restoring**
+     *   **creating**
+     *   **created**
      *
      * @example creating
      *
@@ -165,10 +165,12 @@ class uniBackupPolicies extends Model
     /**
      * @description The status of the anti-ransomware policy. Valid values:
      *
-     *   **initiating**: initializing
-     *   **opening**: enabled
-     *   **closing**: disabled
-     *   **deleting**: deleting
+     *   **initiating**
+     *   **opening**
+     *   **closing**
+     *   **deleting**
+     *   **enabled**
+     *   **disabled**
      *
      * @example opening
      *

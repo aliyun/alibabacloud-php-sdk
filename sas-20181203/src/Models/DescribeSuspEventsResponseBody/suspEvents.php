@@ -392,6 +392,11 @@ class suspEvents extends Model
     public $maliciousRuleStatus;
 
     /**
+     * @var string[]
+     */
+    public $markList;
+
+    /**
      * @description The advanced whitelist rule.
      *
      * @example [{\\"uuid\\":\\"ALL\\",\\"field\\":\\"gmtModified\\",\\"operate\\":\\"contains\\",\\"fieldValue\\":\\"222\\"}]
@@ -557,6 +562,7 @@ class suspEvents extends Model
         'lastTimeStamp'         => 'LastTimeStamp',
         'level'                 => 'Level',
         'maliciousRuleStatus'   => 'MaliciousRuleStatus',
+        'markList'              => 'MarkList',
         'markMisRules'          => 'MarkMisRules',
         'name'                  => 'Name',
         'occurrenceTime'        => 'OccurrenceTime',
@@ -708,6 +714,9 @@ class suspEvents extends Model
         }
         if (null !== $this->maliciousRuleStatus) {
             $res['MaliciousRuleStatus'] = $this->maliciousRuleStatus;
+        }
+        if (null !== $this->markList) {
+            $res['MarkList'] = $this->markList;
         }
         if (null !== $this->markMisRules) {
             $res['MarkMisRules'] = $this->markMisRules;
@@ -897,6 +906,11 @@ class suspEvents extends Model
         }
         if (isset($map['MaliciousRuleStatus'])) {
             $model->maliciousRuleStatus = $map['MaliciousRuleStatus'];
+        }
+        if (isset($map['MarkList'])) {
+            if (!empty($map['MarkList'])) {
+                $model->markList = $map['MarkList'];
+            }
         }
         if (isset($map['MarkMisRules'])) {
             $model->markMisRules = $map['MarkMisRules'];

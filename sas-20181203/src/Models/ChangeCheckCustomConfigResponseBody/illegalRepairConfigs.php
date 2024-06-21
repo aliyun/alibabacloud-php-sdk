@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class illegalRepairConfigs extends Model
 {
     /**
+     * @description The name of the invalid parameter required for fixing a risk item.
+     *
+     * @example SessionTimeMax
+     *
      * @var string
      */
     public $name;

@@ -2118,7 +2118,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
      *  *
      * @param AddSasModuleTrialRequest $request AddSasModuleTrialRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2154,7 +2154,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
      *  *
      * @param AddSasModuleTrialRequest $request AddSasModuleTrialRequest
      *
@@ -24350,7 +24350,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
      *  *
      * @param GetModuleTrialAuthInfoRequest $request GetModuleTrialAuthInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -24386,7 +24386,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+     * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis and response.
      *  *
      * @param GetModuleTrialAuthInfoRequest $request GetModuleTrialAuthInfoRequest
      *
@@ -28098,6 +28098,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->intranetIp)) {
             $query['IntranetIp'] = $request->intranetIp;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;

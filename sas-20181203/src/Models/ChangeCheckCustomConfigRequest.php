@@ -40,6 +40,8 @@ class ChangeCheckCustomConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The parameters required for fixing risk items.
+     *
      * @var repairConfigs[]
      */
     public $repairConfigs;

@@ -22,10 +22,10 @@ class data extends Model
     public $canTry;
 
     /**
-     * @description The module code. Valid values:
+     * @description The code of the feature. Valid values:
      *
-     *   **vulFix**: vulnerability fixing
-     *   **cloudSiem**: threat analysis
+     *   **vulFix**: vulnerability fixing.
+     *   **cloudSiem**: threat analysis and response.
      *
      * @example vulFix
      *
@@ -34,7 +34,7 @@ class data extends Model
     public $moduleCode;
 
     /**
-     * @description The information about the trial use.
+     * @description The trial use record.
      *
      * @var trialRecordList[]
      */

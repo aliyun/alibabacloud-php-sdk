@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class illegalCustomConfigs extends Model
 {
     /**
-     * @description The name of the custom configuration item. The name of a custom configuration item is unique in a check item.
+     * @description The name of the custom configuration item, which is unique in a check item.
      *
      * @example SessionTimeMax
      *

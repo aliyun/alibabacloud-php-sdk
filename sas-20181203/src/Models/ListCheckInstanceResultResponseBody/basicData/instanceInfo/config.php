@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The name of the configuration item, which is unique.
+     *
+     * @example prot
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The display name of the configuration item for internationalization.
+     *
+     * @example prot
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The value of the configuration item specified for the instance.
+     *
+     * @example 8080
+     *
      * @var string
      */
     public $value;

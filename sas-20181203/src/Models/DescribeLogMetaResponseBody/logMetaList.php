@@ -11,9 +11,9 @@ class logMetaList extends Model
     /**
      * @description The category of logs. Valid values:
      *
-     *   **host**: host logs
-     *   **network**: network logs
-     *   **security**: security logs
+     *   **host**
+     *   **network**
+     *   **security**
      *
      * @example host
      *
@@ -24,7 +24,7 @@ class logMetaList extends Model
     /**
      * @description The time period after which logs in hot storage are moved to cold storage. Unit: days.
      *
-     * >  If the value is **-1**, logs that are stored in hot storage are not moved to cold storage.
+     * >  If the value is -1, logs that are stored in hot storage are not moved to cold storage.
      * @example -1
      *
      * @var int

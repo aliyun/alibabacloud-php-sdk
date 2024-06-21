@@ -70,6 +70,20 @@ class ListFileProtectEventRequest extends Model
     public $intranetIp;
 
     /**
+     * @description Type of operation on a file. eg:
+     *
+     * - **DELETE**: delete the file.
+     * - **WRITE**: write the file.
+     * - **READ**: read the file.
+     * - **RENAME**: rename the file.
+     * - **CHOWN**: set the file owner and file association group operations.
+     * @example READ
+     *
+     * @var string
+     */
+    public $operation;
+
+    /**
      * @description The number of entries per page.
      *
      * @example 20
@@ -126,6 +140,7 @@ class ListFileProtectEventRequest extends Model
         'instanceName' => 'InstanceName',
         'internetIp'   => 'InternetIp',
         'intranetIp'   => 'IntranetIp',
+        'operation'    => 'Operation',
         'pageSize'     => 'PageSize',
         'ruleName'     => 'RuleName',
         'startTime'    => 'StartTime',
@@ -160,6 +175,9 @@ class ListFileProtectEventRequest extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -210,6 +228,9 @@ class ListFileProtectEventRequest extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

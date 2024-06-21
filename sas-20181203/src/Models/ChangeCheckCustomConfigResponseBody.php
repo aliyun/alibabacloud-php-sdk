@@ -18,6 +18,8 @@ class ChangeCheckCustomConfigResponseBody extends Model
     public $illegalCustomConfigs;
 
     /**
+     * @description An array that consists of the invalid parameters required for fixing risk items.
+     *
      * @var illegalRepairConfigs[]
      */
     public $illegalRepairConfigs;

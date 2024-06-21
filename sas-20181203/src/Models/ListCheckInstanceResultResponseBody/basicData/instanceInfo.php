@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
+     * @description The information about the configuration item whose risks are fixed for the instance.
+     *
      * @var config[]
      */
     public $config;
 
     /**
+     * @description The time of the first check.
+     *
+     * @example 1716447535531
+     *
      * @var int
      */
     public $firstUpdateTime;
 
     /**
+     * @description The time of the last check.
+     *
+     * @example 1716447535531
+     *
      * @var int
      */
     public $lastUpdateTime;

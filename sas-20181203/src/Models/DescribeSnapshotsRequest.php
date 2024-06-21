@@ -45,7 +45,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The region in which the server resides.
      *
-     * > This parameter is required if you do not specify the Uuid parameter.
+     * >  If the Uuid parameter is not specified, this parameter is required.
      * @example us-east-1
      *
      * @var string

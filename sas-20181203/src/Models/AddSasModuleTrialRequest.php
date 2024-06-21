@@ -21,10 +21,10 @@ class AddSasModuleTrialRequest extends Model
     public $lang;
 
     /**
-     * @description The module code. Valid values:
+     * @description The code of the feature. Valid values:
      *
-     *   **vulFix**: vulnerability fixing
-     *   **cloudSiem**: threat analysis
+     *   **vulFix**: vulnerability fixing.
+     *   **cloudSiem**: threat analysis and response.
      *
      * @example vulFix
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class basicData extends Model
 {
     /**
-     * @description The check result ID of the instance.
+     * @description The ID of the check result for the instance.
      *
      * @example 300054
      *
@@ -28,12 +28,14 @@ class basicData extends Model
     public $instanceId;
 
     /**
+     * @description The information about the instance on which the check item is used.
+     *
      * @var instanceInfo
      */
     public $instanceInfo;
 
     /**
-     * @description The instance name.
+     * @description The instance name of the server.
      *
      * @example sg-t4nbk2aodzio52xv****
      *
@@ -42,7 +44,7 @@ class basicData extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The region ID of the instance.
      *
      * @example ap-southeast-1
      *
@@ -53,11 +55,11 @@ class basicData extends Model
     /**
      * @description The states of check items. Multiple states are separated with commas (,). Valid values:
      *
-     *   **PASS**: The instance passed the check.
-     *   **NOT_PASS**: The instance failed to pass the check.
-     *   **CHECKING**: The instance is being checked.
-     *   **NOT_CHECK**: The instance is not checked.
-     *   **WHITELIST**: The instance is in the whitelist.
+     *   **PASS**: passed
+     *   **NOT_PASS**: failed
+     *   **CHECKING**: being checked
+     *   **NOT_CHECK**: not checked
+     *   **WHITELIST**: added to the whitelist
      *
      * @example NOT_PASS
      *

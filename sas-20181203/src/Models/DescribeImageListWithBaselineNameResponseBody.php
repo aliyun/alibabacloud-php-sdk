@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageListWithBaselineNameResponseBody extends Model
 {
     /**
-     * @description The timestamp when the last baseline check was performed. Unit: milliseconds.
+     * @description The information about the images.
      *
      * @var imageInfos[]
      */
