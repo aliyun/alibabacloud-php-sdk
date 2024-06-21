@@ -140,8 +140,6 @@ class data extends Model
     /**
      * @description The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
      *
-     * @example https://mse-shared-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/cfg/import/1917515******\/gw-0adf3ad751284cc69fcf9669fba*****\/2022/11/02/4d390496-2c17-4b42-a479-f9068ba****\/16673573***5.wasm
-     *
      * @var string
      */
     public $wasmFile;

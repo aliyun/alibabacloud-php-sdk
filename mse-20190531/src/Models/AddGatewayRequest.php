@@ -41,6 +41,11 @@ class AddGatewayRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $clbNetworkType;
+
+    /**
      * @description Specifies whether to activate Tracing Analysis.
      *
      * @example false
@@ -249,6 +254,7 @@ class AddGatewayRequest extends Model
     protected $_name = [
         'acceptLanguage'             => 'AcceptLanguage',
         'chargeType'                 => 'ChargeType',
+        'clbNetworkType'             => 'ClbNetworkType',
         'enableHardwareAcceleration' => 'EnableHardwareAcceleration',
         'enableSls'                  => 'EnableSls',
         'enableXtrace'               => 'EnableXtrace',
@@ -283,6 +289,9 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clbNetworkType) {
+            $res['ClbNetworkType'] = $this->clbNetworkType;
         }
         if (null !== $this->enableHardwareAcceleration) {
             $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
@@ -373,6 +382,9 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClbNetworkType'])) {
+            $model->clbNetworkType = $map['ClbNetworkType'];
         }
         if (isset($map['EnableHardwareAcceleration'])) {
             $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];

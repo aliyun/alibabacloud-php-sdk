@@ -768,6 +768,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->clbNetworkType)) {
+            $query['ClbNetworkType'] = $request->clbNetworkType;
+        }
         if (!Utils::isUnset($request->enableHardwareAcceleration)) {
             $query['EnableHardwareAcceleration'] = $request->enableHardwareAcceleration;
         }

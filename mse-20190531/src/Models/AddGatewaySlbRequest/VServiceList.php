@@ -41,8 +41,6 @@ class VServiceList extends Model
     /**
      * @description The name of the virtual server group.
      *
-     * @example k8s/31**0/***\/istio-system/clusterid
-     *
      * @var string
      */
     public $VServerGroupName;
