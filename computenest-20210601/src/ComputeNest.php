@@ -31,6 +31,9 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\StopServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -821,5 +824,74 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServiceInstanceSpecRequest $tmpReq  UpdateServiceInstanceSpecRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateServiceInstanceSpecResponse UpdateServiceInstanceSpecResponse
+     */
+    public function updateServiceInstanceSpecWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateServiceInstanceSpecShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commodity)) {
+            $query['Commodity'] = $request->commodity;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->enableUserPrometheus)) {
+            $query['EnableUserPrometheus'] = $request->enableUserPrometheus;
+        }
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->predefinedParametersName)) {
+            $query['PredefinedParametersName'] = $request->predefinedParametersName;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceInstanceSpec',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServiceInstanceSpecRequest $request UpdateServiceInstanceSpecRequest
+     *
+     * @return UpdateServiceInstanceSpecResponse UpdateServiceInstanceSpecResponse
+     */
+    public function updateServiceInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceInstanceSpecWithOptions($request, $runtime);
     }
 }
