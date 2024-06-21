@@ -20,12 +20,16 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ConfigSchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ConfigSchedruleOnDemandResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreatePolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreateSchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreateSchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeletePolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListShrinkRequest;
@@ -60,6 +64,9 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DetachFromPolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DetachFromPolicyResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DetachFromPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceShrinkRequest;
@@ -67,10 +74,21 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\GetSlsOpenStatusRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\GetSlsOpenStatusResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyAttachmentRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyAttachmentResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyAttachmentShrinkRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyContentRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyContentResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyContentShrinkRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandRequest;
@@ -277,9 +295,6 @@ class Ddosbgp extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -492,6 +507,56 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary 创建策略
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePolicyResponse CreatePolicyResponse
+     */
+    public function createPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建策略
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     *
+     * @return CreatePolicyResponse CreatePolicyResponse
+     */
+    public function createPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a scheduling rule for an on-demand instance.
      *  *
      * @param CreateSchedruleOnDemandRequest $request CreateSchedruleOnDemandRequest
@@ -698,6 +763,53 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary 删除策略
+     *  *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeletePolicyResponse DeletePolicyResponse
+     */
+    public function deletePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除策略
+     *  *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     *
+     * @return DeletePolicyResponse DeletePolicyResponse
+     */
+    public function deletePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除资源目录成员账号列表
      *  *
      * @param DeleteRdMemberListRequest $tmpReq  DeleteRdMemberListRequest
@@ -819,9 +931,6 @@ class Ddosbgp extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -883,9 +992,6 @@ class Ddosbgp extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -1747,6 +1853,61 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary 策略解绑
+     *  *
+     * @param DetachFromPolicyRequest $tmpReq  DetachFromPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DetachFromPolicyResponse DetachFromPolicyResponse
+     */
+    public function detachFromPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetachFromPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
+            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
+            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachFromPolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachFromPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 策略解绑
+     *  *
+     * @param DetachFromPolicyRequest $request DetachFromPolicyRequest
+     *
+     * @return DetachFromPolicyResponse DetachFromPolicyResponse
+     */
+    public function detachFromPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachFromPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
      *  *
      * @param DettachAssetGroupToInstanceRequest $tmpReq  DettachAssetGroupToInstanceRequest
@@ -1771,9 +1932,6 @@ class Ddosbgp extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1911,6 +2069,126 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary 查询策略
+     *  *
+     * @param ListPolicyRequest $request ListPolicyRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPolicyResponse ListPolicyResponse
+     */
+    public function listPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询策略
+     *  *
+     * @param ListPolicyRequest $request ListPolicyRequest
+     *
+     * @return ListPolicyResponse ListPolicyResponse
+     */
+    public function listPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询策略绑定
+     *  *
+     * @param ListPolicyAttachmentRequest $tmpReq  ListPolicyAttachmentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPolicyAttachmentResponse ListPolicyAttachmentResponse
+     */
+    public function listPolicyAttachmentWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListPolicyAttachmentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
+            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
+            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicyAttachment',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询策略绑定
+     *  *
+     * @param ListPolicyAttachmentRequest $request ListPolicyAttachmentRequest
+     *
+     * @return ListPolicyAttachmentResponse ListPolicyAttachmentResponse
+     */
+    public function listPolicyAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPolicyAttachmentWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries all tags.
      *  *
      * @param ListTagKeysRequest $request ListTagKeysRequest
@@ -2029,6 +2307,125 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改策略
+     *  *
+     * @param ModifyPolicyRequest $tmpReq  ModifyPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPolicyResponse ModifyPolicyResponse
+     */
+    public function modifyPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->content)) {
+            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
+        if (!Utils::isUnset($request->contentShrink)) {
+            $query['Content'] = $request->contentShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改策略
+     *  *
+     * @param ModifyPolicyRequest $request ModifyPolicyRequest
+     *
+     * @return ModifyPolicyResponse ModifyPolicyResponse
+     */
+    public function modifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改策略
+     *  *
+     * @param ModifyPolicyContentRequest $tmpReq  ModifyPolicyContentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPolicyContentResponse ModifyPolicyContentResponse
+     */
+    public function modifyPolicyContentWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyPolicyContentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->content)) {
+            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->contentShrink)) {
+            $query['Content'] = $request->contentShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPolicyContent',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPolicyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改策略
+     *  *
+     * @param ModifyPolicyContentRequest $request ModifyPolicyContentRequest
+     *
+     * @return ModifyPolicyContentResponse ModifyPolicyContentResponse
+     */
+    public function modifyPolicyContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolicyContentWithOptions($request, $runtime);
     }
 
     /**

@@ -56,15 +56,6 @@ class DescribeAssetGroupToInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The source IP address of the request. The system specifies this parameter.
-     *
-     * @example 115.238.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @description The type of the asset. Valid values:
      *
      *   **waf**: WAF instance
@@ -81,7 +72,6 @@ class DescribeAssetGroupToInstanceRequest extends Model
         'name'       => 'Name',
         'region'     => 'Region',
         'regionId'   => 'RegionId',
-        'sourceIp'   => 'SourceIp',
         'type'       => 'Type',
     ];
 
@@ -106,9 +96,6 @@ class DescribeAssetGroupToInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -139,9 +126,6 @@ class DescribeAssetGroupToInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

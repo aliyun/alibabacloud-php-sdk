@@ -36,20 +36,10 @@ class AttachAssetGroupToInstanceRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The source IP address of the request. The system specifies this parameter.
-     *
-     * @example 180.169.XX.XX
-     *
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'assetGroupList' => 'AssetGroupList',
         'instanceId'     => 'InstanceId',
         'regionId'       => 'RegionId',
-        'sourceIp'       => 'SourceIp',
     ];
 
     public function validate()
@@ -73,9 +63,6 @@ class AttachAssetGroupToInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -103,9 +90,6 @@ class AttachAssetGroupToInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;
