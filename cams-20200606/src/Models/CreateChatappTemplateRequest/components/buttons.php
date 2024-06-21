@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest\components;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest\components\buttons\supportedApps;
 use AlibabaCloud\Tea\Model;
 
 class buttons extends Model
@@ -59,6 +60,8 @@ class buttons extends Model
      *
      * @example com.demo
      *
+     * @deprecated
+     *
      * @var string
      */
     public $packageName;
@@ -77,9 +80,16 @@ class buttons extends Model
      *
      * @example wi299382
      *
+     * @deprecated
+     *
      * @var string
      */
     public $signatureHash;
+
+    /**
+     * @var supportedApps[]
+     */
+    public $supportedApps;
 
     /**
      * @description The display name of the button.
@@ -146,6 +156,7 @@ class buttons extends Model
         'packageName'    => 'PackageName',
         'phoneNumber'    => 'PhoneNumber',
         'signatureHash'  => 'SignatureHash',
+        'supportedApps'  => 'SupportedApps',
         'text'           => 'Text',
         'type'           => 'Type',
         'url'            => 'Url',
@@ -185,6 +196,15 @@ class buttons extends Model
         }
         if (null !== $this->signatureHash) {
             $res['SignatureHash'] = $this->signatureHash;
+        }
+        if (null !== $this->supportedApps) {
+            $res['SupportedApps'] = [];
+            if (null !== $this->supportedApps && \is_array($this->supportedApps)) {
+                $n = 0;
+                foreach ($this->supportedApps as $item) {
+                    $res['SupportedApps'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -236,6 +256,15 @@ class buttons extends Model
         }
         if (isset($map['SignatureHash'])) {
             $model->signatureHash = $map['SignatureHash'];
+        }
+        if (isset($map['SupportedApps'])) {
+            if (!empty($map['SupportedApps'])) {
+                $model->supportedApps = [];
+                $n                    = 0;
+                foreach ($map['SupportedApps'] as $item) {
+                    $model->supportedApps[$n++] = null !== $item ? supportedApps::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
