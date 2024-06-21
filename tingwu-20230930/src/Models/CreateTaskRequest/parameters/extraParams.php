@@ -27,11 +27,17 @@ class extraParams extends Model
      * @var bool
      */
     public $ocrAuxiliaryEnabled;
+
+    /**
+     * @var bool
+     */
+    public $translateLlmSceneEnabled;
     protected $_name = [
-        'domainEducationEnabled' => 'DomainEducationEnabled',
-        'maxKeywords'            => 'MaxKeywords',
-        'nfixEnabled'            => 'NfixEnabled',
-        'ocrAuxiliaryEnabled'    => 'OcrAuxiliaryEnabled',
+        'domainEducationEnabled'   => 'DomainEducationEnabled',
+        'maxKeywords'              => 'MaxKeywords',
+        'nfixEnabled'              => 'NfixEnabled',
+        'ocrAuxiliaryEnabled'      => 'OcrAuxiliaryEnabled',
+        'translateLlmSceneEnabled' => 'TranslateLlmSceneEnabled',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class extraParams extends Model
         }
         if (null !== $this->ocrAuxiliaryEnabled) {
             $res['OcrAuxiliaryEnabled'] = $this->ocrAuxiliaryEnabled;
+        }
+        if (null !== $this->translateLlmSceneEnabled) {
+            $res['TranslateLlmSceneEnabled'] = $this->translateLlmSceneEnabled;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class extraParams extends Model
         }
         if (isset($map['OcrAuxiliaryEnabled'])) {
             $model->ocrAuxiliaryEnabled = $map['OcrAuxiliaryEnabled'];
+        }
+        if (isset($map['TranslateLlmSceneEnabled'])) {
+            $model->translateLlmSceneEnabled = $map['TranslateLlmSceneEnabled'];
         }
 
         return $model;
