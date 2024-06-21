@@ -1255,6 +1255,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->deleteOptions)) {
             $query['DeleteOptions'] = $request->deleteOptions;
         }
+        if (!Utils::isUnset($request->parallelism)) {
+            $query['Parallelism'] = $request->parallelism;
+        }
         if (!Utils::isUnset($request->ramRoleName)) {
             $query['RamRoleName'] = $request->ramRoleName;
         }
