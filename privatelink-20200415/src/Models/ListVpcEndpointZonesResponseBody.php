@@ -40,6 +40,15 @@ class ListVpcEndpointZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 3
+     *
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @description The information about the zones.
      *
      * @var zones[]
@@ -49,6 +58,7 @@ class ListVpcEndpointZonesResponseBody extends Model
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'zones'      => 'Zones',
     ];
 
@@ -67,6 +77,9 @@ class ListVpcEndpointZonesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->zones) {
             $res['Zones'] = [];
@@ -97,6 +110,9 @@ class ListVpcEndpointZonesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {

@@ -45,11 +45,21 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
      * @var securityGroups[]
      */
     public $securityGroups;
+
+    /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
         'requestId'      => 'RequestId',
         'securityGroups' => 'SecurityGroups',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -76,6 +86,9 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
                     $res['SecurityGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -106,6 +119,9 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
                     $model->securityGroups[$n++] = null !== $item ? securityGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

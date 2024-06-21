@@ -33,7 +33,7 @@ class DetachResourceFromVpcEndpointServiceRequest extends Model
     /**
      * @description The region ID of the endpoint.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +43,7 @@ class DetachResourceFromVpcEndpointServiceRequest extends Model
     /**
      * @description The service resource ID.
      *
+     * This parameter is required.
      * @example lb-hp32z1wp5peaoox2q****
      *
      * @var string
@@ -64,6 +65,7 @@ class DetachResourceFromVpcEndpointServiceRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

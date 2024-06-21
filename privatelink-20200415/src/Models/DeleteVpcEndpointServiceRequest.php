@@ -31,8 +31,9 @@ class DeleteVpcEndpointServiceRequest extends Model
     public $dryRun;
 
     /**
-     * @description The region ID of the endpoint service. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @description The region ID of the endpoint service. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example eu-west-1
      *
      * @var string
@@ -42,6 +43,7 @@ class DeleteVpcEndpointServiceRequest extends Model
     /**
      * @description The ID of the endpoint service that you want to delete.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

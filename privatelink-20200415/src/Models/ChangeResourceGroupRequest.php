@@ -11,6 +11,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The resource group ID.
      *
+     * This parameter is required.
      * @example rg-acfmy*****
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The resource IDs. You can specify up to 50 resource IDs.
      *
+     * This parameter is required.
      * @example ep-hp3i05294c2d2d****
      *
      * @var string
@@ -29,10 +31,10 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The type of resource. Valid values:
      *
-     *   **vpcendpoint**: endpoint
-     *   **vpcendpointservice**: endpoint service
+     *   **VpcEndpoint**: endpoint
+     *   **VpcEndpointService**: endpoint service
      *
-     * @example vpcendpoint
+     * @example VpcEndpoint
      *
      * @var string
      */

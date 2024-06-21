@@ -33,6 +33,7 @@ class AddZoneToVpcEndpointRequest extends Model
     /**
      * @description The ID of the endpoint to which you want to add the zone.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -42,7 +43,7 @@ class AddZoneToVpcEndpointRequest extends Model
     /**
      * @description The region ID of the endpoint.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +53,7 @@ class AddZoneToVpcEndpointRequest extends Model
     /**
      * @description The ID of the vSwitch in the zone that you want to add. The system automatically creates an endpoint ENI in the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-hjkshjvdkdvd****
      *
      * @var string
@@ -61,6 +63,7 @@ class AddZoneToVpcEndpointRequest extends Model
     /**
      * @description The ID of the zone that you want to add.
      *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

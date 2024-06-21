@@ -14,6 +14,7 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -45,7 +46,7 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
     /**
      * @description The ID of the region where the service resource is deployed.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +56,7 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
     /**
      * @description The service resource ID.
      *
+     * This parameter is required.
      * @example lb-hp32z1wp5peaoox2q****
      *
      * @var string
@@ -64,6 +66,7 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

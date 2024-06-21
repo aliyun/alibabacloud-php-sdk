@@ -45,7 +45,7 @@ class CreateVpcEndpointRequest extends Model
     /**
      * @description The name of the endpoint.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -63,6 +63,11 @@ class CreateVpcEndpointRequest extends Model
     public $endpointType;
 
     /**
+     * @var string
+     */
+    public $policyDocument;
+
+    /**
      * @description Specifies whether to enable user authentication. This parameter is available in Security Token Service (STS) mode. Valid values:
      *
      *   **true**: enables user authentication. After user authentication is enabled, only the user who creates the endpoint can modify or delete the endpoint in STS mode.
@@ -77,7 +82,7 @@ class CreateVpcEndpointRequest extends Model
     /**
      * @description The region ID of the endpoint.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string
@@ -130,6 +135,7 @@ class CreateVpcEndpointRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
      *
+     * This parameter is required.
      * @example vpc-hp356stwkxg3fn2xe****
      *
      * @var string
@@ -157,6 +163,7 @@ class CreateVpcEndpointRequest extends Model
         'endpointDescription'       => 'EndpointDescription',
         'endpointName'              => 'EndpointName',
         'endpointType'              => 'EndpointType',
+        'policyDocument'            => 'PolicyDocument',
         'protectedEnabled'          => 'ProtectedEnabled',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -190,6 +197,9 @@ class CreateVpcEndpointRequest extends Model
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
+        }
+        if (null !== $this->policyDocument) {
+            $res['PolicyDocument'] = $this->policyDocument;
         }
         if (null !== $this->protectedEnabled) {
             $res['ProtectedEnabled'] = $this->protectedEnabled;
@@ -259,6 +269,9 @@ class CreateVpcEndpointRequest extends Model
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+        if (isset($map['PolicyDocument'])) {
+            $model->policyDocument = $map['PolicyDocument'];
         }
         if (isset($map['ProtectedEnabled'])) {
             $model->protectedEnabled = $map['ProtectedEnabled'];

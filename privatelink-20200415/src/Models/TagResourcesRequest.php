@@ -36,7 +36,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the PrivateLink instance.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +46,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs. Up to 50 resource IDs are supported.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -56,6 +57,7 @@ class TagResourcesRequest extends Model
      *   **vpcendpoint**: endpoint
      *   **vpcendpointservice**: endpoint service
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -65,6 +67,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags to add to the resources.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

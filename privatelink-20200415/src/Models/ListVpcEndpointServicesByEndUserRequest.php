@@ -33,7 +33,7 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     /**
      * @description The region ID of the endpoint.
      *
-     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string

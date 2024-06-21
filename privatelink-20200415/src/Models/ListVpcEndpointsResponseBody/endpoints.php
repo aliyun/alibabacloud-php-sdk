@@ -117,6 +117,11 @@ class endpoints extends Model
     public $endpointType;
 
     /**
+     * @var string
+     */
+    public $policyDocument;
+
+    /**
      * @description The region ID of the endpoint.
      *
      * @example cn-huhehaote
@@ -202,6 +207,7 @@ class endpoints extends Model
         'endpointName'           => 'EndpointName',
         'endpointStatus'         => 'EndpointStatus',
         'endpointType'           => 'EndpointType',
+        'policyDocument'         => 'PolicyDocument',
         'regionId'               => 'RegionId',
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwner'          => 'ResourceOwner',
@@ -248,6 +254,9 @@ class endpoints extends Model
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
+        }
+        if (null !== $this->policyDocument) {
+            $res['PolicyDocument'] = $this->policyDocument;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -320,6 +329,9 @@ class endpoints extends Model
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+        if (isset($map['PolicyDocument'])) {
+            $model->policyDocument = $map['PolicyDocument'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

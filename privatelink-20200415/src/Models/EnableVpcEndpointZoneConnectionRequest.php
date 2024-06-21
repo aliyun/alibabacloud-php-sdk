@@ -33,6 +33,7 @@ class EnableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The endpoint ID.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -40,8 +41,9 @@ class EnableVpcEndpointZoneConnectionRequest extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the region where the endpoint connection request is accepted. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @description The ID of the region where the endpoint connection request is accepted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +53,7 @@ class EnableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -60,6 +63,7 @@ class EnableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The ID of the zone that is associated with the endpoint.
      *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

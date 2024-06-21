@@ -43,6 +43,7 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     /**
      * @description The endpoint ID.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -50,8 +51,9 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     public $endpointId;
 
     /**
-     * @description The region ID of the endpoint connection whose bandwidth you want to modify. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @description The region ID of the endpoint connection whose bandwidth you want to modify. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example eu-west-1
      *
      * @var string
@@ -61,6 +63,7 @@ class UpdateVpcEndpointConnectionAttributeRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

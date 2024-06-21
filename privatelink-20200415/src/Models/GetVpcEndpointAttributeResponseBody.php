@@ -128,6 +128,11 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $payer;
 
     /**
+     * @var string
+     */
+    public $policyDocument;
+
+    /**
      * @description The region ID of the endpoint.
      *
      * @example cn-huhehaote
@@ -225,6 +230,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
         'endpointStatus'            => 'EndpointStatus',
         'endpointType'              => 'EndpointType',
         'payer'                     => 'Payer',
+        'policyDocument'            => 'PolicyDocument',
         'regionId'                  => 'RegionId',
         'requestId'                 => 'RequestId',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -275,6 +281,9 @@ class GetVpcEndpointAttributeResponseBody extends Model
         }
         if (null !== $this->payer) {
             $res['Payer'] = $this->payer;
+        }
+        if (null !== $this->policyDocument) {
+            $res['PolicyDocument'] = $this->policyDocument;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -347,6 +356,9 @@ class GetVpcEndpointAttributeResponseBody extends Model
         }
         if (isset($map['Payer'])) {
             $model->payer = $map['Payer'];
+        }
+        if (isset($map['PolicyDocument'])) {
+            $model->policyDocument = $map['PolicyDocument'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

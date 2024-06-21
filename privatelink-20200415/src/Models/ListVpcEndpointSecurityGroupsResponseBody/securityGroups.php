@@ -16,8 +16,18 @@ class securityGroups extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @description The associate status of the security group, valid values:
+     * - Detaching: The security group is being detached.
+     * @example Attached
+     *
+     * @var string
+     */
+    public $securityGroupStatus;
     protected $_name = [
-        'securityGroupId' => 'SecurityGroupId',
+        'securityGroupId'     => 'SecurityGroupId',
+        'securityGroupStatus' => 'SecurityGroupStatus',
     ];
 
     public function validate()
@@ -29,6 +39,9 @@ class securityGroups extends Model
         $res = [];
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupStatus) {
+            $res['SecurityGroupStatus'] = $this->securityGroupStatus;
         }
 
         return $res;
@@ -44,6 +57,9 @@ class securityGroups extends Model
         $model = new self();
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupStatus'])) {
+            $model->securityGroupStatus = $map['SecurityGroupStatus'];
         }
 
         return $model;

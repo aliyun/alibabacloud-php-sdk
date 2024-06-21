@@ -33,6 +33,7 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     /**
      * @description The ID of the endpoint that you want to disassociate from the security group.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -40,8 +41,9 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     public $endpointId;
 
     /**
-     * @description The region ID of the endpoint that you want to disassociate from the security group. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @description The region ID of the endpoint that you want to disassociate from the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example eu-west-1
      *
      * @var string
@@ -51,6 +53,7 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
     /**
      * @description The ID of the security group from which you want to disassociate the endpoint.
      *
+     * This parameter is required.
      * @example sg-hp3c8qj1tyct90ej****
      *
      * @var string

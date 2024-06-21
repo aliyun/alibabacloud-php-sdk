@@ -11,7 +11,7 @@ class GetVpcEndpointServiceAttributeRequest extends Model
     /**
      * @description The region ID of the endpoint service.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string
@@ -21,6 +21,7 @@ class GetVpcEndpointServiceAttributeRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string

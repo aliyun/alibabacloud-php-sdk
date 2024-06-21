@@ -48,7 +48,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the PrivateLink instance.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +58,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify up to 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -68,6 +69,7 @@ class UntagResourcesRequest extends Model
      *   **vpcendpoint**: endpoint
      *   **vpcendpointservice**: endpoint service
      *
+     * This parameter is required.
      * @example slb
      *
      * @var string

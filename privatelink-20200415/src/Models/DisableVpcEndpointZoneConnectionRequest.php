@@ -33,6 +33,7 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The endpoint ID.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -42,7 +43,7 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The ID of the region where the connection request from the endpoint is rejected.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +66,7 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The endpoint service ID.
      *
+     * This parameter is required.
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -74,6 +76,7 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
     /**
      * @description The ID of the zone that is associated with the endpoint.
      *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

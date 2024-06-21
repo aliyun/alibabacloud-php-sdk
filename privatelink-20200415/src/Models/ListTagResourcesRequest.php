@@ -32,8 +32,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the resource resides. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @description The ID of the region where the resource resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +54,7 @@ class ListTagResourcesRequest extends Model
      *   **vpcendpoint**: endpoint
      *   **vpcendpointservice**: endpoint service
      *
+     * This parameter is required.
      * @example vpcendpoint
      *
      * @var string

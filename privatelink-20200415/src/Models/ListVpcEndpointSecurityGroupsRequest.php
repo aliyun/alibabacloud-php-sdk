@@ -11,6 +11,7 @@ class ListVpcEndpointSecurityGroupsRequest extends Model
     /**
      * @description The ID of the endpoint that you want to query.
      *
+     * This parameter is required.
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -41,7 +42,7 @@ class ListVpcEndpointSecurityGroupsRequest extends Model
     /**
      * @description The region ID of the endpoint that you want to query.
      *
-     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string
