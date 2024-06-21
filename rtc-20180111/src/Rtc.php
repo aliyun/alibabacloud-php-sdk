@@ -32,6 +32,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordingFilesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRequest;
@@ -886,6 +889,55 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询录制列表
+     *  *
+     * @param DescribeAppRecordingFilesRequest $tmpReq  DescribeAppRecordingFilesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppRecordingFilesResponse DescribeAppRecordingFilesResponse
+     */
+    public function describeAppRecordingFilesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeAppRecordingFilesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppRecordingFiles',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppRecordingFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询录制列表
+     *  *
+     * @param DescribeAppRecordingFilesRequest $request DescribeAppRecordingFilesRequest
+     *
+     * @return DescribeAppRecordingFilesResponse DescribeAppRecordingFilesResponse
+     */
+    public function describeAppRecordingFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppRecordingFilesWithOptions($request, $runtime);
     }
 
     /**
