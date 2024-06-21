@@ -5310,6 +5310,12 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->surveyChannel)) {
             $query['SurveyChannel'] = $request->surveyChannel;
         }
+        if (!Utils::isUnset($request->surveyTemplateId)) {
+            $query['SurveyTemplateId'] = $request->surveyTemplateId;
+        }
+        if (!Utils::isUnset($request->surveyTemplateVariables)) {
+            $query['SurveyTemplateVariables'] = $request->surveyTemplateVariables;
+        }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }
@@ -7667,6 +7673,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
         if (!Utils::isUnset($request->outboundScenario)) {
             $query['OutboundScenario'] = $request->outboundScenario;
         }
@@ -7735,6 +7744,9 @@ class CCC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;

@@ -62,20 +62,32 @@ class LaunchSurveyRequest extends Model
     public $surveyChannel;
 
     /**
+     * @var string
+     */
+    public $surveyTemplateId;
+
+    /**
+     * @var string
+     */
+    public $surveyTemplateVariables;
+
+    /**
      * @example agent@ccc-test
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'contactFlowId'        => 'ContactFlowId',
-        'contactFlowVariables' => 'ContactFlowVariables',
-        'deviceId'             => 'DeviceId',
-        'instanceId'           => 'InstanceId',
-        'jobId'                => 'JobId',
-        'smsMetadataId'        => 'SmsMetadataId',
-        'surveyChannel'        => 'SurveyChannel',
-        'userId'               => 'UserId',
+        'contactFlowId'           => 'ContactFlowId',
+        'contactFlowVariables'    => 'ContactFlowVariables',
+        'deviceId'                => 'DeviceId',
+        'instanceId'              => 'InstanceId',
+        'jobId'                   => 'JobId',
+        'smsMetadataId'           => 'SmsMetadataId',
+        'surveyChannel'           => 'SurveyChannel',
+        'surveyTemplateId'        => 'SurveyTemplateId',
+        'surveyTemplateVariables' => 'SurveyTemplateVariables',
+        'userId'                  => 'UserId',
     ];
 
     public function validate()
@@ -105,6 +117,12 @@ class LaunchSurveyRequest extends Model
         }
         if (null !== $this->surveyChannel) {
             $res['SurveyChannel'] = $this->surveyChannel;
+        }
+        if (null !== $this->surveyTemplateId) {
+            $res['SurveyTemplateId'] = $this->surveyTemplateId;
+        }
+        if (null !== $this->surveyTemplateVariables) {
+            $res['SurveyTemplateVariables'] = $this->surveyTemplateVariables;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -141,6 +159,12 @@ class LaunchSurveyRequest extends Model
         }
         if (isset($map['SurveyChannel'])) {
             $model->surveyChannel = $map['SurveyChannel'];
+        }
+        if (isset($map['SurveyTemplateId'])) {
+            $model->surveyTemplateId = $map['SurveyTemplateId'];
+        }
+        if (isset($map['SurveyTemplateVariables'])) {
+            $model->surveyTemplateVariables = $map['SurveyTemplateVariables'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

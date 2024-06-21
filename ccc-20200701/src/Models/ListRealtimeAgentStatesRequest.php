@@ -39,6 +39,11 @@ class ListRealtimeAgentStatesRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example false
      *
      * @var bool
@@ -95,6 +100,7 @@ class ListRealtimeAgentStatesRequest extends Model
         'agentName'        => 'AgentName',
         'callTypeList'     => 'CallTypeList',
         'instanceId'       => 'InstanceId',
+        'mediaType'        => 'MediaType',
         'outboundScenario' => 'OutboundScenario',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
@@ -122,6 +128,9 @@ class ListRealtimeAgentStatesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->outboundScenario) {
             $res['OutboundScenario'] = $this->outboundScenario;
@@ -167,6 +176,9 @@ class ListRealtimeAgentStatesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['OutboundScenario'])) {
             $model->outboundScenario = $map['OutboundScenario'];
