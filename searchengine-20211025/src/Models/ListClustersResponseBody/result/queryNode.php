@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class queryNode extends Model
 {
     /**
-     * @description The name of the node.
+     * @description The name of the QRS worker.
      *
      * @example test_0704
      *
@@ -18,7 +18,7 @@ class queryNode extends Model
     public $name;
 
     /**
-     * @description The number of nodes.
+     * @description The number of QRS workers.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class queryNode extends Model
     public $number;
 
     /**
-     * @description The number o replicas.
+     * @description The ID of the partition that is stored on the QRS worker.
      *
      * @example dt=20211216
      *

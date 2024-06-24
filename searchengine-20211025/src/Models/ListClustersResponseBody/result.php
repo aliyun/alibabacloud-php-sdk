@@ -30,7 +30,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The effective advanced version.
+     * @description The effective advanced configuration version.
      *
      * @example " "
      *
@@ -39,7 +39,7 @@ class result extends Model
     public $currentAdvanceConfigVersion;
 
     /**
-     * @description 词典配置生效版本
+     * @description The effective dictionary configuration version.
      *
      * @var string
      */
@@ -55,14 +55,14 @@ class result extends Model
     public $currentOnlineConfigVersion;
 
     /**
-     * @description 查询配置生效版本
+     * @description The effective query configuration version.
      *
      * @var string
      */
     public $currentOnlineQueryConfigVersion;
 
     /**
-     * @description The information about the node in the cluster.
+     * @description The information about Searcher workers.
      *
      * @var dataNode
      */
@@ -87,7 +87,7 @@ class result extends Model
     public $latestAdvanceConfigVersion;
 
     /**
-     * @description 词典配置最新版本
+     * @description The latest dictionary configuration version.
      *
      * @var string
      */
@@ -103,14 +103,14 @@ class result extends Model
     public $latestOnlineConfigVersion;
 
     /**
-     * @description 查询配置最新版本
+     * @description The latest query configuration version.
      *
      * @var string
      */
     public $latestOnlineQueryConfigVersion;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example ha-cn-7pp2pcna701_qrs
      *
@@ -119,14 +119,14 @@ class result extends Model
     public $name;
 
     /**
-     * @description The query node of the cluster.
+     * @description The information about Query Result Searcher (QRS) workers.
      *
      * @var queryNode
      */
     public $queryNode;
 
     /**
-     * @description The status of the cluster. Valid values: running, starting, stopping, and stopped. running indicates the cluster is running, starting indicates the cluster is starting, stopping indicates the cluster is stopping, and stopped indicates the cluster has stopped.
+     * @description The status of the cluster. Valid values: running: The cluster is running. starting: The cluster is being started. stopping: The cluster is being stopped. stopped: The cluster is stopped.
      *
      * @example "starting"
      *

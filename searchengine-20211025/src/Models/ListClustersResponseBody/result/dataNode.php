@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataNode extends Model
 {
     /**
-     * @description The name of the node.
+     * @description The name of the Searcher worker.
      *
      * @example ha-cn-8ed2k7brm05_qrs
      *
@@ -18,7 +18,7 @@ class dataNode extends Model
     public $name;
 
     /**
-     * @description The number of nodes.
+     * @description The number of Searcher workers.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class dataNode extends Model
     public $number;
 
     /**
-     * @description The partition ID of the node.
+     * @description The ID of the partition that is stored on the Searcher worker.
      *
      * @example dt=20220216
      *
