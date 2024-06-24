@@ -34,6 +34,11 @@ class flightRefundTicketInfoList extends Model
     public $arrCityCode;
 
     /**
+     * @var float
+     */
+    public $companyRefundTicketFee;
+
+    /**
      * @var string
      */
     public $depAirport;
@@ -78,6 +83,11 @@ class flightRefundTicketInfoList extends Model
     public $outApplyId;
 
     /**
+     * @var float
+     */
+    public $personalRefundTicketFee;
+
+    /**
      * @example 43667
      *
      * @var int
@@ -110,24 +120,26 @@ class flightRefundTicketInfoList extends Model
      */
     public $ticketNo;
     protected $_name = [
-        'applyId'         => 'apply_id',
-        'arrAirport'      => 'arr_airport',
-        'arrAirportCode'  => 'arr_airport_code',
-        'arrCity'         => 'arr_city',
-        'arrCityCode'     => 'arr_city_code',
-        'depAirport'      => 'dep_airport',
-        'depAirportCode'  => 'dep_airport_code',
-        'depCity'         => 'dep_city',
-        'depCityCode'     => 'dep_city_code',
-        'flightNo'        => 'flight_no',
-        'gmtCreate'       => 'gmt_create',
-        'gmtModify'       => 'gmt_modify',
-        'outApplyId'      => 'out_apply_id',
-        'refundOrderId'   => 'refund_order_id',
-        'refundReason'    => 'refund_reason',
-        'refundTicketFee' => 'refund_ticket_fee',
-        'refundType'      => 'refund_type',
-        'ticketNo'        => 'ticket_no',
+        'applyId'                 => 'apply_id',
+        'arrAirport'              => 'arr_airport',
+        'arrAirportCode'          => 'arr_airport_code',
+        'arrCity'                 => 'arr_city',
+        'arrCityCode'             => 'arr_city_code',
+        'companyRefundTicketFee'  => 'company_refund_ticket_fee',
+        'depAirport'              => 'dep_airport',
+        'depAirportCode'          => 'dep_airport_code',
+        'depCity'                 => 'dep_city',
+        'depCityCode'             => 'dep_city_code',
+        'flightNo'                => 'flight_no',
+        'gmtCreate'               => 'gmt_create',
+        'gmtModify'               => 'gmt_modify',
+        'outApplyId'              => 'out_apply_id',
+        'personalRefundTicketFee' => 'personal_refund_ticket_fee',
+        'refundOrderId'           => 'refund_order_id',
+        'refundReason'            => 'refund_reason',
+        'refundTicketFee'         => 'refund_ticket_fee',
+        'refundType'              => 'refund_type',
+        'ticketNo'                => 'ticket_no',
     ];
 
     public function validate()
@@ -152,6 +164,9 @@ class flightRefundTicketInfoList extends Model
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
         }
+        if (null !== $this->companyRefundTicketFee) {
+            $res['company_refund_ticket_fee'] = $this->companyRefundTicketFee;
+        }
         if (null !== $this->depAirport) {
             $res['dep_airport'] = $this->depAirport;
         }
@@ -175,6 +190,9 @@ class flightRefundTicketInfoList extends Model
         }
         if (null !== $this->outApplyId) {
             $res['out_apply_id'] = $this->outApplyId;
+        }
+        if (null !== $this->personalRefundTicketFee) {
+            $res['personal_refund_ticket_fee'] = $this->personalRefundTicketFee;
         }
         if (null !== $this->refundOrderId) {
             $res['refund_order_id'] = $this->refundOrderId;
@@ -218,6 +236,9 @@ class flightRefundTicketInfoList extends Model
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
         }
+        if (isset($map['company_refund_ticket_fee'])) {
+            $model->companyRefundTicketFee = $map['company_refund_ticket_fee'];
+        }
         if (isset($map['dep_airport'])) {
             $model->depAirport = $map['dep_airport'];
         }
@@ -241,6 +262,9 @@ class flightRefundTicketInfoList extends Model
         }
         if (isset($map['out_apply_id'])) {
             $model->outApplyId = $map['out_apply_id'];
+        }
+        if (isset($map['personal_refund_ticket_fee'])) {
+            $model->personalRefundTicketFee = $map['personal_refund_ticket_fee'];
         }
         if (isset($map['refund_order_id'])) {
             $model->refundOrderId = $map['refund_order_id'];

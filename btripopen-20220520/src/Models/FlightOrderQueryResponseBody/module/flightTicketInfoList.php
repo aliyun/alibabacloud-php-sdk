@@ -83,6 +83,11 @@ class flightTicketInfoList extends Model
     public $payType;
 
     /**
+     * @var float
+     */
+    public $personalPrice;
+
+    /**
      * @example 100
      *
      * @var float
@@ -134,6 +139,7 @@ class flightTicketInfoList extends Model
         'gmtModify'        => 'gmt_modify',
         'oilPrice'         => 'oil_price',
         'payType'          => 'pay_type',
+        'personalPrice'    => 'personal_price',
         'settlePrice'      => 'settle_price',
         'ticketNo'         => 'ticket_no',
         'ticketPrice'      => 'ticket_price',
@@ -184,6 +190,9 @@ class flightTicketInfoList extends Model
         }
         if (null !== $this->payType) {
             $res['pay_type'] = $this->payType;
+        }
+        if (null !== $this->personalPrice) {
+            $res['personal_price'] = $this->personalPrice;
         }
         if (null !== $this->settlePrice) {
             $res['settle_price'] = $this->settlePrice;
@@ -250,6 +259,9 @@ class flightTicketInfoList extends Model
         }
         if (isset($map['pay_type'])) {
             $model->payType = $map['pay_type'];
+        }
+        if (isset($map['personal_price'])) {
+            $model->personalPrice = $map['personal_price'];
         }
         if (isset($map['settle_price'])) {
             $model->settlePrice = $map['settle_price'];

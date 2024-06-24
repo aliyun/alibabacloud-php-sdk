@@ -17,6 +17,11 @@ class applyList extends Model
     public $approverList;
 
     /**
+     * @var string
+     */
+    public $businessType;
+
+    /**
      * @example depart1
      *
      * @var string
@@ -94,6 +99,7 @@ class applyList extends Model
     public $userName;
     protected $_name = [
         'approverList'     => 'approver_list',
+        'businessType'     => 'business_type',
         'departId'         => 'depart_id',
         'departName'       => 'depart_name',
         'gmtCreate'        => 'gmt_create',
@@ -124,6 +130,9 @@ class applyList extends Model
                     $res['approver_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->businessType) {
+            $res['business_type'] = $this->businessType;
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
@@ -196,6 +205,9 @@ class applyList extends Model
                     $model->approverList[$n++] = null !== $item ? approverList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['business_type'])) {
+            $model->businessType = $map['business_type'];
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];

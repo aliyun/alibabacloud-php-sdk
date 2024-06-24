@@ -161,6 +161,11 @@ class module extends Model
     public $orderStatusDesc;
 
     /**
+     * @var string
+     */
+    public $outConfirmCode;
+
+    /**
      * @example 2000-00-00 00:00:00
      *
      * @var string
@@ -284,6 +289,7 @@ class module extends Model
         'occupantInfoList'          => 'occupant_info_list',
         'orderStatus'               => 'order_status',
         'orderStatusDesc'           => 'order_status_desc',
+        'outConfirmCode'            => 'out_confirm_code',
         'payTime'                   => 'pay_time',
         'productType'               => 'product_type',
         'purchaseOrderId'           => 'purchase_order_id',
@@ -388,6 +394,9 @@ class module extends Model
         }
         if (null !== $this->orderStatusDesc) {
             $res['order_status_desc'] = $this->orderStatusDesc;
+        }
+        if (null !== $this->outConfirmCode) {
+            $res['out_confirm_code'] = $this->outConfirmCode;
         }
         if (null !== $this->payTime) {
             $res['pay_time'] = $this->payTime;
@@ -532,6 +541,9 @@ class module extends Model
         }
         if (isset($map['order_status_desc'])) {
             $model->orderStatusDesc = $map['order_status_desc'];
+        }
+        if (isset($map['out_confirm_code'])) {
+            $model->outConfirmCode = $map['out_confirm_code'];
         }
         if (isset($map['pay_time'])) {
             $model->payTime = $map['pay_time'];
