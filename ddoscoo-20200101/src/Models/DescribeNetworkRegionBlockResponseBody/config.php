@@ -11,14 +11,14 @@ class config extends Model
     /**
      * @description An array consisting of the codes of the countries or areas from which the requests are blocked.
      *
-     * @var string[]
+     * @var int[]
      */
     public $countries;
 
     /**
      * @description An array consisting of the codes of the administrative regions in China from which the requests are blocked.
      *
-     * @var string[]
+     * @var int[]
      */
     public $provinces;
 
