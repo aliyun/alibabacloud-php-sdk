@@ -43,6 +43,21 @@ class UpdateEventSourceRequest extends Model
     public $eventSourceName;
 
     /**
+     * @var mixed[]
+     */
+    public $externalSourceConfig;
+
+    /**
+     * @var string
+     */
+    public $externalSourceType;
+
+    /**
+     * @var bool
+     */
+    public $linkedExternalSource;
+
+    /**
      * @description The parameters that are configured if the event source is HTTP events.
      *
      * @var sourceHttpEventParameters
@@ -94,6 +109,9 @@ class UpdateEventSourceRequest extends Model
         'description'                    => 'Description',
         'eventBusName'                   => 'EventBusName',
         'eventSourceName'                => 'EventSourceName',
+        'externalSourceConfig'           => 'ExternalSourceConfig',
+        'externalSourceType'             => 'ExternalSourceType',
+        'linkedExternalSource'           => 'LinkedExternalSource',
         'sourceHttpEventParameters'      => 'SourceHttpEventParameters',
         'sourceKafkaParameters'          => 'SourceKafkaParameters',
         'sourceMNSParameters'            => 'SourceMNSParameters',
@@ -118,6 +136,15 @@ class UpdateEventSourceRequest extends Model
         }
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
+        }
+        if (null !== $this->externalSourceConfig) {
+            $res['ExternalSourceConfig'] = $this->externalSourceConfig;
+        }
+        if (null !== $this->externalSourceType) {
+            $res['ExternalSourceType'] = $this->externalSourceType;
+        }
+        if (null !== $this->linkedExternalSource) {
+            $res['LinkedExternalSource'] = $this->linkedExternalSource;
         }
         if (null !== $this->sourceHttpEventParameters) {
             $res['SourceHttpEventParameters'] = null !== $this->sourceHttpEventParameters ? $this->sourceHttpEventParameters->toMap() : null;
@@ -160,6 +187,15 @@ class UpdateEventSourceRequest extends Model
         }
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
+        }
+        if (isset($map['ExternalSourceConfig'])) {
+            $model->externalSourceConfig = $map['ExternalSourceConfig'];
+        }
+        if (isset($map['ExternalSourceType'])) {
+            $model->externalSourceType = $map['ExternalSourceType'];
+        }
+        if (isset($map['LinkedExternalSource'])) {
+            $model->linkedExternalSource = $map['LinkedExternalSource'];
         }
         if (isset($map['SourceHttpEventParameters'])) {
             $model->sourceHttpEventParameters = sourceHttpEventParameters::fromMap($map['SourceHttpEventParameters']);

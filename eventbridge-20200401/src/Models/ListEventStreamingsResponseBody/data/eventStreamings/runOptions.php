@@ -6,7 +6,11 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRespo
 
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\batchWindow;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\deadLetterQueue;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\logDelivery;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\network;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\resourceSpec;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\retryStrategy;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions\scaledObject;
 use AlibabaCloud\Tea\Model;
 
 class runOptions extends Model
@@ -35,6 +39,11 @@ class runOptions extends Model
     public $errorsTolerance;
 
     /**
+     * @var logDelivery
+     */
+    public $logDelivery;
+
+    /**
      * @description The number of concurrent threads.
      *
      * @example 2
@@ -44,17 +53,42 @@ class runOptions extends Model
     public $maximumTasks;
 
     /**
+     * @var network
+     */
+    public $network;
+
+    /**
+     * @var resourceSpec
+     */
+    public $resourceSpec;
+
+    /**
      * @description The retry policy that is used if events fail to be pushed.
      *
      * @var retryStrategy
      */
     public $retryStrategy;
+
+    /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
+     * @var scaledObject
+     */
+    public $scaledObject;
     protected $_name = [
         'batchWindow'     => 'BatchWindow',
         'deadLetterQueue' => 'DeadLetterQueue',
         'errorsTolerance' => 'ErrorsTolerance',
+        'logDelivery'     => 'LogDelivery',
         'maximumTasks'    => 'MaximumTasks',
+        'network'         => 'Network',
+        'resourceSpec'    => 'ResourceSpec',
         'retryStrategy'   => 'RetryStrategy',
+        'roleName'        => 'RoleName',
+        'scaledObject'    => 'ScaledObject',
     ];
 
     public function validate()
@@ -73,11 +107,26 @@ class runOptions extends Model
         if (null !== $this->errorsTolerance) {
             $res['ErrorsTolerance'] = $this->errorsTolerance;
         }
+        if (null !== $this->logDelivery) {
+            $res['LogDelivery'] = null !== $this->logDelivery ? $this->logDelivery->toMap() : null;
+        }
         if (null !== $this->maximumTasks) {
             $res['MaximumTasks'] = $this->maximumTasks;
         }
+        if (null !== $this->network) {
+            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+        }
+        if (null !== $this->resourceSpec) {
+            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
+        }
         if (null !== $this->retryStrategy) {
             $res['RetryStrategy'] = null !== $this->retryStrategy ? $this->retryStrategy->toMap() : null;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
+        }
+        if (null !== $this->scaledObject) {
+            $res['ScaledObject'] = null !== $this->scaledObject ? $this->scaledObject->toMap() : null;
         }
 
         return $res;
@@ -100,11 +149,26 @@ class runOptions extends Model
         if (isset($map['ErrorsTolerance'])) {
             $model->errorsTolerance = $map['ErrorsTolerance'];
         }
+        if (isset($map['LogDelivery'])) {
+            $model->logDelivery = logDelivery::fromMap($map['LogDelivery']);
+        }
         if (isset($map['MaximumTasks'])) {
             $model->maximumTasks = $map['MaximumTasks'];
         }
+        if (isset($map['Network'])) {
+            $model->network = network::fromMap($map['Network']);
+        }
+        if (isset($map['ResourceSpec'])) {
+            $model->resourceSpec = resourceSpec::fromMap($map['ResourceSpec']);
+        }
         if (isset($map['RetryStrategy'])) {
             $model->retryStrategy = retryStrategy::fromMap($map['RetryStrategy']);
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
+        }
+        if (isset($map['ScaledObject'])) {
+            $model->scaledObject = scaledObject::fromMap($map['ScaledObject']);
         }
 
         return $model;

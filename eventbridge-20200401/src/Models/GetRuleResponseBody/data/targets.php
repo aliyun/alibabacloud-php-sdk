@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data;
 
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data\targets\concurrentConfig;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data\targets\deadLetterQueue;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data\targets\paramList;
 use AlibabaCloud\Tea\Model;
 
 class targets extends Model
 {
+    /**
+     * @var concurrentConfig
+     */
+    public $concurrentConfig;
+
     /**
      * @description The dead-letter queue.
      *
@@ -85,6 +91,7 @@ class targets extends Model
      */
     public $type;
     protected $_name = [
+        'concurrentConfig'  => 'ConcurrentConfig',
         'deadLetterQueue'   => 'DeadLetterQueue',
         'detailMap'         => 'DetailMap',
         'endpoint'          => 'Endpoint',
@@ -103,6 +110,9 @@ class targets extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->concurrentConfig) {
+            $res['ConcurrentConfig'] = null !== $this->concurrentConfig ? $this->concurrentConfig->toMap() : null;
+        }
         if (null !== $this->deadLetterQueue) {
             $res['DeadLetterQueue'] = null !== $this->deadLetterQueue ? $this->deadLetterQueue->toMap() : null;
         }
@@ -148,6 +158,9 @@ class targets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConcurrentConfig'])) {
+            $model->concurrentConfig = concurrentConfig::fromMap($map['ConcurrentConfig']);
+        }
         if (isset($map['DeadLetterQueue'])) {
             $model->deadLetterQueue = deadLetterQueue::fromMap($map['DeadLetterQueue']);
         }

@@ -21,6 +21,16 @@ class sourceRocketMQParameters extends Model
     public $bodyDataType;
 
     /**
+     * @var string
+     */
+    public $filterSql;
+
+    /**
+     * @var string
+     */
+    public $filterType;
+
+    /**
      * @description The ID of the consumer group in the Message Queue for Apache RocketMQ instance.
      *
      * @example GID_group1
@@ -95,6 +105,11 @@ class sourceRocketMQParameters extends Model
     public $instanceVpcId;
 
     /**
+     * @var string
+     */
+    public $network;
+
+    /**
      * @description The consumer offset of messages. Valid values: CONSUME_FROM_LAST_OFFSET: Start consumption from the latest offset. CONSUME_FROM_FIRST_OFFSET: Start consumption from the earliest offset. CONSUME_FROM_TIMESTAMP: Start consumption from the offset at the specified point in time.
      *
      * @example CONSUMEFROMLASTOFFSET
@@ -111,6 +126,11 @@ class sourceRocketMQParameters extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
 
     /**
      * @description The tags that are used to filter messages.
@@ -138,9 +158,21 @@ class sourceRocketMQParameters extends Model
      * @var string
      */
     public $topic;
+
+    /**
+     * @var string
+     */
+    public $vSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'authType'                => 'AuthType',
         'bodyDataType'            => 'BodyDataType',
+        'filterSql'               => 'FilterSql',
+        'filterType'              => 'FilterType',
         'groupID'                 => 'GroupID',
         'instanceEndpoint'        => 'InstanceEndpoint',
         'instanceId'              => 'InstanceId',
@@ -151,11 +183,15 @@ class sourceRocketMQParameters extends Model
         'instanceUsername'        => 'InstanceUsername',
         'instanceVSwitchIds'      => 'InstanceVSwitchIds',
         'instanceVpcId'           => 'InstanceVpcId',
+        'network'                 => 'Network',
         'offset'                  => 'Offset',
         'regionId'                => 'RegionId',
+        'securityGroupId'         => 'SecurityGroupId',
         'tag'                     => 'Tag',
         'timestamp'               => 'Timestamp',
         'topic'                   => 'Topic',
+        'vSwitchIds'              => 'VSwitchIds',
+        'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
@@ -170,6 +206,12 @@ class sourceRocketMQParameters extends Model
         }
         if (null !== $this->bodyDataType) {
             $res['BodyDataType'] = $this->bodyDataType;
+        }
+        if (null !== $this->filterSql) {
+            $res['FilterSql'] = $this->filterSql;
+        }
+        if (null !== $this->filterType) {
+            $res['FilterType'] = $this->filterType;
         }
         if (null !== $this->groupID) {
             $res['GroupID'] = $this->groupID;
@@ -201,11 +243,17 @@ class sourceRocketMQParameters extends Model
         if (null !== $this->instanceVpcId) {
             $res['InstanceVpcId'] = $this->instanceVpcId;
         }
+        if (null !== $this->network) {
+            $res['Network'] = $this->network;
+        }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -215,6 +263,12 @@ class sourceRocketMQParameters extends Model
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -233,6 +287,12 @@ class sourceRocketMQParameters extends Model
         }
         if (isset($map['BodyDataType'])) {
             $model->bodyDataType = $map['BodyDataType'];
+        }
+        if (isset($map['FilterSql'])) {
+            $model->filterSql = $map['FilterSql'];
+        }
+        if (isset($map['FilterType'])) {
+            $model->filterType = $map['FilterType'];
         }
         if (isset($map['GroupID'])) {
             $model->groupID = $map['GroupID'];
@@ -264,11 +324,17 @@ class sourceRocketMQParameters extends Model
         if (isset($map['InstanceVpcId'])) {
             $model->instanceVpcId = $map['InstanceVpcId'];
         }
+        if (isset($map['Network'])) {
+            $model->network = $map['Network'];
+        }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
@@ -278,6 +344,12 @@ class sourceRocketMQParameters extends Model
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

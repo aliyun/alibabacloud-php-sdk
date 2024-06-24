@@ -18,6 +18,11 @@ class DeleteEventBusResponseBody extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $data;
+
+    /**
      * @description The returned error message.
      *
      * @example EventBusNotExist
@@ -45,6 +50,7 @@ class DeleteEventBusResponseBody extends Model
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -59,6 +65,9 @@ class DeleteEventBusResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -83,6 +92,9 @@ class DeleteEventBusResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

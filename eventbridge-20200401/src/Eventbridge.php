@@ -349,6 +349,9 @@ class Eventbridge extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateEventSourceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->externalSourceConfig)) {
+            $request->externalSourceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sourceHttpEventParameters)) {
             $request->sourceHttpEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
         }
@@ -379,6 +382,15 @@ class Eventbridge extends OpenApiClient
         }
         if (!Utils::isUnset($request->eventSourceName)) {
             $body['EventSourceName'] = $request->eventSourceName;
+        }
+        if (!Utils::isUnset($request->externalSourceConfigShrink)) {
+            $body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
+        }
+        if (!Utils::isUnset($request->externalSourceType)) {
+            $body['ExternalSourceType'] = $request->externalSourceType;
+        }
+        if (!Utils::isUnset($request->linkedExternalSource)) {
+            $body['LinkedExternalSource'] = $request->linkedExternalSource;
         }
         if (!Utils::isUnset($request->sourceHttpEventParametersShrink)) {
             $body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;
@@ -2671,6 +2683,9 @@ class Eventbridge extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateEventSourceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->externalSourceConfig)) {
+            $request->externalSourceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sourceHttpEventParameters)) {
             $request->sourceHttpEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
         }
@@ -2701,6 +2716,15 @@ class Eventbridge extends OpenApiClient
         }
         if (!Utils::isUnset($request->eventSourceName)) {
             $body['EventSourceName'] = $request->eventSourceName;
+        }
+        if (!Utils::isUnset($request->externalSourceConfigShrink)) {
+            $body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
+        }
+        if (!Utils::isUnset($request->externalSourceType)) {
+            $body['ExternalSourceType'] = $request->externalSourceType;
+        }
+        if (!Utils::isUnset($request->linkedExternalSource)) {
+            $body['LinkedExternalSource'] = $request->linkedExternalSource;
         }
         if (!Utils::isUnset($request->sourceHttpEventParametersShrink)) {
             $body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;

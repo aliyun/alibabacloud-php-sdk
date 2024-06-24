@@ -81,6 +81,11 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
+     * @var string
+     */
+    public $valueDataType;
+
+    /**
      * @description The VPC ID.
      *
      * @example vpc-wz9ki1qdlx3cx5cbbhowf
@@ -97,6 +102,7 @@ class sourceKafkaParameters extends Model
         'securityGroupId' => 'SecurityGroupId',
         'topic'           => 'Topic',
         'vSwitchIds'      => 'VSwitchIds',
+        'valueDataType'   => 'ValueDataType',
         'vpcId'           => 'VpcId',
     ];
 
@@ -130,6 +136,9 @@ class sourceKafkaParameters extends Model
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+        if (null !== $this->valueDataType) {
+            $res['ValueDataType'] = $this->valueDataType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -169,6 +178,9 @@ class sourceKafkaParameters extends Model
         }
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = $map['VSwitchIds'];
+        }
+        if (isset($map['ValueDataType'])) {
+            $model->valueDataType = $map['ValueDataType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

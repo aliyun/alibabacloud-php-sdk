@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink;
 
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\body;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\contentSchema;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\contentType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\logStore;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\project;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\roleName;
@@ -19,6 +21,16 @@ class sinkSLSParameters extends Model
      * @var body
      */
     public $body;
+
+    /**
+     * @var contentSchema
+     */
+    public $contentSchema;
+
+    /**
+     * @var contentType
+     */
+    public $contentType;
 
     /**
      * @description The Simple Log Service Logstore.
@@ -48,11 +60,13 @@ class sinkSLSParameters extends Model
      */
     public $topic;
     protected $_name = [
-        'body'     => 'Body',
-        'logStore' => 'LogStore',
-        'project'  => 'Project',
-        'roleName' => 'RoleName',
-        'topic'    => 'Topic',
+        'body'          => 'Body',
+        'contentSchema' => 'ContentSchema',
+        'contentType'   => 'ContentType',
+        'logStore'      => 'LogStore',
+        'project'       => 'Project',
+        'roleName'      => 'RoleName',
+        'topic'         => 'Topic',
     ];
 
     public function validate()
@@ -64,6 +78,12 @@ class sinkSLSParameters extends Model
         $res = [];
         if (null !== $this->body) {
             $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
+        if (null !== $this->contentSchema) {
+            $res['ContentSchema'] = null !== $this->contentSchema ? $this->contentSchema->toMap() : null;
+        }
+        if (null !== $this->contentType) {
+            $res['ContentType'] = null !== $this->contentType ? $this->contentType->toMap() : null;
         }
         if (null !== $this->logStore) {
             $res['LogStore'] = null !== $this->logStore ? $this->logStore->toMap() : null;
@@ -91,6 +111,12 @@ class sinkSLSParameters extends Model
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
+        }
+        if (isset($map['ContentSchema'])) {
+            $model->contentSchema = contentSchema::fromMap($map['ContentSchema']);
+        }
+        if (isset($map['ContentType'])) {
+            $model->contentType = contentType::fromMap($map['ContentType']);
         }
         if (isset($map['LogStore'])) {
             $model->logStore = logStore::fromMap($map['LogStore']);

@@ -36,6 +36,21 @@ class UpdateEventSourceShrinkRequest extends Model
     public $eventSourceName;
 
     /**
+     * @var string
+     */
+    public $externalSourceConfigShrink;
+
+    /**
+     * @var string
+     */
+    public $externalSourceType;
+
+    /**
+     * @var bool
+     */
+    public $linkedExternalSource;
+
+    /**
      * @description The parameters that are configured if the event source is HTTP events.
      *
      * @var string
@@ -87,6 +102,9 @@ class UpdateEventSourceShrinkRequest extends Model
         'description'                          => 'Description',
         'eventBusName'                         => 'EventBusName',
         'eventSourceName'                      => 'EventSourceName',
+        'externalSourceConfigShrink'           => 'ExternalSourceConfig',
+        'externalSourceType'                   => 'ExternalSourceType',
+        'linkedExternalSource'                 => 'LinkedExternalSource',
         'sourceHttpEventParametersShrink'      => 'SourceHttpEventParameters',
         'sourceKafkaParametersShrink'          => 'SourceKafkaParameters',
         'sourceMNSParametersShrink'            => 'SourceMNSParameters',
@@ -111,6 +129,15 @@ class UpdateEventSourceShrinkRequest extends Model
         }
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
+        }
+        if (null !== $this->externalSourceConfigShrink) {
+            $res['ExternalSourceConfig'] = $this->externalSourceConfigShrink;
+        }
+        if (null !== $this->externalSourceType) {
+            $res['ExternalSourceType'] = $this->externalSourceType;
+        }
+        if (null !== $this->linkedExternalSource) {
+            $res['LinkedExternalSource'] = $this->linkedExternalSource;
         }
         if (null !== $this->sourceHttpEventParametersShrink) {
             $res['SourceHttpEventParameters'] = $this->sourceHttpEventParametersShrink;
@@ -153,6 +180,15 @@ class UpdateEventSourceShrinkRequest extends Model
         }
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
+        }
+        if (isset($map['ExternalSourceConfig'])) {
+            $model->externalSourceConfigShrink = $map['ExternalSourceConfig'];
+        }
+        if (isset($map['ExternalSourceType'])) {
+            $model->externalSourceType = $map['ExternalSourceType'];
+        }
+        if (isset($map['LinkedExternalSource'])) {
+            $model->linkedExternalSource = $map['LinkedExternalSource'];
         }
         if (isset($map['SourceHttpEventParameters'])) {
             $model->sourceHttpEventParametersShrink = $map['SourceHttpEventParameters'];

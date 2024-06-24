@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data;
 
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceApacheKafkaParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceCustomizedKafkaConnectorParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceCustomizedKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceDTSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceMNSParameters;
@@ -21,6 +23,16 @@ class source extends Model
      * @var sourceApacheKafkaParameters
      */
     public $sourceApacheKafkaParameters;
+
+    /**
+     * @var sourceCustomizedKafkaConnectorParameters
+     */
+    public $sourceCustomizedKafkaConnectorParameters;
+
+    /**
+     * @var sourceCustomizedKafkaParameters
+     */
+    public $sourceCustomizedKafkaParameters;
 
     /**
      * @description The parameters that are returned if the event source is Data Transmission Service (DTS).
@@ -76,15 +88,17 @@ class source extends Model
      */
     public $sourceSLSParameters;
     protected $_name = [
-        'sourceApacheKafkaParameters' => 'SourceApacheKafkaParameters',
-        'sourceDTSParameters'         => 'SourceDTSParameters',
-        'sourceKafkaParameters'       => 'SourceKafkaParameters',
-        'sourceMNSParameters'         => 'SourceMNSParameters',
-        'sourceMQTTParameters'        => 'SourceMQTTParameters',
-        'sourcePrometheusParameters'  => 'SourcePrometheusParameters',
-        'sourceRabbitMQParameters'    => 'SourceRabbitMQParameters',
-        'sourceRocketMQParameters'    => 'SourceRocketMQParameters',
-        'sourceSLSParameters'         => 'SourceSLSParameters',
+        'sourceApacheKafkaParameters'              => 'SourceApacheKafkaParameters',
+        'sourceCustomizedKafkaConnectorParameters' => 'SourceCustomizedKafkaConnectorParameters',
+        'sourceCustomizedKafkaParameters'          => 'SourceCustomizedKafkaParameters',
+        'sourceDTSParameters'                      => 'SourceDTSParameters',
+        'sourceKafkaParameters'                    => 'SourceKafkaParameters',
+        'sourceMNSParameters'                      => 'SourceMNSParameters',
+        'sourceMQTTParameters'                     => 'SourceMQTTParameters',
+        'sourcePrometheusParameters'               => 'SourcePrometheusParameters',
+        'sourceRabbitMQParameters'                 => 'SourceRabbitMQParameters',
+        'sourceRocketMQParameters'                 => 'SourceRocketMQParameters',
+        'sourceSLSParameters'                      => 'SourceSLSParameters',
     ];
 
     public function validate()
@@ -96,6 +110,12 @@ class source extends Model
         $res = [];
         if (null !== $this->sourceApacheKafkaParameters) {
             $res['SourceApacheKafkaParameters'] = null !== $this->sourceApacheKafkaParameters ? $this->sourceApacheKafkaParameters->toMap() : null;
+        }
+        if (null !== $this->sourceCustomizedKafkaConnectorParameters) {
+            $res['SourceCustomizedKafkaConnectorParameters'] = null !== $this->sourceCustomizedKafkaConnectorParameters ? $this->sourceCustomizedKafkaConnectorParameters->toMap() : null;
+        }
+        if (null !== $this->sourceCustomizedKafkaParameters) {
+            $res['SourceCustomizedKafkaParameters'] = null !== $this->sourceCustomizedKafkaParameters ? $this->sourceCustomizedKafkaParameters->toMap() : null;
         }
         if (null !== $this->sourceDTSParameters) {
             $res['SourceDTSParameters'] = null !== $this->sourceDTSParameters ? $this->sourceDTSParameters->toMap() : null;
@@ -135,6 +155,12 @@ class source extends Model
         $model = new self();
         if (isset($map['SourceApacheKafkaParameters'])) {
             $model->sourceApacheKafkaParameters = sourceApacheKafkaParameters::fromMap($map['SourceApacheKafkaParameters']);
+        }
+        if (isset($map['SourceCustomizedKafkaConnectorParameters'])) {
+            $model->sourceCustomizedKafkaConnectorParameters = sourceCustomizedKafkaConnectorParameters::fromMap($map['SourceCustomizedKafkaConnectorParameters']);
+        }
+        if (isset($map['SourceCustomizedKafkaParameters'])) {
+            $model->sourceCustomizedKafkaParameters = sourceCustomizedKafkaParameters::fromMap($map['SourceCustomizedKafkaParameters']);
         }
         if (isset($map['SourceDTSParameters'])) {
             $model->sourceDTSParameters = sourceDTSParameters::fromMap($map['SourceDTSParameters']);

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sourceMQTTParameters extends Model
 {
     /**
+     * @var string
+     */
+    public $bodyDataType;
+
+    /**
      * @description The instance ID.
      *
      * @example i-2ze06wqdwk0uq14krrzv
@@ -35,9 +40,10 @@ class sourceMQTTParameters extends Model
      */
     public $topic;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'topic'      => 'Topic',
+        'bodyDataType' => 'BodyDataType',
+        'instanceId'   => 'InstanceId',
+        'regionId'     => 'RegionId',
+        'topic'        => 'Topic',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class sourceMQTTParameters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bodyDataType) {
+            $res['BodyDataType'] = $this->bodyDataType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -68,6 +77,9 @@ class sourceMQTTParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BodyDataType'])) {
+            $model->bodyDataType = $map['BodyDataType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

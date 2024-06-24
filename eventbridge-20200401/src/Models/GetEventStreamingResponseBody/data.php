@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody;
 
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\detailedStatus;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\runOptions;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source;
@@ -20,6 +21,11 @@ class data extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var detailedStatus
+     */
+    public $detailedStatus;
 
     /**
      * @description The name of the event stream that is returned.
@@ -73,6 +79,7 @@ class data extends Model
     public $transforms;
     protected $_name = [
         'description'        => 'Description',
+        'detailedStatus'     => 'DetailedStatus',
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern'      => 'FilterPattern',
         'runOptions'         => 'RunOptions',
@@ -91,6 +98,9 @@ class data extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->detailedStatus) {
+            $res['DetailedStatus'] = null !== $this->detailedStatus ? $this->detailedStatus->toMap() : null;
         }
         if (null !== $this->eventStreamingName) {
             $res['EventStreamingName'] = $this->eventStreamingName;
@@ -133,6 +143,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DetailedStatus'])) {
+            $model->detailedStatus = detailedStatus::fromMap($map['DetailedStatus']);
         }
         if (isset($map['EventStreamingName'])) {
             $model->eventStreamingName = $map['EventStreamingName'];

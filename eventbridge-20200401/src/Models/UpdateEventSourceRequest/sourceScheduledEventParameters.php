@@ -27,6 +27,10 @@ class sourceScheduledEventParameters extends Model
     public $timeZone;
 
     /**
+     * @description The user data that is displayed in a JSON string.
+     *
+     * @example {"a": "b"}
+     *
      * @var string
      */
     public $userData;
