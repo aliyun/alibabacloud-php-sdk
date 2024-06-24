@@ -11,6 +11,7 @@ class GetRoleAclOnObjectRequest extends Model
     /**
      * @description The name of the object.
      *
+     * This parameter is required.
      * @example tableA
      *
      * @var string
@@ -20,6 +21,7 @@ class GetRoleAclOnObjectRequest extends Model
     /**
      * @description The type of the object.
      *
+     * This parameter is required.
      * @example table
      *
      * @var string

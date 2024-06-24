@@ -11,6 +11,7 @@ class GetJobResourceUsageShrinkRequest extends Model
     /**
      * @description The date that is accurate to the day part for the query. The date must be in the yyyy-MM-dd format.
      *
+     * This parameter is required.
      * @example 2023-05-15
      *
      * @var string

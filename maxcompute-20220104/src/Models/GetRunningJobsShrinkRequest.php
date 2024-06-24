@@ -14,6 +14,7 @@ class GetRunningJobsShrinkRequest extends Model
      *   The time range that is specified by the **from** and **to** request parameters is a closed interval. The start time and end time are included in the range. If the value of **from** is the same as the value of **to**, the time range is invalid, and a null value is returned.
      *   The value is a UNIX timestamp that represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1683785928
      *
      * @var int
@@ -58,6 +59,7 @@ class GetRunningJobsShrinkRequest extends Model
      *   The time interval that is specified by the **from** and **to** request parameters is a closed interval. The start time and end time are included in the interval. If the value of **from** is the same as the value of **to**, the interval is invalid, and a null value is returned.
      *   The value is a UNIX timestamp that represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1683612946
      *
      * @var int

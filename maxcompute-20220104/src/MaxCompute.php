@@ -170,12 +170,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a package.
+     *  *
      * @param string               $projectName
-     * @param CreatePackageRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreatePackageRequest $request     CreatePackageRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreatePackageResponse
+     * @return CreatePackageResponse CreatePackageResponse
      */
     public function createPackageWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -205,10 +207,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a package.
+     *  *
      * @param string               $projectName
-     * @param CreatePackageRequest $request
+     * @param CreatePackageRequest $request     CreatePackageRequest
      *
-     * @return CreatePackageResponse
+     * @return CreatePackageResponse CreatePackageResponse
      */
     public function createPackage($projectName, $request)
     {
@@ -219,11 +223,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a MaxCompute project.
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($request, $headers, $runtime)
     {
@@ -248,9 +254,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @summary Creates a MaxCompute project.
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -261,12 +269,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a quota plan.
+     *  *
      * @param string                 $nickname
-     * @param CreateQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateQuotaPlanRequest $request  CreateQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateQuotaPlanResponse
+     * @return CreateQuotaPlanResponse CreateQuotaPlanResponse
      */
     public function createQuotaPlanWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -299,10 +309,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a quota plan.
+     *  *
      * @param string                 $nickname
-     * @param CreateQuotaPlanRequest $request
+     * @param CreateQuotaPlanRequest $request  CreateQuotaPlanRequest
      *
-     * @return CreateQuotaPlanResponse
+     * @return CreateQuotaPlanResponse CreateQuotaPlanResponse
      */
     public function createQuotaPlan($nickname, $request)
     {
@@ -313,12 +325,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param CreateQuotaScheduleRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateQuotaScheduleRequest $request  CreateQuotaScheduleRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateQuotaScheduleResponse
+     * @return CreateQuotaScheduleResponse CreateQuotaScheduleResponse
      */
     public function createQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -351,10 +365,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param CreateQuotaScheduleRequest $request
+     * @param CreateQuotaScheduleRequest $request  CreateQuotaScheduleRequest
      *
-     * @return CreateQuotaScheduleResponse
+     * @return CreateQuotaScheduleResponse CreateQuotaScheduleResponse
      */
     public function createQuotaSchedule($nickname, $request)
     {
@@ -365,12 +381,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a role at the MaxCompute project level.
+     *  *
      * @param string            $projectName
-     * @param CreateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CreateRoleRequest $request     CreateRoleRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRoleWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -395,10 +413,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Creates a role at the MaxCompute project level.
+     *  *
      * @param string            $projectName
-     * @param CreateRoleRequest $request
+     * @param CreateRoleRequest $request     CreateRoleRequest
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRole($projectName, $request)
     {
@@ -409,13 +429,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param DeleteQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteQuotaPlanRequest $request  DeleteQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteQuotaPlanResponse
+     * @return DeleteQuotaPlanResponse DeleteQuotaPlanResponse
      */
     public function deleteQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
@@ -447,11 +469,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param DeleteQuotaPlanRequest $request
+     * @param DeleteQuotaPlanRequest $request  DeleteQuotaPlanRequest
      *
-     * @return DeleteQuotaPlanResponse
+     * @return DeleteQuotaPlanResponse DeleteQuotaPlanResponse
      */
     public function deleteQuotaPlan($nickname, $planName, $request)
     {
@@ -462,11 +486,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param GetJobResourceUsageRequest $tmpReq
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *  *
+     * @param GetJobResourceUsageRequest $tmpReq  GetJobResourceUsageRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobResourceUsageResponse
+     * @return GetJobResourceUsageResponse GetJobResourceUsageResponse
      */
     public function getJobResourceUsageWithOptions($tmpReq, $headers, $runtime)
     {
@@ -515,9 +541,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param GetJobResourceUsageRequest $request
+     * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *  *
+     * @param GetJobResourceUsageRequest $request GetJobResourceUsageRequest
      *
-     * @return GetJobResourceUsageResponse
+     * @return GetJobResourceUsageResponse GetJobResourceUsageResponse
      */
     public function getJobResourceUsage($request)
     {
@@ -528,13 +556,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information about a package.
+     *  *
      * @param string            $projectName
      * @param string            $packageName
-     * @param GetPackageRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetPackageRequest $request     GetPackageRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetPackageResponse
+     * @return GetPackageResponse GetPackageResponse
      */
     public function getPackageWithOptions($projectName, $packageName, $request, $headers, $runtime)
     {
@@ -563,11 +593,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information about a package.
+     *  *
      * @param string            $projectName
      * @param string            $packageName
-     * @param GetPackageRequest $request
+     * @param GetPackageRequest $request     GetPackageRequest
      *
-     * @return GetPackageResponse
+     * @return GetPackageResponse GetPackageResponse
      */
     public function getPackage($projectName, $packageName, $request)
     {
@@ -578,12 +610,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param GetProjectRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetProjectRequest $request     GetProjectRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -612,10 +646,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param GetProjectRequest $request
+     * @param GetProjectRequest $request     GetProjectRequest
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($projectName, $request)
     {
@@ -626,12 +662,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information about a specified level-1 quota.
+     *  *
      * @param string          $nickname
-     * @param GetQuotaRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetQuotaRequest $request  GetQuotaRequest
+     * @param string[]        $headers  map
+     * @param RuntimeOptions  $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuotaWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -669,10 +707,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information about a specified level-1 quota.
+     *  *
      * @param string          $nickname
-     * @param GetQuotaRequest $request
+     * @param GetQuotaRequest $request  GetQuotaRequest
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuota($nickname, $request)
     {
@@ -683,13 +723,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information of a quota plan.
+     *  *
      * @param string              $nickname
      * @param string              $planName
-     * @param GetQuotaPlanRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetQuotaPlanRequest $request  GetQuotaPlanRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaPlanResponse
+     * @return GetQuotaPlanResponse GetQuotaPlanResponse
      */
     public function getQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
@@ -721,11 +763,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the information of a quota plan.
+     *  *
      * @param string              $nickname
      * @param string              $planName
-     * @param GetQuotaPlanRequest $request
+     * @param GetQuotaPlanRequest $request  GetQuotaPlanRequest
      *
-     * @return GetQuotaPlanResponse
+     * @return GetQuotaPlanResponse GetQuotaPlanResponse
      */
     public function getQuotaPlan($nickname, $planName, $request)
     {
@@ -736,12 +780,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the scheduling plan for a quota plan.
+     *  *
      * @param string                  $nickname
-     * @param GetQuotaScheduleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetQuotaScheduleRequest $request  GetQuotaScheduleRequest
+     * @param string[]                $headers  map
+     * @param RuntimeOptions          $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaScheduleResponse
+     * @return GetQuotaScheduleResponse GetQuotaScheduleResponse
      */
     public function getQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -776,10 +822,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the scheduling plan for a quota plan.
+     *  *
      * @param string                  $nickname
-     * @param GetQuotaScheduleRequest $request
+     * @param GetQuotaScheduleRequest $request  GetQuotaScheduleRequest
      *
-     * @return GetQuotaScheduleResponse
+     * @return GetQuotaScheduleResponse GetQuotaScheduleResponse
      */
     public function getQuotaSchedule($nickname, $request)
     {
@@ -790,12 +838,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRoleAclResponse
+     * @return GetRoleAclResponse GetRoleAclResponse
      */
     public function getRoleAclWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -818,10 +868,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return GetRoleAclResponse
+     * @return GetRoleAclResponse GetRoleAclResponse
      */
     public function getRoleAcl($projectName, $roleName)
     {
@@ -832,13 +884,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *  *
      * @param string                    $projectName
      * @param string                    $roleName
-     * @param GetRoleAclOnObjectRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetRoleAclOnObjectRequest $request     GetRoleAclOnObjectRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRoleAclOnObjectResponse
+     * @return GetRoleAclOnObjectResponse GetRoleAclOnObjectResponse
      */
     public function getRoleAclOnObjectWithOptions($projectName, $roleName, $request, $headers, $runtime)
     {
@@ -870,11 +924,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *  *
      * @param string                    $projectName
      * @param string                    $roleName
-     * @param GetRoleAclOnObjectRequest $request
+     * @param GetRoleAclOnObjectRequest $request     GetRoleAclOnObjectRequest
      *
-     * @return GetRoleAclOnObjectResponse
+     * @return GetRoleAclOnObjectResponse GetRoleAclOnObjectResponse
      */
     public function getRoleAclOnObject($projectName, $roleName, $request)
     {
@@ -885,12 +941,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the policy that is attached to a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRolePolicyResponse
+     * @return GetRolePolicyResponse GetRolePolicyResponse
      */
     public function getRolePolicyWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -913,10 +971,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the policy that is attached to a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return GetRolePolicyResponse
+     * @return GetRolePolicyResponse GetRolePolicyResponse
      */
     public function getRolePolicy($projectName, $roleName)
     {
@@ -927,11 +987,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param GetRunningJobsRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *  *
+     * @param GetRunningJobsRequest $tmpReq  GetRunningJobsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRunningJobsResponse
+     * @return GetRunningJobsResponse GetRunningJobsResponse
      */
     public function getRunningJobsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -983,9 +1045,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param GetRunningJobsRequest $request
+     * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *  *
+     * @param GetRunningJobsRequest $request GetRunningJobsRequest
      *
-     * @return GetRunningJobsResponse
+     * @return GetRunningJobsResponse GetRunningJobsResponse
      */
     public function getRunningJobs($request)
     {
@@ -998,11 +1062,11 @@ class MaxCompute extends OpenApiClient
     /**
      * @param string              $projectName
      * @param string              $tableName
-     * @param GetTableInfoRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetTableInfoRequest $request     GetTableInfoRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTableInfoResponse
+     * @return GetTableInfoResponse GetTableInfoResponse
      */
     public function getTableInfoWithOptions($projectName, $tableName, $request, $headers, $runtime)
     {
@@ -1036,9 +1100,9 @@ class MaxCompute extends OpenApiClient
     /**
      * @param string              $projectName
      * @param string              $tableName
-     * @param GetTableInfoRequest $request
+     * @param GetTableInfoRequest $request     GetTableInfoRequest
      *
-     * @return GetTableInfoResponse
+     * @return GetTableInfoResponse GetTableInfoResponse
      */
     public function getTableInfo($projectName, $tableName, $request)
     {
@@ -1049,11 +1113,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the trusted projects of the current project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTrustedProjectsResponse
+     * @return GetTrustedProjectsResponse GetTrustedProjectsResponse
      */
     public function getTrustedProjectsWithOptions($projectName, $headers, $runtime)
     {
@@ -1076,9 +1142,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the trusted projects of the current project.
+     *  *
      * @param string $projectName
      *
-     * @return GetTrustedProjectsResponse
+     * @return GetTrustedProjectsResponse GetTrustedProjectsResponse
      */
     public function getTrustedProjects($projectName)
     {
@@ -1089,11 +1157,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param KillJobsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Terminates a running job.
+     *  *
+     * @param KillJobsRequest $request KillJobsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillJobsResponse
+     * @return KillJobsResponse KillJobsResponse
      */
     public function killJobsWithOptions($request, $headers, $runtime)
     {
@@ -1126,9 +1196,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param KillJobsRequest $request
+     * @summary Terminates a running job.
+     *  *
+     * @param KillJobsRequest $request KillJobsRequest
      *
-     * @return KillJobsResponse
+     * @return KillJobsResponse KillJobsResponse
      */
     public function killJobs($request)
     {
@@ -1139,12 +1211,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains functions in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListFunctionsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListFunctionsRequest $request     ListFunctionsRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctionsWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -1182,10 +1256,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains functions in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListFunctionsRequest $request
+     * @param ListFunctionsRequest $request     ListFunctionsRequest
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctions($projectName, $request)
     {
@@ -1196,11 +1272,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListJobInfosRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Views a list of jobs.
+     *  *
+     * @param ListJobInfosRequest $request ListJobInfosRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobInfosResponse
+     * @return ListJobInfosResponse ListJobInfosResponse
      */
     public function listJobInfosWithOptions($request, $headers, $runtime)
     {
@@ -1245,9 +1323,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListJobInfosRequest $request
+     * @summary Views a list of jobs.
+     *  *
+     * @param ListJobInfosRequest $request ListJobInfosRequest
      *
-     * @return ListJobInfosResponse
+     * @return ListJobInfosResponse ListJobInfosResponse
      */
     public function listJobInfos($request)
     {
@@ -1258,11 +1338,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries the packages in a MaxCompute project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListPackagesResponse
+     * @return ListPackagesResponse ListPackagesResponse
      */
     public function listPackagesWithOptions($projectName, $headers, $runtime)
     {
@@ -1285,9 +1367,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries the packages in a MaxCompute project.
+     *  *
      * @param string $projectName
      *
-     * @return ListPackagesResponse
+     * @return ListPackagesResponse ListPackagesResponse
      */
     public function listPackages($projectName)
     {
@@ -1298,11 +1382,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of users in a project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListProjectUsersResponse
+     * @return ListProjectUsersResponse ListProjectUsersResponse
      */
     public function listProjectUsersWithOptions($projectName, $headers, $runtime)
     {
@@ -1325,9 +1411,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of users in a project.
+     *  *
      * @param string $projectName
      *
-     * @return ListProjectUsersResponse
+     * @return ListProjectUsersResponse ListProjectUsersResponse
      */
     public function listProjectUsers($projectName)
     {
@@ -1338,11 +1426,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of MaxCompute projects.
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($request, $headers, $runtime)
     {
@@ -1398,9 +1488,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @summary Queries a list of MaxCompute projects.
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -1411,11 +1503,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Queries quotas.
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotasWithOptions($request, $headers, $runtime)
     {
@@ -1462,9 +1556,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListQuotasRequest $request
+     * @summary Queries quotas.
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
      *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotas($request)
     {
@@ -1475,12 +1571,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains quota plans.
+     *  *
      * @param string                 $nickname
-     * @param ListQuotasPlansRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListQuotasPlansRequest $request  ListQuotasPlansRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListQuotasPlansResponse
+     * @return ListQuotasPlansResponse ListQuotasPlansResponse
      */
     public function listQuotasPlansWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -1512,10 +1610,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains quota plans.
+     *  *
      * @param string                 $nickname
-     * @param ListQuotasPlansRequest $request
+     * @param ListQuotasPlansRequest $request  ListQuotasPlansRequest
      *
-     * @return ListQuotasPlansResponse
+     * @return ListQuotasPlansResponse ListQuotasPlansResponse
      */
     public function listQuotasPlans($nickname, $request)
     {
@@ -1526,12 +1626,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains resources in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListResourcesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListResourcesRequest $request     ListResourcesRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResourcesWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -1569,10 +1671,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains resources in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListResourcesRequest $request
+     * @param ListResourcesRequest $request     ListResourcesRequest
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResources($projectName, $request)
     {
@@ -1583,11 +1687,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains MaxCompute project-level roles.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRolesWithOptions($projectName, $headers, $runtime)
     {
@@ -1610,9 +1716,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains MaxCompute project-level roles.
+     *  *
      * @param string $projectName
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRoles($projectName)
     {
@@ -1623,12 +1731,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains tables in a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param ListTablesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListTablesRequest $request     ListTablesRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -1669,10 +1779,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains tables in a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param ListTablesRequest $request
+     * @param ListTablesRequest $request     ListTablesRequest
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($projectName, $request)
     {
@@ -1683,11 +1795,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Queries a list of all users under a tenant.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $headers, $runtime)
     {
@@ -1719,9 +1833,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary Queries a list of all users under a tenant.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -1732,12 +1848,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains information about the users who are assigned a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListUsersByRoleResponse
+     * @return ListUsersByRoleResponse ListUsersByRoleResponse
      */
     public function listUsersByRoleWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -1760,10 +1878,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Obtains information about the users who are assigned a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return ListUsersByRoleResponse
+     * @return ListUsersByRoleResponse ListUsersByRoleResponse
      */
     public function listUsersByRole($projectName, $roleName)
     {
@@ -1774,13 +1894,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates the objects in a package and projects in which the package can be installed.
+     *  *
      * @param string               $projectName
      * @param string               $packageName
-     * @param UpdatePackageRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdatePackageRequest $request     UpdatePackageRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdatePackageResponse
+     * @return UpdatePackageResponse UpdatePackageResponse
      */
     public function updatePackageWithOptions($projectName, $packageName, $request, $headers, $runtime)
     {
@@ -1805,11 +1927,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates the objects in a package and projects in which the package can be installed.
+     *  *
      * @param string               $projectName
      * @param string               $packageName
-     * @param UpdatePackageRequest $request
+     * @param UpdatePackageRequest $request     UpdatePackageRequest
      *
-     * @return UpdatePackageResponse
+     * @return UpdatePackageResponse UpdatePackageResponse
      */
     public function updatePackage($projectName, $packageName, $request)
     {
@@ -1820,12 +1944,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the IP address whitelist of a MaxCompute project.
+     *  *
      * @param string                          $projectName
-     * @param UpdateProjectIpWhiteListRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateProjectIpWhiteListRequest $request     UpdateProjectIpWhiteListRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectIpWhiteListResponse
+     * @return UpdateProjectIpWhiteListResponse UpdateProjectIpWhiteListResponse
      */
     public function updateProjectIpWhiteListWithOptions($projectName, $request, $headers, $runtime)
     {
@@ -1850,10 +1976,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the IP address whitelist of a MaxCompute project.
+     *  *
      * @param string                          $projectName
-     * @param UpdateProjectIpWhiteListRequest $request
+     * @param UpdateProjectIpWhiteListRequest $request     UpdateProjectIpWhiteListRequest
      *
-     * @return UpdateProjectIpWhiteListResponse
+     * @return UpdateProjectIpWhiteListResponse UpdateProjectIpWhiteListResponse
      */
     public function updateProjectIpWhiteList($projectName, $request)
     {
@@ -1864,12 +1992,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates a quota.
+     *  *
      * @param string             $nickname
-     * @param UpdateQuotaRequest $request
-     * @param UpdateQuotaHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateQuotaRequest $request  UpdateQuotaRequest
+     * @param UpdateQuotaHeaders $headers  UpdateQuotaHeaders
+     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaResponse
+     * @return UpdateQuotaResponse UpdateQuotaResponse
      */
     public function updateQuotaWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -1909,10 +2039,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates a quota.
+     *  *
      * @param string             $nickname
-     * @param UpdateQuotaRequest $request
+     * @param UpdateQuotaRequest $request  UpdateQuotaRequest
      *
-     * @return UpdateQuotaResponse
+     * @return UpdateQuotaResponse UpdateQuotaResponse
      */
     public function updateQuota($nickname, $request)
     {
@@ -1923,13 +2055,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param UpdateQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateQuotaPlanRequest $request  UpdateQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaPlanResponse
+     * @return UpdateQuotaPlanResponse UpdateQuotaPlanResponse
      */
     public function updateQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
@@ -1962,11 +2096,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param UpdateQuotaPlanRequest $request
+     * @param UpdateQuotaPlanRequest $request  UpdateQuotaPlanRequest
      *
-     * @return UpdateQuotaPlanResponse
+     * @return UpdateQuotaPlanResponse UpdateQuotaPlanResponse
      */
     public function updateQuotaPlan($nickname, $planName, $request)
     {
@@ -1977,12 +2113,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates the scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param UpdateQuotaScheduleRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateQuotaScheduleRequest $request  UpdateQuotaScheduleRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaScheduleResponse
+     * @return UpdateQuotaScheduleResponse UpdateQuotaScheduleResponse
      */
     public function updateQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
@@ -2015,10 +2153,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * @summary Updates the scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param UpdateQuotaScheduleRequest $request
+     * @param UpdateQuotaScheduleRequest $request  UpdateQuotaScheduleRequest
      *
-     * @return UpdateQuotaScheduleResponse
+     * @return UpdateQuotaScheduleResponse UpdateQuotaScheduleResponse
      */
     public function updateQuotaSchedule($nickname, $request)
     {

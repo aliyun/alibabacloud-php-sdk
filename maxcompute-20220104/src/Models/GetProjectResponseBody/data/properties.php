@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\da
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\encryption;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\storageTierInfo;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycle;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycleConfig;
 use AlibabaCloud\Tea\Model;
 
 class properties extends Model
@@ -42,6 +43,11 @@ class properties extends Model
      * @var bool
      */
     public $enableFdcCacheForce;
+
+    /**
+     * @var bool
+     */
+    public $enableTieredStorage;
 
     /**
      * @description Indicates whether tunnel quota routing is enabled.
@@ -97,6 +103,11 @@ class properties extends Model
     public $tableLifecycle;
 
     /**
+     * @var tableLifecycleConfig
+     */
+    public $tableLifecycleConfig;
+
+    /**
      * @description The time zone of the project.
      *
      * @example Asia/Shanghai
@@ -127,6 +138,7 @@ class properties extends Model
         'elderTunnelQuota'       => 'elderTunnelQuota',
         'enableDecimal2'         => 'enableDecimal2',
         'enableFdcCacheForce'    => 'enableFdcCacheForce',
+        'enableTieredStorage'    => 'enableTieredStorage',
         'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
         'encryption'             => 'encryption',
         'fdcQuota'               => 'fdcQuota',
@@ -134,6 +146,7 @@ class properties extends Model
         'sqlMeteringMax'         => 'sqlMeteringMax',
         'storageTierInfo'        => 'storageTierInfo',
         'tableLifecycle'         => 'tableLifecycle',
+        'tableLifecycleConfig'   => 'tableLifecycleConfig',
         'timezone'               => 'timezone',
         'tunnelQuota'            => 'tunnelQuota',
         'typeSystem'             => 'typeSystem',
@@ -158,6 +171,9 @@ class properties extends Model
         if (null !== $this->enableFdcCacheForce) {
             $res['enableFdcCacheForce'] = $this->enableFdcCacheForce;
         }
+        if (null !== $this->enableTieredStorage) {
+            $res['enableTieredStorage'] = $this->enableTieredStorage;
+        }
         if (null !== $this->enableTunnelQuotaRoute) {
             $res['enableTunnelQuotaRoute'] = $this->enableTunnelQuotaRoute;
         }
@@ -178,6 +194,9 @@ class properties extends Model
         }
         if (null !== $this->tableLifecycle) {
             $res['tableLifecycle'] = null !== $this->tableLifecycle ? $this->tableLifecycle->toMap() : null;
+        }
+        if (null !== $this->tableLifecycleConfig) {
+            $res['tableLifecycleConfig'] = null !== $this->tableLifecycleConfig ? $this->tableLifecycleConfig->toMap() : null;
         }
         if (null !== $this->timezone) {
             $res['timezone'] = $this->timezone;
@@ -212,6 +231,9 @@ class properties extends Model
         if (isset($map['enableFdcCacheForce'])) {
             $model->enableFdcCacheForce = $map['enableFdcCacheForce'];
         }
+        if (isset($map['enableTieredStorage'])) {
+            $model->enableTieredStorage = $map['enableTieredStorage'];
+        }
         if (isset($map['enableTunnelQuotaRoute'])) {
             $model->enableTunnelQuotaRoute = $map['enableTunnelQuotaRoute'];
         }
@@ -232,6 +254,9 @@ class properties extends Model
         }
         if (isset($map['tableLifecycle'])) {
             $model->tableLifecycle = tableLifecycle::fromMap($map['tableLifecycle']);
+        }
+        if (isset($map['tableLifecycleConfig'])) {
+            $model->tableLifecycleConfig = tableLifecycleConfig::fromMap($map['tableLifecycleConfig']);
         }
         if (isset($map['timezone'])) {
             $model->timezone = $map['timezone'];
