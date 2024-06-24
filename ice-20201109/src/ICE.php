@@ -375,6 +375,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTextGenerateJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryRequest;
@@ -10398,6 +10400,71 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTranscodeJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交视频翻译任务
+     *  *
+     * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitVideoTranslationJobResponse SubmitVideoTranslationJobResponse
+     */
+    public function submitVideoTranslationJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->editingConfig)) {
+            $query['EditingConfig'] = $request->editingConfig;
+        }
+        if (!Utils::isUnset($request->inputConfig)) {
+            $query['InputConfig'] = $request->inputConfig;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoTranslationJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitVideoTranslationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交视频翻译任务
+     *  *
+     * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
+     *
+     * @return SubmitVideoTranslationJobResponse SubmitVideoTranslationJobResponse
+     */
+    public function submitVideoTranslationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoTranslationJobWithOptions($request, $runtime);
     }
 
     /**
