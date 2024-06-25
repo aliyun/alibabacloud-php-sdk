@@ -20,6 +20,7 @@ class GetTraceRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -29,6 +30,7 @@ class GetTraceRequest extends Model
     /**
      * @description The unique ID of the trace.
      *
+     * This parameter is required.
      * @example 1c6881aab84191a4
      *
      * @var string

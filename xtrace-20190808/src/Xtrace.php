@@ -66,10 +66,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param CheckCommercialStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 检查商业化状态
+     *  *
+     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCommercialStatusResponse
+     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
      */
     public function checkCommercialStatusWithOptions($request, $runtime)
     {
@@ -100,9 +102,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param CheckCommercialStatusRequest $request
+     * @summary 检查商业化状态
+     *  *
+     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
      *
-     * @return CheckCommercialStatusResponse
+     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
      */
     public function checkCommercialStatus($request)
     {
@@ -112,10 +116,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTagKeyRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries tag keys.
+     *  *
+     * @param GetTagKeyRequest $request GetTagKeyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTagKeyResponse
+     * @return GetTagKeyResponse GetTagKeyResponse
      */
     public function getTagKeyWithOptions($request, $runtime)
     {
@@ -155,9 +161,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTagKeyRequest $request
+     * @summary Queries tag keys.
+     *  *
+     * @param GetTagKeyRequest $request GetTagKeyRequest
      *
-     * @return GetTagKeyResponse
+     * @return GetTagKeyResponse GetTagKeyResponse
      */
     public function getTagKey($request)
     {
@@ -167,10 +175,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTagValRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the tag values that correspond to a tag key.
+     *  *
+     * @param GetTagValRequest $request GetTagValRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTagValResponse
+     * @return GetTagValResponse GetTagValResponse
      */
     public function getTagValWithOptions($request, $runtime)
     {
@@ -213,9 +223,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTagValRequest $request
+     * @summary Queries the tag values that correspond to a tag key.
+     *  *
+     * @param GetTagValRequest $request GetTagValRequest
      *
-     * @return GetTagValResponse
+     * @return GetTagValResponse GetTagValResponse
      */
     public function getTagVal($request)
     {
@@ -225,10 +237,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTraceRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the details of a trace.
+     *  *
+     * @param GetTraceRequest $request GetTraceRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTraceResponse
+     * @return GetTraceResponse GetTraceResponse
      */
     public function getTraceWithOptions($request, $runtime)
     {
@@ -262,9 +276,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param GetTraceRequest $request
+     * @summary Queries the details of a trace.
+     *  *
+     * @param GetTraceRequest $request GetTraceRequest
      *
-     * @return GetTraceResponse
+     * @return GetTraceResponse GetTraceResponse
      */
     public function getTrace($request)
     {
@@ -274,10 +290,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListIpOrHostsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the IP addresses of an application.
+     *  *
+     * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIpOrHostsResponse
+     * @return ListIpOrHostsResponse ListIpOrHostsResponse
      */
     public function listIpOrHostsWithOptions($request, $runtime)
     {
@@ -314,9 +332,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListIpOrHostsRequest $request
+     * @summary Queries the IP addresses of an application.
+     *  *
+     * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
      *
-     * @return ListIpOrHostsResponse
+     * @return ListIpOrHostsResponse ListIpOrHostsResponse
      */
     public function listIpOrHosts($request)
     {
@@ -326,10 +346,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries applications.
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServicesWithOptions($request, $runtime)
     {
@@ -360,9 +382,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListServicesRequest $request
+     * @summary Queries applications.
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
      *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServices($request)
     {
@@ -372,10 +396,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListSpanNamesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all span names in a specified region or all span names of a microservice.
+     *  *
+     * @param ListSpanNamesRequest $request ListSpanNamesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSpanNamesResponse
+     * @return ListSpanNamesResponse ListSpanNamesResponse
      */
     public function listSpanNamesWithOptions($request, $runtime)
     {
@@ -412,9 +438,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param ListSpanNamesRequest $request
+     * @summary Queries all span names in a specified region or all span names of a microservice.
+     *  *
+     * @param ListSpanNamesRequest $request ListSpanNamesRequest
      *
-     * @return ListSpanNamesResponse
+     * @return ListSpanNamesResponse ListSpanNamesResponse
      */
     public function listSpanNames($request)
     {
@@ -424,10 +452,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param OpenXtraceServiceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 开通xtrace和对应的sls
+     *  *
+     * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenXtraceServiceResponse
+     * @return OpenXtraceServiceResponse OpenXtraceServiceResponse
      */
     public function openXtraceServiceWithOptions($request, $runtime)
     {
@@ -455,9 +485,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param OpenXtraceServiceRequest $request
+     * @summary 开通xtrace和对应的sls
+     *  *
+     * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
      *
-     * @return OpenXtraceServiceResponse
+     * @return OpenXtraceServiceResponse OpenXtraceServiceResponse
      */
     public function openXtraceService($request)
     {
@@ -467,10 +499,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param QueryMetricRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries a metric.
+     *  *
+     * @param QueryMetricRequest $request QueryMetricRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMetricResponse
+     * @return QueryMetricResponse QueryMetricResponse
      */
     public function queryMetricWithOptions($request, $runtime)
     {
@@ -528,9 +562,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param QueryMetricRequest $request
+     * @summary Queries a metric.
+     *  *
+     * @param QueryMetricRequest $request QueryMetricRequest
      *
-     * @return QueryMetricResponse
+     * @return QueryMetricResponse QueryMetricResponse
      */
     public function queryMetric($request)
     {
@@ -540,10 +576,12 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries traces by time, application name, IP address, span name, and tag.
+     *  *
+     * @param SearchTracesRequest $request SearchTracesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTracesResponse
+     * @return SearchTracesResponse SearchTracesResponse
      */
     public function searchTracesWithOptions($request, $runtime)
     {
@@ -604,9 +642,11 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesRequest $request
+     * @summary Queries traces by time, application name, IP address, span name, and tag.
+     *  *
+     * @param SearchTracesRequest $request SearchTracesRequest
      *
-     * @return SearchTracesResponse
+     * @return SearchTracesResponse SearchTracesResponse
      */
     public function searchTraces($request)
     {

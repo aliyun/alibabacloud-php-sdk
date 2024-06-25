@@ -11,7 +11,7 @@ class QueryMetricResponseBody extends Model
     /**
      * @description The returned statistics.
      *
-     * @example {   "RequestId": "E2373982-D8CD-413D-B991-8EB678******",   "Data": "{\"data\":[{\"date\":1583686800000,\"count\":0,\"rt\":0,\"rpc\":\"childSpan3\"}}
+     * @example {   "RequestId": "E2373982-D8CD-413D-B991-8EB678******",   "Data": "{\\"data\\":[{\\"date\\":1583686800000,\\"count\\":0,\\"rt\\":0,\\"rpc\\":\\"childSpan3\\"}}
      *
      * @var string
      */

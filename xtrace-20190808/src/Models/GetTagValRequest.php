@@ -56,6 +56,7 @@ class GetTagValRequest extends Model
     /**
      * @description The tag key.
      *
+     * This parameter is required.
      * @example span.kind
      *
      * @var string

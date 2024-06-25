@@ -21,6 +21,7 @@ class SearchTracesRequest extends Model
     /**
      * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
      *
+     * This parameter is required.
      * @example 1575622455686
      *
      * @var int
@@ -66,6 +67,7 @@ class SearchTracesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -103,6 +105,7 @@ class SearchTracesRequest extends Model
     /**
      * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
      *
+     * This parameter is required.
      * @example 1575561600000
      *
      * @var int

@@ -21,6 +21,7 @@ class QueryMetricRequest extends Model
     /**
      * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
      *
+     * This parameter is required.
      * @example 1575622455686
      *
      * @var int
@@ -56,6 +57,7 @@ class QueryMetricRequest extends Model
     /**
      * @description The measures of the metric that you want to query.
      *
+     * This parameter is required.
      * @example count
      *
      * @var string[]
@@ -65,7 +67,7 @@ class QueryMetricRequest extends Model
     /**
      * @description The name of the metric. Valid values:
      *
-     * - `appstat.sql`: SQL statistics
+     * This parameter is required.
      * @example appstat.incall
      *
      * @var string
@@ -103,6 +105,7 @@ class QueryMetricRequest extends Model
     /**
      * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
      *
+     * This parameter is required.
      * @example 1575561600000
      *
      * @var int
