@@ -1,3 +1,6 @@
+2024-06-25 Version: 2.1.3
+- Generated php 2020-04-01 for eventbridge.
+
 2024-06-24 Version: 2.1.2
 - Update API CreateEventSource: add param ExternalSourceConfig.
 - Update API CreateEventSource: add param ExternalSourceType.

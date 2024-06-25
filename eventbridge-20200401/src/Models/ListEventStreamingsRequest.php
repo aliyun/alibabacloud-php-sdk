@@ -47,8 +47,6 @@ class ListEventStreamingsRequest extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the event source.
      *
-     * @example acs:alikafka:cn-hangzhou:118609547428****:instance/alikafka_pre-cn-zxu36kvi****\/topic/test-topic
-     *
      * @var string
      */
     public $sourceArn;
