@@ -13,8 +13,14 @@ class DBCluster extends Model
     /**
      * @description The type of the AI node. Valid values:
      *
-     *   SearchNode: search node.
-     *   DLNode: AI node.
+     *   SearchNode: search node
+     *   DLNode: AI node
+     *
+     * Enumeration values:
+     *
+     *   SearchNode | DLNode: both
+     *   DLNode: AI node
+     *   SearchNode: search node
      *
      * @example SearchNode
      *
@@ -28,7 +34,7 @@ class DBCluster extends Model
      *   **Normal**: Cluster Edition
      *   **Basic**: Single Node Edition
      *   **Archive**: X-Engine Edition
-     *   **NormalMultimaster**: Multi-master Cluster (Database/Table)
+     *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition
      *
      * @example Normal
      *
@@ -37,6 +43,10 @@ class DBCluster extends Model
     public $category;
 
     /**
+     * @description The number of CPU cores.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $cpuCores;
@@ -60,7 +70,7 @@ class DBCluster extends Model
     public $DBClusterDescription;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example pc-****************
      *
@@ -78,7 +88,7 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The status of the cluster.
+     * @description The state of the cluster.
      *
      * @example Running
      *
@@ -87,7 +97,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The specifications of the node.
+     * @description The node specifications.
      *
      * @example polar.mysql.x4.large
      *
@@ -105,7 +115,7 @@ class DBCluster extends Model
     public $DBNodeNumber;
 
     /**
-     * @description The nodes of the cluster.
+     * @description The information about the nodes.
      *
      * @var DBNodes
      */
@@ -121,7 +131,7 @@ class DBCluster extends Model
     public $DBType;
 
     /**
-     * @description The version of the database.
+     * @description The version of the database engine.
      *
      * @example 5.6
      *
@@ -132,10 +142,10 @@ class DBCluster extends Model
     /**
      * @description Indicates whether the cluster is protected from deletion. Valid values:
      *
-     *   **0**: The cluster is not locked.
-     *   **1**: The cluster is locked.
+     *   **0**: The cluster is not protected from deletion.
+     *   **1**: The cluster is protected from deletion.
      *
-     * > You cannot delete clusters that are locked.
+     * >  You cannot delete clusters that are protected from deletion.
      * @example 0
      *
      * @var int
@@ -143,7 +153,7 @@ class DBCluster extends Model
     public $deletionLock;
 
     /**
-     * @description The engine of the cluster.
+     * @description The database engine of the cluster.
      *
      * @example POLARDB
      *
@@ -154,7 +164,7 @@ class DBCluster extends Model
     /**
      * @description The expiration time of the cluster.
      *
-     * > A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string is returned.
+     * >  A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, no value is returned.
      * @example 2020-11-14T16:00:00Z
      *
      * @var string
@@ -167,7 +177,7 @@ class DBCluster extends Model
      *   **true**
      *   **false**
      *
-     * > A specific value is returned only for subscription (**Prepaid**) clusters.
+     * >  A specific value is returned only for subscription (**Prepaid**) clusters.
      * @example false
      *
      * @var string
@@ -177,9 +187,9 @@ class DBCluster extends Model
     /**
      * @description The lock state of the cluster. Valid values:
      *
-     *   **Unlock**: The cluster is not locked.
+     *   **Unlock**: The cluster is unlocked.
      *   **ManualLock**: The cluster is manually locked.
-     *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
+     *   **LockByExpiration**: The cluster is locked due to cluster expiration.
      *
      * @example Unlock
      *
@@ -188,6 +198,10 @@ class DBCluster extends Model
     public $lockMode;
 
     /**
+     * @description The memory size for local operations. Unit: MB.
+     *
+     * @example 2048
+     *
      * @var string
      */
     public $memorySize;
@@ -205,7 +219,7 @@ class DBCluster extends Model
     public $payType;
 
     /**
-     * @description The ID of the region in which the node resides.
+     * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
      *
@@ -214,12 +228,16 @@ class DBCluster extends Model
     public $regionId;
 
     /**
+     * @description The memory size for distributed operations. Unit: MB.
+     *
+     * @example 3612
+     *
      * @var string
      */
     public $remoteMemorySize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-************
      *
@@ -228,7 +246,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates a serverless cluster. An empty value indicates a common cluster.
+     * @description Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates a serverless cluster. No value is returned for a common cluster.
      *
      * @example AgileServerless
      *
@@ -237,7 +255,7 @@ class DBCluster extends Model
     public $serverlessType;
 
     /**
-     * @description The billing method of the storage space. Valid values:
+     * @description The storage billing method of the cluster. Valid values:
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
@@ -249,7 +267,7 @@ class DBCluster extends Model
     public $storagePayType;
 
     /**
-     * @description The storage capacity that is billed based on the subscription billing method. Unit: byte.
+     * @description The storage that is billed based on the subscription billing method. Unit: bytes.
      *
      * @example 50
      *
@@ -258,7 +276,12 @@ class DBCluster extends Model
     public $storageSpace;
 
     /**
-     * @description The storage space this is occupied by the cluster. Unit: bytes.
+     * @var string
+     */
+    public $storageType;
+
+    /**
+     * @description The used storage. Unit: bytes.
      *
      * @example 3009413120
      *
@@ -269,8 +292,8 @@ class DBCluster extends Model
     /**
      * @description Indicates whether multi-zone data consistency is enabled for the cluster. Valid values:
      *
-     *   **ON**: multi-zone data consistency is enabled, which is suitable for Standard Edition clusters of Multi-zone Edition.
-     *   **OFF**: multi-zone data consistency is disabled.
+     *   **ON**: Multi-zone data consistency is enabled. For Standard Edition clusters of Multi-zone Edition, this value is returned.
+     *   **OFF**: Multi-zone data consistency is disabled.
      *
      * @example ON
      *
@@ -279,19 +302,26 @@ class DBCluster extends Model
     public $strictConsistency;
 
     /**
+     * @description The specification type of the compute node. Valid values:
+     *
+     *   **Exclusive**: dedicated.
+     *   **General**: general-purpose.
+     *
+     * @example Exclusive
+     *
      * @var string
      */
     public $subCategory;
 
     /**
-     * @description The tags of the cluster.
+     * @description The information about the tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The VPC ID of the cluster.
+     * @description The virtual private cloud (VPC) ID of the cluster.
      *
      * @example vpc-****************
      *
@@ -343,6 +373,7 @@ class DBCluster extends Model
         'serverlessType'       => 'ServerlessType',
         'storagePayType'       => 'StoragePayType',
         'storageSpace'         => 'StorageSpace',
+        'storageType'          => 'StorageType',
         'storageUsed'          => 'StorageUsed',
         'strictConsistency'    => 'StrictConsistency',
         'subCategory'          => 'SubCategory',
@@ -436,6 +467,9 @@ class DBCluster extends Model
         }
         if (null !== $this->storageSpace) {
             $res['StorageSpace'] = $this->storageSpace;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
@@ -547,6 +581,9 @@ class DBCluster extends Model
         }
         if (isset($map['StorageSpace'])) {
             $model->storageSpace = $map['StorageSpace'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];

@@ -92,8 +92,6 @@ class SQLSlowRecord extends Model
     /**
      * @description The SQL statement that is executed in the query.
      *
-     * @example /* Query from *** by user 111 *\/ SELECT sleep(20)
-     *
      * @var string
      */
     public $SQLText;

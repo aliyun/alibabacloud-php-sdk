@@ -6121,6 +6121,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -8182,7 +8185,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the primary zone of a PolarDB cluster.
+     * @summary Changes the primary zone of a PolarDB cluster.
      *  *
      * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -8251,7 +8254,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the primary zone of a PolarDB cluster.
+     * @summary Changes the primary zone of a PolarDB cluster.
      *  *
      * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
      *
@@ -9916,7 +9919,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 重启代理
+     * @summary Restarts database links.
      *  *
      * @param RestartDBLinkRequest $request RestartDBLinkRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -9964,7 +9967,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 重启代理
+     * @summary Restarts database links.
      *  *
      * @param RestartDBLinkRequest $request RestartDBLinkRequest
      *

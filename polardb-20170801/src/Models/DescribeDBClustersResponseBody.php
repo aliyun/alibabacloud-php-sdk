@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersResponseBody extends Model
 {
     /**
-     * @description The details of the cluster.
+     * @description The information about the clusters.
      *
      * @var items
      */

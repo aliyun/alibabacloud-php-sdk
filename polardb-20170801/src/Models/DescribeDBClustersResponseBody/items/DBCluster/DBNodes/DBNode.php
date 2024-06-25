@@ -29,8 +29,10 @@ class DBNode extends Model
     /**
      * @description The role of the node. Valid values:
      *
-     *   **Writer**: The node is the primary node.
-     *   **Reader**: The node is the read-only node.
+     *   **Writer**: primary node
+     *   **Reader**: read-only node
+     *   **ColumnReader**: column store read-only node
+     *   **AI**: AI node
      *
      * @example Reader
      *
@@ -63,7 +65,7 @@ class DBNode extends Model
     public $imciSwitch;
 
     /**
-     * @description The ID of the region in which the node resides.
+     * @description The region ID of the node.
      *
      * @example cn-hangzhou
      *
@@ -72,10 +74,10 @@ class DBNode extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the serverless feature is enabled for the current node.
+     * @description Indicates whether the serverless feature is enabled for the node.
      *
      *   **ON** indicates that the serverless feature is enabled.
-     *   An empty value indicates that the serverless feature is disabled.
+     *   No value is returned if the serverless feature is disabled.
      *
      * @example ON
      *
@@ -84,7 +86,7 @@ class DBNode extends Model
     public $serverless;
 
     /**
-     * @description The zone ID of the node.
+     * @description The zone ID of node.
      *
      * @example cn-hangzhou-i
      *

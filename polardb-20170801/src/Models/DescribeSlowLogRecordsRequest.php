@@ -40,6 +40,11 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @var string
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -119,6 +124,7 @@ class DescribeSlowLogRecordsRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'DBName'               => 'DBName',
         'endTime'              => 'EndTime',
+        'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -145,6 +151,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -193,6 +202,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

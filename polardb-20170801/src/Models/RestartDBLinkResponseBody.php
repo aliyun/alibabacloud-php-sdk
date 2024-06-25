@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDBLinkResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example pc-****************
      *
      * @var string
@@ -16,6 +18,8 @@ class RestartDBLinkResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example E56531A4-E552-40BA-9C58-137B80******
      *
      * @var string
@@ -23,6 +27,8 @@ class RestartDBLinkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example ec8c4723-eac5-4f12-becb-01ac08******
      *
      * @var string
