@@ -15,6 +15,7 @@ class UpdateLoadBalancerAddressTypeConfigRequest extends Model
      *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
      *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. In this case, the NLB instance can be accessed over the virtual private cloud (VPC) where the NLB instance is deployed.
      *
+     * This parameter is required.
      * @example Internet
      *
      * @var string
@@ -48,6 +49,7 @@ class UpdateLoadBalancerAddressTypeConfigRequest extends Model
     /**
      * @description The NLB instance ID.
      *
+     * This parameter is required.
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -57,7 +59,7 @@ class UpdateLoadBalancerAddressTypeConfigRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

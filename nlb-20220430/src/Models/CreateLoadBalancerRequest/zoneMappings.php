@@ -44,6 +44,7 @@ class zoneMappings extends Model
     /**
      * @description The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an NLB instance. You must add at least two zones. You can add a maximum of 10 zones.
      *
+     * This parameter is required.
      * @example vsw-sersdf****
      *
      * @var string
@@ -53,7 +54,7 @@ class zoneMappings extends Model
     /**
      * @description The ID of the zone of the NLB instance. You must add at least two zones. You can add a maximum of 10 zones.
      *
-     * You can call the [DescribeZones](~~443890~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-a
      *
      * @var string

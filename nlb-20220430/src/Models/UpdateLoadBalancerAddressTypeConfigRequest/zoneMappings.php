@@ -42,7 +42,7 @@ class zoneMappings extends Model
     /**
      * @description The zone ID of the NLB instance.
      *
-     * You can call the [DescribeZones](~~443890~~) operation to query the most recent zone list.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
      * @example cn-hangzhou-a
      *
      * @var string

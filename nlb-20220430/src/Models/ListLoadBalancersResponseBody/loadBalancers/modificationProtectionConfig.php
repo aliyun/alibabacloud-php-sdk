@@ -18,7 +18,7 @@ class modificationProtectionConfig extends Model
     public $enabledTime;
 
     /**
-     * @description The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     * @description The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
      *
      * This parameter takes effect only if **Status** is set to **ConsoleProtection**.
      * @example Service guarantee period

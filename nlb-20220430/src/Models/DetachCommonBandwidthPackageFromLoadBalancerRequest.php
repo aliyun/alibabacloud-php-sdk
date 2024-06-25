@@ -11,6 +11,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The ID of the EIP bandwidth plan.
      *
+     * This parameter is required.
      * @example cbwp-bp1pzf0ym72pu3y76****
      *
      * @var string
@@ -44,6 +45,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The ID of the NLB instance.
      *
+     * This parameter is required.
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -53,7 +55,7 @@ class DetachCommonBandwidthPackageFromLoadBalancerRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

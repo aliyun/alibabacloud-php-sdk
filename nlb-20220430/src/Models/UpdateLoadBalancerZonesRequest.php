@@ -36,6 +36,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     /**
      * @description The NLB instance ID.
      *
+     * This parameter is required.
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -45,7 +46,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to obtain the region ID.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +56,7 @@ class UpdateLoadBalancerZonesRequest extends Model
     /**
      * @description The mappings between zones and vSwitches. You can specify at most 10 zones.
      *
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

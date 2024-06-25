@@ -11,6 +11,7 @@ class zoneMappings extends Model
     /**
      * @description The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet.
      *
+     * This parameter is required.
      * @example vsw-bp1rmcrwg3erh1fh8****
      *
      * @var string
@@ -20,7 +21,7 @@ class zoneMappings extends Model
     /**
      * @description The zone ID of the NLB instance.
      *
-     * You can call the [DescribeZones](~~443890~~) operation to query the most recent zone list.
+     * This parameter is required.
      * @example cn-hangzhou-a
      *
      * @var string

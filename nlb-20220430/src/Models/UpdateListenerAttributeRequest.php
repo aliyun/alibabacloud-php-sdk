@@ -108,7 +108,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description Enter a name for the listener.
      *
-     * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
      * @example tcpssl_443
      *
      * @var string
@@ -118,6 +118,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description The ID of the listener.
      *
+     * This parameter is required.
      * @example lsn-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -155,7 +156,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

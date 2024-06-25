@@ -114,7 +114,7 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -148,7 +148,7 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The name of the server group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * This parameter is required.
      * @example NLB_ServerGroup
      *
      * @var string
@@ -178,6 +178,8 @@ class CreateServerGroupRequest extends Model
      * @description The ID of the virtual private cloud (VPC) to which the server group belongs.
      *
      * > If **ServerGroupType** is set to **Instance**, only servers in the specified VPC can be added to the server group.
+     *
+     * This parameter is required.
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string

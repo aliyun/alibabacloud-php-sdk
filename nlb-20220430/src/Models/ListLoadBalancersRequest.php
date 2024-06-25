@@ -129,7 +129,7 @@ class ListLoadBalancersRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -160,7 +160,7 @@ class ListLoadBalancersRequest extends Model
     public $vpcIds;
 
     /**
-     * @description The name of the zone. You can call the [DescribeZones](~~443890~~) operation to query the most recent zone list.
+     * @description The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-a
      *

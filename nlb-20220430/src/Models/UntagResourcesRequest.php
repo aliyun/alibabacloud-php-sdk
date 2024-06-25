@@ -47,7 +47,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +57,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the resource. You can specify up to 50 resource IDs in each call.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -68,6 +69,7 @@ class UntagResourcesRequest extends Model
      *   **securitypolicy**: a security policy
      *   **servergroup**: a server group
      *
+     * This parameter is required.
      * @example loadbalancer
      *
      * @var string

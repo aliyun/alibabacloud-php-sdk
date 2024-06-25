@@ -55,7 +55,12 @@ class healthCheck extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The HTTP status codes returned for health checks. Multiple HTTP status codes are separated by commas (,). Valid values: **http\_2xx**, **http\_3xx**, **http\_4xx**, and **http\_5xx**.
+     * @var string
+     */
+    public $healthCheckExp;
+
+    /**
+     * @description The HTTP status codes returned for health checks. Multiple HTTP status codes are separated by commas (,). Valid values: **http_2xx**, **http_3xx**, **http_4xx**, and **http_5xx**.
      *
      * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
      * @var string[]
@@ -71,6 +76,11 @@ class healthCheck extends Model
      * @var int
      */
     public $healthCheckInterval;
+
+    /**
+     * @var string
+     */
+    public $healthCheckReq;
 
     /**
      * @description The protocol that is used for health checks. Valid values: **TCP** and **HTTP**.
@@ -125,8 +135,10 @@ class healthCheck extends Model
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
         'healthCheckDomain'         => 'HealthCheckDomain',
         'healthCheckEnabled'        => 'HealthCheckEnabled',
+        'healthCheckExp'            => 'HealthCheckExp',
         'healthCheckHttpCode'       => 'HealthCheckHttpCode',
         'healthCheckInterval'       => 'HealthCheckInterval',
+        'healthCheckReq'            => 'HealthCheckReq',
         'healthCheckType'           => 'HealthCheckType',
         'healthCheckUrl'            => 'HealthCheckUrl',
         'healthyThreshold'          => 'HealthyThreshold',
@@ -153,11 +165,17 @@ class healthCheck extends Model
         if (null !== $this->healthCheckEnabled) {
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
+        if (null !== $this->healthCheckExp) {
+            $res['HealthCheckExp'] = $this->healthCheckExp;
+        }
         if (null !== $this->healthCheckHttpCode) {
             $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
         }
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
+        }
+        if (null !== $this->healthCheckReq) {
+            $res['HealthCheckReq'] = $this->healthCheckReq;
         }
         if (null !== $this->healthCheckType) {
             $res['HealthCheckType'] = $this->healthCheckType;
@@ -198,6 +216,9 @@ class healthCheck extends Model
         if (isset($map['HealthCheckEnabled'])) {
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
+        if (isset($map['HealthCheckExp'])) {
+            $model->healthCheckExp = $map['HealthCheckExp'];
+        }
         if (isset($map['HealthCheckHttpCode'])) {
             if (!empty($map['HealthCheckHttpCode'])) {
                 $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
@@ -205,6 +226,9 @@ class healthCheck extends Model
         }
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
+        }
+        if (isset($map['HealthCheckReq'])) {
+            $model->healthCheckReq = $map['HealthCheckReq'];
         }
         if (isset($map['HealthCheckType'])) {
             $model->healthCheckType = $map['HealthCheckType'];

@@ -94,7 +94,7 @@ class listeners extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
      * @example tcpssl_443
      *
      * @var string

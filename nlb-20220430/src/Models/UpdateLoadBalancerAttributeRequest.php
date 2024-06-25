@@ -56,6 +56,7 @@ class UpdateLoadBalancerAttributeRequest extends Model
     /**
      * @description The NLB instance ID.
      *
+     * This parameter is required.
      * @example nlb-wb7r6dlwetvt5j****
      *
      * @var string
@@ -65,7 +66,7 @@ class UpdateLoadBalancerAttributeRequest extends Model
     /**
      * @description The NLB instance name.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example NLB1
      *
      * @var string
@@ -75,7 +76,7 @@ class UpdateLoadBalancerAttributeRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string

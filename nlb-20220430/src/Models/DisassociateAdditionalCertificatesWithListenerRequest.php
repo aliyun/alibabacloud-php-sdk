@@ -11,6 +11,7 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The additional certificates. You can disassociate up to 15 additional certificates from a listener in each request.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $additionalCertificateIds;
@@ -42,6 +43,7 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The listener ID. You must specify the ID of a listener that uses SSL over TCP.
      *
+     * This parameter is required.
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -51,7 +53,7 @@ class DisassociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @description The region ID of the Network Load Balancer (NLB) instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

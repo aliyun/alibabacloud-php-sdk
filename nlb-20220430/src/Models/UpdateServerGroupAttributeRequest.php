@@ -76,7 +76,7 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to obtain the region ID.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -101,6 +101,7 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The server group ID.
      *
+     * This parameter is required.
      * @example sgp-atstuj3rtoptyui****
      *
      * @var string
@@ -110,7 +111,7 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The new name of the server group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example NLB_ServerGroup1
      *
      * @var string

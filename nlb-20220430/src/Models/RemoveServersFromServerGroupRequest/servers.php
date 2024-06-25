@@ -23,6 +23,7 @@ class servers extends Model
      *   If the server group type is **Instance**, set this parameter to the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance. The backend servers are specified by **Ecs**, **Eni**, or **Eci**.
      *   If the server group type is **Ip**, set this parameter to an IP address.
      *
+     * This parameter is required.
      * @example ecs-bp67acfmxazb4p****
      *
      * @var string
@@ -46,6 +47,7 @@ class servers extends Model
      *   **Eci**: elastic container instance
      *   **Ip**: IP address
      *
+     * This parameter is required.
      * @example Ecs
      *
      * @var string

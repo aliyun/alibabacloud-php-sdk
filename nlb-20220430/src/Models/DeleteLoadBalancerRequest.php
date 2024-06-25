@@ -35,6 +35,7 @@ class DeleteLoadBalancerRequest extends Model
     /**
      * @description The ID of the NLB instance.
      *
+     * This parameter is required.
      * @example nlb-wb7r6dlwetvt5j****
      *
      * @var string
@@ -44,7 +45,7 @@ class DeleteLoadBalancerRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

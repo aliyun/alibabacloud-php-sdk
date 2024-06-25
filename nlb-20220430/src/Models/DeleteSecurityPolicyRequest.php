@@ -35,7 +35,7 @@ class DeleteSecurityPolicyRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the available regions.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the available regions.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +45,7 @@ class DeleteSecurityPolicyRequest extends Model
     /**
      * @description The ID of the TLS security policy.
      *
+     * This parameter is required.
      * @example tls-bp14bb1e7dll4f****
      *
      * @var string

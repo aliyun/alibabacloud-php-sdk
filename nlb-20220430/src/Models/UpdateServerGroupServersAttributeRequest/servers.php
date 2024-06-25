@@ -11,7 +11,7 @@ class servers extends Model
     /**
      * @description The description of the backend server.
      *
-     * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
      * @example test
      *
      * @var string
@@ -21,7 +21,7 @@ class servers extends Model
     /**
      * @description The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 40 backend servers in each call.
      *
-     * > This is parameter cannot be modified.
+     * This parameter is required.
      * @example 443
      *
      * @var int
@@ -34,6 +34,7 @@ class servers extends Model
      *   If the server group type is **Instance**, set the ServerId parameter to the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
      *   If the server group type is **Ip**, set this parameter to an IP address.
      *
+     * This parameter is required.
      * @example ecs-bp67acfmxazb4p****
      *
      * @var string
@@ -58,7 +59,7 @@ class servers extends Model
      *   **Eci**: an elastic container instance
      *   **Ip**: an IP address
      *
-     * > You can specify at most 40 backend servers in each call.
+     * This parameter is required.
      * @example Ecs
      *
      * @var string

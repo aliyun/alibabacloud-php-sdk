@@ -31,7 +31,7 @@ class CreateLoadBalancerRequest extends Model
      *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
      *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the virtual private cloud (VPC) where the NLB instance is deployed.
      *
-     * >  To enable a public IPv6 address for an NLB instance, call the [EnableLoadBalancerIpv6Internet](~~445878~~) operation.
+     * This parameter is required.
      * @example Internet
      *
      * @var string
@@ -88,7 +88,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The name of the NLB instance.
      *
-     * The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter.
+     * The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
      * @example NLB1
      *
      * @var string
@@ -114,7 +114,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -140,6 +140,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the VPC where the NLB instance is deployed.
      *
+     * This parameter is required.
      * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
@@ -149,6 +150,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The mappings between zones and vSwitches. You must add at least two zones. You can add a maximum of 10 zones.
      *
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

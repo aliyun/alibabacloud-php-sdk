@@ -139,7 +139,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
     /**
      * @description The NLB instance name.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      * @example NLB1
      *
      * @var string

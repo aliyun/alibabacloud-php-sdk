@@ -35,6 +35,7 @@ class StopListenerRequest extends Model
     /**
      * @description The listener ID.
      *
+     * This parameter is required.
      * @example lsn-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -44,7 +45,7 @@ class StopListenerRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

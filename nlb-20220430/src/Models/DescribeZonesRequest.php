@@ -34,7 +34,7 @@ class DescribeZonesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the region to which the zone belongs. You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * @description The ID of the region to which the zone belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

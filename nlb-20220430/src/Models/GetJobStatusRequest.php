@@ -23,6 +23,7 @@ class GetJobStatusRequest extends Model
     /**
      * @description The ID of the asynchronous task.
      *
+     * This parameter is required.
      * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string

@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\DeleteSecurityPolicyRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DeleteSecurityPolicyResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DeleteServerGroupRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DeleteServerGroupResponse;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeHdMonitorRegionConfigRequest;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeHdMonitorRegionConfigResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeZonesRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\RemoveServersFromServerGroupRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\RemoveServersFromServerGroupResponse;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\SetHdMonitorRegionConfigRequest;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\SetHdMonitorRegionConfigResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\StartListenerRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\StartListenerResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\StartShiftLoadBalancerZonesRequest;
@@ -143,10 +147,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AddServersToServerGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds backend servers to a specified server group.
+     *  *
+     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddServersToServerGroupResponse
+     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
      */
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
@@ -188,9 +194,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AddServersToServerGroupRequest $request
+     * @summary Adds backend servers to a specified server group.
+     *  *
+     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
      *
-     * @return AddServersToServerGroupResponse
+     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
      */
     public function addServersToServerGroup($request)
     {
@@ -200,10 +208,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-     *   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-     *   * *   If the listener is in the **Associated** state, the additional certificates are associated.
-     *   *
+     * @summary Associates additional certificates with a listener that uses SSL over TCP.
+     *  *
+     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+     * *   If the listener is in the **Associated** state, the additional certificates are associated.
+     *  *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
@@ -247,10 +257,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-     *   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-     *   * *   If the listener is in the **Associated** state, the additional certificates are associated.
-     *   *
+     * @summary Associates additional certificates with a listener that uses SSL over TCP.
+     *  *
+     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * *   If the listener is in the **Associating** state, the additional certificates are being associated.
+     * *   If the listener is in the **Associated** state, the additional certificates are associated.
+     *  *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
      * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
@@ -263,10 +275,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary 绑定带宽包
+     *  *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
@@ -306,9 +320,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     * @summary 绑定带宽包
+     *  *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancer($request)
     {
@@ -318,8 +334,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](~~2411999~~) API operation.
-     *   *
+     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+     *  *
+     * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+     *  *
      * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -363,8 +381,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](~~2411999~~) API operation.
-     *   *
+     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+     *  *
+     * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+     *  *
      * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
      *
      * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
@@ -377,10 +397,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param CreateListenerRequest $tmpReq  CreateListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListenerWithOptions($tmpReq, $runtime)
     {
@@ -479,9 +501,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
+     * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param CreateListenerRequest $request CreateListenerRequest
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListener($request)
     {
@@ -491,11 +515,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-     *   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~445873~~) to query the status of an NLB instance.
-     *   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-     *   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-     *   *
+     * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+     *  *
+     * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+     * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
+     *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
+     *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -571,11 +597,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-     *   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~445873~~) to query the status of an NLB instance.
-     *   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-     *   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-     *   *
+     * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
+     *  *
+     * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+     * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
+     *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
+     *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
      * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
@@ -588,10 +616,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecurityPolicyResponse
+     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
      */
     public function createSecurityPolicyWithOptions($request, $runtime)
     {
@@ -640,9 +670,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityPolicyRequest $request
+     * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
      *
-     * @return CreateSecurityPolicyResponse
+     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
      */
     public function createSecurityPolicy($request)
     {
@@ -652,12 +684,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   **protocol** specifies the protocol used to forward requests to the backend servers.
-     *   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-     *   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the creation status of the task.
-     *   *     *   If the task is in the **Succeeded** status, the server group is created.
-     *   *     *   If the task is in the **Processing** status, the server group is being created.
-     *   *
+     * @summary Creates a server group in a region.
+     *  *
+     * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+     * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
+     * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+     *     *   If the task is in the **Succeeded** status, the server group is created.
+     *     *   If the task is in the **Processing** status, the server group is being created.
+     *  *
      * @param CreateServerGroupRequest $request CreateServerGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -736,12 +770,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   **protocol** specifies the protocol used to forward requests to the backend servers.
-     *   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-     *   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the creation status of the task.
-     *   *     *   If the task is in the **Succeeded** status, the server group is created.
-     *   *     *   If the task is in the **Processing** status, the server group is being created.
-     *   *
+     * @summary Creates a server group in a region.
+     *  *
+     * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+     * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
+     * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+     *     *   If the task is in the **Succeeded** status, the server group is created.
+     *     *   If the task is in the **Processing** status, the server group is being created.
+     *  *
      * @param CreateServerGroupRequest $request CreateServerGroupRequest
      *
      * @return CreateServerGroupResponse CreateServerGroupResponse
@@ -754,10 +790,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除监听
+     *  *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListenerWithOptions($request, $runtime)
     {
@@ -794,9 +832,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
+     * @summary 删除监听
+     *  *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListener($request)
     {
@@ -806,10 +846,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除负载均衡
+     *  *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
@@ -846,9 +888,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
+     * @summary 删除负载均衡
+     *  *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancer($request)
     {
@@ -858,10 +902,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 删除安全策略
+     *  *
+     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecurityPolicyResponse
+     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicyWithOptions($request, $runtime)
     {
@@ -898,9 +944,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityPolicyRequest $request
+     * @summary 删除安全策略
+     *  *
+     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
      *
-     * @return DeleteSecurityPolicyResponse
+     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicy($request)
     {
@@ -910,8 +958,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * You can delete server groups that are not associated with listeners.
-     *   *
+     * @summary DeleteServerGroup
+     *  *
+     * @description You can delete server groups that are not associated with listeners.
+     *  *
      * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -952,8 +1002,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * You can delete server groups that are not associated with listeners.
-     *   *
+     * @summary DeleteServerGroup
+     *  *
+     * @description You can delete server groups that are not associated with listeners.
+     *  *
      * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
      *
      * @return DeleteServerGroupResponse DeleteServerGroupResponse
@@ -966,10 +1018,59 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询秒级监控存储配置
+     *  *
+     * @param DescribeHdMonitorRegionConfigRequest $request DescribeHdMonitorRegionConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeHdMonitorRegionConfigResponse DescribeHdMonitorRegionConfigResponse
+     */
+    public function describeHdMonitorRegionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHdMonitorRegionConfig',
+            'version'     => '2022-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询秒级监控存储配置
+     *  *
+     * @param DescribeHdMonitorRegionConfigRequest $request DescribeHdMonitorRegionConfigRequest
+     *
+     * @return DescribeHdMonitorRegionConfigResponse DescribeHdMonitorRegionConfigResponse
+     */
+    public function describeHdMonitorRegionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHdMonitorRegionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries regions that support Network Load Balancer (NLB) instances.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -1005,9 +1106,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries regions that support Network Load Balancer (NLB) instances.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1017,10 +1120,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries zones in a region that supports Network Load Balancer (NLB).
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -1057,9 +1162,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries zones in a region that supports Network Load Balancer (NLB).
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -1069,10 +1176,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @summary 解绑带宽包
+     *  *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
@@ -1112,9 +1221,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     * @summary 解绑带宽包
+     *  *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancer($request)
     {
@@ -1124,10 +1235,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DisableLoadBalancerIpv6InternetRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
+     *  *
+     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableLoadBalancerIpv6InternetResponse
+     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
@@ -1164,9 +1277,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param DisableLoadBalancerIpv6InternetRequest $request
+     * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
+     *  *
+     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
      *
-     * @return DisableLoadBalancerIpv6InternetResponse
+     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6Internet($request)
     {
@@ -1176,10 +1291,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-     *   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
-     *   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *   *
+     * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
+     *  *
+     * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+     * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *  *
      * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
      * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1223,10 +1340,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~615175~~) operation to query the status of the task:
-     *   * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
-     *   * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *   *
+     * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
+     *  *
+     * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
+     * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *  *
      * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
      *
      * @return DisassociateAdditionalCertificatesWithListenerResponse DisassociateAdditionalCertificatesWithListenerResponse
@@ -1239,10 +1358,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param EnableLoadBalancerIpv6InternetRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+     *  *
+     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableLoadBalancerIpv6InternetResponse
+     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
@@ -1279,9 +1400,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param EnableLoadBalancerIpv6InternetRequest $request
+     * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+     *  *
+     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
      *
-     * @return EnableLoadBalancerIpv6InternetResponse
+     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6Internet($request)
     {
@@ -1291,10 +1414,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetJobStatusRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取工作流状态
+     *  *
+     * @param GetJobStatusRequest $request GetJobStatusRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobStatusResponse
+     * @return GetJobStatusResponse GetJobStatusResponse
      */
     public function getJobStatusWithOptions($request, $runtime)
     {
@@ -1325,9 +1450,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetJobStatusRequest $request
+     * @summary 获取工作流状态
+     *  *
+     * @param GetJobStatusRequest $request GetJobStatusRequest
      *
-     * @return GetJobStatusResponse
+     * @return GetJobStatusResponse GetJobStatusResponse
      */
     public function getJobStatus($request)
     {
@@ -1337,10 +1464,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetListenerAttributeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of a Network Load Balancer (NLB) listener.
+     *  *
+     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetListenerAttributeResponse
+     * @return GetListenerAttributeResponse GetListenerAttributeResponse
      */
     public function getListenerAttributeWithOptions($request, $runtime)
     {
@@ -1377,9 +1506,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetListenerAttributeRequest $request
+     * @summary Queries the details of a Network Load Balancer (NLB) listener.
+     *  *
+     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
      *
-     * @return GetListenerAttributeResponse
+     * @return GetListenerAttributeResponse GetListenerAttributeResponse
      */
     public function getListenerAttribute($request)
     {
@@ -1389,10 +1520,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetListenerHealthStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetListenerHealthStatusResponse
+     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatusWithOptions($request, $runtime)
     {
@@ -1429,9 +1562,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetListenerHealthStatusRequest $request
+     * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
      *
-     * @return GetListenerHealthStatusResponse
+     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatus($request)
     {
@@ -1441,10 +1576,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the details about a Network Load Balancer (NLB) instance.
+     *  *
+     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoadBalancerAttributeResponse
+     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
@@ -1481,9 +1618,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param GetLoadBalancerAttributeRequest $request
+     * @summary Queries the details about a Network Load Balancer (NLB) instance.
+     *  *
+     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
      *
-     * @return GetLoadBalancerAttributeResponse
+     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttribute($request)
     {
@@ -1493,10 +1632,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListListenerCertificatesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListListenerCertificatesResponse
+     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
      */
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
@@ -1536,9 +1677,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListListenerCertificatesRequest $request
+     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
      *
-     * @return ListListenerCertificatesResponse
+     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
      */
     public function listListenerCertificates($request)
     {
@@ -1548,10 +1691,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListListenersRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListListenersRequest $request ListListenersRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListListenersResponse
+     * @return ListListenersResponse ListListenersResponse
      */
     public function listListenersWithOptions($request, $runtime)
     {
@@ -1597,9 +1742,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListListenersRequest $request
+     * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListListenersRequest $request ListListenersRequest
      *
-     * @return ListListenersResponse
+     * @return ListListenersResponse ListListenersResponse
      */
     public function listListeners($request)
     {
@@ -1609,10 +1756,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListLoadBalancersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
+     *  *
+     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLoadBalancersResponse
+     * @return ListLoadBalancersResponse ListLoadBalancersResponse
      */
     public function listLoadBalancersWithOptions($request, $runtime)
     {
@@ -1685,9 +1834,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListLoadBalancersRequest $request
+     * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
+     *  *
+     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
      *
-     * @return ListLoadBalancersResponse
+     * @return ListLoadBalancersResponse ListLoadBalancersResponse
      */
     public function listLoadBalancers($request)
     {
@@ -1697,10 +1848,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListSecurityPolicyRequest $request ListSecurityPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecurityPolicyResponse
+     * @return ListSecurityPolicyResponse ListSecurityPolicyResponse
      */
     public function listSecurityPolicyWithOptions($request, $runtime)
     {
@@ -1748,9 +1901,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityPolicyRequest $request
+     * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListSecurityPolicyRequest $request ListSecurityPolicyRequest
      *
-     * @return ListSecurityPolicyResponse
+     * @return ListSecurityPolicyResponse ListSecurityPolicyResponse
      */
     public function listSecurityPolicy($request)
     {
@@ -1760,10 +1915,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListServerGroupServersRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the backend servers in a specified server group.
+     *  *
+     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServerGroupServersResponse
+     * @return ListServerGroupServersResponse ListServerGroupServersResponse
      */
     public function listServerGroupServersWithOptions($request, $runtime)
     {
@@ -1806,9 +1963,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListServerGroupServersRequest $request
+     * @summary Queries the backend servers in a specified server group.
+     *  *
+     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
      *
-     * @return ListServerGroupServersResponse
+     * @return ListServerGroupServersResponse ListServerGroupServersResponse
      */
     public function listServerGroupServers($request)
     {
@@ -1818,10 +1977,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListServerGroupsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListServerGroupsRequest $request ListServerGroupsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServerGroupsResponse
+     * @return ListServerGroupsResponse ListServerGroupsResponse
      */
     public function listServerGroupsWithOptions($request, $runtime)
     {
@@ -1875,9 +2036,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListServerGroupsRequest $request
+     * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param ListServerGroupsRequest $request ListServerGroupsRequest
      *
-     * @return ListServerGroupsResponse
+     * @return ListServerGroupsResponse ListServerGroupsResponse
      */
     public function listServerGroups($request)
     {
@@ -1887,10 +2050,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListSystemSecurityPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the default TLS policy.
+     *  *
+     * @param ListSystemSecurityPolicyRequest $request ListSystemSecurityPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemSecurityPolicyResponse
+     * @return ListSystemSecurityPolicyResponse ListSystemSecurityPolicyResponse
      */
     public function listSystemSecurityPolicyWithOptions($request, $runtime)
     {
@@ -1918,9 +2083,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListSystemSecurityPolicyRequest $request
+     * @summary Queries the default TLS policy.
+     *  *
+     * @param ListSystemSecurityPolicyRequest $request ListSystemSecurityPolicyRequest
      *
-     * @return ListSystemSecurityPolicyResponse
+     * @return ListSystemSecurityPolicyResponse ListSystemSecurityPolicyResponse
      */
     public function listSystemSecurityPolicy($request)
     {
@@ -1930,10 +2097,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags of a resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1978,9 +2147,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags of a resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1990,13 +2161,15 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](~~25553~~).
-     *   * *   An NLB instance can be associated with up to four security groups.
-     *   * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](~~214362~~) operation.
-     *   * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-     *   *     *   If the task is in the **Succeeded** state, the security group is associated.
-     *   *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-     *   *
+     * @summary Associates a security group with a Network Load Balancer (NLB) instance.
+     *  *
+     * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+     * *   An NLB instance can be associated with up to four security groups.
+     * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
+     * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     *     *   If the task is in the **Succeeded** state, the security group is associated.
+     *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
+     *  *
      * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -2040,13 +2213,15 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](~~25553~~).
-     *   * *   An NLB instance can be associated with up to four security groups.
-     *   * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](~~214362~~) operation.
-     *   * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-     *   *     *   If the task is in the **Succeeded** state, the security group is associated.
-     *   *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-     *   *
+     * @summary Associates a security group with a Network Load Balancer (NLB) instance.
+     *  *
+     * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+     * *   An NLB instance can be associated with up to four security groups.
+     * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
+     * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     *     *   If the task is in the **Succeeded** state, the security group is associated.
+     *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
+     *  *
      * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
      *
      * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
@@ -2059,10 +2234,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-     *   * *   If the task is in the **Succeeded** state, the security group is disassociated.
-     *   * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-     *   *
+     * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
+     *  *
+     * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     * *   If the task is in the **Succeeded** state, the security group is disassociated.
+     * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
+     *  *
      * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -2106,10 +2283,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the status of a task.
-     *   * *   If the task is in the **Succeeded** state, the security group is disassociated.
-     *   * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-     *   *
+     * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
+     *  *
+     * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     * *   If the task is in the **Succeeded** state, the security group is disassociated.
+     * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
+     *  *
      * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
      *
      * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
@@ -2122,10 +2301,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modify the group of resource.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -2162,9 +2343,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @summary Modify the group of resource.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2174,10 +2357,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param RemoveServersFromServerGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveServersFromServerGroupResponse
+     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
@@ -2217,9 +2402,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param RemoveServersFromServerGroupRequest $request
+     * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
      *
-     * @return RemoveServersFromServerGroupResponse
+     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroup($request)
     {
@@ -2229,10 +2416,65 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param StartListenerRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 配置秒级监控存储
+     *  *
+     * @param SetHdMonitorRegionConfigRequest $request SetHdMonitorRegionConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartListenerResponse
+     * @return SetHdMonitorRegionConfigResponse SetHdMonitorRegionConfigResponse
+     */
+    public function setHdMonitorRegionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logProject)) {
+            $query['LogProject'] = $request->logProject;
+        }
+        if (!Utils::isUnset($request->metricStore)) {
+            $query['MetricStore'] = $request->metricStore;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetHdMonitorRegionConfig',
+            'version'     => '2022-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置秒级监控存储
+     *  *
+     * @param SetHdMonitorRegionConfigRequest $request SetHdMonitorRegionConfigRequest
+     *
+     * @return SetHdMonitorRegionConfigResponse SetHdMonitorRegionConfigResponse
+     */
+    public function setHdMonitorRegionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setHdMonitorRegionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Enables a listener for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param StartListenerRequest $request StartListenerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartListenerResponse StartListenerResponse
      */
     public function startListenerWithOptions($request, $runtime)
     {
@@ -2269,9 +2511,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param StartListenerRequest $request
+     * @summary Enables a listener for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param StartListenerRequest $request StartListenerRequest
      *
-     * @return StartListenerResponse
+     * @return StartListenerResponse StartListenerResponse
      */
     public function startListener($request)
     {
@@ -2281,8 +2525,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-     *   *
+     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+     *  *
+     * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     *  *
      * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2326,8 +2572,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-     *   *
+     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+     *  *
+     * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     *  *
      * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
      *
      * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
@@ -2340,10 +2588,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param StopListenerRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Disables a listener for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param StopListenerRequest $request StopListenerRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopListenerResponse
+     * @return StopListenerResponse StopListenerResponse
      */
     public function stopListenerWithOptions($request, $runtime)
     {
@@ -2380,9 +2630,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param StopListenerRequest $request
+     * @summary Disables a listener for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param StopListenerRequest $request StopListenerRequest
      *
-     * @return StopListenerResponse
+     * @return StopListenerResponse StopListenerResponse
      */
     public function stopListener($request)
     {
@@ -2392,10 +2644,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to specified resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -2440,9 +2694,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to specified resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2452,10 +2708,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -2503,9 +2761,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2515,10 +2775,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerAttributeRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+     *  *
+     * @param UpdateListenerAttributeRequest $tmpReq  UpdateListenerAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerAttributeResponse
+     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
      */
     public function updateListenerAttributeWithOptions($tmpReq, $runtime)
     {
@@ -2602,9 +2864,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerAttributeRequest $request
+     * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
+     *  *
+     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
      *
-     * @return UpdateListenerAttributeResponse
+     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
      */
     public function updateListenerAttribute($request)
     {
@@ -2614,12 +2878,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-     *   * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the **AddressType** value of an NLB instance after you change the network type.
-     *   * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the task status:
-     *   *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
-     *   *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-     *   *
+     * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
+     *  *
+     * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
+     * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
+     *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
+     *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
+     *  *
      * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -2666,12 +2932,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-     *   * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the **AddressType** value of an NLB instance after you change the network type.
-     *   * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation to query the task status:
-     *   *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
-     *   *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-     *   *
+     * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
+     *  *
+     * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
+     * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
+     *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
+     *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
+     *  *
      * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
      *
      * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
@@ -2684,10 +2952,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
@@ -2733,9 +3003,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
+     * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
+     *  *
+     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttribute($request)
     {
@@ -2745,8 +3017,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * > You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the details about deletion protection and the configuration read-only mode.
-     *   *
+     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+     *  *
+     * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+     *  *
      * @param UpdateLoadBalancerProtectionRequest $request UpdateLoadBalancerProtectionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2799,8 +3073,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * > You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the details about deletion protection and the configuration read-only mode.
-     *   *
+     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
+     *  *
+     * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+     *  *
      * @param UpdateLoadBalancerProtectionRequest $request UpdateLoadBalancerProtectionRequest
      *
      * @return UpdateLoadBalancerProtectionResponse UpdateLoadBalancerProtectionResponse
@@ -2813,14 +3089,16 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
-     *   * Prerequisites
-     *   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-     *   * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the zones and zone attributes of an NLB instance.
-     *   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation query to query the status of a task:
-     *   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-     *   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-     *   *
+     * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+     *  *
+     * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+     * Prerequisites
+     * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+     * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+     *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+     *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+     *  *
      * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2864,14 +3142,16 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
-     *   * Prerequisites
-     *   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](~~445868~~).
-     *   * *   You can call the [GetLoadBalancerAttribute](~~445873~~) operation to query the zones and zone attributes of an NLB instance.
-     *   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](~~445904~~) operation query to query the status of a task:
-     *   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-     *   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-     *   *
+     * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+     *  *
+     * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+     * Prerequisites
+     * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+     * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+     *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+     *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+     *  *
      * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
      *
      * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
@@ -2884,10 +3164,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
@@ -2933,9 +3215,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
+     * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
+     *  *
+     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttribute($request)
     {
@@ -2945,10 +3229,12 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
+     *  *
+     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupAttributeResponse
+     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
@@ -3005,9 +3291,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupAttributeRequest $request
+     * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
+     *  *
+     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
      *
-     * @return UpdateServerGroupAttributeResponse
+     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttribute($request)
     {
@@ -3017,14 +3305,16 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-     *   * 1.  You can call the [ListServerGroups](~~445895~~) operation to query the status of a server group.
-     *   *     *   If a server group is in the **Configuring** state, the server group is being modified.
-     *   *     *   If a server group is in the **Available** state, the server group is running.
-     *   * 2.  You can call the [ListServerGroupServers](~~445896~~) operation to query the status of a backend server.
-     *   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-     *   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *   *
+     * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
+     *  *
+     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
+     *     *   If a server group is in the **Configuring** state, the server group is being modified.
+     *     *   If a server group is in the **Available** state, the server group is running.
+     * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
+     *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+     *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+     *  *
      * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -3068,14 +3358,16 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-     *   * 1.  You can call the [ListServerGroups](~~445895~~) operation to query the status of a server group.
-     *   *     *   If a server group is in the **Configuring** state, the server group is being modified.
-     *   *     *   If a server group is in the **Available** state, the server group is running.
-     *   * 2.  You can call the [ListServerGroupServers](~~445896~~) operation to query the status of a backend server.
-     *   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-     *   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *   *
+     * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
+     *  *
+     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
+     *     *   If a server group is in the **Configuring** state, the server group is being modified.
+     *     *   If a server group is in the **Available** state, the server group is running.
+     * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
+     *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+     *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+     *  *
      * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
      *
      * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse

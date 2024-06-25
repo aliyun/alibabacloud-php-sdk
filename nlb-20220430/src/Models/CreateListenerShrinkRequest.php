@@ -120,7 +120,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
      * @example tcp_80
      *
      * @var string
@@ -131,6 +131,8 @@ class CreateListenerShrinkRequest extends Model
      * @description The listener port. Valid values: **0** to **65535**.
      *
      * If you set the value to **0**, the listener listens by port range. If you set the value to **0**, you must specify **StartPort** and **EndPort**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -140,6 +142,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
      *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -149,6 +152,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The ID of the Network Load Balancer (NLB) instance.
      *
+     * This parameter is required.
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -187,7 +191,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -209,7 +213,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The security policy ID. System security policies and custom security policies are supported.
      *
-     * Valid values: **tls_cipher_policy\_1\_0** (default), **tls_cipher_policy\_1\_1**, **tls_cipher_policy\_1\_2**, **tls_cipher_policy\_1\_2\_strict**, and **tls_cipher_policy\_1\_2\_strict_with\_1\_3**.
+     * Valid values: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
      *
      * > This parameter takes effect only for listeners that use SSL over TCP.
      * @example tls_cipher_policy_1_0
@@ -221,6 +225,7 @@ class CreateListenerShrinkRequest extends Model
     /**
      * @description The server group ID.
      *
+     * This parameter is required.
      * @example sgp-ppdpc14gdm3x4o****
      *
      * @var string

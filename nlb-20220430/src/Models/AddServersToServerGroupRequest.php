@@ -36,7 +36,7 @@ class AddServersToServerGroupRequest extends Model
     /**
      * @description The ID of the region where the NLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +46,7 @@ class AddServersToServerGroupRequest extends Model
     /**
      * @description The ID of the server group.
      *
+     * This parameter is required.
      * @example sgp-atstuj3rtoptyui****
      *
      * @var string
@@ -55,6 +56,7 @@ class AddServersToServerGroupRequest extends Model
     /**
      * @description A list of backend servers.
      *
+     * This parameter is required.
      * @var servers[]
      */
     public $servers;

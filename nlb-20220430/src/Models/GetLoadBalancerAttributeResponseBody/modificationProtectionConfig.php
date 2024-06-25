@@ -18,7 +18,7 @@ class modificationProtectionConfig extends Model
     public $enabledTime;
 
     /**
-     * @description The reason why the configuration read-only mode is enabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter.
+     * @description The reason why the configuration read-only mode is enabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
      *
      * >  This parameter takes effect only if the **Status** parameter is set to **ConsoleProtection**.
      * @example create-by-mse-cannot-modify

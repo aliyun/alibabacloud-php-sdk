@@ -38,7 +38,7 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the zone. You can call the [DescribeZones](~~443890~~) operation to query the zones.
+     * @description The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the zones.
      *
      * @example cn-hangzhou-a
      *

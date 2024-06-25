@@ -30,7 +30,7 @@ class deletionProtectionConfig extends Model
     public $enabledTime;
 
     /**
-     * @description The reason why the deletion protection feature is enabled or disabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter.
+     * @description The reason why the deletion protection feature is enabled or disabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
      *
      * @example create-by-mse-can-not-delete
      *

@@ -33,7 +33,7 @@ class UpdateLoadBalancerProtectionRequest extends Model
     public $deletionProtectionEnabled;
 
     /**
-     * @description The reason why deletion protection is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     * @description The reason why deletion protection is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
      *
      * > This parameter takes effect only when **DeletionProtectionEnabled** is set to **true**.
      * @example Instance_Is_Bound_By_Acceleration_Instance
@@ -57,6 +57,7 @@ class UpdateLoadBalancerProtectionRequest extends Model
     /**
      * @description The NLB instance ID.
      *
+     * This parameter is required.
      * @example nlb-83ckzc8d4xlp8o****
      *
      * @var string
@@ -64,7 +65,7 @@ class UpdateLoadBalancerProtectionRequest extends Model
     public $loadBalancerId;
 
     /**
-     * @description The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     * @description The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
      *
      * > This parameter takes effect only if **Status** is set to **ConsoleProtection**.
      * @example ConsoleProtection
@@ -89,7 +90,7 @@ class UpdateLoadBalancerProtectionRequest extends Model
     /**
      * @description The region ID of the NLB instance.
      *
-     * You can call the [DescribeRegions](~~443657~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
