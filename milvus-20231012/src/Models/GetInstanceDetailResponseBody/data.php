@@ -92,6 +92,13 @@ class data extends Model
     public $payType;
 
     /**
+     * @example milvus_milvuspre_public_cn
+     *
+     * @var string
+     */
+    public $productCode;
+
+    /**
      * @example cn-beijing
      *
      * @var string
@@ -166,6 +173,7 @@ class data extends Model
         'openPublicNet'   => 'OpenPublicNet',
         'packageType'     => 'PackageType',
         'payType'         => 'PayType',
+        'productCode'     => 'ProductCode',
         'regionId'        => 'RegionId',
         'runningTime'     => 'RunningTime',
         'sgId'            => 'SgId',
@@ -219,6 +227,9 @@ class data extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -294,6 +305,9 @@ class data extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
