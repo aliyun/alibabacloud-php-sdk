@@ -501,8 +501,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CancelComponentUpgrade is deprecated
+     *  *
      * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string         $clusterId
      * @param string         $componentId
      * @param string[]       $headers     map
@@ -531,8 +535,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CancelComponentUpgrade is deprecated
+     *  *
      * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string $clusterId
      * @param string $componentId
      *
@@ -4989,8 +4997,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetUpgradeStatus is deprecated
+     *  *
      * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
      *  *
+     * Deprecated
+     *
      * @param string         $ClusterId
      * @param string[]       $headers   map
      * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
@@ -5018,8 +5030,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetUpgradeStatus is deprecated
+     *  *
      * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
      *  *
+     * Deprecated
+     *
      * @param string $ClusterId
      *
      * @return GetUpgradeStatusResponse GetUpgradeStatusResponse
@@ -6046,8 +6062,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI PauseComponentUpgrade is deprecated
+     *  *
      * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string         $clusterid
      * @param string         $componentid
      * @param string[]       $headers     map
@@ -6076,8 +6096,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI PauseComponentUpgrade is deprecated
+     *  *
      * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string $clusterid
      * @param string $componentid
      *
@@ -6408,8 +6432,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
+     *  *
      * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string         $clusterid
      * @param string         $componentid
      * @param string[]       $headers     map
@@ -6438,8 +6466,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ResumeComponentUpgrade is deprecated
+     *  *
      * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
      *  *
+     * Deprecated
+     *
      * @param string $clusterid
      * @param string $componentid
      *

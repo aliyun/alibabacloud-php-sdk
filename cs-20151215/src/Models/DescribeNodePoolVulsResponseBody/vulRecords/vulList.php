@@ -47,11 +47,17 @@ class vulList extends Model
      * @var string
      */
     public $necessity;
+
+    /**
+     * @var bool
+     */
+    public $needReboot;
     protected $_name = [
-        'aliasName' => 'alias_name',
-        'cveList'   => 'cve_list',
-        'name'      => 'name',
-        'necessity' => 'necessity',
+        'aliasName'  => 'alias_name',
+        'cveList'    => 'cve_list',
+        'name'       => 'name',
+        'necessity'  => 'necessity',
+        'needReboot' => 'need_reboot',
     ];
 
     public function validate()
@@ -72,6 +78,9 @@ class vulList extends Model
         }
         if (null !== $this->necessity) {
             $res['necessity'] = $this->necessity;
+        }
+        if (null !== $this->needReboot) {
+            $res['need_reboot'] = $this->needReboot;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class vulList extends Model
         }
         if (isset($map['necessity'])) {
             $model->necessity = $map['necessity'];
+        }
+        if (isset($map['need_reboot'])) {
+            $model->needReboot = $map['need_reboot'];
         }
 
         return $model;
