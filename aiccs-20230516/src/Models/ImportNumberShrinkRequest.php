@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportNumberShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $customersShrink;
@@ -21,6 +23,8 @@ class ImportNumberShrinkRequest extends Model
     public $failReturn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值
      *
      * @var string
@@ -43,6 +47,8 @@ class ImportNumberShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 92
      *
      * @var int

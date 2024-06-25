@@ -59,6 +59,7 @@ class DetailsShrinkRequest extends Model
     /**
      * @description 每页条数
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -87,6 +88,7 @@ class DetailsShrinkRequest extends Model
     /**
      * @description 任务id
      *
+     * This parameter is required.
      * @example 90
      *
      * @var int

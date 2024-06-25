@@ -36,6 +36,7 @@ class TaskCancelCallShrinkRequest extends Model
     /**
      * @description 任务ID
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

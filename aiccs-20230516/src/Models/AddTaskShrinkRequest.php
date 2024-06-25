@@ -36,6 +36,7 @@ class AddTaskShrinkRequest extends Model
     /**
      * @description 任务名称
      *
+     * This parameter is required.
      * @example 示例值示例值示例值
      *
      * @var string
@@ -144,6 +145,7 @@ class AddTaskShrinkRequest extends Model
     /**
      * @description 任务类型
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

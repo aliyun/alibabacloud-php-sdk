@@ -58,6 +58,7 @@ class TaskRecoverCallShrinkRequest extends Model
     /**
      * @description 任务ID
      *
+     * This parameter is required.
      * @example 93
      *
      * @var int

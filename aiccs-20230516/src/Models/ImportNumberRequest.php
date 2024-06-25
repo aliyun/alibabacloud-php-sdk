@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ImportNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var customers[]
      */
     public $customers;
@@ -22,6 +24,8 @@ class ImportNumberRequest extends Model
     public $failReturn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值
      *
      * @var string
@@ -44,6 +48,8 @@ class ImportNumberRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 92
      *
      * @var int

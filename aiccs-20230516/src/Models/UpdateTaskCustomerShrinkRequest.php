@@ -11,6 +11,7 @@ class UpdateTaskCustomerShrinkRequest extends Model
     /**
      * @description 外呼客户
      *
+     * This parameter is required.
      * @var string
      */
     public $customersShrink;
@@ -33,6 +34,7 @@ class UpdateTaskCustomerShrinkRequest extends Model
     /**
      * @description 任务ID
      *
+     * This parameter is required.
      * @example 59
      *
      * @var int

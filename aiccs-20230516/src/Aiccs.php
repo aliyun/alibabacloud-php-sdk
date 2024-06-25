@@ -96,10 +96,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddBlacklistRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 添加黑名单接口
+     *  *
+     * @param AddBlacklistRequest $tmpReq  AddBlacklistRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddBlacklistResponse
+     * @return AddBlacklistResponse AddBlacklistResponse
      */
     public function addBlacklistWithOptions($tmpReq, $runtime)
     {
@@ -147,9 +149,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddBlacklistRequest $request
+     * @summary 添加黑名单接口
+     *  *
+     * @param AddBlacklistRequest $request AddBlacklistRequest
      *
-     * @return AddBlacklistResponse
+     * @return AddBlacklistResponse AddBlacklistResponse
      */
     public function addBlacklist($request)
     {
@@ -159,10 +163,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddTaskRequest $tmpReq
-     * @param RuntimeOptions $runtime
+     * @summary 创建任务接口
+     *  *
+     * @param AddTaskRequest $tmpReq  AddTaskRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTaskResponse
+     * @return AddTaskResponse AddTaskResponse
      */
     public function addTaskWithOptions($tmpReq, $runtime)
     {
@@ -261,9 +267,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddTaskRequest $request
+     * @summary 创建任务接口
+     *  *
+     * @param AddTaskRequest $request AddTaskRequest
      *
-     * @return AddTaskResponse
+     * @return AddTaskResponse AddTaskResponse
      */
     public function addTask($request)
     {
@@ -273,10 +281,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AgentCancelCallRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 坐席取消号码外呼
+     *  *
+     * @param AgentCancelCallRequest $tmpReq  AgentCancelCallRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AgentCancelCallResponse
+     * @return AgentCancelCallResponse AgentCancelCallResponse
      */
     public function agentCancelCallWithOptions($tmpReq, $runtime)
     {
@@ -330,9 +340,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AgentCancelCallRequest $request
+     * @summary 坐席取消号码外呼
+     *  *
+     * @param AgentCancelCallRequest $request AgentCancelCallRequest
      *
-     * @return AgentCancelCallResponse
+     * @return AgentCancelCallResponse AgentCancelCallResponse
      */
     public function agentCancelCall($request)
     {
@@ -342,10 +354,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AgentRecoverCallRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 坐席任务恢复号码
+     *  *
+     * @param AgentRecoverCallRequest $tmpReq  AgentRecoverCallRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AgentRecoverCallResponse
+     * @return AgentRecoverCallResponse AgentRecoverCallResponse
      */
     public function agentRecoverCallWithOptions($tmpReq, $runtime)
     {
@@ -405,9 +419,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AgentRecoverCallRequest $request
+     * @summary 坐席任务恢复号码
+     *  *
+     * @param AgentRecoverCallRequest $request AgentRecoverCallRequest
      *
-     * @return AgentRecoverCallResponse
+     * @return AgentRecoverCallResponse AgentRecoverCallResponse
      */
     public function agentRecoverCall($request)
     {
@@ -417,10 +433,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DetailsRequest $tmpReq
-     * @param RuntimeOptions $runtime
+     * @summary AI批量任务查询号码状态接口
+     *  *
+     * @param DetailsRequest $tmpReq  DetailsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetailsResponse
+     * @return DetailsResponse DetailsResponse
      */
     public function detailsWithOptions($tmpReq, $runtime)
     {
@@ -483,9 +501,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DetailsRequest $request
+     * @summary AI批量任务查询号码状态接口
+     *  *
+     * @param DetailsRequest $request DetailsRequest
      *
-     * @return DetailsResponse
+     * @return DetailsResponse DetailsResponse
      */
     public function details($request)
     {
@@ -495,10 +515,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param EditTaskRequest $tmpReq
-     * @param RuntimeOptions  $runtime
+     * @summary 编辑任务接口
+     *  *
+     * @param EditTaskRequest $tmpReq  EditTaskRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditTaskResponse
+     * @return EditTaskResponse EditTaskResponse
      */
     public function editTaskWithOptions($tmpReq, $runtime)
     {
@@ -597,9 +619,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param EditTaskRequest $request
+     * @summary 编辑任务接口
+     *  *
+     * @param EditTaskRequest $request EditTaskRequest
      *
-     * @return EditTaskResponse
+     * @return EditTaskResponse EditTaskResponse
      */
     public function editTask($request)
     {
@@ -609,10 +633,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ImportNumberRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 导入号码
+     *  *
+     * @param ImportNumberRequest $tmpReq  ImportNumberRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportNumberResponse
+     * @return ImportNumberResponse ImportNumberResponse
      */
     public function importNumberWithOptions($tmpReq, $runtime)
     {
@@ -663,9 +689,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ImportNumberRequest $request
+     * @summary 导入号码
+     *  *
+     * @param ImportNumberRequest $request ImportNumberRequest
      *
-     * @return ImportNumberResponse
+     * @return ImportNumberResponse ImportNumberResponse
      */
     public function importNumber($request)
     {
@@ -675,10 +703,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param PageRequest    $tmpReq
-     * @param RuntimeOptions $runtime
+     * @summary 查询企业黑名单
+     *  *
+     * @param PageRequest    $tmpReq  PageRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PageResponse
+     * @return PageResponse PageResponse
      */
     public function pageWithOptions($tmpReq, $runtime)
     {
@@ -726,9 +756,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param PageRequest $request
+     * @summary 查询企业黑名单
+     *  *
+     * @param PageRequest $request PageRequest
      *
-     * @return PageResponse
+     * @return PageResponse PageResponse
      */
     public function page($request)
     {
@@ -738,10 +770,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SmsTemplateCreateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 短信模板创建
+     *  *
+     * @param SmsTemplateCreateRequest $request SmsTemplateCreateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsTemplateCreateResponse
+     * @return SmsTemplateCreateResponse SmsTemplateCreateResponse
      */
     public function smsTemplateCreateWithOptions($request, $runtime)
     {
@@ -790,9 +824,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SmsTemplateCreateRequest $request
+     * @summary 短信模板创建
+     *  *
+     * @param SmsTemplateCreateRequest $request SmsTemplateCreateRequest
      *
-     * @return SmsTemplateCreateResponse
+     * @return SmsTemplateCreateResponse SmsTemplateCreateResponse
      */
     public function smsTemplateCreate($request)
     {
@@ -802,10 +838,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SmsTemplatePageListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 短信模板列表查询
+     *  *
+     * @param SmsTemplatePageListRequest $request SmsTemplatePageListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsTemplatePageListResponse
+     * @return SmsTemplatePageListResponse SmsTemplatePageListResponse
      */
     public function smsTemplatePageListWithOptions($request, $runtime)
     {
@@ -860,9 +898,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SmsTemplatePageListRequest $request
+     * @summary 短信模板列表查询
+     *  *
+     * @param SmsTemplatePageListRequest $request SmsTemplatePageListRequest
      *
-     * @return SmsTemplatePageListResponse
+     * @return SmsTemplatePageListResponse SmsTemplatePageListResponse
      */
     public function smsTemplatePageList($request)
     {
@@ -872,10 +912,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallChatsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询聊天记录接口
+     *  *
+     * @param TaskCallChatsRequest $request TaskCallChatsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskCallChatsResponse
+     * @return TaskCallChatsResponse TaskCallChatsResponse
      */
     public function taskCallChatsWithOptions($request, $runtime)
     {
@@ -921,9 +963,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallChatsRequest $request
+     * @summary 查询聊天记录接口
+     *  *
+     * @param TaskCallChatsRequest $request TaskCallChatsRequest
      *
-     * @return TaskCallChatsResponse
+     * @return TaskCallChatsResponse TaskCallChatsResponse
      */
     public function taskCallChats($request)
     {
@@ -933,10 +977,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallInfoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取任务外呼情况接口
+     *  *
+     * @param TaskCallInfoRequest $request TaskCallInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskCallInfoResponse
+     * @return TaskCallInfoResponse TaskCallInfoResponse
      */
     public function taskCallInfoWithOptions($request, $runtime)
     {
@@ -973,9 +1019,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallInfoRequest $request
+     * @summary 获取任务外呼情况接口
+     *  *
+     * @param TaskCallInfoRequest $request TaskCallInfoRequest
      *
-     * @return TaskCallInfoResponse
+     * @return TaskCallInfoResponse TaskCallInfoResponse
      */
     public function taskCallInfo($request)
     {
@@ -985,10 +1033,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallListRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary AI批量任务查询外呼记录接口
+     *  *
+     * @param TaskCallListRequest $tmpReq  TaskCallListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskCallListResponse
+     * @return TaskCallListResponse TaskCallListResponse
      */
     public function taskCallListWithOptions($tmpReq, $runtime)
     {
@@ -1054,9 +1104,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCallListRequest $request
+     * @summary AI批量任务查询外呼记录接口
+     *  *
+     * @param TaskCallListRequest $request TaskCallListRequest
      *
-     * @return TaskCallListResponse
+     * @return TaskCallListResponse TaskCallListResponse
      */
     public function taskCallList($request)
     {
@@ -1066,10 +1118,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCancelCallRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 批量任务取消号码外呼
+     *  *
+     * @param TaskCancelCallRequest $tmpReq  TaskCancelCallRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskCancelCallResponse
+     * @return TaskCancelCallResponse TaskCancelCallResponse
      */
     public function taskCancelCallWithOptions($tmpReq, $runtime)
     {
@@ -1120,9 +1174,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskCancelCallRequest $request
+     * @summary 批量任务取消号码外呼
+     *  *
+     * @param TaskCancelCallRequest $request TaskCancelCallRequest
      *
-     * @return TaskCancelCallResponse
+     * @return TaskCancelCallResponse TaskCancelCallResponse
      */
     public function taskCancelCall($request)
     {
@@ -1132,10 +1188,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskListRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 查询任务列表接口
+     *  *
+     * @param TaskListRequest $request TaskListRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskListResponse
+     * @return TaskListResponse TaskListResponse
      */
     public function taskListWithOptions($request, $runtime)
     {
@@ -1155,6 +1213,9 @@ class Aiccs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
@@ -1178,9 +1239,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskListRequest $request
+     * @summary 查询任务列表接口
+     *  *
+     * @param TaskListRequest $request TaskListRequest
      *
-     * @return TaskListResponse
+     * @return TaskListResponse TaskListResponse
      */
     public function taskList($request)
     {
@@ -1190,10 +1253,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskRecoverCallRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 批量任务恢复号码
+     *  *
+     * @param TaskRecoverCallRequest $tmpReq  TaskRecoverCallRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TaskRecoverCallResponse
+     * @return TaskRecoverCallResponse TaskRecoverCallResponse
      */
     public function taskRecoverCallWithOptions($tmpReq, $runtime)
     {
@@ -1250,9 +1315,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TaskRecoverCallRequest $request
+     * @summary 批量任务恢复号码
+     *  *
+     * @param TaskRecoverCallRequest $request TaskRecoverCallRequest
      *
-     * @return TaskRecoverCallResponse
+     * @return TaskRecoverCallResponse TaskRecoverCallResponse
      */
     public function taskRecoverCall($request)
     {
@@ -1262,10 +1329,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TemplateListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 话术模板列表查询接口
+     *  *
+     * @param TemplateListRequest $request TemplateListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TemplateListResponse
+     * @return TemplateListResponse TemplateListResponse
      */
     public function templateListWithOptions($request, $runtime)
     {
@@ -1302,9 +1371,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TemplateListRequest $request
+     * @summary 话术模板列表查询接口
+     *  *
+     * @param TemplateListRequest $request TemplateListRequest
      *
-     * @return TemplateListResponse
+     * @return TemplateListResponse TemplateListResponse
      */
     public function templateList($request)
     {
@@ -1314,10 +1385,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateAgentStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 修改坐席状态
+     *  *
+     * @param UpdateAgentStatusRequest $request UpdateAgentStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAgentStatusResponse
+     * @return UpdateAgentStatusResponse UpdateAgentStatusResponse
      */
     public function updateAgentStatusWithOptions($request, $runtime)
     {
@@ -1360,9 +1433,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateAgentStatusRequest $request
+     * @summary 修改坐席状态
+     *  *
+     * @param UpdateAgentStatusRequest $request UpdateAgentStatusRequest
      *
-     * @return UpdateAgentStatusResponse
+     * @return UpdateAgentStatusResponse UpdateAgentStatusResponse
      */
     public function updateAgentStatus($request)
     {
@@ -1372,10 +1447,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskCustomerRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 更新当天导入的号码
+     *  *
+     * @param UpdateTaskCustomerRequest $tmpReq  UpdateTaskCustomerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskCustomerResponse
+     * @return UpdateTaskCustomerResponse UpdateTaskCustomerResponse
      */
     public function updateTaskCustomerWithOptions($tmpReq, $runtime)
     {
@@ -1420,9 +1497,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskCustomerRequest $request
+     * @summary 更新当天导入的号码
+     *  *
+     * @param UpdateTaskCustomerRequest $request UpdateTaskCustomerRequest
      *
-     * @return UpdateTaskCustomerResponse
+     * @return UpdateTaskCustomerResponse UpdateTaskCustomerResponse
      */
     public function updateTaskCustomer($request)
     {

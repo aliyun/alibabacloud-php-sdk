@@ -42,6 +42,15 @@ class TaskListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description 任务状态。1 未启用，2 启用中，4 已停止
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
      * @description 任务ID
      *
      * @example 2
@@ -55,6 +64,7 @@ class TaskListRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'status'               => 'Status',
         'taskId'               => 'TaskId',
     ];
 
@@ -79,6 +89,9 @@ class TaskListRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -109,6 +122,9 @@ class TaskListRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

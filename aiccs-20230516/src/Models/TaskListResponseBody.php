@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class TaskListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @example 30
      *
      * @var int
@@ -49,12 +54,13 @@ class TaskListResponseBody extends Model
      */
     public $timestamp;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'model'     => 'Model',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'timestamp' => 'Timestamp',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'message'            => 'Message',
+        'model'              => 'Model',
+        'requestId'          => 'RequestId',
+        'success'            => 'Success',
+        'timestamp'          => 'Timestamp',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class TaskListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -100,6 +109,9 @@ class TaskListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

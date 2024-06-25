@@ -177,6 +177,15 @@ class model_ extends Model
     public $taskName;
 
     /**
+     * @description 话术模板Id
+     *
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @description 话术模板名称
      *
      * @example 示例值示例值
@@ -204,6 +213,7 @@ class model_ extends Model
         'status'              => 'Status',
         'taskId'              => 'TaskId',
         'taskName'            => 'TaskName',
+        'templateId'          => 'TemplateId',
         'templateName'        => 'TemplateName',
     ];
 
@@ -276,6 +286,9 @@ class model_ extends Model
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -356,6 +369,9 @@ class model_ extends Model
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];

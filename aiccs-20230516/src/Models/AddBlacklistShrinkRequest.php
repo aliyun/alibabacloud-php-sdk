@@ -11,6 +11,7 @@ class AddBlacklistShrinkRequest extends Model
     /**
      * @description 有效天数
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -20,6 +21,7 @@ class AddBlacklistShrinkRequest extends Model
     /**
      * @description 号码列表
      *
+     * This parameter is required.
      * @var string
      */
     public $numbersShrink;
@@ -32,6 +34,7 @@ class AddBlacklistShrinkRequest extends Model
     /**
      * @description 备注
      *
+     * This parameter is required.
      * @example 示例值
      *
      * @var string

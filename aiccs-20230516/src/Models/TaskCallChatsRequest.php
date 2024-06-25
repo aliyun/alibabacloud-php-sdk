@@ -29,6 +29,7 @@ class TaskCallChatsRequest extends Model
     /**
      * @description 外呼ID
      *
+     * This parameter is required.
      * @example 9b2eb6b8-7a27-4357-b5ec-104450086e24
      *
      * @var string

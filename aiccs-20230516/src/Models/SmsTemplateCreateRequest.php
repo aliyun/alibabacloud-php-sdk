@@ -11,6 +11,7 @@ class SmsTemplateCreateRequest extends Model
     /**
      * @description 短信内容
      *
+     * This parameter is required.
      * @example 示例值示例值示例值
      *
      * @var string
@@ -35,6 +36,7 @@ class SmsTemplateCreateRequest extends Model
     /**
      * @description 短信签名
      *
+     * This parameter is required.
      * @example ef2i29fsljf
      *
      * @var string
@@ -53,6 +55,7 @@ class SmsTemplateCreateRequest extends Model
     /**
      * @description 模板名称
      *
+     * This parameter is required.
      * @example 示例值示例值
      *
      * @var string

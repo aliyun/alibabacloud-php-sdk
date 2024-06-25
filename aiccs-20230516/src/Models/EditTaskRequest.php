@@ -146,6 +146,7 @@ class EditTaskRequest extends Model
     /**
      * @description 任务id
      *
+     * This parameter is required.
      * @example 29
      *
      * @var int

@@ -20,6 +20,7 @@ class TaskCallListRequest extends Model
     /**
      * @description 开始外呼时间
      *
+     * This parameter is required.
      * @example 2022-01-25 00:00:00
      *
      * @var string
@@ -29,6 +30,7 @@ class TaskCallListRequest extends Model
     /**
      * @description 结束外呼时间
      *
+     * This parameter is required.
      * @example 2022-01-25 00:00:00
      *
      * @var string
@@ -57,6 +59,7 @@ class TaskCallListRequest extends Model
     /**
      * @description 页数
      *
+     * This parameter is required.
      * @example 39
      *
      * @var int
@@ -85,6 +88,7 @@ class TaskCallListRequest extends Model
     /**
      * @description 任务ID
      *
+     * This parameter is required.
      * @example 93
      *
      * @var int
