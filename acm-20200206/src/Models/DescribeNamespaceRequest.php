@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3115d2bf-1f44-47bf-a855-****
+     *
      * @var string
      */
     public $namespaceId;

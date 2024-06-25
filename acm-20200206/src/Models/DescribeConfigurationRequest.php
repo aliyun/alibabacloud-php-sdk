@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigurationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example com.aliyun.acm.example
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 101100d2-ca66-42ba-b706-****
+     *
      * @var string
      */
     public $namespaceId;

@@ -9,16 +9,15 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
-     * @var string
-     */
-    public $secretKey;
-
-    /**
+     * @example 2c017****
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @example acm.aliyun.com
+     *
      * @var string
      */
     public $endpoint;
@@ -29,15 +28,24 @@ class namespace_ extends Model
     public $name;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example 6/eQ0****
+     *
+     * @var string
+     */
+    public $secretKey;
     protected $_name = [
-        'secretKey' => 'SecretKey',
         'accessKey' => 'AccessKey',
         'endpoint'  => 'Endpoint',
         'name'      => 'Name',
         'regionId'  => 'RegionId',
+        'secretKey' => 'SecretKey',
     ];
 
     public function validate()
@@ -47,9 +55,6 @@ class namespace_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->secretKey) {
-            $res['SecretKey'] = $this->secretKey;
-        }
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
         }
@@ -62,6 +67,9 @@ class namespace_ extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
+        }
 
         return $res;
     }
@@ -69,14 +77,11 @@ class namespace_ extends Model
     /**
      * @param array $map
      *
-     * @return namespace
+     * @return namespace_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecretKey'])) {
-            $model->secretKey = $map['SecretKey'];
-        }
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
         }
@@ -88,6 +93,9 @@ class namespace_ extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
         }
 
         return $model;

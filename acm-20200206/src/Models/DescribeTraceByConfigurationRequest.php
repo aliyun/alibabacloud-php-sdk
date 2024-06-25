@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceByConfigurationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dataId;
@@ -16,9 +18,18 @@ class DescribeTraceByConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $endTs;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
     public $group;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceId;
@@ -27,17 +38,12 @@ class DescribeTraceByConfigurationRequest extends Model
      * @var string
      */
     public $startTs;
-
-    /**
-     * @var string
-     */
-    public $endTs;
     protected $_name = [
         'dataId'      => 'DataId',
+        'endTs'       => 'EndTs',
         'group'       => 'Group',
         'namespaceId' => 'NamespaceId',
         'startTs'     => 'StartTs',
-        'endTs'       => 'EndTs',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class DescribeTraceByConfigurationRequest extends Model
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
+        if (null !== $this->endTs) {
+            $res['EndTs'] = $this->endTs;
+        }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
@@ -58,9 +67,6 @@ class DescribeTraceByConfigurationRequest extends Model
         }
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
-        }
-        if (null !== $this->endTs) {
-            $res['EndTs'] = $this->endTs;
         }
 
         return $res;
@@ -77,6 +83,9 @@ class DescribeTraceByConfigurationRequest extends Model
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
+        if (isset($map['EndTs'])) {
+            $model->endTs = $map['EndTs'];
+        }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
@@ -85,9 +94,6 @@ class DescribeTraceByConfigurationRequest extends Model
         }
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];
-        }
-        if (isset($map['EndTs'])) {
-            $model->endTs = $map['EndTs'];
         }
 
         return $model;

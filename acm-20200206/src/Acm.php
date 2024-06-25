@@ -41,6 +41,7 @@ use AlibabaCloud\SDK\Acm\V20200206\Models\UpdateNamespaceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Acm extends OpenApiClient
@@ -77,9 +78,45 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param BatchExportConfigurationsRequest $request
+     * @param BatchExportConfigurationsRequest $request BatchExportConfigurationsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchExportConfigurationsResponse
+     * @return BatchExportConfigurationsResponse BatchExportConfigurationsResponse
+     */
+    public function batchExportConfigurationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchExportConfigurations',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/export',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchExportConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchExportConfigurationsRequest $request BatchExportConfigurationsRequest
+     *
+     * @return BatchExportConfigurationsResponse BatchExportConfigurationsResponse
      */
     public function batchExportConfigurations($request)
     {
@@ -90,34 +127,48 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param BatchExportConfigurationsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param BatchImportConfigurationsRequest $request BatchImportConfigurationsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchExportConfigurationsResponse
+     * @return BatchImportConfigurationsResponse BatchImportConfigurationsResponse
      */
-    public function batchExportConfigurationsWithOptions($request, $headers, $runtime)
+    public function batchImportConfigurationsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+        $body = [];
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->data)) {
-            @$query['Data'] = $request->data;
+        if (!Utils::isUnset($request->namespaceId)) {
+            $body['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchImportConfigurations',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/import',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchExportConfigurationsResponse::fromMap($this->doROARequest('BatchExportConfigurations', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/batch/export', 'json', $req, $runtime));
+        return BatchImportConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BatchImportConfigurationsRequest $request
+     * @param BatchImportConfigurationsRequest $request BatchImportConfigurationsRequest
      *
-     * @return BatchImportConfigurationsResponse
+     * @return BatchImportConfigurationsResponse BatchImportConfigurationsResponse
      */
     public function batchImportConfigurations($request)
     {
@@ -128,37 +179,51 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param BatchImportConfigurationsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param CheckConfigurationCloneRequest $request CheckConfigurationCloneRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchImportConfigurationsResponse
+     * @return CheckConfigurationCloneResponse CheckConfigurationCloneResponse
      */
-    public function batchImportConfigurationsWithOptions($request, $headers, $runtime)
+    public function checkConfigurationCloneWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$body['NamespaceId'] = $request->namespaceId;
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->namespaceFrom)) {
+            $body['NamespaceFrom'] = $request->namespaceFrom;
+        }
+        if (!Utils::isUnset($request->namespaceTo)) {
+            $body['NamespaceTo'] = $request->namespaceTo;
         }
         if (!Utils::isUnset($request->policy)) {
-            @$body['Policy'] = $request->policy;
-        }
-        if (!Utils::isUnset($request->fileUrl)) {
-            @$body['FileUrl'] = $request->fileUrl;
+            $body['Policy'] = $request->policy;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CheckConfigurationClone',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/checkForClone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return BatchImportConfigurationsResponse::fromMap($this->doROARequestWithForm('BatchImportConfigurations', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/batch/import', 'json', $req, $runtime));
+        return CheckConfigurationCloneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckConfigurationCloneRequest $request
+     * @param CheckConfigurationCloneRequest $request CheckConfigurationCloneRequest
      *
-     * @return CheckConfigurationCloneResponse
+     * @return CheckConfigurationCloneResponse CheckConfigurationCloneResponse
      */
     public function checkConfigurationClone($request)
     {
@@ -169,40 +234,45 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param CheckConfigurationCloneRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CheckConfigurationExportRequest $request CheckConfigurationExportRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckConfigurationCloneResponse
+     * @return CheckConfigurationExportResponse CheckConfigurationExportResponse
      */
-    public function checkConfigurationCloneWithOptions($request, $headers, $runtime)
+    public function checkConfigurationExportWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->policy)) {
-            @$body['Policy'] = $request->policy;
-        }
-        if (!Utils::isUnset($request->namespaceFrom)) {
-            @$body['NamespaceFrom'] = $request->namespaceFrom;
-        }
-        if (!Utils::isUnset($request->namespaceTo)) {
-            @$body['NamespaceTo'] = $request->namespaceTo;
-        }
         if (!Utils::isUnset($request->data)) {
-            @$body['Data'] = $request->data;
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $body['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CheckConfigurationExport',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/checkForExport',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CheckConfigurationCloneResponse::fromMap($this->doROARequestWithForm('CheckConfigurationClone', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/batch/checkForClone', 'json', $req, $runtime));
+        return CheckConfigurationExportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckConfigurationExportRequest $request
+     * @param CheckConfigurationExportRequest $request CheckConfigurationExportRequest
      *
-     * @return CheckConfigurationExportResponse
+     * @return CheckConfigurationExportResponse CheckConfigurationExportResponse
      */
     public function checkConfigurationExport($request)
     {
@@ -213,34 +283,51 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param CheckConfigurationExportRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CloneConfigurationRequest $request CloneConfigurationRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckConfigurationExportResponse
+     * @return CloneConfigurationResponse CloneConfigurationResponse
      */
-    public function checkConfigurationExportWithOptions($request, $headers, $runtime)
+    public function cloneConfigurationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$body['NamespaceId'] = $request->namespaceId;
-        }
         if (!Utils::isUnset($request->data)) {
-            @$body['Data'] = $request->data;
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->namespaceFrom)) {
+            $body['NamespaceFrom'] = $request->namespaceFrom;
+        }
+        if (!Utils::isUnset($request->namespaceTo)) {
+            $body['NamespaceTo'] = $request->namespaceTo;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CloneConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/clone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CheckConfigurationExportResponse::fromMap($this->doROARequestWithForm('CheckConfigurationExport', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/batch/checkForExport', 'json', $req, $runtime));
+        return CloneConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CloneConfigurationRequest $request
+     * @param CloneConfigurationRequest $request CloneConfigurationRequest
      *
-     * @return CloneConfigurationResponse
+     * @return CloneConfigurationResponse CloneConfigurationResponse
      */
     public function cloneConfiguration($request)
     {
@@ -251,40 +338,63 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param CloneConfigurationRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateConfigurationRequest $request CreateConfigurationRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloneConfigurationResponse
+     * @return CreateConfigurationResponse CreateConfigurationResponse
      */
-    public function cloneConfigurationWithOptions($request, $headers, $runtime)
+    public function createConfigurationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->policy)) {
-            @$body['Policy'] = $request->policy;
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->namespaceFrom)) {
-            @$body['NamespaceFrom'] = $request->namespaceFrom;
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->namespaceTo)) {
-            @$body['NamespaceTo'] = $request->namespaceTo;
+        if (!Utils::isUnset($request->dataId)) {
+            $body['DataId'] = $request->dataId;
         }
-        if (!Utils::isUnset($request->data)) {
-            @$body['Data'] = $request->data;
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $body['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $body['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/configuration',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CloneConfigurationResponse::fromMap($this->doROARequestWithForm('CloneConfiguration', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/batch/clone', 'json', $req, $runtime));
+        return CreateConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateConfigurationRequest $request
+     * @param CreateConfigurationRequest $request CreateConfigurationRequest
      *
-     * @return CreateConfigurationResponse
+     * @return CreateConfigurationResponse CreateConfigurationResponse
      */
     public function createConfiguration($request)
     {
@@ -295,52 +405,42 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param CreateConfigurationRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConfigurationResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
-    public function createConfigurationWithOptions($request, $headers, $runtime)
+    public function createNamespaceWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$body['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            @$body['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$body['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            @$body['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            @$body['Tags'] = $request->tags;
-        }
-        if (!Utils::isUnset($request->content)) {
-            @$body['Content'] = $request->content;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$body['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$body['NamespaceId'] = $request->namespaceId;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateNamespace',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateConfigurationResponse::fromMap($this->doROARequestWithForm('CreateConfiguration', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/configuration', 'json', $req, $runtime));
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -351,31 +451,48 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteConfigurationRequest $request DeleteConfigurationRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNamespaceResponse
+     * @return DeleteConfigurationResponse DeleteConfigurationResponse
      */
-    public function createNamespaceWithOptions($request, $headers, $runtime)
+    public function deleteConfigurationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->name)) {
-            @$body['Name'] = $request->name;
+        $query = [];
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/configuration',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateNamespaceResponse::fromMap($this->doROARequestWithForm('CreateNamespace', '2020-02-06', 'HTTPS', 'POST', 'AK', '/diamond-ops/pop/namespace', 'json', $req, $runtime));
+        return DeleteConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteConfigurationRequest $request
+     * @param DeleteConfigurationRequest $request DeleteConfigurationRequest
      *
-     * @return DeleteConfigurationResponse
+     * @return DeleteConfigurationResponse DeleteConfigurationResponse
      */
     public function deleteConfiguration($request)
     {
@@ -386,37 +503,42 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DeleteConfigurationRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConfigurationResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
-    public function deleteConfigurationWithOptions($request, $headers, $runtime)
+    public function deleteNamespaceWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteNamespace',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteConfigurationResponse::fromMap($this->doROARequest('DeleteConfiguration', '2020-02-06', 'HTTPS', 'DELETE', 'AK', '/diamond-ops/pop/configuration', 'json', $req, $runtime));
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -427,31 +549,66 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeployConfigurationRequest $request DeployConfigurationRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeployConfigurationResponse DeployConfigurationResponse
      */
-    public function deleteNamespaceWithOptions($request, $headers, $runtime)
+    public function deployConfigurationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->betaIps)) {
+            $body['BetaIps'] = $request->betaIps;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $body['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $body['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $body['Group'] = $request->group;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $body['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/configuration',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNamespaceResponse::fromMap($this->doROARequest('DeleteNamespace', '2020-02-06', 'HTTPS', 'DELETE', 'AK', '/diamond-ops/pop/namespace', 'json', $req, $runtime));
+        return DeployConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeployConfigurationRequest $request
+     * @param DeployConfigurationRequest $request DeployConfigurationRequest
      *
-     * @return DeployConfigurationResponse
+     * @return DeployConfigurationResponse DeployConfigurationResponse
      */
     public function deployConfiguration($request)
     {
@@ -462,55 +619,48 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DeployConfigurationRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DescribeConfigurationRequest $request DescribeConfigurationRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployConfigurationResponse
+     * @return DescribeConfigurationResponse DescribeConfigurationResponse
      */
-    public function deployConfigurationWithOptions($request, $headers, $runtime)
+    public function describeConfigurationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->dataId)) {
-            @$body['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            @$body['AppName'] = $request->appName;
+            $query['DataId'] = $request->dataId;
         }
         if (!Utils::isUnset($request->group)) {
-            @$body['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            @$body['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            @$body['Tags'] = $request->tags;
-        }
-        if (!Utils::isUnset($request->content)) {
-            @$body['Content'] = $request->content;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$body['Type'] = $request->type;
+            $query['Group'] = $request->group;
         }
         if (!Utils::isUnset($request->namespaceId)) {
-            @$body['NamespaceId'] = $request->namespaceId;
-        }
-        if (!Utils::isUnset($request->betaIps)) {
-            @$body['BetaIps'] = $request->betaIps;
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/configuration',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeployConfigurationResponse::fromMap($this->doROARequestWithForm('DeployConfiguration', '2020-02-06', 'HTTPS', 'PUT', 'AK', '/diamond-ops/pop/configuration', 'json', $req, $runtime));
+        return DescribeConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeConfigurationRequest $request
+     * @param DescribeConfigurationRequest $request DescribeConfigurationRequest
      *
-     * @return DescribeConfigurationResponse
+     * @return DescribeConfigurationResponse DescribeConfigurationResponse
      */
     public function describeConfiguration($request)
     {
@@ -521,37 +671,42 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigurationRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeImportFileUrlRequest $request DescribeImportFileUrlRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConfigurationResponse
+     * @return DescribeImportFileUrlResponse DescribeImportFileUrlResponse
      */
-    public function describeConfigurationWithOptions($request, $headers, $runtime)
+    public function describeImportFileUrlWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeImportFileUrl',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/batch/importFileUrl',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeConfigurationResponse::fromMap($this->doROARequest('DescribeConfiguration', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/configuration', 'json', $req, $runtime));
+        return DescribeImportFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeImportFileUrlRequest $request
+     * @param DescribeImportFileUrlRequest $request DescribeImportFileUrlRequest
      *
-     * @return DescribeImportFileUrlResponse
+     * @return DescribeImportFileUrlResponse DescribeImportFileUrlResponse
      */
     public function describeImportFileUrl($request)
     {
@@ -562,31 +717,42 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DescribeImportFileUrlRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImportFileUrlResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
-    public function describeImportFileUrlWithOptions($request, $headers, $runtime)
+    public function describeNamespaceWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->contentType)) {
-            @$query['ContentType'] = $request->contentType;
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeNamespace',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeImportFileUrlResponse::fromMap($this->doROARequest('DescribeImportFileUrl', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/batch/importFileUrl', 'json', $req, $runtime));
+        return DescribeNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespace($request)
     {
@@ -597,29 +763,33 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
-    public function describeNamespaceWithOptions($request, $headers, $runtime)
+    public function describeNamespacesWithOptions($headers, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNamespaces',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNamespaceResponse::fromMap($this->doROARequest('DescribeNamespace', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/namespace', 'json', $req, $runtime));
+        return DescribeNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
     public function describeNamespaces()
     {
@@ -630,22 +800,33 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesWithCreateResponse DescribeNamespacesWithCreateResponse
      */
-    public function describeNamespacesWithOptions($headers, $runtime)
+    public function describeNamespacesWithCreateWithOptions($headers, $runtime)
     {
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeNamespacesWithCreate',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace/listWithCreate',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeNamespacesResponse::fromMap($this->doROARequest('DescribeNamespaces', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/namespace/list', 'json', $req, $runtime));
+        return DescribeNamespacesWithCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return DescribeNamespacesWithCreateResponse
+     * @return DescribeNamespacesWithCreateResponse DescribeNamespacesWithCreateResponse
      */
     public function describeNamespacesWithCreate()
     {
@@ -656,24 +837,54 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DescribeTraceByConfigurationRequest $request DescribeTraceByConfigurationRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespacesWithCreateResponse
+     * @return DescribeTraceByConfigurationResponse DescribeTraceByConfigurationResponse
      */
-    public function describeNamespacesWithCreateWithOptions($headers, $runtime)
+    public function describeTraceByConfigurationWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTraceByConfiguration',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/trace/getByConfiguration',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNamespacesWithCreateResponse::fromMap($this->doROARequest('DescribeNamespacesWithCreate', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/namespace/listWithCreate', 'json', $req, $runtime));
+        return DescribeTraceByConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTraceByConfigurationRequest $request
+     * @param DescribeTraceByConfigurationRequest $request DescribeTraceByConfigurationRequest
      *
-     * @return DescribeTraceByConfigurationResponse
+     * @return DescribeTraceByConfigurationResponse DescribeTraceByConfigurationResponse
      */
     public function describeTraceByConfiguration($request)
     {
@@ -684,43 +895,45 @@ class Acm extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceByConfigurationRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTraceByConfigurationResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
-    public function describeTraceByConfigurationWithOptions($request, $headers, $runtime)
+    public function updateNamespaceWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataId)) {
-            @$query['DataId'] = $request->dataId;
-        }
-        if (!Utils::isUnset($request->group)) {
-            @$query['Group'] = $request->group;
-        }
+        $body = [];
         if (!Utils::isUnset($request->namespaceId)) {
-            @$query['NamespaceId'] = $request->namespaceId;
+            $body['NamespaceId'] = $request->namespaceId;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            @$query['StartTs'] = $request->startTs;
-        }
-        if (!Utils::isUnset($request->endTs)) {
-            @$query['EndTs'] = $request->endTs;
+        if (!Utils::isUnset($request->namespaceName)) {
+            $body['NamespaceName'] = $request->namespaceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNamespace',
+            'version'     => '2020-02-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/diamond-ops/pop/namespace',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTraceByConfigurationResponse::fromMap($this->doROARequest('DescribeTraceByConfiguration', '2020-02-06', 'HTTPS', 'GET', 'AK', '/diamond-ops/pop/trace/getByConfiguration', 'json', $req, $runtime));
+        return UpdateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateNamespaceRequest $request
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
      *
-     * @return UpdateNamespaceResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
     public function updateNamespace($request)
     {
@@ -728,30 +941,5 @@ class Acm extends OpenApiClient
         $headers = [];
 
         return $this->updateNamespaceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param UpdateNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateNamespaceResponse
-     */
-    public function updateNamespaceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->namespaceId)) {
-            @$body['NamespaceId'] = $request->namespaceId;
-        }
-        if (!Utils::isUnset($request->namespaceName)) {
-            @$body['NamespaceName'] = $request->namespaceName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-
-        return UpdateNamespaceResponse::fromMap($this->doROARequestWithForm('UpdateNamespace', '2020-02-06', 'HTTPS', 'PUT', 'AK', '/diamond-ops/pop/namespace', 'json', $req, $runtime));
     }
 }

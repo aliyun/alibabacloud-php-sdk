@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CheckConfigurationExportRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $namespaceId;
-
-    /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $data;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $namespaceId;
     protected $_name = [
-        'namespaceId' => 'NamespaceId',
         'data'        => 'Data',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class CheckConfigurationExportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class CheckConfigurationExportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;

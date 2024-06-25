@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class eventGroups extends Model
 {
     /**
-     * @var string
-     */
-    public $eventType;
-
-    /**
      * @var eventDetails[]
      */
     public $eventDetails;
+
+    /**
+     * @var string
+     */
+    public $eventType;
     protected $_name = [
-        'eventType'    => 'EventType',
         'eventDetails' => 'EventDetails',
+        'eventType'    => 'EventType',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class eventGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventType) {
-            $res['EventType'] = $this->eventType;
-        }
         if (null !== $this->eventDetails) {
             $res['EventDetails'] = [];
             if (null !== $this->eventDetails && \is_array($this->eventDetails)) {
@@ -41,6 +38,9 @@ class eventGroups extends Model
                     $res['EventDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class eventGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventType'])) {
-            $model->eventType = $map['EventType'];
-        }
         if (isset($map['EventDetails'])) {
             if (!empty($map['EventDetails'])) {
                 $model->eventDetails = [];
@@ -65,6 +62,9 @@ class eventGroups extends Model
                     $model->eventDetails[$n++] = null !== $item ? eventDetails::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
         }
 
         return $model;

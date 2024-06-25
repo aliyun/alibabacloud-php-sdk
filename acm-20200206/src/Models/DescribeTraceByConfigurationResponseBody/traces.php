@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class traces extends Model
 {
     /**
-     * @var int
-     */
-    public $timestamp;
-
-    /**
      * @var eventGroups[]
      */
     public $eventGroups;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
-        'timestamp'   => 'Timestamp',
         'eventGroups' => 'EventGroups',
+        'timestamp'   => 'Timestamp',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class traces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
         if (null !== $this->eventGroups) {
             $res['EventGroups'] = [];
             if (null !== $this->eventGroups && \is_array($this->eventGroups)) {
@@ -41,6 +38,9 @@ class traces extends Model
                     $res['EventGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class traces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
         if (isset($map['EventGroups'])) {
             if (!empty($map['EventGroups'])) {
                 $model->eventGroups = [];
@@ -65,6 +62,9 @@ class traces extends Model
                     $model->eventGroups[$n++] = null !== $item ? eventGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

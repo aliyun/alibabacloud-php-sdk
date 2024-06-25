@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigurationRequest extends Model
 {
     /**
+     * @example app
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example key=Hello;value=World
+     *
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example com.aliyun.acm.example
+     *
      * @var string
      */
     public $dataId;
@@ -16,46 +36,50 @@ class CreateConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $desc;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 01146121-decf-4b47-****
+     *
      * @var string
      */
-    public $desc;
+    public $namespaceId;
 
     /**
+     * @example tag1,tag2
+     *
      * @var string
      */
     public $tags;
 
     /**
-     * @var string
-     */
-    public $content;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example text
+     *
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $namespaceId;
     protected $_name = [
-        'dataId'      => 'DataId',
         'appName'     => 'AppName',
-        'group'       => 'Group',
-        'desc'        => 'Desc',
-        'tags'        => 'Tags',
         'content'     => 'Content',
-        'type'        => 'Type',
+        'dataId'      => 'DataId',
+        'desc'        => 'Desc',
+        'group'       => 'Group',
         'namespaceId' => 'NamespaceId',
+        'tags'        => 'Tags',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -65,29 +89,29 @@ class CreateConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->group) {
-            $res['Group'] = $this->group;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->group) {
+            $res['Group'] = $this->group;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,29 +125,29 @@ class CreateConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['Group'])) {
-            $model->group = $map['Group'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
+        }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
+        if (isset($map['Group'])) {
+            $model->group = $map['Group'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

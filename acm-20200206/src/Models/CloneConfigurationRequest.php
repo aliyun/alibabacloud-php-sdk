@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CloneConfigurationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
-    public $policy;
+    public $data;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceFrom;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceTo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
-    public $data;
+    public $policy;
     protected $_name = [
-        'policy'        => 'Policy',
+        'data'          => 'Data',
         'namespaceFrom' => 'NamespaceFrom',
         'namespaceTo'   => 'NamespaceTo',
-        'data'          => 'Data',
+        'policy'        => 'Policy',
     ];
 
     public function validate()
@@ -41,8 +49,8 @@ class CloneConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->namespaceFrom) {
             $res['NamespaceFrom'] = $this->namespaceFrom;
@@ -50,8 +58,8 @@ class CloneConfigurationRequest extends Model
         if (null !== $this->namespaceTo) {
             $res['NamespaceTo'] = $this->namespaceTo;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
 
         return $res;
@@ -65,8 +73,8 @@ class CloneConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['NamespaceFrom'])) {
             $model->namespaceFrom = $map['NamespaceFrom'];
@@ -74,8 +82,8 @@ class CloneConfigurationRequest extends Model
         if (isset($map['NamespaceTo'])) {
             $model->namespaceTo = $map['NamespaceTo'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
 
         return $model;

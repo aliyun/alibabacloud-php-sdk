@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 710b2fbe-0da3-4388-****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceName;

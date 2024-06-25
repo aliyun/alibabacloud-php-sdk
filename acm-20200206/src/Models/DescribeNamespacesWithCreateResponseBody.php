@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespacesWithCreateResponseBody extends Model
 {
     /**
-     * @var namespaces[]
+     * @var string
      */
-    public $namespaces;
+    public $code;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class DescribeNamespacesWithCreateResponseBody extends Model
     public $message;
 
     /**
-     * @var string
+     * @var namespaces[]
      */
-    public $requestId;
+    public $namespaces;
 
     /**
      * @var string
      */
-    public $code;
+    public $requestId;
     protected $_name = [
-        'namespaces' => 'Namespaces',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
         'code'       => 'Code',
+        'message'    => 'Message',
+        'namespaces' => 'Namespaces',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -42,6 +42,12 @@ class DescribeNamespacesWithCreateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->namespaces) {
             $res['Namespaces'] = [];
             if (null !== $this->namespaces && \is_array($this->namespaces)) {
@@ -51,14 +57,8 @@ class DescribeNamespacesWithCreateResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -72,6 +72,12 @@ class DescribeNamespacesWithCreateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
                 $model->namespaces = [];
@@ -81,14 +87,8 @@ class DescribeNamespacesWithCreateResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

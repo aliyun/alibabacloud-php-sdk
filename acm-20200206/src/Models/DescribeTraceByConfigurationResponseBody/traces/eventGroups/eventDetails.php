@@ -11,22 +11,12 @@ class eventDetails extends Model
     /**
      * @var string
      */
-    public $type;
+    public $dataId;
 
     /**
      * @var string
      */
     public $delay;
-
-    /**
-     * @var string
-     */
-    public $ts;
-
-    /**
-     * @var string
-     */
-    public $responseIp;
 
     /**
      * @var string
@@ -41,17 +31,7 @@ class eventDetails extends Model
     /**
      * @var string
      */
-    public $dataId;
-
-    /**
-     * @var string
-     */
-    public $requestIp;
-
-    /**
-     * @var string
-     */
-    public $logDate;
+    public $group;
 
     /**
      * @var string
@@ -61,19 +41,39 @@ class eventDetails extends Model
     /**
      * @var string
      */
-    public $group;
+    public $logDate;
+
+    /**
+     * @var string
+     */
+    public $requestIp;
+
+    /**
+     * @var string
+     */
+    public $responseIp;
+
+    /**
+     * @var string
+     */
+    public $ts;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
+        'dataId'     => 'DataId',
         'delay'      => 'Delay',
-        'ts'         => 'Ts',
-        'responseIp' => 'ResponseIp',
         'event'      => 'Event',
         'ext'        => 'Ext',
-        'dataId'     => 'DataId',
-        'requestIp'  => 'RequestIp',
-        'logDate'    => 'LogDate',
-        'handleIp'   => 'HandleIp',
         'group'      => 'Group',
+        'handleIp'   => 'HandleIp',
+        'logDate'    => 'LogDate',
+        'requestIp'  => 'RequestIp',
+        'responseIp' => 'ResponseIp',
+        'ts'         => 'Ts',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -83,17 +83,11 @@ class eventDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
         }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
-        }
-        if (null !== $this->ts) {
-            $res['Ts'] = $this->ts;
-        }
-        if (null !== $this->responseIp) {
-            $res['ResponseIp'] = $this->responseIp;
         }
         if (null !== $this->event) {
             $res['Event'] = $this->event;
@@ -101,20 +95,26 @@ class eventDetails extends Model
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
         }
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
-        }
-        if (null !== $this->requestIp) {
-            $res['RequestIp'] = $this->requestIp;
-        }
-        if (null !== $this->logDate) {
-            $res['LogDate'] = $this->logDate;
+        if (null !== $this->group) {
+            $res['Group'] = $this->group;
         }
         if (null !== $this->handleIp) {
             $res['HandleIp'] = $this->handleIp;
         }
-        if (null !== $this->group) {
-            $res['Group'] = $this->group;
+        if (null !== $this->logDate) {
+            $res['LogDate'] = $this->logDate;
+        }
+        if (null !== $this->requestIp) {
+            $res['RequestIp'] = $this->requestIp;
+        }
+        if (null !== $this->responseIp) {
+            $res['ResponseIp'] = $this->responseIp;
+        }
+        if (null !== $this->ts) {
+            $res['Ts'] = $this->ts;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -128,17 +128,11 @@ class eventDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
         }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];
-        }
-        if (isset($map['Ts'])) {
-            $model->ts = $map['Ts'];
-        }
-        if (isset($map['ResponseIp'])) {
-            $model->responseIp = $map['ResponseIp'];
         }
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
@@ -146,20 +140,26 @@ class eventDetails extends Model
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
         }
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
-        }
-        if (isset($map['RequestIp'])) {
-            $model->requestIp = $map['RequestIp'];
-        }
-        if (isset($map['LogDate'])) {
-            $model->logDate = $map['LogDate'];
+        if (isset($map['Group'])) {
+            $model->group = $map['Group'];
         }
         if (isset($map['HandleIp'])) {
             $model->handleIp = $map['HandleIp'];
         }
-        if (isset($map['Group'])) {
-            $model->group = $map['Group'];
+        if (isset($map['LogDate'])) {
+            $model->logDate = $map['LogDate'];
+        }
+        if (isset($map['RequestIp'])) {
+            $model->requestIp = $map['RequestIp'];
+        }
+        if (isset($map['ResponseIp'])) {
+            $model->responseIp = $map['ResponseIp'];
+        }
+        if (isset($map['Ts'])) {
+            $model->ts = $map['Ts'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

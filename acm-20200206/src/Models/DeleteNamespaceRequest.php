@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 112300d2-ca66-42ba-b706-****
+     *
      * @var string
      */
     public $namespaceId;

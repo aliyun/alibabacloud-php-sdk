@@ -10,14 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigurationResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var configuration
@@ -25,14 +22,23 @@ class DescribeConfigurationResponseBody extends Model
     public $configuration;
 
     /**
+     * @example Success
+     *
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @example 611CC94A-7711-4873-8848-****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'code'          => 'Code',
+        'configuration' => 'Configuration',
         'message'       => 'Message',
         'requestId'     => 'RequestId',
-        'configuration' => 'Configuration',
-        'code'          => 'Code',
     ];
 
     public function validate()
@@ -42,17 +48,17 @@ class DescribeConfigurationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->configuration) {
+            $res['Configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->configuration) {
-            $res['Configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +72,17 @@ class DescribeConfigurationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Configuration'])) {
+            $model->configuration = configuration::fromMap($map['Configuration']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Configuration'])) {
-            $model->configuration = configuration::fromMap($map['Configuration']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

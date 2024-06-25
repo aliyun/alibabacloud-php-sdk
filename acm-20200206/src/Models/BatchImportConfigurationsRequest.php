@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchImportConfigurationsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $fileUrl;
+
+    /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $policy;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
     protected $_name = [
+        'fileUrl'     => 'FileUrl',
         'namespaceId' => 'NamespaceId',
         'policy'      => 'Policy',
-        'fileUrl'     => 'FileUrl',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class BatchImportConfigurationsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class BatchImportConfigurationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileUrl'])) {
+            $model->fileUrl = $map['FileUrl'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;
