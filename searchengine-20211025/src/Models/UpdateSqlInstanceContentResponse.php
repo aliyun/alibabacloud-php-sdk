@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDataSourceResponse extends Model
+class UpdateSqlInstanceContentResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifyDataSourceResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifyDataSourceResponseBody
+     * @var UpdateSqlInstanceContentResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ModifyDataSourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDataSourceResponse
+     * @return UpdateSqlInstanceContentResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ModifyDataSourceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyDataSourceResponseBody::fromMap($map['body']);
+            $model->body = UpdateSqlInstanceContentResponseBody::fromMap($map['body']);
         }
 
         return $model;

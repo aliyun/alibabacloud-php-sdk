@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\BuildIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\BuildIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CloneSqlInstanceRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CloneSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateConfigDirRequest;
@@ -18,11 +20,15 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateConfigFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateConfigFileResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateDataSourceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateFolderRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateFolderResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreatePublicUrlResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateSqlInstanceRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAdvanceConfigResponse;
@@ -31,14 +37,18 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigDirResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigFileResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteDataSourceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeletePublicUrlResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ExecuteSqlInstanceRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ExecuteSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ForceSwitchResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigFileResponse;
@@ -46,6 +56,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetAdvanceConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDatabaseSchemaResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponse;
@@ -57,6 +68,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetSqlInstanceRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableGenerationResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigDirRequest;
@@ -66,6 +79,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterNamesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterTasksResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDataSourceSchemasResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDataSourceTasksResponse;
@@ -112,8 +126,6 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterOnlineConfigRequ
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterOnlineConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployResponse;
-use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceRequest;
-use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyFileRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyFileResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexOnlineStrategyRequest;
@@ -147,6 +159,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\RecoverIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ReindexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\RemoveClusterResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\RenameFolderRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\RenameFolderResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\StartIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\StopIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\StopTaskResponse;
@@ -157,6 +171,12 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceContentRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceContentResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceNameRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceNameResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceParamsRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceParamsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -329,6 +349,61 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $instanceId
+     * @param string                  $database
+     * @param string                  $sqlInstanceId
+     * @param CloneSqlInstanceRequest $request       CloneSqlInstanceRequest
+     * @param string[]                $headers       map
+     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return CloneSqlInstanceResponse CloneSqlInstanceResponse
+     */
+    public function cloneSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->targetFolderId)) {
+            $body['targetFolderId'] = $request->targetFolderId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneSqlInstance',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/clone',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $instanceId
+     * @param string                  $database
+     * @param string                  $sqlInstanceId
+     * @param CloneSqlInstanceRequest $request       CloneSqlInstanceRequest
+     *
+     * @return CloneSqlInstanceResponse CloneSqlInstanceResponse
+     */
+    public function cloneSqlInstance($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cloneSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -587,6 +662,62 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string              $instanceId
+     * @param string              $database
+     * @param CreateFolderRequest $request    CreateFolderRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateFolderResponse CreateFolderResponse
+     */
+    public function createFolderWithOptions($instanceId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parent)) {
+            $body['parent'] = $request->parent;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFolder',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $instanceId
+     * @param string              $database
+     * @param CreateFolderRequest $request    CreateFolderRequest
+     *
+     * @return CreateFolderResponse CreateFolderResponse
+     */
+    public function createFolder($instanceId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFolderWithOptions($instanceId, $database, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Creates an index.
      *  *
      * @description ### Method
@@ -793,6 +924,59 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->createPublicUrlWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $instanceId
+     * @param string                   $database
+     * @param CreateSqlInstanceRequest $request    CreateSqlInstanceRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     */
+    public function createSqlInstanceWithOptions($instanceId, $database, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parent)) {
+            $body['parent'] = $request->parent;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSqlInstance',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $instanceId
+     * @param string                   $database
+     * @param CreateSqlInstanceRequest $request    CreateSqlInstanceRequest
+     *
+     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     */
+    public function createSqlInstance($instanceId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSqlInstanceWithOptions($instanceId, $database, $request, $headers, $runtime);
     }
 
     /**
@@ -1095,6 +1279,50 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string         $instanceId
+     * @param string         $database
+     * @param string         $folderId
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteFolderResponse DeleteFolderResponse
+     */
+    public function deleteFolderWithOptions($instanceId, $database, $folderId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFolder',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $database
+     * @param string $folderId
+     *
+     * @return DeleteFolderResponse DeleteFolderResponse
+     */
+    public function deleteFolder($instanceId, $database, $folderId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFolderWithOptions($instanceId, $database, $folderId, $headers, $runtime);
+    }
+
+    /**
      * @summary Deletes an index.
      *  *
      * @description ## Method
@@ -1318,6 +1546,50 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string         $instanceId
+     * @param string         $database
+     * @param string         $sqlInstanceId
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSqlInstanceResponse DeleteSqlInstanceResponse
+     */
+    public function deleteSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSqlInstance',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $database
+     * @param string $sqlInstanceId
+     *
+     * @return DeleteSqlInstanceResponse DeleteSqlInstanceResponse
+     */
+    public function deleteSqlInstance($instanceId, $database, $sqlInstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $headers, $runtime);
+    }
+
+    /**
      * @summary 删除索引表V2
      *  *
      * @param string         $instanceId
@@ -1407,6 +1679,76 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $instanceId
+     * @param string                    $database
+     * @param string                    $sqlInstanceId
+     * @param ExecuteSqlInstanceRequest $request       ExecuteSqlInstanceRequest
+     * @param string[]                  $headers       map
+     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteSqlInstanceResponse ExecuteSqlInstanceResponse
+     */
+    public function executeSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->combineParam)) {
+            $body['combineParam'] = $request->combineParam;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $body['domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->dynamicParam)) {
+            $body['dynamicParam'] = $request->dynamicParam;
+        }
+        if (!Utils::isUnset($request->kvpair)) {
+            $body['kvpair'] = $request->kvpair;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->staticParam)) {
+            $body['staticParam'] = $request->staticParam;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteSqlInstance',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/execution',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $instanceId
+     * @param string                    $database
+     * @param string                    $sqlInstanceId
+     * @param ExecuteSqlInstanceRequest $request       ExecuteSqlInstanceRequest
+     *
+     * @return ExecuteSqlInstanceResponse ExecuteSqlInstanceResponse
+     */
+    public function executeSqlInstance($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1816,6 +2158,50 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string         $instanceId
+     * @param string         $database
+     * @param string         $tableName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetDatabaseSchemaResponse GetDatabaseSchemaResponse
+     */
+    public function getDatabaseSchemaWithOptions($instanceId, $database, $tableName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatabaseSchema',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/schema',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatabaseSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $database
+     * @param string $tableName
+     *
+     * @return GetDatabaseSchemaResponse GetDatabaseSchemaResponse
+     */
+    public function getDatabaseSchema($instanceId, $database, $tableName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatabaseSchemaWithOptions($instanceId, $database, $tableName, $headers, $runtime);
+    }
+
+    /**
      * @summary Displays the overview of the deployment.
      *  *
      * @description ## Method
@@ -2201,6 +2587,58 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->getNodeConfigWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $instanceId
+     * @param string                $database
+     * @param string                $sqlInstanceId
+     * @param GetSqlInstanceRequest $request       GetSqlInstanceRequest
+     * @param string[]              $headers       map
+     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     */
+    public function getSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSqlInstance',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $instanceId
+     * @param string                $database
+     * @param string                $sqlInstanceId
+     * @param GetSqlInstanceRequest $request       GetSqlInstanceRequest
+     *
+     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     */
+    public function getSqlInstance($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2773,6 +3211,46 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->listDataSourcesWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatabases',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return ListDatabasesResponse ListDatabasesResponse
+     */
+    public function listDatabases($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatabasesWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -4084,75 +4562,6 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a data source.
-     *  *
-     * @description ## Method
-     * `PUT`
-     * ## URI
-     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
-     * @param string                  $instanceId
-     * @param string                  $dataSourceName
-     * @param ModifyDataSourceRequest $request        ModifyDataSourceRequest
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return ModifyDataSourceResponse ModifyDataSourceResponse
-     */
-    public function modifyDataSourceWithOptions($instanceId, $dataSourceName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDataSource',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies a data source.
-     *  *
-     * @description ## Method
-     * `PUT`
-     * ## URI
-     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
-     * @param string                  $instanceId
-     * @param string                  $dataSourceName
-     * @param ModifyDataSourceRequest $request        ModifyDataSourceRequest
-     *
-     * @return ModifyDataSourceResponse ModifyDataSourceResponse
-     */
-    public function modifyDataSource($instanceId, $dataSourceName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->modifyDataSourceWithOptions($instanceId, $dataSourceName, $request, $headers, $runtime);
-    }
-
-    /**
      * @summary 修改数据源部署信息
      *  *
      * @param string                        $instanceId
@@ -5380,6 +5789,58 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string              $instanceId
+     * @param string              $database
+     * @param string              $folderId
+     * @param RenameFolderRequest $request    RenameFolderRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return RenameFolderResponse RenameFolderResponse
+     */
+    public function renameFolderWithOptions($instanceId, $database, $folderId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameFolder',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '/name',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenameFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $instanceId
+     * @param string              $database
+     * @param string              $folderId
+     * @param RenameFolderRequest $request    RenameFolderRequest
+     *
+     * @return RenameFolderResponse RenameFolderResponse
+     */
+    public function renameFolder($instanceId, $database, $folderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->renameFolderWithOptions($instanceId, $database, $folderId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $instanceId
      * @param string         $indexName
      * @param string[]       $headers    map
@@ -5716,5 +6177,173 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $instanceId
+     * @param string                          $database
+     * @param string                          $sqlInstanceId
+     * @param UpdateSqlInstanceContentRequest $request       UpdateSqlInstanceContentRequest
+     * @param string[]                        $headers       map
+     * @param RuntimeOptions                  $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSqlInstanceContentResponse UpdateSqlInstanceContentResponse
+     */
+    public function updateSqlInstanceContentWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSqlInstanceContent',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/content',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSqlInstanceContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $instanceId
+     * @param string                          $database
+     * @param string                          $sqlInstanceId
+     * @param UpdateSqlInstanceContentRequest $request       UpdateSqlInstanceContentRequest
+     *
+     * @return UpdateSqlInstanceContentResponse UpdateSqlInstanceContentResponse
+     */
+    public function updateSqlInstanceContent($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSqlInstanceContentWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $instanceId
+     * @param string                       $database
+     * @param string                       $sqlInstanceId
+     * @param UpdateSqlInstanceNameRequest $request       UpdateSqlInstanceNameRequest
+     * @param string[]                     $headers       map
+     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSqlInstanceNameResponse UpdateSqlInstanceNameResponse
+     */
+    public function updateSqlInstanceNameWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSqlInstanceName',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/name',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSqlInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $instanceId
+     * @param string                       $database
+     * @param string                       $sqlInstanceId
+     * @param UpdateSqlInstanceNameRequest $request       UpdateSqlInstanceNameRequest
+     *
+     * @return UpdateSqlInstanceNameResponse UpdateSqlInstanceNameResponse
+     */
+    public function updateSqlInstanceName($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSqlInstanceNameWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $instanceId
+     * @param string                         $database
+     * @param string                         $sqlInstanceId
+     * @param UpdateSqlInstanceParamsRequest $request       UpdateSqlInstanceParamsRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSqlInstanceParamsResponse UpdateSqlInstanceParamsResponse
+     */
+    public function updateSqlInstanceParamsWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->combineParam)) {
+            $body['combineParam'] = $request->combineParam;
+        }
+        if (!Utils::isUnset($request->dynamicParam)) {
+            $body['dynamicParam'] = $request->dynamicParam;
+        }
+        if (!Utils::isUnset($request->kvpair)) {
+            $body['kvpair'] = $request->kvpair;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->staticParam)) {
+            $body['staticParam'] = $request->staticParam;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSqlInstanceParams',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/params',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSqlInstanceParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $instanceId
+     * @param string                         $database
+     * @param string                         $sqlInstanceId
+     * @param UpdateSqlInstanceParamsRequest $request       UpdateSqlInstanceParamsRequest
+     *
+     * @return UpdateSqlInstanceParamsResponse UpdateSqlInstanceParamsResponse
+     */
+    public function updateSqlInstanceParams($instanceId, $database, $sqlInstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSqlInstanceParamsWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
     }
 }
