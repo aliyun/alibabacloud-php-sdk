@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody\trafficControlTaskTraffic;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody\trafficControlTaskTrafficInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetTrafficControlTaskTrafficResponseBody extends Model
@@ -15,12 +15,12 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
     public $requestId;
 
     /**
-     * @var trafficControlTaskTraffic
+     * @var trafficControlTaskTrafficInfo
      */
-    public $trafficControlTaskTraffic;
+    public $trafficControlTaskTrafficInfo;
     protected $_name = [
-        'requestId'                 => 'RequestId',
-        'trafficControlTaskTraffic' => 'TrafficControlTaskTraffic',
+        'requestId'                     => 'RequestId',
+        'trafficControlTaskTrafficInfo' => 'TrafficControlTaskTrafficInfo',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->trafficControlTaskTraffic) {
-            $res['TrafficControlTaskTraffic'] = null !== $this->trafficControlTaskTraffic ? $this->trafficControlTaskTraffic->toMap() : null;
+        if (null !== $this->trafficControlTaskTrafficInfo) {
+            $res['TrafficControlTaskTrafficInfo'] = null !== $this->trafficControlTaskTrafficInfo ? $this->trafficControlTaskTrafficInfo->toMap() : null;
         }
 
         return $res;
@@ -51,8 +51,8 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TrafficControlTaskTraffic'])) {
-            $model->trafficControlTaskTraffic = trafficControlTaskTraffic::fromMap($map['TrafficControlTaskTraffic']);
+        if (isset($map['TrafficControlTaskTrafficInfo'])) {
+            $model->trafficControlTaskTrafficInfo = trafficControlTaskTrafficInfo::fromMap($map['TrafficControlTaskTrafficInfo']);
         }
 
         return $model;

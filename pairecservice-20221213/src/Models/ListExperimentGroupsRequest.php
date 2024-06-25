@@ -35,11 +35,23 @@ class ListExperimentGroupsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $timeRangeEnd;
+
+    /**
+     * @var string
+     */
+    public $timeRangeStart;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'layerId'    => 'LayerId',
-        'regionId'   => 'RegionId',
-        'status'     => 'Status',
+        'instanceId'     => 'InstanceId',
+        'layerId'        => 'LayerId',
+        'regionId'       => 'RegionId',
+        'status'         => 'Status',
+        'timeRangeEnd'   => 'TimeRangeEnd',
+        'timeRangeStart' => 'TimeRangeStart',
     ];
 
     public function validate()
@@ -60,6 +72,12 @@ class ListExperimentGroupsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->timeRangeEnd) {
+            $res['TimeRangeEnd'] = $this->timeRangeEnd;
+        }
+        if (null !== $this->timeRangeStart) {
+            $res['TimeRangeStart'] = $this->timeRangeStart;
         }
 
         return $res;
@@ -84,6 +102,12 @@ class ListExperimentGroupsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TimeRangeEnd'])) {
+            $model->timeRangeEnd = $map['TimeRangeEnd'];
+        }
+        if (isset($map['TimeRangeStart'])) {
+            $model->timeRangeStart = $map['TimeRangeStart'];
         }
 
         return $model;

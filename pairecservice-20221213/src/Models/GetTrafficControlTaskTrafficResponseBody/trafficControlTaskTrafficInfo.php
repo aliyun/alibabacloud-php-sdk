@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody;
 
-use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody\trafficControlTaskTraffic\targetTraffics;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody\trafficControlTaskTrafficInfo\targetTraffics;
 use AlibabaCloud\Tea\Model;
 
-class trafficControlTaskTraffic extends Model
+class trafficControlTaskTrafficInfo extends Model
 {
     /**
      * @var targetTraffics[]
@@ -49,7 +49,7 @@ class trafficControlTaskTraffic extends Model
     /**
      * @param array $map
      *
-     * @return trafficControlTaskTraffic
+     * @return trafficControlTaskTrafficInfo
      */
     public static function fromMap($map = [])
     {

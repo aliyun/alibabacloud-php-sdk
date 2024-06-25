@@ -3044,7 +3044,7 @@ class PaiRecService extends OpenApiClient
             'action'      => 'GenerateTrafficControlTaskCode',
             'version'     => '2022-12-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/code',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/generatecode',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3096,7 +3096,7 @@ class PaiRecService extends OpenApiClient
             'action'      => 'GenerateTrafficControlTaskConfig',
             'version'     => '2022-12-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/config',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/generateconfig',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4083,7 +4083,7 @@ class PaiRecService extends OpenApiClient
             'action'      => 'GetTrafficControlTaskTraffic',
             'version'     => '2022-12-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/action/traffic',
+            'pathname'    => '/api/v1/trafficcontroltasks/' . OpenApiUtilClient::getEncodeParam($TrafficControlTaskId) . '/trafficinfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4437,6 +4437,12 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->timeRangeEnd)) {
+            $query['TimeRangeEnd'] = $request->timeRangeEnd;
+        }
+        if (!Utils::isUnset($request->timeRangeStart)) {
+            $query['TimeRangeStart'] = $request->timeRangeStart;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5366,7 +5372,7 @@ class PaiRecService extends OpenApiClient
             'action'      => 'ListTrafficControlTargetTrafficHistory',
             'version'     => '2022-12-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/action/traffichistory',
+            'pathname'    => '/api/v1/trafficcontroltargets/' . OpenApiUtilClient::getEncodeParam($TrafficControlTargetId) . '/traffichistories',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
