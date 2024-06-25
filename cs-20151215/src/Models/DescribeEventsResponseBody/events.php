@@ -37,8 +37,6 @@ class events extends Model
     /**
      * @description The source of the event.
      *
-     * @example /clusters/cf62854ac2130470897be7a27ed1f****\/nodepools
-     *
      * @var string
      */
     public $source;

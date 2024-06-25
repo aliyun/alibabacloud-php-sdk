@@ -3336,6 +3336,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resource_group_id'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),

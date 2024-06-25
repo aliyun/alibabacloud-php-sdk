@@ -25,9 +25,15 @@ class DescribeClustersRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'clusterType' => 'clusterType',
-        'name'        => 'name',
+        'clusterType'     => 'clusterType',
+        'name'            => 'name',
+        'resourceGroupId' => 'resource_group_id',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class DescribeClustersRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resource_group_id'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class DescribeClustersRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['resource_group_id'])) {
+            $model->resourceGroupId = $map['resource_group_id'];
         }
 
         return $model;

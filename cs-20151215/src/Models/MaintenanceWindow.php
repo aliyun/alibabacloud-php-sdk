@@ -30,6 +30,13 @@ class MaintenanceWindow extends Model
     public $maintenanceTime;
 
     /**
+     * @example FREQ=WEEKLY;INTERVAL=4;BYDAY=MO,TU
+     *
+     * @var string
+     */
+    public $recurrence;
+
+    /**
      * @example Monday,Thursday
      *
      * @var string
@@ -39,6 +46,7 @@ class MaintenanceWindow extends Model
         'duration'        => 'duration',
         'enable'          => 'enable',
         'maintenanceTime' => 'maintenance_time',
+        'recurrence'      => 'recurrence',
         'weeklyPeriod'    => 'weekly_period',
     ];
 
@@ -57,6 +65,9 @@ class MaintenanceWindow extends Model
         }
         if (null !== $this->maintenanceTime) {
             $res['maintenance_time'] = $this->maintenanceTime;
+        }
+        if (null !== $this->recurrence) {
+            $res['recurrence'] = $this->recurrence;
         }
         if (null !== $this->weeklyPeriod) {
             $res['weekly_period'] = $this->weeklyPeriod;
@@ -81,6 +92,9 @@ class MaintenanceWindow extends Model
         }
         if (isset($map['maintenance_time'])) {
             $model->maintenanceTime = $map['maintenance_time'];
+        }
+        if (isset($map['recurrence'])) {
+            $model->recurrence = $map['recurrence'];
         }
         if (isset($map['weekly_period'])) {
             $model->weeklyPeriod = $map['weekly_period'];
