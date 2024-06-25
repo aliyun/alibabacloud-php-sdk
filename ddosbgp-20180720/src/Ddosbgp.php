@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddRdMemberListShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceShrinkRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachToPolicyRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachToPolicyResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachToPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantRequest;
@@ -326,6 +329,61 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachAssetGroupToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 策略绑定
+     *  *
+     * @param AttachToPolicyRequest $tmpReq  AttachToPolicyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachToPolicyResponse AttachToPolicyResponse
+     */
+    public function attachToPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachToPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
+            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
+            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachToPolicy',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachToPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 策略绑定
+     *  *
+     * @param AttachToPolicyRequest $request AttachToPolicyRequest
+     *
+     * @return AttachToPolicyResponse AttachToPolicyResponse
+     */
+    public function attachToPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachToPolicyWithOptions($request, $runtime);
     }
 
     /**
