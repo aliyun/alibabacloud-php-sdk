@@ -24,6 +24,9 @@ class QueryShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The short URL. You can query the short URL by calling the [AddShortUrl](https://help.aliyun.com/document_detail/186774.html) operation.
+     *
+     * This parameter is required.
      * @example http://****.cn/6y8uy7
      *
      * @var string

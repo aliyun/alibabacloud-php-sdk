@@ -21,6 +21,12 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
@@ -32,6 +38,12 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsLinkResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForCardTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsSignRequest;
@@ -75,6 +87,12 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -123,10 +141,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddShortUrlRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a short URL.
+     *  *
+     * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+     * *   You can create up to 3,000 short URLs within a natural day.
+     * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
+     *  *
+     * @param AddShortUrlRequest $request AddShortUrlRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddShortUrlResponse
+     * @return AddShortUrlResponse AddShortUrlResponse
      */
     public function addShortUrlWithOptions($request, $runtime)
     {
@@ -171,9 +195,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddShortUrlRequest $request
+     * @summary Creates a short URL.
+     *  *
+     * @description *   Before you call this operation, you must register the primary domain name of the source URL in the Short Message Service (SMS) console. After the domain name is registered, you can call this operation to create a short URL. For more information, see [Domain name registration](https://help.aliyun.com/document_detail/302325.html#title-mau-zdh-hd0).
+     * *   You can create up to 3,000 short URLs within a natural day.
+     * *   After a short URL is generated, a security review is required. Generally, the review takes 10 minutes to 2 hours to complete. Before the security review is passed, the short URL cannot be directly accessed.
+     *  *
+     * @param AddShortUrlRequest $request AddShortUrlRequest
      *
-     * @return AddShortUrlResponse
+     * @return AddShortUrlResponse AddShortUrlResponse
      */
     public function addShortUrl($request)
     {
@@ -183,10 +213,23 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSmsSignRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a signature.
+     *  *
+     * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limit
+     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * >
+     * *   You cannot cancel the review of a signature.
+     * *   Individual users can create only one verification code signature, and can create only one general-purpose signature within a natural day. If you need to apply for multiple signatures, we recommend that you upgrade your account to an enterprise user.
+     * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
+     * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+     * *   An SMS signature must undergo a thorough review process before it can be approved for use.
+     *  *
+     * @param AddSmsSignRequest $request AddSmsSignRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSmsSignResponse
+     * @return AddSmsSignResponse AddSmsSignResponse
      */
     public function addSmsSignWithOptions($request, $runtime)
     {
@@ -237,9 +280,22 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSmsSignRequest $request
+     * @summary Creates a signature.
+     *  *
+     * @description You can call the AddSmsSign operation or use the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm#/overview) to create an SMS signature. The signature must comply with the [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html). You can call the QuerySmsSign operation or use the SMS console to query the review status of the signature.
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limit
+     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * >
+     * *   You cannot cancel the review of a signature.
+     * *   Individual users can create only one verification code signature, and can create only one general-purpose signature within a natural day. If you need to apply for multiple signatures, we recommend that you upgrade your account to an enterprise user.
+     * *   If you need to use the same signature for messages sent to recipients both in and outside the Chinese mainland, the signature must be a general-purpose signature.
+     * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+     * *   An SMS signature must undergo a thorough review process before it can be approved for use.
+     *  *
+     * @param AddSmsSignRequest $request AddSmsSignRequest
      *
-     * @return AddSmsSignResponse
+     * @return AddSmsSignResponse AddSmsSignResponse
      */
     public function addSmsSign($request)
     {
@@ -249,10 +305,23 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSmsTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a message template.
+     *  *
+     * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+     * >
+     * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   If you call the AddSmsTemplate operation, you can apply for a maximum of 100 message templates in a calendar day. After you apply for a message template, we recommend that you wait for at least 30 seconds before you apply for another one. If you use the Alibaba Cloud SMS console, you can apply for an unlimited number of message templates.
+     * *   Messages sent to the Chinese mainland and messages sent to countries or regions outside the Chinese mainland use separate message templates. Create message templates based on your needs.
+     * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+     * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddSmsTemplateRequest $request AddSmsTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSmsTemplateResponse
+     * @return AddSmsTemplateResponse AddSmsTemplateResponse
      */
     public function addSmsTemplateWithOptions($request, $runtime)
     {
@@ -298,9 +367,22 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddSmsTemplateRequest $request
+     * @summary Creates a message template.
+     *  *
+     * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to apply for a message template. The template must comply with the [message template specifications](https://help.aliyun.com/document_detail/108253.html). You can call the [QuerySmsTemplate](https://help.aliyun.com/document_detail/419289.html) operation or use the Alibaba Cloud SMS console to check whether the message template is approved.
+     * >
+     * *   Message templates pending approval can be withdrawn. You can withdraw a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   If you call the AddSmsTemplate operation, you can apply for a maximum of 100 message templates in a calendar day. After you apply for a message template, we recommend that you wait for at least 30 seconds before you apply for another one. If you use the Alibaba Cloud SMS console, you can apply for an unlimited number of message templates.
+     * *   Messages sent to the Chinese mainland and messages sent to countries or regions outside the Chinese mainland use separate message templates. Create message templates based on your needs.
+     * *   If you apply for a signature or message template, you must specify the signature scenario or template type. You must also provide the information of your services, such as a website URL, a domain name with an ICP filing, an application download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+     * *   A signature must undergo a thorough review process before it can be approved for use. For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddSmsTemplateRequest $request AddSmsTemplateRequest
      *
-     * @return AddSmsTemplateResponse
+     * @return AddSmsTemplateResponse AddSmsTemplateResponse
      */
     public function addSmsTemplate($request)
     {
@@ -310,10 +392,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CheckMobilesCardSupportRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Checks whether a mobile phone number can receive card messages.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CheckMobilesCardSupportRequest $request CheckMobilesCardSupportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckMobilesCardSupportResponse
+     * @return CheckMobilesCardSupportResponse CheckMobilesCardSupportResponse
      */
     public function checkMobilesCardSupportWithOptions($request, $runtime)
     {
@@ -344,9 +431,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CheckMobilesCardSupportRequest $request
+     * @summary Checks whether a mobile phone number can receive card messages.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 2,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CheckMobilesCardSupportRequest $request CheckMobilesCardSupportRequest
      *
-     * @return CheckMobilesCardSupportResponse
+     * @return CheckMobilesCardSupportResponse CheckMobilesCardSupportResponse
      */
     public function checkMobilesCardSupport($request)
     {
@@ -356,10 +448,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ConversionDataIntlRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Sends conversion rate information to Alibaba Cloud SMS.
+     *  *
+     * @param ConversionDataIntlRequest $request ConversionDataIntlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConversionDataIntlResponse
+     * @return ConversionDataIntlResponse ConversionDataIntlResponse
      */
     public function conversionDataIntlWithOptions($request, $runtime)
     {
@@ -399,9 +493,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ConversionDataIntlRequest $request
+     * @summary Sends conversion rate information to Alibaba Cloud SMS.
+     *  *
+     * @param ConversionDataIntlRequest $request ConversionDataIntlRequest
      *
-     * @return ConversionDataIntlResponse
+     * @return ConversionDataIntlResponse ConversionDataIntlResponse
      */
     public function conversionDataIntl($request)
     {
@@ -411,10 +507,18 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateCardSmsTemplateRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a card message template.
+     *  *
+     * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+     * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
+     * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
+     * ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateCardSmsTemplateRequest $tmpReq  CreateCardSmsTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCardSmsTemplateResponse
+     * @return CreateCardSmsTemplateResponse CreateCardSmsTemplateResponse
      */
     public function createCardSmsTemplateWithOptions($tmpReq, $runtime)
     {
@@ -456,9 +560,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateCardSmsTemplateRequest $request
+     * @summary Creates a card message template.
+     *  *
+     * @description *   The CreateCardSmsTemplate operation saves the card message template information, submits it to the mobile phone manufacturer for approval, and returns the message template ID.
+     * *   If the type of the message template is not supported or events that are not supported by the mobile phone manufacturer are specified, the template is not submitted. For more information, see [Supported message templates](https://help.aliyun.com/document_detail/434611.html).
+     * *   For information about sample card message templates, see [Sample card message templates](https://help.aliyun.com/document_detail/435361.html).
+     * ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateCardSmsTemplateRequest $request CreateCardSmsTemplateRequest
      *
-     * @return CreateCardSmsTemplateResponse
+     * @return CreateCardSmsTemplateResponse CreateCardSmsTemplateResponse
      */
     public function createCardSmsTemplate($request)
     {
@@ -468,17 +580,19 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateSmartShortUrlRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 创建短链
+     *  *
+     * @param CreateSmartShortUrlRequest $request CreateSmartShortUrlRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSmartShortUrlResponse
+     * @return CreateSmartShortUrlResponse CreateSmartShortUrlResponse
      */
     public function createSmartShortUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -491,9 +605,6 @@ class Dysmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceName)) {
-            $query['SourceName'] = $request->sourceName;
         }
         if (!Utils::isUnset($request->sourceUrl)) {
             $query['SourceUrl'] = $request->sourceUrl;
@@ -517,9 +628,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateSmartShortUrlRequest $request
+     * @summary 创建短链
+     *  *
+     * @param CreateSmartShortUrlRequest $request CreateSmartShortUrlRequest
      *
-     * @return CreateSmartShortUrlResponse
+     * @return CreateSmartShortUrlResponse CreateSmartShortUrlResponse
      */
     public function createSmartShortUrl($request)
     {
@@ -529,10 +642,182 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteShortUrlRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建短信签名
+     *  *
+     * @param CreateSmsSignRequest $tmpReq  CreateSmsSignRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteShortUrlResponse
+     * @return CreateSmsSignResponse CreateSmsSignResponse
+     */
+    public function createSmsSignWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSmsSignShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->moreData)) {
+            $request->moreDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moreData, 'MoreData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->applySceneContent)) {
+            $query['ApplySceneContent'] = $request->applySceneContent;
+        }
+        if (!Utils::isUnset($request->moreDataShrink)) {
+            $query['MoreData'] = $request->moreDataShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->signSource)) {
+            $query['SignSource'] = $request->signSource;
+        }
+        if (!Utils::isUnset($request->signType)) {
+            $query['SignType'] = $request->signType;
+        }
+        if (!Utils::isUnset($request->thirdParty)) {
+            $query['ThirdParty'] = $request->thirdParty;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSmsSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建短信签名
+     *  *
+     * @param CreateSmsSignRequest $request CreateSmsSignRequest
+     *
+     * @return CreateSmsSignResponse CreateSmsSignResponse
+     */
+    public function createSmsSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建短信模板
+     *  *
+     * @param CreateSmsTemplateRequest $tmpReq  CreateSmsTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSmsTemplateResponse CreateSmsTemplateResponse
+     */
+    public function createSmsTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSmsTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->moreData)) {
+            $request->moreDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moreData, 'MoreData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->applySceneContent)) {
+            $query['ApplySceneContent'] = $request->applySceneContent;
+        }
+        if (!Utils::isUnset($request->intlType)) {
+            $query['IntlType'] = $request->intlType;
+        }
+        if (!Utils::isUnset($request->moreDataShrink)) {
+            $query['MoreData'] = $request->moreDataShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->relatedSignName)) {
+            $query['RelatedSignName'] = $request->relatedSignName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateRule)) {
+            $query['TemplateRule'] = $request->templateRule;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSmsTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建短信模板
+     *  *
+     * @param CreateSmsTemplateRequest $request CreateSmsTemplateRequest
+     *
+     * @return CreateSmsTemplateResponse CreateSmsTemplateResponse
+     */
+    public function createSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteShortUrlRequest $request DeleteShortUrlRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteShortUrlResponse DeleteShortUrlResponse
      */
     public function deleteShortUrlWithOptions($request, $runtime)
     {
@@ -571,9 +856,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteShortUrlRequest $request
+     * @summary Deletes a short URL. After you delete a short URL, it cannot be changed to its original state.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteShortUrlRequest $request DeleteShortUrlRequest
      *
-     * @return DeleteShortUrlResponse
+     * @return DeleteShortUrlResponse DeleteShortUrlResponse
      */
     public function deleteShortUrl($request)
     {
@@ -583,10 +873,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmsSignRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a signature.
+     *  *
+     * @description *   You cannot delete a signature that has not been approved.
+     * *   After you delete a signature, you cannot recover it. Proceed with caution.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSmsSignRequest $request DeleteSmsSignRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSmsSignResponse
+     * @return DeleteSmsSignResponse DeleteSmsSignResponse
      */
     public function deleteSmsSignWithOptions($request, $runtime)
     {
@@ -623,9 +920,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmsSignRequest $request
+     * @summary Deletes a signature.
+     *  *
+     * @description *   You cannot delete a signature that has not been approved.
+     * *   After you delete a signature, you cannot recover it. Proceed with caution.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSmsSignRequest $request DeleteSmsSignRequest
      *
-     * @return DeleteSmsSignResponse
+     * @return DeleteSmsSignResponse DeleteSmsSignResponse
      */
     public function deleteSmsSign($request)
     {
@@ -635,10 +939,18 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmsTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a message template.
+     *  *
+     * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   You cannot recover deleted message templates. Proceed with caution.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSmsTemplateRequest $request DeleteSmsTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSmsTemplateResponse
+     * @return DeleteSmsTemplateResponse DeleteSmsTemplateResponse
      */
     public function deleteSmsTemplateWithOptions($request, $runtime)
     {
@@ -675,9 +987,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmsTemplateRequest $request
+     * @summary Deletes a message template.
+     *  *
+     * @description *   Message templates pending approval can be withdrawn. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   Message templates that have been approved can be deleted, and cannot be modified. You can delete a message template pending approval on the Message Templates tab in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview).
+     * *   You cannot recover deleted message templates. Proceed with caution.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteSmsTemplateRequest $request DeleteSmsTemplateRequest
      *
-     * @return DeleteSmsTemplateResponse
+     * @return DeleteSmsTemplateResponse DeleteSmsTemplateResponse
      */
     public function deleteSmsTemplate($request)
     {
@@ -687,10 +1007,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCardSmsLinkRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the short URLs of a card messages template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetCardSmsLinkRequest $request GetCardSmsLinkRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCardSmsLinkResponse
+     * @return GetCardSmsLinkResponse GetCardSmsLinkResponse
      */
     public function getCardSmsLinkWithOptions($request, $runtime)
     {
@@ -742,9 +1067,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCardSmsLinkRequest $request
+     * @summary Queries the short URLs of a card messages template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetCardSmsLinkRequest $request GetCardSmsLinkRequest
      *
-     * @return GetCardSmsLinkResponse
+     * @return GetCardSmsLinkResponse GetCardSmsLinkResponse
      */
     public function getCardSmsLink($request)
     {
@@ -754,10 +1084,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetMediaResourceIdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetMediaResourceIdRequest $request GetMediaResourceIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaResourceIdResponse
+     * @return GetMediaResourceIdResponse GetMediaResourceIdResponse
      */
     public function getMediaResourceIdWithOptions($request, $runtime)
     {
@@ -797,9 +1132,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetMediaResourceIdRequest $request
+     * @summary Converts a resource uploaded to the specified Object Storage Service (OSS) bucket for unified management. Then, a resource ID is returned. You can manage the resource based on the ID.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param GetMediaResourceIdRequest $request GetMediaResourceIdRequest
      *
-     * @return GetMediaResourceIdResponse
+     * @return GetMediaResourceIdResponse GetMediaResourceIdResponse
      */
     public function getMediaResourceId($request)
     {
@@ -809,9 +1149,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the OSS configuration information about card messages.
+     *  *
+     * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+     * ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOSSInfoForCardTemplateResponse
+     * @return GetOSSInfoForCardTemplateResponse GetOSSInfoForCardTemplateResponse
      */
     public function getOSSInfoForCardTemplateWithOptions($runtime)
     {
@@ -832,7 +1178,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @return GetOSSInfoForCardTemplateResponse
+     * @summary Queries the OSS configuration information about card messages.
+     *  *
+     * @description Resources such as images and videos used for card message templates can be uploaded to Object Storage Service (OSS) buckets for storage. For more information, see [Upload files to OSS](https://help.aliyun.com/document_detail/437303.html).
+     * ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @return GetOSSInfoForCardTemplateResponse GetOSSInfoForCardTemplateResponse
      */
     public function getOSSInfoForCardTemplate()
     {
@@ -842,10 +1194,183 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 短信上传文件，获取授权信息
+     *  *
+     * @param GetOSSInfoForUploadFileRequest $request GetOSSInfoForUploadFileRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return GetOSSInfoForUploadFileResponse GetOSSInfoForUploadFileResponse
+     */
+    public function getOSSInfoForUploadFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOSSInfoForUploadFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 短信上传文件，获取授权信息
+     *  *
+     * @param GetOSSInfoForUploadFileRequest $request GetOSSInfoForUploadFileRequest
+     *
+     * @return GetOSSInfoForUploadFileResponse GetOSSInfoForUploadFileResponse
+     */
+    public function getOSSInfoForUploadFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOSSInfoForUploadFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询短信签名详情
+     *  *
+     * @param GetSmsSignRequest $request GetSmsSignRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSmsSignResponse GetSmsSignResponse
+     */
+    public function getSmsSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSmsSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询短信签名详情
+     *  *
+     * @param GetSmsSignRequest $request GetSmsSignRequest
+     *
+     * @return GetSmsSignResponse GetSmsSignResponse
+     */
+    public function getSmsSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询文本短信模板详情
+     *  *
+     * @param GetSmsTemplateRequest $request GetSmsTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSmsTemplateResponse GetSmsTemplateResponse
+     */
+    public function getSmsTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSmsTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询文本短信模板详情
+     *  *
+     * @param GetSmsTemplateRequest $request GetSmsTemplateRequest
+     *
+     * @return GetSmsTemplateResponse GetSmsTemplateResponse
+     */
+    public function getSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the tags of a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -900,9 +1425,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags of a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -912,10 +1442,21 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ModifySmsSignRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+     *  *
+     * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * >
+     * *   Signatures pending approval cannot be modified.
+     * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
+     * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
+     *  *
+     * @param ModifySmsSignRequest $request ModifySmsSignRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySmsSignResponse
+     * @return ModifySmsSignResponse ModifySmsSignResponse
      */
     public function modifySmsSignWithOptions($request, $runtime)
     {
@@ -966,9 +1507,20 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ModifySmsSignRequest $request
+     * @summary Modifies a rejected signature and submit it for approval. Signatures that are pending approval or have been approved cannot be modified.
+     *  *
+     * @description You can call the operation or use the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview) to modify an existing signature and submit the signature for approval. The signature must comply with the [signature specifications](https://help.aliyun.com/document_detail/108076.html).
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * >
+     * *   Signatures pending approval cannot be modified.
+     * *   You cannot modify a signature after it is approved. If you no longer need the signature, you can delete it.
+     * *   If you are an individual user, you cannot apply for a new signature on the same day that your signature is rejected or deleted. We recommend that you modify the rejected signature and submit it again.
+     *  *
+     * @param ModifySmsSignRequest $request ModifySmsSignRequest
      *
-     * @return ModifySmsSignResponse
+     * @return ModifySmsSignResponse ModifySmsSignResponse
      */
     public function modifySmsSign($request)
     {
@@ -978,10 +1530,18 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ModifySmsTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the information of an unapproved message template and submits it for review again.
+     *  *
+     * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+     * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifySmsTemplateRequest $request ModifySmsTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySmsTemplateResponse
+     * @return ModifySmsTemplateResponse ModifySmsTemplateResponse
      */
     public function modifySmsTemplateWithOptions($request, $runtime)
     {
@@ -1030,9 +1590,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ModifySmsTemplateRequest $request
+     * @summary Modifies the information of an unapproved message template and submits it for review again.
+     *  *
+     * @description After you apply for a message template, if the template fails to pass the review, you can call this operation to modify the template and submit the template again. You can call this operation to modify only a template for a specific message type.
+     * The template content must comply with the [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
+     * For more information, see [Usage notes](https://help.aliyun.com/document_detail/55324.html).
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifySmsTemplateRequest $request ModifySmsTemplateRequest
      *
-     * @return ModifySmsTemplateResponse
+     * @return ModifySmsTemplateResponse ModifySmsTemplateResponse
      */
     public function modifySmsTemplate($request)
     {
@@ -1042,10 +1610,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCardSmsTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the review status of a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryCardSmsTemplateRequest $request QueryCardSmsTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCardSmsTemplateResponse
+     * @return QueryCardSmsTemplateResponse QueryCardSmsTemplateResponse
      */
     public function queryCardSmsTemplateWithOptions($request, $runtime)
     {
@@ -1073,9 +1646,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCardSmsTemplateRequest $request
+     * @summary Queries the review status of a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryCardSmsTemplateRequest $request QueryCardSmsTemplateRequest
      *
-     * @return QueryCardSmsTemplateResponse
+     * @return QueryCardSmsTemplateResponse QueryCardSmsTemplateResponse
      */
     public function queryCardSmsTemplate($request)
     {
@@ -1085,10 +1663,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCardSmsTemplateReportRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries sent card messages.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryCardSmsTemplateReportRequest $request QueryCardSmsTemplateReportRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCardSmsTemplateReportResponse
+     * @return QueryCardSmsTemplateReportResponse QueryCardSmsTemplateReportResponse
      */
     public function queryCardSmsTemplateReportWithOptions($request, $runtime)
     {
@@ -1122,9 +1705,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCardSmsTemplateReportRequest $request
+     * @summary Queries sent card messages.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 300 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryCardSmsTemplateReportRequest $request QueryCardSmsTemplateReportRequest
      *
-     * @return QueryCardSmsTemplateReportResponse
+     * @return QueryCardSmsTemplateReportResponse QueryCardSmsTemplateReportResponse
      */
     public function queryCardSmsTemplateReport($request)
     {
@@ -1134,10 +1722,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryMobilesCardSupportRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Checks whether a mobile phone number can receive card messages.
+     *  *
+     * @param QueryMobilesCardSupportRequest $tmpReq  QueryMobilesCardSupportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMobilesCardSupportResponse
+     * @return QueryMobilesCardSupportResponse QueryMobilesCardSupportResponse
      */
     public function queryMobilesCardSupportWithOptions($tmpReq, $runtime)
     {
@@ -1173,9 +1763,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryMobilesCardSupportRequest $request
+     * @summary Checks whether a mobile phone number can receive card messages.
+     *  *
+     * @param QueryMobilesCardSupportRequest $request QueryMobilesCardSupportRequest
      *
-     * @return QueryMobilesCardSupportResponse
+     * @return QueryMobilesCardSupportResponse QueryMobilesCardSupportResponse
      */
     public function queryMobilesCardSupport($request)
     {
@@ -1185,26 +1777,22 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryPageSmartShortUrlLogRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 点击明细查询
+     *  *
+     * @param QueryPageSmartShortUrlLogRequest $request QueryPageSmartShortUrlLogRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPageSmartShortUrlLogResponse
+     * @return QueryPageSmartShortUrlLogResponse QueryPageSmartShortUrlLogResponse
      */
     public function queryPageSmartShortUrlLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->clickState)) {
-            $query['ClickState'] = $request->clickState;
-        }
         if (!Utils::isUnset($request->createDateEnd)) {
             $query['CreateDateEnd'] = $request->createDateEnd;
         }
         if (!Utils::isUnset($request->createDateStart)) {
             $query['CreateDateStart'] = $request->createDateStart;
-        }
-        if (!Utils::isUnset($request->endId)) {
-            $query['EndId'] = $request->endId;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -1224,14 +1812,8 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->shortName)) {
-            $query['ShortName'] = $request->shortName;
-        }
         if (!Utils::isUnset($request->shortUrl)) {
             $query['ShortUrl'] = $request->shortUrl;
-        }
-        if (!Utils::isUnset($request->startId)) {
-            $query['StartId'] = $request->startId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1252,9 +1834,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryPageSmartShortUrlLogRequest $request
+     * @summary 点击明细查询
+     *  *
+     * @param QueryPageSmartShortUrlLogRequest $request QueryPageSmartShortUrlLogRequest
      *
-     * @return QueryPageSmartShortUrlLogResponse
+     * @return QueryPageSmartShortUrlLogResponse QueryPageSmartShortUrlLogResponse
      */
     public function queryPageSmartShortUrlLog($request)
     {
@@ -1264,10 +1848,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySendDetailsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about a message.
+     *  *
+     * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySendDetailsResponse
+     * @return QuerySendDetailsResponse QuerySendDetailsResponse
      */
     public function querySendDetailsWithOptions($request, $runtime)
     {
@@ -1316,9 +1902,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySendDetailsRequest $request
+     * @summary Queries the information about a message.
+     *  *
+     * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
      *
-     * @return QuerySendDetailsResponse
+     * @return QuerySendDetailsResponse QuerySendDetailsResponse
      */
     public function querySendDetails($request)
     {
@@ -1328,10 +1916,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySendStatisticsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries message delivery details.
+     *  *
+     * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+     * ### QPS limits
+     * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySendStatisticsRequest $request QuerySendStatisticsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySendStatisticsResponse
+     * @return QuerySendStatisticsResponse QuerySendStatisticsResponse
      */
     public function querySendStatisticsWithOptions($request, $runtime)
     {
@@ -1386,9 +1980,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySendStatisticsRequest $request
+     * @summary Queries message delivery details.
+     *  *
+     * @description You can call the operation to query message delivery details, including the number of delivered messages, the number of messages with delivery receipts, and the time that a message is sent. If a large number of messages are sent on the specified date, you can specify the number of items displayed on each page and the number of pages to view the details by page.
+     * ### QPS limits
+     * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySendStatisticsRequest $request QuerySendStatisticsRequest
      *
-     * @return QuerySendStatisticsResponse
+     * @return QuerySendStatisticsResponse QuerySendStatisticsResponse
      */
     public function querySendStatistics($request)
     {
@@ -1398,10 +1998,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryShortUrlRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the status of a short URL.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryShortUrlRequest $request QueryShortUrlRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryShortUrlResponse
+     * @return QueryShortUrlResponse QueryShortUrlResponse
      */
     public function queryShortUrlWithOptions($request, $runtime)
     {
@@ -1440,9 +2045,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryShortUrlRequest $request
+     * @summary Queries the status of a short URL.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 20 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QueryShortUrlRequest $request QueryShortUrlRequest
      *
-     * @return QueryShortUrlResponse
+     * @return QueryShortUrlResponse QueryShortUrlResponse
      */
     public function queryShortUrl($request)
     {
@@ -1452,10 +2062,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsSignRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the status of a signature.
+     *  *
+     * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+     * ### QPS limits
+     * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsSignRequest $request QuerySmsSignRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsSignResponse
+     * @return QuerySmsSignResponse QuerySmsSignResponse
      */
     public function querySmsSignWithOptions($request, $runtime)
     {
@@ -1492,9 +2108,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsSignRequest $request
+     * @summary Queries the status of a signature.
+     *  *
+     * @description After you apply for an SMS signature, you can query its status by using the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm) or calling the operation. If the signature is rejected, you can modify the signature based on the reason why it is rejected.
+     * ### QPS limits
+     * You can call this API operation up to 500 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsSignRequest $request QuerySmsSignRequest
      *
-     * @return QuerySmsSignResponse
+     * @return QuerySmsSignResponse QuerySmsSignResponse
      */
     public function querySmsSign($request)
     {
@@ -1504,10 +2126,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsSignListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries message signatures by page.
+     *  *
+     * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsSignListRequest $request QuerySmsSignListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsSignListResponse
+     * @return QuerySmsSignListResponse QuerySmsSignListResponse
      */
     public function querySmsSignListWithOptions($request, $runtime)
     {
@@ -1547,9 +2175,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsSignListRequest $request
+     * @summary Queries message signatures by page.
+     *  *
+     * @description You can call this operation to query the details of message signatures, including the name, creation time, and approval status of each signature. If a message template is rejected, the reason is returned. Modify the message signature based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsSignListRequest $request QuerySmsSignListRequest
      *
-     * @return QuerySmsSignListResponse
+     * @return QuerySmsSignListResponse QuerySmsSignListResponse
      */
     public function querySmsSignList($request)
     {
@@ -1559,10 +2193,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsTemplateRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the approval status of a message template.
+     *  *
+     * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsTemplateRequest $request QuerySmsTemplateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsTemplateResponse
+     * @return QuerySmsTemplateResponse QuerySmsTemplateResponse
      */
     public function querySmsTemplateWithOptions($request, $runtime)
     {
@@ -1599,9 +2239,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsTemplateRequest $request
+     * @summary Queries the approval status of a message template.
+     *  *
+     * @description After you create a message template, you can call this operation to query the approval status of the template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsTemplateRequest $request QuerySmsTemplateRequest
      *
-     * @return QuerySmsTemplateResponse
+     * @return QuerySmsTemplateResponse QuerySmsTemplateResponse
      */
     public function querySmsTemplate($request)
     {
@@ -1611,10 +2257,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsTemplateListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries message templates.
+     *  *
+     * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsTemplateListRequest $request QuerySmsTemplateListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmsTemplateListResponse
+     * @return QuerySmsTemplateListResponse QuerySmsTemplateListResponse
      */
     public function querySmsTemplateListWithOptions($request, $runtime)
     {
@@ -1654,9 +2306,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QuerySmsTemplateListRequest $request
+     * @summary Queries message templates.
+     *  *
+     * @description You can call this operation to query the details of message templates, including the name, creation time, and approval status of each template. If a message template is rejected, the reason is returned. Modify the message template based on the reason.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param QuerySmsTemplateListRequest $request QuerySmsTemplateListRequest
      *
-     * @return QuerySmsTemplateListResponse
+     * @return QuerySmsTemplateListResponse QuerySmsTemplateListResponse
      */
     public function querySmsTemplateList($request)
     {
@@ -1666,10 +2324,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendBatchCardSmsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Sends multiple card messages at a time.
+     *  *
+     * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendBatchCardSmsRequest $request SendBatchCardSmsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendBatchCardSmsResponse
+     * @return SendBatchCardSmsResponse SendBatchCardSmsResponse
      */
     public function sendBatchCardSmsWithOptions($request, $runtime)
     {
@@ -1733,9 +2397,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendBatchCardSmsRequest $request
+     * @summary Sends multiple card messages at a time.
+     *  *
+     * @description You can call the operation to send multiple card messages to a maximum of mobile phone numbers at a time. Different signatures and rollback settings can be specified for the mobile phone numbers.
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendBatchCardSmsRequest $request SendBatchCardSmsRequest
      *
-     * @return SendBatchCardSmsResponse
+     * @return SendBatchCardSmsResponse SendBatchCardSmsResponse
      */
     public function sendBatchCardSms($request)
     {
@@ -1745,10 +2415,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendBatchSmsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
+     *  *
+     * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
+     *  *
+     * @param SendBatchSmsRequest $request SendBatchSmsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendBatchSmsResponse
+     * @return SendBatchSmsResponse SendBatchSmsResponse
      */
     public function sendBatchSmsWithOptions($request, $runtime)
     {
@@ -1802,9 +2476,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendBatchSmsRequest $request
+     * @summary Uses a single message template and multiple signatures to send messages to multiple recipients.
+     *  *
+     * @description You can call the operation to send messages to a maximum of 100 recipients at a time.
+     *  *
+     * @param SendBatchSmsRequest $request SendBatchSmsRequest
      *
-     * @return SendBatchSmsResponse
+     * @return SendBatchSmsResponse SendBatchSmsResponse
      */
     public function sendBatchSms($request)
     {
@@ -1814,10 +2492,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendCardSmsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Sends a card message.
+     *  *
+     * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+     * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendCardSmsRequest $request SendCardSmsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendCardSmsResponse
+     * @return SendCardSmsResponse SendCardSmsResponse
      */
     public function sendCardSmsWithOptions($request, $runtime)
     {
@@ -1878,9 +2563,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendCardSmsRequest $request
+     * @summary Sends a card message.
+     *  *
+     * @description *   Make sure that the message template that you want to use has been approved. If the mobile phone number of a recipient does not support card messages, the SendCardSms operation allows the rollback feature to ensure successful delivery.
+     * *   When you call the SendCardSms operation to send card messages, the operation checks whether the mobile phone numbers of the recipients support card messages. If the mobile phone numbers do not support card messages, you can specify whether to enable rollback. Otherwise, the card message cannot be delivered.
+     * ### QPS limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param SendCardSmsRequest $request SendCardSmsRequest
      *
-     * @return SendCardSmsResponse
+     * @return SendCardSmsResponse SendCardSmsResponse
      */
     public function sendCardSms($request)
     {
@@ -1890,10 +2582,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendSmsRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+     *  *
+     * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+     * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
+     * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
+     * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
+     *  *
+     * @param SendSmsRequest $request SendSmsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendSmsResponse
+     * @return SendSmsResponse SendSmsResponse
      */
     public function sendSmsWithOptions($request, $runtime)
     {
@@ -1945,9 +2644,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendSmsRequest $request
+     * @summary Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
+     *  *
+     * @description *   This operation is mainly used to send a single message. In special scenarios, you can send multiple messages with the same content to a maximum of 1,000 mobile numbers. Note that group sending may be delayed.
+     * *   To send messages with different signatures and template content to multiple mobile numbers in a single request, call the [SendBatchSms](https://help.aliyun.com/document_detail/102364.html) operation.
+     * *   You are charged for using Alibaba Cloud Short Message Service (SMS) based on the amount of messages sent. For more information, see [Pricing](https://www.aliyun.com/price/product#/sms/detail).
+     * *   If your verification code signature and general-purpose signature have the same name, the system uses the general-purpose signature to send messages by default.
+     *  *
+     * @param SendSmsRequest $request SendSmsRequest
      *
-     * @return SendSmsResponse
+     * @return SendSmsResponse SendSmsResponse
      */
     public function sendSms($request)
     {
@@ -1957,10 +2663,18 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmsConversionIntlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *  *
+     * @param SmsConversionIntlRequest $request SmsConversionIntlRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsConversionIntlResponse
+     * @return SmsConversionIntlResponse SmsConversionIntlResponse
      */
     public function smsConversionIntlWithOptions($request, $runtime)
     {
@@ -2003,9 +2717,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmsConversionIntlRequest $request
+     * @summary Reports the status of an OTP message to Alibaba Cloud SMS.
+     *  *
+     * @description Metrics:
+     * *   Requested OTP messages
+     * *   Verified OTP messages
+     * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations: 1. Call the SmsConversion operation in an asynchronous manner by configuring queues or events. 2. Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *  *
+     * @param SmsConversionIntlRequest $request SmsConversionIntlRequest
      *
-     * @return SmsConversionIntlResponse
+     * @return SmsConversionIntlResponse SmsConversionIntlResponse
      */
     public function smsConversionIntl($request)
     {
@@ -2015,10 +2737,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Attaches tags to a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -2067,9 +2794,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Attaches tags to a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2079,10 +2811,10 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -2134,14 +2866,184 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改文本短信签名
+     *  *
+     * @param UpdateSmsSignRequest $tmpReq  UpdateSmsSignRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSmsSignResponse UpdateSmsSignResponse
+     */
+    public function updateSmsSignWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSmsSignShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->moreData)) {
+            $request->moreDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moreData, 'MoreData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->applySceneContent)) {
+            $query['ApplySceneContent'] = $request->applySceneContent;
+        }
+        if (!Utils::isUnset($request->moreDataShrink)) {
+            $query['MoreData'] = $request->moreDataShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->qualificationId)) {
+            $query['QualificationId'] = $request->qualificationId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->signSource)) {
+            $query['SignSource'] = $request->signSource;
+        }
+        if (!Utils::isUnset($request->signType)) {
+            $query['SignType'] = $request->signType;
+        }
+        if (!Utils::isUnset($request->thirdParty)) {
+            $query['ThirdParty'] = $request->thirdParty;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSmsSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改文本短信签名
+     *  *
+     * @param UpdateSmsSignRequest $request UpdateSmsSignRequest
+     *
+     * @return UpdateSmsSignResponse UpdateSmsSignResponse
+     */
+    public function updateSmsSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSmsSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改文本短信模板
+     *  *
+     * @param UpdateSmsTemplateRequest $tmpReq  UpdateSmsTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSmsTemplateResponse UpdateSmsTemplateResponse
+     */
+    public function updateSmsTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSmsTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->moreData)) {
+            $request->moreDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moreData, 'MoreData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->applySceneContent)) {
+            $query['ApplySceneContent'] = $request->applySceneContent;
+        }
+        if (!Utils::isUnset($request->intlType)) {
+            $query['IntlType'] = $request->intlType;
+        }
+        if (!Utils::isUnset($request->moreDataShrink)) {
+            $query['MoreData'] = $request->moreDataShrink;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->relatedSignName)) {
+            $query['RelatedSignName'] = $request->relatedSignName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateRule)) {
+            $query['TemplateRule'] = $request->templateRule;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSmsTemplate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改文本短信模板
+     *  *
+     * @param UpdateSmsTemplateRequest $request UpdateSmsTemplateRequest
+     *
+     * @return UpdateSmsTemplateResponse UpdateSmsTemplateResponse
+     */
+    public function updateSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSmsTemplateWithOptions($request, $runtime);
     }
 }

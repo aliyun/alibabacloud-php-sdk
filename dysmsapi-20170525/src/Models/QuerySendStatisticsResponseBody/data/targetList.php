@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
+     * @description The number of messages without a delivery receipt.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class targetList extends Model
     public $noRespondedCount;
 
     /**
+     * @description The number of messages with a delivery receipt that indicates a failure.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class targetList extends Model
     public $respondedFailCount;
 
     /**
+     * @description The number of messages with a delivery receipt that indicates a success.
+     *
      * @example 17
      *
      * @var int
@@ -30,6 +36,8 @@ class targetList extends Model
     public $respondedSuccessCount;
 
     /**
+     * @description The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
+     *
      * @example 20201010
      *
      * @var string
@@ -37,6 +45,8 @@ class targetList extends Model
     public $sendDate;
 
     /**
+     * @description The number of delivered messages.
+     *
      * @example 20
      *
      * @var int

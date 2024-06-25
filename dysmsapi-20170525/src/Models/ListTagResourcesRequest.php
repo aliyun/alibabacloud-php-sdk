@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token used to query the next page.
+     *
+     * @example 23432453245
+     *
      * @var string
      */
     public $nextToken;
@@ -20,6 +24,8 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -27,6 +33,8 @@ class ListTagResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the cloud service. Set the value to **dysms**.
+     *
      * @example dysms
      *
      * @var string
@@ -34,6 +42,9 @@ class ListTagResourcesRequest extends Model
     public $prodCode;
 
     /**
+     * @description The region ID. Set the value to **cn-hangzhou**.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +52,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The code of the message template. Specify either the Tag or the ResourceId parameter.
+     *
      * @example SMS_23423423
      *
      * @var string[]
@@ -58,6 +71,9 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to TEMPLATE.
+     *
+     * This parameter is required.
      * @example TEMPLATE
      *
      * @var string
@@ -65,6 +81,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag list. Specify either the Tag or the ResourceId parameter. You can specify a maximum of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

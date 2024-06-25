@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendBatchSmsResponseBody extends Model
 {
     /**
+     * @description The ID of the delivery receipt. You can use one of the following methods to query the delivery status of a message based on the ID.
+     *
+     *   Call the [QuerySendDetails](https://help.aliyun.com/document_detail/102352.html) operation.
+     *   Log on to the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm#/overview). In the left-side navigation pane, choose **Analytics** > **Delivery Report**.
+     *
      * @example 9006197469364984400
      *
      * @var string
@@ -16,6 +21,11 @@ class SendBatchSmsResponseBody extends Model
     public $bizId;
 
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +33,8 @@ class SendBatchSmsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -30,6 +42,8 @@ class SendBatchSmsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F655A8D5-B967-440B-8683-DAD6FF8D230E
      *
      * @var string

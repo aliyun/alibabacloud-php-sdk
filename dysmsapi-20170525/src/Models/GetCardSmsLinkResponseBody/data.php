@@ -9,23 +9,38 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The mobile phone numbers that support card messages.
+     *
+     * @example [\\"1390000****\\",\\"1370000****\\"]
+     *
      * @var string
      */
     public $cardPhoneNumbers;
 
     /**
+     * @description The signatures must correspond to the mobile numbers and short URLs in sequence.
+     *
      * @var string
      */
     public $cardSignNames;
 
     /**
-     * @example [\"mw2m.cn/LAaGGa\",\"mw2m.cn/LAAaes\"]
+     * @description The short URLs.
+     *
+     * @example [\\"mw2m.cn/LAaGGa\\",\\"mw2m.cn/LAAaes\\"]
      *
      * @var string
      */
     public $cardSmsLinks;
 
     /**
+     * @description The review status of the card message template.
+     *
+     *   **0**: pending approval
+     *   **1**: approved
+     *   **2**: rejected
+     *
+     * > Unapproved card messages are rolled back.
      * @example 0
      *
      * @var int
@@ -33,6 +48,8 @@ class data extends Model
     public $cardTmpState;
 
     /**
+     * @description The mobile phone numbers that do not support card messages.
+     *
      * @example 1390000****
      *
      * @var string

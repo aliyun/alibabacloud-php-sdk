@@ -24,6 +24,11 @@ class QuerySmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The signature.
+     *
+     * This parameter is required.
+     * @example Aliyun
+     *
      * @var string
      */
     public $signName;

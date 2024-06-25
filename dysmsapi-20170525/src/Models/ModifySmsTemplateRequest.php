@@ -14,6 +14,11 @@ class ModifySmsTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the message template. It is one of the reference information for template review. The description cannot exceed 100 characters in length.
+     *
+     * This parameter is required.
+     * @example Modify the parameters of the template.
+     *
      * @var string
      */
     public $remark;
@@ -29,6 +34,11 @@ class ModifySmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The code of the message template.
+     *
+     * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+     *
+     * This parameter is required.
      * @example SMS_15255****
      *
      * @var string
@@ -36,16 +46,34 @@ class ModifySmsTemplateRequest extends Model
     public $templateCode;
 
     /**
+     * @description The content of the template. The content must be 1 to 500 characters in length.
+     *
+     * This parameter is required.
+     * @example You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+     *
      * @var string
      */
     public $templateContent;
 
     /**
+     * @description The name of the template. The name must be 1 to 30 characters in length.
+     *
+     * This parameter is required.
+     * @example aliyun verification code
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The type of the message. Valid values:
+     *
+     *   **0**: verification code
+     *   **1**: text message
+     *   **2**: promotional message
+     *   **3**: message sent to countries or regions outside the Chinese mainland
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

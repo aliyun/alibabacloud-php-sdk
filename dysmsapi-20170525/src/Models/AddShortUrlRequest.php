@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddShortUrlRequest extends Model
 {
     /**
+     * @description The validity period of the short URL. Unit: days. The maximum validity period is 90 days.
+     *
+     * This parameter is required.
      * @example 7
      *
      * @var string
@@ -31,11 +34,19 @@ class AddShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service name of the short URL. The name cannot exceed 13 characters in length.
+     *
+     * This parameter is required.
+     * @example The Alibaba Cloud Short Link service.
+     *
      * @var string
      */
     public $shortUrlName;
 
     /**
+     * @description The source URL. The URL cannot exceed 1,000 characters in length.
+     *
+     * This parameter is required.
      * @example https://www.****.com/product/sms
      *
      * @var string

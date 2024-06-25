@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendBatchSmsRequest extends Model
 {
     /**
+     * @description The extension field of the external record. The value is a string that contains no more than 256 characters.
+     *
+     * > The parameter is optional.
      * @example abcdefg
      *
      * @var string
@@ -21,6 +24,12 @@ class SendBatchSmsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The mobile number of the recipient. Format:
+     *
+     *   Message delivery to the Chinese mainland: +/+86/0086/86 or an 11-digit mobile number without a prefix. Example: 1590000\\*\\*\\*\\*.
+     *   Message delivery to countries or regions outside the Chinese mainland: Dialing code + Mobile number. Example: 852000012\\*\\*\\*\\*.
+     *
+     * This parameter is required.
      * @example ["1590000****","1350000****"]
      *
      * @var string
@@ -38,11 +47,21 @@ class SendBatchSmsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The signature.
+     *
+     * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the signature in the **Signature** column on the **Signatures** tab.
+     *
+     * This parameter is required.
+     * @example ["Aliyun","Alibaba"]
+     *
      * @var string
      */
     public $signNameJson;
 
     /**
+     * @description The extension code of the MO message. Format: JSON array.
+     *
+     * > The parameter is optional.
      * @example ["90999","90998"]
      *
      * @var string
@@ -50,6 +69,11 @@ class SendBatchSmsRequest extends Model
     public $smsUpExtendCodeJson;
 
     /**
+     * @description The code of the message template.
+     *
+     * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the message template in the **Template Code** column on the **Message Templates** tab.
+     *
+     * This parameter is required.
      * @example SMS_15255****
      *
      * @var string
@@ -57,6 +81,9 @@ class SendBatchSmsRequest extends Model
     public $templateCode;
 
     /**
+     * @description The value of the variable in the message template.
+     *
+     * > If you need to add line breaks to the JSON template, make sure that the format is valid. In addition, the sequence of variable values must be the same as that of the mobile numbers and signatures.
      * @example [{"name":"TemplateParamJson"},{"name":"TemplateParamJson"}]
      *
      * @var string

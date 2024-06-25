@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reason extends Model
 {
     /**
+     * @description The time when the message template was rejected. Format: yyyy-MM-dd HH:mm:ss.
+     *
      * @example 2020-06-04 16:01:17
      *
      * @var string
@@ -16,11 +18,19 @@ class reason extends Model
     public $rejectDate;
 
     /**
+     * @description The reason why the message template was rejected.
+     *
+     * @example The document cannot verify the authenticity of the information. Please upload it again.
+     *
      * @var string
      */
     public $rejectInfo;
 
     /**
+     * @description The remarks about the rejection.
+     *
+     * @example The document cannot verify the authenticity of the information. Please upload it again.
+     *
      * @var string
      */
     public $rejectSubInfo;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,11 @@ class TagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether tags were attached. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -23,6 +33,8 @@ class TagResourcesResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example A90E4451-FED7-49D2-87C8-00700A8C****
      *
      * @var string

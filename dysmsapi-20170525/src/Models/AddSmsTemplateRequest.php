@@ -14,6 +14,11 @@ class AddSmsTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the message template. It is one of the reference information for template review. The description cannot exceed 100 characters in length.
+     *
+     * This parameter is required.
+     * @example Apply for a template to send verification codes.
+     *
      * @var string
      */
     public $remark;
@@ -29,16 +34,34 @@ class AddSmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The content of the template. The content can be up to 500 characters in length. For more information, see [Message template specifications](https://help.aliyun.com/document_detail/108253.html).
+     *
+     * This parameter is required.
+     * @example You are applying for mobile registration. The verification code is: ${code}, valid for 5 minutes!
+     *
      * @var string
      */
     public $templateContent;
 
     /**
+     * @description The name of the template. The name can be up to 30 characters in length.
+     *
+     * This parameter is required.
+     * @example Aliyun Test
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The type of the message. Valid values:
+     *
+     *   **0**: verification code
+     *   **1**: notification
+     *   **2**: promotional message
+     *   **3**: message sent to countries or regions outside the Chinese mainland
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

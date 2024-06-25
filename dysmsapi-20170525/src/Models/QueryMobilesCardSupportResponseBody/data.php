@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of returned results.
+     *
      * @var queryResult[]
      */
     public $queryResult;

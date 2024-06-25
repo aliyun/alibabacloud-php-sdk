@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetMediaResourceIdRequest extends Model
 {
     /**
-     * @example {\"img_rate\":\"oneToOne\"}
+     * @description The extended fields.
+     *
+     * > If you set the ResourceType parameter to **2**, this parameter is required.
+     * @example {\\"img_rate\\":\\"oneToOne\\"}
      *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @description The size of the resource. Unit: bytes.
+     *
+     * This parameter is required.
      * @example 12
      *
      * @var int
@@ -23,11 +29,16 @@ class GetMediaResourceIdRequest extends Model
     public $fileSize;
 
     /**
+     * @description The description of the resource.
+     *
      * @var string
      */
     public $memo;
 
     /**
+     * @description The address of the resource.
+     *
+     * This parameter is required.
      * @example oss://alicom-fc-media/1947741454322274/alicom-fc-media/pic/202205191526575398603697152.png
      *
      * @var string
@@ -35,6 +46,26 @@ class GetMediaResourceIdRequest extends Model
     public $ossKey;
 
     /**
+     * @description The type of the resource.
+     *
+     *   **1**: text.
+     *   **2**: image. A small image cannot exceed 100 KB in size, and a large image cannot exceed 2 MB in size. The image must be clear. Supported format: JPG, JPEG, and PNG.
+     *   **3**: audio.
+     *   **4**: video. Supported format: MP4.
+     *
+     * >
+     *
+     *   If you set the ResourceType parameter to 2, the **img_rate** required is required. Valid values:
+     *
+     *   1:1
+     *
+     *   16:9
+     *
+     *   3:1
+     *
+     *   48:65
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

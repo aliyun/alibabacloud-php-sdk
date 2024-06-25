@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmsSignResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteSmsSignResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteSmsSignResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F655A8D5-B967-440B-8683-DAD6FF8D****
      *
      * @var string
@@ -30,6 +39,10 @@ class DeleteSmsSignResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The signature.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $signName;

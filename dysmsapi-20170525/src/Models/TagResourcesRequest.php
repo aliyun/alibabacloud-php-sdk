@@ -15,6 +15,8 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the cloud service. Set the value to **dysms**.
+     *
      * @example dysms
      *
      * @var string
@@ -22,6 +24,9 @@ class TagResourcesRequest extends Model
     public $prodCode;
 
     /**
+     * @description The region ID. Set the value to **cn-hangzhou**.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +34,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The code of the message template.
+     *
      * @example SMS_23423423
      *
      * @var string[]
@@ -46,6 +53,9 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **TEMPLATE**.
+     *
+     * This parameter is required.
      * @example TEMPLATE
      *
      * @var string
@@ -53,6 +63,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag.
+     *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

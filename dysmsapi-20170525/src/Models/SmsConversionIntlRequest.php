@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SmsConversionIntlRequest extends Model
 {
     /**
+     * @description The time when the OTP message was delivered. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     *   If you leave the parameter empty, the current timestamp is specified by default.
+     *   If you specify the parameter, the timestamp must be greater than the message sending time and less than the current timestamp.
+     *
      * @example 1349055900000
      *
      * @var int
@@ -16,6 +21,9 @@ class SmsConversionIntlRequest extends Model
     public $conversionTime;
 
     /**
+     * @description Specifies whether customers replied to the OTP message. Valid values: true and false.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -23,6 +31,9 @@ class SmsConversionIntlRequest extends Model
     public $delivered;
 
     /**
+     * @description The ID of the message.
+     *
+     * This parameter is required.
      * @example 1008030300****
      *
      * @var string

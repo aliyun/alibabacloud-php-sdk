@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendBatchCardSmsRequest extends Model
 {
     /**
+     * @description The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * This parameter is required.
      * @example CARD_SMS_3245
      *
      * @var string
@@ -16,13 +19,18 @@ class SendBatchCardSmsRequest extends Model
     public $cardTemplateCode;
 
     /**
-     * @example [{\"customurl\":\"http://www.alibaba.com\",\"dyncParams\":\"{\\\"a\\\":\\\"hello\\\",\\\"b\\\":\\\"world\\\"}\"}]
+     * @description The variables of the card message template.
+     *
+     * @example [{\\"customurl\\":\\"http://www.alibaba.com\\",\\"dyncParams\\":\\"{\\\\\\"a\\\\\\":\\\\\\"hello\\\\\\",\\\\\\"b\\\\\\":\\\\\\"world\\\\\\"}\\"}]
      *
      * @var string
      */
     public $cardTemplateParamJson;
 
     /**
+     * @description The code of the digital message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * > Make sure that the message template has been approved.
      * @example DIGITAL_SMS_234080176
      *
      * @var string
@@ -30,6 +38,8 @@ class SendBatchCardSmsRequest extends Model
     public $digitalTemplateCode;
 
     /**
+     * @description The variables of the digital message template.
+     *
      * @example [{"a":1,"b":2},{"a":9,"b":8}]
      *
      * @var string
@@ -37,6 +47,13 @@ class SendBatchCardSmsRequest extends Model
     public $digitalTemplateParamJson;
 
     /**
+     * @description The rollback type. Valid values:
+     *
+     *   **SMS**: text message
+     *   **DIGITALSMS**: digital message
+     *   **NONE**: none
+     *
+     * This parameter is required.
      * @example SMS
      *
      * @var string
@@ -44,6 +61,8 @@ class SendBatchCardSmsRequest extends Model
     public $fallbackType;
 
     /**
+     * @description The ID that is reserved for the caller of the operation.
+     *
      * @example 16545681783595370
      *
      * @var string
@@ -51,18 +70,27 @@ class SendBatchCardSmsRequest extends Model
     public $outId;
 
     /**
-     * @example [\"1390000****\",\"1370000****\"]"
+     * @description The mobile numbers of the recipients.
+     *
+     * This parameter is required.
+     * @example [\\"1390000****\\",\\"1370000****\\"]"
      *
      * @var string
      */
     public $phoneNumberJson;
 
     /**
+     * @description The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * This parameter is required.
      * @var string
      */
     public $signNameJson;
 
     /**
+     * @description The code of the text message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * > Make sure that the message template has been approved.
      * @example SMS_234251075
      *
      * @var string
@@ -70,6 +98,8 @@ class SendBatchCardSmsRequest extends Model
     public $smsTemplateCode;
 
     /**
+     * @description The variables of the text message template.
+     *
      * @example [{"a":1,"b":2},{"a":9,"b":8}]
      *
      * @var string
@@ -77,13 +107,20 @@ class SendBatchCardSmsRequest extends Model
     public $smsTemplateParamJson;
 
     /**
-     * @example [\"6\",\"6\"]
+     * @description The extension code of the upstream message.
+     *
+     * @example [\\"6\\",\\"6\\"]
      *
      * @var string
      */
     public $smsUpExtendCodeJson;
 
     /**
+     * @description The code of the message template.
+     *
+     * You can log on to the [Alibaba Cloud console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the **template code** on the **Templates** tab.
+     *
+     * > You must specify a message template that is created in the SMS console and approved by Alibaba Cloud. If you send messages to countries or regions outside the Chinese mainland, use the corresponding message templates.
      * @example SMS_20375****
      *
      * @var string
@@ -91,6 +128,9 @@ class SendBatchCardSmsRequest extends Model
     public $templateCode;
 
     /**
+     * @description The value of the variable in the message template.
+     *
+     * > If you need to add line breaks to the JSON template, make sure that the format is valid. In addition, the sequence of variable values must be the same as that of the mobile numbers and signatures.
      * @example [{"name":"TemplateParamJson"},{"name":"TemplateParamJson"}]
      *
      * @var string

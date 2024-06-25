@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySendDetailsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +22,8 @@ class QuerySendDetailsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +31,8 @@ class QuerySendDetailsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 819BE656-D2E0-4858-8B21-B2E477085AAF
      *
      * @var string
@@ -31,11 +40,15 @@ class QuerySendDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the message.
+     *
      * @var smsSendDetailDTOs
      */
     public $smsSendDetailDTOs;
 
     /**
+     * @description The number of sent messages.
+     *
      * @example 1
      *
      * @var string

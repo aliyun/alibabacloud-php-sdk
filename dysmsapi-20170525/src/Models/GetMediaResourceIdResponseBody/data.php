@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The download URL of the resource.
+     *
      * @example http://test-example.com/download.jpg
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $resUrlDownload;
 
     /**
+     * @description The resource ID.
+     *
      * @example SMS_14571****
      *
      * @var int

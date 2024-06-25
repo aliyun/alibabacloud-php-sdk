@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateCardSmsTemplateShrinkRequest extends Model
 {
     /**
+     * @description The mobile phone manufacturer. Valid values:
+     *
+     *   **HuaWei**: HUAWEI
+     *   **XiaoMi**: Xiaomi
+     *   **OPPO**: OPPO
+     *   **VIVO**: vivo
+     *   **MEIZU**: MEIZU
+     *
+     * > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
      * @example XiaoMi
      *
      * @var string
@@ -16,16 +25,30 @@ class CreateCardSmsTemplateShrinkRequest extends Model
     public $factorys;
 
     /**
+     * @description The description of the message template.
+     *
      * @var string
      */
     public $memo;
 
     /**
+     * @description The content of the card message template.
+     *
+     * >
+     *
+     *   For information about fields such as Template, ExtendInfo, TemplateContent, TmpCard, and Action, see [Parameters of card message templates](https://help.aliyun.com/document_detail/434929.html).
+     *
+     *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
+     *
+     * This parameter is required.
      * @var string
      */
     public $templateShrink;
 
     /**
+     * @description The name of the card message template.
+     *
+     * This parameter is required.
      * @var string
      */
     public $templateName;

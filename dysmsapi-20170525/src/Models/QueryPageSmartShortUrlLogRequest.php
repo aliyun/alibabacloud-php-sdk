@@ -9,32 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryPageSmartShortUrlLogRequest extends Model
 {
     /**
-     * @example 12
+     * @description This parameter is required.
      *
-     * @var int
-     */
-    public $clickState;
-
-    /**
-     * @example 14
+     * @example 20181225
      *
      * @var int
      */
     public $createDateEnd;
 
     /**
-     * @example 31
+     * @description This parameter is required.
+     *
+     * @example 20181225
      *
      * @var int
      */
     public $createDateStart;
-
-    /**
-     * @example 46
-     *
-     * @var int
-     */
-    public $endId;
 
     /**
      * @var int
@@ -42,21 +32,25 @@ class QueryPageSmartShortUrlLogRequest extends Model
     public $ownerId;
 
     /**
-     * @example 99
+     * @description This parameter is required.
+     *
+     * @example 1
      *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 84
+     * @description This parameter is required.
+     *
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 示例值示例值示例值
+     * @example 1390000****
      *
      * @var string
      */
@@ -73,39 +67,21 @@ class QueryPageSmartShortUrlLogRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 示例值示例值示例值
-     *
-     * @var string
-     */
-    public $shortName;
-
-    /**
-     * @example 示例值示例值示例值
+     * @example http://ays.cn/****
      *
      * @var string
      */
     public $shortUrl;
-
-    /**
-     * @example 89
-     *
-     * @var int
-     */
-    public $startId;
     protected $_name = [
-        'clickState'           => 'ClickState',
         'createDateEnd'        => 'CreateDateEnd',
         'createDateStart'      => 'CreateDateStart',
-        'endId'                => 'EndId',
         'ownerId'              => 'OwnerId',
         'pageNo'               => 'PageNo',
         'pageSize'             => 'PageSize',
         'phoneNumber'          => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'shortName'            => 'ShortName',
         'shortUrl'             => 'ShortUrl',
-        'startId'              => 'StartId',
     ];
 
     public function validate()
@@ -115,17 +91,11 @@ class QueryPageSmartShortUrlLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clickState) {
-            $res['ClickState'] = $this->clickState;
-        }
         if (null !== $this->createDateEnd) {
             $res['CreateDateEnd'] = $this->createDateEnd;
         }
         if (null !== $this->createDateStart) {
             $res['CreateDateStart'] = $this->createDateStart;
-        }
-        if (null !== $this->endId) {
-            $res['EndId'] = $this->endId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -145,14 +115,8 @@ class QueryPageSmartShortUrlLogRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->shortName) {
-            $res['ShortName'] = $this->shortName;
-        }
         if (null !== $this->shortUrl) {
             $res['ShortUrl'] = $this->shortUrl;
-        }
-        if (null !== $this->startId) {
-            $res['StartId'] = $this->startId;
         }
 
         return $res;
@@ -166,17 +130,11 @@ class QueryPageSmartShortUrlLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClickState'])) {
-            $model->clickState = $map['ClickState'];
-        }
         if (isset($map['CreateDateEnd'])) {
             $model->createDateEnd = $map['CreateDateEnd'];
         }
         if (isset($map['CreateDateStart'])) {
             $model->createDateStart = $map['CreateDateStart'];
-        }
-        if (isset($map['EndId'])) {
-            $model->endId = $map['EndId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -196,14 +154,8 @@ class QueryPageSmartShortUrlLogRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ShortName'])) {
-            $model->shortName = $map['ShortName'];
-        }
         if (isset($map['ShortUrl'])) {
             $model->shortUrl = $map['ShortUrl'];
-        }
-        if (isset($map['StartId'])) {
-            $model->startId = $map['StartId'];
         }
 
         return $model;

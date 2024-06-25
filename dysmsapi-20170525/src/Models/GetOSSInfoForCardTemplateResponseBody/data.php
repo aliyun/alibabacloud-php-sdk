@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
      * @example LTAIxetqt1Dg****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessKeyId;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 599333677478****
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $aliUid;
 
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example alicom-cardsms-resources
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $bucket;
 
     /**
+     * @description The timeout period.
+     *
      * @example 1634209418
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description The hostname.
+     *
      * @example https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $host;
 
     /**
+     * @description The signature policy.
+     *
      * @example eyJxxx0=
      *
      * @var string
@@ -51,11 +63,17 @@ class data extends Model
     public $policy;
 
     /**
+     * @description The signature.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $signature;
 
     /**
+     * @description The path of the policy.
+     *
      * @example 1631792777
      *
      * @var string

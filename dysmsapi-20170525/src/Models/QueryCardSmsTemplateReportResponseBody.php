@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCardSmsTemplateReportResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class QueryCardSmsTemplateReportResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example CC89A90C-978F-46AC-B80D-54738371E7CA
      *
      * @var string
@@ -29,6 +38,11 @@ class QueryCardSmsTemplateReportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

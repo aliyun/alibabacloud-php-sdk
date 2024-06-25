@@ -24,6 +24,9 @@ class DeleteShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source address. The address can be up to 1,000 characters in length.
+     *
+     * This parameter is required.
      * @example https://www.****.com/product/sms
      *
      * @var string

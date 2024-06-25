@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class signFileList extends Model
 {
     /**
+     * @description The Base64-encoded string of the qualification document. An image cannot exceed 2 MB in size. In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+     *
+     * This parameter is required.
      * @example R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uL****
      *
      * @var string
@@ -16,6 +19,9 @@ class signFileList extends Model
     public $fileContents;
 
     /**
+     * @description The format of the qualification document. You can upload multiple images. Images in JPG, PNG, GIF, or JPEG format are supported.
+     *
+     * This parameter is required.
      * @example jpg
      *
      * @var string

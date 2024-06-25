@@ -15,6 +15,11 @@ class ModifySmsSignRequest extends Model
     public $ownerId;
 
     /**
+     * @description The scenario description of your released services. Provide the information of your services, such as a website URL, a domain name with an ICP filing, an app download URL, or the name of your WeChat official account or mini program. For sign-in scenarios, you must also provide an account and password for tests. A detailed description can improve the review efficiency of signatures and templates.
+     *
+     * This parameter is required.
+     * @example This is the abbreviation of our company.
+     *
      * @var string
      */
     public $remark;
@@ -30,16 +35,34 @@ class ModifySmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of signature files.
+     *
+     * This parameter is required.
      * @var signFileList[]
      */
     public $signFileList;
 
     /**
+     * @description The signature.
+     *
+     * This parameter is required.
+     * @example Aliyun
+     *
      * @var string
      */
     public $signName;
 
     /**
+     * @description The source of the signature. Valid values:
+     *
+     *   **0**: full name or abbreviation of an enterprise or institution.
+     *   **1**: full name or abbreviation of a website with Ministry of Industry and Information Technology (MIIT) filing.
+     *   **2**: full name or abbreviation of an app.
+     *   **3**: full name or abbreviation of a WeChat official account or applet.
+     *   **4**: full name or abbreviation of an e-commerce store.
+     *   **5**: full name or abbreviation of a trademark.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -47,6 +70,11 @@ class ModifySmsSignRequest extends Model
     public $signSource;
 
     /**
+     * @description The type of the signature. Valid values:
+     *
+     *   **0**: verification-code signature
+     *   **1**: general-purpose signature
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the short URL was created.
+     *
      * @example 2019-01-08 16:44:13
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $createDate;
 
     /**
+     * @description The time when the short URL expires.
+     *
      * @example 2019-01-22 11:21:11
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $expireDate;
 
     /**
+     * @description The PV.
+     *
      * @example 300
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $pageViewCount;
 
     /**
+     * @description The short URL.
+     *
      * @example http://****.cn/6y8uy7
      *
      * @var string
@@ -37,11 +45,22 @@ class data extends Model
     public $shortUrl;
 
     /**
+     * @description The service name of the short URL.
+     *
+     * @example The Alibaba Cloud Short Link service.
+     *
      * @var string
      */
     public $shortUrlName;
 
     /**
+     * @description The status of the short URL. Valid values:
+     *
+     *   **expired**
+     *   **effective**
+     *   **audit**
+     *   **reject**
+     *
      * @example expired
      *
      * @var string
@@ -49,6 +68,8 @@ class data extends Model
     public $shortUrlStatus;
 
     /**
+     * @description The source address.
+     *
      * @example https://www.****.com/product/sms
      *
      * @var string
@@ -56,6 +77,8 @@ class data extends Model
     public $sourceUrl;
 
     /**
+     * @description The UV.
+     *
      * @example 23
      *
      * @var string

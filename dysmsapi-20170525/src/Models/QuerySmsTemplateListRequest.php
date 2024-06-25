@@ -14,6 +14,8 @@ class QuerySmsTemplateListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +23,8 @@ class QuerySmsTemplateListRequest extends Model
     public $pageIndex;
 
     /**
+     * @description The number of templates per page. Valid values: **1 to 50**.
+     *
      * @example 10
      *
      * @var int

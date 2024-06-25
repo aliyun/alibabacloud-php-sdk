@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySendDetailsRequest extends Model
 {
     /**
+     * @description The ID of the delivery receipt. The delivery receipt ID is the value of the BizId parameter that is returned when you call the SendSms or SendBatchSms operation.
+     *
      * @example 134523^435****
      *
      * @var string
@@ -16,6 +18,9 @@ class QuerySendDetailsRequest extends Model
     public $bizId;
 
     /**
+     * @description The page number of the first page.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -28,6 +33,9 @@ class QuerySendDetailsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of items displayed per page.
+     *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -35,6 +43,12 @@ class QuerySendDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The mobile numbers of the recipients. Format:
+     *
+     *   If you send messages in the Chinese mainland, specify an 11-digit mobile number, for example, 1390000\\*\\*\\*\\*.
+     *   If you send messages to countries or regions outside the Chinese mainland, specify this parameter in the \\<Area code>\\<Mobile number> format. Example: 8520000\\*\\*\\*\\*.
+     *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -52,6 +66,9 @@ class QuerySendDetailsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The date when the message was sent. You can query messages that were sent within the last 30 days.
+     *
+     * This parameter is required.
      * @example 20181228
      *
      * @var string

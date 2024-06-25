@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSmartShortUrlRequest extends Model
 {
     /**
-     * @example 46
+     * @example 示例值示例值
      *
-     * @var int
+     * @var string
      */
-    public $expiration;
+    public $outId;
 
     /**
      * @var int
@@ -21,7 +21,9 @@ class CreateSmartShortUrlRequest extends Model
     public $ownerId;
 
     /**
-     * @example 示例值示例值
+     * @description This parameter is required.
+     *
+     * @example 15900195***
      *
      * @var string
      */
@@ -38,25 +40,19 @@ class CreateSmartShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 示例值示例值
+     * @description This parameter is required.
      *
-     * @var string
-     */
-    public $sourceName;
-
-    /**
      * @example 示例值
      *
      * @var string
      */
     public $sourceUrl;
     protected $_name = [
-        'expiration'           => 'Expiration',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'phoneNumbers'         => 'PhoneNumbers',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceName'           => 'SourceName',
         'sourceUrl'            => 'SourceUrl',
     ];
 
@@ -67,8 +63,8 @@ class CreateSmartShortUrlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->expiration) {
-            $res['Expiration'] = $this->expiration;
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -81,9 +77,6 @@ class CreateSmartShortUrlRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->sourceName) {
-            $res['SourceName'] = $this->sourceName;
         }
         if (null !== $this->sourceUrl) {
             $res['SourceUrl'] = $this->sourceUrl;
@@ -100,8 +93,8 @@ class CreateSmartShortUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Expiration'])) {
-            $model->expiration = $map['Expiration'];
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -114,9 +107,6 @@ class CreateSmartShortUrlRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SourceName'])) {
-            $model->sourceName = $map['SourceName'];
         }
         if (isset($map['SourceUrl'])) {
             $model->sourceUrl = $map['SourceUrl'];

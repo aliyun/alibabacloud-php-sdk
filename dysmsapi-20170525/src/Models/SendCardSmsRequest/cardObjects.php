@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cardObjects extends Model
 {
     /**
+     * @description The URL to which the message is redirected if the message fails to be rendered.
+     *
      * @example https://alibaba.com
      *
      * @var string
@@ -16,11 +18,15 @@ class cardObjects extends Model
     public $customUrl;
 
     /**
+     * @description The variables. Special characters, such as $ and {}, do not need to be entered.
+     *
      * @var string
      */
     public $dyncParams;
 
     /**
+     * @description The mobile phone number.
+     *
      * @example 1390000****
      *
      * @var string

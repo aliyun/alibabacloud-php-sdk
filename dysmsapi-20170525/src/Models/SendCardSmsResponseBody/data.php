@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the card message.
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $bizCardId;
 
     /**
+     * @description The ID of the digital message.
+     *
      * @example 232
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $bizDigitalId;
 
     /**
+     * @description The ID of the text message.
+     *
      * @example 524
      *
      * @var string
@@ -30,6 +36,13 @@ class data extends Model
     public $bizSmsId;
 
     /**
+     * @description The review status of the card message template.
+     *
+     *   **0**: pending approval
+     *   **1**: approved
+     *   **2**: rejected
+     *
+     * > Unapproved card messages are rolled back.
      * @example 0
      *
      * @var int
@@ -37,6 +50,8 @@ class data extends Model
     public $cardTmpState;
 
     /**
+     * @description The mobile phone number from which the card message is sent.
+     *
      * @example 1390000****
      *
      * @var string
@@ -44,6 +59,8 @@ class data extends Model
     public $mediaMobiles;
 
     /**
+     * @description The mobile phone number whose card message is rolled back.
+     *
      * @example 1390000****
      *
      * @var string

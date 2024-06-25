@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCardSmsTemplateRequest extends Model
 {
     /**
+     * @description The code of the message template.
+     *
+     * You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * This parameter is required.
      * @example CARD_SMS_4139
      *
      * @var string

@@ -28,6 +28,8 @@ class UntagResourcesRequest extends Model
     public $prodCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +54,8 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TEMPLATE
      *
      * @var string

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryShortUrlResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class QueryShortUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the short URL.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +38,8 @@ class QueryShortUrlResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 819BE656-D2E0-4858-8B21-B2E477085AAF
      *
      * @var string

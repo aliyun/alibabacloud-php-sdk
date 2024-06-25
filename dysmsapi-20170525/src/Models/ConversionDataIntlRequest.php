@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConversionDataIntlRequest extends Model
 {
     /**
+     * @description The conversion rate.
+     *
+     * This parameter is required.
      * @example 0.53
      *
      * @var string
@@ -21,6 +24,9 @@ class ConversionDataIntlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The time point at which the conversion rate is monitored. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * > If you do not specify this parameter, the current timestamp is used by default.
      * @example 1349055900000
      *
      * @var int

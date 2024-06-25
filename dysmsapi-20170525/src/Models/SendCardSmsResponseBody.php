@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SendCardSmsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class SendCardSmsResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example F655A8D5-B967-440B-8683-DAD6FF8D28D0
      *
      * @var string
@@ -29,6 +38,11 @@ class SendCardSmsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

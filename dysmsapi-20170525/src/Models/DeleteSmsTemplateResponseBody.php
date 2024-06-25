@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmsTemplateResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteSmsTemplateResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteSmsTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example CCA2BCFF-2BA7-427C-90EE-AC6994748607
      *
      * @var string
@@ -30,6 +39,8 @@ class DeleteSmsTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The code of the message template.
+     *
      * @example SMS_20375****
      *
      * @var string

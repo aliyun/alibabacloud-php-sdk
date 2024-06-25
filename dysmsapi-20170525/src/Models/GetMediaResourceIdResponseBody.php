@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaResourceIdResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class GetMediaResourceIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example F07CF237-F6E3-5F77-B91B-F9B7C5DE84AB
      *
      * @var string
@@ -29,6 +38,11 @@ class GetMediaResourceIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

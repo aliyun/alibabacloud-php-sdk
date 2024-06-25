@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySmsTemplateListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +22,8 @@ class QuerySmsTemplateListResponseBody extends Model
     public $code;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +31,8 @@ class QuerySmsTemplateListResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -31,6 +40,8 @@ class QuerySmsTemplateListResponseBody extends Model
     public $message;
 
     /**
+     * @description The number of templates per page. Valid values: **1 to 50**.
+     *
      * @example 10
      *
      * @var int
@@ -38,6 +49,8 @@ class QuerySmsTemplateListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 819BE656-D2E0-4858-8B21-B2E47708****
      *
      * @var string
@@ -45,11 +58,15 @@ class QuerySmsTemplateListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried message templates.
+     *
      * @var smsTemplateList[]
      */
     public $smsTemplateList;
 
     /**
+     * @description The total number of templates.
+     *
      * @example 100
      *
      * @var int

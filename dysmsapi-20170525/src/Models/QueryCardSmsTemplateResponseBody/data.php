@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The array of objects.
+     *
      * @var mixed[][]
      */
     public $templates;

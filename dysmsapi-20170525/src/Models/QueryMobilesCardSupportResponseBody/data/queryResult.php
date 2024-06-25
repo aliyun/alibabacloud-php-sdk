@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class queryResult extends Model
 {
     /**
+     * @description The mobile phone number.
+     *
+     * @example 1380000****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @description Indicates whether the mobile phone number supports card messages. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $support;

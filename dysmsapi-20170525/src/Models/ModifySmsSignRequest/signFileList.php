@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class signFileList extends Model
 {
     /**
+     * @description The base64-encoded string of the signed files. The size of the image cannot exceed 2 MB.
+     *
+     * This parameter is required.
      * @example R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uLiwAA
      *
      * @var string
@@ -16,6 +19,9 @@ class signFileList extends Model
     public $fileContents;
 
     /**
+     * @description The format of the documents. You can upload multiple images. JPG, PNG, GIF, and JPEG are supported.
+     *
+     * This parameter is required.
      * @example jpg
      *
      * @var string

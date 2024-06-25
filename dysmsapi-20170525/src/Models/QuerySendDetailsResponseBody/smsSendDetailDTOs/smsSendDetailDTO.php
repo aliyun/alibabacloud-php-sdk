@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class smsSendDetailDTO extends Model
 {
     /**
+     * @description The content of the message.
+     *
+     * @example 【Aliyun】This is a test message.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The status code returned by the carrier.
+     *
+     *   If the message is delivered, "DELIVERED" is returned.
+     *   For information about the error codes that may be returned if the message is not delivered, see [error codes](https://help.aliyun.com/document_detail/101347.html).
+     *
      * @example DELIVERED
      *
      * @var string
@@ -21,6 +30,8 @@ class smsSendDetailDTO extends Model
     public $errCode;
 
     /**
+     * @description The extended field.
+     *
      * @example 123
      *
      * @var string
@@ -28,6 +39,8 @@ class smsSendDetailDTO extends Model
     public $outId;
 
     /**
+     * @description The mobile numbers of the recipients.
+     *
      * @example 1390000****
      *
      * @var string
@@ -35,6 +48,8 @@ class smsSendDetailDTO extends Model
     public $phoneNum;
 
     /**
+     * @description The date and time when the message was received.
+     *
      * @example 2019-01-08 16:44:13
      *
      * @var string
@@ -42,6 +57,8 @@ class smsSendDetailDTO extends Model
     public $receiveDate;
 
     /**
+     * @description The date and time when the message was sent.
+     *
      * @example 2019-01-08 16:44:10
      *
      * @var string
@@ -49,6 +66,12 @@ class smsSendDetailDTO extends Model
     public $sendDate;
 
     /**
+     * @description The delivery status of the message. Valid values:
+     *
+     *   **1**: The message has not received a delivery receipt yet.
+     *   **2**: The message failed to be delivered.
+     *   **3**: The message was delivered.
+     *
      * @example 3
      *
      * @var int
@@ -56,6 +79,8 @@ class smsSendDetailDTO extends Model
     public $sendStatus;
 
     /**
+     * @description The ID of the message template.
+     *
      * @example SMS_12231****
      *
      * @var string

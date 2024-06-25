@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +22,8 @@ class ListTagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description The token used to query the next page.
+     *
      * @example "23432453245"
      *
      * @var string
@@ -24,6 +31,8 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example A90E4451-FED7-49D2-87C8-00700A8C4D0D
      *
      * @var string
@@ -31,6 +40,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tagResources
      */
     public $tagResources;

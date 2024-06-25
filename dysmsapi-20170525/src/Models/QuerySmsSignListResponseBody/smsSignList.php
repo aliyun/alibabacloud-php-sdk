@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class smsSignList extends Model
 {
     /**
+     * @description The approval status of the signature. Valid values:
+     *
+     *   **AUDIT_STATE_INIT**: The signature is pending approval.
+     *   **AUDIT_STATE_PASS**: The signature is approved.
+     *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
+     *   **AUDIT_STATE_CANCEL**: The approval is canceled.
+     *
      * @example AUDIT_STATE_NOT_PASS
      *
      * @var string
@@ -17,11 +24,20 @@ class smsSignList extends Model
     public $auditStatus;
 
     /**
+     * @description The type of the signature scenario. The return value ends with "type". Valid values:
+     *
+     *   Verification code type
+     *   General-purpose type
+     *
+     * @example Verification code type
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @description The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
+     *
      * @example 2020-01-08 16:44:13
      *
      * @var string
@@ -29,6 +45,8 @@ class smsSignList extends Model
     public $createDate;
 
     /**
+     * @description The ticket ID.
+     *
      * @example 236****5
      *
      * @var string
@@ -36,11 +54,20 @@ class smsSignList extends Model
     public $orderId;
 
     /**
+     * @description The approval remarks.
+     *
+     *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+     *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
+     *
      * @var reason
      */
     public $reason;
 
     /**
+     * @description The name of the signature.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $signName;

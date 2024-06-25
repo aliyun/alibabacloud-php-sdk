@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySmsTemplateResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifySmsTemplateResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifySmsTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F655A8D5-B967-440B-8683-DAD6FF8DE990
      *
      * @var string
@@ -30,6 +39,8 @@ class ModifySmsTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The code of the message template.
+     *
      * @example SMS_15255****
      *
      * @var string

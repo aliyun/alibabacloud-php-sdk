@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the short URL expires.
+     *
+     * > The value of **ExpireDate** is on the hour.
      * @example 2021-09-19 00:00:00
      *
      * @var string
@@ -16,6 +19,8 @@ class data extends Model
     public $expireDate;
 
     /**
+     * @description The short URL.
+     *
      * @example http://****.cn/6y8uy7
      *
      * @var string
@@ -23,6 +28,8 @@ class data extends Model
     public $shortUrl;
 
     /**
+     * @description The source URL.
+     *
      * @example https://www.****.com/product/sms
      *
      * @var string

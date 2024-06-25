@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SendCardSmsRequest extends Model
 {
     /**
+     * @description The objects of the message template.
+     *
+     * This parameter is required.
      * @var cardObjects[]
      */
     public $cardObjects;
 
     /**
+     * @description The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * This parameter is required.
      * @example CARD_SMS_70
      *
      * @var string
@@ -22,6 +28,9 @@ class SendCardSmsRequest extends Model
     public $cardTemplateCode;
 
     /**
+     * @description The code of the digital message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * > Make sure that the message template has been approved.
      * @example SMS_003
      *
      * @var string
@@ -29,11 +38,23 @@ class SendCardSmsRequest extends Model
     public $digitalTemplateCode;
 
     /**
+     * @description The variables of the digital message template.
+     *
+     * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+     * @example {\\"msg\\",\\"xxxd\\"}
+     *
      * @var string
      */
     public $digitalTemplateParam;
 
     /**
+     * @description The rollback type. Valid values:
+     *
+     *   **SMS**: text message
+     *   **DIGITALSMS**: digital message
+     *   **NONE**: none
+     *
+     * This parameter is required.
      * @example SMS
      *
      * @var string
@@ -41,6 +62,8 @@ class SendCardSmsRequest extends Model
     public $fallbackType;
 
     /**
+     * @description The ID that is reserved for the caller of the operation.
+     *
      * @example 38d76c9b-4a9a-4c89-afae-61fd8e0e****
      *
      * @var string
@@ -48,11 +71,17 @@ class SendCardSmsRequest extends Model
     public $outId;
 
     /**
+     * @description The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * This parameter is required.
      * @var string
      */
     public $signName;
 
     /**
+     * @description The code of the text message template that applies when the card message is rolled back. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
+     *
+     * > Make sure that the message template has been approved. If you set the **FallbackType** parameter to **SMS**, this parameter is required.
      * @example SIER_TEST_01
      *
      * @var string
@@ -60,11 +89,17 @@ class SendCardSmsRequest extends Model
     public $smsTemplateCode;
 
     /**
+     * @description The variables of the text message template.
+     *
+     * > If you need to add line breaks to the JSON template, make sure that the format is valid.
      * @var string
      */
     public $smsTemplateParam;
 
     /**
+     * @description The extension code of the upstream message. Upstream messages are messages sent to the communication service provider. Upstream messages are used to customize a service, complete an inquiry, or send a request. You are charged for sending upstream messages based on the billing standards of the service provider.
+     *
+     * > If you do not need upstream messages, ignore this parameter.
      * @example 1
      *
      * @var string
@@ -72,6 +107,11 @@ class SendCardSmsRequest extends Model
     public $smsUpExtendCode;
 
     /**
+     * @description The code of the text message template.
+     *
+     * Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the message template in the **Template Code** column on the **Message Templates** tab.
+     *
+     * > The message templates must be created on the Go Globe page and approved.
      * @example SMS_2322****
      *
      * @var string
@@ -79,6 +119,11 @@ class SendCardSmsRequest extends Model
     public $templateCode;
 
     /**
+     * @description The variables of the message template. Format: JSON.
+     *
+     * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+     * @example {
+     * }
      * @var string
      */
     public $templateParam;

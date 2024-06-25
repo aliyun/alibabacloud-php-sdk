@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The code of the message template.
+     *
      * @example SMS_23423****
      *
      * @var string
@@ -16,6 +18,8 @@ class tagResource extends Model
     public $resourceId;
 
     /**
+     * @description The type of resource.
+     *
      * @example ALIYUN::DYSMS::TEMPLATE
      *
      * @var string
@@ -23,6 +27,8 @@ class tagResource extends Model
     public $resourceType;
 
     /**
+     * @description The tag key.
+     *
      * @example TestKey
      *
      * @var string
@@ -30,6 +36,8 @@ class tagResource extends Model
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
      * @example TestValue
      *
      * @var string

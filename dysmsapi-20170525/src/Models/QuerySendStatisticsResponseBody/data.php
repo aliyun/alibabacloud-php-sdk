@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the data returned.
+     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int
