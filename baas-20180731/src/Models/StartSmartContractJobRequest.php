@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartSmartContractJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobName;
@@ -24,6 +28,8 @@ class StartSmartContractJobRequest extends Model
     public $sourceOpt;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceType;

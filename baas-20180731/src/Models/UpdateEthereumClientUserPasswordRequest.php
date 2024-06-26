@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateEthereumClientUserPasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;

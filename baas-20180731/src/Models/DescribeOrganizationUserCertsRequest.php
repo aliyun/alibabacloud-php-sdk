@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOrganizationUserCertsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeOrganizationUserCertsRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

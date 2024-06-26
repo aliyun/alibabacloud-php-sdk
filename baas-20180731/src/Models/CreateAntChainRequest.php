@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateAntChainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $blockchainRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cipherSuit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $liveTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $merkleTreeSuit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $resourceSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tlsAlgo;

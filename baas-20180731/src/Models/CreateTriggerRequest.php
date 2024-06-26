@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -24,11 +28,15 @@ class CreateTriggerRequest extends Model
     public $options;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $source;
@@ -39,6 +47,8 @@ class CreateTriggerRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

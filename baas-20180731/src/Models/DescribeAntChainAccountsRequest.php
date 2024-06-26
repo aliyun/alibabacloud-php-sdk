@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainAccountsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
@@ -19,6 +21,8 @@ class DescribeAntChainAccountsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;

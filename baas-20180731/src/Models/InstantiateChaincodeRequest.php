@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstantiateChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc-198jejf8f8****
      *
      * @var string
@@ -37,6 +39,8 @@ class InstantiateChaincodeRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5w****
      *
      * @var string

@@ -16,6 +16,8 @@ class DescribeOrganizationChannelsRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa2-1eqnj5o5****
      *
      * @var string

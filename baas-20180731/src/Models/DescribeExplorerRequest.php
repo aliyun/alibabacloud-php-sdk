@@ -14,6 +14,8 @@ class DescribeExplorerRequest extends Model
     public $exBody;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $exMethod;
@@ -24,6 +26,8 @@ class DescribeExplorerRequest extends Model
     public $exUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

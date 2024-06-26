@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddFabricExternalOrganizationToChannelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
@@ -19,11 +21,15 @@ class AddFabricExternalOrganizationToChannelRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $joinRequest;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

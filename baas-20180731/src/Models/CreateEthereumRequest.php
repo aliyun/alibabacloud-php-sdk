@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEthereumRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consensus;
@@ -30,6 +32,8 @@ class CreateEthereumRequest extends Model
     public $gas;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -40,6 +44,8 @@ class CreateEthereumRequest extends Model
     public $networkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var node[]
      */
     public $node;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpgradeFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodeVersion;
@@ -49,6 +55,8 @@ class UpgradeFabricChaincodeDefinitionRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

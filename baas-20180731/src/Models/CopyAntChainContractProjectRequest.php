@@ -14,16 +14,22 @@ class CopyAntChainContractProjectRequest extends Model
     public $projectDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectVersion;

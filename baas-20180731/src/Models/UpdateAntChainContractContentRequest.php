@@ -14,6 +14,8 @@ class UpdateAntChainContractContentRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contentId;

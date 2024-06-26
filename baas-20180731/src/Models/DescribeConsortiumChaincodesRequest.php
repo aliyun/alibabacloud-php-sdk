@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeConsortiumChaincodesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example consortium-lianmenyumingyi-hc5d1bwlulg7
      *
      * @var string

@@ -16,6 +16,8 @@ class CreateOrganizationRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example domain
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateOrganizationRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +46,8 @@ class CreateOrganizationRequest extends Model
     public $majorVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name
      *
      * @var string
@@ -61,6 +67,8 @@ class CreateOrganizationRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example basic
      *
      * @var string

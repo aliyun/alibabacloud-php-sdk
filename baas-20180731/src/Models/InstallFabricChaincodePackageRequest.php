@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallFabricChaincodePackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodePackageId;
@@ -19,6 +21,8 @@ class InstallFabricChaincodePackageRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

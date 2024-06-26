@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAntChainMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $memberId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $memberName;

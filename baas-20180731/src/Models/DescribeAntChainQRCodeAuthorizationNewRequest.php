@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainQRCodeAuthorizationNewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $QRCodeType;

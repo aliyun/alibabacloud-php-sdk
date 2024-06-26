@@ -14,11 +14,15 @@ class DescribePeerLogsRequest extends Model
     public $lines;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $peerName;

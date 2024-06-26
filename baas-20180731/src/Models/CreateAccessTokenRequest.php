@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accessTokenLifetime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $refreshTokenLifetime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $scope;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example chan-first-channel-1w55v3u39x2xz
      *
      * @var string
@@ -23,7 +25,7 @@ class CreateChaincodeRequest extends Model
     public $consortiumId;
 
     /**
-     * @example OR (\"aaaaaa1MSP.peer\")
+     * @example OR (\\"aaaaaa1MSP.peer\\")
      *
      * @var string
      */
@@ -37,6 +39,8 @@ class CreateChaincodeRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-aaaaaa1-1oxw31d046jtl
      *
      * @var string
@@ -44,6 +48,8 @@ class CreateChaincodeRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://chaincode.oss-cn-beijing.aliyuncs.com
      *
      * @var string
@@ -51,6 +57,8 @@ class CreateChaincodeRequest extends Model
     public $ossBucket;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aaaaaa1/a0cf8729-7d47-44c9-9ed5-6d2fdfc8dc2c/sacc.cc
      *
      * @var string

@@ -17,6 +17,8 @@ class CreateChannelRequest extends Model
     public $batchTimeout;
 
     /**
+     * @description This parameter is required.
+     *
      * @example channelx
      *
      * @var string
@@ -24,6 +26,8 @@ class CreateChannelRequest extends Model
     public $channelName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example consortium-aaaaaa-akpcsjjac2jd
      *
      * @var string
@@ -38,6 +42,8 @@ class CreateChannelRequest extends Model
     public $maxMessageCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var organization[]
      */
     public $organization;

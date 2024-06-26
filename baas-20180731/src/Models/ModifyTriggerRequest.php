@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyTriggerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -24,6 +28,8 @@ class ModifyTriggerRequest extends Model
     public $options;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
@@ -34,6 +40,8 @@ class ModifyTriggerRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $status;

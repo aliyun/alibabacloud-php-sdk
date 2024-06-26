@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeChaincodeDefinitionTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

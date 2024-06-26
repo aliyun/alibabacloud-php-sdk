@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvitationCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example consortium-lianmenyumingyi-hc5d1bwl****
      *
      * @var string

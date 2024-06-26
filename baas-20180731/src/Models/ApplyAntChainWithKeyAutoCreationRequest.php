@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ApplyAntChainWithKeyAutoCreationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $countryName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $localityName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationUnitName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $stateOrProvinceName;

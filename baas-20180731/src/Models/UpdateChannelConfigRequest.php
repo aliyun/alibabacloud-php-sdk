@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateChannelConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $batchTimeout;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $maxMessageCount;
@@ -29,6 +35,8 @@ class UpdateChannelConfigRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $preferredMaxBytes;

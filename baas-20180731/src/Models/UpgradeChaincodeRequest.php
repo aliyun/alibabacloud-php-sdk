@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example code-sacc-fk9z4r97****
      *
      * @var string
@@ -37,6 +39,8 @@ class UpgradeChaincodeRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-wholesaler-15ix77tof****
      *
      * @var string

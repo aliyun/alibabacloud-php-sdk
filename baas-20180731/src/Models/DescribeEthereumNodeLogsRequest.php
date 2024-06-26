@@ -14,6 +14,8 @@ class DescribeEthereumNodeLogsRequest extends Model
     public $lines;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeId;

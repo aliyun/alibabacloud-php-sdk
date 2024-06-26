@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainSubnetMemberListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $pageSize;

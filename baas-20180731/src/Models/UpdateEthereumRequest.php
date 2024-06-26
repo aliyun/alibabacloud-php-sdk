@@ -14,6 +14,8 @@ class UpdateEthereumRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ethereumId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AcceptInvitationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bank
      *
      * @var string

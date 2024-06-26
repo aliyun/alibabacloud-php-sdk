@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainCertificateApplicationsNewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
@@ -19,16 +21,22 @@ class DescribeAntChainCertificateApplicationsNewRequest extends Model
     public $consortiumId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $status;

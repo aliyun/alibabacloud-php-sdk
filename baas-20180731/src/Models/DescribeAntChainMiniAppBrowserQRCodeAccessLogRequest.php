@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntChainMiniAppBrowserQRCodeAccessLogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $antChainId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $QRCodeType;

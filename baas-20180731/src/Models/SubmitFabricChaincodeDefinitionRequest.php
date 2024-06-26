@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitFabricChaincodeDefinitionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodePackageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodeVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
@@ -44,11 +50,15 @@ class SubmitFabricChaincodeDefinitionRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

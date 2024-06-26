@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConsortiumRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Any
      *
      * @var string
@@ -24,6 +26,8 @@ class CreateConsortiumRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example helloworld
      *
      * @var string
@@ -38,6 +42,8 @@ class CreateConsortiumRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +56,8 @@ class CreateConsortiumRequest extends Model
     public $majorVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example helloworld
      *
      * @var string
@@ -57,6 +65,8 @@ class CreateConsortiumRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Kafka
      *
      * @var string
@@ -90,6 +100,8 @@ class CreateConsortiumRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example basic
      *
      * @var string

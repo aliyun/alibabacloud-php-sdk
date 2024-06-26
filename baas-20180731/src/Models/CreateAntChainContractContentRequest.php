@@ -14,11 +14,15 @@ class CreateAntChainContractContentRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contentName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $isDirectory;
@@ -29,6 +33,8 @@ class CreateAntChainContractContentRequest extends Model
     public $parentContentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectId;

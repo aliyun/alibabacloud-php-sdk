@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateEthereumNodeConfigurationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodePub;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $p2pPort;
@@ -39,11 +47,15 @@ class UpdateEthereumNodeConfigurationRequest extends Model
     public $rpcPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $TMPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $TMPub;

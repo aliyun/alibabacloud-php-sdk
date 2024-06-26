@@ -16,6 +16,8 @@ class CreateOrganizationUserRequest extends Model
     public $attrs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example peers-yidio-1tuigx42b****
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateOrganizationUserRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username
      *
      * @var string

@@ -19,11 +19,15 @@ class DownloadFabricChannelSDKRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;

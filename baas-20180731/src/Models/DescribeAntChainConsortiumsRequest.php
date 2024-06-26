@@ -14,6 +14,8 @@ class DescribeAntChainConsortiumsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;

@@ -19,6 +19,8 @@ class DescribeSmartContractJobsByNameRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $start;

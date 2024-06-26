@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeTransactionFor2CBrowserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $alipayAuthCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $hash;

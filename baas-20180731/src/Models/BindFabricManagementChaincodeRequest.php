@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BindFabricManagementChaincodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $chaincodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

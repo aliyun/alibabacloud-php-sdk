@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateChannelMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example chan-channelx-1l1hmckuuisxo
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateChannelMemberRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var organization[]
      */
     public $organization;

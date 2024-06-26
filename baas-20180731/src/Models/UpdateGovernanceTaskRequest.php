@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateGovernanceTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskId;

@@ -24,6 +24,8 @@ class ApproveFabricChaincodeDefinitionRequest extends Model
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

@@ -14,6 +14,8 @@ class UpdateAntChainContractProjectRequest extends Model
     public $projectDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectId;

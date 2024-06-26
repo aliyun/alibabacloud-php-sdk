@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEcosphereRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Any
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateEcosphereRequest extends Model
     public $channelPolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Name
      *
      * @var string
@@ -38,6 +42,8 @@ class CreateEcosphereRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +56,8 @@ class CreateEcosphereRequest extends Model
     public $majorVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hello
      *
      * @var string
@@ -57,6 +65,8 @@ class CreateEcosphereRequest extends Model
     public $ordererDomain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Kafka
      *
      * @var string
@@ -71,6 +81,8 @@ class CreateEcosphereRequest extends Model
     public $orderersCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var organization[]
      */
     public $organization;
@@ -88,6 +100,8 @@ class CreateEcosphereRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example basic
      *
      * @var string

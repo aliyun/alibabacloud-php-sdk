@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOrdererLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $consortiumId;
@@ -19,6 +21,8 @@ class DescribeOrdererLogsRequest extends Model
     public $lines;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ordererName;
