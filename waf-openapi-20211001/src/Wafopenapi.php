@@ -111,6 +111,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIps
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest;
@@ -198,6 +200,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyPauseProtectionStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyPauseProtectionStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
@@ -3519,6 +3523,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户暂停防护状态
+     *  *
+     * @param DescribePauseProtectionStatusRequest $request DescribePauseProtectionStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePauseProtectionStatusResponse DescribePauseProtectionStatusResponse
+     */
+    public function describePauseProtectionStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePauseProtectionStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取用户暂停防护状态
+     *  *
+     * @param DescribePauseProtectionStatusRequest $request DescribePauseProtectionStatusRequest
+     *
+     * @return DescribePauseProtectionStatusResponse DescribePauseProtectionStatusResponse
+     */
+    public function describePauseProtectionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePauseProtectionStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the queries per second (QPS) statistics of a WAF instance.
      *  *
      * @param DescribePeakTrendRequest $request DescribePeakTrendRequest
@@ -6106,6 +6163,62 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyMemberAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改用户暂停防护状态
+     *  *
+     * @param ModifyPauseProtectionStatusRequest $request ModifyPauseProtectionStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPauseProtectionStatusResponse ModifyPauseProtectionStatusResponse
+     */
+    public function modifyPauseProtectionStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pauseStatus)) {
+            $query['PauseStatus'] = $request->pauseStatus;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPauseProtectionStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改用户暂停防护状态
+     *  *
+     * @param ModifyPauseProtectionStatusRequest $request ModifyPauseProtectionStatusRequest
+     *
+     * @return ModifyPauseProtectionStatusResponse ModifyPauseProtectionStatusResponse
+     */
+    public function modifyPauseProtectionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPauseProtectionStatusWithOptions($request, $runtime);
     }
 
     /**
