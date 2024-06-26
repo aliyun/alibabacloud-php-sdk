@@ -710,6 +710,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $body['Type'] = $request->type;
         }
+        if (!Utils::isUnset($request->useSsl)) {
+            $body['UseSsl'] = $request->useSsl;
+        }
         if (!Utils::isUnset($request->userName)) {
             $body['UserName'] = $request->userName;
         }
@@ -7755,6 +7758,9 @@ class OceanBasePro extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateProjectConfigShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commonTransferConfig)) {
+            $request->commonTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonTransferConfig, 'CommonTransferConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->fullTransferConfig)) {
             $request->fullTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullTransferConfig, 'FullTransferConfig', 'json');
         }
@@ -7765,6 +7771,9 @@ class OceanBasePro extends OpenApiClient
             $request->reverseIncrTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reverseIncrTransferConfig, 'ReverseIncrTransferConfig', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->commonTransferConfigShrink)) {
+            $body['CommonTransferConfig'] = $request->commonTransferConfigShrink;
+        }
         if (!Utils::isUnset($request->fullTransferConfigShrink)) {
             $body['FullTransferConfig'] = $request->fullTransferConfigShrink;
         }

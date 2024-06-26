@@ -617,8 +617,6 @@ class data extends Model
     /**
      * @description SQL text (the first 100 characters).
      *
-     * @example delete /*+ XXX PARALLEL(4) *\/ fro
-     *
      * @var string
      */
     public $sqlTextShort;

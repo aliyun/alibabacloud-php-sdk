@@ -11,6 +11,11 @@ class UpdateProjectConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $commonTransferConfigShrink;
+
+    /**
+     * @var string
+     */
     public $fullTransferConfigShrink;
 
     /**
@@ -32,6 +37,7 @@ class UpdateProjectConfigShrinkRequest extends Model
      */
     public $reverseIncrTransferConfigShrink;
     protected $_name = [
+        'commonTransferConfigShrink'      => 'CommonTransferConfig',
         'fullTransferConfigShrink'        => 'FullTransferConfig',
         'id'                              => 'Id',
         'incrTransferConfigShrink'        => 'IncrTransferConfig',
@@ -45,6 +51,9 @@ class UpdateProjectConfigShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonTransferConfigShrink) {
+            $res['CommonTransferConfig'] = $this->commonTransferConfigShrink;
+        }
         if (null !== $this->fullTransferConfigShrink) {
             $res['FullTransferConfig'] = $this->fullTransferConfigShrink;
         }
@@ -69,6 +78,9 @@ class UpdateProjectConfigShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonTransferConfig'])) {
+            $model->commonTransferConfigShrink = $map['CommonTransferConfig'];
+        }
         if (isset($map['FullTransferConfig'])) {
             $model->fullTransferConfigShrink = $map['FullTransferConfig'];
         }

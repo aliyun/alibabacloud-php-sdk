@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest\commonTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest\fullTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest\incrTransferConfig;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest\reverseIncrTransferConfig;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class UpdateProjectConfigRequest extends Model
 {
+    /**
+     * @var commonTransferConfig
+     */
+    public $commonTransferConfig;
+
     /**
      * @var fullTransferConfig
      */
@@ -35,6 +41,7 @@ class UpdateProjectConfigRequest extends Model
      */
     public $reverseIncrTransferConfig;
     protected $_name = [
+        'commonTransferConfig'      => 'CommonTransferConfig',
         'fullTransferConfig'        => 'FullTransferConfig',
         'id'                        => 'Id',
         'incrTransferConfig'        => 'IncrTransferConfig',
@@ -48,6 +55,9 @@ class UpdateProjectConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonTransferConfig) {
+            $res['CommonTransferConfig'] = null !== $this->commonTransferConfig ? $this->commonTransferConfig->toMap() : null;
+        }
         if (null !== $this->fullTransferConfig) {
             $res['FullTransferConfig'] = null !== $this->fullTransferConfig ? $this->fullTransferConfig->toMap() : null;
         }
@@ -72,6 +82,9 @@ class UpdateProjectConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonTransferConfig'])) {
+            $model->commonTransferConfig = commonTransferConfig::fromMap($map['CommonTransferConfig']);
+        }
         if (isset($map['FullTransferConfig'])) {
             $model->fullTransferConfig = fullTransferConfig::fromMap($map['FullTransferConfig']);
         }

@@ -78,6 +78,11 @@ class CreateMySqlDataSourceRequest extends Model
     public $type;
 
     /**
+     * @var bool
+     */
+    public $useSsl;
+
+    /**
      * @description This parameter is required.
      *
      * @example user_name
@@ -102,6 +107,7 @@ class CreateMySqlDataSourceRequest extends Model
         'port'         => 'Port',
         'schema'       => 'Schema',
         'type'         => 'Type',
+        'useSsl'       => 'UseSsl',
         'userName'     => 'UserName',
         'vpcId'        => 'VpcId',
     ];
@@ -139,6 +145,9 @@ class CreateMySqlDataSourceRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->useSsl) {
+            $res['UseSsl'] = $this->useSsl;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -184,6 +193,9 @@ class CreateMySqlDataSourceRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UseSsl'])) {
+            $model->useSsl = $map['UseSsl'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

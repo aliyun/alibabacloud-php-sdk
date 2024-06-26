@@ -85,6 +85,16 @@ class commonTransferConfig extends Model
     public $rocketMqSendMsgTimeout;
 
     /**
+     * @var string
+     */
+    public $sinkStoreFormat;
+
+    /**
+     * @var string
+     */
+    public $sourceStoreFormat;
+
+    /**
      * @var bool
      */
     public $syncSchema;
@@ -112,6 +122,8 @@ class commonTransferConfig extends Model
         'rocketMqMsgTags'        => 'RocketMqMsgTags',
         'rocketMqProducerGroup'  => 'RocketMqProducerGroup',
         'rocketMqSendMsgTimeout' => 'RocketMqSendMsgTimeout',
+        'sinkStoreFormat'        => 'SinkStoreFormat',
+        'sourceStoreFormat'      => 'SourceStoreFormat',
         'syncSchema'             => 'SyncSchema',
         'syncSchemaColumnName'   => 'SyncSchemaColumnName',
         'tableCategory'          => 'TableCategory',
@@ -162,6 +174,12 @@ class commonTransferConfig extends Model
         }
         if (null !== $this->rocketMqSendMsgTimeout) {
             $res['RocketMqSendMsgTimeout'] = $this->rocketMqSendMsgTimeout;
+        }
+        if (null !== $this->sinkStoreFormat) {
+            $res['SinkStoreFormat'] = $this->sinkStoreFormat;
+        }
+        if (null !== $this->sourceStoreFormat) {
+            $res['SourceStoreFormat'] = $this->sourceStoreFormat;
         }
         if (null !== $this->syncSchema) {
             $res['SyncSchema'] = $this->syncSchema;
@@ -222,6 +240,12 @@ class commonTransferConfig extends Model
         }
         if (isset($map['RocketMqSendMsgTimeout'])) {
             $model->rocketMqSendMsgTimeout = $map['RocketMqSendMsgTimeout'];
+        }
+        if (isset($map['SinkStoreFormat'])) {
+            $model->sinkStoreFormat = $map['SinkStoreFormat'];
+        }
+        if (isset($map['SourceStoreFormat'])) {
+            $model->sourceStoreFormat = $map['SourceStoreFormat'];
         }
         if (isset($map['SyncSchema'])) {
             $model->syncSchema = $map['SyncSchema'];

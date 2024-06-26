@@ -132,8 +132,6 @@ class data extends Model
     /**
      * @description Prefix of the SQL text.
      *
-     * @example delete /*+ XXX PARALLEL(4) *\/ from
-     *
      * @var string
      */
     public $sqlTextShort;
