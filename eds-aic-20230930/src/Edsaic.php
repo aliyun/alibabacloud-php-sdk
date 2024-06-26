@@ -454,6 +454,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -1062,6 +1065,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
         }
         if (!Utils::isUnset($request->installationStatus)) {
             $query['InstallationStatus'] = $request->installationStatus;

@@ -45,8 +45,6 @@ class FetchFileRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example oss://cloudphone-saved-bucket-cn-hangzhou-165955035250****\/backup/
-     *
      * @var string
      */
     public $uploadUrl;

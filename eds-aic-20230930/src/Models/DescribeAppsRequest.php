@@ -19,6 +19,11 @@ class DescribeAppsRequest extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $bizRegionId;
+
+    /**
      * @example INSTALLING
      *
      * @var string
@@ -48,6 +53,7 @@ class DescribeAppsRequest extends Model
     protected $_name = [
         'appIdList'          => 'AppIdList',
         'appName'            => 'AppName',
+        'bizRegionId'        => 'BizRegionId',
         'installationStatus' => 'InstallationStatus',
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
@@ -66,6 +72,9 @@ class DescribeAppsRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
         }
         if (null !== $this->installationStatus) {
             $res['InstallationStatus'] = $this->installationStatus;
@@ -98,6 +107,9 @@ class DescribeAppsRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
         }
         if (isset($map['InstallationStatus'])) {
             $model->installationStatus = $map['InstallationStatus'];

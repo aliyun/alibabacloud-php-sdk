@@ -18,8 +18,6 @@ class BackupFileRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example oss://cloudphone-saved-bucket-****\/mabo/aic-i3b83gk0rw6p24jx3_2024051409****.ab
-     *
      * @var string
      */
     public $backupFilePath;

@@ -18,6 +18,11 @@ class CreateAppRequest extends Model
     /**
      * @var string
      */
+    public $bizRegionId;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -28,8 +33,6 @@ class CreateAppRequest extends Model
     public $fileName;
 
     /**
-     * @example tenant/1642150****\/
-     *
      * @var string
      */
     public $filePath;
@@ -56,6 +59,7 @@ class CreateAppRequest extends Model
     public $ossAppUrl;
     protected $_name = [
         'appName'      => 'AppName',
+        'bizRegionId'  => 'BizRegionId',
         'description'  => 'Description',
         'fileName'     => 'FileName',
         'filePath'     => 'FilePath',
@@ -73,6 +77,9 @@ class CreateAppRequest extends Model
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -106,6 +113,9 @@ class CreateAppRequest extends Model
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -27,8 +27,6 @@ class RecoveryFileRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example oss://cloudphone-saved-bucket-cn-hangzhou-****\/aaa/acp-ig2bdpk374l12****_2024052014****.ab
-     *
      * @var string
      */
     public $backupFilePath;
