@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PushNoticeToAndroidRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class PushNoticeToAndroidRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example body
      *
      * @var string
@@ -42,6 +46,8 @@ class PushNoticeToAndroidRequest extends Model
     public $storeOffline;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -49,6 +55,8 @@ class PushNoticeToAndroidRequest extends Model
     public $target;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -56,6 +64,8 @@ class PushNoticeToAndroidRequest extends Model
     public $targetValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example title
      *
      * @var string

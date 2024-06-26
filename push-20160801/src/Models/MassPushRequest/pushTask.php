@@ -268,6 +268,8 @@ class pushTask extends Model
     public $androidXiaomiImageUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hello
      *
      * @var string
@@ -275,6 +277,8 @@ class pushTask extends Model
     public $body;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -287,6 +291,81 @@ class pushTask extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $harmonyAction;
+
+    /**
+     * @var string
+     */
+    public $harmonyActionType;
+
+    /**
+     * @var string
+     */
+    public $harmonyCategory;
+
+    /**
+     * @var string
+     */
+    public $harmonyExtParameters;
+
+    /**
+     * @var string
+     */
+    public $harmonyImageUrl;
+
+    /**
+     * @var string
+     */
+    public $harmonyInboxContent;
+
+    /**
+     * @var string
+     */
+    public $harmonyNotificationSlotType;
+
+    /**
+     * @var int
+     */
+    public $harmonyNotifyId;
+
+    /**
+     * @var string
+     */
+    public $harmonyReceiptId;
+
+    /**
+     * @var bool
+     */
+    public $harmonyRemind;
+
+    /**
+     * @var string
+     */
+    public $harmonyRemindBody;
+
+    /**
+     * @var string
+     */
+    public $harmonyRemindTitle;
+
+    /**
+     * @var string
+     */
+    public $harmonyRenderStyle;
+
+    /**
+     * @var bool
+     */
+    public $harmonyTestMessage;
+
+    /**
+     * @var string
+     */
+    public $harmonyUri;
 
     /**
      * @example 123
@@ -303,6 +382,8 @@ class pushTask extends Model
     public $pushTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MESSAGE
      *
      * @var string
@@ -333,6 +414,8 @@ class pushTask extends Model
     public $storeOffline;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DEVICE
      *
      * @var string
@@ -340,6 +423,8 @@ class pushTask extends Model
     public $target;
 
     /**
+     * @description This parameter is required.
+     *
      * @example deviceid1,deviceid2
      *
      * @var string
@@ -505,6 +590,21 @@ class pushTask extends Model
         'body'                             => 'Body',
         'deviceType'                       => 'DeviceType',
         'expireTime'                       => 'ExpireTime',
+        'harmonyAction'                    => 'HarmonyAction',
+        'harmonyActionType'                => 'HarmonyActionType',
+        'harmonyCategory'                  => 'HarmonyCategory',
+        'harmonyExtParameters'             => 'HarmonyExtParameters',
+        'harmonyImageUrl'                  => 'HarmonyImageUrl',
+        'harmonyInboxContent'              => 'HarmonyInboxContent',
+        'harmonyNotificationSlotType'      => 'HarmonyNotificationSlotType',
+        'harmonyNotifyId'                  => 'HarmonyNotifyId',
+        'harmonyReceiptId'                 => 'HarmonyReceiptId',
+        'harmonyRemind'                    => 'HarmonyRemind',
+        'harmonyRemindBody'                => 'HarmonyRemindBody',
+        'harmonyRemindTitle'               => 'HarmonyRemindTitle',
+        'harmonyRenderStyle'               => 'HarmonyRenderStyle',
+        'harmonyTestMessage'               => 'HarmonyTestMessage',
+        'harmonyUri'                       => 'HarmonyUri',
         'jobKey'                           => 'JobKey',
         'pushTime'                         => 'PushTime',
         'pushType'                         => 'PushType',
@@ -664,6 +764,51 @@ class pushTask extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->harmonyAction) {
+            $res['HarmonyAction'] = $this->harmonyAction;
+        }
+        if (null !== $this->harmonyActionType) {
+            $res['HarmonyActionType'] = $this->harmonyActionType;
+        }
+        if (null !== $this->harmonyCategory) {
+            $res['HarmonyCategory'] = $this->harmonyCategory;
+        }
+        if (null !== $this->harmonyExtParameters) {
+            $res['HarmonyExtParameters'] = $this->harmonyExtParameters;
+        }
+        if (null !== $this->harmonyImageUrl) {
+            $res['HarmonyImageUrl'] = $this->harmonyImageUrl;
+        }
+        if (null !== $this->harmonyInboxContent) {
+            $res['HarmonyInboxContent'] = $this->harmonyInboxContent;
+        }
+        if (null !== $this->harmonyNotificationSlotType) {
+            $res['HarmonyNotificationSlotType'] = $this->harmonyNotificationSlotType;
+        }
+        if (null !== $this->harmonyNotifyId) {
+            $res['HarmonyNotifyId'] = $this->harmonyNotifyId;
+        }
+        if (null !== $this->harmonyReceiptId) {
+            $res['HarmonyReceiptId'] = $this->harmonyReceiptId;
+        }
+        if (null !== $this->harmonyRemind) {
+            $res['HarmonyRemind'] = $this->harmonyRemind;
+        }
+        if (null !== $this->harmonyRemindBody) {
+            $res['HarmonyRemindBody'] = $this->harmonyRemindBody;
+        }
+        if (null !== $this->harmonyRemindTitle) {
+            $res['HarmonyRemindTitle'] = $this->harmonyRemindTitle;
+        }
+        if (null !== $this->harmonyRenderStyle) {
+            $res['HarmonyRenderStyle'] = $this->harmonyRenderStyle;
+        }
+        if (null !== $this->harmonyTestMessage) {
+            $res['HarmonyTestMessage'] = $this->harmonyTestMessage;
+        }
+        if (null !== $this->harmonyUri) {
+            $res['HarmonyUri'] = $this->harmonyUri;
         }
         if (null !== $this->jobKey) {
             $res['JobKey'] = $this->jobKey;
@@ -877,6 +1022,51 @@ class pushTask extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['HarmonyAction'])) {
+            $model->harmonyAction = $map['HarmonyAction'];
+        }
+        if (isset($map['HarmonyActionType'])) {
+            $model->harmonyActionType = $map['HarmonyActionType'];
+        }
+        if (isset($map['HarmonyCategory'])) {
+            $model->harmonyCategory = $map['HarmonyCategory'];
+        }
+        if (isset($map['HarmonyExtParameters'])) {
+            $model->harmonyExtParameters = $map['HarmonyExtParameters'];
+        }
+        if (isset($map['HarmonyImageUrl'])) {
+            $model->harmonyImageUrl = $map['HarmonyImageUrl'];
+        }
+        if (isset($map['HarmonyInboxContent'])) {
+            $model->harmonyInboxContent = $map['HarmonyInboxContent'];
+        }
+        if (isset($map['HarmonyNotificationSlotType'])) {
+            $model->harmonyNotificationSlotType = $map['HarmonyNotificationSlotType'];
+        }
+        if (isset($map['HarmonyNotifyId'])) {
+            $model->harmonyNotifyId = $map['HarmonyNotifyId'];
+        }
+        if (isset($map['HarmonyReceiptId'])) {
+            $model->harmonyReceiptId = $map['HarmonyReceiptId'];
+        }
+        if (isset($map['HarmonyRemind'])) {
+            $model->harmonyRemind = $map['HarmonyRemind'];
+        }
+        if (isset($map['HarmonyRemindBody'])) {
+            $model->harmonyRemindBody = $map['HarmonyRemindBody'];
+        }
+        if (isset($map['HarmonyRemindTitle'])) {
+            $model->harmonyRemindTitle = $map['HarmonyRemindTitle'];
+        }
+        if (isset($map['HarmonyRenderStyle'])) {
+            $model->harmonyRenderStyle = $map['HarmonyRenderStyle'];
+        }
+        if (isset($map['HarmonyTestMessage'])) {
+            $model->harmonyTestMessage = $map['HarmonyTestMessage'];
+        }
+        if (isset($map['HarmonyUri'])) {
+            $model->harmonyUri = $map['HarmonyUri'];
         }
         if (isset($map['JobKey'])) {
             $model->jobKey = $map['JobKey'];

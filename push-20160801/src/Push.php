@@ -163,10 +163,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindAliasRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param BindAliasRequest $request BindAliasRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAliasResponse
+     * @return BindAliasResponse BindAliasResponse
      */
     public function bindAliasWithOptions($request, $runtime)
     {
@@ -200,9 +200,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindAliasRequest $request
+     * @param BindAliasRequest $request BindAliasRequest
      *
-     * @return BindAliasResponse
+     * @return BindAliasResponse BindAliasResponse
      */
     public function bindAlias($request)
     {
@@ -212,10 +212,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindPhoneRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param BindPhoneRequest $request BindPhoneRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindPhoneResponse
+     * @return BindPhoneResponse BindPhoneResponse
      */
     public function bindPhoneWithOptions($request, $runtime)
     {
@@ -249,9 +249,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindPhoneRequest $request
+     * @param BindPhoneRequest $request BindPhoneRequest
      *
-     * @return BindPhoneResponse
+     * @return BindPhoneResponse BindPhoneResponse
      */
     public function bindPhone($request)
     {
@@ -261,10 +261,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindTagRequest $request
-     * @param RuntimeOptions $runtime
+     * @param BindTagRequest $request BindTagRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindTagResponse
+     * @return BindTagResponse BindTagResponse
      */
     public function bindTagWithOptions($request, $runtime)
     {
@@ -301,9 +301,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param BindTagRequest $request
+     * @param BindTagRequest $request BindTagRequest
      *
-     * @return BindTagResponse
+     * @return BindTagResponse BindTagResponse
      */
     public function bindTag($request)
     {
@@ -313,10 +313,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CancelPushRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param CancelPushRequest $request CancelPushRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelPushResponse
+     * @return CancelPushResponse CancelPushResponse
      */
     public function cancelPushWithOptions($request, $runtime)
     {
@@ -347,9 +347,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CancelPushRequest $request
+     * @param CancelPushRequest $request CancelPushRequest
      *
-     * @return CancelPushResponse
+     * @return CancelPushResponse CancelPushResponse
      */
     public function cancelPush($request)
     {
@@ -359,10 +359,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckCertificateRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CheckCertificateRequest $request CheckCertificateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCertificateResponse
+     * @return CheckCertificateResponse CheckCertificateResponse
      */
     public function checkCertificateWithOptions($request, $runtime)
     {
@@ -390,9 +390,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckCertificateRequest $request
+     * @param CheckCertificateRequest $request CheckCertificateRequest
      *
-     * @return CheckCertificateResponse
+     * @return CheckCertificateResponse CheckCertificateResponse
      */
     public function checkCertificate($request)
     {
@@ -402,8 +402,8 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-     *   *
+     * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+     *  *
      * Deprecated
      *
      * @param CheckDeviceRequest $request CheckDeviceRequest
@@ -440,8 +440,8 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated : CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
-     *   *
+     * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+     *  *
      * Deprecated
      *
      * @param CheckDeviceRequest $request CheckDeviceRequest
@@ -456,10 +456,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckDevicesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CheckDevicesRequest $request CheckDevicesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDevicesResponse
+     * @return CheckDevicesResponse CheckDevicesResponse
      */
     public function checkDevicesWithOptions($request, $runtime)
     {
@@ -490,9 +490,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CheckDevicesRequest $request
+     * @param CheckDevicesRequest $request CheckDevicesRequest
      *
-     * @return CheckDevicesResponse
+     * @return CheckDevicesResponse CheckDevicesResponse
      */
     public function checkDevices($request)
     {
@@ -502,10 +502,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CompleteContinuouslyPushRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompleteContinuouslyPushResponse
+     * @return CompleteContinuouslyPushResponse CompleteContinuouslyPushResponse
      */
     public function completeContinuouslyPushWithOptions($request, $runtime)
     {
@@ -536,9 +536,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param CompleteContinuouslyPushRequest $request
+     * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
      *
-     * @return CompleteContinuouslyPushResponse
+     * @return CompleteContinuouslyPushResponse CompleteContinuouslyPushResponse
      */
     public function completeContinuouslyPush($request)
     {
@@ -548,10 +548,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param ContinuouslyPushRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContinuouslyPushResponse
+     * @return ContinuouslyPushResponse ContinuouslyPushResponse
      */
     public function continuouslyPushWithOptions($request, $runtime)
     {
@@ -588,9 +588,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param ContinuouslyPushRequest $request
+     * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
      *
-     * @return ContinuouslyPushResponse
+     * @return ContinuouslyPushResponse ContinuouslyPushResponse
      */
     public function continuouslyPush($request)
     {
@@ -600,8 +600,8 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-     *   *
+     * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+     *  *
      * Deprecated
      *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -627,8 +627,8 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
-     *   *
+     * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+     *  *
      * Deprecated
      *
      * @return ListSummaryAppsResponse ListSummaryAppsResponse
@@ -641,10 +641,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param ListTagsRequest $request ListTagsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTagsWithOptions($request, $runtime)
     {
@@ -672,9 +672,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * @param ListTagsRequest $request ListTagsRequest
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTags($request)
     {
@@ -684,10 +684,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param MassPushRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param MassPushRequest $request MassPushRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return MassPushResponse
+     * @return MassPushResponse MassPushResponse
      */
     public function massPushWithOptions($request, $runtime)
     {
@@ -720,9 +720,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param MassPushRequest $request
+     * @param MassPushRequest $request MassPushRequest
      *
-     * @return MassPushResponse
+     * @return MassPushResponse MassPushResponse
      */
     public function massPush($request)
     {
@@ -732,10 +732,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushRequest    $request
-     * @param RuntimeOptions $runtime
+     * @param PushRequest    $request PushRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushResponse
+     * @return PushResponse PushResponse
      */
     public function pushWithOptions($request, $runtime)
     {
@@ -870,6 +870,51 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->expireTime)) {
             $query['ExpireTime'] = $request->expireTime;
         }
+        if (!Utils::isUnset($request->harmonyAction)) {
+            $query['HarmonyAction'] = $request->harmonyAction;
+        }
+        if (!Utils::isUnset($request->harmonyActionType)) {
+            $query['HarmonyActionType'] = $request->harmonyActionType;
+        }
+        if (!Utils::isUnset($request->harmonyCategory)) {
+            $query['HarmonyCategory'] = $request->harmonyCategory;
+        }
+        if (!Utils::isUnset($request->harmonyExtParameters)) {
+            $query['HarmonyExtParameters'] = $request->harmonyExtParameters;
+        }
+        if (!Utils::isUnset($request->harmonyImageUrl)) {
+            $query['HarmonyImageUrl'] = $request->harmonyImageUrl;
+        }
+        if (!Utils::isUnset($request->harmonyInboxContent)) {
+            $query['HarmonyInboxContent'] = $request->harmonyInboxContent;
+        }
+        if (!Utils::isUnset($request->harmonyNotificationSlotType)) {
+            $query['HarmonyNotificationSlotType'] = $request->harmonyNotificationSlotType;
+        }
+        if (!Utils::isUnset($request->harmonyNotifyId)) {
+            $query['HarmonyNotifyId'] = $request->harmonyNotifyId;
+        }
+        if (!Utils::isUnset($request->harmonyReceiptId)) {
+            $query['HarmonyReceiptId'] = $request->harmonyReceiptId;
+        }
+        if (!Utils::isUnset($request->harmonyRemind)) {
+            $query['HarmonyRemind'] = $request->harmonyRemind;
+        }
+        if (!Utils::isUnset($request->harmonyRemindBody)) {
+            $query['HarmonyRemindBody'] = $request->harmonyRemindBody;
+        }
+        if (!Utils::isUnset($request->harmonyRemindTitle)) {
+            $query['HarmonyRemindTitle'] = $request->harmonyRemindTitle;
+        }
+        if (!Utils::isUnset($request->harmonyRenderStyle)) {
+            $query['HarmonyRenderStyle'] = $request->harmonyRenderStyle;
+        }
+        if (!Utils::isUnset($request->harmonyTestMessage)) {
+            $query['HarmonyTestMessage'] = $request->harmonyTestMessage;
+        }
+        if (!Utils::isUnset($request->harmonyUri)) {
+            $query['HarmonyUri'] = $request->harmonyUri;
+        }
         if (!Utils::isUnset($request->jobKey)) {
             $query['JobKey'] = $request->jobKey;
         }
@@ -979,9 +1024,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushRequest $request
+     * @param PushRequest $request PushRequest
      *
-     * @return PushResponse
+     * @return PushResponse PushResponse
      */
     public function push($request)
     {
@@ -991,10 +1036,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushMessageToAndroidRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushMessageToAndroidResponse
+     * @return PushMessageToAndroidResponse PushMessageToAndroidResponse
      */
     public function pushMessageToAndroidWithOptions($request, $runtime)
     {
@@ -1040,9 +1085,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushMessageToAndroidRequest $request
+     * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
      *
-     * @return PushMessageToAndroidResponse
+     * @return PushMessageToAndroidResponse PushMessageToAndroidResponse
      */
     public function pushMessageToAndroid($request)
     {
@@ -1052,10 +1097,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushMessageToiOSRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushMessageToiOSResponse
+     * @return PushMessageToiOSResponse PushMessageToiOSResponse
      */
     public function pushMessageToiOSWithOptions($request, $runtime)
     {
@@ -1101,9 +1146,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushMessageToiOSRequest $request
+     * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
      *
-     * @return PushMessageToiOSResponse
+     * @return PushMessageToiOSResponse PushMessageToiOSResponse
      */
     public function pushMessageToiOS($request)
     {
@@ -1113,10 +1158,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushNoticeToAndroidRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushNoticeToAndroidResponse
+     * @return PushNoticeToAndroidResponse PushNoticeToAndroidResponse
      */
     public function pushNoticeToAndroidWithOptions($request, $runtime)
     {
@@ -1165,9 +1210,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushNoticeToAndroidRequest $request
+     * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
      *
-     * @return PushNoticeToAndroidResponse
+     * @return PushNoticeToAndroidResponse PushNoticeToAndroidResponse
      */
     public function pushNoticeToAndroid($request)
     {
@@ -1177,10 +1222,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushNoticeToiOSRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushNoticeToiOSResponse
+     * @return PushNoticeToiOSResponse PushNoticeToiOSResponse
      */
     public function pushNoticeToiOSWithOptions($request, $runtime)
     {
@@ -1229,9 +1274,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param PushNoticeToiOSRequest $request
+     * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
      *
-     * @return PushNoticeToiOSResponse
+     * @return PushNoticeToiOSResponse PushNoticeToiOSResponse
      */
     public function pushNoticeToiOS($request)
     {
@@ -1241,10 +1286,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryAliasesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param QueryAliasesRequest $request QueryAliasesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAliasesResponse
+     * @return QueryAliasesResponse QueryAliasesResponse
      */
     public function queryAliasesWithOptions($request, $runtime)
     {
@@ -1275,9 +1320,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryAliasesRequest $request
+     * @param QueryAliasesRequest $request QueryAliasesRequest
      *
-     * @return QueryAliasesResponse
+     * @return QueryAliasesResponse QueryAliasesResponse
      */
     public function queryAliases($request)
     {
@@ -1287,10 +1332,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
      */
     public function queryDeviceInfoWithOptions($request, $runtime)
     {
@@ -1321,9 +1366,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceInfoRequest $request
+     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
      *
-     * @return QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
      */
     public function queryDeviceInfo($request)
     {
@@ -1333,10 +1378,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceStatRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDeviceStatResponse
+     * @return QueryDeviceStatResponse QueryDeviceStatResponse
      */
     public function queryDeviceStatWithOptions($request, $runtime)
     {
@@ -1376,9 +1421,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDeviceStatRequest $request
+     * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
      *
-     * @return QueryDeviceStatResponse
+     * @return QueryDeviceStatResponse QueryDeviceStatResponse
      */
     public function queryDeviceStat($request)
     {
@@ -1388,10 +1433,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicesByAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicesByAccountResponse
+     * @return QueryDevicesByAccountResponse QueryDevicesByAccountResponse
      */
     public function queryDevicesByAccountWithOptions($request, $runtime)
     {
@@ -1422,9 +1467,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicesByAccountRequest $request
+     * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
      *
-     * @return QueryDevicesByAccountResponse
+     * @return QueryDevicesByAccountResponse QueryDevicesByAccountResponse
      */
     public function queryDevicesByAccount($request)
     {
@@ -1434,10 +1479,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicesByAliasRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDevicesByAliasResponse
+     * @return QueryDevicesByAliasResponse QueryDevicesByAliasResponse
      */
     public function queryDevicesByAliasWithOptions($request, $runtime)
     {
@@ -1468,9 +1513,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryDevicesByAliasRequest $request
+     * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
      *
-     * @return QueryDevicesByAliasResponse
+     * @return QueryDevicesByAliasResponse QueryDevicesByAliasResponse
      */
     public function queryDevicesByAlias($request)
     {
@@ -1480,10 +1525,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushRecordsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param QueryPushRecordsRequest $request QueryPushRecordsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushRecordsResponse
+     * @return QueryPushRecordsResponse QueryPushRecordsResponse
      */
     public function queryPushRecordsWithOptions($request, $runtime)
     {
@@ -1538,9 +1583,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushRecordsRequest $request
+     * @param QueryPushRecordsRequest $request QueryPushRecordsRequest
      *
-     * @return QueryPushRecordsResponse
+     * @return QueryPushRecordsResponse QueryPushRecordsResponse
      */
     public function queryPushRecords($request)
     {
@@ -1550,10 +1595,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushStatByAppRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushStatByAppResponse
+     * @return QueryPushStatByAppResponse QueryPushStatByAppResponse
      */
     public function queryPushStatByAppWithOptions($request, $runtime)
     {
@@ -1590,9 +1635,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushStatByAppRequest $request
+     * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
      *
-     * @return QueryPushStatByAppResponse
+     * @return QueryPushStatByAppResponse QueryPushStatByAppResponse
      */
     public function queryPushStatByApp($request)
     {
@@ -1602,10 +1647,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushStatByMsgRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushStatByMsgResponse
+     * @return QueryPushStatByMsgResponse QueryPushStatByMsgResponse
      */
     public function queryPushStatByMsgWithOptions($request, $runtime)
     {
@@ -1636,9 +1681,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryPushStatByMsgRequest $request
+     * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
      *
-     * @return QueryPushStatByMsgResponse
+     * @return QueryPushStatByMsgResponse QueryPushStatByMsgResponse
      */
     public function queryPushStatByMsg($request)
     {
@@ -1648,10 +1693,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryTagsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param QueryTagsRequest $request QueryTagsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTagsResponse
+     * @return QueryTagsResponse QueryTagsResponse
      */
     public function queryTagsWithOptions($request, $runtime)
     {
@@ -1685,9 +1730,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryTagsRequest $request
+     * @param QueryTagsRequest $request QueryTagsRequest
      *
-     * @return QueryTagsResponse
+     * @return QueryTagsResponse QueryTagsResponse
      */
     public function queryTags($request)
     {
@@ -1697,10 +1742,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryUniqueDeviceStatRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUniqueDeviceStatResponse
+     * @return QueryUniqueDeviceStatResponse QueryUniqueDeviceStatResponse
      */
     public function queryUniqueDeviceStatWithOptions($request, $runtime)
     {
@@ -1737,9 +1782,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param QueryUniqueDeviceStatRequest $request
+     * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
      *
-     * @return QueryUniqueDeviceStatResponse
+     * @return QueryUniqueDeviceStatResponse QueryUniqueDeviceStatResponse
      */
     public function queryUniqueDeviceStat($request)
     {
@@ -1749,10 +1794,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param RemoveTagRequest $request RemoveTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveTagResponse
+     * @return RemoveTagResponse RemoveTagResponse
      */
     public function removeTagWithOptions($request, $runtime)
     {
@@ -1783,9 +1828,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagRequest $request
+     * @param RemoveTagRequest $request RemoveTagRequest
      *
-     * @return RemoveTagResponse
+     * @return RemoveTagResponse RemoveTagResponse
      */
     public function removeTag($request)
     {
@@ -1795,10 +1840,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindAliasRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param UnbindAliasRequest $request UnbindAliasRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindAliasResponse
+     * @return UnbindAliasResponse UnbindAliasResponse
      */
     public function unbindAliasWithOptions($request, $runtime)
     {
@@ -1835,9 +1880,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindAliasRequest $request
+     * @param UnbindAliasRequest $request UnbindAliasRequest
      *
-     * @return UnbindAliasResponse
+     * @return UnbindAliasResponse UnbindAliasResponse
      */
     public function unbindAlias($request)
     {
@@ -1847,10 +1892,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindPhoneRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param UnbindPhoneRequest $request UnbindPhoneRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindPhoneResponse
+     * @return UnbindPhoneResponse UnbindPhoneResponse
      */
     public function unbindPhoneWithOptions($request, $runtime)
     {
@@ -1881,9 +1926,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindPhoneRequest $request
+     * @param UnbindPhoneRequest $request UnbindPhoneRequest
      *
-     * @return UnbindPhoneResponse
+     * @return UnbindPhoneResponse UnbindPhoneResponse
      */
     public function unbindPhone($request)
     {
@@ -1893,10 +1938,10 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param UnbindTagRequest $request UnbindTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindTagResponse
+     * @return UnbindTagResponse UnbindTagResponse
      */
     public function unbindTagWithOptions($request, $runtime)
     {
@@ -1933,9 +1978,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @param UnbindTagRequest $request
+     * @param UnbindTagRequest $request UnbindTagRequest
      *
-     * @return UnbindTagResponse
+     * @return UnbindTagResponse UnbindTagResponse
      */
     public function unbindTag($request)
     {

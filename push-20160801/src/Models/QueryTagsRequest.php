@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTagsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryTagsRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e2ba19de97604f55b165576****
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryTagsRequest extends Model
     public $clientKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DEVICE
      *
      * @var string

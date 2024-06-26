@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindAliasRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test_alias
      *
      * @var string
@@ -16,6 +18,8 @@ class BindAliasRequest extends Model
     public $aliasName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -23,6 +27,8 @@ class BindAliasRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e2ba19de97604f55b16557673****
      *
      * @var string

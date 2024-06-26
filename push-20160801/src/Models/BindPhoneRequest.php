@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindPhoneRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 27725900
      *
      * @var int
@@ -16,6 +18,8 @@ class BindPhoneRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eb5f741d83d04d34807d229999eefa52
      *
      * @var string
@@ -23,6 +27,8 @@ class BindPhoneRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1381111****
      *
      * @var string

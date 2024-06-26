@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23419851
      *
      * @var int
@@ -16,6 +18,8 @@ class CheckDeviceRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ae296f3b04a58a05b30c95f****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesByAliasRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aliasName
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDevicesByAliasRequest extends Model
     public $alias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int

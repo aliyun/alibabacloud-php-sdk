@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCertificateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int

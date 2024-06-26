@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompleteContinuouslyPushRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class CompleteContinuouslyPushRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4010290149170430
      *
      * @var string

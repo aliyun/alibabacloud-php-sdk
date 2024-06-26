@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesByAccountRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example accountName
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDevicesByAccountRequest extends Model
     public $account;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int

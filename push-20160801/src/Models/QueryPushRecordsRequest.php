@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPushRecordsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 333526247
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryPushRecordsRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-09-29T06:24:58Z
      *
      * @var string
@@ -63,6 +67,8 @@ class QueryPushRecordsRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-09-15T02:05:24Z
      *
      * @var string

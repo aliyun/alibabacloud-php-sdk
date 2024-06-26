@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MassPushRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -17,6 +19,8 @@ class MassPushRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var pushTask[]
      */
     public $pushTask;

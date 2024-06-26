@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindPhoneRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class UnbindPhoneRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eb5f741d83d04d34807d229999eefa52
      *
      * @var string

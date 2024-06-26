@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PushNoticeToiOSRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DEV
      *
      * @var string
@@ -16,6 +18,8 @@ class PushNoticeToiOSRequest extends Model
     public $apnsEnv;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 24780725
      *
      * @var int
@@ -23,6 +27,8 @@ class PushNoticeToiOSRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hello World
      *
      * @var string
@@ -44,6 +50,8 @@ class PushNoticeToiOSRequest extends Model
     public $jobKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -51,6 +59,8 @@ class PushNoticeToiOSRequest extends Model
     public $target;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string

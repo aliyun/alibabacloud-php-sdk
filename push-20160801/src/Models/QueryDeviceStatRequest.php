@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceStatRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryDeviceStatRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example iOS
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryDeviceStatRequest extends Model
     public $deviceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2016-07-29T00:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryDeviceStatRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TOTAL
      *
      * @var string
@@ -37,6 +45,8 @@ class QueryDeviceStatRequest extends Model
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2016-07-28T00:00:00Z
      *
      * @var string

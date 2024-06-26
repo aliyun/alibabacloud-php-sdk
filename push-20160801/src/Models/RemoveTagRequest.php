@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23267207
      *
      * @var int
@@ -16,6 +18,8 @@ class RemoveTagRequest extends Model
     public $appKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_tag
      *
      * @var string
