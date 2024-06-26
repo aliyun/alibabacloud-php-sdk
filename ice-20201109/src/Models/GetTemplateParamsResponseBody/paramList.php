@@ -14,8 +14,6 @@ class paramList extends Model
     public $content;
 
     /**
-     * @example https://ice-materials-***.alicdn.com/***\/********20221****.jpg
-     *
      * @var string
      */
     public $coverUrl;
@@ -28,8 +26,6 @@ class paramList extends Model
     public $key;
 
     /**
-     * @example https://ice-materials-***.alicdn.com/***\/********2022111618012453120c2a81*******.mp4
-     *
      * @var string
      */
     public $mediaUrl;

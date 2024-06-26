@@ -72,8 +72,6 @@ class files extends Model
     public $recordOutput;
 
     /**
-     * @example http://****\/atestObject****.m3u8
-     *
      * @var string
      */
     public $recordUrl;

@@ -46,8 +46,6 @@ class fileList extends Model
     public $ossEndpoint;
 
     /**
-     * @example snapshot/****a046-263c-3560-978a-fb287782****\/1660638613798.jpg
-     *
      * @var string
      */
     public $ossObject;

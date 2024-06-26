@@ -181,6 +181,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotUrlsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotUrlsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateMaterialsRequest;
@@ -4995,6 +4997,59 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSnapshotUrlsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取存储地址列表
+     *  *
+     * @param GetStorageListRequest $request GetStorageListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetStorageListResponse GetStorageListResponse
+     */
+    public function getStorageListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStorageList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStorageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取存储地址列表
+     *  *
+     * @param GetStorageListRequest $request GetStorageListRequest
+     *
+     * @return GetStorageListResponse GetStorageListResponse
+     */
+    public function getStorageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStorageListWithOptions($request, $runtime);
     }
 
     /**
