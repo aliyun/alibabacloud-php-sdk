@@ -32,6 +32,7 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DesignateWorkersRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DesignateWorkersResponse;
@@ -1034,13 +1035,21 @@ class Schedulerx2 extends OpenApiClient
     /**
      * @summary Returns available regions.
      *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($runtime)
+    public function describeRegionsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
             'version'     => '2019-04-30',
@@ -1059,13 +1068,15 @@ class Schedulerx2 extends OpenApiClient
     /**
      * @summary Returns available regions.
      *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     *
      * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegions()
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($runtime);
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -2486,6 +2497,9 @@ class Schedulerx2 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -2500,9 +2514,6 @@ class Schedulerx2 extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

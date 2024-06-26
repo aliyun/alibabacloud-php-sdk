@@ -93,6 +93,7 @@ class CreateWorkflowRequest extends Model
      *   1: cron
      *   100: api
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

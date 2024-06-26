@@ -36,6 +36,13 @@ class appGroups extends Model
     public $appName;
 
     /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $appVersion;
+
+    /**
      * @description The description of the application.
      *
      * @example Test
@@ -52,18 +59,13 @@ class appGroups extends Model
      * @var string
      */
     public $groupId;
-
-    /**
-     * @var int
-     */
-    public $version;
     protected $_name = [
         'appGroupId'  => 'AppGroupId',
         'appKey'      => 'AppKey',
         'appName'     => 'AppName',
+        'appVersion'  => 'AppVersion',
         'description' => 'Description',
         'groupId'     => 'GroupId',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -82,14 +84,14 @@ class appGroups extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -112,14 +114,14 @@ class appGroups extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

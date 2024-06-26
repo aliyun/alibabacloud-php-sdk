@@ -23,6 +23,13 @@ class data extends Model
     public $appName;
 
     /**
+     * @example 2
+     *
+     * @var string
+     */
+    public $appVersion;
+
+    /**
      * @example 1
      *
      * @var int
@@ -59,6 +66,7 @@ class data extends Model
     protected $_name = [
         'appKey'            => 'AppKey',
         'appName'           => 'AppName',
+        'appVersion'        => 'AppVersion',
         'curJobs'           => 'CurJobs',
         'description'       => 'Description',
         'groupId'           => 'GroupId',
@@ -78,6 +86,9 @@ class data extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->curJobs) {
             $res['CurJobs'] = $this->curJobs;
@@ -111,6 +122,9 @@ class data extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['CurJobs'])) {
             $model->curJobs = $map['CurJobs'];

@@ -38,6 +38,13 @@ class CreateAppGroupRequest extends Model
     public $appType;
 
     /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $appVersion;
+
+    /**
      * @description The description of the application.
      *
      * @example Test
@@ -138,17 +145,11 @@ class CreateAppGroupRequest extends Model
      * @var bool
      */
     public $scheduleBusyWorkers;
-
-    /**
-     * @example 2
-     *
-     * @var int
-     */
-    public $version;
     protected $_name = [
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
         'appType'             => 'AppType',
+        'appVersion'          => 'AppVersion',
         'description'         => 'Description',
         'enableLog'           => 'EnableLog',
         'groupId'             => 'GroupId',
@@ -160,7 +161,6 @@ class CreateAppGroupRequest extends Model
         'namespaceSource'     => 'NamespaceSource',
         'regionId'            => 'RegionId',
         'scheduleBusyWorkers' => 'ScheduleBusyWorkers',
-        'version'             => 'Version',
     ];
 
     public function validate()
@@ -178,6 +178,9 @@ class CreateAppGroupRequest extends Model
         }
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -212,9 +215,6 @@ class CreateAppGroupRequest extends Model
         if (null !== $this->scheduleBusyWorkers) {
             $res['ScheduleBusyWorkers'] = $this->scheduleBusyWorkers;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
 
         return $res;
     }
@@ -235,6 +235,9 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -268,9 +271,6 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['ScheduleBusyWorkers'])) {
             $model->scheduleBusyWorkers = $map['ScheduleBusyWorkers'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;
