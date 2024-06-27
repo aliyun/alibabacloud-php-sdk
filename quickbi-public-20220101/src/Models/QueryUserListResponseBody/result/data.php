@@ -35,6 +35,16 @@ class data extends Model
     public $authAdminUser;
 
     /**
+     * @var int
+     */
+    public $joinedDate;
+
+    /**
+     * @var int
+     */
+    public $lastLoginTime;
+
+    /**
      * @var string
      */
     public $nickName;
@@ -62,6 +72,8 @@ class data extends Model
         'accountName'   => 'AccountName',
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
+        'joinedDate'    => 'JoinedDate',
+        'lastLoginTime' => 'LastLoginTime',
         'nickName'      => 'NickName',
         'roleIdList'    => 'RoleIdList',
         'userId'        => 'UserId',
@@ -86,6 +98,12 @@ class data extends Model
         }
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+        if (null !== $this->joinedDate) {
+            $res['JoinedDate'] = $this->joinedDate;
+        }
+        if (null !== $this->lastLoginTime) {
+            $res['LastLoginTime'] = $this->lastLoginTime;
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
@@ -122,6 +140,12 @@ class data extends Model
         }
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+        if (isset($map['JoinedDate'])) {
+            $model->joinedDate = $map['JoinedDate'];
+        }
+        if (isset($map['LastLoginTime'])) {
+            $model->lastLoginTime = $map['LastLoginTime'];
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];

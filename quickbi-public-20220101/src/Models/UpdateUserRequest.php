@@ -33,6 +33,11 @@ class UpdateUserRequest extends Model
     public $authAdminUser;
 
     /**
+     * @var bool
+     */
+    public $isDeleted;
+
+    /**
      * @description The nickname of the account.
      *
      *   Format check: The value can be up to 50 characters in length.
@@ -74,6 +79,7 @@ class UpdateUserRequest extends Model
     protected $_name = [
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
+        'isDeleted'     => 'IsDeleted',
         'nickName'      => 'NickName',
         'roleIds'       => 'RoleIds',
         'userId'        => 'UserId',
@@ -92,6 +98,9 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+        if (null !== $this->isDeleted) {
+            $res['IsDeleted'] = $this->isDeleted;
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
@@ -122,6 +131,9 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+        if (isset($map['IsDeleted'])) {
+            $model->isDeleted = $map['IsDeleted'];
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];

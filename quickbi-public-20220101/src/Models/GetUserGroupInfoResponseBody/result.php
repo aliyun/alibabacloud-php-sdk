@@ -23,8 +23,6 @@ class result extends Model
     public $createUser;
 
     /**
-     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****\/34fd141d-4598-4093-8c33-8e066dcb****
-     *
      * @var string
      */
     public $identifiedPath;

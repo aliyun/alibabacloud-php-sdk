@@ -29,8 +29,6 @@ class directory extends Model
     /**
      * @description The path ID of the directory where the resource is located.
      *
-     * @example 66ffe22b-83be-47fd-b49d-9ca58d29****\/f7f6e22b-83be-47fd-b49d-9ca686a9****
-     *
      * @var string
      */
     public $pathId;

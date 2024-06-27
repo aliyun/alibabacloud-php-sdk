@@ -29,8 +29,6 @@ class result extends Model
     /**
      * @description Directory level of the sub-user group.
      *
-     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****\/3d2c23d4-2b41-4af8-a1f5-f6390f32****\/f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
-     *
      * @var string
      */
     public $identifiedPath;

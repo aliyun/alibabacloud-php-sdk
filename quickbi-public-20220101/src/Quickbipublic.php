@@ -46,6 +46,10 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSourceBloodRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSourceBloodResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DelayTicketExpireTimeRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DelayTicketExpireTimeResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteDataLevelPermissionRuleUsersRequest;
@@ -99,12 +103,18 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersReques
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceListRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetDetailInfoRequest;
@@ -1323,6 +1333,106 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询引用指定数据集下的作品信息
+     *  *
+     * @param DataSetBloodRequest $request DataSetBloodRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DataSetBloodResponse DataSetBloodResponse
+     */
+    public function dataSetBloodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSetIds)) {
+            $query['DataSetIds'] = $request->dataSetIds;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DataSetBlood',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DataSetBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询引用指定数据集下的作品信息
+     *  *
+     * @param DataSetBloodRequest $request DataSetBloodRequest
+     *
+     * @return DataSetBloodResponse DataSetBloodResponse
+     */
+    public function dataSetBlood($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dataSetBloodWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询引用指定数据源下的数据集信息
+     *  *
+     * @param DataSourceBloodRequest $request DataSourceBloodRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DataSourceBloodResponse DataSourceBloodResponse
+     */
+    public function dataSourceBloodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DataSourceBlood',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DataSourceBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询引用指定数据源下的数据集信息
+     *  *
+     * @param DataSourceBloodRequest $request DataSourceBloodRequest
+     *
+     * @return DataSourceBloodResponse DataSourceBloodResponse
+     */
+    public function dataSourceBlood($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dataSourceBloodWithOptions($request, $runtime);
     }
 
     /**
@@ -2689,6 +2799,127 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据审批人获取相应的审批流信息
+     *  *
+     * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryApprovalInfoResponse QueryApprovalInfoResponse
+     */
+    public function queryApprovalInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryApprovalInfo',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryApprovalInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据审批人获取相应的审批流信息
+     *  *
+     * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
+     *
+     * @return QueryApprovalInfoResponse QueryApprovalInfoResponse
+     */
+    public function queryApprovalInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryApprovalInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询审计日志信息
+     *  *
+     * @param QueryAuditLogRequest $request QueryAuditLogRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryAuditLogResponse QueryAuditLogResponse
+     */
+    public function queryAuditLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $query['OperatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->operatorTypes)) {
+            $query['OperatorTypes'] = $request->operatorTypes;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAuditLog',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审计日志信息
+     *  *
+     * @param QueryAuditLogRequest $request QueryAuditLogRequest
+     *
+     * @return QueryAuditLogResponse QueryAuditLogResponse
+     */
+    public function queryAuditLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAuditLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询组件性能列表
      *  *
      * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
@@ -2917,6 +3148,62 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询数据服务API列表
+     *  *
+     * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDataServiceListResponse QueryDataServiceListResponse
+     */
+    public function queryDataServiceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDataServiceList',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDataServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据服务API列表
+     *  *
+     * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
+     *
+     * @return QueryDataServiceListResponse QueryDataServiceListResponse
+     */
+    public function queryDataServiceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDataServiceListWithOptions($request, $runtime);
     }
 
     /**
@@ -4665,6 +4952,9 @@ class Quickbipublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->authAdminUser)) {
             $query['AuthAdminUser'] = $request->authAdminUser;
+        }
+        if (!Utils::isUnset($request->isDeleted)) {
+            $query['IsDeleted'] = $request->isDeleted;
         }
         if (!Utils::isUnset($request->nickName)) {
             $query['NickName'] = $request->nickName;

@@ -90,6 +90,16 @@ class data extends Model
     public $ownerName;
 
     /**
+     * @var bool
+     */
+    public $publicFlag;
+
+    /**
+     * @var int
+     */
+    public $publicInvalidTime;
+
+    /**
      * @description The directory to which the work belongs.
      *
      * @example 1
@@ -152,21 +162,23 @@ class data extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'auth3rdFlag'   => 'Auth3rdFlag',
-        'description'   => 'Description',
-        'directory'     => 'Directory',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModify'     => 'GmtModify',
-        'modifyName'    => 'ModifyName',
-        'ownerId'       => 'OwnerId',
-        'ownerName'     => 'OwnerName',
-        'securityLevel' => 'SecurityLevel',
-        'status'        => 'Status',
-        'workName'      => 'WorkName',
-        'workType'      => 'WorkType',
-        'worksId'       => 'WorksId',
-        'workspaceId'   => 'WorkspaceId',
-        'workspaceName' => 'WorkspaceName',
+        'auth3rdFlag'       => 'Auth3rdFlag',
+        'description'       => 'Description',
+        'directory'         => 'Directory',
+        'gmtCreate'         => 'GmtCreate',
+        'gmtModify'         => 'GmtModify',
+        'modifyName'        => 'ModifyName',
+        'ownerId'           => 'OwnerId',
+        'ownerName'         => 'OwnerName',
+        'publicFlag'        => 'PublicFlag',
+        'publicInvalidTime' => 'PublicInvalidTime',
+        'securityLevel'     => 'SecurityLevel',
+        'status'            => 'Status',
+        'workName'          => 'WorkName',
+        'workType'          => 'WorkType',
+        'worksId'           => 'WorksId',
+        'workspaceId'       => 'WorkspaceId',
+        'workspaceName'     => 'WorkspaceName',
     ];
 
     public function validate()
@@ -199,6 +211,12 @@ class data extends Model
         }
         if (null !== $this->ownerName) {
             $res['OwnerName'] = $this->ownerName;
+        }
+        if (null !== $this->publicFlag) {
+            $res['PublicFlag'] = $this->publicFlag;
+        }
+        if (null !== $this->publicInvalidTime) {
+            $res['PublicInvalidTime'] = $this->publicInvalidTime;
         }
         if (null !== $this->securityLevel) {
             $res['SecurityLevel'] = $this->securityLevel;
@@ -256,6 +274,12 @@ class data extends Model
         }
         if (isset($map['OwnerName'])) {
             $model->ownerName = $map['OwnerName'];
+        }
+        if (isset($map['PublicFlag'])) {
+            $model->publicFlag = $map['PublicFlag'];
+        }
+        if (isset($map['PublicInvalidTime'])) {
+            $model->publicInvalidTime = $map['PublicInvalidTime'];
         }
         if (isset($map['SecurityLevel'])) {
             $model->securityLevel = $map['SecurityLevel'];
