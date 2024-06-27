@@ -11,7 +11,7 @@ class RebuildDBInstanceResponseBody extends Model
     /**
      * @description The serial number of the task in the rebuild task queue. When the serial number becomes 0, the system starts to rebuild the secondary instance.
      *
-     * @example 3298015
+     * @example 329****
      *
      * @var int
      */
@@ -29,7 +29,7 @@ class RebuildDBInstanceResponseBody extends Model
     /**
      * @description The task ID.
      *
-     * @example 208676661
+     * @example 20867****
      *
      * @var int
      */
