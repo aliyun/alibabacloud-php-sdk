@@ -1,3 +1,6 @@
+2024-06-27 Version: 1.2.2
+- Generated php 2023-09-30 for eds-aic.
+
 2024-06-27 Version: 1.2.1
 - Update API CreateApp: add param BizRegionId.
 - Update API DescribeApps: add param BizRegionId.
