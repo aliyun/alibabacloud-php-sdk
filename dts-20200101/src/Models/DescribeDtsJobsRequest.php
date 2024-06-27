@@ -18,6 +18,11 @@ class DescribeDtsJobsRequest extends Model
     public $dedicatedClusterId;
 
     /**
+     * @var string
+     */
+    public $destProductType;
+
+    /**
      * @description The environment tag of the DTS instance. Valid values:
      *
      * - **normal**
@@ -166,6 +171,11 @@ class DescribeDtsJobsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $srcProductType;
+
+    /**
      * @description The state of the DTS task.
      *
      * Valid values for a data migration task:
@@ -266,6 +276,7 @@ class DescribeDtsJobsRequest extends Model
     public $zeroEtlJob;
     protected $_name = [
         'dedicatedClusterId' => 'DedicatedClusterId',
+        'destProductType'    => 'DestProductType',
         'dtsBisLabel'        => 'DtsBisLabel',
         'dtsInstanceId'      => 'DtsInstanceId',
         'dtsJobId'           => 'DtsJobId',
@@ -282,6 +293,7 @@ class DescribeDtsJobsRequest extends Model
         'region'             => 'Region',
         'regionId'           => 'RegionId',
         'resourceGroupId'    => 'ResourceGroupId',
+        'srcProductType'     => 'SrcProductType',
         'status'             => 'Status',
         'tags'               => 'Tags',
         'type'               => 'Type',
@@ -298,6 +310,9 @@ class DescribeDtsJobsRequest extends Model
         $res = [];
         if (null !== $this->dedicatedClusterId) {
             $res['DedicatedClusterId'] = $this->dedicatedClusterId;
+        }
+        if (null !== $this->destProductType) {
+            $res['DestProductType'] = $this->destProductType;
         }
         if (null !== $this->dtsBisLabel) {
             $res['DtsBisLabel'] = $this->dtsBisLabel;
@@ -347,6 +362,9 @@ class DescribeDtsJobsRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->srcProductType) {
+            $res['SrcProductType'] = $this->srcProductType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -376,6 +394,9 @@ class DescribeDtsJobsRequest extends Model
         $model = new self();
         if (isset($map['DedicatedClusterId'])) {
             $model->dedicatedClusterId = $map['DedicatedClusterId'];
+        }
+        if (isset($map['DestProductType'])) {
+            $model->destProductType = $map['DestProductType'];
         }
         if (isset($map['DtsBisLabel'])) {
             $model->dtsBisLabel = $map['DtsBisLabel'];
@@ -424,6 +445,9 @@ class DescribeDtsJobsRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SrcProductType'])) {
+            $model->srcProductType = $map['SrcProductType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

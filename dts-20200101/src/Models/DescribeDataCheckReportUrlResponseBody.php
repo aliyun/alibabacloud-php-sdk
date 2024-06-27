@@ -11,8 +11,6 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     /**
      * @description The URL for downloading the verification report.
      *
-     * @example https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/dw612cru18e****\/dtsdb/diff/student.diff.zip?Expires=****
-     *
      * @var string
      */
     public $dynamicMessage;

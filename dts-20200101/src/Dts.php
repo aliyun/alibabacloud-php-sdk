@@ -3554,6 +3554,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dedicatedClusterId)) {
             $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
+        if (!Utils::isUnset($request->destProductType)) {
+            $query['DestProductType'] = $request->destProductType;
+        }
         if (!Utils::isUnset($request->dtsBisLabel)) {
             $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
@@ -3601,6 +3604,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->srcProductType)) {
+            $query['SrcProductType'] = $request->srcProductType;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
