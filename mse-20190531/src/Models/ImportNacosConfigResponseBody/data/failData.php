@@ -23,9 +23,15 @@ class failData extends Model
      * @var string
      */
     public $group;
+
+    /**
+     * @var string
+     */
+    public $reason;
     protected $_name = [
         'dataId' => 'DataId',
         'group'  => 'Group',
+        'reason' => 'Reason',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class failData extends Model
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -58,6 +67,9 @@ class failData extends Model
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         return $model;

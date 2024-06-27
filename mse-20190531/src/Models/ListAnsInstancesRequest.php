@@ -26,6 +26,8 @@ class ListAnsInstancesRequest extends Model
      * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-09k1q11****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $clusterId;

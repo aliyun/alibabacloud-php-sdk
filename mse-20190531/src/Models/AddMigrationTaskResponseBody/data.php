@@ -67,6 +67,11 @@ class data extends Model
     public $projectDesc;
 
     /**
+     * @var string
+     */
+    public $syncType;
+
+    /**
      * @description The name of the destination instance.
      *
      * @example Destination instance
@@ -108,6 +113,7 @@ class data extends Model
         'originInstanceName'      => 'OriginInstanceName',
         'originInstanceNamespace' => 'OriginInstanceNamespace',
         'projectDesc'             => 'ProjectDesc',
+        'syncType'                => 'SyncType',
         'targetClusterName'       => 'TargetClusterName',
         'targetClusterUrl'        => 'TargetClusterUrl',
         'targetInstanceId'        => 'TargetInstanceId',
@@ -138,6 +144,9 @@ class data extends Model
         }
         if (null !== $this->projectDesc) {
             $res['ProjectDesc'] = $this->projectDesc;
+        }
+        if (null !== $this->syncType) {
+            $res['SyncType'] = $this->syncType;
         }
         if (null !== $this->targetClusterName) {
             $res['TargetClusterName'] = $this->targetClusterName;
@@ -180,6 +189,9 @@ class data extends Model
         }
         if (isset($map['ProjectDesc'])) {
             $model->projectDesc = $map['ProjectDesc'];
+        }
+        if (isset($map['SyncType'])) {
+            $model->syncType = $map['SyncType'];
         }
         if (isset($map['TargetClusterName'])) {
             $model->targetClusterName = $map['TargetClusterName'];

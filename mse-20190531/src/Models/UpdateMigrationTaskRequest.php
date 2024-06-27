@@ -88,6 +88,11 @@ class UpdateMigrationTaskRequest extends Model
     public $requestPars;
 
     /**
+     * @var string
+     */
+    public $syncType;
+
+    /**
      * @description The name of the destination instance.
      *
      * @example Destination instance
@@ -122,6 +127,7 @@ class UpdateMigrationTaskRequest extends Model
         'originInstanceNamespace' => 'OriginInstanceNamespace',
         'projectDesc'             => 'ProjectDesc',
         'requestPars'             => 'RequestPars',
+        'syncType'                => 'SyncType',
         'targetClusterName'       => 'TargetClusterName',
         'targetClusterUrl'        => 'TargetClusterUrl',
         'targetInstanceId'        => 'TargetInstanceId',
@@ -157,6 +163,9 @@ class UpdateMigrationTaskRequest extends Model
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->syncType) {
+            $res['SyncType'] = $this->syncType;
         }
         if (null !== $this->targetClusterName) {
             $res['TargetClusterName'] = $this->targetClusterName;
@@ -202,6 +211,9 @@ class UpdateMigrationTaskRequest extends Model
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['SyncType'])) {
+            $model->syncType = $map['SyncType'];
         }
         if (isset($map['TargetClusterName'])) {
             $model->targetClusterName = $map['TargetClusterName'];

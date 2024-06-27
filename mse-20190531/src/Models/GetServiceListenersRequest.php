@@ -26,6 +26,8 @@ class GetServiceListenersRequest extends Model
      * > You must specify InstanceId or ClusterId.
      * @example mse-09k1q11****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $clusterId;

@@ -26,6 +26,8 @@ class ListAnsServiceClustersRequest extends Model
      * > The MSE cluster is different from the cluster of the Nacos service.
      * @example mse-09k1q110q01
      *
+     * @deprecated
+     *
      * @var string
      */
     public $clusterId;

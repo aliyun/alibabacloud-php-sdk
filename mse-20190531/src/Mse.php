@@ -1424,6 +1424,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;
         }
+        if (!Utils::isUnset($request->syncType)) {
+            $query['SyncType'] = $request->syncType;
+        }
         if (!Utils::isUnset($request->targetClusterName)) {
             $query['TargetClusterName'] = $request->targetClusterName;
         }
@@ -7213,8 +7216,38 @@ class Mse extends OpenApiClient
     public function listAnsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7222,7 +7255,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -14085,6 +14118,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->syncType)) {
+            $query['SyncType'] = $request->syncType;
         }
         if (!Utils::isUnset($request->targetClusterName)) {
             $query['TargetClusterName'] = $request->targetClusterName;
