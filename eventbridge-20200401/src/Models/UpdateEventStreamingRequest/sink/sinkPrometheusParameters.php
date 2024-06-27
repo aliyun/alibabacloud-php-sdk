@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequ
 
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\authorizationType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\data;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\headerParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\networkType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\password;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\securityGroupId;
@@ -30,6 +31,11 @@ class sinkPrometheusParameters extends Model
      * @var data
      */
     public $data;
+
+    /**
+     * @var headerParameters
+     */
+    public $headerParameters;
 
     /**
      * @description The network type.
@@ -82,6 +88,7 @@ class sinkPrometheusParameters extends Model
     protected $_name = [
         'authorizationType' => 'AuthorizationType',
         'data'              => 'Data',
+        'headerParameters'  => 'HeaderParameters',
         'networkType'       => 'NetworkType',
         'password'          => 'Password',
         'securityGroupId'   => 'SecurityGroupId',
@@ -103,6 +110,9 @@ class sinkPrometheusParameters extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->headerParameters) {
+            $res['HeaderParameters'] = null !== $this->headerParameters ? $this->headerParameters->toMap() : null;
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toMap() : null;
@@ -142,6 +152,9 @@ class sinkPrometheusParameters extends Model
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['HeaderParameters'])) {
+            $model->headerParameters = headerParameters::fromMap($map['HeaderParameters']);
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = networkType::fromMap($map['NetworkType']);
