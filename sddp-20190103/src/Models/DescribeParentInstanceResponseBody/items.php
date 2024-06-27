@@ -23,6 +23,11 @@ class items extends Model
     public $authStatus;
 
     /**
+     * @var int
+     */
+    public $authTime;
+
+    /**
      * @example Running
      *
      * @var string
@@ -134,6 +139,7 @@ class items extends Model
     protected $_name = [
         'auditStatus'                 => 'AuditStatus',
         'authStatus'                  => 'AuthStatus',
+        'authTime'                    => 'AuthTime',
         'clusterStatus'               => 'ClusterStatus',
         'connectNode'                 => 'ConnectNode',
         'dbNum'                       => 'DbNum',
@@ -164,6 +170,9 @@ class items extends Model
         }
         if (null !== $this->authStatus) {
             $res['AuthStatus'] = $this->authStatus;
+        }
+        if (null !== $this->authTime) {
+            $res['AuthTime'] = $this->authTime;
         }
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
@@ -230,6 +239,9 @@ class items extends Model
         }
         if (isset($map['AuthStatus'])) {
             $model->authStatus = $map['AuthStatus'];
+        }
+        if (isset($map['AuthTime'])) {
+            $model->authTime = $map['AuthTime'];
         }
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsV2ResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeColumnsV2ResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description A list of column recognition results of the data table.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeColumnsV2ResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeColumnsV2ResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int

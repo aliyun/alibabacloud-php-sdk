@@ -18,7 +18,7 @@ class handleInfoList extends Model
     public $currentValue;
 
     /**
-     * @description The point in time when the account was locked. The value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the account is disabled. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1611139155000
      *
@@ -27,7 +27,7 @@ class handleInfoList extends Model
     public $disableTime;
 
     /**
-     * @description The point in time when the account was unlocked. The value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the disabled account is enabled. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1611139155000
      *
@@ -63,7 +63,7 @@ class handleInfoList extends Model
     public $handlerValue;
 
     /**
-     * @description The ID of the handling record.
+     * @description The ID of the handling rule.
      *
      * @example 11
      *
@@ -74,9 +74,9 @@ class handleInfoList extends Model
     /**
      * @description The status of the account that triggered the anomalous event. Valid values:
      *
-     *   **0**: locked
-     *   **1**: unlocked
-     *   **-1**: failed to unlock the account
+     *   **0**: disabled
+     *   **1**: enabled
+     *   **-1**: failed to disable the account
      *   **-2**: failed to enable the account
      *
      * @example 1

@@ -908,7 +908,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+     * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
      *  *
      * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -977,7 +977,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据
+     * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
      *  *
      * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
      *

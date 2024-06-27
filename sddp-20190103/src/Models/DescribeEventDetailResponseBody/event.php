@@ -146,6 +146,11 @@ class event extends Model
     public $loginName;
 
     /**
+     * @description Whether it is a new version of the alarm. Value:
+     * - **true**: Yes.
+     * - **false**: No.
+     * @example true
+     *
      * @var bool
      */
     public $newAlarm;

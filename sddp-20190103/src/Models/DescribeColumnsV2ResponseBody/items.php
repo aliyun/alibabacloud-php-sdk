@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the data in the column of the table is created. Unit: milliseconds.
+     *
      * @example 1536751124000
      *
      * @var int
@@ -17,6 +19,8 @@ class items extends Model
     public $creationTime;
 
     /**
+     * @description The type of data in the column of the table.
+     *
      * @example varchar
      *
      * @var string
@@ -24,6 +28,8 @@ class items extends Model
     public $dataType;
 
     /**
+     * @description The ID of the column of the table.
+     *
      * @example 111111
      *
      * @var string
@@ -31,6 +37,8 @@ class items extends Model
     public $id;
 
     /**
+     * @description The ID of the instance to which data in the column of the table belongs.
+     *
      * @example 1232122
      *
      * @var int
@@ -38,6 +46,8 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance to which data in the column of the table belongs.
+     *
      * @example rm-1234
      *
      * @var string
@@ -45,11 +55,15 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description A list of data tags.
+     *
      * @var modelTags[]
      */
     public $modelTags;
 
     /**
+     * @description The name of the column of the table.
+     *
      * @example obj_id
      *
      * @var string
@@ -57,6 +71,14 @@ class items extends Model
     public $name;
 
     /**
+     * @description The name of the sensitivity level for asset. Valid values:
+     *
+     *   **N/A**: indicates that no sensitive data is detected.
+     *   **S1**: indicates the low sensitivity level.
+     *   **S2**: indicates the medium sensitivity level.
+     *   **S3**: indicates the high sensitivity level.
+     *   **S4**: indicates the highest sensitivity level.
+     *
      * @example S4
      *
      * @var string
@@ -64,6 +86,14 @@ class items extends Model
     public $odpsRiskLevelName;
 
     /**
+     * @description The ID of the sensitivity level of the asset. Valid values:
+     *
+     *   **1**: N/A
+     *   **2**: S1
+     *   **3**: S2
+     *   **4**: S3
+     *   **5**: S4
+     * >The return value <=1 means N/A.
      * @example 3
      *
      * @var int
@@ -71,6 +101,8 @@ class items extends Model
     public $odpsRiskLevelValue;
 
     /**
+     * @description The name of the service to which data in the column of the table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
      * @example RDS
      *
      * @var string
@@ -78,6 +110,8 @@ class items extends Model
     public $productCode;
 
     /**
+     * @description The ID of the revision record.
+     *
      * @example 12
      *
      * @var int
@@ -85,6 +119,11 @@ class items extends Model
     public $revisionId;
 
     /**
+     * @description Indicates whether the column is revised. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 1
      *
      * @var int
@@ -92,6 +131,15 @@ class items extends Model
     public $revisionStatus;
 
     /**
+     * @description The ID of the sensitivity level of data in the column of the table. Valid values:
+     *
+     *   **1**: N/A
+     *   **2**: S1
+     *   **3**: S2
+     *   **4**: S3
+     *   **5**: S4
+     *
+     * >The return value <=1 means N/A.
      * @example 4
      *
      * @var int
@@ -99,6 +147,14 @@ class items extends Model
     public $riskLevelId;
 
     /**
+     * @description The name of the sensitivity level for data in the column of the table. Valid values:
+     *
+     *   **N/A**: indicates that no sensitive data is detected.
+     *   **S1**: indicates the low sensitivity level.
+     *   **S2**: indicates the medium sensitivity level.
+     *   **S3**: indicates the high sensitivity level.
+     *   **S4**: indicates the highest sensitivity level.
+     *
      * @example S1
      *
      * @var string
@@ -106,6 +162,8 @@ class items extends Model
     public $riskLevelName;
 
     /**
+     * @description The ID of the sensitive data detection rule that data in the column of the table hits.
+     *
      * @example 1004
      *
      * @var int
@@ -113,6 +171,8 @@ class items extends Model
     public $ruleId;
 
     /**
+     * @description The name of the sensitive data detection rule that data in the column of the table hits.
+     *
      * @example name
      *
      * @var string
@@ -120,6 +180,14 @@ class items extends Model
     public $ruleName;
 
     /**
+     * @description The name of the sensitivity level. Valid values:
+     *
+     *   **N/A**: indicates that no sensitive data is detected.
+     *   **S1**: indicates the low sensitivity level.
+     *   **S2**: indicates the medium sensitivity level.
+     *   **S3**: indicates the high sensitivity level.
+     *   **S4**: indicates the highest sensitivity level.
+     *
      * @example S2
      *
      * @var string
@@ -127,6 +195,11 @@ class items extends Model
     public $sensLevelName;
 
     /**
+     * @description Indicates whether the column contains sensitive data. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -134,6 +207,8 @@ class items extends Model
     public $sensitive;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 123
      *
      * @var int
@@ -141,6 +216,8 @@ class items extends Model
     public $tableId;
 
     /**
+     * @description The name of the table to which the revised column belongs.
+     *
      * @example it_table
      *
      * @var string

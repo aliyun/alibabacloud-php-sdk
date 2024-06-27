@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description An array that consists of the baseline behavior chart of the anomalous event.
+     * @description The baseline behavior chart of the anomalous event.
      *
      * @var chart[]
      */
     public $chart;
 
     /**
-     * @description An array that consists of the content in the anomalous event.
+     * @description The content in the anomalous event.
      *
      * @var content[]
      */

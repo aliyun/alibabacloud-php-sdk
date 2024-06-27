@@ -19,7 +19,7 @@ class DescribeDataMaskingTasksResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of de-identification tasks.
+     * @description A list of de-identification tasks.
      *
      * @var items[]
      */

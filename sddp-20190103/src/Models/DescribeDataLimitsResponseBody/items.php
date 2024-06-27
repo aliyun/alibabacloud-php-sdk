@@ -38,7 +38,7 @@ class items extends Model
      *   **0**: The data detection is ready.
      *   **1**: The data detection is running.
      *   **2**: The connectivity test is in progress.
-     *   **3**: The connectivity test passed.
+     *   **3**: The connectivity test is passed.
      *   **4**: The connectivity test failed.
      *
      * @example 3
@@ -69,7 +69,7 @@ class items extends Model
     public $datamaskStatus;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 2.0
      *
@@ -78,7 +78,7 @@ class items extends Model
     public $dbVersion;
 
     /**
-     * @description Indicates whether DSC has the data detection permissions on the data asset. Valid values:
+     * @description Indicates whether DSC has the data identification permissions on the data asset. Valid values:
      *
      *   **1**: yes
      *   **0**: no
@@ -99,7 +99,7 @@ class items extends Model
     public $engineType;
 
     /**
-     * @description The error code that is returned.
+     * @description The error code.
      *
      * @example connect_network_error
      *
@@ -120,7 +120,7 @@ class items extends Model
      * @description Indicates whether the data leak prevention feature is enabled. Valid values:
      *
      *   **0**: no
-     *   **1**: yes (default value)
+     *   **1**: yes (default)
      *
      * @example 1
      *
@@ -138,7 +138,7 @@ class items extends Model
     public $gmtCreate;
 
     /**
-     * @description The ID of the data asset.
+     * @description The unique ID of the data asset.
      *
      * @example 1
      *
@@ -156,7 +156,7 @@ class items extends Model
     public $instanceDescription;
 
     /**
-     * @description The ID of the instance to which the table belongs.
+     * @description The ID of the data asset to which the table belongs.
      *
      * @example 12332
      *
@@ -165,7 +165,7 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The time when the last scan was finished.
+     * @description The time when the last scan is performed.
      *
      *   The value is a UNIX timestamp.
      *   Unit: milliseconds.
@@ -195,6 +195,10 @@ class items extends Model
     public $logStoreDay;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example **********8103
+     *
      * @var int
      */
     public $memberAccount;
@@ -221,7 +225,7 @@ class items extends Model
     public $ocrStatus;
 
     /**
-     * @description The parent ID of the data asset. Valid values include **bucket, db, and project**.
+     * @description The parent ID of the data asset that you want to query. Valid values include **bucket, db, and project**.
      *
      * @example project
      *
@@ -263,7 +267,7 @@ class items extends Model
     public $processTotalCount;
 
     /**
-     * @description The region in which the data asset resides.
+     * @description The region in which the asset resides.
      *
      * @example cn-hangzhou
      *
@@ -288,7 +292,7 @@ class items extends Model
     public $resourceType;
 
     /**
-     * @description The code of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     * @description The code of the service to which the data asset belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
      *
      * @example RDS
      *
@@ -306,7 +310,7 @@ class items extends Model
     public $samplingSize;
 
     /**
-     * @description The array consisting of the IDs of the security groups that are used by PrivateLink when you install the DSC agent.
+     * @description A list of the IDs of the security groups that are used by PrivateLink when you install the DSC agent.
      *
      * @var string[]
      */
@@ -325,7 +329,7 @@ class items extends Model
     public $supportAudit;
 
     /**
-     * @description Indicates whether data de-identification is supported. Valid values:
+     * @description Indicates whether the data de-identification feature is supported. Valid values:
      *
      *   **true**: yes
      *   **false**: no
@@ -339,8 +343,8 @@ class items extends Model
     /**
      * @description Indicates whether anomalous event detection is supported. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -400,7 +404,7 @@ class items extends Model
     public $userName;
 
     /**
-     * @description The array consisting of the IDs of the vSwitches that are used by PrivateLink when you install the DSC agent.
+     * @description A list of the IDs of the vSwitches that are used by PrivateLink when you install the DSC agent.
      *
      * @var string[]
      */

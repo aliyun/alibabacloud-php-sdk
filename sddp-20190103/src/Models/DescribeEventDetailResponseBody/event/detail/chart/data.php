@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The values of data on the x-axis.
+     * @description The value of the data item on the X axis.
      *
      * @example [test1,test2,...]
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $x;
 
     /**
-     * @description The values of data on the y-axis.
+     * @description The value of the data item on the Y axis.
      *
      * @example [1,2,3,...]
      *
@@ -27,6 +27,8 @@ class data extends Model
     public $y;
 
     /**
+     * @description The value of the data item for the Z axis.
+     *
      * @var string[]
      */
     public $z;

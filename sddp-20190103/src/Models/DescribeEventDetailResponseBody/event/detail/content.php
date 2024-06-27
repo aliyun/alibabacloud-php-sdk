@@ -18,6 +18,10 @@ class content extends Model
     public $label;
 
     /**
+     * @description Exception event name.
+     *
+     * @example daliaoyuncom
+     *
      * @var string
      */
     public $name;

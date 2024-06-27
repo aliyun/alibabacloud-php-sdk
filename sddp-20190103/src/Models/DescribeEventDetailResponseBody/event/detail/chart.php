@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class chart extends Model
 {
     /**
+     * @description The type of the chart. Valid values:
+     *
+     *   **1**: column chart
+     *   **2**: line chart
+     *
+     * >This field will be returned only when NewAlarm is true.
+     * @example 1
+     *
      * @var int
      */
     public $chatType;
@@ -31,6 +39,11 @@ class chart extends Model
     public $label;
 
     /**
+     * @description Icon title.
+     *
+     * >This field will be returned only when NewAlarm is true.
+     * @example misskingm
+     *
      * @var string
      */
     public $name;
@@ -48,7 +61,7 @@ class chart extends Model
     public $type;
 
     /**
-     * @description The descriptive label of data on the x-axis.
+     * @description The descriptive label of data items on the X axis.
      *
      * @example Number of days
      *
@@ -57,7 +70,7 @@ class chart extends Model
     public $XLabel;
 
     /**
-     * @description The descriptive label of data on the y-axis.
+     * @description The descriptive label of data items on the Y axis.
      *
      * @example Value
      *
@@ -66,6 +79,11 @@ class chart extends Model
     public $YLabel;
 
     /**
+     * @description The descriptive label of data items on the Z axis.
+     *
+     * >This field will be returned only when NewAlarm is true.
+     * @example chart description
+     *
      * @var string
      */
     public $ZLabel;

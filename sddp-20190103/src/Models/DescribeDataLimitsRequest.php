@@ -108,6 +108,10 @@ class DescribeDataLimitsRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example **********8103
+     *
      * @var int
      */
     public $memberAccount;
@@ -135,7 +139,7 @@ class DescribeDataLimitsRequest extends Model
     public $parentId;
 
     /**
-     * @description The type of the service to which the data asset to be queried belongs. Valid values:
+     * @description The type of the service to which the data asset belongs. This parameter is required. Valid values:
      *
      *   **1**: MaxCompute
      *   **2**: Object Storage Service (OSS)

@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The member account to which the desensitization target belongs.
+     *
+     * @example 192479427903xxxx
+     *
      * @var int
      */
     public $dstMemberAccount;
 
     /**
-     * @description The destination directory.
-     *
-     * @example ***\/table1
+     * @description The destination path.
      *
      * @var string
      */
@@ -32,7 +34,7 @@ class items extends Model
     public $dstType;
 
     /**
-     * @description The service to which the de-identified data belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     * @description The type of the service to which the de-identified data belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
      *
      * @example RDS
      *
@@ -41,7 +43,7 @@ class items extends Model
     public $dstTypeCode;
 
     /**
-     * @description The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the de-identification task is created. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1582992000000
      *
@@ -59,7 +61,7 @@ class items extends Model
     public $hasUnfinishProcess;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 1
      *
@@ -95,6 +97,10 @@ class items extends Model
     public $runCount;
 
     /**
+     * @description The member account to which the desensitization source belongs.
+     *
+     * @example 192479427903xxxx
+     *
      * @var int
      */
     public $srcMemberAccount;
@@ -102,14 +108,12 @@ class items extends Model
     /**
      * @description The source path.
      *
-     * @example ***\/table2
-     *
      * @var string
      */
     public $srcPath;
 
     /**
-     * @description The code of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     * @description The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
      *
      * @example 5
      *
@@ -118,7 +122,7 @@ class items extends Model
     public $srcType;
 
     /**
-     * @description The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     * @description The type of the service to which the data to be de-identified belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
      *
      * @example RDS
      *

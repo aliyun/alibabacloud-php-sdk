@@ -82,6 +82,10 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @description The time when the file was last modified.
+     *
+     * @example 1536751124000
+     *
      * @var int
      */
     public $lastModifiedTime;

@@ -19,7 +19,7 @@ class DescribeDataLimitsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the data assets.
+     * @description A list of data assets.
      *
      * @var items[]
      */
