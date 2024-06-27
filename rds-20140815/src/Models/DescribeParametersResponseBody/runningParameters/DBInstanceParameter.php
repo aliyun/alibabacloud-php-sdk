@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceParameter extends Model
 {
     /**
+     * @var string
+     */
+    public $parameterDefaultValue;
+
+    /**
      * @description The description of the parameter.
      *
      * @example This parameter sets the default fill factor value at the server scope. A fill factor is provided to optimize index data storage and performance.
@@ -34,10 +39,17 @@ class DBInstanceParameter extends Model
      * @var string
      */
     public $parameterValue;
+
+    /**
+     * @var string
+     */
+    public $parameterValueRange;
     protected $_name = [
-        'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'parameterDefaultValue' => 'ParameterDefaultValue',
+        'parameterDescription'  => 'ParameterDescription',
+        'parameterName'         => 'ParameterName',
+        'parameterValue'        => 'ParameterValue',
+        'parameterValueRange'   => 'ParameterValueRange',
     ];
 
     public function validate()
@@ -47,6 +59,9 @@ class DBInstanceParameter extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterDefaultValue) {
+            $res['ParameterDefaultValue'] = $this->parameterDefaultValue;
+        }
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
         }
@@ -55,6 +70,9 @@ class DBInstanceParameter extends Model
         }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
+        }
+        if (null !== $this->parameterValueRange) {
+            $res['ParameterValueRange'] = $this->parameterValueRange;
         }
 
         return $res;
@@ -68,6 +86,9 @@ class DBInstanceParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterDefaultValue'])) {
+            $model->parameterDefaultValue = $map['ParameterDefaultValue'];
+        }
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
         }
@@ -76,6 +97,9 @@ class DBInstanceParameter extends Model
         }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
+        }
+        if (isset($map['ParameterValueRange'])) {
+            $model->parameterValueRange = $map['ParameterValueRange'];
         }
 
         return $model;

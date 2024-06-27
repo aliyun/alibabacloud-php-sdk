@@ -15,8 +15,14 @@ class extra extends Model
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
+
+    /**
+     * @var string
+     */
+    public $recoveryModel;
     protected $_name = [
         'DBInstanceIds' => 'DBInstanceIds',
+        'recoveryModel' => 'RecoveryModel',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class extra extends Model
         $res = [];
         if (null !== $this->DBInstanceIds) {
             $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
+        }
+        if (null !== $this->recoveryModel) {
+            $res['RecoveryModel'] = $this->recoveryModel;
         }
 
         return $res;
@@ -43,6 +52,9 @@ class extra extends Model
         $model = new self();
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
+        }
+        if (isset($map['RecoveryModel'])) {
+            $model->recoveryModel = $map['RecoveryModel'];
         }
 
         return $model;
