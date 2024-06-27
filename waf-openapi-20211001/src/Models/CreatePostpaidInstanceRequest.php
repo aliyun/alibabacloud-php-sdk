@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreatePostpaidInstanceRequest extends Model
 {
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
+     * @description The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
      *
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
