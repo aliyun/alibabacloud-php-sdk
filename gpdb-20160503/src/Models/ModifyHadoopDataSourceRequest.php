@@ -25,6 +25,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The data source ID.
+     *
      * @example 123
      *
      * @var string
@@ -32,6 +34,17 @@ class ModifyHadoopDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   mysql
+     *
+     * - postgresql
+     *
+     *   hdfs
+     *
+     * - hive
+     * @example mysql
+     *
      * @var string
      */
     public $dataSourceType;
@@ -44,6 +57,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $emrInstanceId;
 
     /**
+     * @description The content of the Hadoop hdfs-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -51,6 +66,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $HDFSConf;
 
     /**
+     * @description The content of the Hadoop core-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -58,11 +75,20 @@ class ModifyHadoopDataSourceRequest extends Model
     public $hadoopCoreConf;
 
     /**
+     * @description The type of the external service. Valid values:
+     *
+     *   emr: E-MapReduce (EMR) Hadoop cluster.
+     *   selfCreate: self-managed Hadoop cluster.
+     *
+     * @example emr
+     *
      * @var string
      */
     public $hadoopCreateType;
 
     /**
+     * @description The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
+     *
      * @example 127.0.0.1 localhost
      *
      * @var string
@@ -70,6 +96,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $hadoopHostsAddress;
 
     /**
+     * @description The content of the Hadoop hive-site.xml file. This parameter must be specified when DataSourceType is set to Hive.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -77,16 +105,27 @@ class ModifyHadoopDataSourceRequest extends Model
     public $hiveConf;
 
     /**
+     * @description The content of the Hadoop mapred-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     *
+     * @example <?xml version="1.0" ?>
+     * </configuration>
      * @var string
      */
     public $mapReduceConf;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The content of the Hadoop yarn-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     *
      * @example xxxxxx
      *
      * @var string

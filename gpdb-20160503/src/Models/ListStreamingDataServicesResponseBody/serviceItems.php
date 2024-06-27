@@ -44,11 +44,21 @@ class serviceItems extends Model
     public $serviceIp;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
      * @example test-adbpgss
      *
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $serviceOwnerId;
 
     /**
      * @example 5432
@@ -83,7 +93,9 @@ class serviceItems extends Model
         'serviceDescription' => 'ServiceDescription',
         'serviceId'          => 'ServiceId',
         'serviceIp'          => 'ServiceIp',
+        'serviceManaged'     => 'ServiceManaged',
         'serviceName'        => 'ServiceName',
+        'serviceOwnerId'     => 'ServiceOwnerId',
         'servicePort'        => 'ServicePort',
         'serviceSpec'        => 'ServiceSpec',
         'serviceType'        => 'ServiceType',
@@ -112,8 +124,14 @@ class serviceItems extends Model
         if (null !== $this->serviceIp) {
             $res['ServiceIp'] = $this->serviceIp;
         }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceOwnerId) {
+            $res['ServiceOwnerId'] = $this->serviceOwnerId;
         }
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
@@ -154,8 +172,14 @@ class serviceItems extends Model
         if (isset($map['ServiceIp'])) {
             $model->serviceIp = $map['ServiceIp'];
         }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceOwnerId'])) {
+            $model->serviceOwnerId = $map['ServiceOwnerId'];
         }
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];

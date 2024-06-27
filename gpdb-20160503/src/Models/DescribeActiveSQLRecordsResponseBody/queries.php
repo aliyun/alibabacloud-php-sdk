@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queries extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
      * @example 0.0.0.0
      *
      * @var string
@@ -16,6 +18,8 @@ class queries extends Model
     public $clientAddr;
 
     /**
+     * @description The name of the database.
+     *
      * @example xg_analyse
      *
      * @var string
@@ -23,6 +27,8 @@ class queries extends Model
     public $database;
 
     /**
+     * @description The progress ID.
+     *
      * @example 6164
      *
      * @var string
@@ -30,6 +36,8 @@ class queries extends Model
     public $PID;
 
     /**
+     * @description The SQL statement of the query.
+     *
      * @example Select * from t1,t2 where t1.id=t2.id;
      *
      * @var string
@@ -37,6 +45,8 @@ class queries extends Model
     public $query;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 60s
      *
      * @var string
@@ -44,6 +54,8 @@ class queries extends Model
     public $queryDuration;
 
     /**
+     * @description The start time of the query.
+     *
      * @example 2022-05-07T06:59Z
      *
      * @var string
@@ -51,11 +63,20 @@ class queries extends Model
     public $queryStart;
 
     /**
+     * @description The session ID.
+     *
+     * @example 6612
+     *
      * @var string
      */
     public $sessionID;
 
     /**
+     * @description Indicates whether the SQL statement is truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var string
@@ -63,6 +84,8 @@ class queries extends Model
     public $sqlTruncated;
 
     /**
+     * @description The threshold that is used to truncate the SQL statement.
+     *
      * @example 1024
      *
      * @var string
@@ -70,11 +93,20 @@ class queries extends Model
     public $sqlTruncatedThreshold;
 
     /**
+     * @description The status of the asynchronous request. Valid values:
+     *
+     *   **RUNNING**
+     *   **BLOCK**
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The name of the database account.
+     *
      * @example testuser
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,6 +24,9 @@ class DescribeDBResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * >  If you specify this parameter, the information about the specified resource group is returned. If you do not specify this parameter, the information about all resource groups is returned.
      * @example testgroup
      *
      * @var string

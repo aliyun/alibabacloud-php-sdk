@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResetIMVMonitorDataRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp152460513z****
      *
      * @var string
@@ -18,8 +19,9 @@ class ResetIMVMonitorDataRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string

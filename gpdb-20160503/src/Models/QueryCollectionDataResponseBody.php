@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryCollectionDataResponseBody extends Model
 {
     /**
+     * @description The retrieved data.
+     *
      * @var matches
      */
     public $matches;
 
     /**
+     * @example 0.1234
+     *
      * @var string
      */
     public $message;
@@ -34,6 +38,10 @@ class QueryCollectionDataResponseBody extends Model
     public $status;
 
     /**
+     * @description The total number of entries that match the search conditions. This parameter is returned only when the Offset parameter is not 0.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $total;

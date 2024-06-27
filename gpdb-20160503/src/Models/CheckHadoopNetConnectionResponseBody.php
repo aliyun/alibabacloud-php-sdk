@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckHadoopNetConnectionResponseBody extends Model
 {
     /**
+     * @description The returned message. If the connection failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckHadoopNetConnectionResponseBody extends Model
     public $connectionMessage;
 
     /**
+     * @description The connection status. Valid values: Success and Failed.
+     *
      * @example Success
      *
      * @var string
@@ -23,6 +27,8 @@ class CheckHadoopNetConnectionResponseBody extends Model
     public $connectionStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string

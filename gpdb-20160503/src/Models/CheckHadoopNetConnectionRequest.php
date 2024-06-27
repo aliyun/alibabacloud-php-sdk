@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckHadoopNetConnectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example CheckHadoopNetConnection
      *
      * @var string
@@ -18,8 +19,9 @@ class CheckHadoopNetConnectionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The E-MapReduce (EMR) Hadoop cluster ID.
      *
+     * This parameter is required.
      * @example c-xxx
      *
      * @var string
@@ -27,6 +29,8 @@ class CheckHadoopNetConnectionRequest extends Model
     public $emrInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

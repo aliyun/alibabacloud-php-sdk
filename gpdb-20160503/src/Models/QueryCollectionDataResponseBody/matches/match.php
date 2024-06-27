@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class match extends Model
 {
     /**
+     * @description The unique ID of the vector data.
+     *
      * @example doca-1234
      *
      * @var string
@@ -17,16 +19,24 @@ class match extends Model
     public $id;
 
     /**
+     * @description The metadata.
+     *
      * @var string[]
      */
     public $metadata;
 
     /**
+     * @description The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+     *
+     * @example 0.12345
+     *
      * @var float
      */
     public $score;
 
     /**
+     * @description The retrieved vector data.
+     *
      * @var values
      */
     public $values;

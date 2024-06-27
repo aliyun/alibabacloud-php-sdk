@@ -39,7 +39,7 @@ class DescribeNamespaceRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description The name of the namespace.
+     * @description The name of the namespace. Default value: public.
      *
      * This parameter is required.
      * @example mynamespace

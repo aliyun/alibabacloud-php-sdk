@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class collectionList extends Model
 {
     /**
+     * @description The name of the document collection.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class collectionList extends Model
     public $collectionName;
 
     /**
+     * @description The number of vector dimensions.
+     *
      * @example 1536
      *
      * @var int
@@ -23,6 +27,8 @@ class collectionList extends Model
     public $dimension;
 
     /**
+     * @description The name of the vector algorithm.
+     *
      * @example text-embeddding-v1
      *
      * @var string
@@ -30,6 +36,8 @@ class collectionList extends Model
     public $embeddingModel;
 
     /**
+     * @description The fields that are used for full-text search. Multiple fields are separated by commas (,).
+     *
      * @example title
      *
      * @var string
@@ -37,6 +45,8 @@ class collectionList extends Model
     public $fullTextRetrievalFields;
 
     /**
+     * @description The metadata.
+     *
      * @example {\\"page\\": \\"int\\", \\"title\\": \\"text\\"}
      *
      * @var string
@@ -44,6 +54,8 @@ class collectionList extends Model
     public $metadata;
 
     /**
+     * @description The vector similarity algorithm.
+     *
      * @example cosine
      *
      * @var string
@@ -51,6 +63,8 @@ class collectionList extends Model
     public $metrics;
 
     /**
+     * @description The analyzer that is used for full-text search.
+     *
      * @example zh_cn
      *
      * @var string

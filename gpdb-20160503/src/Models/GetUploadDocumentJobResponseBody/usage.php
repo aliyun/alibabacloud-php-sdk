@@ -14,6 +14,9 @@ class usage extends Model
     public $embeddingEntries;
 
     /**
+     * @description The number of tokens that are used for vectorization.
+     *
+     * >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
      * @example 475
      *
      * @var int

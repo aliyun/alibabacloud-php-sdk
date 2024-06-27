@@ -22,6 +22,8 @@ class ListStreamingDataServicesResponseBody extends Model
     public $serviceItems;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHadoopDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxx
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeHadoopDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The data source ID.
+     *
      * @example 123
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeHadoopDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

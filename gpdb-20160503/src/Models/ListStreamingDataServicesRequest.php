@@ -32,6 +32,10 @@ class ListStreamingDataServicesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

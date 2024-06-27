@@ -27,6 +27,8 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceConfig;
 
     /**
+     * @example test-kafka
+     *
      * @var string
      */
     public $dataSourceDescription;
@@ -50,13 +52,16 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The real-time data service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

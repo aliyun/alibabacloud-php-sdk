@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PauseDataRedistributeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string

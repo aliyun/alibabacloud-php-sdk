@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CancelUpsertCollectionDataJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -18,8 +19,9 @@ class CancelUpsertCollectionDataJobRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,8 +29,9 @@ class CancelUpsertCollectionDataJobRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the vector data upload job. You can call the `UpsertCollectionDataAsync` operation to query the job ID.
      *
+     * This parameter is required.
      * @example bf8f7bc4-9276-44f7-9c22-1d06edc8dfd1
      *
      * @var string
@@ -36,6 +39,9 @@ class CancelUpsertCollectionDataJobRequest extends Model
     public $jobId;
 
     /**
+     * @description The name of the namespace. Default value: public.
+     *
+     * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -43,8 +49,9 @@ class CancelUpsertCollectionDataJobRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -57,8 +64,9 @@ class CancelUpsertCollectionDataJobRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

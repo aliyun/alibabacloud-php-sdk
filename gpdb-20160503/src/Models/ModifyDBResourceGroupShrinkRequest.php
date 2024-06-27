@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourceGroupShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,8 +24,9 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the resource group.
      *
+     * This parameter is required.
      * @var string
      */
     public $resourceGroupItemsShrink;

@@ -17,6 +17,8 @@ class DescribeIMVInfosResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The queried materialized views.
+     *
      * @var imvInfos[]
      */
     public $imvInfos;

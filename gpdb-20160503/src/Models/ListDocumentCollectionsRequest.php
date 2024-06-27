@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentCollectionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,6 +19,9 @@ class ListDocumentCollectionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the namespace. Default value: public.
+     *
+     * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -25,8 +29,9 @@ class ListDocumentCollectionsRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -39,8 +44,9 @@ class ListDocumentCollectionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpgradeExtensionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class UpgradeExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The extensions that you want to update. Separate multiple extensions with commas (,).
      *
+     * This parameter is required.
      * @example citext,dblink
      *
      * @var string
@@ -27,6 +29,8 @@ class UpgradeExtensionsRequest extends Model
     public $extensions;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCollectionDataMetadataShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,6 +29,8 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause. You cannot leave both this parameter and Ids empty.
+     *
      * @example business_value = \\"chat_file_1\\"
      *
      * @var string
@@ -34,14 +38,14 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $filter;
 
     /**
-     * @description The row IDs of the data that you want to update. You must specify one of the Ids and Filter parameters.
+     * @description The row IDs of the data to be updated. You cannot leave both this parameter and Filter empty.
      *
      * @var string
      */
     public $idsShrink;
 
     /**
-     * @description The data that you want to update, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
+     * @description The data to be updated, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
      *
      * This parameter is required.
      * @example {
@@ -51,6 +55,8 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $metadataShrink;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -58,8 +64,9 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -72,7 +79,7 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

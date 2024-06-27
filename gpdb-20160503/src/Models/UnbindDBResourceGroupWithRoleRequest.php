@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UnbindDBResourceGroupWithRoleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,8 +24,9 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example testgroup
      *
      * @var string
@@ -32,8 +34,9 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
     public $resourceGroupName;
 
     /**
-     * @description This parameter is required.
+     * @description The roles.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $roleList;

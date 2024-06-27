@@ -29,7 +29,7 @@ class DescribeRdsVpcsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description This parameter is no longer used.
      *
      * @example rg-bp67acfmxazb4p****
      *

@@ -24,6 +24,8 @@ class ListExternalDataServicesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried services.
+     *
      * @var serviceItems[]
      */
     public $serviceItems;

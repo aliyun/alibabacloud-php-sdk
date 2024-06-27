@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingJobResponseBody extends Model
 {
     /**
+     * @description The username of the account.
+     *
      * @example test-account
      *
      * @var string
@@ -16,13 +18,16 @@ class DescribeStreamingJobResponseBody extends Model
     public $account;
 
     /**
+     * @example ATLEAST / EXACTLY
+     *
      * @var string
      */
     public $consistency;
 
     /**
-     * @description Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
+     * @description The time when the job was created.
      *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -30,6 +35,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The name of the data source.
+     *
      * @example test-kafka
      *
      * @var string
@@ -37,16 +44,22 @@ class DescribeStreamingJobResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @example test_kafka
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @description The destination fields.
+     *
      * @var string[]
      */
     public $destColumns;
 
     /**
+     * @description The name of the destination database.
+     *
      * @example dest-db
      *
      * @var string
@@ -54,11 +67,15 @@ class DescribeStreamingJobResponseBody extends Model
     public $destDatabase;
 
     /**
+     * @example dest-schema
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description The name of the destination table.
+     *
      * @example dest-table
      *
      * @var string
@@ -66,11 +83,15 @@ class DescribeStreamingJobResponseBody extends Model
     public $destTable;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $errorLimitCount;
 
     /**
+     * @description The information about the job status. For example, if the job is in the Exception state, the cause of the exception is displayed. If the job is in the Running state, this parameter is left empty.
+     *
      * @example ""
      *
      * @var string
@@ -78,26 +99,38 @@ class DescribeStreamingJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example EARLIEST /  LATEST
+     *
      * @var string
      */
     public $fallbackOffset;
 
     /**
+     * @example test_group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example DATABASE: adbpgss_test
+     * group.id: testgroup
      * @var string
      */
     public $jobConfig;
 
     /**
+     * @description The description of the job.
+     *
+     * @example test_job
+     *
      * @var string
      */
     public $jobDescription;
 
     /**
+     * @description The job ID.
+     *
      * @example 1
      *
      * @var string
@@ -105,6 +138,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The name of the job.
+     *
      * @example test-job
      *
      * @var string
@@ -117,13 +152,16 @@ class DescribeStreamingJobResponseBody extends Model
     public $matchColumns;
 
     /**
+     * @example basic/professional
+     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
+     * @description The time when the job was last modified.
      *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -131,6 +169,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $modifyTime;
 
     /**
+     * @description The password of the account.
+     *
      * @example pwd123
      *
      * @var string
@@ -138,6 +178,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $password;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -145,11 +187,20 @@ class DescribeStreamingJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The source fields.
+     *
      * @var string[]
      */
     public $srcColumns;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   Init: The job is being initialized.
+     *   Running: The job is running.
+     *   Exception: The job encounters an exception.
+     *   Paused: The job is paused.
+     *
      * @example Running
      *
      * @var string
@@ -162,6 +213,10 @@ class DescribeStreamingJobResponseBody extends Model
     public $updateColumns;
 
     /**
+     * @description The write mode.
+     *
+     * @example INSERT/UPDATE/MERGE
+     *
      * @var string
      */
     public $writeMode;

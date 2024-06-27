@@ -75,6 +75,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string

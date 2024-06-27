@@ -19,7 +19,7 @@ class DescribeRdsVpcsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the VPCs.
+     * @description The queried VPCs.
      *
      * @var vpcs
      */

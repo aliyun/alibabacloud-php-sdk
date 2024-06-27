@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRolesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string

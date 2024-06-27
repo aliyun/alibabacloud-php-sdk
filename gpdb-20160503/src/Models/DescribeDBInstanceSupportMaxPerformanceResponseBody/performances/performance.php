@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class performance extends Model
 {
     /**
+     * @description The performance bottleneck type.
+     *
      * @example ecs or disk
      *
      * @var string
@@ -16,16 +18,22 @@ class performance extends Model
     public $bottleneck;
 
     /**
+     * @description The name of the performance metric.
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The unit of the performance metric.
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description The value of the performance metric.
+     *
      * @example 90
      *
      * @var string

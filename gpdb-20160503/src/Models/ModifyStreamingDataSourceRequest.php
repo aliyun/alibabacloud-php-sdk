@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyStreamingDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-k2j36a3172b102593
      *
      * @var string
@@ -18,6 +19,8 @@ class ModifyStreamingDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The configurations of the data source.
+     *
      * @example {"brokers":"broker0:9091,broker1:9091","topic":"topic"}
      *
      * @var string
@@ -25,6 +28,8 @@ class ModifyStreamingDataSourceRequest extends Model
     public $dataSourceConfig;
 
     /**
+     * @description The description of the data source.
+     *
      * @example test-kafka
      *
      * @var string
@@ -32,8 +37,9 @@ class ModifyStreamingDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 57
      *
      * @var string
@@ -41,6 +47,9 @@ class ModifyStreamingDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string

@@ -23,6 +23,11 @@ class CreateCollectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

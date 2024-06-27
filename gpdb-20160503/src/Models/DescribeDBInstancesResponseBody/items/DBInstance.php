@@ -86,7 +86,7 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The state of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/86944.html).
+     * @description The status of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/86944.html).
      *
      * @example Running
      *
@@ -104,7 +104,7 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the instance.
      *
      * @example 6.0
      *
@@ -115,7 +115,7 @@ class DBInstance extends Model
     /**
      * @description The expiration time of the instance. The time is displayed in UTC.
      *
-     * > The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
+     * >  The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -154,7 +154,7 @@ class DBInstance extends Model
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
      *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
-     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked due to exhausted storage.
+     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is full.
      *
      * @example Unlock
      *
@@ -171,7 +171,7 @@ class DBInstance extends Model
      *   **3**: The instance is automatically locked due to instance restoration.
      *   **4**: The instance is automatically locked due to exhausted storage.
      *
-     * > If the instance is in reserved storage mode and unlocked, null is returned.
+     * >  If the instance is in reserved storage mode and is not locked, null is returned.
      * @example 0
      *
      * @var string
@@ -200,6 +200,8 @@ class DBInstance extends Model
     public $payType;
 
     /**
+     * @example standard
+     *
      * @var string
      */
     public $prodType;
@@ -237,7 +239,7 @@ class DBInstance extends Model
      *   **Manual**: manual scheduling.
      *   **Auto**: automatic scheduling.
      *
-     * > This parameter is returned only for instances in Serverless mode.
+     * >  This parameter is returned only for instances in Serverless mode.
      * @example Manual
      *
      * @var string
@@ -282,7 +284,7 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID.
+     * @description The VPC ID of the instance.
      *
      * @example vpc-bp19ame5m1r3oejns****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingDataServiceResponseBody extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the service was last modified.
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $modifyTime;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The description of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceDescription;
 
     /**
+     * @description The service ID.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The IP address of the service.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -51,6 +63,13 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceIp;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description The name of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -58,6 +77,13 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @var string
+     */
+    public $serviceOwnerId;
+
+    /**
+     * @description The port number of the service.
+     *
      * @example 5432
      *
      * @var int
@@ -65,6 +91,8 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $servicePort;
 
     /**
+     * @description The specifications of the service.
+     *
      * @example 2
      *
      * @var string
@@ -72,6 +100,13 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceSpec;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   Init
+     *   Running
+     *   Exception
+     *   Paused
+     *
      * @example Running
      *
      * @var string
@@ -84,7 +119,9 @@ class DescribeStreamingDataServiceResponseBody extends Model
         'serviceDescription' => 'ServiceDescription',
         'serviceId'          => 'ServiceId',
         'serviceIp'          => 'ServiceIp',
+        'serviceManaged'     => 'ServiceManaged',
         'serviceName'        => 'ServiceName',
+        'serviceOwnerId'     => 'ServiceOwnerId',
         'servicePort'        => 'ServicePort',
         'serviceSpec'        => 'ServiceSpec',
         'status'             => 'Status',
@@ -115,8 +152,14 @@ class DescribeStreamingDataServiceResponseBody extends Model
         if (null !== $this->serviceIp) {
             $res['ServiceIp'] = $this->serviceIp;
         }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceOwnerId) {
+            $res['ServiceOwnerId'] = $this->serviceOwnerId;
         }
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
@@ -157,8 +200,14 @@ class DescribeStreamingDataServiceResponseBody extends Model
         if (isset($map['ServiceIp'])) {
             $model->serviceIp = $map['ServiceIp'];
         }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceOwnerId'])) {
+            $model->serviceOwnerId = $map['ServiceOwnerId'];
         }
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];

@@ -72,6 +72,12 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   init
+     *   running
+     *   exception
+     *
      * @example running
      *
      * @var string

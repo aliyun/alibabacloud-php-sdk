@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeStreamingJobRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The job ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,6 +29,8 @@ class DescribeStreamingJobRequest extends Model
     public $jobId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class documentList extends Model
 {
     /**
+     * @description The name of the document.
+     *
      * @example music.txt
      *
      * @var string
@@ -16,6 +18,8 @@ class documentList extends Model
     public $fileName;
 
     /**
+     * @description The source of the document.
+     *
      * @example http://oss.xxx/music.txt
      *
      * @var string

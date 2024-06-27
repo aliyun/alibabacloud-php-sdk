@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class HandleActiveSQLRecordRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -18,6 +19,12 @@ class HandleActiveSQLRecordRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The type of the operation on the process ID. Valid values:
+     *
+     *   **0**: cancel.
+     *   **1**: terminate.
+     *   **2**: forcefully terminate.
+     *
      * @example 0
      *
      * @var int
@@ -25,8 +32,9 @@ class HandleActiveSQLRecordRequest extends Model
     public $operateType;
 
     /**
-     * @description This parameter is required.
+     * @description The process IDs. A process ID is a unique identifier of a query.
      *
+     * This parameter is required.
      * @example "3003925,3003928"
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveSQLRecordsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -67,6 +68,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $startTime;
 
     /**
+     * @description The name of the database account.
+     *
      * @example testuser
      *
      * @var string

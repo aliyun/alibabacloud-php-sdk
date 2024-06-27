@@ -19,7 +19,7 @@ class InitVectorDatabaseRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the database account that has the rds_superuser permission.
+     * @description The name of the manager account that has the rds_superuser permission.
      *
      * This parameter is required.
      * @example testaccount
@@ -44,7 +44,7 @@ class InitVectorDatabaseRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

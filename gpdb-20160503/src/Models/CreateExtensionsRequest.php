@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateExtensionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example demo1
      *
      * @var string
@@ -27,8 +29,9 @@ class CreateExtensionsRequest extends Model
     public $DBNames;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the extension that you want to install. Separate multiple extension names with commas (,).
      *
+     * This parameter is required.
      * @example citext, dblink
      *
      * @var string
@@ -36,6 +39,9 @@ class CreateExtensionsRequest extends Model
     public $extensions;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

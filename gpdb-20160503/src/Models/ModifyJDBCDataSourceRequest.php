@@ -41,6 +41,8 @@ class ModifyJDBCDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The JDBC connection string.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -48,6 +50,8 @@ class ModifyJDBCDataSourceRequest extends Model
     public $JDBCConnectionString;
 
     /**
+     * @description The password of the database account.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -55,6 +59,8 @@ class ModifyJDBCDataSourceRequest extends Model
     public $JDBCPassword;
 
     /**
+     * @description The name of the database account.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -62,6 +68,10 @@ class ModifyJDBCDataSourceRequest extends Model
     public $JDBCUserName;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceItems extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class serviceItems extends Model
     public $createTime;
 
     /**
+     * @description The time when the service was last modified.
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class serviceItems extends Model
     public $modifyTime;
 
     /**
+     * @description The description of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -30,6 +36,8 @@ class serviceItems extends Model
     public $serviceDescription;
 
     /**
+     * @description The service ID.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class serviceItems extends Model
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -44,6 +54,8 @@ class serviceItems extends Model
     public $serviceName;
 
     /**
+     * @description The specifications of the service. Unit: compute units (CUs).
+     *
      * @example 2
      *
      * @var string
@@ -51,6 +63,10 @@ class serviceItems extends Model
     public $serviceSpec;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   pxf
+     *
      * @example pxf
      *
      * @var string
@@ -58,6 +74,13 @@ class serviceItems extends Model
     public $serviceType;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   Init
+     *   Running
+     *   Exception
+     *   Paused
+     *
      * @example Running
      *
      * @var string

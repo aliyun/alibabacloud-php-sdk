@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingDataSourcesResponseBody extends Model
 {
     /**
+     * @description The queried data sources.
+     *
      * @var dataSourceItems[]
      */
     public $dataSourceItems;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListStreamingDataSourcesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -29,6 +35,8 @@ class ListStreamingDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

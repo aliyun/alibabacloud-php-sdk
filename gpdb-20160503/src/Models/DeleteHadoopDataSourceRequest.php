@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHadoopDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteHadoopDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
@@ -27,6 +29,8 @@ class DeleteHadoopDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

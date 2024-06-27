@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteExtensionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteExtensionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example demo1
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteExtensionRequest extends Model
     public $DBNames;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the extension.
      *
+     * This parameter is required.
      * @example citext
      *
      * @var string
@@ -36,6 +39,8 @@ class DeleteExtensionRequest extends Model
     public $extension;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

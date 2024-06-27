@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHadoopDataSourceResponseBody extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the service. The description can be up to 256 characters in length.
+     *
      * @example pxf for hdfs data source
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The service directory in which Hadoop-related configuration files are stored.
+     *
      * @example HadoopDir
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceDir;
 
     /**
+     * @description The data source ID.
+     *
      * @example 123
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @description The name of the service.
+     *
      * @example hdfs_pxf
      *
      * @var string
@@ -44,6 +54,12 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceName;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   init
+     *   running
+     *   exception
+     *
      * @example Running
      *
      * @var string
@@ -51,11 +67,15 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceStatus;
 
     /**
+     * @example hive
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @description The E-MapReduce (EMR) Hadoop cluster ID.
+     *
      * @example c-1234567
      *
      * @var string
@@ -63,6 +83,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $emrInstanceId;
 
     /**
+     * @description The content of the Hadoop hdfs-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -70,6 +92,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $HDFSConf;
 
     /**
+     * @description The content of the Hadoop core-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -77,6 +101,11 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hadoopCoreConf;
 
     /**
+     * @description The type of the external service. Valid values:
+     *
+     *   HDFS
+     *   HIVE
+     *
      * @example HDFS
      *
      * @var string
@@ -84,6 +113,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hadoopCreateType;
 
     /**
+     * @description *   The address and hostname of the Hadoop cluster (data source) in the /etc/hosts directory.
+     *
      * @example 127.0.0.1 localhost
      *
      * @var string
@@ -91,6 +122,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hadoopHostsAddress;
 
     /**
+     * @description The content of the Hadoop hive-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -98,6 +131,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hiveConf;
 
     /**
+     * @description The content of the Hadoop MapReduceConf file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -105,6 +140,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $mapReduceConf;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -112,6 +149,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the service status. For example, if the service is in the exception state, the cause of the exception is displayed. If the service is in the running state, this parameter is left empty.
+     *
      * @example ""
      *
      * @var string
@@ -119,6 +158,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $statusMessage;
 
     /**
+     * @description The content of the Hadoop yarn-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string

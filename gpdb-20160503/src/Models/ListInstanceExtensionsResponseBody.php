@@ -15,6 +15,8 @@ class ListInstanceExtensionsResponseBody extends Model
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +24,8 @@ class ListInstanceExtensionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +33,8 @@ class ListInstanceExtensionsResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *
      * @var string
@@ -36,6 +42,8 @@ class ListInstanceExtensionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

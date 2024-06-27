@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckJDBCSourceNetConnectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class CheckJDBCSourceNetConnectionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The JDBC connection string.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string
@@ -27,6 +29,8 @@ class CheckJDBCSourceNetConnectionRequest extends Model
     public $jdbcConnectionString;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

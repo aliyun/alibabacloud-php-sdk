@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMasterSpecResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,9 @@ class ModifyMasterSpecResponseBody extends Model
     public $dbInstanceId;
 
     /**
+     * @description The returned message.
+     *
+     * This parameter is returned only if the request fails.
      * @example ******
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyMasterSpecResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -30,6 +37,11 @@ class ModifyMasterSpecResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceExtensionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ListInstanceExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the extension.
+     *
      * @example citext
      *
      * @var string
@@ -25,6 +28,12 @@ class ListInstanceExtensionsRequest extends Model
     public $extension;
 
     /**
+     * @description The installation status of the extension. Valid values:
+     *
+     *   installed
+     *   installing
+     *   uninstalled
+     *
      * @example installed
      *
      * @var string
@@ -32,6 +41,8 @@ class ListInstanceExtensionsRequest extends Model
     public $installStatus;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +50,13 @@ class ListInstanceExtensionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
      * @example 30
      *
      * @var int
@@ -46,6 +64,8 @@ class ListInstanceExtensionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

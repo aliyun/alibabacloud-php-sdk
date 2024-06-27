@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListExternalDataSourcesResponseBody extends Model
 {
     /**
+     * @description The Hadoop external table services.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListExternalDataSourcesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The request ID.
+     *
      * @example BBE00C04-A3E8-4114-881D-0480A72CB92E
      *
      * @var string
@@ -29,6 +35,8 @@ class ListExternalDataSourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

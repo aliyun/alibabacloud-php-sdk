@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class GetUploadDocumentJobResponseBody extends Model
 {
     /**
+     * @description The chunking result.
+     *
      * @var chunkResult
      */
     public $chunkResult;
 
     /**
+     * @description The information about the document upload job.
+     *
      * @var job
      */
     public $job;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetUploadDocumentJobResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -36,6 +44,11 @@ class GetUploadDocumentJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -43,6 +56,8 @@ class GetUploadDocumentJobResponseBody extends Model
     public $status;
 
     /**
+     * @description The number of tokens that are used for document understanding or embedding.
+     *
      * @var usage
      */
     public $usage;

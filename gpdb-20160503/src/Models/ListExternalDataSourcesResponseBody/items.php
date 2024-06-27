@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $createTime;
 
     /**
+     * @description The description of the data source.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The service directory in which Hadoop-related configuration files are stored.
+     *
      * @example HadoopDir
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $dataSourceDir;
 
     /**
+     * @description The service ID.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +45,8 @@ class items extends Model
     public $dataSourceId;
 
     /**
+     * @description The name of the service.
+     *
      * @example hdfs_pxf
      *
      * @var string
@@ -44,6 +54,12 @@ class items extends Model
     public $dataSourceName;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   init
+     *   running
+     *   exception
+     *
      * @example Running
      *
      * @var string
@@ -51,6 +67,8 @@ class items extends Model
     public $dataSourceStatus;
 
     /**
+     * @description The type of the data source.
+     *
      * @example HDFS
      *
      * @var string
@@ -58,11 +76,15 @@ class items extends Model
     public $dataSourceType;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $externalDataServiceId;
 
     /**
+     * @description The time when the service was last modified.
+     *
      * @example 2019-10-08T16:00:00Z
      *
      * @var string
@@ -70,6 +92,8 @@ class items extends Model
     public $modifyTime;
 
     /**
+     * @description The information about the service status. For example, if the service is in the exception state, the cause of the exception is displayed. If the service is in the running state, this parameter is left empty.
+     *
      * @example ""
      *
      * @var string

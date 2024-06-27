@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyStreamingJobRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test-account
      *
      * @var string
@@ -16,6 +18,13 @@ class ModifyStreamingJobRequest extends Model
     public $account;
 
     /**
+     * @description The delivery guarantee setting.
+     *
+     * Valid values:
+     *
+     *   ATLEAST
+     *   EXACTLY
+     *
      * @example ATLEAST / EXACTLY
      *
      * @var string
@@ -23,8 +32,9 @@ class ModifyStreamingJobRequest extends Model
     public $consistency;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example ModifyStreamingJob
      *
      * @var string
@@ -32,11 +42,15 @@ class ModifyStreamingJobRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The destination fields.
+     *
      * @var string[]
      */
     public $destColumns;
 
     /**
+     * @description The name of the destination database.
+     *
      * @example dest-db
      *
      * @var string
@@ -44,11 +58,15 @@ class ModifyStreamingJobRequest extends Model
     public $destDatabase;
 
     /**
+     * @example dest-schema
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description The name of the destination table.
+     *
      * @example dest-table
      *
      * @var string
@@ -56,6 +74,8 @@ class ModifyStreamingJobRequest extends Model
     public $destTable;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $errorLimitCount;
@@ -75,11 +95,17 @@ class ModifyStreamingJobRequest extends Model
     public $groupName;
 
     /**
+     * @description The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+     *
+     * @example DATABASE: adbpgss_test
+     * group.id: testgroup
      * @var string
      */
     public $jobConfig;
 
     /**
+     * @description The description of the job.
+     *
      * @example test-job
      *
      * @var string
@@ -87,8 +113,9 @@ class ModifyStreamingJobRequest extends Model
     public $jobDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The job ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -101,6 +128,8 @@ class ModifyStreamingJobRequest extends Model
     public $matchColumns;
 
     /**
+     * @description The password of the database account.
+     *
      * @example pwd123
      *
      * @var string
@@ -108,16 +137,26 @@ class ModifyStreamingJobRequest extends Model
     public $password;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The source fields.
+     *
      * @var string[]
      */
     public $srcColumns;
 
     /**
+     * @description Specifies whether to test the real-time job. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -130,6 +169,16 @@ class ModifyStreamingJobRequest extends Model
     public $updateColumns;
 
     /**
+     * @description The write mode.
+     *
+     * Valid values:
+     *
+     *   insert
+     *   update
+     *   merge
+     *
+     * @example INSERT/UPDATE/MERGE
+     *
      * @var string
      */
     public $writeMode;

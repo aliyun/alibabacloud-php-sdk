@@ -27,6 +27,8 @@ class DescribeStreamingDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

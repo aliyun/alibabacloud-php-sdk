@@ -16,6 +16,10 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the service. The description can be up to 256 characters in length.
+     *
+     * @example mysql data source config
+     *
      * @var string
      */
     public $dataSourceDescription;
@@ -35,11 +39,21 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceName;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   Init
+     *   Running
+     *   Exception
+     *
+     * @example Running
+     *
      * @var string
      */
     public $dataSourceStatus;
 
     /**
+     * @description The type of the data source.
+     *
      * @example MySQL
      *
      * @var string
@@ -47,6 +61,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceType;
 
     /**
+     * @description The JDBC connection string.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -54,6 +70,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $JDBCConnectionString;
 
     /**
+     * @description The password of the database account.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -61,6 +79,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $JDBCPassword;
 
     /**
+     * @description The name of the database account.
+     *
      * @example xxxxxx
      *
      * @var string

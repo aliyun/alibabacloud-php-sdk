@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpsertCollectionDataAsyncRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -18,8 +19,9 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,8 +29,17 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The Internet-accessible vector data file URL.
      *
+     * >
+     *
+     *   The file content must be in the JSONL format. Each line consists of a list of JSON data, which specifies a set of vector data.
+     *
+     *   Data format of each line: `{String Id; Map<String, Object> Metadata; List<Double> Vector}`. Example: `{"Id":"myid", "Metadata": {"my_meta_key": "my_meta_value"}, "Vector": [1.234, -0.123]}`.
+     *
+     *   We recommend that you SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
+     *
+     * This parameter is required.
      * @example https://xx/vectors.jsonl
      *
      * @var string
@@ -36,6 +47,9 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $fileUrl;
 
     /**
+     * @description The name of the namespace. Default value: public.
+     *
+     * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -43,8 +57,9 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -57,8 +72,9 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

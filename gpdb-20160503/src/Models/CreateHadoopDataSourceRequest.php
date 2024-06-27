@@ -46,6 +46,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $emrInstanceId;
 
     /**
+     * @description The string that specifies the content of the Hadoop hdfs-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -53,6 +55,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $HDFSConf;
 
     /**
+     * @description The string that specifies the content of the Hadoop core-site.xml file.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -67,6 +71,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $hadoopCreateType;
 
     /**
+     * @description The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
+     *
      * @example 127.0.0.1 localhost
      *
      * @var string
@@ -74,6 +80,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $hadoopHostsAddress;
 
     /**
+     * @description The string that specifies the content of the Hadoop hive-site.xml file. This parameter must be specified when DataSourceType is set to Hive.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -88,11 +96,18 @@ class CreateHadoopDataSourceRequest extends Model
     public $mapReduceConf;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The string that specifies the content of the Hadoop yarn-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     *
      * @example xxxxxx
      *
      * @var string

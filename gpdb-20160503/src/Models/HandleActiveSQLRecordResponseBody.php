@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class HandleActiveSQLRecordResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -17,6 +19,8 @@ class HandleActiveSQLRecordResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -24,11 +28,18 @@ class HandleActiveSQLRecordResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The processing result of the active query.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string

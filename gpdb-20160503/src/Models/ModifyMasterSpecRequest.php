@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMasterSpecRequest extends Model
 {
     /**
+     * @description The description of the instance.
+     *
      * @example test
      *
      * @var string
@@ -16,8 +18,9 @@ class ModifyMasterSpecRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -25,6 +28,15 @@ class ModifyMasterSpecRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The specifications of coordinator node resources. Valid values:
+     *
+     *   2 CU
+     *   4 CU
+     *   8 CU
+     *   16 CU
+     *   32 CU
+     *
+     * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
      * @example 8 CU
      *
      * @var int
@@ -32,6 +44,8 @@ class ModifyMasterSpecRequest extends Model
     public $masterCU;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

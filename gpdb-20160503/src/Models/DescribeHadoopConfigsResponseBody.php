@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeHadoopConfigsResponseBody extends Model
 {
     /**
+     * @description The name of the configuration file. Valid values:
+     *
+     *   hdfs-site
+     *   core-site
+     *   yarn-site
+     *   mapred-site
+     *   hive-site
+     *
      * @example hdfs-site
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeHadoopConfigsResponseBody extends Model
     public $configValue;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string

@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpsertChunksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the document collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -35,6 +36,9 @@ class UpsertChunksRequest extends Model
     public $fileName;
 
     /**
+     * @description The name of the namespace. Default value: public.
+     *
+     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -42,8 +46,9 @@ class UpsertChunksRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string

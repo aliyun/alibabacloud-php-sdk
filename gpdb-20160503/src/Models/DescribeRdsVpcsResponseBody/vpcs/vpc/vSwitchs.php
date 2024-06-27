@@ -66,7 +66,7 @@ class vSwitchs extends Model
     public $status;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp*******************
      *

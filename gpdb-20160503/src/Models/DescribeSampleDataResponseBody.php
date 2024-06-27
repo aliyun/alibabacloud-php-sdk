@@ -48,6 +48,14 @@ class DescribeSampleDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The loading status of the sample dataset. Valid values:
+     *
+     *   **loaded**
+     *   **loading**
+     *   **unload**
+     *
+     * @example loaded
+     *
      * @var string
      */
     public $sampleDataStatus;

@@ -16,6 +16,10 @@ class CreateStreamingDataServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The real-time data service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceId;

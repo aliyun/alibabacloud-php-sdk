@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceItems extends Model
 {
     /**
+     * @description The time when the data source was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class dataSourceItems extends Model
     public $createTime;
 
     /**
+     * @description The configurations of the data source.
+     *
      * @example {"brokers":"broker0:9091,broker1:9091","topic":"topic"}
      *
      * @var string
@@ -23,6 +27,8 @@ class dataSourceItems extends Model
     public $dataSourceConfig;
 
     /**
+     * @description The description of the data source.
+     *
      * @example test-kafka
      *
      * @var string
@@ -30,6 +36,8 @@ class dataSourceItems extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The data source ID.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class dataSourceItems extends Model
     public $dataSourceId;
 
     /**
+     * @description The name of the data source.
+     *
      * @example test-kafka
      *
      * @var string
@@ -44,6 +54,10 @@ class dataSourceItems extends Model
     public $dataSourceName;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   kafka
+     *
      * @example kafka
      *
      * @var string
@@ -51,6 +65,8 @@ class dataSourceItems extends Model
     public $dataSourceType;
 
     /**
+     * @description The information about the service status. For example, if the service is in the exception state, the cause of the exception is displayed. If the service is in the running state, this parameter is left empty.
+     *
      * @example ""
      *
      * @var string
@@ -58,6 +74,8 @@ class dataSourceItems extends Model
     public $errorMessage;
 
     /**
+     * @description The time when the data source was last modified.
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -65,6 +83,8 @@ class dataSourceItems extends Model
     public $modifyTime;
 
     /**
+     * @description The service ID.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +92,12 @@ class dataSourceItems extends Model
     public $serviceId;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   init
+     *   running
+     *   exception
+     *
      * @example running
      *
      * @var string

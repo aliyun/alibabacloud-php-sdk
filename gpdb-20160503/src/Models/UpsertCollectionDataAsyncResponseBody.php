@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpsertCollectionDataAsyncResponseBody extends Model
 {
     /**
+     * @description The job ID. It can be used to query the job status or cancel the job.
+     *
      * @example 231460f8-75dc-405e-a669-0c5204887e91
      *
      * @var string
@@ -16,6 +18,8 @@ class UpsertCollectionDataAsyncResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class UpsertCollectionDataAsyncResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -30,6 +36,11 @@ class UpsertCollectionDataAsyncResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the operation. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

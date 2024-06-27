@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCollectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the collection that you want to create.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -27,6 +28,9 @@ class CreateCollectionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The number of vector dimensions.
+     *
+     * >  If you specify this parameter, an index is created. When you call the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) operation, make sure that the length of the Rows.Vector parameter is the same as the value of this parameter. If you do not specify this parameter, you can call the [CreateVectorIndex](https://help.aliyun.com/document_detail/2401499.html) operation to create an index.
      * @example 1024
      *
      * @var int
@@ -34,6 +38,16 @@ class CreateCollectionRequest extends Model
     public $dimension;
 
     /**
+     * @description Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+     *
+     * >
+     *
+     *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
+     *
+     *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $externalStorage;
@@ -46,6 +60,20 @@ class CreateCollectionRequest extends Model
     public $fullTextRetrievalFields;
 
     /**
+     * @description The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+     *
+     * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
+     *
+     *If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
+     *
+     *If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
+     *
+     *If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
+     *
+     *If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+     *
+     * @example 64
+     *
      * @var int
      */
     public $hnswM;
@@ -69,8 +97,13 @@ class CreateCollectionRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description This parameter is required.
+     * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
+     **
+     *
+     **Warning**Reserved fields such as id, vector, to_tsvector, and source cannot be used.
+     *
+     * This parameter is required.
      * @example {"title":"text","content":"text","response":"int"}
      *
      * @var string
@@ -78,11 +111,16 @@ class CreateCollectionRequest extends Model
     public $metadata;
 
     /**
+     * @example cosine
+     *
      * @var string
      */
     public $metrics;
 
     /**
+     * @description The name of the namespace.
+     *
+     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -102,13 +140,21 @@ class CreateCollectionRequest extends Model
     public $parser;
 
     /**
+     * @description Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+     *
+     *   0: no.
+     *   1 (default): yes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pqEnable;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

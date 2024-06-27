@@ -28,7 +28,7 @@ class DeleteCollectionDataRequest extends Model
     public $collectionData;
 
     /**
-     * @description The data filter to delete.
+     * @description The filter conditions for the data to be deleted.
      *
      * @example a < 10
      *

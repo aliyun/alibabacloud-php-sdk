@@ -9,8 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHadoopConfigsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the configuration file. Valid values:
      *
+     *   hdfs-site
+     *   core-site
+     *   yarn-site
+     *   mapred-site
+     *   hive-site
+     *
+     * This parameter is required.
      * @example hdfs-site
      *
      * @var string
@@ -18,8 +25,9 @@ class DescribeHadoopConfigsRequest extends Model
     public $configName;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -27,8 +35,9 @@ class DescribeHadoopConfigsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The E-MapReduce (EMR) Hadoop cluster ID.
      *
+     * This parameter is required.
      * @example c-xxx
      *
      * @var string
@@ -36,6 +45,8 @@ class DescribeHadoopConfigsRequest extends Model
     public $emrInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyStreamingDataServiceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,11 +19,15 @@ class ModifyStreamingDataServiceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The description of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -30,8 +35,9 @@ class ModifyStreamingDataServiceRequest extends Model
     public $serviceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -39,8 +45,14 @@ class ModifyStreamingDataServiceRequest extends Model
     public $serviceId;
 
     /**
-     * @description This parameter is required.
+     * @description The specifications of the service. Unit: capacity units (CUs). Valid values:
      *
+     *   2
+     *   4
+     *   8
+     *   16
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string

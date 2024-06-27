@@ -9,27 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CheckHadoopDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The Hadoop path that you want to check.
+     *
+     * This parameter is required.
+     * @example tmp
      *
      * @var string
      */
     public $checkDir;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     * @example gp-xxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
+     *
+     * This parameter is required.
+     * @example 123
      *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

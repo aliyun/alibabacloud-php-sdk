@@ -31,6 +31,8 @@ class DeleteVectorIndexRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * >  You can create an account on the **Account Management** page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+     *
      * This parameter is required.
      * @example testaccount
      *
@@ -49,8 +51,9 @@ class DeleteVectorIndexRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description The name of the namespace.
+     * @description The name of the namespace. Default value: public.
      *
+     * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobItems extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test-account
      *
      * @var string
@@ -16,11 +18,17 @@ class jobItems extends Model
     public $account;
 
     /**
+     * @description The delivery guarantee setting.
+     *
+     * @example ATLEAST / EXACTLY
+     *
      * @var string
      */
     public $consistency;
 
     /**
+     * @description The time when the job was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -28,31 +36,51 @@ class jobItems extends Model
     public $createTime;
 
     /**
+     * @description The data source ID.
+     *
+     * @example 58
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example test-kafka
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @description The mapped fields in the destination table.
+     *
      * @var string[]
      */
     public $destColumns;
 
     /**
+     * @description The name of the destination database.
+     *
+     * @example dest-db
+     *
      * @var string
      */
     public $destDatabase;
 
     /**
+     * @description The name of the destination namespace.
+     *
+     * @example dest-schema
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description The name of the destination table.
+     *
      * @example dest-table
      *
      * @var string
@@ -60,21 +88,38 @@ class jobItems extends Model
     public $destTable;
 
     /**
+     * @description The error message returned.
+     *
+     * This parameter is returned only when the return value of **Status** is **false**.
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The fallback offset for data consumption.
+     *
+     *   This parameter indicates the starting offset from which data consumption resumes when a consumer does not request a consumption offset or requests a consumption offset that is beyond the range of the offset information recorded in the current Kafka cluster. Valid values: EARLIEST and LATEST.
+     *
+     * @example EARLIEST /  LATEST
+     *
      * @var string
      */
     public $fallbackOffset;
 
     /**
+     * @description The description of the job.
+     *
+     * @example test job
+     *
      * @var string
      */
     public $jobDescription;
 
     /**
+     * @description The job ID.
+     *
      * @example 1
      *
      * @var string
@@ -82,6 +127,8 @@ class jobItems extends Model
     public $jobId;
 
     /**
+     * @description The name of the job.
+     *
      * @example test-job
      *
      * @var string
@@ -89,11 +136,16 @@ class jobItems extends Model
     public $jobName;
 
     /**
+     * @description The update condition columns that are used to join the source data and the destination table. Typically, the columns are all the primary key columns of the destination table. If the values of all columns specified by this parameter in different rows are the same, the rows are considered duplicates.
+     *
      * @var string[]
      */
     public $matchColumns;
 
     /**
+     * @description The configuration mode. Valid values:
+     *
+     * 2.  professional: In professional mode, you can submit a YAML configuration file.
      * @example Basic / Professional
      *
      * @var string
@@ -101,6 +153,8 @@ class jobItems extends Model
     public $mode;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -108,6 +162,8 @@ class jobItems extends Model
     public $modifyTime;
 
     /**
+     * @description The password of the database account.
+     *
      * @example pwd123
      *
      * @var string
@@ -115,11 +171,20 @@ class jobItems extends Model
     public $password;
 
     /**
+     * @description The source fields.
+     *
      * @var string[]
      */
     public $srcColumns;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   Init
+     *   Running
+     *   Exception
+     *   Paused
+     *
      * @example Running
      *
      * @var string
@@ -127,11 +192,17 @@ class jobItems extends Model
     public $status;
 
     /**
+     * @description The columns to be updated if a row of data meets the update condition. Typically, the columns are all non-primary key columns of the destination table. When the columns specified by the MatchColumns parameter are used as conditions to join the source data and the destination table, data in columns of the UpdateColumns type is updated if data is matched.
+     *
      * @var string[]
      */
     public $updateColumns;
 
     /**
+     * @description The write mode.
+     *
+     * @example INSERT/UPDATE/MERGE
+     *
      * @var string
      */
     public $writeMode;

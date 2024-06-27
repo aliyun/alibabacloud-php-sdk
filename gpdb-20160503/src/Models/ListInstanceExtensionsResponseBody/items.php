@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The current version.
+     *
      * @example 1.0
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $currentVersion;
 
     /**
+     * @description The description of the extension.
+     *
      * @example citext usage
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $description;
 
     /**
+     * @description The extension ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $extensionId;
 
     /**
+     * @description The names of the databases in which the extension is installed.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $installedDatabases;
 
     /**
+     * @description Indicates whether an instance restart is required after you install the extension for the extension to take effect.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +54,8 @@ class items extends Model
     public $isInstallNeedRestart;
 
     /**
+     * @description The latest version.
+     *
      * @example 1.1
      *
      * @var string
@@ -51,6 +63,8 @@ class items extends Model
     public $latestVersion;
 
     /**
+     * @description The name of the extension.
+     *
      * @example citext
      *
      * @var string
@@ -58,6 +72,8 @@ class items extends Model
     public $name;
 
     /**
+     * @description The status of the extension.
+     *
      * @example installed
      *
      * @var string

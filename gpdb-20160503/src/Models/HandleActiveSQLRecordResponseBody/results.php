@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The process ID, which is a unique identifier of the query.
+     *
      * @example 3003925
      *
      * @var string
@@ -16,6 +18,11 @@ class results extends Model
     public $pid;
 
     /**
+     * @description Indicates whether the processing was successful. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
      * @example true
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class chunkResult extends Model
 {
     /**
+     * @description The URL of the file after chunking. The validity period of the URL is 2 hours. The file is in the JSONL format. Each line is in the `{"page_content":"*****", "metadata": {"**":"***","**":"***"}` format.
+     *
      * @example http://xxx/test.jsonl
      *
      * @var string
@@ -16,6 +18,8 @@ class chunkResult extends Model
     public $chunkFileUrl;
 
     /**
+     * @description The URL of the file that does not contain metadata after chunking. The validity period of the URL is 2 hours. The file is in the TXT format. Each line is a chunk. The file can be easily used for embedding.
+     *
      * @example http://xxx/test.txt
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableDBResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 53EA07B7-FC2A-521B-AB7C-27**********
      *
      * @var string

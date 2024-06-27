@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentCollectionsResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -17,11 +19,15 @@ class ListDocumentCollectionsResponseBody extends Model
     public $count;
 
     /**
+     * @description The queried document collections.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDocumentCollectionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -36,6 +44,11 @@ class ListDocumentCollectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

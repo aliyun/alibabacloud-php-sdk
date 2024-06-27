@@ -126,7 +126,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The storage capacity of each compute node. Unit: GB. Valid values: 50 to 6000, in 50 increments.
      *
-     * > This parameter is available only for instances in elastic storage mode.
+     * >  This parameter is available only for instances in elastic storage mode.
      * @example 100
      *
      * @var string

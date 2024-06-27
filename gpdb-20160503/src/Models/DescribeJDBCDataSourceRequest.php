@@ -18,8 +18,9 @@ class DescribeJDBCDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string

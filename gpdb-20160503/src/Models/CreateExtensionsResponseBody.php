@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateExtensionsResponseBody extends Model
 {
     /**
+     * @description The name of the extension that you want to install. Multiple extension names are separated with commas (,).
+     *
      * @example citext, dblink
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateExtensionsResponseBody extends Model
     public $extensions;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string

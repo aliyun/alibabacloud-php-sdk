@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveSQLRecordsResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeActiveSQLRecordsResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The queried SQL records.
+     *
      * @var queries[]
      */
     public $queries;

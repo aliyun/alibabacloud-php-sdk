@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingDataSourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,6 +19,8 @@ class ListStreamingDataSourcesRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,13 @@ class ListStreamingDataSourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
      * @example 30
      *
      * @var int
@@ -32,6 +42,9 @@ class ListStreamingDataSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string

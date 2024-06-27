@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingJobsResponseBody extends Model
 {
     /**
+     * @description The queried jobs.
+     *
      * @var jobItems[]
      */
     public $jobItems;

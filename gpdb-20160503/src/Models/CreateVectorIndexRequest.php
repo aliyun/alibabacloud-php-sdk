@@ -36,11 +36,35 @@ class CreateVectorIndexRequest extends Model
     public $dimension;
 
     /**
+     * @description Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+     *
+     * >
+     *
+     *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
+     *
+     *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $externalStorage;
 
     /**
+     * @description The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+     *
+     * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
+     *
+     *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
+     *
+     *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
+     *
+     *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
+     *
+     *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+     *
+     * @example 64
+     *
      * @var int
      */
     public $hnswM;
@@ -85,6 +109,13 @@ class CreateVectorIndexRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+     *
+     *   0: no.
+     *   1 (default): yes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pqEnable;

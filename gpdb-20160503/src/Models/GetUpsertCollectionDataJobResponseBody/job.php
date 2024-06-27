@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
+     * @description Indicates whether the operation is complete.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class job extends Model
     public $completed;
 
     /**
+     * @description The time when the job was created.
+     *
      * @example 2024-01-08 16:52:04.864664
      *
      * @var string
@@ -23,6 +27,8 @@ class job extends Model
     public $createTime;
 
     /**
+     * @description The error message.
+     *
      * @example Failed to connect database.
      *
      * @var string
@@ -30,7 +36,7 @@ class job extends Model
     public $error;
 
     /**
-     * @description Job ID。
+     * @description The job ID.
      *
      * @example 231460f8-75dc-405e-a669-0c5204887e91
      *
@@ -39,6 +45,8 @@ class job extends Model
     public $id;
 
     /**
+     * @description The progress of the vector data upload job. The value of this parameter indicates the number of data entries that have been uploaded.
+     *
      * @example 1600
      *
      * @var int
@@ -46,6 +54,22 @@ class job extends Model
     public $progress;
 
     /**
+     * @description The status of the job.
+     *
+     * >  Valid values:
+     *
+     *   Success
+     *
+     *   Failed (See the Error parameter for failure reasons.)
+     *
+     *   Cancelling
+     *
+     *   Cancelled
+     *
+     *   Start
+     *
+     *   Running
+     *
      * @example Success
      *
      * @var string
@@ -53,6 +77,8 @@ class job extends Model
     public $status;
 
     /**
+     * @description The time when the job was updated.
+     *
      * @example 2024-01-08 16:53:04.864664
      *
      * @var string

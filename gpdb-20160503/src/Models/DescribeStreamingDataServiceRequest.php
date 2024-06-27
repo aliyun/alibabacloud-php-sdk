@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingDataServiceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,13 +19,16 @@ class DescribeStreamingDataServiceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

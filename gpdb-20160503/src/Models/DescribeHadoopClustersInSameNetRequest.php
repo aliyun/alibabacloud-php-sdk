@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHadoopClustersInSameNetRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeHadoopClustersInSameNetRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string

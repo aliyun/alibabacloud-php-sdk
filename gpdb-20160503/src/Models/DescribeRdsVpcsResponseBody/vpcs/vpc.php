@@ -67,7 +67,7 @@ class vpc extends Model
     public $isDefault;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -85,14 +85,14 @@ class vpc extends Model
     public $status;
 
     /**
-     * @description Details of the vSwitches.
+     * @description The queried vSwitches.
      *
      * @var vSwitchs[]
      */
     public $vSwitchs;
 
     /**
-     * @description The ID of VPC.
+     * @description The VPC ID.
      *
      * @example vpc-bp*******************
      *

@@ -18,6 +18,11 @@ class CreateStreamingDataServiceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

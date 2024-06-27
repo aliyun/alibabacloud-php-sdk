@@ -116,13 +116,17 @@ class DescribeDBInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tag value.
+     * @description The tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The VPC ID. You can use this parameter to filter instances that reside in the specified VPC.
+     *
+     * @example vpc-t4nqyp3tc5mx7vy6****
+     *
      * @var string
      */
     public $vpcId;

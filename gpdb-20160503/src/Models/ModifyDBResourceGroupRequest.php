@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,8 +25,9 @@ class ModifyDBResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the resource group.
      *
+     * This parameter is required.
      * @var resourceGroupItems[]
      */
     public $resourceGroupItems;

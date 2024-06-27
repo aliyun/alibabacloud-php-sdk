@@ -243,7 +243,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the instance.
      *
      * @example 6.0
      *
@@ -303,7 +303,7 @@ class DBInstanceAttribute extends Model
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
-     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
+     *   **LockByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is full.
      *
      * @example Unlock
      *
@@ -321,7 +321,7 @@ class DBInstanceAttribute extends Model
     public $lockReason;
 
     /**
-     * @description The end time of the maintenance window of the instance.
+     * @description The end time of the maintenance window.
      *
      * @example 22:00Z
      *
@@ -330,7 +330,7 @@ class DBInstanceAttribute extends Model
     public $maintainEndTime;
 
     /**
-     * @description The start time of the maintenance window of the instance.
+     * @description The start time of the maintenance window.
      *
      * @example 18:00Z
      *
@@ -596,7 +596,7 @@ class DBInstanceAttribute extends Model
     public $supportRestore;
 
     /**
-     * @description The tags of the instance. Each tag is a key-value pair.
+     * @description The tags that are added to the instance.
      *
      * @var tags
      */

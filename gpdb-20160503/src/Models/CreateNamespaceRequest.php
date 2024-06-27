@@ -39,8 +39,9 @@ class CreateNamespaceRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description The name of the namespace.
+     * @description The name of the namespace. After the namespace is created, the system automatically creates an account that has the same name.
      *
+     * >  The name must comply with the naming conventions of PostgreSQL objects.
      * @example mynamespace
      *
      * @var string
