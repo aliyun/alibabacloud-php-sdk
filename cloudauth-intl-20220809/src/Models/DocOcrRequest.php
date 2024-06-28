@@ -35,6 +35,11 @@ class DocOcrRequest extends Model
     public $idOcrPictureUrl;
 
     /**
+     * @var string
+     */
+    public $idThreshold;
+
+    /**
      * @example dso9322***dsjsd22
      *
      * @var string
@@ -71,6 +76,7 @@ class DocOcrRequest extends Model
         'idFaceQuality'      => 'IdFaceQuality',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
         'idOcrPictureUrl'    => 'IdOcrPictureUrl',
+        'idThreshold'        => 'IdThreshold',
         'merchantBizId'      => 'MerchantBizId',
         'merchantUserId'     => 'MerchantUserId',
         'ocr'                => 'Ocr',
@@ -96,6 +102,9 @@ class DocOcrRequest extends Model
         }
         if (null !== $this->idOcrPictureUrl) {
             $res['IdOcrPictureUrl'] = $this->idOcrPictureUrl;
+        }
+        if (null !== $this->idThreshold) {
+            $res['IdThreshold'] = $this->idThreshold;
         }
         if (null !== $this->merchantBizId) {
             $res['MerchantBizId'] = $this->merchantBizId;
@@ -135,6 +144,9 @@ class DocOcrRequest extends Model
         }
         if (isset($map['IdOcrPictureUrl'])) {
             $model->idOcrPictureUrl = $map['IdOcrPictureUrl'];
+        }
+        if (isset($map['IdThreshold'])) {
+            $model->idThreshold = $map['IdThreshold'];
         }
         if (isset($map['MerchantBizId'])) {
             $model->merchantBizId = $map['MerchantBizId'];

@@ -66,6 +66,11 @@ class EkycVerifyRequest extends Model
     public $idOcrPictureUrl;
 
     /**
+     * @var string
+     */
+    public $idThreshold;
+
+    /**
      * @example e0c34a77f5ac40a5aa5e6ed20c353888
      *
      * @var string
@@ -95,6 +100,7 @@ class EkycVerifyRequest extends Model
         'facePictureUrl'     => 'FacePictureUrl',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
         'idOcrPictureUrl'    => 'IdOcrPictureUrl',
+        'idThreshold'        => 'IdThreshold',
         'merchantBizId'      => 'MerchantBizId',
         'merchantUserId'     => 'MerchantUserId',
         'productCode'        => 'ProductCode',
@@ -133,6 +139,9 @@ class EkycVerifyRequest extends Model
         }
         if (null !== $this->idOcrPictureUrl) {
             $res['IdOcrPictureUrl'] = $this->idOcrPictureUrl;
+        }
+        if (null !== $this->idThreshold) {
+            $res['IdThreshold'] = $this->idThreshold;
         }
         if (null !== $this->merchantBizId) {
             $res['MerchantBizId'] = $this->merchantBizId;
@@ -181,6 +190,9 @@ class EkycVerifyRequest extends Model
         }
         if (isset($map['IdOcrPictureUrl'])) {
             $model->idOcrPictureUrl = $map['IdOcrPictureUrl'];
+        }
+        if (isset($map['IdThreshold'])) {
+            $model->idThreshold = $map['IdThreshold'];
         }
         if (isset($map['MerchantBizId'])) {
             $model->merchantBizId = $map['MerchantBizId'];

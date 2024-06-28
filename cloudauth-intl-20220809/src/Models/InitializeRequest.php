@@ -45,6 +45,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $docVideo;
+
+    /**
+     * @var string
+     */
     public $experienceCode;
 
     /**
@@ -76,6 +81,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $idThreshold;
+
+    /**
+     * @var string
+     */
     public $languageConfig;
 
     /**
@@ -98,6 +108,11 @@ class InitializeRequest extends Model
      * @var string
      */
     public $metaInfo;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @description OCR。
@@ -150,15 +165,18 @@ class InitializeRequest extends Model
         'crop'              => 'Crop',
         'docScanMode'       => 'DocScanMode',
         'docType'           => 'DocType',
+        'docVideo'          => 'DocVideo',
         'experienceCode'    => 'ExperienceCode',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
         'idFaceQuality'     => 'IdFaceQuality',
         'idSpoof'           => 'IdSpoof',
+        'idThreshold'       => 'IdThreshold',
         'languageConfig'    => 'LanguageConfig',
         'merchantBizId'     => 'MerchantBizId',
         'merchantUserId'    => 'MerchantUserId',
         'metaInfo'          => 'MetaInfo',
+        'model'             => 'Model',
         'ocr'               => 'Ocr',
         'productCode'       => 'ProductCode',
         'productFlow'       => 'ProductFlow',
@@ -193,6 +211,9 @@ class InitializeRequest extends Model
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+        if (null !== $this->docVideo) {
+            $res['DocVideo'] = $this->docVideo;
+        }
         if (null !== $this->experienceCode) {
             $res['ExperienceCode'] = $this->experienceCode;
         }
@@ -208,6 +229,9 @@ class InitializeRequest extends Model
         if (null !== $this->idSpoof) {
             $res['IdSpoof'] = $this->idSpoof;
         }
+        if (null !== $this->idThreshold) {
+            $res['IdThreshold'] = $this->idThreshold;
+        }
         if (null !== $this->languageConfig) {
             $res['LanguageConfig'] = $this->languageConfig;
         }
@@ -219,6 +243,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->metaInfo) {
             $res['MetaInfo'] = $this->metaInfo;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
@@ -271,6 +298,9 @@ class InitializeRequest extends Model
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+        if (isset($map['DocVideo'])) {
+            $model->docVideo = $map['DocVideo'];
+        }
         if (isset($map['ExperienceCode'])) {
             $model->experienceCode = $map['ExperienceCode'];
         }
@@ -286,6 +316,9 @@ class InitializeRequest extends Model
         if (isset($map['IdSpoof'])) {
             $model->idSpoof = $map['IdSpoof'];
         }
+        if (isset($map['IdThreshold'])) {
+            $model->idThreshold = $map['IdThreshold'];
+        }
         if (isset($map['LanguageConfig'])) {
             $model->languageConfig = $map['LanguageConfig'];
         }
@@ -297,6 +330,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['MetaInfo'])) {
             $model->metaInfo = $map['MetaInfo'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];

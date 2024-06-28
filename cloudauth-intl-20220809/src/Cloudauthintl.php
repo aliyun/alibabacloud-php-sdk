@@ -742,6 +742,9 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->idOcrPictureUrl)) {
             $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
+        }
         if (!Utils::isUnset($request->merchantBizId)) {
             $query['MerchantBizId'] = $request->merchantBizId;
         }
@@ -826,6 +829,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->idOcrPictureUrl)) {
             $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
         }
         if (!Utils::isUnset($request->merchantBizId)) {
             $query['MerchantBizId'] = $request->merchantBizId;
@@ -1149,6 +1155,9 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
         }
+        if (!Utils::isUnset($request->docVideo)) {
+            $query['DocVideo'] = $request->docVideo;
+        }
         if (!Utils::isUnset($request->experienceCode)) {
             $query['ExperienceCode'] = $request->experienceCode;
         }
@@ -1161,6 +1170,9 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->idSpoof)) {
             $query['IdSpoof'] = $request->idSpoof;
         }
+        if (!Utils::isUnset($request->idThreshold)) {
+            $query['IdThreshold'] = $request->idThreshold;
+        }
         if (!Utils::isUnset($request->languageConfig)) {
             $query['LanguageConfig'] = $request->languageConfig;
         }
@@ -1172,6 +1184,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->metaInfo)) {
             $query['MetaInfo'] = $request->metaInfo;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
         }
         if (!Utils::isUnset($request->ocr)) {
             $query['Ocr'] = $request->ocr;
