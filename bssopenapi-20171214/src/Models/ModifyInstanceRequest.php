@@ -33,6 +33,7 @@ class ModifyInstanceRequest extends Model
      *   Upgrade: upgrades the configurations of the instance.
      *   Downgrade: downgrades the configurations of the instance.
      *
+     * This parameter is required.
      * @example Upgrade
      *
      * @var string
@@ -54,6 +55,7 @@ class ModifyInstanceRequest extends Model
     /**
      * @description The code of the service to which the instance belongs.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -75,6 +77,7 @@ class ModifyInstanceRequest extends Model
      *   Subscription: subscription
      *   PayAsYouGo: pay-as-you-go
      *
+     * This parameter is required.
      * @example Subscription
      *
      * @var string

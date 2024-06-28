@@ -11,7 +11,7 @@ class moduleList extends Model
     /**
      * @description The configuration of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
      *
-     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the configuration parameters of the pricing module.
+     * This parameter is required.
      * @example InstanceType:ecs.g5.xlarge,IoOptimized:IoOptimized,ImageOs:linux
      *
      * @var string
@@ -21,7 +21,7 @@ class moduleList extends Model
     /**
      * @description The code of the Nth pricing module.
      *
-     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the module code.
+     * This parameter is required.
      * @example InstanceType
      *
      * @var string
@@ -36,7 +36,7 @@ class moduleList extends Model
      *   Month: monthly price
      *   Year: annual price
      *
-     * >  You can call the [DescribePricingModule](~~96469~~) operation to obtain the configuration parameters of the pricing module.
+     * This parameter is required.
      * @example Hour
      *
      * @var string

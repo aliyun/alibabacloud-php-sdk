@@ -11,6 +11,7 @@ class SetRenewalRequest extends Model
     /**
      * @description The ID of the instance. You can enable auto-renewal for up to 100 subscription instances at a time. Separate multiple instance IDs with commas (,).
      *
+     * This parameter is required.
      * @example rm-askjdhaskfjh
      *
      * @var string
@@ -25,6 +26,7 @@ class SetRenewalRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -76,6 +78,7 @@ class SetRenewalRequest extends Model
      *   ManualRenewal: The instance is manually renewed.
      *   NotRenewal: The instance is not renewed.
      *
+     * This parameter is required.
      * @example AutoRenewal
      *
      * @var string

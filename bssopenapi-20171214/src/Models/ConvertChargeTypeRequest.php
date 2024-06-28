@@ -11,6 +11,7 @@ class ConvertChargeTypeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-kasjgfjshgf
      *
      * @var string
@@ -39,6 +40,7 @@ class ConvertChargeTypeRequest extends Model
     /**
      * @description The code of the service to which the instance belongs.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -60,7 +62,7 @@ class ConvertChargeTypeRequest extends Model
      *   Subscription: subscription
      *   PayAsYouGo: pay-as-you-go
      *
-     * >  After the call is successful, the billing method of the instance is switched.
+     * This parameter is required.
      * @example Subscription
      *
      * @var string

@@ -15,6 +15,7 @@ class AllocateCostUnitResourceRequest extends Model
      *   A value of 0 indicates that the resources to be transferred have not been allocated to a cost center.
      *   A value greater than 0 indicates the ID of an existing cost center.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -24,6 +25,7 @@ class AllocateCostUnitResourceRequest extends Model
     /**
      * @description The user ID of the owner of the source cost center.
      *
+     * This parameter is required.
      * @example 273394581313325532
      *
      * @var int
@@ -33,6 +35,7 @@ class AllocateCostUnitResourceRequest extends Model
     /**
      * @description The resource instances to be transferred.
      *
+     * This parameter is required.
      * @var resourceInstanceList[]
      */
     public $resourceInstanceList;
@@ -43,6 +46,7 @@ class AllocateCostUnitResourceRequest extends Model
      *   A value of -1 indicates that the allocated resources are changed to unallocated.
      *   A value greater than 0 indicates the ID of an existing cost center.
      *
+     * This parameter is required.
      * @example 186419
      *
      * @var int
@@ -52,6 +56,7 @@ class AllocateCostUnitResourceRequest extends Model
     /**
      * @description The user ID of the owner of the destination cost center.
      *
+     * This parameter is required.
      * @example 241021678450941490
      *
      * @var int

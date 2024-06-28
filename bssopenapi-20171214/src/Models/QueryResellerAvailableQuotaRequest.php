@@ -14,6 +14,8 @@ class QueryResellerAvailableQuotaRequest extends Model
     public $itemCodes;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ownerId;

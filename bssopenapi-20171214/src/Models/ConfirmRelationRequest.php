@@ -24,6 +24,7 @@ class ConfirmRelationRequest extends Model
      *   child_disagree: The member rejects the invitation.
      *   Canceled by the master account: The management account cancels the confirmation.
      *
+     * This parameter is required.
      * @example child_agree
      *
      * @var string
@@ -50,6 +51,7 @@ class ConfirmRelationRequest extends Model
      *   MANAGE_TARGET_INVOICE: allows the member to manage invoices.
      *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
      *
+     * This parameter is required.
      * @example SYNCHRONIZE_FINANCE_IDENTITY
      *
      * @var string[]
@@ -77,6 +79,7 @@ class ConfirmRelationRequest extends Model
     /**
      * @description The unique ID of the request.
      *
+     * This parameter is required.
      * @example request_id
      *
      * @var string

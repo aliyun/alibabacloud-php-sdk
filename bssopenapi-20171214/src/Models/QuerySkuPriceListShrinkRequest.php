@@ -11,6 +11,7 @@ class QuerySkuPriceListShrinkRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -34,6 +35,7 @@ class QuerySkuPriceListShrinkRequest extends Model
     /**
      * @description The number of entries to be returned on each page. Maximum value: 50.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -43,6 +45,7 @@ class QuerySkuPriceListShrinkRequest extends Model
     /**
      * @description The code of the pricing object.
      *
+     * This parameter is required.
      * @example instance_type
      *
      * @var string

@@ -12,6 +12,7 @@ class GetPayAsYouGoPriceRequest extends Model
     /**
      * @description The details of pricing modules.
      *
+     * This parameter is required.
      * @var moduleList[]
      */
     public $moduleList;
@@ -24,6 +25,7 @@ class GetPayAsYouGoPriceRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -51,6 +53,7 @@ class GetPayAsYouGoPriceRequest extends Model
     /**
      * @description The billing method. Set the value to PayAsYouGo.
      *
+     * This parameter is required.
      * @example PayAsYouGo
      *
      * @var string

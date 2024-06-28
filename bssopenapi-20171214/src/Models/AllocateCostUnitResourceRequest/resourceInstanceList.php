@@ -23,6 +23,7 @@ class resourceInstanceList extends Model
     /**
      * @description The commodity code of the resource instance.
      *
+     * This parameter is required.
      * @example oss
      *
      * @var string
@@ -32,6 +33,7 @@ class resourceInstanceList extends Model
     /**
      * @description The ID of the resource instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou;standard
      *
      * @var string
@@ -41,6 +43,7 @@ class resourceInstanceList extends Model
     /**
      * @description The user ID of the resource instance owner.
      *
+     * This parameter is required.
      * @example 273394581313325532
      *
      * @var int

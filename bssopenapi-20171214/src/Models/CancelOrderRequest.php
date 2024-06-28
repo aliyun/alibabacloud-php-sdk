@@ -11,6 +11,7 @@ class CancelOrderRequest extends Model
     /**
      * @description The ID of the order.
      *
+     * This parameter is required.
      * @example 73465432785
      *
      * @var string

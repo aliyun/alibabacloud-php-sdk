@@ -19,6 +19,7 @@ class QueryInstanceByTagRequest extends Model
     /**
      * @description The type of the resource. Specify the savings plan instance as the type of the resource.
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

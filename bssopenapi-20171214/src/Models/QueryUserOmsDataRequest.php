@@ -16,6 +16,7 @@ class QueryUserOmsDataRequest extends Model
      *   Day
      *   Month
      *
+     * This parameter is required.
      * @example Hour
      *
      * @var string
@@ -25,7 +26,7 @@ class QueryUserOmsDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * This parameter is required.
      * @example 2020-02-21T12:00:00Z
      *
      * @var string
@@ -58,7 +59,7 @@ class QueryUserOmsDataRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * This parameter is required.
      * @example 2020-02-20T12:00:00Z
      *
      * @var string
@@ -68,6 +69,7 @@ class QueryUserOmsDataRequest extends Model
     /**
      * @description The service whose usage data you want to query and the details of the usage data. The parameter value is usually set to the code of a service. Various usage models are provided for different services.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string

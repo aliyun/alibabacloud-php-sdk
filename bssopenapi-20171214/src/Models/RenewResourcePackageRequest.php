@@ -11,6 +11,7 @@ class RenewResourcePackageRequest extends Model
     /**
      * @description The renewal period of the resource plan.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -30,6 +31,7 @@ class RenewResourcePackageRequest extends Model
     /**
      * @description The ID of the resource plan.
      *
+     * This parameter is required.
      * @example lskd****sljhsdj
      *
      * @var string
@@ -47,7 +49,7 @@ class RenewResourcePackageRequest extends Model
      *   Month
      *   Year
      *
-     * Default value: Month.
+     * This parameter is required.
      * @example Month
      *
      * @var string

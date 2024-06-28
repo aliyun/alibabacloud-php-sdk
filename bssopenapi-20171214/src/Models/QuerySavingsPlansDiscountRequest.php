@@ -11,6 +11,7 @@ class QuerySavingsPlansDiscountRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -20,6 +21,7 @@ class QuerySavingsPlansDiscountRequest extends Model
     /**
      * @description The cycle based on which queries are performed.
      *
+     * This parameter is required.
      * @example 1:Year
      *
      * @var string
@@ -65,6 +67,7 @@ class QuerySavingsPlansDiscountRequest extends Model
     /**
      * @description The payment mode.
      *
+     * This parameter is required.
      * @example total
      *
      * @var string
@@ -92,6 +95,7 @@ class QuerySavingsPlansDiscountRequest extends Model
     /**
      * @description The type of the savings plan.
      *
+     * This parameter is required.
      * @example universal
      *
      * @var string

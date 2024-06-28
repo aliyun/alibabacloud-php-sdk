@@ -29,6 +29,7 @@ class DescribeResourceUsageTotalRequest extends Model
     /**
      * @description The time granularity at which the data is queried. Valid values: MONTH, DAY, and HOUR.
      *
+     * This parameter is required.
      * @example HOUR
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeResourceUsageTotalRequest extends Model
     /**
      * @description The type of the resource plan. Valid values: RI and SCU.
      *
+     * This parameter is required.
      * @example RI
      *
      * @var string
@@ -47,6 +49,7 @@ class DescribeResourceUsageTotalRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format. The specified time is included in the time range.
      *
+     * This parameter is required.
      * @example 2021-01-01 00:00:00
      *
      * @var string

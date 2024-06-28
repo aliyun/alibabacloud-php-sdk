@@ -20,7 +20,7 @@ class order extends Model
     /**
      * @description The service code.
      *
-     * @example ecs
+     * @example rds
      *
      * @var string
      */
@@ -54,6 +54,8 @@ class order extends Model
     public $currency;
 
     /**
+     * @description The order extension information.
+     *
      * @var string[]
      */
     public $extendInfos;

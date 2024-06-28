@@ -29,6 +29,7 @@ class QueryDPUtilizationDetailRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2019-05-23 12:00:00
      *
      * @var string
@@ -41,6 +42,7 @@ class QueryDPUtilizationDetailRequest extends Model
      *   true: queries the resource plan usage of linked accounts.
      *   false: does not query the resource plan usage of linked accounts.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -95,6 +97,7 @@ class QueryDPUtilizationDetailRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2019-05-23 12:00:00
      *
      * @var string

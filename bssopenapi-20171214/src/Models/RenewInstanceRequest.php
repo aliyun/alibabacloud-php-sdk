@@ -20,6 +20,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The ID of the instance
      *
+     * This parameter is required.
      * @example rm-skjdhaskjdh
      *
      * @var string
@@ -34,6 +35,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The code of the service to which the instance belongs.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -57,6 +59,7 @@ class RenewInstanceRequest extends Model
      *   24
      *   36
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int

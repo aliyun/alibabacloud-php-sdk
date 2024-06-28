@@ -21,6 +21,7 @@ class UpgradeResourcePackageRequest extends Model
     /**
      * @description The ID of the resource plan.
      *
+     * This parameter is required.
      * @example OSSBAG-cn-0xl*****x002
      *
      * @var string

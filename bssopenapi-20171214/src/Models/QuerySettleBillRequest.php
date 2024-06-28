@@ -16,6 +16,8 @@ class QuerySettleBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2018-07
      *
      * @var string

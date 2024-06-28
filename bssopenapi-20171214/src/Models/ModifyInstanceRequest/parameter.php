@@ -11,7 +11,7 @@ class parameter extends Model
     /**
      * @description The code of the parameter n. Valid values of n: 1 to 100. Multiple parameters are concatenated in the order of n.
      *
-     * >  Only the parameters of the attributes that you want to modify for the instance must be configured. For example, if the instance has Attribute A and Attribute B and only Attribute A must be modified, configure only the parameter of Attribute A.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -21,6 +21,7 @@ class parameter extends Model
     /**
      * @description The value of the parameter n. Valid values of n: 1 to 100.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

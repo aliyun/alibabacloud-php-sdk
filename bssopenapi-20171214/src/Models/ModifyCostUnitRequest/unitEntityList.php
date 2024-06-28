@@ -11,6 +11,7 @@ class unitEntityList extends Model
     /**
      * @description The new name of the cost center.
      *
+     * This parameter is required.
      * @example newTest
      *
      * @var string
@@ -20,6 +21,7 @@ class unitEntityList extends Model
     /**
      * @description The user ID of the cost center owner.
      *
+     * This parameter is required.
      * @example 1321312312
      *
      * @var int
@@ -29,6 +31,7 @@ class unitEntityList extends Model
     /**
      * @description The ID of the cost center.
      *
+     * This parameter is required.
      * @example 2524352
      *
      * @var int

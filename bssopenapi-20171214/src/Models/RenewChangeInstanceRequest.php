@@ -17,6 +17,8 @@ class RenewChangeInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rm-skjdhaskjdh
      *
      * @var string
@@ -34,6 +36,8 @@ class RenewChangeInstanceRequest extends Model
     public $parameter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rds
      *
      * @var string
@@ -48,6 +52,8 @@ class RenewChangeInstanceRequest extends Model
     public $productType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

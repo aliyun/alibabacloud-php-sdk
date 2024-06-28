@@ -20,6 +20,7 @@ class AddAccountRelationRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account that is used as the member.
      *
+     * This parameter is required.
      * @example 1512996702208737
      *
      * @var int
@@ -29,6 +30,7 @@ class AddAccountRelationRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account that is used as the management account.
      *
+     * This parameter is required.
      * @example 1738376485192612
      *
      * @var int
@@ -55,6 +57,7 @@ class AddAccountRelationRequest extends Model
     /**
      * @description The type of the financial relationship. Set the value to enterprise_group.
      *
+     * This parameter is required.
      * @example enterprise_group
      *
      * @var string
@@ -64,6 +67,7 @@ class AddAccountRelationRequest extends Model
     /**
      * @description The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
      *
+     * This parameter is required.
      * @example 32324242444
      *
      * @var string

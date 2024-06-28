@@ -49,6 +49,8 @@ class SubscribeBillToOSSRequest extends Model
     public $multAccountRelSubscribe;
 
     /**
+     * @description The upper limit of the number of lines in a single file. When the bill file exceeds the upper limit, it will be split into multiple files and merged into a compressed package.
+     *
      * @example 300000
      *
      * @var int
@@ -58,6 +60,7 @@ class SubscribeBillToOSSRequest extends Model
     /**
      * @description The OSS bucket that stores the bills to which you want to subscribe.
      *
+     * This parameter is required.
      * @example xxxxxx-bucket
      *
      * @var string
@@ -79,6 +82,15 @@ class SubscribeBillToOSSRequest extends Model
      * @var string
      */
     public $subscribeType;
+
+    /**
+     * @description Whether to protect network communications through the SSL (Secure Sockets Layer) encryption protocol. When this parameter is set to true, it means that SSL encryption is enabled to ensure the security and integrity of data transmission.
+     *
+     * @example true
+     *
+     * @var string
+     */
+    public $usingSsl;
     protected $_name = [
         'beginBillingCycle'       => 'BeginBillingCycle',
         'bucketOwnerId'           => 'BucketOwnerId',
@@ -87,6 +99,7 @@ class SubscribeBillToOSSRequest extends Model
         'rowLimitPerFile'         => 'RowLimitPerFile',
         'subscribeBucket'         => 'SubscribeBucket',
         'subscribeType'           => 'SubscribeType',
+        'usingSsl'                => 'UsingSsl',
     ];
 
     public function validate()
@@ -116,6 +129,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (null !== $this->subscribeType) {
             $res['SubscribeType'] = $this->subscribeType;
+        }
+        if (null !== $this->usingSsl) {
+            $res['UsingSsl'] = $this->usingSsl;
         }
 
         return $res;
@@ -149,6 +165,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (isset($map['SubscribeType'])) {
             $model->subscribeType = $map['SubscribeType'];
+        }
+        if (isset($map['UsingSsl'])) {
+            $model->usingSsl = $map['UsingSsl'];
         }
 
         return $model;

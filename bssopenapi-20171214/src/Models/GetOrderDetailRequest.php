@@ -11,6 +11,7 @@ class GetOrderDetailRequest extends Model
     /**
      * @description The ID of the order.
      *
+     * This parameter is required.
      * @example 32453453
      *
      * @var string

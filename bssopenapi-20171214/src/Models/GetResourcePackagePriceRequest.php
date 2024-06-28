@@ -11,6 +11,7 @@ class GetResourcePackagePriceRequest extends Model
     /**
      * @description The validity period of the resource plan. The value must be the same as the duration of the resource plan specified in the specifications.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -18,8 +19,10 @@ class GetResourcePackagePriceRequest extends Model
     public $duration;
 
     /**
-     * @description The time when the resource plan takes effect. If you do not specify this parameter, the resource plan immediately takes effect by default. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time must be in UTC.
-     *
+     * @description The time when the resource plan takes effect. If you do not specify this parameter, the resource plan immediately takes effect by default.
+     * When the **OrderType** is **BUY**, resource packs with the **EffectiveDate longer than the current time of 6 months** are not supported.
+     * If the **OrderType** is **UPGRADE**, the **EffectiveDate** **must be less than or equal to** the actual expiration time of the upgraded instance.
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time must be in UTC.
      * @example 2020-02-10T12:00:00Z
      *
      * @var string
@@ -27,7 +30,7 @@ class GetResourcePackagePriceRequest extends Model
     public $effectiveDate;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance. **This parameter is required when the order type is renewal or upgrade.**
      *
      * @example OSSBAG-cn-0xl0002
      *
@@ -57,6 +60,7 @@ class GetResourcePackagePriceRequest extends Model
     /**
      * @description The type of the resource plan. The value must be the same as the value of the **ProductCode** parameter that is returned when you call the **DescribeResourcePackageProduct** operation.
      *
+     * This parameter is required.
      * @example FPT_ossbag_periodMonthlyAcc_NetworkOut_finance_common
      *
      * @var string
@@ -78,6 +82,7 @@ class GetResourcePackagePriceRequest extends Model
     /**
      * @description The code of service. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
      *
+     * This parameter is required.
      * @example ossbag
      *
      * @var string
@@ -87,6 +92,7 @@ class GetResourcePackagePriceRequest extends Model
     /**
      * @description The specifications of the resource plan.
      *
+     * This parameter is required.
      * @example 500
      *
      * @var string

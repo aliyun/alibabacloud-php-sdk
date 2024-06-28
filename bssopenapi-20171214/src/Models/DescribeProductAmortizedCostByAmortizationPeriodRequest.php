@@ -25,6 +25,7 @@ class DescribeProductAmortizedCostByAmortizationPeriodRequest extends Model
     /**
      * @description The allocation month. Format: YYYY-MM.
      *
+     * This parameter is required.
      * @example 2022-10
      *
      * @var string

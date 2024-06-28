@@ -11,6 +11,7 @@ class unitEntityList extends Model
     /**
      * @description The user ID of the owner of the cost center.
      *
+     * This parameter is required.
      * @example 982375623
      *
      * @var int
@@ -20,6 +21,7 @@ class unitEntityList extends Model
     /**
      * @description The ID of the parent cost center. A value of -1 indicates the root cost center.
      *
+     * This parameter is required.
      * @example -1
      *
      * @var int
@@ -29,6 +31,7 @@ class unitEntityList extends Model
     /**
      * @description The name of the cost center.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

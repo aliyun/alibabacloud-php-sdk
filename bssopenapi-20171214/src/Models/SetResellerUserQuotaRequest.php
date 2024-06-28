@@ -11,6 +11,7 @@ class SetResellerUserQuotaRequest extends Model
     /**
      * @description The quota of a quota ledger. Unit: CNY.
      *
+     * This parameter is required.
      * @example 750
      *
      * @var string
@@ -36,6 +37,8 @@ class SetResellerUserQuotaRequest extends Model
     public $outBizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ownerId;

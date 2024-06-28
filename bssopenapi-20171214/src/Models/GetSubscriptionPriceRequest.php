@@ -21,6 +21,7 @@ class GetSubscriptionPriceRequest extends Model
     /**
      * @description The information about the pricing module.
      *
+     * This parameter is required.
      * @var moduleList[]
      */
     public $moduleList;
@@ -32,6 +33,7 @@ class GetSubscriptionPriceRequest extends Model
      *   Renewal: renews an instance of an Alibaba Cloud service.
      *   Upgrade: upgrades an instance of an Alibaba Cloud service.
      *
+     * This parameter is required.
      * @example NewOrder
      *
      * @var string
@@ -46,6 +48,7 @@ class GetSubscriptionPriceRequest extends Model
     /**
      * @description The code of the service. For more information about the service code, see **Codes of Alibaba Cloud Services**.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -103,6 +106,7 @@ class GetSubscriptionPriceRequest extends Model
     /**
      * @description The billing method. Set the value to Subscription.
      *
+     * This parameter is required.
      * @example Subscription
      *
      * @var string

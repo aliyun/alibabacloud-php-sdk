@@ -20,6 +20,7 @@ class QueryRIUtilizationDetailRequest extends Model
     /**
      * @description The time when the RI expires. Specify the time in the YYYY-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2019-05-23 12:00:00
      *
      * @var string
@@ -59,6 +60,7 @@ class QueryRIUtilizationDetailRequest extends Model
      *   ecsRi: ECS RI.
      *   scu_bag: storage capacity unit (SCU).
      *
+     * This parameter is required.
      * @example ecsRi
      *
      * @var string
@@ -77,6 +79,7 @@ class QueryRIUtilizationDetailRequest extends Model
     /**
      * @description The time when the RI was created. Specify the time in the YYYY-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2019-05-23 12:00:00
      *
      * @var string

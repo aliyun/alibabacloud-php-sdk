@@ -20,6 +20,7 @@ class QueryBillOverviewRequest extends Model
     /**
      * @description The billing cycle, in the YYYY-MM format.
      *
+     * This parameter is required.
      * @example 2018-07
      *
      * @var string

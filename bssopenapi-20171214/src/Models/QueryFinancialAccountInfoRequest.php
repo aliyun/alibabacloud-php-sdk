@@ -11,6 +11,7 @@ class QueryFinancialAccountInfoRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 1990699401005016
      *
      * @var int

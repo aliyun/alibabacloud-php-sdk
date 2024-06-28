@@ -45,6 +45,11 @@ class resourceInstanceDtoList extends Model
     public $commodityName;
 
     /**
+     * @var string
+     */
+    public $pipCode;
+
+    /**
      * @description The resources related to the resource instance.
      *
      * @example oss
@@ -79,6 +84,11 @@ class resourceInstanceDtoList extends Model
      * @var string
      */
     public $resourceNick;
+
+    /**
+     * @var string
+     */
+    public $resourceSource;
 
     /**
      * @description The status of the resource.
@@ -129,10 +139,12 @@ class resourceInstanceDtoList extends Model
         'apportionName'    => 'ApportionName',
         'commodityCode'    => 'CommodityCode',
         'commodityName'    => 'CommodityName',
+        'pipCode'          => 'PipCode',
         'relatedResources' => 'RelatedResources',
         'resourceGroup'    => 'ResourceGroup',
         'resourceId'       => 'ResourceId',
         'resourceNick'     => 'ResourceNick',
+        'resourceSource'   => 'ResourceSource',
         'resourceStatus'   => 'ResourceStatus',
         'resourceTag'      => 'ResourceTag',
         'resourceType'     => 'ResourceType',
@@ -159,6 +171,9 @@ class resourceInstanceDtoList extends Model
         if (null !== $this->commodityName) {
             $res['CommodityName'] = $this->commodityName;
         }
+        if (null !== $this->pipCode) {
+            $res['PipCode'] = $this->pipCode;
+        }
         if (null !== $this->relatedResources) {
             $res['RelatedResources'] = $this->relatedResources;
         }
@@ -170,6 +185,9 @@ class resourceInstanceDtoList extends Model
         }
         if (null !== $this->resourceNick) {
             $res['ResourceNick'] = $this->resourceNick;
+        }
+        if (null !== $this->resourceSource) {
+            $res['ResourceSource'] = $this->resourceSource;
         }
         if (null !== $this->resourceStatus) {
             $res['ResourceStatus'] = $this->resourceStatus;
@@ -210,6 +228,9 @@ class resourceInstanceDtoList extends Model
         if (isset($map['CommodityName'])) {
             $model->commodityName = $map['CommodityName'];
         }
+        if (isset($map['PipCode'])) {
+            $model->pipCode = $map['PipCode'];
+        }
         if (isset($map['RelatedResources'])) {
             $model->relatedResources = $map['RelatedResources'];
         }
@@ -221,6 +242,9 @@ class resourceInstanceDtoList extends Model
         }
         if (isset($map['ResourceNick'])) {
             $model->resourceNick = $map['ResourceNick'];
+        }
+        if (isset($map['ResourceSource'])) {
+            $model->resourceSource = $map['ResourceSource'];
         }
         if (isset($map['ResourceStatus'])) {
             $model->resourceStatus = $map['ResourceStatus'];

@@ -16,6 +16,7 @@ class DescribePricingModuleRequest extends Model
     /**
      * @description The service code. You can query the service code by calling the **QueryProductList** operation.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -37,6 +38,7 @@ class DescribePricingModuleRequest extends Model
      *   Subscription: subscription
      *   PayAsYouGo: pay-as-you-go
      *
+     * This parameter is required.
      * @example Subscription
      *
      * @var string

@@ -11,6 +11,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The type of the consumption amount adjustment. Valid values: increase: The consumption amount increases because new consumption occurs. decrease: The consumption amount decreases because funds are added to the account. This parameter is required.
      *
+     * This parameter is required.
      * @example increase/decrease
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The amount to be adjusted. Unit: CNY
      *
+     * This parameter is required.
      * @example 10.00
      *
      * @var string
@@ -29,6 +31,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The type of the business.
      *
+     * This parameter is required.
      * @example quota_amount_adjust
      *
      * @var string
@@ -38,6 +41,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The type of the currency.
      *
+     * This parameter is required.
      * @example CNY
      *
      * @var string
@@ -56,6 +60,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The ID of the primary key for external business. The ID is used for idempotence verification.
      *
+     * This parameter is required.
      * @example 1647396865
      *
      * @var string
@@ -63,6 +68,8 @@ class ChangeResellerConsumeAmountRequest extends Model
     public $outBizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ownerId;
@@ -70,6 +77,7 @@ class ChangeResellerConsumeAmountRequest extends Model
     /**
      * @description The source of the request. Specify the system name for the parameter.
      *
+     * This parameter is required.
      * @example system
      *
      * @var string

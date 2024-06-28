@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag. You can create N tag keys at a time. Valid values of N: 1 to 20. The value of this parameter can be an empty string.
      *
+     * This parameter is required.
      * @example tag1
      *
      * @var string
@@ -20,6 +21,7 @@ class tag extends Model
     /**
      * @description The value of the tag N. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example 001
      *
      * @var string

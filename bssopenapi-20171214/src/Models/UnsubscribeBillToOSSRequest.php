@@ -31,6 +31,7 @@ class UnsubscribeBillToOSSRequest extends Model
      *   SplitItemDetailDaily: split bills summarized by day
      *   MonthBill: monthly bills in the PDF format You can subscribe to the monthly PDF bills only of the master account.
      *
+     * This parameter is required.
      * @example BillingItemDetailForBillingPeriod
      *
      * @var string

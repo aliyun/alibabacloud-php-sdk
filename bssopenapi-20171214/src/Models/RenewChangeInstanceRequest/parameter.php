@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Bandwidth
      *
      * @var string
@@ -16,6 +18,8 @@ class parameter extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @example disk
      *
      * @var string

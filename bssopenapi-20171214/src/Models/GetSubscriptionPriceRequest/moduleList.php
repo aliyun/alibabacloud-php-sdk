@@ -11,6 +11,7 @@ class moduleList extends Model
     /**
      * @description The configurations of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
      *
+     * This parameter is required.
      * @example PackageCode:version_1
      *
      * @var string
@@ -20,6 +21,7 @@ class moduleList extends Model
     /**
      * @description The identifier of the Nth pricing module.
      *
+     * This parameter is required.
      * @example PackageCode
      *
      * @var string

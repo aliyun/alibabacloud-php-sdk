@@ -11,6 +11,7 @@ class ApplyInvoiceRequest extends Model
     /**
      * @description The ID of the address to which the invoice is delivered. This parameter is required if the invoice is a paper invoice. Set the ID to the value of the AddressId parameter returned by calling the QueryCustomerAddressList operation.
      *
+     * This parameter is required.
      * @example 237958367
      *
      * @var int
@@ -20,6 +21,7 @@ class ApplyInvoiceRequest extends Model
     /**
      * @description The nickname of the applicant. The system does not verify the nickname.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class ApplyInvoiceRequest extends Model
     /**
      * @description The ID of the customer. Set the ID to the value of the CustomerId parameter returned by calling the QueryInvoicingCustomerList operation.
      *
+     * This parameter is required.
      * @example 124132423
      *
      * @var int
@@ -38,6 +41,7 @@ class ApplyInvoiceRequest extends Model
     /**
      * @description The amount of the invoice. Unit: Cent.
      *
+     * This parameter is required.
      * @example 124132
      *
      * @var int
@@ -82,6 +86,7 @@ class ApplyInvoiceRequest extends Model
     /**
      * @description The IDs of the selected invoicing items. Set the IDs to the IDs returned by calling the QueryEvaluateList operation.
      *
+     * This parameter is required.
      * @example 384752367
      *
      * @var int[]

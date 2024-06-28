@@ -11,6 +11,7 @@ class QueryCostUnitRequest extends Model
     /**
      * @description The user ID of the cost center owner.
      *
+     * This parameter is required.
      * @example 28394563429587
      *
      * @var int
@@ -38,6 +39,7 @@ class QueryCostUnitRequest extends Model
     /**
      * @description The ID of the parent cost center. A value of -1 indicates the root cost center.
      *
+     * This parameter is required.
      * @example -1
      *
      * @var int

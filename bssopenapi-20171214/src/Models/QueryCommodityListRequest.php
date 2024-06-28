@@ -16,6 +16,7 @@ class QueryCommodityListRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string

@@ -21,7 +21,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The logistics address of this order. This parameter is generally valid for physical orders.
      *
-     * @example {"cityCode":"330100","cityName":"Hangzhou","contactName":"Test","countryCode":"","districtName":"Puyan Street","email":"\*\*@example.com","mobilePhone":"153564848844","phone":"1234567","provCode":"330000","provName":"Zhejiang","streetCode":"33010610","streetName":"Zhuantang","zipCode":"0000"}
+     * @example {"cityCode":"330100","cityName":"Hangzhou","contactName":"Test","countryCode":"","districtName":"Puyan Street","email":"\\*\\*@example.com","mobilePhone":"153564848844","phone":"1234567","provCode":"330000","provName":"Zhejiang","streetCode":"33010610","streetName":"Zhuantang","zipCode":"0000"}
      *
      * @var string
      */
@@ -52,6 +52,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The code of the service to which the instance belongs. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -96,6 +97,7 @@ class CreateInstanceRequest extends Model
      *   Subscription: the subscription billing method.
      *   PayAsYouGo: the pay-as-you-go billing method.
      *
+     * This parameter is required.
      * @example Subscription
      *
      * @var string

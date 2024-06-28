@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-10
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest extends Model
     public $amortizationDateEnd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-10
      *
      * @var string

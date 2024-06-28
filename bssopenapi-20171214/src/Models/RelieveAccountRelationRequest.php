@@ -47,6 +47,7 @@ class RelieveAccountRelationRequest extends Model
     /**
      * @description The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
      *
+     * This parameter is required.
      * @example request_id
      *
      * @var string

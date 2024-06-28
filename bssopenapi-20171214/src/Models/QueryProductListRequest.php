@@ -11,6 +11,7 @@ class QueryProductListRequest extends Model
     /**
      * @description The page number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

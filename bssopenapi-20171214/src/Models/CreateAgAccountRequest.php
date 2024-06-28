@@ -57,6 +57,7 @@ class CreateAgAccountRequest extends Model
     /**
      * @description The email address used to log on to the account.
      *
+     * This parameter is required.
      * @example email
      *
      * @var string

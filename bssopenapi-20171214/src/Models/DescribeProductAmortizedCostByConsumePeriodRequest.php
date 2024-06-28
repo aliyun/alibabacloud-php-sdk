@@ -24,6 +24,8 @@ class DescribeProductAmortizedCostByConsumePeriodRequest extends Model
     public $billUserIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-10
      *
      * @var string

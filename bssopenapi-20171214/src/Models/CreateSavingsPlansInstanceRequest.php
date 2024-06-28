@@ -11,6 +11,7 @@ class CreateSavingsPlansInstanceRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example savingplan_common_public_cn
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateSavingsPlansInstanceRequest extends Model
     /**
      * @description The service duration. This parameter is used together with the PricingCycle parameter.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -47,6 +49,7 @@ class CreateSavingsPlansInstanceRequest extends Model
      *   half: partial upfront
      *   zero: no upfront
      *
+     * This parameter is required.
      * @example total
      *
      * @var string
@@ -56,6 +59,7 @@ class CreateSavingsPlansInstanceRequest extends Model
     /**
      * @description The contracted amount. unit: CNY
      *
+     * This parameter is required.
      * @example 0.1
      *
      * @var string
@@ -68,6 +72,7 @@ class CreateSavingsPlansInstanceRequest extends Model
      *   Year
      *   Month
      *
+     * This parameter is required.
      * @example Year
      *
      * @var string
@@ -111,6 +116,7 @@ class CreateSavingsPlansInstanceRequest extends Model
      *   ecs: ECS compute type
      *   elasticy: elastic type
      *
+     * This parameter is required.
      * @example universal
      *
      * @var string

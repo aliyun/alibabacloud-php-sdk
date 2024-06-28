@@ -11,6 +11,7 @@ class QueryCostUnitResourceRequest extends Model
     /**
      * @description The user ID of the cost center owner.
      *
+     * This parameter is required.
      * @example 23453245
      *
      * @var int
@@ -38,6 +39,7 @@ class QueryCostUnitResourceRequest extends Model
     /**
      * @description The ID of the cost center.
      *
+     * This parameter is required.
      * @example 235325
      *
      * @var int

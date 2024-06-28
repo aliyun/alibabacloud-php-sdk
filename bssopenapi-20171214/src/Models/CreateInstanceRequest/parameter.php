@@ -11,6 +11,7 @@ class parameter extends Model
     /**
      * @description The code property of the Nth module. Value of N: 1 to 100. If multiple module property parameters are involved, concatenate multiple parameters based on the value of N in sequence.
      *
+     * This parameter is required.
      * @example InstanceType
      *
      * @var string
@@ -20,6 +21,7 @@ class parameter extends Model
     /**
      * @description The value property of the Nth module. Value of N: 1 to 100.
      *
+     * This parameter is required.
      * @example disk
      *
      * @var string

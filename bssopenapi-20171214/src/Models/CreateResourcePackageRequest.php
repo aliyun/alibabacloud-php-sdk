@@ -11,6 +11,7 @@ class CreateResourcePackageRequest extends Model
     /**
      * @description The validity period of the resource plan.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -35,6 +36,7 @@ class CreateResourcePackageRequest extends Model
     /**
      * @description The type of the resource plan. Set this parameter to the code of the **resource plan** returned by calling the **DescribeResourcePackageProduct** operation.
      *
+     * This parameter is required.
      * @example FPT_ossbag_absolute_Storage_sh
      *
      * @var string
@@ -57,6 +59,7 @@ class CreateResourcePackageRequest extends Model
     /**
      * @description The code of the service. You can query the code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud services**.
      *
+     * This parameter is required.
      * @example ossbag
      *
      * @var string
@@ -66,6 +69,7 @@ class CreateResourcePackageRequest extends Model
     /**
      * @description The specifications of the resource plan. Set this parameter to the value of the **specifications** returned by calling the **DescribeResourcePackageProduct** operation.
      *
+     * This parameter is required.
      * @example 40
      *
      * @var string

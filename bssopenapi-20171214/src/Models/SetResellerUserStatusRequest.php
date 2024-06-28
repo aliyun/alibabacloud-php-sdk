@@ -11,6 +11,7 @@ class SetResellerUserStatusRequest extends Model
     /**
      * @description The type of the business. Valid values: FREEZE: the frozen business of the account. TRUSTEESHIP: the hosted business of the account.
      *
+     * This parameter is required.
      * @example FREEZE
      *
      * @var string
@@ -18,6 +19,8 @@ class SetResellerUserStatusRequest extends Model
     public $businessType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ownerId;
@@ -25,6 +28,7 @@ class SetResellerUserStatusRequest extends Model
     /**
      * @description The account status that you want to set. Valid values: Freeze: The account is frozen. Thaw: The account is unfrozen. Trusteeship: The account is hosted. TrusteeshipCancel: The account is not hosted.
      *
+     * This parameter is required.
      * @example Freeze
      *
      * @var string

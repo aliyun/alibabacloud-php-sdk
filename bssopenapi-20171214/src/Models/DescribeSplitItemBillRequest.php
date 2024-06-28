@@ -21,6 +21,7 @@ class DescribeSplitItemBillRequest extends Model
     /**
      * @description The billing cycle. Specify the parameter in the YYYY-MM format.
      *
+     * This parameter is required.
      * @example 2020-03
      *
      * @var string
@@ -87,6 +88,11 @@ class DescribeSplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $pipCode;
+
+    /**
      * @description The code of the service.
      *
      * @example rds
@@ -138,6 +144,7 @@ class DescribeSplitItemBillRequest extends Model
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'ownerId'          => 'OwnerId',
+        'pipCode'          => 'PipCode',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'splitItemID'      => 'SplitItemID',
@@ -178,6 +185,9 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipCode) {
+            $res['PipCode'] = $this->pipCode;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -238,6 +248,9 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipCode'])) {
+            $model->pipCode = $map['PipCode'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

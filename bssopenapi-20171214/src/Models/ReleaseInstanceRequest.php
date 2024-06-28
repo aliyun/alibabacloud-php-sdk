@@ -11,6 +11,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The ID of the instance. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified.
      *
+     * This parameter is required.
      * @example rm-xxxxxxxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ReleaseInstanceRequest extends Model
     public $instanceIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ownerId;
@@ -25,6 +28,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The code of the service.
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -62,7 +66,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The billing method. Valid values:
      *
-     * PayAsYouGo: the pay-as-you-go billing method.
+     * This parameter is required.
      * @example PayAsYouGo
      *
      * @var string

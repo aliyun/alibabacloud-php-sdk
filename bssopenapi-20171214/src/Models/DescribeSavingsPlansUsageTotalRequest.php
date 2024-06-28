@@ -29,6 +29,7 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
     /**
      * @description The time granularity at which usage summary are queried. Valid values: MONTH, DAY, and HOUR.
      *
+     * This parameter is required.
      * @example HOUR
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeSavingsPlansUsageTotalRequest extends Model
     /**
      * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
+     * This parameter is required.
      * @example 2021-01-01 00:00:00
      *
      * @var string

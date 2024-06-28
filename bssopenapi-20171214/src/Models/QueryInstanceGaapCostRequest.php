@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceGaapCostRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-03
      *
      * @var string
