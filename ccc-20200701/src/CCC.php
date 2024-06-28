@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddTicketTaskRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddTicketTaskResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AnalyzeConversationRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSchemaResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSchemaShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteAudioFileRequest;
@@ -98,12 +102,20 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteTicketResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteTicketTemplateRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteTicketTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DisableSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DisableSchemaPropertyResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DisableTicketTemplateRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DisableTicketTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DiscardEditingContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DiscardEditingContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EnableSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EnableSchemaPropertyResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\EnableTicketTemplateRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\EnableTicketTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
@@ -162,6 +174,12 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetSchemaRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSchemaResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketSummaryReportRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketSummaryReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketTemplateRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnServerListRequest;
@@ -220,6 +238,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCommonTicketFieldsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCommonTicketFieldsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListContactFlowsRequest;
@@ -293,6 +313,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidni
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTasksRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTasksResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUnassignedNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUnassignedNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupRequest;
@@ -341,8 +365,14 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDeviceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RejectChatRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RejectChatResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RejectTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RejectTicketResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseChatRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseChatResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveBlacklistCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveBlacklistCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveDoNotCallNumbersRequest;
@@ -367,6 +397,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RestoreArchivedRecordingsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RestoreArchivedRecordingsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ResubmitTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ResubmitTicketResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallRequest;
@@ -406,6 +438,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\SwitchToConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SwitchToConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\TerminateTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\TerminateTicketResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\TransferTicketTaskRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\TransferTicketTaskResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceRequest;
@@ -417,6 +453,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateTicketResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\WithdrawTicketRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\WithdrawTicketResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -996,6 +1036,64 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSkillGroupsToUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddTicketTaskRequest $request AddTicketTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddTicketTaskResponse AddTicketTaskResponse
+     */
+    public function addTicketTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assignee)) {
+            $query['Assignee'] = $request->assignee;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->position)) {
+            $query['Position'] = $request->position;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTicketTask',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddTicketTaskRequest $request AddTicketTaskRequest
+     *
+     * @return AddTicketTaskResponse AddTicketTaskResponse
+     */
+    public function addTicketTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addTicketTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2346,6 +2444,67 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param CreateTicketRequest $request CreateTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTicketRequest $request CreateTicketRequest
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTicketWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateUserRequest $request CreateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -2873,6 +3032,98 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteTicketRequest $request DeleteTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTicketResponse DeleteTicketResponse
+     */
+    public function deleteTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTicketRequest $request DeleteTicketRequest
+     *
+     * @return DeleteTicketResponse DeleteTicketResponse
+     */
+    public function deleteTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTicketTemplateRequest $request DeleteTicketTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTicketTemplateResponse DeleteTicketTemplateResponse
+     */
+    public function deleteTicketTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTicketTemplate',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTicketTemplateRequest $request DeleteTicketTemplateRequest
+     *
+     * @return DeleteTicketTemplateResponse DeleteTicketTemplateResponse
+     */
+    public function deleteTicketTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTicketTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DisableSchemaPropertyRequest $request DisableSchemaPropertyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2922,6 +3173,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableSchemaPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableTicketTemplateRequest $request DisableTicketTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableTicketTemplateResponse DisableTicketTemplateResponse
+     */
+    public function disableTicketTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableTicketTemplate',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableTicketTemplateRequest $request DisableTicketTemplateRequest
+     *
+     * @return DisableTicketTemplateResponse DisableTicketTemplateResponse
+     */
+    public function disableTicketTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableTicketTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3023,6 +3320,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableSchemaPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableTicketTemplateRequest $request EnableTicketTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableTicketTemplateResponse EnableTicketTemplateResponse
+     */
+    public function enableTicketTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableTicketTemplate',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableTicketTemplateRequest $request EnableTicketTemplateRequest
+     *
+     * @return EnableTicketTemplateResponse EnableTicketTemplateResponse
+     */
+    public function enableTicketTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableTicketTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -4424,6 +4767,174 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTicketRequest $request GetTicketRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTicketResponse GetTicketResponse
+     */
+    public function getTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTicketRequest $request GetTicketRequest
+     *
+     * @return GetTicketResponse GetTicketResponse
+     */
+    public function getTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTicketSummaryReportRequest $request GetTicketSummaryReportRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTicketSummaryReportResponse GetTicketSummaryReportResponse
+     */
+    public function getTicketSummaryReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assignee)) {
+            $query['Assignee'] = $request->assignee;
+        }
+        if (!Utils::isUnset($request->assigneeType)) {
+            $query['AssigneeType'] = $request->assigneeType;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->creator)) {
+            $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->participant)) {
+            $query['Participant'] = $request->participant;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTicketSummaryReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTicketSummaryReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTicketSummaryReportRequest $request GetTicketSummaryReportRequest
+     *
+     * @return GetTicketSummaryReportResponse GetTicketSummaryReportResponse
+     */
+    public function getTicketSummaryReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTicketSummaryReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTicketTemplateRequest $request GetTicketTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTicketTemplateResponse GetTicketTemplateResponse
+     */
+    public function getTicketTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTicketTemplate',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTicketTemplateRequest $request GetTicketTemplateRequest
+     *
+     * @return GetTicketTemplateResponse GetTicketTemplateResponse
+     */
+    public function getTicketTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTicketTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -6068,6 +6579,49 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCommonTicketFieldsRequest $request ListCommonTicketFieldsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCommonTicketFieldsResponse ListCommonTicketFieldsResponse
+     */
+    public function listCommonTicketFieldsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommonTicketFields',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCommonTicketFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCommonTicketFieldsRequest $request ListCommonTicketFieldsRequest
+     *
+     * @return ListCommonTicketFieldsResponse ListCommonTicketFieldsResponse
+     */
+    public function listCommonTicketFields($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCommonTicketFieldsWithOptions($request, $runtime);
     }
 
     /**
@@ -8110,6 +8664,137 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListTicketTasksRequest $request ListTicketTasksRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTicketTasksResponse ListTicketTasksResponse
+     */
+    public function listTicketTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTicketTasks',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTicketTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTicketTasksRequest $request ListTicketTasksRequest
+     *
+     * @return ListTicketTasksResponse ListTicketTasksResponse
+     */
+    public function listTicketTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTicketTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTicketsRequest $request ListTicketsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTicketsResponse ListTicketsResponse
+     */
+    public function listTicketsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assignee)) {
+            $query['Assignee'] = $request->assignee;
+        }
+        if (!Utils::isUnset($request->assigneeType)) {
+            $query['AssigneeType'] = $request->assigneeType;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->creator)) {
+            $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobIdList)) {
+            $query['JobIdList'] = $request->jobIdList;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->participant)) {
+            $query['Participant'] = $request->participant;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTickets',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTicketsRequest $request ListTicketsRequest
+     *
+     * @return ListTicketsResponse ListTicketsResponse
+     */
+    public function listTickets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTicketsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取未分配号码列表
      *  *
      * @param ListUnassignedNumbersRequest $request ListUnassignedNumbersRequest
@@ -9419,6 +10104,101 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param RejectChatRequest $request RejectChatRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RejectChatResponse RejectChatResponse
+     */
+    public function rejectChatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RejectChat',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RejectChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RejectChatRequest $request RejectChatRequest
+     *
+     * @return RejectChatResponse RejectChatResponse
+     */
+    public function rejectChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectChatWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RejectTicketRequest $request RejectTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RejectTicketResponse RejectTicketResponse
+     */
+    public function rejectTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RejectTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RejectTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RejectTicketRequest $request RejectTicketRequest
+     *
+     * @return RejectTicketResponse RejectTicketResponse
+     */
+    public function rejectTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectTicketWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseCallRequest $request ReleaseCallRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -9471,6 +10251,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseChatRequest $request ReleaseChatRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReleaseChatResponse ReleaseChatResponse
+     */
+    public function releaseChatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseChat',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseChatRequest $request ReleaseChatRequest
+     *
+     * @return ReleaseChatResponse ReleaseChatResponse
+     */
+    public function releaseChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseChatWithOptions($request, $runtime);
     }
 
     /**
@@ -10071,6 +10906,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restoreArchivedRecordingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResubmitTicketRequest $request ResubmitTicketRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResubmitTicketResponse ResubmitTicketResponse
+     */
+    public function resubmitTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResubmitTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResubmitTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResubmitTicketRequest $request ResubmitTicketRequest
+     *
+     * @return ResubmitTicketResponse ResubmitTicketResponse
+     */
+    public function resubmitTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resubmitTicketWithOptions($request, $runtime);
     }
 
     /**
@@ -11133,6 +12017,110 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param TerminateTicketRequest $request TerminateTicketRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TerminateTicketResponse TerminateTicketResponse
+     */
+    public function terminateTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TerminateTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TerminateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TerminateTicketRequest $request TerminateTicketRequest
+     *
+     * @return TerminateTicketResponse TerminateTicketResponse
+     */
+    public function terminateTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->terminateTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TransferTicketTaskRequest $request TransferTicketTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransferTicketTaskResponse TransferTicketTaskResponse
+     */
+    public function transferTicketTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assignee)) {
+            $query['Assignee'] = $request->assignee;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferTicketTask',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransferTicketTaskRequest $request TransferTicketTaskRequest
+     *
+     * @return TransferTicketTaskResponse TransferTicketTaskResponse
+     */
+    public function transferTicketTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferTicketTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnmuteCallRequest $request UnmuteCallRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -11412,5 +12400,109 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSchemaPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTicketRequest $request UpdateTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTicketResponse UpdateTicketResponse
+     */
+    public function updateTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->context)) {
+            $query['Context'] = $request->context;
+        }
+        if (!Utils::isUnset($request->customerId)) {
+            $query['CustomerId'] = $request->customerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTicketRequest $request UpdateTicketRequest
+     *
+     * @return UpdateTicketResponse UpdateTicketResponse
+     */
+    public function updateTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param WithdrawTicketRequest $request WithdrawTicketRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return WithdrawTicketResponse WithdrawTicketResponse
+     */
+    public function withdrawTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WithdrawTicket',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return WithdrawTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WithdrawTicketRequest $request WithdrawTicketRequest
+     *
+     * @return WithdrawTicketResponse WithdrawTicketResponse
+     */
+    public function withdrawTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->withdrawTicketWithOptions($request, $runtime);
     }
 }
