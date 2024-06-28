@@ -19,6 +19,8 @@ class AyncTradeDocumentPackageExtractSmartAppRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileUrl;

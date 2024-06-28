@@ -17,6 +17,8 @@ class GetDocumentConvertResultResponseBody extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $completed;
@@ -41,6 +43,8 @@ class GetDocumentConvertResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Success
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitDocStructureJobRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowPptFormat;
+
+    /**
      * @example docStructure.pdf
      *
      * @var string
@@ -39,6 +44,7 @@ class SubmitDocStructureJobRequest extends Model
      */
     public $structureType;
     protected $_name = [
+        'allowPptFormat'     => 'AllowPptFormat',
         'fileName'           => 'FileName',
         'fileNameExtension'  => 'FileNameExtension',
         'fileUrl'            => 'FileUrl',
@@ -53,6 +59,9 @@ class SubmitDocStructureJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowPptFormat) {
+            $res['AllowPptFormat'] = $this->allowPptFormat;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -80,6 +89,9 @@ class SubmitDocStructureJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowPptFormat'])) {
+            $model->allowPptFormat = $map['AllowPptFormat'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

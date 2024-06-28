@@ -51,8 +51,6 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobRes
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobResponse;
-use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentCompareJobRequest;
-use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentCompareJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobResponse;
@@ -165,10 +163,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param AyncTradeDocumentPackageExtractSmartAppRequest $tmpReq
-     * @param RuntimeOptions                                 $runtime
+     * @summary 整票识别
+     *  *
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $tmpReq  AyncTradeDocumentPackageExtractSmartAppRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AyncTradeDocumentPackageExtractSmartAppResponse
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse AyncTradeDocumentPackageExtractSmartAppResponse
      */
     public function ayncTradeDocumentPackageExtractSmartAppWithOptions($tmpReq, $runtime)
     {
@@ -213,9 +213,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param AyncTradeDocumentPackageExtractSmartAppRequest $request
+     * @summary 整票识别
+     *  *
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $request AyncTradeDocumentPackageExtractSmartAppRequest
      *
-     * @return AyncTradeDocumentPackageExtractSmartAppResponse
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse AyncTradeDocumentPackageExtractSmartAppResponse
      */
     public function ayncTradeDocumentPackageExtractSmartApp($request)
     {
@@ -225,10 +227,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocStructureResultRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 文档智能解析结果查询
+     *  *
+     * @param GetDocStructureResultRequest $request GetDocStructureResultRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDocStructureResultResponse
+     * @return GetDocStructureResultResponse GetDocStructureResultResponse
      */
     public function getDocStructureResultWithOptions($request, $runtime)
     {
@@ -262,9 +266,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocStructureResultRequest $request
+     * @summary 文档智能解析结果查询
+     *  *
+     * @param GetDocStructureResultRequest $request GetDocStructureResultRequest
      *
-     * @return GetDocStructureResultResponse
+     * @return GetDocStructureResultResponse GetDocStructureResultResponse
      */
     public function getDocStructureResult($request)
     {
@@ -274,10 +280,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentCompareResultRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 文档对比结果查询
+     *  *
+     * @param GetDocumentCompareResultRequest $request GetDocumentCompareResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentCompareResultResponse
+     * @return GetDocumentCompareResultResponse GetDocumentCompareResultResponse
      */
     public function getDocumentCompareResultWithOptions($request, $runtime)
     {
@@ -305,9 +313,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentCompareResultRequest $request
+     * @summary 文档对比结果查询
+     *  *
+     * @param GetDocumentCompareResultRequest $request GetDocumentCompareResultRequest
      *
-     * @return GetDocumentCompareResultResponse
+     * @return GetDocumentCompareResultResponse GetDocumentCompareResultResponse
      */
     public function getDocumentCompareResult($request)
     {
@@ -317,10 +327,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentConvertResultRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 文档转换结果查询
+     *  *
+     * @param GetDocumentConvertResultRequest $request GetDocumentConvertResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentConvertResultResponse
+     * @return GetDocumentConvertResultResponse GetDocumentConvertResultResponse
      */
     public function getDocumentConvertResultWithOptions($request, $runtime)
     {
@@ -348,9 +360,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentConvertResultRequest $request
+     * @summary 文档转换结果查询
+     *  *
+     * @param GetDocumentConvertResultRequest $request GetDocumentConvertResultRequest
      *
-     * @return GetDocumentConvertResultResponse
+     * @return GetDocumentConvertResultResponse GetDocumentConvertResultResponse
      */
     public function getDocumentConvertResult($request)
     {
@@ -360,10 +374,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentExtractResultRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 文档抽取结果查询
+     *  *
+     * @param GetDocumentExtractResultRequest $request GetDocumentExtractResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentExtractResultResponse
+     * @return GetDocumentExtractResultResponse GetDocumentExtractResultResponse
      */
     public function getDocumentExtractResultWithOptions($request, $runtime)
     {
@@ -391,9 +407,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetDocumentExtractResultRequest $request
+     * @summary 文档抽取结果查询
+     *  *
+     * @param GetDocumentExtractResultRequest $request GetDocumentExtractResultRequest
      *
-     * @return GetDocumentExtractResultResponse
+     * @return GetDocumentExtractResultResponse GetDocumentExtractResultResponse
      */
     public function getDocumentExtractResult($request)
     {
@@ -403,10 +421,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetPageNumRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary openmind
+     *  *
+     * @param GetPageNumRequest $request GetPageNumRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPageNumResponse
+     * @return GetPageNumResponse GetPageNumResponse
      */
     public function getPageNumWithOptions($request, $runtime)
     {
@@ -434,9 +454,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetPageNumRequest $request
+     * @summary openmind
+     *  *
+     * @param GetPageNumRequest $request GetPageNumRequest
      *
-     * @return GetPageNumResponse
+     * @return GetPageNumResponse GetPageNumResponse
      */
     public function getPageNum($request)
     {
@@ -446,10 +468,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetTableUnderstandingResultRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 表格智能解析结果查询
+     *  *
+     * @param GetTableUnderstandingResultRequest $request GetTableUnderstandingResultRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableUnderstandingResultResponse
+     * @return GetTableUnderstandingResultResponse GetTableUnderstandingResultResponse
      */
     public function getTableUnderstandingResultWithOptions($request, $runtime)
     {
@@ -477,9 +501,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param GetTableUnderstandingResultRequest $request
+     * @summary 表格智能解析结果查询
+     *  *
+     * @param GetTableUnderstandingResultRequest $request GetTableUnderstandingResultRequest
      *
-     * @return GetTableUnderstandingResultResponse
+     * @return GetTableUnderstandingResultResponse GetTableUnderstandingResultResponse
      */
     public function getTableUnderstandingResult($request)
     {
@@ -489,10 +515,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToExcelJobRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
+     * @summary 图片转excel
+     *  *
+     * @param SubmitConvertImageToExcelJobRequest $tmpReq  SubmitConvertImageToExcelJobRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertImageToExcelJobResponse
+     * @return SubmitConvertImageToExcelJobResponse SubmitConvertImageToExcelJobResponse
      */
     public function submitConvertImageToExcelJobWithOptions($tmpReq, $runtime)
     {
@@ -537,9 +565,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToExcelJobRequest $request
+     * @summary 图片转excel
+     *  *
+     * @param SubmitConvertImageToExcelJobRequest $request SubmitConvertImageToExcelJobRequest
      *
-     * @return SubmitConvertImageToExcelJobResponse
+     * @return SubmitConvertImageToExcelJobResponse SubmitConvertImageToExcelJobResponse
      */
     public function submitConvertImageToExcelJob($request)
     {
@@ -549,10 +579,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToMarkdownJobRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary 图片转markdown
+     *  *
+     * @param SubmitConvertImageToMarkdownJobRequest $tmpReq  SubmitConvertImageToMarkdownJobRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertImageToMarkdownJobResponse
+     * @return SubmitConvertImageToMarkdownJobResponse SubmitConvertImageToMarkdownJobResponse
      */
     public function submitConvertImageToMarkdownJobWithOptions($tmpReq, $runtime)
     {
@@ -594,9 +626,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToMarkdownJobRequest $request
+     * @summary 图片转markdown
+     *  *
+     * @param SubmitConvertImageToMarkdownJobRequest $request SubmitConvertImageToMarkdownJobRequest
      *
-     * @return SubmitConvertImageToMarkdownJobResponse
+     * @return SubmitConvertImageToMarkdownJobResponse SubmitConvertImageToMarkdownJobResponse
      */
     public function submitConvertImageToMarkdownJob($request)
     {
@@ -606,10 +640,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToPdfJobRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 图片转pdf
+     *  *
+     * @param SubmitConvertImageToPdfJobRequest $tmpReq  SubmitConvertImageToPdfJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertImageToPdfJobResponse
+     * @return SubmitConvertImageToPdfJobResponse SubmitConvertImageToPdfJobResponse
      */
     public function submitConvertImageToPdfJobWithOptions($tmpReq, $runtime)
     {
@@ -651,9 +687,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToPdfJobRequest $request
+     * @summary 图片转pdf
+     *  *
+     * @param SubmitConvertImageToPdfJobRequest $request SubmitConvertImageToPdfJobRequest
      *
-     * @return SubmitConvertImageToPdfJobResponse
+     * @return SubmitConvertImageToPdfJobResponse SubmitConvertImageToPdfJobResponse
      */
     public function submitConvertImageToPdfJob($request)
     {
@@ -663,10 +701,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToWordJobRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 图片转word
+     *  *
+     * @param SubmitConvertImageToWordJobRequest $tmpReq  SubmitConvertImageToWordJobRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertImageToWordJobResponse
+     * @return SubmitConvertImageToWordJobResponse SubmitConvertImageToWordJobResponse
      */
     public function submitConvertImageToWordJobWithOptions($tmpReq, $runtime)
     {
@@ -708,9 +748,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertImageToWordJobRequest $request
+     * @summary 图片转word
+     *  *
+     * @param SubmitConvertImageToWordJobRequest $request SubmitConvertImageToWordJobRequest
      *
-     * @return SubmitConvertImageToWordJobResponse
+     * @return SubmitConvertImageToWordJobResponse SubmitConvertImageToWordJobResponse
      */
     public function submitConvertImageToWordJob($request)
     {
@@ -720,10 +762,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToExcelJobRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary pdf转excel
+     *  *
+     * @param SubmitConvertPdfToExcelJobRequest $request SubmitConvertPdfToExcelJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertPdfToExcelJobResponse
+     * @return SubmitConvertPdfToExcelJobResponse SubmitConvertPdfToExcelJobResponse
      */
     public function submitConvertPdfToExcelJobWithOptions($request, $runtime)
     {
@@ -760,9 +804,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToExcelJobRequest $request
+     * @summary pdf转excel
+     *  *
+     * @param SubmitConvertPdfToExcelJobRequest $request SubmitConvertPdfToExcelJobRequest
      *
-     * @return SubmitConvertPdfToExcelJobResponse
+     * @return SubmitConvertPdfToExcelJobResponse SubmitConvertPdfToExcelJobResponse
      */
     public function submitConvertPdfToExcelJob($request)
     {
@@ -785,7 +831,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -807,12 +853,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -850,10 +897,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToImageJobRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary pdf转图片
+     *  *
+     * @param SubmitConvertPdfToImageJobRequest $request SubmitConvertPdfToImageJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertPdfToImageJobResponse
+     * @return SubmitConvertPdfToImageJobResponse SubmitConvertPdfToImageJobResponse
      */
     public function submitConvertPdfToImageJobWithOptions($request, $runtime)
     {
@@ -884,9 +933,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToImageJobRequest $request
+     * @summary pdf转图片
+     *  *
+     * @param SubmitConvertPdfToImageJobRequest $request SubmitConvertPdfToImageJobRequest
      *
-     * @return SubmitConvertPdfToImageJobResponse
+     * @return SubmitConvertPdfToImageJobResponse SubmitConvertPdfToImageJobResponse
      */
     public function submitConvertPdfToImageJob($request)
     {
@@ -909,7 +960,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -931,12 +982,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -974,10 +1026,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToMarkdownJobRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary pdf转markdown
+     *  *
+     * @param SubmitConvertPdfToMarkdownJobRequest $request SubmitConvertPdfToMarkdownJobRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertPdfToMarkdownJobResponse
+     * @return SubmitConvertPdfToMarkdownJobResponse SubmitConvertPdfToMarkdownJobResponse
      */
     public function submitConvertPdfToMarkdownJobWithOptions($request, $runtime)
     {
@@ -1008,9 +1062,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToMarkdownJobRequest $request
+     * @summary pdf转markdown
+     *  *
+     * @param SubmitConvertPdfToMarkdownJobRequest $request SubmitConvertPdfToMarkdownJobRequest
      *
-     * @return SubmitConvertPdfToMarkdownJobResponse
+     * @return SubmitConvertPdfToMarkdownJobResponse SubmitConvertPdfToMarkdownJobResponse
      */
     public function submitConvertPdfToMarkdownJob($request)
     {
@@ -1033,7 +1089,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1055,12 +1111,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1098,10 +1155,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToWordJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary pdf转word
+     *  *
+     * @param SubmitConvertPdfToWordJobRequest $request SubmitConvertPdfToWordJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitConvertPdfToWordJobResponse
+     * @return SubmitConvertPdfToWordJobResponse SubmitConvertPdfToWordJobResponse
      */
     public function submitConvertPdfToWordJobWithOptions($request, $runtime)
     {
@@ -1135,9 +1194,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitConvertPdfToWordJobRequest $request
+     * @summary pdf转word
+     *  *
+     * @param SubmitConvertPdfToWordJobRequest $request SubmitConvertPdfToWordJobRequest
      *
-     * @return SubmitConvertPdfToWordJobResponse
+     * @return SubmitConvertPdfToWordJobResponse SubmitConvertPdfToWordJobResponse
      */
     public function submitConvertPdfToWordJob($request)
     {
@@ -1160,7 +1221,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1182,12 +1243,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1225,10 +1287,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDigitalDocStructureJobRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 电子解析
+     *  *
+     * @param SubmitDigitalDocStructureJobRequest $request SubmitDigitalDocStructureJobRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDigitalDocStructureJobResponse
+     * @return SubmitDigitalDocStructureJobResponse SubmitDigitalDocStructureJobResponse
      */
     public function submitDigitalDocStructureJobWithOptions($request, $runtime)
     {
@@ -1268,9 +1332,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDigitalDocStructureJobRequest $request
+     * @summary 电子解析
+     *  *
+     * @param SubmitDigitalDocStructureJobRequest $request SubmitDigitalDocStructureJobRequest
      *
-     * @return SubmitDigitalDocStructureJobResponse
+     * @return SubmitDigitalDocStructureJobResponse SubmitDigitalDocStructureJobResponse
      */
     public function submitDigitalDocStructureJob($request)
     {
@@ -1293,7 +1359,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1315,12 +1381,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1358,15 +1425,20 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDocStructureJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 文档智能解析
+     *  *
+     * @param SubmitDocStructureJobRequest $request SubmitDocStructureJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDocStructureJobResponse
+     * @return SubmitDocStructureJobResponse SubmitDocStructureJobResponse
      */
     public function submitDocStructureJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allowPptFormat)) {
+            $query['AllowPptFormat'] = $request->allowPptFormat;
+        }
         if (!Utils::isUnset($request->fileName)) {
             $query['FileName'] = $request->fileName;
         }
@@ -1401,9 +1473,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDocStructureJobRequest $request
+     * @summary 文档智能解析
+     *  *
+     * @param SubmitDocStructureJobRequest $request SubmitDocStructureJobRequest
      *
-     * @return SubmitDocStructureJobResponse
+     * @return SubmitDocStructureJobResponse SubmitDocStructureJobResponse
      */
     public function submitDocStructureJob($request)
     {
@@ -1426,7 +1500,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1448,12 +1522,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1491,62 +1566,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDocumentCompareJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 文档抽取
+     *  *
+     * @param SubmitDocumentExtractJobRequest $request SubmitDocumentExtractJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDocumentCompareJobResponse
-     */
-    public function submitDocumentCompareJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->compareFileName)) {
-            $query['CompareFileName'] = $request->compareFileName;
-        }
-        if (!Utils::isUnset($request->compareFileUrl)) {
-            $query['CompareFileUrl'] = $request->compareFileUrl;
-        }
-        if (!Utils::isUnset($request->originFileName)) {
-            $query['OriginFileName'] = $request->originFileName;
-        }
-        if (!Utils::isUnset($request->originFileUrl)) {
-            $query['OriginFileUrl'] = $request->originFileUrl;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitDocumentCompareJob',
-            'version'     => '2022-07-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitDocumentCompareJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitDocumentCompareJobRequest $request
-     *
-     * @return SubmitDocumentCompareJobResponse
-     */
-    public function submitDocumentCompareJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitDocumentCompareJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitDocumentExtractJobRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SubmitDocumentExtractJobResponse
+     * @return SubmitDocumentExtractJobResponse SubmitDocumentExtractJobResponse
      */
     public function submitDocumentExtractJobWithOptions($request, $runtime)
     {
@@ -1580,9 +1605,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitDocumentExtractJobRequest $request
+     * @summary 文档抽取
+     *  *
+     * @param SubmitDocumentExtractJobRequest $request SubmitDocumentExtractJobRequest
      *
-     * @return SubmitDocumentExtractJobResponse
+     * @return SubmitDocumentExtractJobResponse SubmitDocumentExtractJobResponse
      */
     public function submitDocumentExtractJob($request)
     {
@@ -1605,7 +1632,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1627,12 +1654,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1670,10 +1698,12 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitTableUnderstandingJobRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 表格智能解析
+     *  *
+     * @param SubmitTableUnderstandingJobRequest $request SubmitTableUnderstandingJobRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitTableUnderstandingJobResponse
+     * @return SubmitTableUnderstandingJobResponse SubmitTableUnderstandingJobResponse
      */
     public function submitTableUnderstandingJobWithOptions($request, $runtime)
     {
@@ -1707,9 +1737,11 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitTableUnderstandingJobRequest $request
+     * @summary 表格智能解析
+     *  *
+     * @param SubmitTableUnderstandingJobRequest $request SubmitTableUnderstandingJobRequest
      *
-     * @return SubmitTableUnderstandingJobResponse
+     * @return SubmitTableUnderstandingJobResponse SubmitTableUnderstandingJobResponse
      */
     public function submitTableUnderstandingJob($request)
     {
@@ -1732,7 +1764,7 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1754,12 +1786,13 @@ class Docmindapi extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);

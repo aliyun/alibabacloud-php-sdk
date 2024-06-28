@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class SubmitDocStructureJobAdvanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowPptFormat;
+
+    /**
      * @example docStructure.pdf
      *
      * @var string
@@ -40,6 +45,7 @@ class SubmitDocStructureJobAdvanceRequest extends Model
      */
     public $structureType;
     protected $_name = [
+        'allowPptFormat'     => 'AllowPptFormat',
         'fileName'           => 'FileName',
         'fileNameExtension'  => 'FileNameExtension',
         'fileUrlObject'      => 'FileUrl',
@@ -54,6 +60,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowPptFormat) {
+            $res['AllowPptFormat'] = $this->allowPptFormat;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -81,6 +90,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowPptFormat'])) {
+            $model->allowPptFormat = $map['AllowPptFormat'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
