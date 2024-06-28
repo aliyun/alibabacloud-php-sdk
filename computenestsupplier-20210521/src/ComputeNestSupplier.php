@@ -123,6 +123,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Adds a shared account of a service.
+     *  *
      * @param AddServiceSharedAccountsRequest $request AddServiceSharedAccountsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -166,6 +168,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Adds a shared account of a service.
+     *  *
      * @param AddServiceSharedAccountsRequest $request AddServiceSharedAccountsRequest
      *
      * @return AddServiceSharedAccountsResponse AddServiceSharedAccountsResponse
@@ -569,6 +573,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a service.
+     *  *
      * @param DeleteServiceRequest $request DeleteServiceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -609,6 +615,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a service.
+     *  *
      * @param DeleteServiceRequest $request DeleteServiceRequest
      *
      * @return DeleteServiceResponse DeleteServiceResponse
@@ -1091,6 +1099,9 @@ class ComputeNestSupplier extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->fileName)) {
             $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1677,7 +1688,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 发布部署物
+     * @summary Publishes an artifact.
      *  *
      * @param ReleaseArtifactRequest $request ReleaseArtifactRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1710,7 +1721,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 发布部署物
+     * @summary Publishes an artifact.
      *  *
      * @param ReleaseArtifactRequest $request ReleaseArtifactRequest
      *
@@ -2114,7 +2125,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 变配服务实例
+     * @summary Updates the configurations of a service instance.
      *  *
      * @param UpdateServiceInstanceSpecRequest $tmpReq  UpdateServiceInstanceSpecRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2167,7 +2178,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 变配服务实例
+     * @summary Updates the configurations of a service instance.
      *  *
      * @param UpdateServiceInstanceSpecRequest $request UpdateServiceInstanceSpecRequest
      *

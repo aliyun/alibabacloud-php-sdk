@@ -14,8 +14,14 @@ class GetUploadCredentialsRequest extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @var string
+     */
+    public $visibility;
     protected $_name = [
-        'fileName' => 'FileName',
+        'fileName'   => 'FileName',
+        'visibility' => 'Visibility',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class GetUploadCredentialsRequest extends Model
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->visibility) {
+            $res['Visibility'] = $this->visibility;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class GetUploadCredentialsRequest extends Model
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['Visibility'])) {
+            $model->visibility = $map['Visibility'];
         }
 
         return $model;

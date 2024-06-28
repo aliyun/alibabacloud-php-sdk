@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSharedAccountsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E2815213-EA4F-5759-8EA1-56DD051BB3FD
      *
      * @var string

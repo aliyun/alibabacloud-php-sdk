@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -16,8 +18,9 @@ class DeleteServiceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,8 +28,9 @@ class DeleteServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -34,8 +38,9 @@ class DeleteServiceRequest extends Model
     public $serviceId;
 
     /**
-     * @description This parameter is required.
+     * @description The service version.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string

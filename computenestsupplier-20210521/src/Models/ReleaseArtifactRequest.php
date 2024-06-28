@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ReleaseArtifactRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the artifact.
      *
+     * This parameter is required.
      * @example artifact-9feded91880e4c78xxxx
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSharedAccountsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -17,8 +19,9 @@ class AddServiceSharedAccountsRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,8 +29,9 @@ class AddServiceSharedAccountsRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-63b8a060e9d54cxxxxxx
      *
      * @var string
@@ -35,13 +39,19 @@ class AddServiceSharedAccountsRequest extends Model
     public $serviceId;
 
     /**
-     * @description This parameter is required.
+     * @description The shared account and permissions of the service.
      *
+     * This parameter is required.
      * @var sharedAccounts[]
      */
     public $sharedAccounts;
 
     /**
+     * @description The share type of the service. Default value: SharedAccount. Valid values:
+     *
+     *   SharedAccount: The service is shared by multiple accounts.
+     *   Reseller: The service is distributed.
+     *
      * @example SharedAccount
      *
      * @var string

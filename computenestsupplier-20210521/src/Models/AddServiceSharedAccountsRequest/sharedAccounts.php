@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class sharedAccounts extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The permissions on the service. Valid values:
      *
+     *   Deployable: Permissions to deploy the service.
+     *   Accessible: Permissions to access the service.
+     *
+     * This parameter is required.
      * @example Accessible
      *
      * @var string
@@ -18,8 +22,9 @@ class sharedAccounts extends Model
     public $permission;
 
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud account ID of the user.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string

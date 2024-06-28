@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 10CM943JP0EN9D51H
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable Prometheus on the customer side. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -21,11 +30,15 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $enableUserPrometheus;
 
     /**
+     * @description The name of the configuration update operation.
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The configuration parameters of the service instance.
+     *
      * @example {\\"EcsInstanceParameter\\":\\"4vCPU 8GiB\\",\\"ZoneId\\":\\"cn-heyuan-a\\",\\"SystemDiskSize\\":50,\\"DataDiskSize\\":150,\\"InternetMaxBandwidthOut\\":2,\\"RegionId\\":\\"cn-heyuan\\"}
      *
      * @var string
@@ -33,11 +46,15 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     public $parametersShrink;
 
     /**
+     * @description The name of the specification package.
+     *
      * @var string
      */
     public $predefinedParametersName;
 
     /**
+     * @description The service instance ID.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string
