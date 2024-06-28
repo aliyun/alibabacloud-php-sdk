@@ -11,10 +11,6 @@ class ModifyPlaybookInputOutputRequest extends Model
     /**
      * @description The executed mode of a playbook. The value is a JSON array.
      *
-     * @example {
-     * "executeMode":"mul",
-     * "cron":"0 0 1 *\/1 * ?"
-     * }
      * @var string
      */
     public $exeConfig;
@@ -22,6 +18,7 @@ class ModifyPlaybookInputOutputRequest extends Model
     /**
      * @description The configuration of the input parameters. The value is a JSON array.
      *
+     * This parameter is required.
      * @example [
      * ]
      * @var string
@@ -43,6 +40,7 @@ class ModifyPlaybookInputOutputRequest extends Model
     /**
      * @description The configuration of the output parameters. This parameter is unavailable. Leave it empty.
      *
+     * This parameter is required.
      * @example []
      *
      * @var string
@@ -66,7 +64,7 @@ class ModifyPlaybookInputOutputRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     * This parameter is required.
      * @example 8baa6cff-319e-4ede-97bc-xxxxxxx
      *
      * @var string

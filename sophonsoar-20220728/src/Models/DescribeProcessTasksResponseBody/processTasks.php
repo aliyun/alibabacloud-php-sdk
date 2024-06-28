@@ -36,6 +36,33 @@ class processTasks extends Model
     public $entityType;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example sts_openapi.Info.DefenseSceneNotSupported
+     *
+     * @var string
+     */
+    public $errCode;
+
+    /**
+     * @description The error message returned if the call failed.
+     *
+     * @example ParamError : The parameters of your request are invalid
+     *
+     * @var string
+     */
+    public $errMsg;
+
+    /**
+     * @description The error tip returned if the call failed.
+     *
+     * @example Verify that the input parameters of the components are correct
+     *
+     * @var string
+     */
+    public $errTip;
+
+    /**
      * @description The creation time of the handling task. The value is a 13-digit timestamp.
      *
      * @example 1700031183572
@@ -151,25 +178,13 @@ class processTasks extends Model
      * @var string
      */
     public $yunCode;
-
-    /**
-     * @var string
-     */
-    public $errCode;
-
-    /**
-     * @var string
-     */
-    public $errMsg;
-
-    /**
-     * @var string
-     */
-    public $errTip;
     protected $_name = [
         'creator'             => 'Creator',
         'entityName'          => 'EntityName',
         'entityType'          => 'EntityType',
+        'errCode'             => 'ErrCode',
+        'errMsg'              => 'ErrMsg',
+        'errTip'              => 'ErrTip',
         'gmtCreateMillis'     => 'GmtCreateMillis',
         'gmtModifiedMillis'   => 'GmtModifiedMillis',
         'inputParams'         => 'InputParams',
@@ -183,9 +198,6 @@ class processTasks extends Model
         'taskId'              => 'TaskId',
         'taskStatus'          => 'TaskStatus',
         'yunCode'             => 'YunCode',
-        'errCode'             => 'errCode',
-        'errMsg'              => 'errMsg',
-        'errTip'              => 'errTip',
     ];
 
     public function validate()
@@ -203,6 +215,15 @@ class processTasks extends Model
         }
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+        if (null !== $this->errCode) {
+            $res['ErrCode'] = $this->errCode;
+        }
+        if (null !== $this->errMsg) {
+            $res['ErrMsg'] = $this->errMsg;
+        }
+        if (null !== $this->errTip) {
+            $res['ErrTip'] = $this->errTip;
         }
         if (null !== $this->gmtCreateMillis) {
             $res['GmtCreateMillis'] = $this->gmtCreateMillis;
@@ -243,15 +264,6 @@ class processTasks extends Model
         if (null !== $this->yunCode) {
             $res['YunCode'] = $this->yunCode;
         }
-        if (null !== $this->errCode) {
-            $res['errCode'] = $this->errCode;
-        }
-        if (null !== $this->errMsg) {
-            $res['errMsg'] = $this->errMsg;
-        }
-        if (null !== $this->errTip) {
-            $res['errTip'] = $this->errTip;
-        }
 
         return $res;
     }
@@ -272,6 +284,15 @@ class processTasks extends Model
         }
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+        if (isset($map['ErrCode'])) {
+            $model->errCode = $map['ErrCode'];
+        }
+        if (isset($map['ErrMsg'])) {
+            $model->errMsg = $map['ErrMsg'];
+        }
+        if (isset($map['ErrTip'])) {
+            $model->errTip = $map['ErrTip'];
         }
         if (isset($map['GmtCreateMillis'])) {
             $model->gmtCreateMillis = $map['GmtCreateMillis'];
@@ -311,15 +332,6 @@ class processTasks extends Model
         }
         if (isset($map['YunCode'])) {
             $model->yunCode = $map['YunCode'];
-        }
-        if (isset($map['errCode'])) {
-            $model->errCode = $map['errCode'];
-        }
-        if (isset($map['errMsg'])) {
-            $model->errMsg = $map['errMsg'];
-        }
-        if (isset($map['errTip'])) {
-            $model->errTip = $map['errTip'];
         }
 
         return $model;

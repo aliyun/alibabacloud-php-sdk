@@ -20,6 +20,7 @@ class CreatePlaybookRequest extends Model
     /**
      * @description The name of the playbook.
      *
+     * This parameter is required.
      * @example test09
      *
      * @var string
@@ -37,10 +38,16 @@ class CreatePlaybookRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $taskflowType;
     protected $_name = [
-        'description' => 'Description',
-        'displayName' => 'DisplayName',
-        'lang'        => 'Lang',
+        'description'  => 'Description',
+        'displayName'  => 'DisplayName',
+        'lang'         => 'Lang',
+        'taskflowType' => 'TaskflowType',
     ];
 
     public function validate()
@@ -58,6 +65,9 @@ class CreatePlaybookRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->taskflowType) {
+            $res['TaskflowType'] = $this->taskflowType;
         }
 
         return $res;
@@ -79,6 +89,9 @@ class CreatePlaybookRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['TaskflowType'])) {
+            $model->taskflowType = $map['TaskflowType'];
         }
 
         return $model;

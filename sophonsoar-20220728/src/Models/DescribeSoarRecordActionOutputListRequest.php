@@ -11,7 +11,7 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     /**
      * @description The UUID of the component action.
      *
-     * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUID.
+     * This parameter is required.
      * @example 2202c90d-fa93-4726-bc32-xxxxxx
      *
      * @var string
@@ -33,6 +33,7 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     /**
      * @description The page number. Default value: 1. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -42,7 +43,7 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     /**
      * @description The number of entries per page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
      *
-     * >  We recommend that you do not leave this parameter empty.
+     * This parameter is required.
      * @example 10
      *
      * @var int

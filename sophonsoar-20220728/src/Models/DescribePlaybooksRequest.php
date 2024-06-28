@@ -51,6 +51,11 @@ class DescribePlaybooksRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
      * @description The type of the playbook. Valid values:
      *
      *   **preset**: predefined playbook
@@ -95,6 +100,11 @@ class DescribePlaybooksRequest extends Model
     public $playbookUuid;
 
     /**
+     * @var string
+     */
+    public $sort;
+
+    /**
      * @description The beginning of the time range to query. The value is a 13-digit timestamp.
      *
      * @example 1683526277415
@@ -107,10 +117,12 @@ class DescribePlaybooksRequest extends Model
         'endMillis'    => 'EndMillis',
         'lang'         => 'Lang',
         'name'         => 'Name',
+        'order'        => 'Order',
         'ownType'      => 'OwnType',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'playbookUuid' => 'PlaybookUuid',
+        'sort'         => 'Sort',
         'startMillis'  => 'StartMillis',
     ];
 
@@ -133,6 +145,9 @@ class DescribePlaybooksRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->ownType) {
             $res['OwnType'] = $this->ownType;
         }
@@ -144,6 +159,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
         if (null !== $this->startMillis) {
             $res['StartMillis'] = $this->startMillis;
@@ -172,6 +190,9 @@ class DescribePlaybooksRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['OwnType'])) {
             $model->ownType = $map['OwnType'];
         }
@@ -183,6 +204,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
         if (isset($map['StartMillis'])) {
             $model->startMillis = $map['StartMillis'];

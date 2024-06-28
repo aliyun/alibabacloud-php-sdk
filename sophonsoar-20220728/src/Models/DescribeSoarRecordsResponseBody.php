@@ -13,6 +13,7 @@ class DescribeSoarRecordsResponseBody extends Model
     /**
      * @description The pagination information.
      *
+     * This parameter is required.
      * @var page
      */
     public $page;

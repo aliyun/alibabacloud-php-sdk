@@ -23,6 +23,7 @@ class DescribeNodeUsedInfosRequest extends Model
     /**
      * @description The node name of the component.
      *
+     * This parameter is required.
      * @example python3_2
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribeNodeUsedInfosRequest extends Model
     /**
      * @description The playbook UUID.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     * This parameter is required.
      * @example ac343acc-1a61-4084-9a1c-xxxx
      *
      * @var string

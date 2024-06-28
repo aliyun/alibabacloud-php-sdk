@@ -39,6 +39,11 @@ class playbooks extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
      * @description The time when the playbook was last run. The value is a 13-digit timestamp.
      *
      * @example 1683526277415
@@ -71,6 +76,7 @@ class playbooks extends Model
         'active'       => 'Active',
         'displayName'  => 'DisplayName',
         'gmtCreate'    => 'GmtCreate',
+        'gmtModified'  => 'GmtModified',
         'lastRuntime'  => 'LastRuntime',
         'ownType'      => 'OwnType',
         'playbookUuid' => 'PlaybookUuid',
@@ -91,6 +97,9 @@ class playbooks extends Model
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->lastRuntime) {
             $res['LastRuntime'] = $this->lastRuntime;
@@ -121,6 +130,9 @@ class playbooks extends Model
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['LastRuntime'])) {
             $model->lastRuntime = $map['LastRuntime'];

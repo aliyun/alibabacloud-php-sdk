@@ -11,6 +11,7 @@ class TriggerPlaybookRequest extends Model
     /**
      * @description The input parameters of the playbook.
      *
+     * This parameter is required.
      * @example {
      * }
      * @var string
@@ -20,7 +21,7 @@ class TriggerPlaybookRequest extends Model
     /**
      * @description The playbook UUID.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     * This parameter is required.
      * @example 2a687089-d4dd-47d4-9709-xxxxxxxx
      *
      * @var string

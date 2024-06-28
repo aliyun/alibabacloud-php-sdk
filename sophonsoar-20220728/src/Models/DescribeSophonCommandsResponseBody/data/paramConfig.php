@@ -11,7 +11,7 @@ class paramConfig extends Model
     /**
      * @description The regular expression that is used to check the format of the parameter value. If the parameter is left empty, the check is not performed.
      *
-     * @example [0-9]{4}\.[0-9]{4}\.[0-9]{4}\.[0-9]{4}
+     * @example [0-9]{4}\\.[0-9]{4}\\.[0-9]{4}\\.[0-9]{4}
      *
      * @var string
      */

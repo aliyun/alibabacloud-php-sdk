@@ -23,7 +23,7 @@ class DescribePlaybookInputOutputRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     * This parameter is required.
      * @example b724d2b0-3c3b-4223-9bfd-xxxxxxx
      *
      * @var string

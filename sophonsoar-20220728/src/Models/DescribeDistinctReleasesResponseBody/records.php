@@ -25,9 +25,15 @@ class records extends Model
      * @var string
      */
     public $taskflowMd5;
+
+    /**
+     * @var string
+     */
+    public $taskflowType;
     protected $_name = [
-        'description' => 'Description',
-        'taskflowMd5' => 'TaskflowMd5',
+        'description'  => 'Description',
+        'taskflowMd5'  => 'TaskflowMd5',
+        'taskflowType' => 'TaskflowType',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class records extends Model
         }
         if (null !== $this->taskflowMd5) {
             $res['TaskflowMd5'] = $this->taskflowMd5;
+        }
+        if (null !== $this->taskflowType) {
+            $res['TaskflowType'] = $this->taskflowType;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class records extends Model
         }
         if (isset($map['TaskflowMd5'])) {
             $model->taskflowMd5 = $map['TaskflowMd5'];
+        }
+        if (isset($map['TaskflowType'])) {
+            $model->taskflowType = $map['TaskflowType'];
         }
 
         return $model;

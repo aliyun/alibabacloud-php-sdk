@@ -11,6 +11,7 @@ class VerifyPythonFileRequest extends Model
     /**
      * @description The Python code snippet.
      *
+     * This parameter is required.
      * @example import logging
      * return (success,message,data)
      * @var string

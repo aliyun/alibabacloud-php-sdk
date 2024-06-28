@@ -23,6 +23,7 @@ class RenamePlaybookNodeRequest extends Model
     /**
      * @description The new name of the node.
      *
+     * This parameter is required.
      * @example waf_process
      *
      * @var string
@@ -32,6 +33,7 @@ class RenamePlaybookNodeRequest extends Model
     /**
      * @description The original name of the node.
      *
+     * This parameter is required.
      * @example firewall_process
      *
      * @var string
@@ -41,7 +43,7 @@ class RenamePlaybookNodeRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     * This parameter is required.
      * @example ac343acc-1a61-4084-9a1c-xxxxxxxx
      *
      * @var string

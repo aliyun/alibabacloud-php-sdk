@@ -23,7 +23,7 @@ class ComparePlaybooksRequest extends Model
     /**
      * @description The UUID of the second version.
      *
-     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the UUIDs of versions.
+     * This parameter is required.
      * @example sfdf2395-e814-459f-9662-xxxxx
      *
      * @var int
@@ -33,7 +33,7 @@ class ComparePlaybooksRequest extends Model
     /**
      * @description The UUID of the first version.
      *
-     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the UUIDs of versions.
+     * This parameter is required.
      * @example sflk23423-e814-459f-9662-xxxxx
      *
      * @var int
@@ -43,7 +43,7 @@ class ComparePlaybooksRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     * This parameter is required.
      * @example f916b93e-e814-459f-9662-xxxxx
      *
      * @var string

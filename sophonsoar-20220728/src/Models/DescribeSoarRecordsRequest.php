@@ -51,7 +51,7 @@ class DescribeSoarRecordsRequest extends Model
     /**
      * @description The playbook UUID.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     * This parameter is required.
      * @example 8f55e76d-b5d5-4720-9cd7-xxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribePopApiVersionListRequest extends Model
     /**
      * @description The environment in which the API operation parameters are used. Set the value to **online**.
      *
+     * This parameter is required.
      * @example online
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribePopApiVersionListRequest extends Model
     /**
      * @description The POP code of the Alibaba Cloud service.
      *
-     * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
+     * This parameter is required.
      * @example Sas
      *
      * @var string

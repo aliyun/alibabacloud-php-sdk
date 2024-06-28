@@ -11,6 +11,7 @@ class DescribeComponentAssetFormRequest extends Model
     /**
      * @description The component name.
      *
+     * This parameter is required.
      * @example python3
      *
      * @var string

@@ -14,6 +14,7 @@ class TriggerProcessTaskRequest extends Model
      *   **remove**: cancels blocking or isolation.
      *   **retry**: submits the task again.
      *
+     * This parameter is required.
      * @example remove
      *
      * @var string
@@ -23,7 +24,7 @@ class TriggerProcessTaskRequest extends Model
     /**
      * @description The ID of the handling task.
      *
-     * >  You can call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to query the IDs of handling tasks.
+     * This parameter is required.
      * @example 15355xxxxxx82894882
      *
      * @var string

@@ -21,6 +21,7 @@ class TriggerSophonPlaybookRequest extends Model
     /**
      * @description The input parameters of the command or playbook that you want to trigger.
      *
+     * This parameter is required.
      * @example {
      * }
      * @var string

@@ -20,6 +20,7 @@ class ModifyPlaybookRequest extends Model
     /**
      * @description The display name of the playbook.
      *
+     * This parameter is required.
      * @example aliyun_waf_test_playbook
      *
      * @var string
@@ -41,7 +42,7 @@ class ModifyPlaybookRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     * This parameter is required.
      * @example 8baa6cff-319e-4ede-97bc-1586c35e61f8
      *
      * @var string

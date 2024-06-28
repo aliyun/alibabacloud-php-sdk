@@ -119,7 +119,7 @@ class DescribeProcessTasksRequest extends Model
     /**
      * @description The UUID of the handling policy.
      *
-     * >  You can call the [ListDisposeStrategy](~~2584440~~) operation to query the UUID of the handling policy.
+     * >  You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to query the UUID of the handling policy.
      * @example 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
      *
      * @var string

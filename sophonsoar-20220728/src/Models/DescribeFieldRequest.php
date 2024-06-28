@@ -25,6 +25,7 @@ class DescribeFieldRequest extends Model
      *
      *   **soar_filed_tags**: queries the input template of the playbook.
      *
+     * This parameter is required.
      * @example soar_filed_tags
      *
      * @var string

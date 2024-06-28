@@ -29,7 +29,7 @@ class syntax extends Model
     /**
      * @description The error message for the error code.
      *
-     * @example undefined name \"ab\"
+     * @example undefined name \\"ab\\"
      *
      * @var string
      */

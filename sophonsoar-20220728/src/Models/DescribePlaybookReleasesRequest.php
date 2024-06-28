@@ -42,6 +42,7 @@ class DescribePlaybookReleasesRequest extends Model
     /**
      * @description The playbook UUID.
      *
+     * This parameter is required.
      * @example ac343acc-1a61-4084-9a1c-xxxx
      *
      * @var string

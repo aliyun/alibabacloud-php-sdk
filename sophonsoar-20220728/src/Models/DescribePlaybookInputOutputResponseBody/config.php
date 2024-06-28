@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The execution method of the playbook is in JSONObject format.
+     *
      * @var string
      */
     public $exeConfig;

@@ -11,7 +11,7 @@ class DeleteComponentAssetRequest extends Model
     /**
      * @description The ID of the asset.
      *
-     * >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
+     * This parameter is required.
      * @example 12x
      *
      * @var int

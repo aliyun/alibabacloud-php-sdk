@@ -151,6 +151,12 @@ class playbook extends Model
     public $taskflow;
 
     /**
+     * @description The playbook configuration type.
+     *   **xml**: XML format.
+     *   **x6**: JSON format.
+     *
+     * @example xml
+     *
      * @var string
      */
     public $taskflowType;

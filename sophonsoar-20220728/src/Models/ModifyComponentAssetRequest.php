@@ -11,6 +11,7 @@ class ModifyComponentAssetRequest extends Model
     /**
      * @description The configuration of the asset. The value is a JSON object.
      *
+     * This parameter is required.
      * @example {
      * }
      * @var string

@@ -146,10 +146,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param BatchModifyInstanceStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the statuses of playbooks at a time.
+     *  *
+     * @param BatchModifyInstanceStatusRequest $request BatchModifyInstanceStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchModifyInstanceStatusResponse
+     * @return BatchModifyInstanceStatusResponse BatchModifyInstanceStatusResponse
      */
     public function batchModifyInstanceStatusWithOptions($request, $runtime)
     {
@@ -185,9 +187,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param BatchModifyInstanceStatusRequest $request
+     * @summary Modifies the statuses of playbooks at a time.
+     *  *
+     * @param BatchModifyInstanceStatusRequest $request BatchModifyInstanceStatusRequest
      *
-     * @return BatchModifyInstanceStatusResponse
+     * @return BatchModifyInstanceStatusResponse BatchModifyInstanceStatusResponse
      */
     public function batchModifyInstanceStatus($request)
     {
@@ -197,10 +201,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ComparePlaybooksRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Compares configurations between two versions of a published playbook.
+     *  *
+     * @param ComparePlaybooksRequest $request ComparePlaybooksRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ComparePlaybooksResponse
+     * @return ComparePlaybooksResponse ComparePlaybooksResponse
      */
     public function comparePlaybooksWithOptions($request, $runtime)
     {
@@ -237,9 +243,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ComparePlaybooksRequest $request
+     * @summary Compares configurations between two versions of a published playbook.
+     *  *
+     * @param ComparePlaybooksRequest $request ComparePlaybooksRequest
      *
-     * @return ComparePlaybooksResponse
+     * @return ComparePlaybooksResponse ComparePlaybooksResponse
      */
     public function comparePlaybooks($request)
     {
@@ -249,10 +257,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param CreatePlaybookRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a playbook.
+     *  *
+     * @param CreatePlaybookRequest $request CreatePlaybookRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePlaybookResponse
+     * @return CreatePlaybookResponse CreatePlaybookResponse
      */
     public function createPlaybookWithOptions($request, $runtime)
     {
@@ -266,6 +276,9 @@ class Sophonsoar extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $body['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->taskflowType)) {
+            $body['TaskflowType'] = $request->taskflowType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -286,9 +299,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param CreatePlaybookRequest $request
+     * @summary Creates a playbook.
+     *  *
+     * @param CreatePlaybookRequest $request CreatePlaybookRequest
      *
-     * @return CreatePlaybookResponse
+     * @return CreatePlaybookResponse CreatePlaybookResponse
      */
     public function createPlaybook($request)
     {
@@ -298,10 +313,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DebugPlaybookRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Debugs a playbook.
+     *  *
+     * @param DebugPlaybookRequest $request DebugPlaybookRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DebugPlaybookResponse
+     * @return DebugPlaybookResponse DebugPlaybookResponse
      */
     public function debugPlaybookWithOptions($request, $runtime)
     {
@@ -338,9 +355,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DebugPlaybookRequest $request
+     * @summary Debugs a playbook.
+     *  *
+     * @param DebugPlaybookRequest $request DebugPlaybookRequest
      *
-     * @return DebugPlaybookResponse
+     * @return DebugPlaybookResponse DebugPlaybookResponse
      */
     public function debugPlaybook($request)
     {
@@ -350,10 +369,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DeleteComponentAssetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes the assets in a component.
+     *  *
+     * @param DeleteComponentAssetRequest $request DeleteComponentAssetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteComponentAssetResponse
+     * @return DeleteComponentAssetResponse DeleteComponentAssetResponse
      */
     public function deleteComponentAssetWithOptions($request, $runtime)
     {
@@ -384,9 +405,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DeleteComponentAssetRequest $request
+     * @summary Deletes the assets in a component.
+     *  *
+     * @param DeleteComponentAssetRequest $request DeleteComponentAssetRequest
      *
-     * @return DeleteComponentAssetResponse
+     * @return DeleteComponentAssetResponse DeleteComponentAssetResponse
      */
     public function deleteComponentAsset($request)
     {
@@ -396,10 +419,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DeletePlaybookRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a custom playbook.
+     *  *
+     * @param DeletePlaybookRequest $request DeletePlaybookRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePlaybookResponse
+     * @return DeletePlaybookResponse DeletePlaybookResponse
      */
     public function deletePlaybookWithOptions($request, $runtime)
     {
@@ -430,9 +455,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DeletePlaybookRequest $request
+     * @summary Deletes a custom playbook.
+     *  *
+     * @param DeletePlaybookRequest $request DeletePlaybookRequest
      *
-     * @return DeletePlaybookResponse
+     * @return DeletePlaybookResponse DeletePlaybookResponse
      */
     public function deletePlaybook($request)
     {
@@ -442,10 +469,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeApiListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the API operations of the cloud service.
+     *  *
+     * @param DescribeApiListRequest $request DescribeApiListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApiListResponse
+     * @return DescribeApiListResponse DescribeApiListResponse
      */
     public function describeApiListWithOptions($request, $runtime)
     {
@@ -470,9 +499,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeApiListRequest $request
+     * @summary Queries the API operations of the cloud service.
+     *  *
+     * @param DescribeApiListRequest $request DescribeApiListRequest
      *
-     * @return DescribeApiListResponse
+     * @return DescribeApiListResponse DescribeApiListResponse
      */
     public function describeApiList($request)
     {
@@ -482,10 +513,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentAssetFormRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+     *  *
+     * @param DescribeComponentAssetFormRequest $request DescribeComponentAssetFormRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentAssetFormResponse
+     * @return DescribeComponentAssetFormResponse DescribeComponentAssetFormResponse
      */
     public function describeComponentAssetFormWithOptions($request, $runtime)
     {
@@ -510,9 +543,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentAssetFormRequest $request
+     * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+     *  *
+     * @param DescribeComponentAssetFormRequest $request DescribeComponentAssetFormRequest
      *
-     * @return DescribeComponentAssetFormResponse
+     * @return DescribeComponentAssetFormResponse DescribeComponentAssetFormResponse
      */
     public function describeComponentAssetForm($request)
     {
@@ -522,10 +557,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentAssetsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries a list of assets in a component.
+     *  *
+     * @param DescribeComponentAssetsRequest $request DescribeComponentAssetsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentAssetsResponse
+     * @return DescribeComponentAssetsResponse DescribeComponentAssetsResponse
      */
     public function describeComponentAssetsWithOptions($request, $runtime)
     {
@@ -550,9 +587,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentAssetsRequest $request
+     * @summary Queries a list of assets in a component.
+     *  *
+     * @param DescribeComponentAssetsRequest $request DescribeComponentAssetsRequest
      *
-     * @return DescribeComponentAssetsResponse
+     * @return DescribeComponentAssetsResponse DescribeComponentAssetsResponse
      */
     public function describeComponentAssets($request)
     {
@@ -562,10 +601,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of common components that are available.
+     *  *
+     * @param DescribeComponentListRequest $request DescribeComponentListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentListResponse
+     * @return DescribeComponentListResponse DescribeComponentListResponse
      */
     public function describeComponentListWithOptions($request, $runtime)
     {
@@ -590,9 +631,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentListRequest $request
+     * @summary Queries a list of common components that are available.
+     *  *
+     * @param DescribeComponentListRequest $request DescribeComponentListRequest
      *
-     * @return DescribeComponentListResponse
+     * @return DescribeComponentListResponse DescribeComponentListResponse
      */
     public function describeComponentList($request)
     {
@@ -602,10 +645,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentPlaybookRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries a list of predefined components that are available.
+     *  *
+     * @param DescribeComponentPlaybookRequest $request DescribeComponentPlaybookRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentPlaybookResponse
+     * @return DescribeComponentPlaybookResponse DescribeComponentPlaybookResponse
      */
     public function describeComponentPlaybookWithOptions($request, $runtime)
     {
@@ -630,9 +675,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentPlaybookRequest $request
+     * @summary Queries a list of predefined components that are available.
+     *  *
+     * @param DescribeComponentPlaybookRequest $request DescribeComponentPlaybookRequest
      *
-     * @return DescribeComponentPlaybookResponse
+     * @return DescribeComponentPlaybookResponse DescribeComponentPlaybookResponse
      */
     public function describeComponentPlaybook($request)
     {
@@ -642,10 +689,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentsJsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+     *  *
+     * @param DescribeComponentsJsRequest $request DescribeComponentsJsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentsJsResponse
+     * @return DescribeComponentsJsResponse DescribeComponentsJsResponse
      */
     public function describeComponentsJsWithOptions($request, $runtime)
     {
@@ -670,9 +719,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentsJsRequest $request
+     * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+     *  *
+     * @param DescribeComponentsJsRequest $request DescribeComponentsJsRequest
      *
-     * @return DescribeComponentsJsResponse
+     * @return DescribeComponentsJsResponse DescribeComponentsJsResponse
      */
     public function describeComponentsJs($request)
     {
@@ -682,10 +733,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistinctReleasesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about the published versions of a playbook after deduplication.
+     *  *
+     * @param DescribeDistinctReleasesRequest $request DescribeDistinctReleasesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDistinctReleasesResponse
+     * @return DescribeDistinctReleasesResponse DescribeDistinctReleasesResponse
      */
     public function describeDistinctReleasesWithOptions($request, $runtime)
     {
@@ -710,9 +763,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistinctReleasesRequest $request
+     * @summary Queries the information about the published versions of a playbook after deduplication.
+     *  *
+     * @param DescribeDistinctReleasesRequest $request DescribeDistinctReleasesRequest
      *
-     * @return DescribeDistinctReleasesResponse
+     * @return DescribeDistinctReleasesResponse DescribeDistinctReleasesResponse
      */
     public function describeDistinctReleases($request)
     {
@@ -722,10 +777,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnumItemsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries enumeration items that are required by a cloud service.
+     *  *
+     * @param DescribeEnumItemsRequest $request DescribeEnumItemsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnumItemsResponse
+     * @return DescribeEnumItemsResponse DescribeEnumItemsResponse
      */
     public function describeEnumItemsWithOptions($request, $runtime)
     {
@@ -750,9 +807,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnumItemsRequest $request
+     * @summary Queries enumeration items that are required by a cloud service.
+     *  *
+     * @param DescribeEnumItemsRequest $request DescribeEnumItemsRequest
      *
-     * @return DescribeEnumItemsResponse
+     * @return DescribeEnumItemsResponse DescribeEnumItemsResponse
      */
     public function describeEnumItems($request)
     {
@@ -762,10 +821,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeExecutePlaybooksRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the playbooks that are available for an automatic response plan.
+     *  *
+     * @param DescribeExecutePlaybooksRequest $request DescribeExecutePlaybooksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExecutePlaybooksResponse
+     * @return DescribeExecutePlaybooksResponse DescribeExecutePlaybooksResponse
      */
     public function describeExecutePlaybooksWithOptions($request, $runtime)
     {
@@ -790,9 +851,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeExecutePlaybooksRequest $request
+     * @summary Queries the playbooks that are available for an automatic response plan.
+     *  *
+     * @param DescribeExecutePlaybooksRequest $request DescribeExecutePlaybooksRequest
      *
-     * @return DescribeExecutePlaybooksResponse
+     * @return DescribeExecutePlaybooksResponse DescribeExecutePlaybooksResponse
      */
     public function describeExecutePlaybooks($request)
     {
@@ -802,10 +865,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeFieldRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the global configuration information about a cloud service.
+     *  *
+     * @param DescribeFieldRequest $request DescribeFieldRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFieldResponse
+     * @return DescribeFieldResponse DescribeFieldResponse
      */
     public function describeFieldWithOptions($request, $runtime)
     {
@@ -830,9 +895,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeFieldRequest $request
+     * @summary Queries the global configuration information about a cloud service.
+     *  *
+     * @param DescribeFieldRequest $request DescribeFieldRequest
      *
-     * @return DescribeFieldResponse
+     * @return DescribeFieldResponse DescribeFieldResponse
      */
     public function describeField($request)
     {
@@ -842,10 +909,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeLatestRecordSchemaRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+     *  *
+     * @param DescribeLatestRecordSchemaRequest $request DescribeLatestRecordSchemaRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLatestRecordSchemaResponse
+     * @return DescribeLatestRecordSchemaResponse DescribeLatestRecordSchemaResponse
      */
     public function describeLatestRecordSchemaWithOptions($request, $runtime)
     {
@@ -870,9 +939,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeLatestRecordSchemaRequest $request
+     * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+     *  *
+     * @param DescribeLatestRecordSchemaRequest $request DescribeLatestRecordSchemaRequest
      *
-     * @return DescribeLatestRecordSchemaResponse
+     * @return DescribeLatestRecordSchemaResponse DescribeLatestRecordSchemaResponse
      */
     public function describeLatestRecordSchema($request)
     {
@@ -882,10 +953,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeParamTagsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+     *  *
+     * @param DescribeNodeParamTagsRequest $request DescribeNodeParamTagsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodeParamTagsResponse
+     * @return DescribeNodeParamTagsResponse DescribeNodeParamTagsResponse
      */
     public function describeNodeParamTagsWithOptions($request, $runtime)
     {
@@ -910,9 +983,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeParamTagsRequest $request
+     * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
+     *  *
+     * @param DescribeNodeParamTagsRequest $request DescribeNodeParamTagsRequest
      *
-     * @return DescribeNodeParamTagsResponse
+     * @return DescribeNodeParamTagsResponse DescribeNodeParamTagsResponse
      */
     public function describeNodeParamTags($request)
     {
@@ -922,10 +997,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeUsedInfosRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the nodes that reference the same node in a playbook.
+     *  *
+     * @param DescribeNodeUsedInfosRequest $request DescribeNodeUsedInfosRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodeUsedInfosResponse
+     * @return DescribeNodeUsedInfosResponse DescribeNodeUsedInfosResponse
      */
     public function describeNodeUsedInfosWithOptions($request, $runtime)
     {
@@ -950,9 +1027,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeUsedInfosRequest $request
+     * @summary Queries the nodes that reference the same node in a playbook.
+     *  *
+     * @param DescribeNodeUsedInfosRequest $request DescribeNodeUsedInfosRequest
      *
-     * @return DescribeNodeUsedInfosResponse
+     * @return DescribeNodeUsedInfosResponse DescribeNodeUsedInfosResponse
      */
     public function describeNodeUsedInfos($request)
     {
@@ -962,10 +1041,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the XML configuration of a playbook.
+     *  *
+     * @param DescribePlaybookRequest $request DescribePlaybookRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookResponse
+     * @return DescribePlaybookResponse DescribePlaybookResponse
      */
     public function describePlaybookWithOptions($request, $runtime)
     {
@@ -990,9 +1071,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookRequest $request
+     * @summary Queries the XML configuration of a playbook.
+     *  *
+     * @param DescribePlaybookRequest $request DescribePlaybookRequest
      *
-     * @return DescribePlaybookResponse
+     * @return DescribePlaybookResponse DescribePlaybookResponse
      */
     public function describePlaybook($request)
     {
@@ -1002,10 +1085,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookInputOutputRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the input and output parameter configurations of a playbook.
+     *  *
+     * @param DescribePlaybookInputOutputRequest $request DescribePlaybookInputOutputRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookInputOutputResponse
+     * @return DescribePlaybookInputOutputResponse DescribePlaybookInputOutputResponse
      */
     public function describePlaybookInputOutputWithOptions($request, $runtime)
     {
@@ -1030,9 +1115,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookInputOutputRequest $request
+     * @summary Queries the input and output parameter configurations of a playbook.
+     *  *
+     * @param DescribePlaybookInputOutputRequest $request DescribePlaybookInputOutputRequest
      *
-     * @return DescribePlaybookInputOutputResponse
+     * @return DescribePlaybookInputOutputResponse DescribePlaybookInputOutputResponse
      */
     public function describePlaybookInputOutput($request)
     {
@@ -1042,10 +1129,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookMetricsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+     *  *
+     * @param DescribePlaybookMetricsRequest $request DescribePlaybookMetricsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookMetricsResponse
+     * @return DescribePlaybookMetricsResponse DescribePlaybookMetricsResponse
      */
     public function describePlaybookMetricsWithOptions($request, $runtime)
     {
@@ -1070,9 +1159,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookMetricsRequest $request
+     * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+     *  *
+     * @param DescribePlaybookMetricsRequest $request DescribePlaybookMetricsRequest
      *
-     * @return DescribePlaybookMetricsResponse
+     * @return DescribePlaybookMetricsResponse DescribePlaybookMetricsResponse
      */
     public function describePlaybookMetrics($request)
     {
@@ -1082,10 +1173,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookNodesOutputRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the historical output data of a component node.
+     *  *
+     * @param DescribePlaybookNodesOutputRequest $request DescribePlaybookNodesOutputRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookNodesOutputResponse
+     * @return DescribePlaybookNodesOutputResponse DescribePlaybookNodesOutputResponse
      */
     public function describePlaybookNodesOutputWithOptions($request, $runtime)
     {
@@ -1110,9 +1203,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookNodesOutputRequest $request
+     * @summary Queries the historical output data of a component node.
+     *  *
+     * @param DescribePlaybookNodesOutputRequest $request DescribePlaybookNodesOutputRequest
      *
-     * @return DescribePlaybookNodesOutputResponse
+     * @return DescribePlaybookNodesOutputResponse DescribePlaybookNodesOutputResponse
      */
     public function describePlaybookNodesOutput($request)
     {
@@ -1122,10 +1217,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookNumberMetricsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+     *  *
+     * @param DescribePlaybookNumberMetricsRequest $request DescribePlaybookNumberMetricsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookNumberMetricsResponse
+     * @return DescribePlaybookNumberMetricsResponse DescribePlaybookNumberMetricsResponse
      */
     public function describePlaybookNumberMetricsWithOptions($request, $runtime)
     {
@@ -1150,9 +1247,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookNumberMetricsRequest $request
+     * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+     *  *
+     * @param DescribePlaybookNumberMetricsRequest $request DescribePlaybookNumberMetricsRequest
      *
-     * @return DescribePlaybookNumberMetricsResponse
+     * @return DescribePlaybookNumberMetricsResponse DescribePlaybookNumberMetricsResponse
      */
     public function describePlaybookNumberMetrics($request)
     {
@@ -1162,10 +1261,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookReleasesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about the published versions of a playbook.
+     *  *
+     * @param DescribePlaybookReleasesRequest $request DescribePlaybookReleasesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybookReleasesResponse
+     * @return DescribePlaybookReleasesResponse DescribePlaybookReleasesResponse
      */
     public function describePlaybookReleasesWithOptions($request, $runtime)
     {
@@ -1190,9 +1291,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybookReleasesRequest $request
+     * @summary Queries the information about the published versions of a playbook.
+     *  *
+     * @param DescribePlaybookReleasesRequest $request DescribePlaybookReleasesRequest
      *
-     * @return DescribePlaybookReleasesResponse
+     * @return DescribePlaybookReleasesResponse DescribePlaybookReleasesResponse
      */
     public function describePlaybookReleases($request)
     {
@@ -1202,10 +1305,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybooksRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries playbooks.
+     *  *
+     * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlaybooksResponse
+     * @return DescribePlaybooksResponse DescribePlaybooksResponse
      */
     public function describePlaybooksWithOptions($request, $runtime)
     {
@@ -1230,9 +1335,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePlaybooksRequest $request
+     * @summary Queries playbooks.
+     *  *
+     * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
      *
-     * @return DescribePlaybooksResponse
+     * @return DescribePlaybooksResponse DescribePlaybooksResponse
      */
     public function describePlaybooks($request)
     {
@@ -1242,10 +1349,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the details of an API operation.
+     *  *
+     * @param DescribePopApiRequest $request DescribePopApiRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePopApiResponse
+     * @return DescribePopApiResponse DescribePopApiResponse
      */
     public function describePopApiWithOptions($request, $runtime)
     {
@@ -1270,9 +1379,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiRequest $request
+     * @summary Queries the details of an API operation.
+     *  *
+     * @param DescribePopApiRequest $request DescribePopApiRequest
      *
-     * @return DescribePopApiResponse
+     * @return DescribePopApiResponse DescribePopApiResponse
      */
     public function describePopApi($request)
     {
@@ -1282,10 +1393,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiItemListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries a list of API operations for an Alibaba Cloud service.
+     *  *
+     * @param DescribePopApiItemListRequest $request DescribePopApiItemListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePopApiItemListResponse
+     * @return DescribePopApiItemListResponse DescribePopApiItemListResponse
      */
     public function describePopApiItemListWithOptions($request, $runtime)
     {
@@ -1310,9 +1423,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiItemListRequest $request
+     * @summary Queries a list of API operations for an Alibaba Cloud service.
+     *  *
+     * @param DescribePopApiItemListRequest $request DescribePopApiItemListRequest
      *
-     * @return DescribePopApiItemListResponse
+     * @return DescribePopApiItemListResponse DescribePopApiItemListResponse
      */
     public function describePopApiItemList($request)
     {
@@ -1322,10 +1437,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiVersionListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the version information of API operations for an Alibaba Cloud service.
+     *  *
+     * @param DescribePopApiVersionListRequest $request DescribePopApiVersionListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePopApiVersionListResponse
+     * @return DescribePopApiVersionListResponse DescribePopApiVersionListResponse
      */
     public function describePopApiVersionListWithOptions($request, $runtime)
     {
@@ -1350,9 +1467,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribePopApiVersionListRequest $request
+     * @summary Queries the version information of API operations for an Alibaba Cloud service.
+     *  *
+     * @param DescribePopApiVersionListRequest $request DescribePopApiVersionListRequest
      *
-     * @return DescribePopApiVersionListResponse
+     * @return DescribePopApiVersionListResponse DescribePopApiVersionListResponse
      */
     public function describePopApiVersionList($request)
     {
@@ -1362,10 +1481,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+     *  *
+     * @param DescribeProcessTasksRequest $request DescribeProcessTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProcessTasksResponse
+     * @return DescribeProcessTasksResponse DescribeProcessTasksResponse
      */
     public function describeProcessTasksWithOptions($request, $runtime)
     {
@@ -1390,9 +1511,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessTasksRequest $request
+     * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+     *  *
+     * @param DescribeProcessTasksRequest $request DescribeProcessTasksRequest
      *
-     * @return DescribeProcessTasksResponse
+     * @return DescribeProcessTasksResponse DescribeProcessTasksResponse
      */
     public function describeProcessTasks($request)
     {
@@ -1402,10 +1525,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordActionOutputListRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+     *  *
+     * @param DescribeSoarRecordActionOutputListRequest $request DescribeSoarRecordActionOutputListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSoarRecordActionOutputListResponse
+     * @return DescribeSoarRecordActionOutputListResponse DescribeSoarRecordActionOutputListResponse
      */
     public function describeSoarRecordActionOutputListWithOptions($request, $runtime)
     {
@@ -1430,9 +1555,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordActionOutputListRequest $request
+     * @summary Queries the data that is returned when a component initiates an action in a playbook task.
+     *  *
+     * @param DescribeSoarRecordActionOutputListRequest $request DescribeSoarRecordActionOutputListRequest
      *
-     * @return DescribeSoarRecordActionOutputListResponse
+     * @return DescribeSoarRecordActionOutputListResponse DescribeSoarRecordActionOutputListResponse
      */
     public function describeSoarRecordActionOutputList($request)
     {
@@ -1442,10 +1569,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordInOutputRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+     *  *
+     * @param DescribeSoarRecordInOutputRequest $request DescribeSoarRecordInOutputRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSoarRecordInOutputResponse
+     * @return DescribeSoarRecordInOutputResponse DescribeSoarRecordInOutputResponse
      */
     public function describeSoarRecordInOutputWithOptions($request, $runtime)
     {
@@ -1470,9 +1599,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordInOutputRequest $request
+     * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
+     *  *
+     * @param DescribeSoarRecordInOutputRequest $request DescribeSoarRecordInOutputRequest
      *
-     * @return DescribeSoarRecordInOutputResponse
+     * @return DescribeSoarRecordInOutputResponse DescribeSoarRecordInOutputResponse
      */
     public function describeSoarRecordInOutput($request)
     {
@@ -1482,10 +1613,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the execution records of a playbook.
+     *  *
+     * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSoarRecordsResponse
+     * @return DescribeSoarRecordsResponse DescribeSoarRecordsResponse
      */
     public function describeSoarRecordsWithOptions($request, $runtime)
     {
@@ -1510,9 +1643,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarRecordsRequest $request
+     * @summary Queries the execution records of a playbook.
+     *  *
+     * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
      *
-     * @return DescribeSoarRecordsResponse
+     * @return DescribeSoarRecordsResponse DescribeSoarRecordsResponse
      */
     public function describeSoarRecords($request)
     {
@@ -1522,10 +1657,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarTaskAndActionsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the execution records of a component during the running of a playbook.
+     *  *
+     * @param DescribeSoarTaskAndActionsRequest $request DescribeSoarTaskAndActionsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSoarTaskAndActionsResponse
+     * @return DescribeSoarTaskAndActionsResponse DescribeSoarTaskAndActionsResponse
      */
     public function describeSoarTaskAndActionsWithOptions($request, $runtime)
     {
@@ -1550,9 +1687,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSoarTaskAndActionsRequest $request
+     * @summary Queries the execution records of a component during the running of a playbook.
+     *  *
+     * @param DescribeSoarTaskAndActionsRequest $request DescribeSoarTaskAndActionsRequest
      *
-     * @return DescribeSoarTaskAndActionsResponse
+     * @return DescribeSoarTaskAndActionsResponse DescribeSoarTaskAndActionsResponse
      */
     public function describeSoarTaskAndActions($request)
     {
@@ -1562,10 +1701,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSophonCommandsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the commands that can be run to obtain objects.
+     *  *
+     * @param DescribeSophonCommandsRequest $request DescribeSophonCommandsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSophonCommandsResponse
+     * @return DescribeSophonCommandsResponse DescribeSophonCommandsResponse
      */
     public function describeSophonCommandsWithOptions($request, $runtime)
     {
@@ -1593,9 +1734,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescribeSophonCommandsRequest $request
+     * @summary Queries the commands that can be run to obtain objects.
+     *  *
+     * @param DescribeSophonCommandsRequest $request DescribeSophonCommandsRequest
      *
-     * @return DescribeSophonCommandsResponse
+     * @return DescribeSophonCommandsResponse DescribeSophonCommandsResponse
      */
     public function describeSophonCommands($request)
     {
@@ -1605,10 +1748,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescriberPython3ScriptLogsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+     *  *
+     * @param DescriberPython3ScriptLogsRequest $request DescriberPython3ScriptLogsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescriberPython3ScriptLogsResponse
+     * @return DescriberPython3ScriptLogsResponse DescriberPython3ScriptLogsResponse
      */
     public function describerPython3ScriptLogsWithOptions($request, $runtime)
     {
@@ -1633,9 +1778,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param DescriberPython3ScriptLogsRequest $request
+     * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+     *  *
+     * @param DescriberPython3ScriptLogsRequest $request DescriberPython3ScriptLogsRequest
      *
-     * @return DescriberPython3ScriptLogsResponse
+     * @return DescriberPython3ScriptLogsResponse DescriberPython3ScriptLogsResponse
      */
     public function describerPython3ScriptLogs($request)
     {
@@ -1645,10 +1792,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyComponentAssetRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the information about the asset that is configured for a component.
+     *  *
+     * @param ModifyComponentAssetRequest $request ModifyComponentAssetRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyComponentAssetResponse
+     * @return ModifyComponentAssetResponse ModifyComponentAssetResponse
      */
     public function modifyComponentAssetWithOptions($request, $runtime)
     {
@@ -1679,9 +1828,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyComponentAssetRequest $request
+     * @summary Modifies the information about the asset that is configured for a component.
+     *  *
+     * @param ModifyComponentAssetRequest $request ModifyComponentAssetRequest
      *
-     * @return ModifyComponentAssetResponse
+     * @return ModifyComponentAssetResponse ModifyComponentAssetResponse
      */
     public function modifyComponentAsset($request)
     {
@@ -1691,10 +1842,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies the configuration of a playbook.
+     *  *
+     * @param ModifyPlaybookRequest $request ModifyPlaybookRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPlaybookResponse
+     * @return ModifyPlaybookResponse ModifyPlaybookResponse
      */
     public function modifyPlaybookWithOptions($request, $runtime)
     {
@@ -1734,9 +1887,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookRequest $request
+     * @summary Modifies the configuration of a playbook.
+     *  *
+     * @param ModifyPlaybookRequest $request ModifyPlaybookRequest
      *
-     * @return ModifyPlaybookResponse
+     * @return ModifyPlaybookResponse ModifyPlaybookResponse
      */
     public function modifyPlaybook($request)
     {
@@ -1746,10 +1901,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookInputOutputRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the input and output parameters of a playbook.
+     *  *
+     * @param ModifyPlaybookInputOutputRequest $request ModifyPlaybookInputOutputRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPlaybookInputOutputResponse
+     * @return ModifyPlaybookInputOutputResponse ModifyPlaybookInputOutputResponse
      */
     public function modifyPlaybookInputOutputWithOptions($request, $runtime)
     {
@@ -1792,9 +1949,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookInputOutputRequest $request
+     * @summary Modifies the input and output parameters of a playbook.
+     *  *
+     * @param ModifyPlaybookInputOutputRequest $request ModifyPlaybookInputOutputRequest
      *
-     * @return ModifyPlaybookInputOutputResponse
+     * @return ModifyPlaybookInputOutputResponse ModifyPlaybookInputOutputResponse
      */
     public function modifyPlaybookInputOutput($request)
     {
@@ -1804,10 +1963,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookInstanceStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the status of a playbook.
+     *  *
+     * @param ModifyPlaybookInstanceStatusRequest $request ModifyPlaybookInstanceStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPlaybookInstanceStatusResponse
+     * @return ModifyPlaybookInstanceStatusResponse ModifyPlaybookInstanceStatusResponse
      */
     public function modifyPlaybookInstanceStatusWithOptions($request, $runtime)
     {
@@ -1843,9 +2004,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param ModifyPlaybookInstanceStatusRequest $request
+     * @summary Modifies the status of a playbook.
+     *  *
+     * @param ModifyPlaybookInstanceStatusRequest $request ModifyPlaybookInstanceStatusRequest
      *
-     * @return ModifyPlaybookInstanceStatusResponse
+     * @return ModifyPlaybookInstanceStatusResponse ModifyPlaybookInstanceStatusResponse
      */
     public function modifyPlaybookInstanceStatus($request)
     {
@@ -1855,10 +2018,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param PublishPlaybookRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+     *  *
+     * @param PublishPlaybookRequest $request PublishPlaybookRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishPlaybookResponse
+     * @return PublishPlaybookResponse PublishPlaybookResponse
      */
     public function publishPlaybookWithOptions($request, $runtime)
     {
@@ -1889,9 +2054,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param PublishPlaybookRequest $request
+     * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+     *  *
+     * @param PublishPlaybookRequest $request PublishPlaybookRequest
      *
-     * @return PublishPlaybookResponse
+     * @return PublishPlaybookResponse PublishPlaybookResponse
      */
     public function publishPlaybook($request)
     {
@@ -1901,10 +2068,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param QueryTreeDataRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all playbooks at a time.
+     *  *
+     * @param QueryTreeDataRequest $request QueryTreeDataRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTreeDataResponse
+     * @return QueryTreeDataResponse QueryTreeDataResponse
      */
     public function queryTreeDataWithOptions($request, $runtime)
     {
@@ -1929,9 +2098,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param QueryTreeDataRequest $request
+     * @summary Queries all playbooks at a time.
+     *  *
+     * @param QueryTreeDataRequest $request QueryTreeDataRequest
      *
-     * @return QueryTreeDataResponse
+     * @return QueryTreeDataResponse QueryTreeDataResponse
      */
     public function queryTreeData($request)
     {
@@ -1941,10 +2112,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RenamePlaybookNodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
+     *  *
+     * @param RenamePlaybookNodeRequest $request RenamePlaybookNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenamePlaybookNodeResponse
+     * @return RenamePlaybookNodeResponse RenamePlaybookNodeResponse
      */
     public function renamePlaybookNodeWithOptions($request, $runtime)
     {
@@ -1981,9 +2154,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RenamePlaybookNodeRequest $request
+     * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
+     *  *
+     * @param RenamePlaybookNodeRequest $request RenamePlaybookNodeRequest
      *
-     * @return RenamePlaybookNodeResponse
+     * @return RenamePlaybookNodeResponse RenamePlaybookNodeResponse
      */
     public function renamePlaybookNode($request)
     {
@@ -1993,10 +2168,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RevertPlaybookReleaseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+     *  *
+     * @param RevertPlaybookReleaseRequest $request RevertPlaybookReleaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevertPlaybookReleaseResponse
+     * @return RevertPlaybookReleaseResponse RevertPlaybookReleaseResponse
      */
     public function revertPlaybookReleaseWithOptions($request, $runtime)
     {
@@ -2030,9 +2207,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RevertPlaybookReleaseRequest $request
+     * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+     *  *
+     * @param RevertPlaybookReleaseRequest $request RevertPlaybookReleaseRequest
      *
-     * @return RevertPlaybookReleaseResponse
+     * @return RevertPlaybookReleaseResponse RevertPlaybookReleaseResponse
      */
     public function revertPlaybookRelease($request)
     {
@@ -2042,8 +2221,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2084,8 +2265,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
      *
      * @return RunPython3ScriptResponse RunPython3ScriptResponse
@@ -2098,8 +2281,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Triggers an enabled custom playbook or a predefined playbook.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2134,8 +2319,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Triggers an enabled custom playbook or a predefined playbook.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
      *
      * @return TriggerPlaybookResponse TriggerPlaybookResponse
@@ -2148,10 +2335,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerProcessTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+     *  *
+     * @param TriggerProcessTaskRequest $request TriggerProcessTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TriggerProcessTaskResponse
+     * @return TriggerProcessTaskResponse TriggerProcessTaskResponse
      */
     public function triggerProcessTaskWithOptions($request, $runtime)
     {
@@ -2184,9 +2373,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerProcessTaskRequest $request
+     * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+     *  *
+     * @param TriggerProcessTaskRequest $request TriggerProcessTaskRequest
      *
-     * @return TriggerProcessTaskResponse
+     * @return TriggerProcessTaskResponse TriggerProcessTaskResponse
      */
     public function triggerProcessTask($request)
     {
@@ -2196,8 +2387,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Triggers a playbook or a command.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2241,8 +2434,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
-     *   *
+     * @summary Triggers a playbook or a command.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *  *
      * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
      *
      * @return TriggerSophonPlaybookResponse TriggerSophonPlaybookResponse
@@ -2255,10 +2450,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param VerifyPlaybookRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+     *  *
+     * @param VerifyPlaybookRequest $request VerifyPlaybookRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyPlaybookResponse
+     * @return VerifyPlaybookResponse VerifyPlaybookResponse
      */
     public function verifyPlaybookWithOptions($request, $runtime)
     {
@@ -2289,9 +2486,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param VerifyPlaybookRequest $request
+     * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+     *  *
+     * @param VerifyPlaybookRequest $request VerifyPlaybookRequest
      *
-     * @return VerifyPlaybookResponse
+     * @return VerifyPlaybookResponse VerifyPlaybookResponse
      */
     public function verifyPlaybook($request)
     {
@@ -2301,10 +2500,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param VerifyPythonFileRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Checks whether the syntax of a Python code snippet is correct.
+     *  *
+     * @param VerifyPythonFileRequest $request VerifyPythonFileRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyPythonFileResponse
+     * @return VerifyPythonFileResponse VerifyPythonFileResponse
      */
     public function verifyPythonFileWithOptions($request, $runtime)
     {
@@ -2332,9 +2533,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param VerifyPythonFileRequest $request
+     * @summary Checks whether the syntax of a Python code snippet is correct.
+     *  *
+     * @param VerifyPythonFileRequest $request VerifyPythonFileRequest
      *
-     * @return VerifyPythonFileResponse
+     * @return VerifyPythonFileResponse VerifyPythonFileResponse
      */
     public function verifyPythonFile($request)
     {

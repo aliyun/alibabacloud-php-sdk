@@ -13,6 +13,7 @@ class DescribeEnumItemsRequest extends Model
      *
      *   **process**: scenarios
      *
+     * This parameter is required.
      * @example process
      *
      * @var string

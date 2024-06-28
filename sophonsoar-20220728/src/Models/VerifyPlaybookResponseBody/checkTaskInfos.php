@@ -11,7 +11,7 @@ class checkTaskInfos extends Model
     /**
      * @description The error message returned when the playbook does not pass the check.
      *
-     * @example Node [python3_3] doesn\"t have the asset information
+     * @example Node [python3_3] doesn\\"t have the asset information
      *
      * @var string
      */
