@@ -40,9 +40,9 @@ class reservationData extends Model
     public $reservationMaxConnections;
 
     /**
-     * @description The type of the pending order. Valid values:
+     * @description The type of the order that has not taken effect. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with a specification change
+     *   **RENEWCHANGE**: renewal with upgrade or downgrade
      *   **TEMP_UPGRADE**: temporary upgrade
      *   **RENEW**: renewal
      *
@@ -76,8 +76,8 @@ class reservationData extends Model
     /**
      * @description The status of the pending order.
      *
-     *   **1**: indicates that the order is an order for renewal or renewal with a specification change and the order has not taken effect.
-     *   **2**: indicates that the order is an order for temporary upgrade and the order has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, the values of **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specifications of the VPN gateway.
+     *   **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
+     *   **2**: indicates that the order of the temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, the values of **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specifications of the VPN gateway.
      *
      * @example 1
      *

@@ -149,7 +149,7 @@ class DescribeVpcAttributeResponseBody extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the VPC belongs.
      *
-     * @example 283117732402483989
+     * @example 28311773240248****
      *
      * @var int
      */

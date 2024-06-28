@@ -494,6 +494,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcGatewayEndpointAttributeRequest;
@@ -675,6 +677,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenFlowLogServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenFlowLogServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPhysicalConnectionServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPhysicalConnectionServiceResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPublicIpAddressPoolServiceRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPublicIpAddressPoolServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenTrafficMirrorServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenTrafficMirrorServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\PublishVpnRouteEntryRequest;
@@ -1867,6 +1871,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -6783,6 +6790,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 创建端口初装费订单
+     *  *
      * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -6847,6 +6856,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 创建端口初装费订单
+     *  *
      * @param CreatePhysicalConnectionSetupOrderRequest $request CreatePhysicalConnectionSetupOrderRequest
      *
      * @return CreatePhysicalConnectionSetupOrderResponse CreatePhysicalConnectionSetupOrderResponse
@@ -15925,6 +15936,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
         if (!Utils::isUnset($request->associatedInstanceId)) {
             $query['AssociatedInstanceId'] = $request->associatedInstanceId;
         }
@@ -16021,6 +16035,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 查询创建的仅主动出规则。
+     *  *
      * @param DescribeIpv6EgressOnlyRulesRequest $request DescribeIpv6EgressOnlyRulesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -16088,6 +16104,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @summary 查询创建的仅主动出规则。
+     *  *
      * @param DescribeIpv6EgressOnlyRulesRequest $request DescribeIpv6EgressOnlyRulesRequest
      *
      * @return DescribeIpv6EgressOnlyRulesResponse DescribeIpv6EgressOnlyRulesResponse
@@ -20632,6 +20650,71 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPhysicalConnectionServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询IP地址池功能的开通状态。
+     *  *
+     * @param GetPublicIpAddressPoolServiceStatusRequest $request GetPublicIpAddressPoolServiceStatusRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetPublicIpAddressPoolServiceStatusResponse GetPublicIpAddressPoolServiceStatusResponse
+     */
+    public function getPublicIpAddressPoolServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPublicIpAddressPoolServiceStatus',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPublicIpAddressPoolServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询IP地址池功能的开通状态。
+     *  *
+     * @param GetPublicIpAddressPoolServiceStatusRequest $request GetPublicIpAddressPoolServiceStatusRequest
+     *
+     * @return GetPublicIpAddressPoolServiceStatusResponse GetPublicIpAddressPoolServiceStatusResponse
+     */
+    public function getPublicIpAddressPoolServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPublicIpAddressPoolServiceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -25696,6 +25779,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->routePropagationEnable)) {
+            $query['RoutePropagationEnable'] = $request->routePropagationEnable;
+        }
         if (!Utils::isUnset($request->routeTableId)) {
             $query['RouteTableId'] = $request->routeTableId;
         }
@@ -27857,6 +27943,71 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openPhysicalConnectionServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开通IP地址池功能。
+     *  *
+     * @param OpenPublicIpAddressPoolServiceRequest $request OpenPublicIpAddressPoolServiceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OpenPublicIpAddressPoolServiceResponse OpenPublicIpAddressPoolServiceResponse
+     */
+    public function openPublicIpAddressPoolServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenPublicIpAddressPoolService',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenPublicIpAddressPoolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开通IP地址池功能。
+     *  *
+     * @param OpenPublicIpAddressPoolServiceRequest $request OpenPublicIpAddressPoolServiceRequest
+     *
+     * @return OpenPublicIpAddressPoolServiceResponse OpenPublicIpAddressPoolServiceResponse
+     */
+    public function openPublicIpAddressPoolService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openPublicIpAddressPoolServiceWithOptions($request, $runtime);
     }
 
     /**

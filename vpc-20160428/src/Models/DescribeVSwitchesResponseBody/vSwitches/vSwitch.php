@@ -91,7 +91,7 @@ class vSwitch extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
-     * @example 253460731706911258
+     * @example 25346073170691****
      *
      * @var int
      */

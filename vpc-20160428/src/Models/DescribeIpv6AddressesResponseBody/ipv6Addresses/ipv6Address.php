@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class ipv6Address extends Model
 {
     /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
      * @description The time when the IPv6 address was created.
      *
      * @example 2020-12-20T14:56:09Z
@@ -182,6 +187,7 @@ class ipv6Address extends Model
      */
     public $vpcId;
     protected $_name = [
+        'addressType'            => 'AddressType',
         'allocationTime'         => 'AllocationTime',
         'associatedInstanceId'   => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
@@ -209,6 +215,9 @@ class ipv6Address extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
         if (null !== $this->allocationTime) {
             $res['AllocationTime'] = $this->allocationTime;
         }
@@ -275,6 +284,9 @@ class ipv6Address extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
+        }
         if (isset($map['AllocationTime'])) {
             $model->allocationTime = $map['AllocationTime'];
         }

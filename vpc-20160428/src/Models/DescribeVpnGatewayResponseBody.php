@@ -108,6 +108,8 @@ class DescribeVpnGatewayResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ENIs created by the system for the VPN gateway.
+     *
      * @var eniInstanceIds
      */
     public $eniInstanceIds;

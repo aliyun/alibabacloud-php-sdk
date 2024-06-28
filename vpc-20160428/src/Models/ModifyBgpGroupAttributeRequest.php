@@ -31,7 +31,7 @@ class ModifyBgpGroupAttributeRequest extends Model
      * @description Specifies whether to clear the secret key. Valid values:
      *
      *   **true**
-     *   **false**
+     *   **false** (default)
      *
      * @example false
      *
@@ -62,12 +62,12 @@ class ModifyBgpGroupAttributeRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to use a fake ASN. Valid values:
+     * @description Specifies whether to use a fake AS number. Valid values:
      *
      *   **false** (default)
      *   **true**
      *
-     * >  A router that runs BGP typically belongs only to one AS. If you need to replace an existing ASN with a new ASN and you cannot immediately modify BGP configurations, you can use fake ASNs to ensure service continuity.
+     * > A router that runs BGP typically belongs to only one AS. If you need to replace an AS with a new one, but you cannot immediately modify BGP configurations due to business requirements, you can specify a fake AS number to establish a connection with the local end. This ensures service continuity in scenarios such as AS migration or AS merging.
      * @example false
      *
      * @var bool

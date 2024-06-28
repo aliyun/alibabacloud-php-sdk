@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class vpnGateway extends Model
 {
     /**
-     * @description Indicates whether Border Gateway Protocol (BGP) routes are automatically advertised to the VPC. Valid values:
+     * @description Indicates whether BGP routes are automatically advertised to the VPC.
      *
      *   **true**
      *   **false**
@@ -24,10 +24,10 @@ class vpnGateway extends Model
     public $autoPropagate;
 
     /**
-     * @description The payment status of the VPN gateway. Valid values:
+     * @description The payment status of the VPN gateway.
      *
-     *   **Normal**: The VPN gateway runs as expected.
-     *   **FinancialLocked**: The VPN gateway is locked due to overdue payments.
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -87,8 +87,8 @@ class vpnGateway extends Model
     /**
      * @description The BGP status of the VPN gateway. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -107,6 +107,8 @@ class vpnGateway extends Model
     public $endTime;
 
     /**
+     * @description The ENIs created by the system for the VPN gateway.
+     *
      * @var eniInstanceIds
      */
     public $eniInstanceIds;
@@ -157,9 +159,9 @@ class vpnGateway extends Model
     public $networkType;
 
     /**
-     * @description The pending orders.
+     * @description The information about pending orders.
      *
-     * >  This parameter is returned only if **IncludeReservationData** is set to **true**.
+     * > This parameter is returned only if **IncludeReservationData** is set to **true**.
      * @var reservationData
      */
     public $reservationData;
@@ -250,11 +252,11 @@ class vpnGateway extends Model
      *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
      *
      *   **true**
-     *   **false**
+     *   **false**: does not query only SQL statements that need to be optimized.
      *
      *   **description**: the description of the VPN gateway. This parameter is only for internal use.
      *
-     *   **VpnVersion**: the version number of the VPN gateway.
+     *   **VpnVersion**: the version of the VPN gateway.
      *
      * @example {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
      *
@@ -297,7 +299,7 @@ class vpnGateway extends Model
     public $vpnGatewayId;
 
     /**
-     * @description The type of the VPN gateway.
+     * @description The type of VPN gateway.
      *
      * Only **Normal** may be returned, which indicates a standard VPN gateway.
      * @example Normal

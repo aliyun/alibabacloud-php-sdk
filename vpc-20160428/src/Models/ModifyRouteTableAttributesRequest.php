@@ -49,6 +49,11 @@ class ModifyRouteTableAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $routePropagationEnable;
+
+    /**
      * @description The ID of the route table.
      *
      * This parameter is required.
@@ -68,14 +73,15 @@ class ModifyRouteTableAttributesRequest extends Model
      */
     public $routeTableName;
     protected $_name = [
-        'description'          => 'Description',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableId'         => 'RouteTableId',
-        'routeTableName'       => 'RouteTableName',
+        'description'            => 'Description',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'regionId'               => 'RegionId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'routePropagationEnable' => 'RoutePropagationEnable',
+        'routeTableId'           => 'RouteTableId',
+        'routeTableName'         => 'RouteTableName',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class ModifyRouteTableAttributesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->routePropagationEnable) {
+            $res['RoutePropagationEnable'] = $this->routePropagationEnable;
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
@@ -138,6 +147,9 @@ class ModifyRouteTableAttributesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RoutePropagationEnable'])) {
+            $model->routePropagationEnable = $map['RoutePropagationEnable'];
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];

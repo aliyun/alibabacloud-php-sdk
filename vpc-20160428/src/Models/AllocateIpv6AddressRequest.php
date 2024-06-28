@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6AddressRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
      * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
@@ -114,6 +119,7 @@ class AllocateIpv6AddressRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'addressType'            => 'AddressType',
         'clientToken'            => 'ClientToken',
         'dryRun'                 => 'DryRun',
         'ipv6Address'            => 'Ipv6Address',
@@ -136,6 +142,9 @@ class AllocateIpv6AddressRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -193,6 +202,9 @@ class AllocateIpv6AddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

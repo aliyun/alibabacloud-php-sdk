@@ -20,7 +20,7 @@ class associatedCen extends Model
     /**
      * @description The ID of the account to which the CEN instance belongs.
      *
-     * @example 283117732402483989
+     * @example 28311773240248****
      *
      * @var int
      */

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6AddressesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
      * @description The ID of the instance that is assigned the IPv6 address.
      *
      * @example i-2ze72wuqj4y3jl4f****
@@ -186,6 +191,7 @@ class DescribeIpv6AddressesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'addressType'             => 'AddressType',
         'associatedInstanceId'    => 'AssociatedInstanceId',
         'associatedInstanceType'  => 'AssociatedInstanceType',
         'includeReservationData'  => 'IncludeReservationData',
@@ -215,6 +221,9 @@ class DescribeIpv6AddressesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
         if (null !== $this->associatedInstanceId) {
             $res['AssociatedInstanceId'] = $this->associatedInstanceId;
         }
@@ -293,6 +302,9 @@ class DescribeIpv6AddressesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
+        }
         if (isset($map['AssociatedInstanceId'])) {
             $model->associatedInstanceId = $map['AssociatedInstanceId'];
         }

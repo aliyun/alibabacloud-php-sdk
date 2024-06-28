@@ -6,15 +6,10 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteVpnAttachmentRequest extends Model
+class OpenPublicIpAddressPoolServiceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-     * @example 123e4567-e89b-12d3-a456-4266****
+     * @example 123e4567-e89b-12d3-a456-426655442455
      *
      * @var string
      */
@@ -26,9 +21,13 @@ class DeleteVpnAttachmentRequest extends Model
     public $ownerAccount;
 
     /**
-     * @description The region ID of the IPsec-VPN connection.
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,23 +43,13 @@ class DeleteVpnAttachmentRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @description The ID of the IPsec-VPN connection.
-     *
-     * This parameter is required.
-     * @example vco-p0w7gtr14m09r9lkr****
-     *
-     * @var string
-     */
-    public $vpnConnectionId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'vpnConnectionId'      => 'VpnConnectionId',
     ];
 
     public function validate()
@@ -76,6 +65,9 @@ class DeleteVpnAttachmentRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -85,9 +77,6 @@ class DeleteVpnAttachmentRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->vpnConnectionId) {
-            $res['VpnConnectionId'] = $this->vpnConnectionId;
-        }
 
         return $res;
     }
@@ -95,7 +84,7 @@ class DeleteVpnAttachmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteVpnAttachmentRequest
+     * @return OpenPublicIpAddressPoolServiceRequest
      */
     public static function fromMap($map = [])
     {
@@ -106,6 +95,9 @@ class DeleteVpnAttachmentRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -114,9 +106,6 @@ class DeleteVpnAttachmentRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['VpnConnectionId'])) {
-            $model->vpnConnectionId = $map['VpnConnectionId'];
         }
 
         return $model;
