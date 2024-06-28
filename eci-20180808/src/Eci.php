@@ -1103,6 +1103,9 @@ class Eci extends OpenApiClient
         if (!Utils::isUnset($request->containerGroupId)) {
             $query['ContainerGroupId'] = $request->containerGroupId;
         }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }

@@ -28,6 +28,11 @@ class DeleteContainerGroupRequest extends Model
     public $containerGroupId;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -59,6 +64,7 @@ class DeleteContainerGroupRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'containerGroupId'     => 'ContainerGroupId',
+        'force'                => 'Force',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -78,6 +84,9 @@ class DeleteContainerGroupRequest extends Model
         }
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
+        }
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -111,6 +120,9 @@ class DeleteContainerGroupRequest extends Model
         }
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
+        }
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
