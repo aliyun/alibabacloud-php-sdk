@@ -56,7 +56,7 @@ class ListProductQuotasRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs-spec
      *
      * @var string
@@ -64,7 +64,7 @@ class ListProductQuotasRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
      * @example ecs.g5.2xlarge
      *
@@ -86,12 +86,13 @@ class ListProductQuotasRequest extends Model
     public $quotaCategory;
 
     /**
-     * @description The field based on which you want to sort the returned records. This parameter is available only for quotas that belong to ECS Quotas by Instance Type. Valid values:
+     * @description The field based on which you want to sort the returned records. Valid values:
      *
      *   TIME: The returned records are sorted by the last update time.
      *   TOTAL: The returned records are sorted by the usage of the total quota.
      *   RESERVED: The returned records are sorted by the usage of the reserved quota.
      *
+     * >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
      * @example TIME
      *
      * @var string
@@ -99,11 +100,12 @@ class ListProductQuotasRequest extends Model
     public $sortField;
 
     /**
-     * @description The order in which you want to sort the returned records. This parameter is available only for quotas that belong to ECS Quotas by Instance Type. Valid values:
+     * @description The order in which you want to sort the returned records. Valid values:
      *
      *   Ascending: ascending order
      *   Descending: descending order
      *
+     * >  This parameter is available only for quotas that belong to ECS Quotas by Instance Type. You can leave this parameter empty.
      * @example Ascending
      *
      * @var string

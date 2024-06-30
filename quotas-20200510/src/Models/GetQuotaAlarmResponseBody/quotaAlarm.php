@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quotaAlarm extends Model
 {
     /**
-     * @description The numeric value of the alert threshold.
+     * @description The ID of the quota alert.
      *
      * @example 78d7e436-4b25-4897-84b5-d7b656bb****
      *
@@ -18,16 +18,16 @@ class quotaAlarm extends Model
     public $alarmId;
 
     /**
-     * @description security_groups
+     * @description The name of the quota alert.
      *
-     * @example The alert contact.
+     * @example tf-testacccn-hangzhouquotasquotaalarm81611
      *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The ID of the quota.
+     * @description The time when the quota alert was created.
      *
      * @example 2021-01-21T03:47:28Z
      *
@@ -43,7 +43,7 @@ class quotaAlarm extends Model
     public $notifyChannels;
 
     /**
-     * @description The used quota.
+     * @description The alert contact.
      *
      * @example accountContact
      *
@@ -52,7 +52,7 @@ class quotaAlarm extends Model
     public $notifyTarget;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
+     * @description The abbreviation of the cloud service name.
      *
      * @example ecs
      *
@@ -61,7 +61,7 @@ class quotaAlarm extends Model
     public $productCode;
 
     /**
-     * @description The name of the quota alert.
+     * @description The ID of the quota.
      *
      * @example q_security-groups
      *
@@ -70,7 +70,7 @@ class quotaAlarm extends Model
     public $quotaActionCode;
 
     /**
-     * @description The time when the quota alert was created.
+     * @description The quota dimension.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -79,7 +79,7 @@ class quotaAlarm extends Model
     public $quotaDimension;
 
     /**
-     * @description The value of the quota.
+     * @description The used quota.
      *
      * @example 28
      *
@@ -88,7 +88,7 @@ class quotaAlarm extends Model
     public $quotaUsage;
 
     /**
-     * @description The ID of the quota alert.
+     * @description The quota value.
      *
      * @example 804
      *
@@ -97,7 +97,7 @@ class quotaAlarm extends Model
     public $quotaValue;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
+     * @description The numeric value of the alert threshold.
      *
      * @example 29
      *
@@ -106,10 +106,7 @@ class quotaAlarm extends Model
     public $threshold;
 
     /**
-     * @description The type of the quota alert. Valid values:
-     *
-     *   used: The alert is created for the used quota.
-     *   usable: The alert is created for the available quota.
+     * @description The percentage of the alert threshold.
      *
      * @example 50
      *
@@ -118,7 +115,10 @@ class quotaAlarm extends Model
     public $thresholdPercent;
 
     /**
-     * @description The quota dimension.
+     * @description The type of the quota alert. Valid values:
+     *
+     *   used: The alert is created for the used quota.
+     *   usable: The alert is created for the available quota.
      *
      * @example used
      *

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaResponseBody;
 
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaResponseBody\quota\period;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaResponseBody\quota\quotaItems;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaResponseBody\quota\usageMetric;
 use AlibabaCloud\Tea\Model;
 
 class quota extends Model
@@ -233,6 +234,11 @@ class quota extends Model
      * @var string
      */
     public $unadjustableDetail;
+
+    /**
+     * @var usageMetric
+     */
+    public $usageMetric;
     protected $_name = [
         'adjustable'         => 'Adjustable',
         'applicableRange'    => 'ApplicableRange',
@@ -257,6 +263,7 @@ class quota extends Model
         'totalQuota'         => 'TotalQuota',
         'totalUsage'         => 'TotalUsage',
         'unadjustableDetail' => 'UnadjustableDetail',
+        'usageMetric'        => 'UsageMetric',
     ];
 
     public function validate()
@@ -340,6 +347,9 @@ class quota extends Model
         }
         if (null !== $this->unadjustableDetail) {
             $res['UnadjustableDetail'] = $this->unadjustableDetail;
+        }
+        if (null !== $this->usageMetric) {
+            $res['UsageMetric'] = null !== $this->usageMetric ? $this->usageMetric->toMap() : null;
         }
 
         return $res;
@@ -431,6 +441,9 @@ class quota extends Model
         }
         if (isset($map['UnadjustableDetail'])) {
             $model->unadjustableDetail = $map['UnadjustableDetail'];
+        }
+        if (isset($map['UsageMetric'])) {
+            $model->usageMetric = usageMetric::fromMap($map['UsageMetric']);
         }
 
         return $model;

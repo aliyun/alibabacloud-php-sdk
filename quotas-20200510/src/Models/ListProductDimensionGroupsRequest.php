@@ -29,7 +29,7 @@ class ListProductDimensionGroupsRequest extends Model
     /**
      * @description The service code.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example oss
      *
      * @var string

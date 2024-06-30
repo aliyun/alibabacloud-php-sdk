@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Quotas\V20200510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetProductQuotaDimensionResponse extends Model
+class RemindQuotaApplicationApprovalResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetProductQuotaDimensionResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetProductQuotaDimensionResponseBody
+     * @var RemindQuotaApplicationApprovalResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetProductQuotaDimensionResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetProductQuotaDimensionResponse
+     * @return RemindQuotaApplicationApprovalResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetProductQuotaDimensionResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetProductQuotaDimensionResponseBody::fromMap($map['body']);
+            $model->body = RemindQuotaApplicationApprovalResponseBody::fromMap($map['body']);
         }
 
         return $model;

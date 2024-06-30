@@ -11,6 +11,7 @@ class DeleteTemplateQuotaItemRequest extends Model
     /**
      * @description The ID of the quota template.
      *
+     * This parameter is required.
      * @example 1****
      *
      * @var string

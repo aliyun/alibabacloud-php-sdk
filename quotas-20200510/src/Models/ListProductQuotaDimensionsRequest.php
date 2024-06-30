@@ -30,7 +30,7 @@ class ListProductQuotaDimensionsRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string

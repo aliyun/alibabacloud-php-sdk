@@ -43,6 +43,8 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1****
      *
      * @var string

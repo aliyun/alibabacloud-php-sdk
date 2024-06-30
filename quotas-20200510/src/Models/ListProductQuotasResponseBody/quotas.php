@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotasResponseBody
 
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotasResponseBody\quotas\period;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotasResponseBody\quotas\quotaItems;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotasResponseBody\quotas\usageMetric;
 use AlibabaCloud\Tea\Model;
 
 class quotas extends Model
@@ -13,8 +14,8 @@ class quotas extends Model
     /**
      * @description Indicates whether the quota is adjustable. Valid values:
      *
-     *   true: The quota is adjustable.
-     *   false: The quota is not adjustable.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -23,7 +24,7 @@ class quotas extends Model
     public $adjustable;
 
     /**
-     * @description None.
+     * @description N/A
      *
      * @var float[]
      */
@@ -53,8 +54,8 @@ class quotas extends Model
     /**
      * @description Indicates whether the system shows the used value of the quota. Valid values:
      *
-     *   true: The system shows the used value of the quota.
-     *   false: The system does not show the used value of the quota.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -92,8 +93,8 @@ class quotas extends Model
     /**
      * @description Indicates whether the quota is a global quota. Valid values:
      *
-     *   true: The quota is shared in all regions.
-     *   false: The quota is independently used in a region.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -188,7 +189,6 @@ class quotas extends Model
     /**
      * @description The unit of the quota.
      *
-     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
      * @example AMOUNT
      *
      * @var string
@@ -196,7 +196,7 @@ class quotas extends Model
     public $quotaUnit;
 
     /**
-     * @description None.
+     * @description N/A
      *
      * @var float[]
      */
@@ -232,6 +232,11 @@ class quotas extends Model
      * @var string
      */
     public $unadjustableDetail;
+
+    /**
+     * @var usageMetric
+     */
+    public $usageMetric;
     protected $_name = [
         'adjustable'         => 'Adjustable',
         'applicableRange'    => 'ApplicableRange',
@@ -256,6 +261,7 @@ class quotas extends Model
         'totalQuota'         => 'TotalQuota',
         'totalUsage'         => 'TotalUsage',
         'unadjustableDetail' => 'UnadjustableDetail',
+        'usageMetric'        => 'UsageMetric',
     ];
 
     public function validate()
@@ -339,6 +345,9 @@ class quotas extends Model
         }
         if (null !== $this->unadjustableDetail) {
             $res['UnadjustableDetail'] = $this->unadjustableDetail;
+        }
+        if (null !== $this->usageMetric) {
+            $res['UsageMetric'] = null !== $this->usageMetric ? $this->usageMetric->toMap() : null;
         }
 
         return $res;
@@ -430,6 +439,9 @@ class quotas extends Model
         }
         if (isset($map['UnadjustableDetail'])) {
             $model->unadjustableDetail = $map['UnadjustableDetail'];
+        }
+        if (isset($map['UsageMetric'])) {
+            $model->usageMetric = usageMetric::fromMap($map['UsageMetric']);
         }
 
         return $model;

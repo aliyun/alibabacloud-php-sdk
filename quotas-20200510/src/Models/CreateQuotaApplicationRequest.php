@@ -25,7 +25,13 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The requested value of the quota.
      *
-     * > Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit an application to increase the value of the quota.
+     * >
+     *
+     *   You can specify the DesireValue parameter based on the values of the `TotalUsage` and `ApplicableRange` parameters that are returned by the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation.
+     *
+     *   Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit an application to increase the value of the quota.
+     *
+     * This parameter is required.
      * @example 804
      *
      * @var float
@@ -42,7 +48,7 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
      *
-     * > If you do not specify an end time, the default end time is 99 years after the quota application is submitted.
+     * >  If you do not specify an end time, the default end time is 99 years after the quota application is submitted.
      * @example 2021-01-19T09:25:56Z
      *
      * @var string
@@ -64,7 +70,7 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
      *
-     * > If you do not specify a start time, the default start time is the time when the quota application is submitted.
+     * >  If you do not specify a start time, the default start time is the time when the quota application is submitted.
      * @example 2021-01-20T09:25:56Z
      *
      * @var string
@@ -86,7 +92,7 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -94,8 +100,9 @@ class CreateQuotaApplicationRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
+     * This parameter is required.
      * @example q_security-groups
      *
      * @var string
@@ -118,7 +125,7 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The reason for the application.
      *
-     * > Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit an application to increase the value of the quota.
+     * This parameter is required.
      * @example Scale Out
      *
      * @var string

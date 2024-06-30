@@ -12,7 +12,7 @@ class GetProductQuotaRequest extends Model
     /**
      * @description The quota dimensions.
      *
-     * @example {\"regionId\":\"cn-beijing\"}
+     * @example {\\"regionId\\":\\"cn-beijing\\"}
      *
      * @var dimensions[]
      */
@@ -21,7 +21,7 @@ class GetProductQuotaRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -31,6 +31,7 @@ class GetProductQuotaRequest extends Model
     /**
      * @description The ID of the quota.
      *
+     * This parameter is required.
      * @example q_security-groups
      *
      * @var string

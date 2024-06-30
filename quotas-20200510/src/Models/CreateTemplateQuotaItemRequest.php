@@ -12,6 +12,13 @@ class CreateTemplateQuotaItemRequest extends Model
     /**
      * @description The requested value of the quota.
      *
+     * >
+     *
+     *   You can specify DesireValue based on the values of `TotalUsage` and `ApplicableRange` in the response to the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation.
+     *
+     *   Applications are reviewed by the technical support team for each cloud service. To increase the success rate of your application, specify a reasonable quota value and a detailed reason.
+     *
+     * This parameter is required.
      * @example 804
      *
      * @var float
@@ -72,7 +79,7 @@ class CreateTemplateQuotaItemRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs
      *
      * @var string
@@ -80,8 +87,9 @@ class CreateTemplateQuotaItemRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
+     * This parameter is required.
      * @example q_security-groups
      *
      * @var string

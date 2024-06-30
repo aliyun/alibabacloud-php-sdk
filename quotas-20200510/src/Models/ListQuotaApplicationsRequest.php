@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $acceptLanguage;
-
-    /**
      * @description The quota dimensions.
      *
      * @var dimensions[]
@@ -52,7 +47,6 @@ class ListQuotaApplicationsRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example csk
      *
      * @var string
@@ -95,7 +89,6 @@ class ListQuotaApplicationsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
         'dimensions'      => 'Dimensions',
         'keyWord'         => 'KeyWord',
         'maxResults'      => 'MaxResults',
@@ -113,9 +106,6 @@ class ListQuotaApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
             if (null !== $this->dimensions && \is_array($this->dimensions)) {
@@ -158,9 +148,6 @@ class ListQuotaApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
-        }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];

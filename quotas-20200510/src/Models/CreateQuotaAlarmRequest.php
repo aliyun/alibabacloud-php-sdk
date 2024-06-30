@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaAlarmRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $alarmName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example config
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateQuotaAlarmRequest extends Model
     public $productCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example q_hvnoqv
      *
      * @var string

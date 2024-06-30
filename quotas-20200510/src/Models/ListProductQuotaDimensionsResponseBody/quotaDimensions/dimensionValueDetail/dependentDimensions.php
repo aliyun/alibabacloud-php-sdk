@@ -2,16 +2,15 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotasRequest;
+namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotaDimensionsResponseBody\quotaDimensions\dimensionValueDetail;
 
 use AlibabaCloud\Tea\Model;
 
-class dimensions extends Model
+class dependentDimensions extends Model
 {
     /**
-     * @description The key of the dimension.
+     * @description The key of the quota dimension on which the quota dimension that you want to query is dependent.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
      * @example regionId
      *
      * @var string
@@ -19,9 +18,8 @@ class dimensions extends Model
     public $key;
 
     /**
-     * @description The value of the dimension.
+     * @description The value of the quota dimension on which the quota dimension that you want to query is dependent.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,7 +50,7 @@ class dimensions extends Model
     /**
      * @param array $map
      *
-     * @return dimensions
+     * @return dependentDimensions
      */
     public static function fromMap($map = [])
     {

@@ -49,7 +49,7 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440555.html) operation and check the value of `ProductCode` in the response.
      * @example ecs
      *
      * @var string
@@ -79,11 +79,11 @@ class ListQuotaApplicationsDetailForTemplateRequest extends Model
     public $quotaCategory;
 
     /**
-     * @description The approval status of the quota increase application. Valid values:
+     * @description The approval state of the quota increase application. Valid values:
      *
      *   Disagree: The application is rejected.
      *   Agree: The application is approved.
-     *   Process: The application is pending approval.
+     *   Process: The application is in review.
      *   Cancel: The application is canceled.
      *
      * @example Agree

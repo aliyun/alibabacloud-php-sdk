@@ -102,7 +102,7 @@ class CreateQuotaApplicationResponseBody extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
      * @example ecs.c5.large
      *
@@ -138,7 +138,7 @@ class CreateQuotaApplicationResponseBody extends Model
     public $quotaName;
 
     /**
-     * @description The unit of the new quota value.
+     * @description The unit of the quota.
      *
      * @example AMOUNT
      *

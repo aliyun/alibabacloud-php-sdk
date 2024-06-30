@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class quotaBatchApplications extends Model
 {
     /**
-     * @description The Alibaba Cloud accounts for which the quotas are applied.
+     * @description The Alibaba Cloud accounts that correspond to the resource directory members for which the quotas are applied.
      *
      * @var string[]
      */
@@ -53,7 +53,7 @@ class quotaBatchApplications extends Model
     /**
      * @description The quota dimensions.
      *
-     * Format: {"regionId":"cn-hangzhou"}.
+     * Format example: {"regionId":"cn-hangzhou"}.
      * @example {"regionId":"cn-hangzhou"}
      *
      * @var mixed[]

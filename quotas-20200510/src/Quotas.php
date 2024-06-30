@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaAlarmRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaAlarmResponse;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaApplicationApprovalRequest;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaApplicationApprovalResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaApplicationRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaApplicationResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\GetQuotaTemplateServiceStatusRequest;
@@ -54,6 +56,8 @@ use AlibabaCloud\SDK\Quotas\V20200510\Models\ModifyQuotaTemplateServiceStatusReq
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ModifyQuotaTemplateServiceStatusResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ModifyTemplateQuotaItemRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\ModifyTemplateQuotaItemResponse;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\RemindQuotaApplicationApprovalRequest;
+use AlibabaCloud\SDK\Quotas\V20200510\Models\RemindQuotaApplicationApprovalResponse;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\UpdateQuotaAlarmRequest;
 use AlibabaCloud\SDK\Quotas\V20200510\Models\UpdateQuotaAlarmResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -96,8 +100,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * The ID of the alert.
-     *   *
+     * @summary The value of the quota dimension.
+     * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+     *  *
+     * @description The ID of the alert.
+     *  *
      * @param CreateQuotaAlarmRequest $request CreateQuotaAlarmRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -150,8 +158,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * The ID of the alert.
-     *   *
+     * @summary The value of the quota dimension.
+     * The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     * > This parameter is required if you set the ProductCode parameter to ecs, ecs-spec, actiontrail, or ess.
+     *  *
+     * @description The ID of the alert.
+     *  *
      * @param CreateQuotaAlarmRequest $request CreateQuotaAlarmRequest
      *
      * @return CreateQuotaAlarmResponse CreateQuotaAlarmResponse
@@ -164,8 +176,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-     *   *
+     * @summary Submits an application to increase a quota.
+     *  *
+     * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+     *  *
      * @param CreateQuotaApplicationRequest $request CreateQuotaApplicationRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -227,8 +241,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
-     *   *
+     * @summary Submits an application to increase a quota.
+     *  *
+     * @description In this example, the operation is called to submit an application to increase the value of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. The quota belongs to Elastic Compute Service (ECS). The expected value of the quota is `804`, the application reason is `Scale Out`, and the ID of the region to which the quota belongs is `cn-hangzhou`.
+     *  *
      * @param CreateQuotaApplicationRequest $request CreateQuotaApplicationRequest
      *
      * @return CreateQuotaApplicationResponse CreateQuotaApplicationResponse
@@ -241,10 +257,15 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param CreateQuotaApplicationsForTemplateRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
+     *  *
+     * @description ### [](#)QPS limit
+     * You can add a maximum of 10 quota items to a quota template at a time.
+     *  *
+     * @param CreateQuotaApplicationsForTemplateRequest $request CreateQuotaApplicationsForTemplateRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQuotaApplicationsForTemplateResponse
+     * @return CreateQuotaApplicationsForTemplateResponse CreateQuotaApplicationsForTemplateResponse
      */
     public function createQuotaApplicationsForTemplateWithOptions($request, $runtime)
     {
@@ -302,9 +323,14 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param CreateQuotaApplicationsForTemplateRequest $request
+     * @summary Submits a quota increase application. After you add a quota item to a quota template, the system automatically submits quota applications only for new members in the resource directory. The quota values for existing members remain unchanged. If you want to increase the quota values of existing members, you can submit a quota application for the members by applying quota templates to the members.
+     *  *
+     * @description ### [](#)QPS limit
+     * You can add a maximum of 10 quota items to a quota template at a time.
+     *  *
+     * @param CreateQuotaApplicationsForTemplateRequest $request CreateQuotaApplicationsForTemplateRequest
      *
-     * @return CreateQuotaApplicationsForTemplateResponse
+     * @return CreateQuotaApplicationsForTemplateResponse CreateQuotaApplicationsForTemplateResponse
      */
     public function createQuotaApplicationsForTemplate($request)
     {
@@ -314,10 +340,16 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateQuotaItemRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
+     *  *
+     * @description ### [](#)Prerequisites
+     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
+     *  *
+     * @param CreateTemplateQuotaItemRequest $request CreateTemplateQuotaItemRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateQuotaItemResponse
+     * @return CreateTemplateQuotaItemResponse CreateTemplateQuotaItemResponse
      */
     public function createTemplateQuotaItemWithOptions($request, $runtime)
     {
@@ -369,9 +401,15 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateQuotaItemRequest $request
+     * @summary Creates a quota template by using the management account of a resource directory. After you create a quota template, if a member is added to the resource directory, the quota template automatically submits a quota increase request for the member. The quota values for existing members remain unchanged. You can use a quota template to apply for increases on multiple quotas at the same time. This automated approach improves the efficiency of quota management across your organization.
+     *  *
+     * @description ### [](#)Prerequisites
+     * You must set the `ServiceStatus` parameter to `1`. This ensures that the quota template is enabled.
+     * You can call the [GetQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450407.html) operation to query the status of a quota template. If the `ServiceStatus` parameter is set to `0` or `-1`, you must call the [ModifyQuotaTemplateServiceStatus](https://help.aliyun.com/document_detail/450406.html) operation to set the ServiceStatus parameter to `1`.
+     *  *
+     * @param CreateTemplateQuotaItemRequest $request CreateTemplateQuotaItemRequest
      *
-     * @return CreateTemplateQuotaItemResponse
+     * @return CreateTemplateQuotaItemResponse CreateTemplateQuotaItemResponse
      */
     public function createTemplateQuotaItem($request)
     {
@@ -381,8 +419,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-     *   *
+     * @summary Deletes a quota alert.
+     *  *
+     * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+     *  *
      * @param DeleteQuotaAlarmRequest $request DeleteQuotaAlarmRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -414,8 +454,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
-     *   *
+     * @summary Deletes a quota alert.
+     *  *
+     * @description In this example, the operation is called to delete a quota alert whose ID is `6b512ab7-da3a-4142-b529-2b2a9294****`.
+     *  *
      * @param DeleteQuotaAlarmRequest $request DeleteQuotaAlarmRequest
      *
      * @return DeleteQuotaAlarmResponse DeleteQuotaAlarmResponse
@@ -428,10 +470,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateQuotaItemRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
+     *  *
+     * @param DeleteTemplateQuotaItemRequest $request DeleteTemplateQuotaItemRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateQuotaItemResponse
+     * @return DeleteTemplateQuotaItemResponse DeleteTemplateQuotaItemResponse
      */
     public function deleteTemplateQuotaItemWithOptions($request, $runtime)
     {
@@ -459,9 +503,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateQuotaItemRequest $request
+     * @summary Deletes a quota template by using the management account of a resource directory. After you delete a quota template, if a member is added to the resource directory, the quota template no longer automatically submits a quota increase request for the member.
+     *  *
+     * @param DeleteTemplateQuotaItemRequest $request DeleteTemplateQuotaItemRequest
      *
-     * @return DeleteTemplateQuotaItemResponse
+     * @return DeleteTemplateQuotaItemResponse DeleteTemplateQuotaItemResponse
      */
     public function deleteTemplateQuotaItem($request)
     {
@@ -471,8 +517,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-     *   *
+     * @summary Queries the details of the specified quota.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+     *  *
      * @param GetProductQuotaRequest $request GetProductQuotaRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -510,8 +558,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
-     *   *
+     * @summary Queries the details of the specified quota.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota whose ID is `q_security-groups` and whose name is Maximum Number of Security Groups. This quota belongs to Elastic Compute Service (ECS). The query result shows the details of the quota. The details include the name, ID, description, quota value, used quota, unit, and dimension of the quota. In this example, the quota name is `Maximum Number of Security Groups`. The quota ID is `q_security-groups`. The description is `The maximum number of security groups that can be created for the current account`. The quota value is `801`. The used quota is `26`. The quota unit is `Number of security groups`. The quota dimension is `{"regionId":"cn-hangzhou"}`.
+     *  *
      * @param GetProductQuotaRequest $request GetProductQuotaRequest
      *
      * @return GetProductQuotaResponse GetProductQuotaResponse
@@ -524,10 +574,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-     *   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-     *   * *   The name of the quota dimension is `region`.
-     *   *
+     * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+     * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+     * *   The name of the quota dimension is `region`.
+     *  *
      * @param GetProductQuotaDimensionRequest $request GetProductQuotaDimensionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -565,10 +617,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
-     *   * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-     *   * *   The name of the quota dimension is `region`.
-     *   *
+     * @summary Queries the details of a quota dimension that is supported by an Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota dimension whose key is `regionId`. The quota dimension belongs to Elastic Compute Service (ECS) Quotas by Instance Type whose service code is ecs-spec. The following query results are returned:
+     * *   The values of the quota dimension include `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+     * *   The name of the quota dimension is `region`.
+     *  *
      * @param GetProductQuotaDimensionRequest $request GetProductQuotaDimensionRequest
      *
      * @return GetProductQuotaDimensionResponse GetProductQuotaDimensionResponse
@@ -581,8 +635,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~171299~~).
-     *   *
+     * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+     *  *
      * @param GetQuotaAlarmRequest $request GetQuotaAlarmRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -614,8 +670,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~171299~~).
-     *   *
+     * @summary In this example, the operation is called to query the details of a quota alert. The details of the alert are returned. The query results include the alert ID, alert name, alert contact, and time when the quota alert was created.
+     *  *
+     * @description In this example, the operation is called to query the details of a quota alert whose ID is `78d7e436-4b25-4897-84b5-d7b656bb****`. The details of the alert are returned. The query result includes the alert ID, alert name, alert contact, and the time when the quota alert was created.
+     *  *
      * @param GetQuotaAlarmRequest $request GetQuotaAlarmRequest
      *
      * @return GetQuotaAlarmResponse GetQuotaAlarmResponse
@@ -628,8 +686,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-     *   *
+     * @summary Queries the details about a specified application that is submitted to increase a quota.
+     *  *
+     * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+     *  *
      * @param GetQuotaApplicationRequest $request GetQuotaApplicationRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -661,8 +721,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
-     *   *
+     * @summary Queries the details about a specified application that is submitted to increase a quota.
+     *  *
+     * @description In this example, the operation is called to query the details about an application whose ID is `d314d6ae-867d-484c-9009-3d421a80****`. The query result shows the details about the application. The details include the application ID, application time, expected quota value, and application result.
+     *  *
      * @param GetQuotaApplicationRequest $request GetQuotaApplicationRequest
      *
      * @return GetQuotaApplicationResponse GetQuotaApplicationResponse
@@ -675,10 +737,65 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaTemplateServiceStatusRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+     *  *
+     * @description ### [](#)Prerequisites
+     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+     *  *
+     * @param GetQuotaApplicationApprovalRequest $request GetQuotaApplicationApprovalRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaTemplateServiceStatusResponse
+     * @return GetQuotaApplicationApprovalResponse GetQuotaApplicationApprovalResponse
+     */
+    public function getQuotaApplicationApprovalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQuotaApplicationApproval',
+            'version'     => '2020-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQuotaApplicationApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about quota application approval, such as the average amount of time required for approval, whether approval reminders are supported, and the interval between two consecutive approval reminders.
+     *  *
+     * @description ### [](#)Prerequisites
+     * Make sure that you have created an application for quota increase. For more information, see [CreateQuotaApplication](https://help.aliyun.com/document_detail/440566.html).
+     *  *
+     * @param GetQuotaApplicationApprovalRequest $request GetQuotaApplicationApprovalRequest
+     *
+     * @return GetQuotaApplicationApprovalResponse GetQuotaApplicationApprovalResponse
+     */
+    public function getQuotaApplicationApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQuotaApplicationApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the status of a quota template.
+     *  *
+     * @param GetQuotaTemplateServiceStatusRequest $request GetQuotaTemplateServiceStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetQuotaTemplateServiceStatusResponse GetQuotaTemplateServiceStatusResponse
      */
     public function getQuotaTemplateServiceStatusWithOptions($request, $runtime)
     {
@@ -706,9 +823,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaTemplateServiceStatusRequest $request
+     * @summary Queries the status of a quota template.
+     *  *
+     * @param GetQuotaTemplateServiceStatusRequest $request GetQuotaTemplateServiceStatusRequest
      *
-     * @return GetQuotaTemplateServiceStatusResponse
+     * @return GetQuotaTemplateServiceStatusResponse GetQuotaTemplateServiceStatusResponse
      */
     public function getQuotaTemplateServiceStatus($request)
     {
@@ -718,15 +837,20 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListAlarmHistoriesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the alert records.
+     *  *
+     * @param ListAlarmHistoriesRequest $request ListAlarmHistoriesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlarmHistoriesResponse
+     * @return ListAlarmHistoriesResponse ListAlarmHistoriesResponse
      */
     public function listAlarmHistoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->alarmId)) {
+            $body['AlarmId'] = $request->alarmId;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -764,9 +888,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListAlarmHistoriesRequest $request
+     * @summary Queries the alert records.
+     *  *
+     * @param ListAlarmHistoriesRequest $request ListAlarmHistoriesRequest
      *
-     * @return ListAlarmHistoriesResponse
+     * @return ListAlarmHistoriesResponse ListAlarmHistoriesResponse
      */
     public function listAlarmHistories($request)
     {
@@ -776,11 +902,13 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-     *   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-     *   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-     *   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-     *   *
+     * @summary Queries the quotas on which a specified quota depends.
+     *  *
+     * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+     * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+     * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
+     * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+     *  *
      * @param ListDependentQuotasRequest $request ListDependentQuotasRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -815,11 +943,13 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
-     *   * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
-     *   * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
-     *   * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
-     *   *
+     * @summary Queries the quotas on which a specified quota depends.
+     *  *
+     * @description In this example, the operation is called to query the quotas on which a Container Service for Kubernetes (ACK) quota whose ID is `q_i5uzm3` depends. This quota is the maximum number of nodes that can be created in an ACK cluster. The query result indicates that the specified quota depends on the following three quotas:
+     * *   An Elastic Compute Service (ECS) quota whose ID is `q_elastic-network-interfaces`. This quota is the maximum number of ENIs (Secondary ENIs) that can be owned by an Alibaba Cloud account. The quota is available in the following regions: `cn-shenzhen`, `cn-beijing`, and `cn-hangzhou`.
+     * *   A Server Load Balancer (SLB) quota whose ID is `q_fh20b0`. This quota is the number of servers that can be attached to the backend of an SLB instance.
+     * *   An SLB quota whose ID is `q_3mmbsp`. This quota is the number of SLB instances that can be owned by an Alibaba Cloud account.
+     *  *
      * @param ListDependentQuotasRequest $request ListDependentQuotasRequest
      *
      * @return ListDependentQuotasResponse ListDependentQuotasResponse
@@ -832,8 +962,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-     *   *
+     * @summary Queries the dimension groups of an Alibaba Cloud service.
+     *  *
+     * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+     *  *
      * @param ListProductDimensionGroupsRequest $request ListProductDimensionGroupsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -871,8 +1003,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
-     *   *
+     * @summary Queries the dimension groups of an Alibaba Cloud service.
+     *  *
+     * @description This topic provides an example on how to call the ListProductDimensionGroups operation to query the dimension groups of Object Storage Service (OSS). In this example, a dimension group is returned. The group name is `OSS_Group`, the group code is `oss_wf1ngqmd7q`, and the group key is `chargeType`.
+     *  *
      * @param ListProductDimensionGroupsRequest $request ListProductDimensionGroupsRequest
      *
      * @return ListProductDimensionGroupsResponse ListProductDimensionGroupsResponse
@@ -885,8 +1019,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-     *   *
+     * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+     *  *
      * @param ListProductQuotaDimensionsRequest $request ListProductQuotaDimensionsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -927,8 +1063,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
-     *   *
+     * @summary Queries the quota dimensions that are supported by the specified Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the quota dimensions that are supported by Elastic Compute Service (ECS). The query results show all the quota dimensions that are supported by ECS.
+     *  *
      * @param ListProductQuotaDimensionsRequest $request ListProductQuotaDimensionsRequest
      *
      * @return ListProductQuotaDimensionsResponse ListProductQuotaDimensionsResponse
@@ -941,8 +1079,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-     *   *
+     * @summary Queries the quotas of a specific Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+     *  *
      * @param ListProductQuotasRequest $request ListProductQuotasRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1001,8 +1141,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
-     *   *
+     * @summary Queries the quotas of a specific Alibaba Cloud service.
+     *  *
+     * @description In this example, the operation is called to query the quotas whose instance type is `ecs.g5.2xlarge`. The quotas belong to Elastic Compute Service (ECS) Quotas by Instance Type. The query result includes the name, ID, unit, dimensions, and cycle of each quota.
+     *  *
      * @param ListProductQuotasRequest $request ListProductQuotasRequest
      *
      * @return ListProductQuotasResponse ListProductQuotasResponse
@@ -1015,10 +1157,14 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListProductsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the Alibaba Cloud services that support Quota Center.
+     *  *
+     * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+     *  *
+     * @param ListProductsRequest $request ListProductsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProductsResponse
+     * @return ListProductsResponse ListProductsResponse
      */
     public function listProductsWithOptions($request, $runtime)
     {
@@ -1049,9 +1195,13 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListProductsRequest $request
+     * @summary Queries the Alibaba Cloud services that support Quota Center.
+     *  *
+     * @description The services in the query result are the same as the services listed in [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
+     *  *
+     * @param ListProductsRequest $request ListProductsRequest
      *
-     * @return ListProductsResponse
+     * @return ListProductsResponse ListProductsResponse
      */
     public function listProducts($request)
     {
@@ -1061,10 +1211,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaAlarmsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries quota alerts.
+     *  *
+     * @param ListQuotaAlarmsRequest $request ListQuotaAlarmsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotaAlarmsResponse
+     * @return ListQuotaAlarmsResponse ListQuotaAlarmsResponse
      */
     public function listQuotaAlarmsWithOptions($request, $runtime)
     {
@@ -1107,9 +1259,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaAlarmsRequest $request
+     * @summary Queries quota alerts.
+     *  *
+     * @param ListQuotaAlarmsRequest $request ListQuotaAlarmsRequest
      *
-     * @return ListQuotaAlarmsResponse
+     * @return ListQuotaAlarmsResponse ListQuotaAlarmsResponse
      */
     public function listQuotaAlarms($request)
     {
@@ -1119,10 +1273,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationTemplatesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries quota templates by using the management account of a resource directory.
+     *  *
+     * @param ListQuotaApplicationTemplatesRequest $request ListQuotaApplicationTemplatesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotaApplicationTemplatesResponse
+     * @return ListQuotaApplicationTemplatesResponse ListQuotaApplicationTemplatesResponse
      */
     public function listQuotaApplicationTemplatesWithOptions($request, $runtime)
     {
@@ -1170,9 +1326,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationTemplatesRequest $request
+     * @summary Queries quota templates by using the management account of a resource directory.
+     *  *
+     * @param ListQuotaApplicationTemplatesRequest $request ListQuotaApplicationTemplatesRequest
      *
-     * @return ListQuotaApplicationTemplatesResponse
+     * @return ListQuotaApplicationTemplatesResponse ListQuotaApplicationTemplatesResponse
      */
     public function listQuotaApplicationTemplates($request)
     {
@@ -1182,8 +1340,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-     *   *
+     * @summary Queries the details of an application that is submitted to increase a quota.
+     *  *
+     * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+     *  *
      * @param ListQuotaApplicationsRequest $request ListQuotaApplicationsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1193,9 +1353,6 @@ class Quotas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $body['AcceptLanguage'] = $request->acceptLanguage;
-        }
         if (!Utils::isUnset($request->dimensions)) {
             $body['Dimensions'] = $request->dimensions;
         }
@@ -1239,8 +1396,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
-     *   *
+     * @summary Queries the details of an application that is submitted to increase a quota.
+     *  *
+     * @description In this example, the operation is called to query the details of an application that is submitted to increase a quota whose ID is `q_i5uzm3` and whose name is Maximum Number of Nodes. This quota belongs to Container Service for Kubernetes (ACK). The query result shows the details of the application. The details include the application ID, application time, requested quota, and application result. In this example, the application ID is `b926571d-cc09-4711-b547-58a615f0****`. The application time is `2021-01-15T09:13:53Z`. The expected quota value is `101`. The application result is `Agree`.
+     *  *
      * @param ListQuotaApplicationsRequest $request ListQuotaApplicationsRequest
      *
      * @return ListQuotaApplicationsResponse ListQuotaApplicationsResponse
@@ -1253,10 +1412,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationsDetailForTemplateRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries the details of a quota increase application for member accounts in a resource directory.
+     *  *
+     * @param ListQuotaApplicationsDetailForTemplateRequest $request ListQuotaApplicationsDetailForTemplateRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotaApplicationsDetailForTemplateResponse
+     * @return ListQuotaApplicationsDetailForTemplateResponse ListQuotaApplicationsDetailForTemplateResponse
      */
     public function listQuotaApplicationsDetailForTemplateWithOptions($request, $runtime)
     {
@@ -1305,9 +1466,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationsDetailForTemplateRequest $request
+     * @summary Queries the details of a quota increase application for member accounts in a resource directory.
+     *  *
+     * @param ListQuotaApplicationsDetailForTemplateRequest $request ListQuotaApplicationsDetailForTemplateRequest
      *
-     * @return ListQuotaApplicationsDetailForTemplateResponse
+     * @return ListQuotaApplicationsDetailForTemplateResponse ListQuotaApplicationsDetailForTemplateResponse
      */
     public function listQuotaApplicationsDetailForTemplate($request)
     {
@@ -1317,10 +1480,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationsForTemplateRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
+     *  *
+     * @param ListQuotaApplicationsForTemplateRequest $request ListQuotaApplicationsForTemplateRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQuotaApplicationsForTemplateResponse
+     * @return ListQuotaApplicationsForTemplateResponse ListQuotaApplicationsForTemplateResponse
      */
     public function listQuotaApplicationsForTemplateWithOptions($request, $runtime)
     {
@@ -1369,9 +1534,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ListQuotaApplicationsForTemplateRequest $request
+     * @summary Queries the application records of a quota template that is used to apply for quotas for member accounts.
+     *  *
+     * @param ListQuotaApplicationsForTemplateRequest $request ListQuotaApplicationsForTemplateRequest
      *
-     * @return ListQuotaApplicationsForTemplateResponse
+     * @return ListQuotaApplicationsForTemplateResponse ListQuotaApplicationsForTemplateResponse
      */
     public function listQuotaApplicationsForTemplate($request)
     {
@@ -1381,8 +1548,13 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * By default, the quota template is enabled.
-     *   *
+     * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
+     *  *
+     * @description ### [](#)Prerequisites
+     * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
+     * ### [](#)Usage notes
+     * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
+     *  *
      * @param ModifyQuotaTemplateServiceStatusRequest $request ModifyQuotaTemplateServiceStatusRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -1414,8 +1586,13 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * By default, the quota template is enabled.
-     *   *
+     * @summary Changes the status of a quota template. By default, the quota template is not configured. If the management account of a resource directory uses a quota template for the first time, you must enable the quota template.
+     *  *
+     * @description ### [](#)Prerequisites
+     * A resource directory is enabled. For more information, see [EnableResourceDirectory](https://help.aliyun.com/document_detail/604185.html).
+     * ### [](#)Usage notes
+     * If the `ServiceStatus` parameter is set to `0` or `-1`, you can call this operation to set the parameter to `1`. Then, you can call the [CreateTemplateQuotaItem](https://help.aliyun.com/document_detail/450615.html) operation to create a quota template.
+     *  *
      * @param ModifyQuotaTemplateServiceStatusRequest $request ModifyQuotaTemplateServiceStatusRequest
      *
      * @return ModifyQuotaTemplateServiceStatusResponse ModifyQuotaTemplateServiceStatusResponse
@@ -1428,10 +1605,12 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ModifyTemplateQuotaItemRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The ID of the quota template.
+     *  *
+     * @param ModifyTemplateQuotaItemRequest $request ModifyTemplateQuotaItemRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTemplateQuotaItemResponse
+     * @return ModifyTemplateQuotaItemResponse ModifyTemplateQuotaItemResponse
      */
     public function modifyTemplateQuotaItemWithOptions($request, $runtime)
     {
@@ -1488,9 +1667,11 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * @param ModifyTemplateQuotaItemRequest $request
+     * @summary The ID of the quota template.
+     *  *
+     * @param ModifyTemplateQuotaItemRequest $request ModifyTemplateQuotaItemRequest
      *
-     * @return ModifyTemplateQuotaItemResponse
+     * @return ModifyTemplateQuotaItemResponse ModifyTemplateQuotaItemResponse
      */
     public function modifyTemplateQuotaItem($request)
     {
@@ -1500,8 +1681,61 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-     *   *
+     * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+     *  *
+     * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+     *  *
+     * @param RemindQuotaApplicationApprovalRequest $request RemindQuotaApplicationApprovalRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemindQuotaApplicationApprovalResponse RemindQuotaApplicationApprovalResponse
+     */
+    public function remindQuotaApplicationApprovalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemindQuotaApplicationApproval',
+            'version'     => '2020-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemindQuotaApplicationApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Reminds the approver of a quota application to review the application. This operation is applicable to quota applications that support the approval reminding feature.
+     *  *
+     * @description >  You can call this operation to enable the approval reminder feature for quota applications that support this feature. To check whether this feature is supported, you can view the value of `SupportReminder` in the GetQuotaApplicationApproval operation. If the value of SupportReminder is `true`, this feature is supported.
+     *  *
+     * @param RemindQuotaApplicationApprovalRequest $request RemindQuotaApplicationApprovalRequest
+     *
+     * @return RemindQuotaApplicationApprovalResponse RemindQuotaApplicationApprovalResponse
+     */
+    public function remindQuotaApplicationApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->remindQuotaApplicationApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies a quota alert rule.
+     *  *
+     * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+     *  *
      * @param UpdateQuotaAlarmRequest $request UpdateQuotaAlarmRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1548,8 +1782,10 @@ class Quotas extends OpenApiClient
     }
 
     /**
-     * In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
-     *   *
+     * @summary Modifies a quota alert rule.
+     *  *
+     * @description In this example, the operation is called to modify the information about a quota alert whose ID is `a2efa7fc-832f-47bb-8054-39e28012****` and whose name is `rules`. The alert threshold is changed from `150` to `160`.
+     *  *
      * @param UpdateQuotaAlarmRequest $request UpdateQuotaAlarmRequest
      *
      * @return UpdateQuotaAlarmResponse UpdateQuotaAlarmResponse

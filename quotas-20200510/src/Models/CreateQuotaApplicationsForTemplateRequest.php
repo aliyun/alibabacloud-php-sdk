@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaApplicationsForTemplateRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud accounts that correspond to the resource directory member accounts for which the quotas are applied.
+     * @description The Alibaba Cloud accounts that correspond to the resource directory members for which the quotas are applied.
      *
-     * >  You can apply for a quota increase for up to 50 member accounts in each request. For more information about the member accounts in a resource directory, see [ListAccounts](~~604207~~).
+     * This parameter is required.
      * @var string[]
      */
     public $aliyunUids;
@@ -20,7 +20,13 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     /**
      * @description The requested value of the quota.
      *
-     * >  Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit the application.
+     * >
+     *
+     *   You can specify DesireValue based on the values of `TotalUsage` and `ApplicableRange` in the response to the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation.
+     *
+     *   Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, specify a reasonable quota value and a detailed reason.
+     *
+     * This parameter is required.
      * @example 12
      *
      * @var float
@@ -81,7 +87,7 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * This parameter is required.
      * @example ecs-spec
      *
      * @var string
@@ -91,6 +97,7 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     /**
      * @description The quota ID.
      *
+     * This parameter is required.
      * @example ecs.g5.2xlarge
      *
      * @var string
@@ -100,10 +107,11 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     /**
      * @description The quota type. Valid values:
      *
-     *   CommonQuota (default): general quota
+     *   CommonQuota: general quota
      *   FlowControl: API rate limit
      *   WhiteListLabel: privilege
      *
+     * This parameter is required.
      * @example CommonQuota
      *
      * @var string
@@ -113,7 +121,7 @@ class CreateQuotaApplicationsForTemplateRequest extends Model
     /**
      * @description The reason for the quota application.
      *
-     * >  Applications are reviewed by the technical support team of each Alibaba Cloud service. To increase the success rate of your application, you must specify a reasonable quota value and detailed reasons when you submit the application.
+     * This parameter is required.
      * @example Scale Out
      *
      * @var string

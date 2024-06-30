@@ -41,7 +41,7 @@ class ListQuotaAlarmsRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * >  To query the abbreviation of an Alibaba Cloud service name, call the [ListProducts](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `ProductCode` in the response.
      * @example ecs
      *
      * @var string
@@ -49,9 +49,14 @@ class ListQuotaAlarmsRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The quota ID.
      *
-     * > The `ProductCode` parameter is required if you specify this parameter.
+     * >
+     *
+     *   To obtain the quota ID of a cloud service, call the [ListProductQuotas](https://help.aliyun.com/document_detail/440554.html) operation and check the value of `QuotaActionCode` in the response.
+     *
+     *   If you specify this parameter, you must specify `ProductCode`.
+     *
      * @example q_hvnoqv
      *
      * @var string

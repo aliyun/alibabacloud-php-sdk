@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesRequest extends Model
 {
     /**
+     * @description The ID of the alert.
+     *
+     * @example 18b3be23-b7b0-4d45-91bc-d0c331aa****
+     *
+     * @var string
+     */
+    public $alarmId;
+
+    /**
      * @description The end of the time range to query.
      *
      * @example 20201024
@@ -48,7 +57,7 @@ class ListAlarmHistoriesRequest extends Model
     /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](https://help.aliyun.com/document_detail/182368.html).
      * @example ecs
      *
      * @var string
@@ -64,6 +73,7 @@ class ListAlarmHistoriesRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'alarmId'     => 'AlarmId',
         'endTime'     => 'EndTime',
         'keyword'     => 'Keyword',
         'maxResults'  => 'MaxResults',
@@ -79,6 +89,9 @@ class ListAlarmHistoriesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmId) {
+            $res['AlarmId'] = $this->alarmId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -109,6 +122,9 @@ class ListAlarmHistoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmId'])) {
+            $model->alarmId = $map['AlarmId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

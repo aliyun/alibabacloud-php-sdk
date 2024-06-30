@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaAlarmRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the quota alert.
      *
+     * For more information about how to query the ID of a quota alert, see [ListQuotaAlarms](https://help.aliyun.com/document_detail/184348.html).
      * @example 78d7e436-4b25-4897-84b5-d7b656bb****
      *
      * @var string

@@ -11,7 +11,12 @@ class dimensions extends Model
     /**
      * @description The key of the dimension.
      *
-     * > The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     * >
+     *
+     *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     *
+     *   You must specify both Key and Value for each quota dimension.
+     *
      * @example regionId
      *
      * @var string
@@ -21,7 +26,12 @@ class dimensions extends Model
     /**
      * @description The value of the dimension.
      *
-     * > The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     * >
+     *
+     *   The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
+     *
+     *   You must specify both Key and Value for each quota dimension.
+     *
      * @example cn-hangzhou
      *
      * @var string
