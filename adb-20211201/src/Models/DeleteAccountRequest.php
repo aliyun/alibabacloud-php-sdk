@@ -27,9 +27,15 @@ class DeleteAccountRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
+        'engine'      => 'Engine',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class DeleteAccountRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -62,6 +71,9 @@ class DeleteAccountRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

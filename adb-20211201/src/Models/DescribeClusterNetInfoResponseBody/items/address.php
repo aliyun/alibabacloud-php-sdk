@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items;
 
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports;
 use AlibabaCloud\Tea\Model;
 
 class address extends Model
@@ -66,6 +67,11 @@ class address extends Model
     public $port;
 
     /**
+     * @var ports
+     */
+    public $ports;
+
+    /**
      * @description The VPC ID.
      *
      * > If NetType is set to Public, an empty string is returned for this parameter.
@@ -90,6 +96,7 @@ class address extends Model
         'IPAddress'              => 'IPAddress',
         'netType'                => 'NetType',
         'port'                   => 'Port',
+        'ports'                  => 'Ports',
         'VPCId'                  => 'VPCId',
         'vSwitchId'              => 'VSwitchId',
     ];
@@ -115,6 +122,9 @@ class address extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->ports) {
+            $res['Ports'] = null !== $this->ports ? $this->ports->toMap() : null;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -148,6 +158,9 @@ class address extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['Ports'])) {
+            $model->ports = ports::fromMap($map['Ports']);
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

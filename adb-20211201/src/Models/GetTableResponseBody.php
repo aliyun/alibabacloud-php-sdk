@@ -45,7 +45,7 @@ class GetTableResponseBody extends Model
     public $success;
 
     /**
-     * @description Details of the table.
+     * @description The queried table.
      *
      * @var TableModel
      */

@@ -17,8 +17,14 @@ class ReleaseClusterPublicConnectionRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'engine'      => 'Engine',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class ReleaseClusterPublicConnectionRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class ReleaseClusterPublicConnectionRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

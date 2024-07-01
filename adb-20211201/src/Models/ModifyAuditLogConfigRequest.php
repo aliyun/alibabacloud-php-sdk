@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
-     * @description Modifies the status of SQL audit. Valid values:
+     * @description The status to which you want to change the SQL audit feature. Valid values:
      *
-     *   **on**: enables SQL audit.
-     *   **off**: disables SQL audit.
+     *   **on**
+     *   **off**
      *
      * This parameter is required.
      * @example on

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanSpecificationsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of resource specifications returned per page.
+     * @description The number of entries per page.
      *
      * @example 5
      *
@@ -27,7 +27,7 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5C433C2-001F-58E3-99F5-3274C14DF8BD
      *
@@ -36,14 +36,14 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The resource specifications that can be scaled.
+     * @description The queried resource specifications.
      *
      * @var string[]
      */
     public $specifications;
 
     /**
-     * @description The number of resource specifications that can be scaled.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

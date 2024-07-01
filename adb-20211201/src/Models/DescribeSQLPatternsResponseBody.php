@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPatternsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The page number.
      *
      * @example 2
@@ -52,11 +57,12 @@ class DescribeSQLPatternsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'patternDetails' => 'PatternDetails',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
+        'patternDetails'     => 'PatternDetails',
+        'requestId'          => 'RequestId',
+        'totalCount'         => 'TotalCount',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class DescribeSQLPatternsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -99,6 +108,9 @@ class DescribeSQLPatternsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

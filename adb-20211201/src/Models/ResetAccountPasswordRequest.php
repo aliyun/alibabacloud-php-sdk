@@ -53,11 +53,17 @@ class ResetAccountPasswordRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
         'accountPassword'    => 'AccountPassword',
         'DBClusterId'        => 'DBClusterId',
+        'engine'             => 'Engine',
     ];
 
     public function validate()
@@ -78,6 +84,9 @@ class ResetAccountPasswordRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -102,6 +111,9 @@ class ResetAccountPasswordRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadRecordsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The queried download tasks.
      *
      * @var records[]
@@ -25,8 +30,9 @@ class DescribeDownloadRecordsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'records'   => 'Records',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'records'            => 'Records',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class DescribeDownloadRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->records) {
             $res['Records'] = [];
             if (null !== $this->records && \is_array($this->records)) {
@@ -60,6 +69,9 @@ class DescribeDownloadRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];

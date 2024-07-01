@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class accountPrivileges extends Model
 {
     /**
-     * @description The objects on which the permission takes effect, including databases, tables, and columns.
+     * @description The objects on which you want to grant permissions, including databases, tables, and columns.
      *
      * @var privilegeObject
      */
     public $privilegeObject;
 
     /**
-     * @description The permission level of the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level of the database account.
+     * @description The permission level that you want to assign to the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level that can be assigned to the database account.
      *
      * @example Global
      *
@@ -26,7 +26,7 @@ class accountPrivileges extends Model
     public $privilegeType;
 
     /**
-     * @description The permissions that you want to modify. You can call the `DescribeEnabledPrivileges` operation to query the permissions of the database account.
+     * @description The permissions that you want to grant to the database account.
      *
      * @var string[]
      */

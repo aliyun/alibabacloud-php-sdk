@@ -54,12 +54,12 @@ class patternDetails extends Model
     public $averageScanSize;
 
     /**
-     * @description Indicates whether the execution of the SQL pattern can be blocked. Valid values:
+     * @description Indicates whether the execution of the SQL pattern can be intercepted. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * >  Only SELECT and INSERT statements can be blocked.
+     * >  Only SELECT and INSERT statements can be intercepted.
      * @example true
      *
      * @var bool
@@ -157,7 +157,7 @@ class patternDetails extends Model
     public $tables;
 
     /**
-     * @description The database username that is used to commit the SQL pattern.
+     * @description The name of the database account that is used to commit the SQL pattern.
      *
      * @example test
      *

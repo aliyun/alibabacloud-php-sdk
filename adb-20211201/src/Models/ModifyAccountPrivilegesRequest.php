@@ -20,7 +20,7 @@ class ModifyAccountPrivilegesRequest extends Model
     public $accountName;
 
     /**
-     * @description The permissions of the database account.
+     * @description The permissions that you want to grant to the database account.
      *
      * This parameter is required.
      * @var accountPrivileges[]
@@ -38,7 +38,7 @@ class ModifyAccountPrivilegesRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The region ID of the cluster.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -18,7 +18,7 @@ class actionLogs extends Model
     public $context;
 
     /**
-     * @description The task phase during which the logs are generated. Valid values:
+     * @description The phase during which the log was generated. Valid values:
      *
      *   **StructureMigrate**: schema migration.
      *   **FullDataSync**: full data synchronization.
@@ -44,7 +44,7 @@ class actionLogs extends Model
     public $state;
 
     /**
-     * @description The time when the log is generated. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
+     * @description The time when the log was generated. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
      *
      * @example 2023-02-01T05:46:30Z
      *

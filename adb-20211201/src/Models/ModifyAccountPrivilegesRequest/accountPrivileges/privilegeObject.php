@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class privilegeObject extends Model
 {
     /**
-     * @description The columns on which the database account has permissions. This parameter is required if the PrivilegeType parameter is set to Column.
+     * @description The columns on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Column.
      *
      * @example column1
      *
@@ -18,7 +18,7 @@ class privilegeObject extends Model
     public $column;
 
     /**
-     * @description The databases on which the database account has permissions. This parameter is required if the PrivilegeType parameter is set to Database, Table, or Column.
+     * @description The databases on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Database, Table, or Column.
      *
      * @example tsdb1
      *
@@ -27,7 +27,7 @@ class privilegeObject extends Model
     public $database;
 
     /**
-     * @description The tables on which the database account has permissions. This parameter is required if the PrivilegeType parameter is set to Table or Column.
+     * @description The tables on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Table or Column.
      *
      * @example table1
      *

@@ -10,7 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeApsActionLogsResponseBody extends Model
 {
     /**
-     * @description Details of the logs.
+     * @description The information about the request denial.
+     *
+     * @example {
+     * }
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The queried logs.
      *
      * @var actionLogs[]
      */
@@ -26,7 +35,7 @@ class DescribeApsActionLogsResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +44,7 @@ class DescribeApsActionLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -44,7 +53,7 @@ class DescribeApsActionLogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5EDBA27-AF3E-5966-9503-FD1557E19167
      *
@@ -62,7 +71,7 @@ class DescribeApsActionLogsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The ID of the real-time data ingestion task.
+     * @description The ID of the real-time data ingestion job.
      *
      * @example aps-hz109vpvt4fg8528d****
      *
@@ -70,13 +79,14 @@ class DescribeApsActionLogsResponseBody extends Model
      */
     public $workloadId;
     protected $_name = [
-        'actionLogs'  => 'ActionLogs',
-        'DBClusterId' => 'DBClusterId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'workloadId'  => 'WorkloadId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'actionLogs'         => 'ActionLogs',
+        'DBClusterId'        => 'DBClusterId',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
+        'requestId'          => 'RequestId',
+        'totalCount'         => 'TotalCount',
+        'workloadId'         => 'WorkloadId',
     ];
 
     public function validate()
@@ -86,6 +96,9 @@ class DescribeApsActionLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->actionLogs) {
             $res['ActionLogs'] = [];
             if (null !== $this->actionLogs && \is_array($this->actionLogs)) {
@@ -125,6 +138,9 @@ class DescribeApsActionLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['ActionLogs'])) {
             if (!empty($map['ActionLogs'])) {
                 $model->actionLogs = [];

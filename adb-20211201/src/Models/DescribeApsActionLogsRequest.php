@@ -19,7 +19,7 @@ class DescribeApsActionLogsRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
+     * @description The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2023-02-11T09:30:00Z
@@ -48,7 +48,7 @@ class DescribeApsActionLogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -57,9 +57,9 @@ class DescribeApsActionLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -90,13 +90,13 @@ class DescribeApsActionLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The task phase during which the logs to be queried are generated. Valid values:
+     * @description The phase during which the logs to be queried were generated. Valid values:
      *
      *   **StructureMigrate**: schema migration.
      *   **FullDataSync**: full data synchronization.
      *   **IncrementalSync**: incremental data synchronization.
      *
-     * >  If you do not specify this parameter, logs of all the task phases are queried.
+     * >  If you do not specify this parameter, logs of all the phases are queried.
      * @example FullDataSync
      *
      * @var string
@@ -114,7 +114,7 @@ class DescribeApsActionLogsRequest extends Model
     public $startTime;
 
     /**
-     * @description The type of the log. Separate multiple log types with commas (,). Valid values:
+     * @description The types of the logs. Separate multiple log types with commas (,). Valid values:
      *
      *   **INFO**
      *   **WARN**
@@ -128,7 +128,7 @@ class DescribeApsActionLogsRequest extends Model
     public $state;
 
     /**
-     * @description The ID of the real-time data ingestion task.
+     * @description The ID of the real-time data ingestion job.
      *
      * This parameter is required.
      * @example aps-hz109vpvt4fg8528d****

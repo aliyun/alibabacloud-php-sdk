@@ -27,7 +27,7 @@ class DBAccount extends Model
     public $accountName;
 
     /**
-     * @description The state of the database account. Valid values:
+     * @description The status of the database account. Valid values:
      *
      *   **Creating**
      *   **Available**
@@ -52,7 +52,12 @@ class DBAccount extends Model
     public $accountType;
 
     /**
-     * @description The ID of the RAM user.
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @description The ID of the Resource Access Management (RAM) user.
      *
      * @example 1958134230****
      *
@@ -64,6 +69,7 @@ class DBAccount extends Model
         'accountName'        => 'AccountName',
         'accountStatus'      => 'AccountStatus',
         'accountType'        => 'AccountType',
+        'engine'             => 'Engine',
         'ramUsers'           => 'RamUsers',
     ];
 
@@ -85,6 +91,9 @@ class DBAccount extends Model
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->ramUsers) {
             $res['RamUsers'] = $this->ramUsers;
@@ -112,6 +121,9 @@ class DBAccount extends Model
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['RamUsers'])) {
             $model->ramUsers = $map['RamUsers'];

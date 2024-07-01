@@ -29,9 +29,15 @@ class AllocateClusterPublicConnectionRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBClusterId'            => 'DBClusterId',
+        'engine'                 => 'Engine',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class AllocateClusterPublicConnectionRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class AllocateClusterPublicConnectionRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

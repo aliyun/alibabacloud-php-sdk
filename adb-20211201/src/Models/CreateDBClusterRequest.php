@@ -61,6 +61,11 @@ class CreateDBClusterRequest extends Model
     public $DBClusterVersion;
 
     /**
+     * @var bool
+     */
+    public $diskEncryption;
+
+    /**
      * @description Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
      *
      *   **true** (default)
@@ -71,6 +76,11 @@ class CreateDBClusterRequest extends Model
      * @var bool
      */
     public $enableDefaultResourcePool;
+
+    /**
+     * @var string
+     */
+    public $kmsId;
 
     /**
      * @description The billing method of the cluster. Valid values:
@@ -229,7 +239,9 @@ class CreateDBClusterRequest extends Model
         'DBClusterDescription'      => 'DBClusterDescription',
         'DBClusterNetworkType'      => 'DBClusterNetworkType',
         'DBClusterVersion'          => 'DBClusterVersion',
+        'diskEncryption'            => 'DiskEncryption',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
+        'kmsId'                     => 'KmsId',
         'payType'                   => 'PayType',
         'period'                    => 'Period',
         'productForm'               => 'ProductForm',
@@ -270,8 +282,14 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->DBClusterVersion) {
             $res['DBClusterVersion'] = $this->DBClusterVersion;
         }
+        if (null !== $this->diskEncryption) {
+            $res['DiskEncryption'] = $this->diskEncryption;
+        }
         if (null !== $this->enableDefaultResourcePool) {
             $res['EnableDefaultResourcePool'] = $this->enableDefaultResourcePool;
+        }
+        if (null !== $this->kmsId) {
+            $res['KmsId'] = $this->kmsId;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -354,8 +372,14 @@ class CreateDBClusterRequest extends Model
         if (isset($map['DBClusterVersion'])) {
             $model->DBClusterVersion = $map['DBClusterVersion'];
         }
+        if (isset($map['DiskEncryption'])) {
+            $model->diskEncryption = $map['DiskEncryption'];
+        }
         if (isset($map['EnableDefaultResourcePool'])) {
             $model->enableDefaultResourcePool = $map['EnableDefaultResourcePool'];
+        }
+        if (isset($map['KmsId'])) {
+            $model->kmsId = $map['KmsId'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

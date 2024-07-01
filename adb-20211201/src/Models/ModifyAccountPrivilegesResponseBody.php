@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPrivilegesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9DD88DE7-824F-1082-AA57-575AFC6517A8
      *

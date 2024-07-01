@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterHealthStatusResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The access nodes of the queried cluster.
      *
      * @var CS
@@ -55,11 +60,12 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
      */
     public $worker;
     protected $_name = [
-        'CS'             => 'CS',
-        'executor'       => 'Executor',
-        'instanceStatus' => 'InstanceStatus',
-        'requestId'      => 'RequestId',
-        'worker'         => 'Worker',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'CS'                 => 'CS',
+        'executor'           => 'Executor',
+        'instanceStatus'     => 'InstanceStatus',
+        'requestId'          => 'RequestId',
+        'worker'             => 'Worker',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->CS) {
             $res['CS'] = null !== $this->CS ? $this->CS->toMap() : null;
         }
@@ -96,6 +105,9 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['CS'])) {
             $model->CS = CS::fromMap($map['CS']);
         }

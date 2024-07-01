@@ -28,7 +28,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
+     * @description The specifications of reserved computing resources. Each ACU is approximately equal to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 16ACU
      *
@@ -82,7 +82,7 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The state of the cluster. Valid values:
+     * @description The status of the cluster. Valid values:
      *
      *   **Preparing**
      *
@@ -134,7 +134,7 @@ class DBCluster extends Model
     public $DBNodeStorage;
 
     /**
-     * @description The version of AnalyticDB for MySQL Data Lakehouse Edition. **5.0** is returned.
+     * @description The engine version of the AnalyticDB for MySQL Data Lakehouse Edition cluster. **5.0** is returned.
      *
      * @example 5.0
      *
@@ -158,7 +158,7 @@ class DBCluster extends Model
     public $elasticIOResource;
 
     /**
-     * @description The database engine of the cluster. **AnalyticDB** is returned.
+     * @description The engine of the cluster. **AnalyticDB** is returned.
      *
      * @example AnalyticDB
      *
@@ -172,9 +172,14 @@ class DBCluster extends Model
     public $executorCount;
 
     /**
-     * @description The time when the cluster expired. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     * @description The time when the cluster expires. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
      *
-     * > - Anempty string is returned for a pay-as-you-go cluster.
+     * >
+     *
+     *   If the billing method of the cluster is subscription, the actual expiration time is returned.
+     *
+     *   If the billing method of the cluster is pay-as-you-go, null is returned.
+     *
      * @example 2022-07-01T09:50:18Z
      *
      * @var string
@@ -187,7 +192,12 @@ class DBCluster extends Model
      *   **true**
      *   **false**
      *
-     * > - This parameter is not returned for pay-as-you-go clusters.
+     * >
+     *
+     *   If the cluster has expired, the system locks or releases the cluster within a period of time. We recommend that you renew the expired cluster. For more information, see [Renewal policy](https://help.aliyun.com/document_detail/135246.html).
+     *
+     *   This parameter is not returned for pay-as-you-go clusters.
+     *
      * @example false
      *
      * @var string
@@ -205,7 +215,7 @@ class DBCluster extends Model
     public $innerPort;
 
     /**
-     * @description The lock state of the cluster. Valid values:
+     * @description The lock status of the cluster. Valid values:
      *
      *   **Unlock**: The cluster is not locked.
      *   **ManualLock**: The cluster is manually locked.
@@ -265,6 +275,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $productVersion;
+
+    /**
+     * @var string
+     */
     public $rdsInstanceId;
 
     /**
@@ -277,7 +292,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The amount of remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The remaining reserved computing resources that are available in the cluster. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * @example 32ACU
      *
@@ -305,7 +320,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
+     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is approximately equal to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 24ACU
      *
@@ -386,6 +401,7 @@ class DBCluster extends Model
         'payType'              => 'PayType',
         'port'                 => 'Port',
         'productForm'          => 'ProductForm',
+        'productVersion'       => 'ProductVersion',
         'rdsInstanceId'        => 'RdsInstanceId',
         'regionId'             => 'RegionId',
         'reservedACU'          => 'ReservedACU',
@@ -494,6 +510,9 @@ class DBCluster extends Model
         }
         if (null !== $this->productForm) {
             $res['ProductForm'] = $this->productForm;
+        }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
         if (null !== $this->rdsInstanceId) {
             $res['RdsInstanceId'] = $this->rdsInstanceId;
@@ -632,6 +651,9 @@ class DBCluster extends Model
         }
         if (isset($map['ProductForm'])) {
             $model->productForm = $map['ProductForm'];
+        }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
         if (isset($map['RdsInstanceId'])) {
             $model->rdsInstanceId = $map['RdsInstanceId'];

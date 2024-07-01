@@ -31,10 +31,16 @@ class DescribeAccountsRequest extends Model
     /**
      * @var string
      */
+    public $engine;
+
+    /**
+     * @var string
+     */
     public $ownerId;
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
+        'engine'      => 'Engine',
         'ownerId'     => 'OwnerId',
     ];
 
@@ -50,6 +56,9 @@ class DescribeAccountsRequest extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,6 +80,9 @@ class DescribeAccountsRequest extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

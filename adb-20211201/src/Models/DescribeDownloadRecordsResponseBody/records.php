@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
-     * @description The download task ID.
+     * @description The download job ID.
      *
      * @example 636890
      *
@@ -18,7 +18,7 @@ class records extends Model
     public $downloadId;
 
     /**
-     * @description The error message returned if the download task failed.
+     * @description The error message returned if the download job failed.
      *
      * @example The query result is empty.
      *
@@ -36,7 +36,7 @@ class records extends Model
     public $fileName;
 
     /**
-     * @description The state of the download task. Valid values:
+     * @description The status of the download job. Valid values:
      *
      *   **running**
      *   **finished**
@@ -50,8 +50,6 @@ class records extends Model
 
     /**
      * @description The download URL of the file.
-     *
-     * @example https://perth-download-task.oss-cn-beijing.aliyuncs.com/adbmysql/query-sql-logs/amv-*********\/20210805104301-20210805164302.xlsx?Expires=1943514161&OSSAccessKeyId=*********&Signature=******"
      *
      * @var string
      */

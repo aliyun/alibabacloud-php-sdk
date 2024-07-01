@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
-     * @description The queried AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster information.
+     * @description The queried information about the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @var items
      */

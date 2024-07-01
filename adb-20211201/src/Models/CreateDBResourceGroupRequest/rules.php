@@ -13,7 +13,7 @@ class rules extends Model
      *
      *   The name can be up to 255 characters in length.
      *   The name must start with a letter or digit.
-     *   The name can contain letters, digits, hyphens (_), and underscores (_).
+     *   The name can contain letters, digits, hyphens (-), and underscores (_).
      *
      * @var string
      */

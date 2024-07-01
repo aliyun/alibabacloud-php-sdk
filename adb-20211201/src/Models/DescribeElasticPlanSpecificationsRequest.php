@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanSpecificationsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * This parameter is required.
      * @example amv-wz9509beptiz****
@@ -21,8 +21,12 @@ class DescribeElasticPlanSpecificationsRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * > *   This parameter is required only when you query the resource specifications that can be scaled for an interactive resource group.
-     * > *   You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of a resource group within a specific cluster.
+     * >
+     *
+     *   This parameter must be specified only when you query the resource specifications that are supported by an interactive resource group.
+     *
+     *   You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of a resource group within a cluster.
+     *
      * @example test
      *
      * @var string
@@ -32,8 +36,8 @@ class DescribeElasticPlanSpecificationsRequest extends Model
     /**
      * @description The type of the scaling plan. Valid values:
      *
-     *   EXECUTOR: interactive resource groups, which fall into the computing resource category.
-     *   WORKER: EIUs.
+     *   EXECUTOR: the interactive resource group type, which specifies the computing resource type.
+     *   WORKER: the elastic I/O unit (EIU) type.
      *
      * This parameter is required.
      * @example EXECUTOR

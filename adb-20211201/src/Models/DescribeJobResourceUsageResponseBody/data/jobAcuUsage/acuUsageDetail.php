@@ -27,6 +27,16 @@ class acuUsageDetail extends Model
     public $reservedAcuNumber;
 
     /**
+     * @var float
+     */
+    public $spotAcuNumber;
+
+    /**
+     * @var float
+     */
+    public $spotAcuPercentage;
+
+    /**
      * @description The total number of ACUs.
      *
      * @example 32ACU
@@ -37,6 +47,8 @@ class acuUsageDetail extends Model
     protected $_name = [
         'elasticAcuNumber'  => 'ElasticAcuNumber',
         'reservedAcuNumber' => 'ReservedAcuNumber',
+        'spotAcuNumber'     => 'SpotAcuNumber',
+        'spotAcuPercentage' => 'SpotAcuPercentage',
         'totalAcuNumber'    => 'TotalAcuNumber',
     ];
 
@@ -52,6 +64,12 @@ class acuUsageDetail extends Model
         }
         if (null !== $this->reservedAcuNumber) {
             $res['ReservedAcuNumber'] = $this->reservedAcuNumber;
+        }
+        if (null !== $this->spotAcuNumber) {
+            $res['SpotAcuNumber'] = $this->spotAcuNumber;
+        }
+        if (null !== $this->spotAcuPercentage) {
+            $res['SpotAcuPercentage'] = $this->spotAcuPercentage;
         }
         if (null !== $this->totalAcuNumber) {
             $res['TotalAcuNumber'] = $this->totalAcuNumber;
@@ -73,6 +91,12 @@ class acuUsageDetail extends Model
         }
         if (isset($map['ReservedAcuNumber'])) {
             $model->reservedAcuNumber = $map['ReservedAcuNumber'];
+        }
+        if (isset($map['SpotAcuNumber'])) {
+            $model->spotAcuNumber = $map['SpotAcuNumber'];
+        }
+        if (isset($map['SpotAcuPercentage'])) {
+            $model->spotAcuPercentage = $map['SpotAcuPercentage'];
         }
         if (isset($map['TotalAcuNumber'])) {
             $model->totalAcuNumber = $map['TotalAcuNumber'];

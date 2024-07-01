@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @var int
+     */
+    public $clickhouseEngineCacheSize;
+
+    /**
+     * @var bool
+     */
+    public $clickhouseEngineEnabled;
+
+    /**
      * @description The billing method of the cluster. Valid values:
      *
      *   **ads**: pay-as-you-go.
@@ -22,7 +32,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
+     * @description The specifications of reserved computing resources. Each ACU is approximately equal to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 16ACU
      *
@@ -31,7 +41,7 @@ class DBCluster extends Model
     public $computeResource;
 
     /**
-     * @description The total amount of computing resources in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The total amount of computing resources in the cluster. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * @example 48ACU
      *
@@ -49,7 +59,7 @@ class DBCluster extends Model
     public $connectionString;
 
     /**
-     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddThh:mm:ssZ` format. The time is displayed in UTC.
+     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2022-07-01T09:50:18Z
      *
@@ -85,7 +95,7 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The state of the cluster. Valid values:
+     * @description The status of the cluster. Valid values:
      *
      *   **Preparing**
      *   **Creating**
@@ -104,7 +114,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The cluster type. By default, **Common** is returned, which indicates a common cluster.
+     * @description The type of the cluster. By default, **Common** is returned, which indicates a common cluster.
      *
      * @example Common
      *
@@ -140,7 +150,7 @@ class DBCluster extends Model
     public $engineVersion;
 
     /**
-     * @description The expiration time of the cluster.
+     * @description The time when the cluster expires.
      *
      *   If the billing method of the cluster is subscription, the actual expiration time is returned.
      *   If the billing method of the cluster is pay-as-you-go, null is returned.
@@ -157,13 +167,22 @@ class DBCluster extends Model
      *   **true**
      *   **false**
      *
+     * >
      *
-     * > - This parameter is not returned for pay-as-you-go clusters.
+     *   If the cluster has expired, the system locks or releases the cluster within a period of time. We recommend that you renew the expired cluster. For more information, see [Renewal policy](https://help.aliyun.com/document_detail/135248.html).
+     *
+     *   This parameter is not returned for pay-as-you-go clusters.
+     *
      * @example false
      *
      * @var string
      */
     public $expired;
+
+    /**
+     * @var string
+     */
+    public $kmsId;
 
     /**
      * @description The lock mode of the cluster. Valid values:
@@ -234,6 +253,11 @@ class DBCluster extends Model
     public $productForm;
 
     /**
+     * @var string
+     */
+    public $productVersion;
+
+    /**
      * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
@@ -243,7 +267,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of remaining reserved computing resources that are available in the cluster. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * @example 24ACU
      *
@@ -271,7 +295,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
+     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is approximately equal to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 24ACU
      *
@@ -280,7 +304,7 @@ class DBCluster extends Model
     public $storageResource;
 
     /**
-     * @description The total amount of storage resources in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The total amount of storage resources in the cluster. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * @example 24ACU
      *
@@ -341,41 +365,45 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
-        'commodityCode'        => 'CommodityCode',
-        'computeResource'      => 'ComputeResource',
-        'computeResourceTotal' => 'ComputeResourceTotal',
-        'connectionString'     => 'ConnectionString',
-        'creationTime'         => 'CreationTime',
-        'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterId'          => 'DBClusterId',
-        'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'DBClusterType'        => 'DBClusterType',
-        'DBVersion'            => 'DBVersion',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'expireTime'           => 'ExpireTime',
-        'expired'              => 'Expired',
-        'lockMode'             => 'LockMode',
-        'lockReason'           => 'LockReason',
-        'maintainTime'         => 'MaintainTime',
-        'mode'                 => 'Mode',
-        'payType'              => 'PayType',
-        'port'                 => 'Port',
-        'productForm'          => 'ProductForm',
-        'regionId'             => 'RegionId',
-        'reservedACU'          => 'ReservedACU',
-        'reservedNodeCount'    => 'ReservedNodeCount',
-        'reservedNodeSize'     => 'ReservedNodeSize',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'storageResource'      => 'StorageResource',
-        'storageResourceTotal' => 'StorageResourceTotal',
-        'supportedFeatures'    => 'SupportedFeatures',
-        'tags'                 => 'Tags',
-        'userENIStatus'        => 'UserENIStatus',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'zoneId'               => 'ZoneId',
+        'clickhouseEngineCacheSize' => 'ClickhouseEngineCacheSize',
+        'clickhouseEngineEnabled'   => 'ClickhouseEngineEnabled',
+        'commodityCode'             => 'CommodityCode',
+        'computeResource'           => 'ComputeResource',
+        'computeResourceTotal'      => 'ComputeResourceTotal',
+        'connectionString'          => 'ConnectionString',
+        'creationTime'              => 'CreationTime',
+        'DBClusterDescription'      => 'DBClusterDescription',
+        'DBClusterId'               => 'DBClusterId',
+        'DBClusterNetworkType'      => 'DBClusterNetworkType',
+        'DBClusterStatus'           => 'DBClusterStatus',
+        'DBClusterType'             => 'DBClusterType',
+        'DBVersion'                 => 'DBVersion',
+        'engine'                    => 'Engine',
+        'engineVersion'             => 'EngineVersion',
+        'expireTime'                => 'ExpireTime',
+        'expired'                   => 'Expired',
+        'kmsId'                     => 'KmsId',
+        'lockMode'                  => 'LockMode',
+        'lockReason'                => 'LockReason',
+        'maintainTime'              => 'MaintainTime',
+        'mode'                      => 'Mode',
+        'payType'                   => 'PayType',
+        'port'                      => 'Port',
+        'productForm'               => 'ProductForm',
+        'productVersion'            => 'ProductVersion',
+        'regionId'                  => 'RegionId',
+        'reservedACU'               => 'ReservedACU',
+        'reservedNodeCount'         => 'ReservedNodeCount',
+        'reservedNodeSize'          => 'ReservedNodeSize',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'storageResource'           => 'StorageResource',
+        'storageResourceTotal'      => 'StorageResourceTotal',
+        'supportedFeatures'         => 'SupportedFeatures',
+        'tags'                      => 'Tags',
+        'userENIStatus'             => 'UserENIStatus',
+        'VPCId'                     => 'VPCId',
+        'vSwitchId'                 => 'VSwitchId',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -385,6 +413,12 @@ class DBCluster extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clickhouseEngineCacheSize) {
+            $res['ClickhouseEngineCacheSize'] = $this->clickhouseEngineCacheSize;
+        }
+        if (null !== $this->clickhouseEngineEnabled) {
+            $res['ClickhouseEngineEnabled'] = $this->clickhouseEngineEnabled;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -430,6 +464,9 @@ class DBCluster extends Model
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
+        if (null !== $this->kmsId) {
+            $res['KmsId'] = $this->kmsId;
+        }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -450,6 +487,9 @@ class DBCluster extends Model
         }
         if (null !== $this->productForm) {
             $res['ProductForm'] = $this->productForm;
+        }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -502,6 +542,12 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClickhouseEngineCacheSize'])) {
+            $model->clickhouseEngineCacheSize = $map['ClickhouseEngineCacheSize'];
+        }
+        if (isset($map['ClickhouseEngineEnabled'])) {
+            $model->clickhouseEngineEnabled = $map['ClickhouseEngineEnabled'];
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -547,6 +593,9 @@ class DBCluster extends Model
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
+        if (isset($map['KmsId'])) {
+            $model->kmsId = $map['KmsId'];
+        }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
@@ -567,6 +616,9 @@ class DBCluster extends Model
         }
         if (isset($map['ProductForm'])) {
             $model->productForm = $map['ProductForm'];
+        }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
