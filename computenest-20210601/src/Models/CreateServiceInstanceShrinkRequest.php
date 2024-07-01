@@ -85,6 +85,11 @@ class CreateServiceInstanceShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $resourceAutoPay;
+
+    /**
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -155,6 +160,7 @@ class CreateServiceInstanceShrinkRequest extends Model
         'operationMetadata'    => 'OperationMetadata',
         'parametersShrink'     => 'Parameters',
         'regionId'             => 'RegionId',
+        'resourceAutoPay'      => 'ResourceAutoPay',
         'resourceGroupId'      => 'ResourceGroupId',
         'serviceId'            => 'ServiceId',
         'serviceVersion'       => 'ServiceVersion',
@@ -201,6 +207,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceAutoPay) {
+            $res['ResourceAutoPay'] = $this->resourceAutoPay;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -273,6 +282,9 @@ class CreateServiceInstanceShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceAutoPay'])) {
+            $model->resourceAutoPay = $map['ResourceAutoPay'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
