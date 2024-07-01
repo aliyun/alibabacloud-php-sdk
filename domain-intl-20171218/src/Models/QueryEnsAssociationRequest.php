@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEnsAssociationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example abc.luxe
      *
      * @var string

@@ -24,6 +24,8 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $country;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $domainName;
@@ -34,16 +36,22 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredential;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredentialNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identityCredentialType;
@@ -74,11 +82,15 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $registrantOrganization;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $telArea;
@@ -89,11 +101,15 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends Model
     public $telExt;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $telephone;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $transferOutProhibited;

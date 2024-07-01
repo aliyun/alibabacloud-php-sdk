@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForAssociatingEnsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0x0000000000000000000000000000000000000003
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
     public $address;
 
     /**
+     * @description This parameter is required.
+     *
      * @example abc.luxe
      *
      * @var string

@@ -20,6 +20,8 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var orderTransferParam[]
      */
     public $orderTransferParam;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryContactInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;

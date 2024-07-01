@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPageNum;
@@ -20,31 +22,43 @@ class QueryDomainListResponseBody extends Model
     public $data;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $nextPage;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $prePage;
 
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalItemNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalPageNum;

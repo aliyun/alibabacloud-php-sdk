@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $domainAuditStatus;
 
     /**
+     * @example jwssc8.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example New gTLD
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example -30
+     *
      * @var int
      */
     public $expirationCurrDateDiff;
 
     /**
+     * @example Nov 02,2019 04:00:45
+     *
      * @var string
      */
     public $expirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $expirationDateLong;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $expirationDateStatus;
 
     /**
+     * @example ST49P7TZLDAWSH2
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $premium;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $registrantType;
 
     /**
+     * @example Nov 02,2017 04:00:45
+     *
      * @var string
      */
     public $registrationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $registrationDateLong;

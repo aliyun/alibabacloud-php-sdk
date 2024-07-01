@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $domainName;
@@ -24,6 +26,8 @@ class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
     public $userClientIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $status;

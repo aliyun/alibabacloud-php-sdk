@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForModifyingDnsHostRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dnsName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $ip;

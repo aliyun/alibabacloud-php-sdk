@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForAddingDSRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $algorithm;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $digestType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $keyTag;

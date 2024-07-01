@@ -14,6 +14,8 @@ class CancelTaskRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskNo;

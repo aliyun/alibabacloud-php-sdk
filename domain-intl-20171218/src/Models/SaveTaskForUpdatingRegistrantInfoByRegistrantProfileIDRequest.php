@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $domainName;
@@ -19,11 +21,15 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $transferOutProhibited;

@@ -14,11 +14,15 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     public $addTransferLock;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
@@ -34,6 +38,8 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $registrantProfileId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelDomainVerificationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForDomainNameProxyServiceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
@@ -19,6 +21,8 @@ class SaveSingleTaskForDomainNameProxyServiceRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $status;

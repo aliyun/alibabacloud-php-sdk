@@ -19,6 +19,8 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $registrantProfileId;

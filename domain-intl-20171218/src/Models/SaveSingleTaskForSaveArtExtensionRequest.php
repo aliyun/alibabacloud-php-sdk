@@ -19,6 +19,8 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     public $dimensions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;

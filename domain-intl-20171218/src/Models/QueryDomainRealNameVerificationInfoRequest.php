@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainRealNameVerificationInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;

@@ -14,11 +14,15 @@ class SaveSingleTaskForCreatingOrderRedeemRequest extends Model
     public $couponNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $currentExpirationDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;

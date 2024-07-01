@@ -24,6 +24,8 @@ class QueryTaskDetailHistoryRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +36,8 @@ class QueryTaskDetailHistoryRequest extends Model
     public $taskDetailNoCursor;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskNo;

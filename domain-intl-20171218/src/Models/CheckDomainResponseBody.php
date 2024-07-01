@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $avail;
 
     /**
+     * @example nvgtntights.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dynamicCheck;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $premium;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $price;
 
     /**
+     * @example In use
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+     *
      * @var string
      */
     public $requestId;

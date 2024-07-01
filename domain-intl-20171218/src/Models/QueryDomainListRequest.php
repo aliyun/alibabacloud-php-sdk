@@ -11,68 +11,104 @@ class QueryDomainListRequest extends Model
     /**
      * @var string
      */
+    public $ccompany;
+
+    /**
+     * @example example.com
+     *
+     * @var string
+     */
     public $domainName;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endExpirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $endRegistrationDate;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $orderByType;
 
     /**
+     * @example ExpirationDate
+     *
      * @var string
      */
     public $orderKeyType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example gTLD
+     *
      * @var string
      */
     public $productDomainType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startExpirationDate;
 
     /**
+     * @example 1522080000000
+     *
      * @var int
      */
     public $startRegistrationDate;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
+        'ccompany'              => 'Ccompany',
         'domainName'            => 'DomainName',
         'endExpirationDate'     => 'EndExpirationDate',
         'endRegistrationDate'   => 'EndRegistrationDate',
@@ -95,6 +131,9 @@ class QueryDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ccompany) {
+            $res['Ccompany'] = $this->ccompany;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -146,6 +185,9 @@ class QueryDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ccompany'])) {
+            $model->ccompany = $map['Ccompany'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

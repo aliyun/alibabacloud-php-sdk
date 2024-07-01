@@ -19,11 +19,15 @@ class QueryTransferInListRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;

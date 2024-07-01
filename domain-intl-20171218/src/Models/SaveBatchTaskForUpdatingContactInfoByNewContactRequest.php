@@ -19,6 +19,8 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $city;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactType;
@@ -29,6 +31,8 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $country;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $domainName;
