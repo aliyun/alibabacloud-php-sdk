@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @var float
+     */
+    public $agreementPromotionFee;
+
+    /**
      * @example 234432432
      *
      * @var string
@@ -464,6 +469,7 @@ class dataList extends Model
      */
     public $voucherType;
     protected $_name = [
+        'agreementPromotionFee'  => 'agreement_promotion_fee',
         'alipayTradeNo'          => 'alipay_trade_no',
         'applyArrCityCode'       => 'apply_arr_city_code',
         'applyArrCityName'       => 'apply_arr_city_name',
@@ -549,6 +555,9 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agreementPromotionFee) {
+            $res['agreement_promotion_fee'] = $this->agreementPromotionFee;
+        }
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
         }
@@ -789,6 +798,9 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agreement_promotion_fee'])) {
+            $model->agreementPromotionFee = $map['agreement_promotion_fee'];
+        }
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
         }

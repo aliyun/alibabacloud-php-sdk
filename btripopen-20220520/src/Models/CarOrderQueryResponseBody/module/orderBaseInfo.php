@@ -106,6 +106,11 @@ class orderBaseInfo extends Model
     public $thirdpartApplyId;
 
     /**
+     * @var string
+     */
+    public $thirdpartBusinessId;
+
+    /**
      * @example xxxxx
      *
      * @var string
@@ -139,6 +144,7 @@ class orderBaseInfo extends Model
         'subOrderId'           => 'sub_order_id',
         'thirdDepartId'        => 'third_depart_id',
         'thirdpartApplyId'     => 'thirdpart_apply_id',
+        'thirdpartBusinessId'  => 'thirdpart_business_id',
         'thirdpartItineraryId' => 'thirdpart_itinerary_id',
         'userId'               => 'user_id',
         'userName'             => 'user_name',
@@ -195,6 +201,9 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
+        }
+        if (null !== $this->thirdpartBusinessId) {
+            $res['thirdpart_business_id'] = $this->thirdpartBusinessId;
         }
         if (null !== $this->thirdpartItineraryId) {
             $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
@@ -261,6 +270,9 @@ class orderBaseInfo extends Model
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];
+        }
+        if (isset($map['thirdpart_business_id'])) {
+            $model->thirdpartBusinessId = $map['thirdpart_business_id'];
         }
         if (isset($map['thirdpart_itinerary_id'])) {
             $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];

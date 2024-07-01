@@ -114,6 +114,11 @@ class items extends Model
     public $machineCode;
 
     /**
+     * @var string
+     */
+    public $ofdOssUrl;
+
+    /**
      * @example https://www.testurl.com
      *
      * @var string
@@ -238,6 +243,7 @@ class items extends Model
         'invoiceType'              => 'invoice_type',
         'invoiceTypeDesc'          => 'invoice_type_desc',
         'machineCode'              => 'machine_code',
+        'ofdOssUrl'                => 'ofd_oss_url',
         'ossUrl'                   => 'oss_url',
         'passwordArea'             => 'password_area',
         'pdfOssUrl'                => 'pdf_oss_url',
@@ -319,6 +325,9 @@ class items extends Model
         }
         if (null !== $this->machineCode) {
             $res['machine_code'] = $this->machineCode;
+        }
+        if (null !== $this->ofdOssUrl) {
+            $res['ofd_oss_url'] = $this->ofdOssUrl;
         }
         if (null !== $this->ossUrl) {
             $res['oss_url'] = $this->ossUrl;
@@ -442,6 +451,9 @@ class items extends Model
         }
         if (isset($map['machine_code'])) {
             $model->machineCode = $map['machine_code'];
+        }
+        if (isset($map['ofd_oss_url'])) {
+            $model->ofdOssUrl = $map['ofd_oss_url'];
         }
         if (isset($map['oss_url'])) {
             $model->ossUrl = $map['oss_url'];

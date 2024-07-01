@@ -173,6 +173,11 @@ class module extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $thirdPartBusinessId;
+
+    /**
      * @example CS-SKPFDS
      *
      * @var string
@@ -262,6 +267,7 @@ class module extends Model
         'runTime'              => 'run_time',
         'seatType'             => 'seat_type',
         'status'               => 'status',
+        'thirdPartBusinessId'  => 'thirdPart_business_id',
         'thirdPartProjectId'   => 'third_part_project_id',
         'thirdpartApplyId'     => 'thirdpart_apply_id',
         'thirdpartItineraryId' => 'thirdpart_itinerary_id',
@@ -370,6 +376,9 @@ class module extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->thirdPartBusinessId) {
+            $res['thirdPart_business_id'] = $this->thirdPartBusinessId;
         }
         if (null !== $this->thirdPartProjectId) {
             $res['third_part_project_id'] = $this->thirdPartProjectId;
@@ -508,6 +517,9 @@ class module extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['thirdPart_business_id'])) {
+            $model->thirdPartBusinessId = $map['thirdPart_business_id'];
         }
         if (isset($map['third_part_project_id'])) {
             $model->thirdPartProjectId = $map['third_part_project_id'];

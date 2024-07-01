@@ -100,6 +100,11 @@ class orderBaseInfo extends Model
     public $orderStatus;
 
     /**
+     * @var string
+     */
+    public $thirdPartBusinessId;
+
+    /**
      * @example 01-2023-01214
      *
      * @var string
@@ -154,6 +159,7 @@ class orderBaseInfo extends Model
         'itineraryId'            => 'itinerary_id',
         'orderId'                => 'order_id',
         'orderStatus'            => 'order_status',
+        'thirdPartBusinessId'    => 'thirdPart_business_id',
         'thirdpartApplyId'       => 'thirdpart_apply_id',
         'thirdpartDepartId'      => 'thirdpart_depart_id',
         'thirdpartItineraryId'   => 'thirdpart_itinerary_id',
@@ -213,6 +219,9 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->orderStatus) {
             $res['order_status'] = $this->orderStatus;
+        }
+        if (null !== $this->thirdPartBusinessId) {
+            $res['thirdPart_business_id'] = $this->thirdPartBusinessId;
         }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
@@ -288,6 +297,9 @@ class orderBaseInfo extends Model
         }
         if (isset($map['order_status'])) {
             $model->orderStatus = $map['order_status'];
+        }
+        if (isset($map['thirdPart_business_id'])) {
+            $model->thirdPartBusinessId = $map['thirdPart_business_id'];
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];

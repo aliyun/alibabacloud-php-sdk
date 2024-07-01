@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOtaSearchV2ResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOtaSearchV2ResponseBody\module\agentInfo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOtaSearchV2ResponseBody\module\agentInfos;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOtaSearchV2ResponseBody\module\passengerCount;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\undefined;
 use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
+    /**
+     * @var agentInfos[]
+     */
+    public $agentInfos;
+
     /**
      * @var agentInfo
      */
@@ -40,6 +46,7 @@ class module extends Model
      */
     public $sessionId;
     protected $_name = [
+        'agentInfos'         => 'agentInfos',
         'agentInfo'          => 'agent_info',
         'cacheKey'           => 'cache_key',
         'flightSegmentInfos' => 'flight_segment_infos',
@@ -54,6 +61,15 @@ class module extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentInfos) {
+            $res['agentInfos'] = [];
+            if (null !== $this->agentInfos && \is_array($this->agentInfos)) {
+                $n = 0;
+                foreach ($this->agentInfos as $item) {
+                    $res['agentInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->agentInfo) {
             $res['agent_info'] = null !== $this->agentInfo ? $this->agentInfo->toMap() : null;
         }
@@ -81,6 +97,15 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentInfos'])) {
+            if (!empty($map['agentInfos'])) {
+                $model->agentInfos = [];
+                $n                 = 0;
+                foreach ($map['agentInfos'] as $item) {
+                    $model->agentInfos[$n++] = null !== $item ? agentInfos::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['agent_info'])) {
             $model->agentInfo = agentInfo::fromMap($map['agent_info']);
         }

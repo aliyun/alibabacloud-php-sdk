@@ -8,6 +8,14 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddDepartmentHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddDepartmentRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddDepartmentResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddDepartmentShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeeHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeeRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeeResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeeShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleResponse;
@@ -119,6 +127,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteDepartmentHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteDepartmentRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteDepartmentResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleResponse;
@@ -149,6 +160,16 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserDeleteHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExternalUserUpdateShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryResponse;
@@ -324,6 +345,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
@@ -569,6 +593,17 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripTaskQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateDepartmentHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateDepartmentRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateDepartmentResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateDepartmentShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeLeaveStatusHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeLeaveStatusRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeLeaveStatusResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateEmployeeShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
@@ -665,6 +700,205 @@ class BtripOpen extends OpenApiClient
         $headers = [];
 
         return $this->accessTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建企业部门
+     *  *
+     * @param AddDepartmentRequest $tmpReq  AddDepartmentRequest
+     * @param AddDepartmentHeaders $headers AddDepartmentHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddDepartmentResponse AddDepartmentResponse
+     */
+    public function addDepartmentWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddDepartmentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->managerEmployeeIdList)) {
+            $request->managerEmployeeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deptName)) {
+            $body['dept_name'] = $request->deptName;
+        }
+        if (!Utils::isUnset($request->managerEmployeeIdListShrink)) {
+            $body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
+        }
+        if (!Utils::isUnset($request->outDeptId)) {
+            $body['out_dept_id'] = $request->outDeptId;
+        }
+        if (!Utils::isUnset($request->outDeptPid)) {
+            $body['out_dept_pid'] = $request->outDeptPid;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDepartment',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/department/v2/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建企业部门
+     *  *
+     * @param AddDepartmentRequest $request AddDepartmentRequest
+     *
+     * @return AddDepartmentResponse AddDepartmentResponse
+     */
+    public function addDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddDepartmentHeaders([]);
+
+        return $this->addDepartmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 添加员工
+     *  *
+     * @param AddEmployeeRequest $tmpReq  AddEmployeeRequest
+     * @param AddEmployeeHeaders $headers AddEmployeeHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddEmployeeResponse AddEmployeeResponse
+     */
+    public function addEmployeeWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddEmployeeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->baseCityCodeList)) {
+            $request->baseCityCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->certList)) {
+            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customRoleCodeList)) {
+            $request->customRoleCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->outDeptIdList)) {
+            $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->avatar)) {
+            $body['avatar'] = $request->avatar;
+        }
+        if (!Utils::isUnset($request->baseCityCodeListShrink)) {
+            $body['base_city_code_list'] = $request->baseCityCodeListShrink;
+        }
+        if (!Utils::isUnset($request->birthday)) {
+            $body['birthday'] = $request->birthday;
+        }
+        if (!Utils::isUnset($request->certListShrink)) {
+            $body['cert_list'] = $request->certListShrink;
+        }
+        if (!Utils::isUnset($request->customRoleCodeListShrink)) {
+            $body['custom_role_code_list'] = $request->customRoleCodeListShrink;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->isAdmin)) {
+            $body['is_admin'] = $request->isAdmin;
+        }
+        if (!Utils::isUnset($request->isBoss)) {
+            $body['is_boss'] = $request->isBoss;
+        }
+        if (!Utils::isUnset($request->isDeptLeader)) {
+            $body['is_dept_leader'] = $request->isDeptLeader;
+        }
+        if (!Utils::isUnset($request->jobNo)) {
+            $body['job_no'] = $request->jobNo;
+        }
+        if (!Utils::isUnset($request->managerUserId)) {
+            $body['manager_user_id'] = $request->managerUserId;
+        }
+        if (!Utils::isUnset($request->outDeptIdListShrink)) {
+            $body['out_dept_id_list'] = $request->outDeptIdListShrink;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->positionLevel)) {
+            $body['position_level'] = $request->positionLevel;
+        }
+        if (!Utils::isUnset($request->realName)) {
+            $body['real_name'] = $request->realName;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        if (!Utils::isUnset($request->unionId)) {
+            $body['union_id'] = $request->unionId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userNick)) {
+            $body['user_nick'] = $request->userNick;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEmployee',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/employee/v2/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加员工
+     *  *
+     * @param AddEmployeeRequest $request AddEmployeeRequest
+     *
+     * @return AddEmployeeResponse AddEmployeeResponse
+     */
+    public function addEmployee($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddEmployeeHeaders([]);
+
+        return $this->addEmployeeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3348,6 +3582,63 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 删除企业部门
+     *  *
+     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
+     * @param DeleteDepartmentHeaders $headers DeleteDepartmentHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     */
+    public function deleteDepartmentWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->outDeptId)) {
+            $body['out_dept_id'] = $request->outDeptId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDepartment',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/department/v2/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除企业部门
+     *  *
+     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
+     *
+     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     */
+    public function deleteDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteDepartmentHeaders([]);
+
+        return $this->deleteDepartmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 批量删除企业自定义角色下人员
      *  *
      * @param DeleteEmployeesFromCustomRoleRequest $tmpReq  DeleteEmployeesFromCustomRoleRequest
@@ -3890,6 +4181,219 @@ class BtripOpen extends OpenApiClient
         $headers = new ExceedApplySyncHeaders([]);
 
         return $this->exceedApplySyncWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 添加外部出行人与证件信息
+     *  *
+     * @param ExternalUserAddRequest $tmpReq  ExternalUserAddRequest
+     * @param ExternalUserAddHeaders $headers ExternalUserAddHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExternalUserAddResponse ExternalUserAddResponse
+     */
+    public function externalUserAddWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExternalUserAddShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->certRequestList)) {
+            $request->certRequestListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->birthday)) {
+            $body['birthday'] = $request->birthday;
+        }
+        if (!Utils::isUnset($request->certRequestListShrink)) {
+            $body['cert_request_list'] = $request->certRequestListShrink;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->externalUserId)) {
+            $body['external_user_id'] = $request->externalUserId;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->realName)) {
+            $body['real_name'] = $request->realName;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $body['user_type'] = $request->userType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExternalUserAdd',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/externalUsers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExternalUserAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加外部出行人与证件信息
+     *  *
+     * @param ExternalUserAddRequest $request ExternalUserAddRequest
+     *
+     * @return ExternalUserAddResponse ExternalUserAddResponse
+     */
+    public function externalUserAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExternalUserAddHeaders([]);
+
+        return $this->externalUserAddWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除外部出行人
+     *  *
+     * @param string                    $externalUserId
+     * @param ExternalUserDeleteHeaders $headers        ExternalUserDeleteHeaders
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExternalUserDeleteResponse ExternalUserDeleteResponse
+     */
+    public function externalUserDeleteWithOptions($externalUserId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ExternalUserDelete',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExternalUserDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部出行人
+     *  *
+     * @param string $externalUserId
+     *
+     * @return ExternalUserDeleteResponse ExternalUserDeleteResponse
+     */
+    public function externalUserDelete($externalUserId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExternalUserDeleteHeaders([]);
+
+        return $this->externalUserDeleteWithOptions($externalUserId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 修改外部出行人与证件信息
+     *  *
+     * @param string                    $externalUserId
+     * @param ExternalUserUpdateRequest $tmpReq         ExternalUserUpdateRequest
+     * @param ExternalUserUpdateHeaders $headers        ExternalUserUpdateHeaders
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExternalUserUpdateResponse ExternalUserUpdateResponse
+     */
+    public function externalUserUpdateWithOptions($externalUserId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExternalUserUpdateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->certRequestList)) {
+            $request->certRequestListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->birthday)) {
+            $body['birthday'] = $request->birthday;
+        }
+        if (!Utils::isUnset($request->certRequestListShrink)) {
+            $body['cert_request_list'] = $request->certRequestListShrink;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->realName)) {
+            $body['real_name'] = $request->realName;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExternalUserUpdate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExternalUserUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改外部出行人与证件信息
+     *  *
+     * @param string                    $externalUserId
+     * @param ExternalUserUpdateRequest $request        ExternalUserUpdateRequest
+     *
+     * @return ExternalUserUpdateResponse ExternalUserUpdateResponse
+     */
+    public function externalUserUpdate($externalUserId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExternalUserUpdateHeaders([]);
+
+        return $this->externalUserUpdateWithOptions($externalUserId, $request, $headers, $runtime);
     }
 
     /**
@@ -7867,6 +8371,78 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelStaticInfoHeaders([]);
 
         return $this->hotelStaticInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 酒店关键词搜索
+     *  *
+     * @param HotelSuggestRequest $request HotelSuggestRequest
+     * @param HotelSuggestHeaders $headers HotelSuggestHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return HotelSuggestResponse HotelSuggestResponse
+     */
+    public function hotelSuggestWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkIn)) {
+            $query['check_in'] = $request->checkIn;
+        }
+        if (!Utils::isUnset($request->checkOut)) {
+            $query['check_out'] = $request->checkOut;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['search_type'] = $request->searchType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelSuggest',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/suggest-infos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelSuggestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 酒店关键词搜索
+     *  *
+     * @param HotelSuggestRequest $request HotelSuggestRequest
+     *
+     * @return HotelSuggestResponse HotelSuggestResponse
+     */
+    public function hotelSuggest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelSuggestHeaders([]);
+
+        return $this->hotelSuggestWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -13102,6 +13678,262 @@ class BtripOpen extends OpenApiClient
         $headers = new UpdateCustomRoleHeaders([]);
 
         return $this->updateCustomRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 修改企业部门
+     *  *
+     * @param UpdateDepartmentRequest $tmpReq  UpdateDepartmentRequest
+     * @param UpdateDepartmentHeaders $headers UpdateDepartmentHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     */
+    public function updateDepartmentWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDepartmentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->managerEmployeeIdList)) {
+            $request->managerEmployeeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deptName)) {
+            $body['dept_name'] = $request->deptName;
+        }
+        if (!Utils::isUnset($request->managerEmployeeIdListShrink)) {
+            $body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
+        }
+        if (!Utils::isUnset($request->outDeptId)) {
+            $body['out_dept_id'] = $request->outDeptId;
+        }
+        if (!Utils::isUnset($request->outDeptPid)) {
+            $body['out_dept_pid'] = $request->outDeptPid;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDepartment',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/department/v2/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改企业部门
+     *  *
+     * @param UpdateDepartmentRequest $request UpdateDepartmentRequest
+     *
+     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     */
+    public function updateDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateDepartmentHeaders([]);
+
+        return $this->updateDepartmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新员工信息
+     *  *
+     * @param UpdateEmployeeRequest $tmpReq  UpdateEmployeeRequest
+     * @param UpdateEmployeeHeaders $headers UpdateEmployeeHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateEmployeeResponse UpdateEmployeeResponse
+     */
+    public function updateEmployeeWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateEmployeeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->baseCityCodeList)) {
+            $request->baseCityCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->certList)) {
+            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customRoleCodeList)) {
+            $request->customRoleCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->outDeptIdList)) {
+            $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->avatar)) {
+            $body['avatar'] = $request->avatar;
+        }
+        if (!Utils::isUnset($request->baseCityCodeListShrink)) {
+            $body['base_city_code_list'] = $request->baseCityCodeListShrink;
+        }
+        if (!Utils::isUnset($request->birthday)) {
+            $body['birthday'] = $request->birthday;
+        }
+        if (!Utils::isUnset($request->certListShrink)) {
+            $body['cert_list'] = $request->certListShrink;
+        }
+        if (!Utils::isUnset($request->customRoleCodeListShrink)) {
+            $body['custom_role_code_list'] = $request->customRoleCodeListShrink;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->isAdmin)) {
+            $body['is_admin'] = $request->isAdmin;
+        }
+        if (!Utils::isUnset($request->isBoss)) {
+            $body['is_boss'] = $request->isBoss;
+        }
+        if (!Utils::isUnset($request->isDeptLeader)) {
+            $body['is_dept_leader'] = $request->isDeptLeader;
+        }
+        if (!Utils::isUnset($request->jobNo)) {
+            $body['job_no'] = $request->jobNo;
+        }
+        if (!Utils::isUnset($request->managerUserId)) {
+            $body['manager_user_id'] = $request->managerUserId;
+        }
+        if (!Utils::isUnset($request->outDeptIdListShrink)) {
+            $body['out_dept_id_list'] = $request->outDeptIdListShrink;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->positionLevel)) {
+            $body['position_level'] = $request->positionLevel;
+        }
+        if (!Utils::isUnset($request->realName)) {
+            $body['real_name'] = $request->realName;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userNick)) {
+            $body['user_nick'] = $request->userNick;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEmployee',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/employee/v2/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新员工信息
+     *  *
+     * @param UpdateEmployeeRequest $request UpdateEmployeeRequest
+     *
+     * @return UpdateEmployeeResponse UpdateEmployeeResponse
+     */
+    public function updateEmployee($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateEmployeeHeaders([]);
+
+        return $this->updateEmployeeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新员工在职状态
+     *  *
+     * @param UpdateEmployeeLeaveStatusRequest $request UpdateEmployeeLeaveStatusRequest
+     * @param UpdateEmployeeLeaveStatusHeaders $headers UpdateEmployeeLeaveStatusHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateEmployeeLeaveStatusResponse UpdateEmployeeLeaveStatusResponse
+     */
+    public function updateEmployeeLeaveStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isLeave)) {
+            $body['is_leave'] = $request->isLeave;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEmployeeLeaveStatus',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/employee/v2/updateLeaveStatus',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEmployeeLeaveStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新员工在职状态
+     *  *
+     * @param UpdateEmployeeLeaveStatusRequest $request UpdateEmployeeLeaveStatusRequest
+     *
+     * @return UpdateEmployeeLeaveStatusResponse UpdateEmployeeLeaveStatusResponse
+     */
+    public function updateEmployeeLeaveStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateEmployeeLeaveStatusHeaders([]);
+
+        return $this->updateEmployeeLeaveStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
