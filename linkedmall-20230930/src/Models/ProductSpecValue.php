@@ -16,14 +16,22 @@ class ProductSpecValue extends Model
     public $value;
 
     /**
+     * @example 秘色
+     *
+     * @var string
+     */
+    public $valueAlias;
+
+    /**
      * @example 1000
      *
      * @var int
      */
     public $valueId;
     protected $_name = [
-        'value'   => 'value',
-        'valueId' => 'valueId',
+        'value'      => 'value',
+        'valueAlias' => 'valueAlias',
+        'valueId'    => 'valueId',
     ];
 
     public function validate()
@@ -35,6 +43,9 @@ class ProductSpecValue extends Model
         $res = [];
         if (null !== $this->value) {
             $res['value'] = $this->value;
+        }
+        if (null !== $this->valueAlias) {
+            $res['valueAlias'] = $this->valueAlias;
         }
         if (null !== $this->valueId) {
             $res['valueId'] = $this->valueId;
@@ -53,6 +64,9 @@ class ProductSpecValue extends Model
         $model = new self();
         if (isset($map['value'])) {
             $model->value = $map['value'];
+        }
+        if (isset($map['valueAlias'])) {
+            $model->valueAlias = $map['valueAlias'];
         }
         if (isset($map['valueId'])) {
             $model->valueId = $map['valueId'];

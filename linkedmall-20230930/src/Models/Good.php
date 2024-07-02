@@ -28,10 +28,22 @@ class Good extends Model
      * @var int
      */
     public $quantity;
+
+    /**
+     * @var string
+     */
+    public $skuId;
+
+    /**
+     * @var string
+     */
+    public $skuTitle;
     protected $_name = [
         'goodName'  => 'goodName',
         'productId' => 'productId',
         'quantity'  => 'quantity',
+        'skuId'     => 'skuId',
+        'skuTitle'  => 'skuTitle',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class Good extends Model
         }
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
+        }
+        if (null !== $this->skuId) {
+            $res['skuId'] = $this->skuId;
+        }
+        if (null !== $this->skuTitle) {
+            $res['skuTitle'] = $this->skuTitle;
         }
 
         return $res;
@@ -70,6 +88,12 @@ class Good extends Model
         }
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
+        }
+        if (isset($map['skuId'])) {
+            $model->skuId = $map['skuId'];
+        }
+        if (isset($map['skuTitle'])) {
+            $model->skuTitle = $map['skuTitle'];
         }
 
         return $model;

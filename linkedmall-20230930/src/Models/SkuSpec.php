@@ -30,16 +30,24 @@ class SkuSpec extends Model
     public $value;
 
     /**
+     * @example 秘色
+     *
+     * @var string
+     */
+    public $valueAlias;
+
+    /**
      * @example 1000
      *
      * @var int
      */
     public $valueId;
     protected $_name = [
-        'key'     => 'key',
-        'keyId'   => 'keyId',
-        'value'   => 'value',
-        'valueId' => 'valueId',
+        'key'        => 'key',
+        'keyId'      => 'keyId',
+        'value'      => 'value',
+        'valueAlias' => 'valueAlias',
+        'valueId'    => 'valueId',
     ];
 
     public function validate()
@@ -57,6 +65,9 @@ class SkuSpec extends Model
         }
         if (null !== $this->value) {
             $res['value'] = $this->value;
+        }
+        if (null !== $this->valueAlias) {
+            $res['valueAlias'] = $this->valueAlias;
         }
         if (null !== $this->valueId) {
             $res['valueId'] = $this->valueId;
@@ -81,6 +92,9 @@ class SkuSpec extends Model
         }
         if (isset($map['value'])) {
             $model->value = $map['value'];
+        }
+        if (isset($map['valueAlias'])) {
+            $model->valueAlias = $map['valueAlias'];
         }
         if (isset($map['valueId'])) {
             $model->valueId = $map['valueId'];
