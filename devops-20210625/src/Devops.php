@@ -233,10 +233,16 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\LinkMergeRequestLabelRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\LinkMergeRequestLabelResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAllReleaseWorkflowsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAllReleaseWorkflowsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionIntegratedMetadataRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionIntegratedMetadataResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesRequest;
@@ -394,6 +400,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateMergeRequestPersonnelRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateMergeRequestPersonnelResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateMergeRequestResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateOrganizationMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateOrganizationMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupRequest;
@@ -7933,6 +7941,190 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查找应用下所有的研发流程
+     *  *
+     * @param string                         $appName
+     * @param ListAllReleaseWorkflowsRequest $request ListAllReleaseWorkflowsRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAllReleaseWorkflowsResponse ListAllReleaseWorkflowsResponse
+     */
+    public function listAllReleaseWorkflowsWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAllReleaseWorkflows',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return ListAllReleaseWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查找应用下所有的研发流程
+     *  *
+     * @param string                         $appName
+     * @param ListAllReleaseWorkflowsRequest $request ListAllReleaseWorkflowsRequest
+     *
+     * @return ListAllReleaseWorkflowsResponse ListAllReleaseWorkflowsResponse
+     */
+    public function listAllReleaseWorkflows($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAllReleaseWorkflowsWithOptions($appName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询研发阶段执行记录集成变更信息
+     *  *
+     * @param string                                                $appName
+     * @param string                                                $releaseWorkflowSn
+     * @param string                                                $releaseStageSn
+     * @param string                                                $executionNumber
+     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request           ListAppReleaseStageExecutionIntegratedMetadataRequest
+     * @param string[]                                              $headers           map
+     * @param RuntimeOptions                                        $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse ListAppReleaseStageExecutionIntegratedMetadataResponse
+     */
+    public function listAppReleaseStageExecutionIntegratedMetadataWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppReleaseStageExecutionIntegratedMetadata',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '/integratedMetadata',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return ListAppReleaseStageExecutionIntegratedMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询研发阶段执行记录集成变更信息
+     *  *
+     * @param string                                                $appName
+     * @param string                                                $releaseWorkflowSn
+     * @param string                                                $releaseStageSn
+     * @param string                                                $executionNumber
+     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request           ListAppReleaseStageExecutionIntegratedMetadataRequest
+     *
+     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse ListAppReleaseStageExecutionIntegratedMetadataResponse
+     */
+    public function listAppReleaseStageExecutionIntegratedMetadata($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAppReleaseStageExecutionIntegratedMetadataWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询研发阶段执行记录
+     *  *
+     * @param string                               $appName
+     * @param string                               $releaseWorkflowSn
+     * @param string                               $releaseStageSn
+     * @param ListAppReleaseStageExecutionsRequest $request           ListAppReleaseStageExecutionsRequest
+     * @param string[]                             $headers           map
+     * @param RuntimeOptions                       $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return ListAppReleaseStageExecutionsResponse ListAppReleaseStageExecutionsResponse
+     */
+    public function listAppReleaseStageExecutionsWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pagination)) {
+            $query['pagination'] = $request->pagination;
+        }
+        if (!Utils::isUnset($request->perPage)) {
+            $query['perPage'] = $request->perPage;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppReleaseStageExecutions',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAppReleaseStageExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询研发阶段执行记录
+     *  *
+     * @param string                               $appName
+     * @param string                               $releaseWorkflowSn
+     * @param string                               $releaseStageSn
+     * @param ListAppReleaseStageExecutionsRequest $request           ListAppReleaseStageExecutionsRequest
+     *
+     * @return ListAppReleaseStageExecutionsResponse ListAppReleaseStageExecutionsResponse
+     */
+    public function listAppReleaseStageExecutions($appName, $releaseWorkflowSn, $releaseStageSn, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAppReleaseStageExecutionsWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查找应用成员列表
      *  *
      * @param string                        $appName
@@ -13400,6 +13592,60 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateMergeRequestPersonnelWithOptions($repositoryId, $localId, $personType, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 当前用户加入的企业列表
+     *  *
+     * @param string                          $organizationId
+     * @param string                          $accountId
+     * @param UpdateOrganizationMemberRequest $request        UpdateOrganizationMemberRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOrganizationMemberResponse UpdateOrganizationMemberResponse
+     */
+    public function updateOrganizationMemberWithOptions($organizationId, $accountId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationMemberName)) {
+            $query['organizationMemberName'] = $request->organizationMemberName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOrganizationMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 当前用户加入的企业列表
+     *  *
+     * @param string                          $organizationId
+     * @param string                          $accountId
+     * @param UpdateOrganizationMemberRequest $request        UpdateOrganizationMemberRequest
+     *
+     * @return UpdateOrganizationMemberResponse UpdateOrganizationMemberResponse
+     */
+    public function updateOrganizationMember($organizationId, $accountId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOrganizationMemberWithOptions($organizationId, $accountId, $request, $headers, $runtime);
     }
 
     /**
