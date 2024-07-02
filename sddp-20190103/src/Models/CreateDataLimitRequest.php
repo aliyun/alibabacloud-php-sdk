@@ -92,6 +92,11 @@ class CreateDataLimitRequest extends Model
     public $featureType;
 
     /**
+     * @var bool
+     */
+    public $instantlyScan;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Chinese
@@ -227,6 +232,7 @@ class CreateDataLimitRequest extends Model
         'engineType'            => 'EngineType',
         'eventStatus'           => 'EventStatus',
         'featureType'           => 'FeatureType',
+        'instantlyScan'         => 'InstantlyScan',
         'lang'                  => 'Lang',
         'logStoreDay'           => 'LogStoreDay',
         'ocrStatus'             => 'OcrStatus',
@@ -267,6 +273,9 @@ class CreateDataLimitRequest extends Model
         }
         if (null !== $this->featureType) {
             $res['FeatureType'] = $this->featureType;
+        }
+        if (null !== $this->instantlyScan) {
+            $res['InstantlyScan'] = $this->instantlyScan;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -333,6 +342,9 @@ class CreateDataLimitRequest extends Model
         }
         if (isset($map['FeatureType'])) {
             $model->featureType = $map['FeatureType'];
+        }
+        if (isset($map['InstantlyScan'])) {
+            $model->instantlyScan = $map['InstantlyScan'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

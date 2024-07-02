@@ -251,6 +251,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->featureType)) {
             $query['FeatureType'] = $request->featureType;
         }
+        if (!Utils::isUnset($request->instantlyScan)) {
+            $query['InstantlyScan'] = $request->instantlyScan;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
