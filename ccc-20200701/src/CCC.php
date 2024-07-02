@@ -317,6 +317,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTasksRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTasksResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTemplatesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTemplatesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUnassignedNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUnassignedNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupRequest;
@@ -8707,6 +8709,64 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTicketTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTicketTemplatesRequest $request ListTicketTemplatesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTicketTemplatesResponse ListTicketTemplatesResponse
+     */
+    public function listTicketTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $query['SearchPattern'] = $request->searchPattern;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTicketTemplates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTicketTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTicketTemplatesRequest $request ListTicketTemplatesRequest
+     *
+     * @return ListTicketTemplatesResponse ListTicketTemplatesResponse
+     */
+    public function listTicketTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTicketTemplatesWithOptions($request, $runtime);
     }
 
     /**
