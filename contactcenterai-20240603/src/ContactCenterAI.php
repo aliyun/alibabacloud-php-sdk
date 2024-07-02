@@ -67,14 +67,14 @@ class ContactCenterAI extends OpenApiClient
         if (!Utils::isUnset($request->dialogue)) {
             $body['Dialogue'] = $request->dialogue;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $body['Dimensions'] = $request->dimensions;
-        }
         if (!Utils::isUnset($request->fields)) {
             $body['Fields'] = $request->fields;
         }
         if (!Utils::isUnset($request->modelCode)) {
             $body['ModelCode'] = $request->modelCode;
+        }
+        if (!Utils::isUnset($request->serviceInspection)) {
+            $body['ServiceInspection'] = $request->serviceInspection;
         }
         if (!Utils::isUnset($request->stream)) {
             $body['Stream'] = $request->stream;

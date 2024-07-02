@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
 
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\fields\enumValues;
 use AlibabaCloud\Tea\Model;
 
 class fields extends Model
@@ -21,9 +22,9 @@ class fields extends Model
     public $desc;
 
     /**
-     * @var string[]
+     * @var enumValues[]
      */
-    public $enums;
+    public $enumValues;
 
     /**
      * @description This parameter is required.
@@ -32,10 +33,10 @@ class fields extends Model
      */
     public $name;
     protected $_name = [
-        'code'  => 'Code',
-        'desc'  => 'Desc',
-        'enums' => 'Enums',
-        'name'  => 'Name',
+        'code'       => 'Code',
+        'desc'       => 'Desc',
+        'enumValues' => 'EnumValues',
+        'name'       => 'Name',
     ];
 
     public function validate()
@@ -51,8 +52,14 @@ class fields extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->enums) {
-            $res['Enums'] = $this->enums;
+        if (null !== $this->enumValues) {
+            $res['EnumValues'] = [];
+            if (null !== $this->enumValues && \is_array($this->enumValues)) {
+                $n = 0;
+                foreach ($this->enumValues as $item) {
+                    $res['EnumValues'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -75,9 +82,13 @@ class fields extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Enums'])) {
-            if (!empty($map['Enums'])) {
-                $model->enums = $map['Enums'];
+        if (isset($map['EnumValues'])) {
+            if (!empty($map['EnumValues'])) {
+                $model->enumValues = [];
+                $n                 = 0;
+                foreach ($map['EnumValues'] as $item) {
+                    $model->enumValues[$n++] = null !== $item ? enumValues::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['Name'])) {

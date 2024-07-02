@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
+namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\fields;
 
 use AlibabaCloud\Tea\Model;
 
-class dimensions extends Model
+class enumValues extends Model
 {
     /**
      * @var string
@@ -18,10 +18,10 @@ class dimensions extends Model
      *
      * @var string
      */
-    public $name;
+    public $enumValue;
     protected $_name = [
-        'desc' => 'Desc',
-        'name' => 'Name',
+        'desc'      => 'Desc',
+        'enumValue' => 'EnumValue',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class dimensions extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->enumValue) {
+            $res['EnumValue'] = $this->enumValue;
         }
 
         return $res;
@@ -44,7 +44,7 @@ class dimensions extends Model
     /**
      * @param array $map
      *
-     * @return dimensions
+     * @return enumValues
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +52,8 @@ class dimensions extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['EnumValue'])) {
+            $model->enumValue = $map['EnumValue'];
         }
 
         return $model;
