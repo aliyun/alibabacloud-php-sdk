@@ -43,6 +43,11 @@ class instanceGroupModel extends Model
     public $disks;
 
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @example 2024-02-01 10:56:36
      *
      * @var string
@@ -183,6 +188,7 @@ class instanceGroupModel extends Model
         'chargeType'                => 'ChargeType',
         'cpu'                       => 'Cpu',
         'disks'                     => 'Disks',
+        'errorCode'                 => 'ErrorCode',
         'gmtCreate'                 => 'GmtCreate',
         'gmtExpired'                => 'GmtExpired',
         'gmtModified'               => 'GmtModified',
@@ -232,6 +238,9 @@ class instanceGroupModel extends Model
                     $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -325,6 +334,9 @@ class instanceGroupModel extends Model
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];

@@ -12,8 +12,14 @@ class RebootAndroidInstancesInGroupRequest extends Model
      * @var string[]
      */
     public $androidInstanceIds;
+
+    /**
+     * @var bool
+     */
+    public $forceStop;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
+        'forceStop'          => 'ForceStop',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class RebootAndroidInstancesInGroupRequest extends Model
         $res = [];
         if (null !== $this->androidInstanceIds) {
             $res['AndroidInstanceIds'] = $this->androidInstanceIds;
+        }
+        if (null !== $this->forceStop) {
+            $res['ForceStop'] = $this->forceStop;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class RebootAndroidInstancesInGroupRequest extends Model
             if (!empty($map['AndroidInstanceIds'])) {
                 $model->androidInstanceIds = $map['AndroidInstanceIds'];
             }
+        }
+        if (isset($map['ForceStop'])) {
+            $model->forceStop = $map['ForceStop'];
         }
 
         return $model;

@@ -370,6 +370,9 @@ class Edsaic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
@@ -907,7 +910,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询安卓实例组
+     * @summary 查询实例组
      *  *
      * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -967,7 +970,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询安卓实例组
+     * @summary 查询实例组
      *  *
      * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
      *
@@ -2145,6 +2148,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->androidInstanceIds)) {
             $query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
+        if (!Utils::isUnset($request->forceStop)) {
+            $query['ForceStop'] = $request->forceStop;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2554,6 +2560,9 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->androidInstanceIds)) {
             $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        if (!Utils::isUnset($request->forceStop)) {
+            $query['ForceStop'] = $request->forceStop;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

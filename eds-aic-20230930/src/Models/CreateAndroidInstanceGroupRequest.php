@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateAndroidInstanceGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $amount;
+
+    /**
      * @example false
      *
      * @var bool
@@ -105,6 +110,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'amount'            => 'Amount',
         'autoPay'           => 'AutoPay',
         'autoRenew'         => 'AutoRenew',
         'bizRegionId'       => 'BizRegionId',
@@ -127,6 +133,9 @@ class CreateAndroidInstanceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -178,6 +187,9 @@ class CreateAndroidInstanceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
