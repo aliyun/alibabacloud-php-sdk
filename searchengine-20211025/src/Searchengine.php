@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstanceSpecsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesShrinkRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListLogsRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListLogsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListPausePolicysResponse;
@@ -3567,6 +3569,69 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->listInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string          $instanceId
+     * @param ListLogsRequest $request    ListLogsRequest
+     * @param string[]        $headers    map
+     * @param RuntimeOptions  $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ListLogsResponse ListLogsResponse
+     */
+    public function listLogsWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLogs',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/logs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string          $instanceId
+     * @param ListLogsRequest $request    ListLogsRequest
+     *
+     * @return ListLogsResponse ListLogsResponse
+     */
+    public function listLogs($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLogsWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
