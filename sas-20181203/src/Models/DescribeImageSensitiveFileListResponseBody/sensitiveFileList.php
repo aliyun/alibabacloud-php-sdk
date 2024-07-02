@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
+     * @var string
+     */
+    public $advice;
+
+    /**
      * @description The key of the sensitive file type.
      *
      * @example password
@@ -34,6 +39,11 @@ class sensitiveFileList extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
@@ -206,9 +216,11 @@ class sensitiveFileList extends Model
      */
     public $unprocessedNum;
     protected $_name = [
+        'advice'            => 'Advice',
         'classKey'          => 'ClassKey',
         'className'         => 'ClassName',
         'count'             => 'Count',
+        'description'       => 'Description',
         'firstScanTime'     => 'FirstScanTime',
         'lastScanTime'      => 'LastScanTime',
         'riskLevel'         => 'RiskLevel',
@@ -224,6 +236,9 @@ class sensitiveFileList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advice) {
+            $res['Advice'] = $this->advice;
+        }
         if (null !== $this->classKey) {
             $res['ClassKey'] = $this->classKey;
         }
@@ -232,6 +247,9 @@ class sensitiveFileList extends Model
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->firstScanTime) {
             $res['FirstScanTime'] = $this->firstScanTime;
@@ -263,6 +281,9 @@ class sensitiveFileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Advice'])) {
+            $model->advice = $map['Advice'];
+        }
         if (isset($map['ClassKey'])) {
             $model->classKey = $map['ClassKey'];
         }
@@ -271,6 +292,9 @@ class sensitiveFileList extends Model
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['FirstScanTime'])) {
             $model->firstScanTime = $map['FirstScanTime'];

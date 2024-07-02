@@ -6,21 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeVulDefendCountStatisticsRequest extends Model
+class CreateHybridProxyClusterResponseBody extends Model
 {
     /**
-     * @description The type of the vulnerabilities. Valid values:
-     *
-     *   app: application vulnerabilities
-     *   emg: urgent vulnerabilities
-     *
-     * @example emg
+     * @example CDCB0BBB-CFB2-5D38-BB49-500E2A212EE2
      *
      * @var string
      */
-    public $vulType;
+    public $requestId;
     protected $_name = [
-        'vulType' => 'VulType',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,8 +25,8 @@ class DescribeVulDefendCountStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vulType) {
-            $res['VulType'] = $this->vulType;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -40,13 +35,13 @@ class DescribeVulDefendCountStatisticsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeVulDefendCountStatisticsRequest
+     * @return CreateHybridProxyClusterResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VulType'])) {
-            $model->vulType = $map['VulType'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

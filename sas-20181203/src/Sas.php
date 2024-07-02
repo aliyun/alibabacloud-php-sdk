@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHybridProxyClusterRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHybridProxyClusterResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateInterceptionRuleShrinkRequest;
@@ -4233,6 +4235,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 创建代理集群
+     *  *
+     * @param CreateHybridProxyClusterRequest $request CreateHybridProxyClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHybridProxyClusterResponse CreateHybridProxyClusterResponse
+     */
+    public function createHybridProxyClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHybridProxyCluster',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHybridProxyClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建代理集群
+     *  *
+     * @param CreateHybridProxyClusterRequest $request CreateHybridProxyClusterRequest
+     *
+     * @return CreateHybridProxyClusterResponse CreateHybridProxyClusterResponse
+     */
+    public function createHybridProxyCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridProxyClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a defense rule in the container firewall module.
      *  *
      * @param CreateInterceptionRuleRequest $tmpReq  CreateInterceptionRuleRequest
@@ -7306,7 +7361,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+     * @summary Deletes configurations of of an automatic vulnerability fixing task at a time on the Playbook page.
      *  *
      * @param DeleteVulAutoRepairConfigRequest $request DeleteVulAutoRepairConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -7345,7 +7400,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+     * @summary Deletes configurations of of an automatic vulnerability fixing task at a time on the Playbook page.
      *  *
      * @param DeleteVulAutoRepairConfigRequest $request DeleteVulAutoRepairConfigRequest
      *
@@ -19455,7 +19510,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询漏洞rasp防御统计
+     * @summary Queries the vulnerability defense statistics in Security Center.
      *  *
      * @param DescribeVulDefendCountStatisticsRequest $request DescribeVulDefendCountStatisticsRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -19488,7 +19543,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询漏洞rasp防御统计
+     * @summary Queries the vulnerability defense statistics in Security Center.
      *  *
      * @param DescribeVulDefendCountStatisticsRequest $request DescribeVulDefendCountStatisticsRequest
      *
@@ -19809,7 +19864,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询漏洞库信息统计
+     * @summary Queries the statistics of vulnerabilities in Security Center.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -19834,7 +19889,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询漏洞库信息统计
+     * @summary Queries the statistics of vulnerabilities in Security Center.
      *  *
      * @return DescribeVulMetaCountStatisticsResponse DescribeVulMetaCountStatisticsResponse
      */

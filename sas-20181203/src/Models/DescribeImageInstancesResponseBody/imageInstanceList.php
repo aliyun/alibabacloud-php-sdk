@@ -294,6 +294,11 @@ class imageInstanceList extends Model
      * @var string
      */
     public $vulStatus;
+
+    /**
+     * @var int
+     */
+    public $lastScanTime;
     protected $_name = [
         'alarmCount'    => 'AlarmCount',
         'alarmStatus'   => 'AlarmStatus',
@@ -322,6 +327,7 @@ class imageInstanceList extends Model
         'uuid'          => 'Uuid',
         'vulCount'      => 'VulCount',
         'vulStatus'     => 'VulStatus',
+        'lastScanTime'  => 'lastScanTime',
     ];
 
     public function validate()
@@ -411,6 +417,9 @@ class imageInstanceList extends Model
         }
         if (null !== $this->vulStatus) {
             $res['VulStatus'] = $this->vulStatus;
+        }
+        if (null !== $this->lastScanTime) {
+            $res['lastScanTime'] = $this->lastScanTime;
         }
 
         return $res;
@@ -504,6 +513,9 @@ class imageInstanceList extends Model
         }
         if (isset($map['VulStatus'])) {
             $model->vulStatus = $map['VulStatus'];
+        }
+        if (isset($map['lastScanTime'])) {
+            $model->lastScanTime = $map['lastScanTime'];
         }
 
         return $model;

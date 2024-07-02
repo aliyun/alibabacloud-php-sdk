@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVulAutoRepairConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 3956048F-9D73-5EDB-834B-4827BB48****
      *

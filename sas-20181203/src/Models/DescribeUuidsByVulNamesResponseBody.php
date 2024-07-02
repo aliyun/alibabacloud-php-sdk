@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUuidsByVulNamesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the statistics about the assets.
+     * @description The statistics about the servers.
      *
      * @var machineInfoStatistics[]
      */

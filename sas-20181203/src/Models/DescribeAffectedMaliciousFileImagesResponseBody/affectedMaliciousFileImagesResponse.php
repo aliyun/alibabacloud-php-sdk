@@ -81,6 +81,11 @@ class affectedMaliciousFileImagesResponse extends Model
     public $highLight;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The name of the image.
      *
      * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
@@ -297,6 +302,7 @@ class affectedMaliciousFileImagesResponse extends Model
         'filePath'              => 'FilePath',
         'firstScanTimestamp'    => 'FirstScanTimestamp',
         'highLight'             => 'HighLight',
+        'id'                    => 'Id',
         'image'                 => 'Image',
         'imageUuid'             => 'ImageUuid',
         'instanceName'          => 'InstanceName',
@@ -351,6 +357,9 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (null !== $this->highLight) {
             $res['HighLight'] = $this->highLight;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
@@ -453,6 +462,9 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (isset($map['HighLight'])) {
             $model->highLight = $map['HighLight'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];

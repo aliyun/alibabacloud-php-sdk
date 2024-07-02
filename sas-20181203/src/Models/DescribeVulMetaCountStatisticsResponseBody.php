@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulMetaCountStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of application vulnerabilities.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeVulMetaCountStatisticsResponseBody extends Model
     public $appCount;
 
     /**
+     * @description The number of Linux software vulnerabilities.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeVulMetaCountStatisticsResponseBody extends Model
     public $cveCount;
 
     /**
+     * @description The number of vulnerabilities that can be defended by the application protection feature.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeVulMetaCountStatisticsResponseBody extends Model
     public $raspDefendCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 571B2642-BF51-5BDD-906B-D2340DB9****
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeVulMetaCountStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of Windows system vulnerabilities.
+     *
      * @example 10
      *
      * @var int

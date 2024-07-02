@@ -45,6 +45,11 @@ class data extends Model
     public $agentlessMalicious;
 
     /**
+     * @var int
+     */
+    public $agentlessSensitiveFile;
+
+    /**
      * @description The number of system vulnerabilities detected by the agentless detection feature.
      *
      * @example 1
@@ -188,26 +193,27 @@ class data extends Model
      */
     public $weakPWNum;
     protected $_name = [
-        'account'            => 'Account',
-        'agentlessAll'       => 'AgentlessAll',
-        'agentlessBaseline'  => 'AgentlessBaseline',
-        'agentlessMalicious' => 'AgentlessMalicious',
-        'agentlessVulCve'    => 'AgentlessVulCve',
-        'agentlessVulSca'    => 'AgentlessVulSca',
-        'agentlessVulSys'    => 'AgentlessVulSys',
-        'appNum'             => 'AppNum',
-        'cmsNum'             => 'CmsNum',
-        'cspmNum'            => 'CspmNum',
-        'cveNum'             => 'CveNum',
-        'emgNum'             => 'EmgNum',
-        'health'             => 'Health',
-        'scaNum'             => 'ScaNum',
-        'suspicious'         => 'Suspicious',
-        'sysNum'             => 'SysNum',
-        'trojan'             => 'Trojan',
-        'uuid'               => 'Uuid',
-        'vul'                => 'Vul',
-        'weakPWNum'          => 'WeakPWNum',
+        'account'                => 'Account',
+        'agentlessAll'           => 'AgentlessAll',
+        'agentlessBaseline'      => 'AgentlessBaseline',
+        'agentlessMalicious'     => 'AgentlessMalicious',
+        'agentlessSensitiveFile' => 'AgentlessSensitiveFile',
+        'agentlessVulCve'        => 'AgentlessVulCve',
+        'agentlessVulSca'        => 'AgentlessVulSca',
+        'agentlessVulSys'        => 'AgentlessVulSys',
+        'appNum'                 => 'AppNum',
+        'cmsNum'                 => 'CmsNum',
+        'cspmNum'                => 'CspmNum',
+        'cveNum'                 => 'CveNum',
+        'emgNum'                 => 'EmgNum',
+        'health'                 => 'Health',
+        'scaNum'                 => 'ScaNum',
+        'suspicious'             => 'Suspicious',
+        'sysNum'                 => 'SysNum',
+        'trojan'                 => 'Trojan',
+        'uuid'                   => 'Uuid',
+        'vul'                    => 'Vul',
+        'weakPWNum'              => 'WeakPWNum',
     ];
 
     public function validate()
@@ -228,6 +234,9 @@ class data extends Model
         }
         if (null !== $this->agentlessMalicious) {
             $res['AgentlessMalicious'] = $this->agentlessMalicious;
+        }
+        if (null !== $this->agentlessSensitiveFile) {
+            $res['AgentlessSensitiveFile'] = $this->agentlessSensitiveFile;
         }
         if (null !== $this->agentlessVulCve) {
             $res['AgentlessVulCve'] = $this->agentlessVulCve;
@@ -300,6 +309,9 @@ class data extends Model
         }
         if (isset($map['AgentlessMalicious'])) {
             $model->agentlessMalicious = $map['AgentlessMalicious'];
+        }
+        if (isset($map['AgentlessSensitiveFile'])) {
+            $model->agentlessSensitiveFile = $map['AgentlessSensitiveFile'];
         }
         if (isset($map['AgentlessVulCve'])) {
             $model->agentlessVulCve = $map['AgentlessVulCve'];

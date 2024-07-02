@@ -18,8 +18,9 @@ class DeleteVulAutoRepairConfigRequest extends Model
     public $aliasName;
 
     /**
-     * @description The configuration ID of the vulnerability. You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the configuration IDs of the vulnerability.
+     * @description The IDs of the configurations.
      *
+     * >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
      * @var int[]
      */
     public $configIdList;
@@ -27,8 +28,8 @@ class DeleteVulAutoRepairConfigRequest extends Model
     /**
      * @description The type of the vulnerability. Valid values:
      *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
      *
      * @example cve
      *

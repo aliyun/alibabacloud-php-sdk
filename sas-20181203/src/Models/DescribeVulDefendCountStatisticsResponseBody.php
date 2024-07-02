@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDefendCountStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of defended vulnerabilities.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeVulDefendCountStatisticsResponseBody extends Model
     public $raspDefendedCount;
 
     /**
+     * @description The number of supported vulnerabilities.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeVulDefendCountStatisticsResponseBody extends Model
     public $raspDefensibleCount;
 
     /**
+     * @description The request ID.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
      *
      * @var string

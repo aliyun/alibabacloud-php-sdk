@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class machineInfoStatistics extends Model
 {
     /**
+     * @description The public IP address of the server on which the exception was detected.
+     *
+     * @example 47.98.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server on which the exception was detected.
+     *
+     * @example 172.18.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The instance ID.
+     * @description The instance ID of the server.
      *
      * @example i-wz9gd1os5talju****
      *
@@ -55,7 +63,7 @@ class machineInfoStatistics extends Model
     public $os;
 
     /**
-     * @description The ID of the region in which the server resides.
+     * @description The region ID of the server.
      *
      * @example cn-hangzhou
      *

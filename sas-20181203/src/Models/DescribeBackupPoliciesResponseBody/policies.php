@@ -62,6 +62,11 @@ class policies extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $lastStatusSyncTime;
+
+    /**
      * @description The name of the anti-ransomware policy.
      *
      * @example SecurityStrategy-20200303
@@ -127,6 +132,11 @@ class policies extends Model
      * @var string
      */
     public $policyVersion;
+
+    /**
+     * @var string
+     */
+    public $preStatus;
 
     /**
      * @description The UUIDs that are returned based on the value of the MachineRemark request parameter.
@@ -204,10 +214,12 @@ class policies extends Model
         'healthClientCount'    => 'HealthClientCount',
         'healthClientUuidList' => 'HealthClientUuidList',
         'id'                   => 'Id',
+        'lastStatusSyncTime'   => 'LastStatusSyncTime',
         'name'                 => 'Name',
         'policy'               => 'Policy',
         'policyRegionId'       => 'PolicyRegionId',
         'policyVersion'        => 'PolicyVersion',
+        'preStatus'            => 'PreStatus',
         'remarkedUuidList'     => 'RemarkedUuidList',
         'serverType'           => 'ServerType',
         'serviceErrorCount'    => 'ServiceErrorCount',
@@ -242,6 +254,9 @@ class policies extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->lastStatusSyncTime) {
+            $res['LastStatusSyncTime'] = $this->lastStatusSyncTime;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -253,6 +268,9 @@ class policies extends Model
         }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->preStatus) {
+            $res['PreStatus'] = $this->preStatus;
         }
         if (null !== $this->remarkedUuidList) {
             $res['RemarkedUuidList'] = $this->remarkedUuidList;
@@ -309,6 +327,9 @@ class policies extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['LastStatusSyncTime'])) {
+            $model->lastStatusSyncTime = $map['LastStatusSyncTime'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -320,6 +341,9 @@ class policies extends Model
         }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['PreStatus'])) {
+            $model->preStatus = $map['PreStatus'];
         }
         if (isset($map['RemarkedUuidList'])) {
             if (!empty($map['RemarkedUuidList'])) {
