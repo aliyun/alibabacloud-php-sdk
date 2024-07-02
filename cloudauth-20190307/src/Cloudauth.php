@@ -1430,6 +1430,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->validityDate)) {
             $query['ValidityDate'] = $request->validityDate;
         }
+        if (!Utils::isUnset($request->videoEvidence)) {
+            $query['VideoEvidence'] = $request->videoEvidence;
+        }
         if (!Utils::isUnset($request->voluntaryCustomizedContent)) {
             $query['VoluntaryCustomizedContent'] = $request->voluntaryCustomizedContent;
         }

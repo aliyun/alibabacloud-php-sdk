@@ -206,6 +206,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $videoEvidence;
+
+    /**
+     * @var string
+     */
     public $voluntaryCustomizedContent;
     protected $_name = [
         'authId'                     => 'AuthId',
@@ -241,6 +246,7 @@ class InitFaceVerifyRequest extends Model
         'uiCustomUrl'                => 'UiCustomUrl',
         'userId'                     => 'UserId',
         'validityDate'               => 'ValidityDate',
+        'videoEvidence'              => 'VideoEvidence',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
 
@@ -349,6 +355,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->validityDate) {
             $res['ValidityDate'] = $this->validityDate;
+        }
+        if (null !== $this->videoEvidence) {
+            $res['VideoEvidence'] = $this->videoEvidence;
         }
         if (null !== $this->voluntaryCustomizedContent) {
             $res['VoluntaryCustomizedContent'] = $this->voluntaryCustomizedContent;
@@ -463,6 +472,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ValidityDate'])) {
             $model->validityDate = $map['ValidityDate'];
+        }
+        if (isset($map['VideoEvidence'])) {
+            $model->videoEvidence = $map['VideoEvidence'];
         }
         if (isset($map['VoluntaryCustomizedContent'])) {
             $model->voluntaryCustomizedContent = $map['VoluntaryCustomizedContent'];
