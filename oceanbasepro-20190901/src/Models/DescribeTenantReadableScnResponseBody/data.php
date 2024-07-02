@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The maximum readable timestamp.
+     *
      * @example 1715329164977
      *
      * @var int

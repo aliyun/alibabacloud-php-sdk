@@ -6,12 +6,11 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeTenantReadableScnRequest extends Model
+class DescribeSessionListRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -19,10 +18,9 @@ class DescribeTenantReadableScnRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example t33h8y08k****
+     * @example t4louaeei****
      *
      * @var string
      */
@@ -52,7 +50,7 @@ class DescribeTenantReadableScnRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTenantReadableScnRequest
+     * @return DescribeSessionListRequest
      */
     public static function fromMap($map = [])
     {

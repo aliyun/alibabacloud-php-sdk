@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillProcessListRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillProcessListResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillSessionListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillSessionListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CancelProjectModifyRecordRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CancelProjectModifyRecordResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateBackupSetDownloadLinkRequest;
@@ -142,6 +144,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsRequ
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSessionListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSessionListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSlowSQLHistoryListRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSlowSQLHistoryListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSlowSQLListRequest;
@@ -359,6 +363,59 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchKillProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+     *  *
+     * @param BatchKillSessionListRequest $request BatchKillSessionListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchKillSessionListResponse BatchKillSessionListResponse
+     */
+    public function batchKillSessionListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sessionList)) {
+            $body['SessionList'] = $request->sessionList;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchKillSessionList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchKillSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+     *  *
+     * @param BatchKillSessionListRequest $request BatchKillSessionListRequest
+     *
+     * @return BatchKillSessionListResponse BatchKillSessionListResponse
+     */
+    public function batchKillSessionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchKillSessionListWithOptions($request, $runtime);
     }
 
     /**
@@ -4615,6 +4672,56 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+     *  *
+     * @param DescribeSessionListRequest $request DescribeSessionListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSessionListResponse DescribeSessionListResponse
+     */
+    public function describeSessionListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSessionList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+     *  *
+     * @param DescribeSessionListRequest $request DescribeSessionListRequest
+     *
+     * @return DescribeSessionListResponse DescribeSessionListResponse
+     */
+    public function describeSessionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSessionListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
      *  *
      * @param DescribeSlowSQLHistoryListRequest $request DescribeSlowSQLHistoryListRequest
@@ -4998,7 +5105,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 查询租户同步位点信息
+     * @summary You can call this operation to query the maximum readable timestamp of a tenant.
      *  *
      * @param DescribeTenantReadableScnRequest $request DescribeTenantReadableScnRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5034,7 +5141,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary 查询租户同步位点信息
+     * @summary You can call this operation to query the maximum readable timestamp of a tenant.
      *  *
      * @param DescribeTenantReadableScnRequest $request DescribeTenantReadableScnRequest
      *

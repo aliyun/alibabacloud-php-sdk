@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantReadableScnResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeTenantReadableScnResponseBody extends Model
+class BatchKillSessionListResponseBody extends Model
 {
     /**
-     * @description The data in the return result of the request.
-     *
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example 8442BB1E-3171-1192-B9DC-F6F4E53B2673
+     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -36,9 +25,6 @@ class DescribeTenantReadableScnResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,14 +35,11 @@ class DescribeTenantReadableScnResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTenantReadableScnResponseBody
+     * @return BatchKillSessionListResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

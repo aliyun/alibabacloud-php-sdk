@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantReadableScnResponseBody\data;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSessionListResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeTenantReadableScnResponseBody extends Model
+class DescribeSessionListResponseBody extends Model
 {
     /**
-     * @description The data in the return result of the request.
-     *
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 8442BB1E-3171-1192-B9DC-F6F4E53B2673
+     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
      */
@@ -37,7 +33,13 @@ class DescribeTenantReadableScnResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,13 +51,19 @@ class DescribeTenantReadableScnResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTenantReadableScnResponseBody
+     * @return DescribeSessionListResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
