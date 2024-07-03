@@ -17,7 +17,7 @@ class containerOverrides extends Model
     public $args;
 
     /**
-     * @description The startup commands of the container. You can specify up to 20 commands. Each command can contain up to 256 characters.
+     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
      *
      * @var string[]
      */

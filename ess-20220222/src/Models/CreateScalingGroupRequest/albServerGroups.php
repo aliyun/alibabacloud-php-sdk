@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class albServerGroups extends Model
 {
     /**
-     * @description The ID of the ALB server group that you want to associate with the scaling group.
+     * @description The ID of the ALB server group.
      *
-     * You can associate only a limited number of ALB server groups with a scaling group. Go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check the maximum number of ALB server groups that you can associate with a scaling group.
+     * You can attach only a limited number of ALB server groups to a scaling group. To view the predefined quota limit or manually request a quota increase, go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas).
      * @example sgp-ddwb0y0g6y9bjm****
      *
      * @var string
@@ -19,7 +19,7 @@ class albServerGroups extends Model
     public $albServerGroupId;
 
     /**
-     * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the ALB server group. Valid values: 1 to 65535.
+     * @description The port number used by each ECS instance as a backend server in the ALB server group. Valid values: 1 to 65535.
      *
      * @example 22
      *
@@ -28,7 +28,7 @@ class albServerGroups extends Model
     public $port;
 
     /**
-     * @description The weight of an ECS instance after Auto Scaling adds the ECS instance to the ALB server group as a backend server. If you increase the weight of an ECS instance in the ALB server group, the number of access requests that are forwarded to the ECS instance increases. If you set the Weight parameter for an ECS instance in the ALB server group to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+     * @description The weight of an ECS instance as a backend server in the ALB server group. If you increase the weight for an ECS instance, the number of requests that are forwarded to the ECS instance also increases. If you set the weight for an ECS instance to 0, no requests are forwarded to the ECS instance. Valid values: 0 to 100.
      *
      * @example 100
      *

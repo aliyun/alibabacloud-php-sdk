@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customPriorities extends Model
 {
     /**
-     * @description The instance type of the ECS instances.
+     * @description The ECS instance type.
      *
      * @example ecs.c6a.4xlarge
      *

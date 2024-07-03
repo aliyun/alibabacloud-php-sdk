@@ -14,8 +14,9 @@ class ModifyAlertConfigurationRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,13 +29,16 @@ class ModifyAlertConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The status of the scaling activities that prompt text message or email notifications.
+     *
      * @var string[]
      */
     public $scaleStatuses;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1eyv4qn8ssgv43****
      *
      * @var string

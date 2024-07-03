@@ -109,16 +109,22 @@ class DescribePatternTypesRequest extends Model
     public $maxPrice;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $maximumCpuCoreCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $maximumGpuAmount;
 
     /**
+     * @example 4
+     *
      * @var float
      */
     public $maximumMemorySize;
@@ -140,41 +146,57 @@ class DescribePatternTypesRequest extends Model
     public $memoryList;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $minimumBaselineCredit;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $minimumCpuCoreCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minimumEniIpv6AddressQuantity;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $minimumEniPrivateIpAddressQuantity;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $minimumEniQuantity;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $minimumGpuAmount;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $minimumInitialCredit;
 
     /**
+     * @example 4
+     *
      * @var float
      */
     public $minimumMemorySize;

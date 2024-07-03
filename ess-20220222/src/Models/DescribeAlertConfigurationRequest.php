@@ -14,8 +14,9 @@ class DescribeAlertConfigurationRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the event-triggered task.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,8 +29,9 @@ class DescribeAlertConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

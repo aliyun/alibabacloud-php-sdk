@@ -11,7 +11,7 @@ class tags extends Model
     /**
      * @description The tag key of the ECS instance. You can specify up to 20 tags for each ECS instance.
      *
-     * The tag key cannot be an empty string. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+     * The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
      * @example binary
      *
      * @var string

@@ -30,7 +30,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The init container image.
+     * @description The image of the init container.
      *
      * @example registry-vpc.cn-hongkong.aliyuncs.com/eci_open/nginx:alpine
      *
@@ -48,14 +48,14 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The startup arguments of the init container.
+     * @description The arguments that are passed to the startup commands of the init container.
      *
      * @var string[]
      */
     public $initContainerArgs;
 
     /**
-     * @description The startup commands of the init container.
+     * @description The commands that are used to start the init container.
      *
      * @var string[]
      */
@@ -83,7 +83,7 @@ class initContainers extends Model
     public $initContainerVolumeMounts;
 
     /**
-     * @description The memory size that is allocated to the init container.
+     * @description The memory size of the init container.
      *
      * @example 1.0
      *
@@ -108,14 +108,14 @@ class initContainers extends Model
     public $securityContextCapabilityAdds;
 
     /**
-     * @description Indicates whether the root file system is read-only. Valid value: true.
+     * @description Indicates whether the root file system on which the init container runs is read-only. Valid value: true.
      *
      * @var bool
      */
     public $securityContextReadOnlyRootFilesystem;
 
     /**
-     * @description The ID of the user that runs the entry point of the init container.
+     * @description The ID of the user that runs the init container.
      *
      * @example 1000
      *

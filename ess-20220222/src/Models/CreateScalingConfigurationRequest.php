@@ -96,6 +96,10 @@ class CreateScalingConfigurationRequest extends Model
     public $dataDisks;
 
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-2zedxc67zqzt7lb4****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
@@ -526,7 +530,7 @@ class CreateScalingConfigurationRequest extends Model
     public $tenancy;
 
     /**
-     * @description The user data of the ECS instance. The data must be encoded in Base64. The maximum size of the data before encoding is 16 KB.
+     * @description The user data of the Elastic Compute Service (ECS) instance. The user data must be encoded in Base64 format. The size of raw data before Base64 encoding cannot exceed 32 KB.
      *
      * @example echo hello ecs!
      *

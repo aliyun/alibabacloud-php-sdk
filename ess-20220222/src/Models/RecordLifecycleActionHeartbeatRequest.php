@@ -33,7 +33,7 @@ class RecordLifecycleActionHeartbeatRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The period of time before the lifecycle hook ends. Auto Scaling performs the specified action after the lifecycle hook ends. Valid values: 30 to 21600. Unit: seconds.
+     * @description The time window during which the desired ECS instance stays in a Pending state. When the time window ends, Auto Scaling executes the default action. Valid values: 30 to 21600. Unit: seconds.
      *
      * Default value: 600.
      * @example 600
@@ -43,8 +43,7 @@ class RecordLifecycleActionHeartbeatRequest extends Model
     public $heartbeatTimeout;
 
     /**
-     * @description The token of the lifecycle hook. You can obtain this token by using a Message Service (MNS) queue or an MNS topic that is specified for the lifecycle hook.
-     *
+     * @description The action token of the lifecycle hook. You can obtain the token from the details page of the Message Service (MNS) queue specified for the lifecycle hook when the desired ECS instance enters a Pending state.\\
      * This parameter is required.
      * @example F324B880-900E-4968-85DD-81691113****
      *

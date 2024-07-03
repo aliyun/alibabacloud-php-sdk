@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VServerGroupAttributes extends Model
 {
     /**
-     * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the backend vServer group. Valid values: 1 to 65535.
+     * @description The port number used by each ECS instance as a backend server in the vServer group. Valid values: 1 to 65535.
      *
      * @example 22
      *
@@ -18,7 +18,7 @@ class VServerGroupAttributes extends Model
     public $port;
 
     /**
-     * @description The ID of the backend vServer group.
+     * @description The ID of the vServer group.
      *
      * @example rsp-bp1443g77****
      *
@@ -27,8 +27,9 @@ class VServerGroupAttributes extends Model
     public $VServerGroupId;
 
     /**
-     * @description The weight of an ECS instance after Auto Scaling adds the ECS instance to the backend vServer group as a backend server. If you increase the weight of an ECS instance in the backend vServer group, the number of access requests that are forwarded to the ECS instance also increases. If you set the Weight parameter of an ECS instance in the backend vServer group to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100. Default value: 50.
+     * @description The weight of each ECS instance as a backend server in the vServer group. If you increase the weight for an ECS instance, the number of requests that are forwarded to the ECS instance also increases. If you set the weight for an ECS instance to 0, no requests are forwarded to the ECS instance. Valid values: 0 to 100.
      *
+     * Default value: 50.
      * @example 100
      *
      * @var int

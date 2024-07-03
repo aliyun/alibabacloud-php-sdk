@@ -31,6 +31,8 @@ class RemoveInstancesRequest extends Model
     public $decreaseDesiredCapacity;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreInvalidInstance;

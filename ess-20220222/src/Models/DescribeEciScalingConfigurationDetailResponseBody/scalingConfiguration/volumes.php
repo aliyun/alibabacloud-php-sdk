@@ -53,7 +53,7 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
-     * @description The storage medium of the emptyDir volume. If you do not specify a storage medium for the emptyDir volume, the volume stores data in the file system of a node by default. We recommend that you set this parameter to memory. In this case, the emptyDir volume stores data in the specified memory.
+     * @description The storage medium of the emptyDir volume. If you do not specify a storage medium for the emptyDir volume, the volume stores data in the file system of the node by default. We recommend that you set this parameter to memory. In this case, the emptyDir volume stores data in the specified memory.
      *
      * @example memory
      *
@@ -135,7 +135,7 @@ class volumes extends Model
     public $NFSVolumeReadOnly;
 
     /**
-     * @description The address of the Network File System (NFS) server.
+     * @description The endpoint of the NFS server.
      *
      * @example 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
      *

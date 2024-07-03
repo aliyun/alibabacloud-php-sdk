@@ -68,7 +68,7 @@ class scalingConfiguration extends Model
     public $containerGroupName;
 
     /**
-     * @description The containers that are run on the instance.
+     * @description The containers in the elastic container instance.
      *
      * @var containers[]
      */

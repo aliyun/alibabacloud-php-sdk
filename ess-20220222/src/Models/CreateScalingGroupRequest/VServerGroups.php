@@ -19,7 +19,7 @@ class VServerGroups extends Model
     public $loadBalancerId;
 
     /**
-     * @description The attributes of the backend vServer groups.
+     * @description The attributes of the backend vServer group.
      *
      * @var VServerGroupAttributes[]
      */

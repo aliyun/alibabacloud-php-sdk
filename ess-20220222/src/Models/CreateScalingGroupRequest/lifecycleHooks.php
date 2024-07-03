@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class lifecycleHooks extends Model
 {
     /**
-     * @description The action that Auto Scaling performs after the lifecycle hook of the scaling group times out. Valid values:
+     * @description The action that Auto Scaling performs when the lifecycle hook times out. Valid values:
      *
-     *   CONTINUE: continues to respond to scaling requests.
-     *   ABANDON: releases ECS instances that are created during scale-out activities, or removes ECS instances from the scaling group during scale-in activities.
+     *   CONTINUE: Auto Scaling continues to respond to a scale-in or scale-out request.
+     *   ABANDON: Auto Scaling releases ECS instances that are created during scale-out events, or removes ECS instances from the scaling group during scale-in events.
      *
      * Default value: CONTINUE.
      * @example CONTINUE
@@ -22,7 +22,7 @@ class lifecycleHooks extends Model
     public $defaultResult;
 
     /**
-     * @description The period of time before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action specified by the DefaultResult parameter. Valid values: 30 to 21600. Unit: seconds.
+     * @description The period of time before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action that is specified by DefaultResult. Valid values: 30 to 21600. Unit: seconds.
      *
      * Default value: 600.
      * @example 600
@@ -32,7 +32,7 @@ class lifecycleHooks extends Model
     public $heartbeatTimeout;
 
     /**
-     * @description The name of the lifecycle hook. After you specify this parameter, you cannot change the value of this parameter. If you do not specify this parameter, the ID of the lifecycle hook is used.
+     * @description The name of the lifecycle hook. After you specify this parameter, you cannot change the name of the lifecycle hook. If you do not specify this parameter, the name of the lifecycle hook is the same as the ID of the lifecycle hook.
      *
      * @example lifecyclehook****
      *
@@ -41,12 +41,12 @@ class lifecycleHooks extends Model
     public $lifecycleHookName;
 
     /**
-     * @description The type of the scaling activity for which you create the lifecycle hook. Valid values:
+     * @description The type of the scaling activity to which you want to apply the lifecycle hook. Valid values:
      *
-     *   SCALE_OUT: scale-out activity
-     *   SCALE_IN: scale-in activity
+     *   SCALE_OUT
+     *   SCALE_IN
      *
-     * > If you create lifecycle hooks for your scaling group, you must specify the LifecycleTransition parameter.
+     * >  If you specify lifecycle hooks for the scaling group, you must specify LifecycleTransition. Other parameters are optional.
      * @example SCALE_OUT
      *
      * @var string
@@ -54,10 +54,10 @@ class lifecycleHooks extends Model
     public $lifecycleTransition;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the notification method that Auto Scaling uses to send a notification when a lifecycle hook takes effect. This notification method can be a Message Service (MNS) queue or an MNS topic. Specify the value of this parameter in the following format: acs:ess:{region}:{account-id}:{resource-relative-id}.
+     * @description The identifier of the notification recipient party when the lifecycle hook takes effect. You can specify a Message Service (MNS) topic or queue as the notification recipient party. Specify the value in the acs:ess:{region}:{account-id}:{resource-relative-id} format.
      *
-     *   region: the region where the scaling group resides
-     *   account-id: the ID of the Alibaba Cloud account
+     *   region: the region ID of the scaling group
+     *   account-id: the ID of your Alibaba Cloud account.
      *
      * Examples:
      *
@@ -71,7 +71,7 @@ class lifecycleHooks extends Model
     public $notificationArn;
 
     /**
-     * @description The fixed string that is included in a notification. Auto Scaling sends the notification when the lifecycle hook takes effect. The value of this parameter cannot exceed 4,096 characters in length. Auto Scaling sends the value of the notificationmetadata parameter together with the notification. This way, you can categorize and manage your notifications in an efficient manner. If you specify the notificationmetadata parameter, you must also specify the notificationarn parameter.
+     * @description The fixed string that you want to include in a notification. When a lifecycle hook takes effect, Auto Scaling sends a notification. The fixed string can contain up to 4,096 characters in length. When Auto Scaling sends a notification to the recipient party, it includes predefined notification metadata into the notification. This helps in managing and labeling notifications of different categories. notificationmetadata takes effect only if you specify notificationarn.
      *
      * @example Test
      *

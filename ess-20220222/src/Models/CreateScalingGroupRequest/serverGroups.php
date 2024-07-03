@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
-     * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the server group. Valid values: 1 to 65535.
+     * @description The port number used by each ECS instance as backend server in the vServer group. Valid values: 1 to 65535.
      *
      * @example 22
      *
@@ -29,8 +29,8 @@ class serverGroups extends Model
     /**
      * @description The type of the server group. Valid values:
      *
-     *   ALB: Application Load Balancer (ALB) server group
-     *   NLB: Network Load Balancer (NLB) server group
+     *   ALB
+     *   NLB
      *
      * @example ALB
      *
@@ -39,9 +39,9 @@ class serverGroups extends Model
     public $type;
 
     /**
-     * @description The weight of an Elastic Compute Service (ECS) instance in the scaling group as a backend server after Auto Scaling adds the ECS instance to the server group. Valid values: 0 to 100.
+     * @description The weight of each ECS instance as a backend server in the server group. Valid values: 0 to 100.
      *
-     * If you increase the weight of an ECS instance in the server group, the number of access requests that are forwarded to the ECS instance also increases. If you set the Weight parameter of an ECS instance in the server group to 0, no access requests are forwarded to the ECS instance.
+     * If you increase the weight for an ECS instance, the number of requests that are forwarded to the ECS instance also increases. If you set the weight for an ECS instance to 0, no requests are forwarded to the ECS instance.
      * @example 100
      *
      * @var int

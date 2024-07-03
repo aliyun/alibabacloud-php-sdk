@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLifecycleHooksRequest extends Model
 {
     /**
-     * @description The ID of the lifecycle hook.
+     * @description The IDs of the lifecycle hooks that you want to query.
      *
      * @var string[]
      */

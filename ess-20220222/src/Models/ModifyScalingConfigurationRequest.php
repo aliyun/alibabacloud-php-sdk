@@ -79,6 +79,10 @@ class ModifyScalingConfigurationRequest extends Model
     public $dataDisks;
 
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-zm04u8r3lohsq****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
@@ -303,6 +307,11 @@ class ModifyScalingConfigurationRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $password;
+
+    /**
      * @description Specifies whether to use the password that is preconfigured in the image. Before you use this parameter, make sure that a password is configured in the image.
      *
      * @example false
@@ -472,7 +481,7 @@ class ModifyScalingConfigurationRequest extends Model
     public $tenancy;
 
     /**
-     * @description The user data of the ECS instance. The data must be encoded in Base64. The maximum size of the data before encoding is 16 KB.
+     * @description The user data of the Elastic Compute Service (ECS) instance. The user data must be encoded in Base64 format. The size of raw data before Base64 encoding cannot exceed 32 KB.
      *
      * @example echo hello ecs!
      *
@@ -522,6 +531,7 @@ class ModifyScalingConfigurationRequest extends Model
         'override'                  => 'Override',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
+        'password'                  => 'Password',
         'passwordInherit'           => 'PasswordInherit',
         'ramRoleName'               => 'RamRoleName',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -679,6 +689,9 @@ class ModifyScalingConfigurationRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
@@ -888,6 +901,9 @@ class ModifyScalingConfigurationRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];

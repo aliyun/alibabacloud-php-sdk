@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachInstancesRequest extends Model
 {
     /**
-     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](https://help.aliyun.com/document_detail/25965.html)。
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -31,9 +32,9 @@ class DetachInstancesRequest extends Model
     public $decreaseDesiredCapacity;
 
     /**
-     * @description Specifies whether to remove the instances from the default server group and vServer groups of the Classic Load Balancer (CLB) instance that is associated with the scaling group, and whether to remove the IP addresses of the instances from the whitelist that manages access to the ApsaraDB RDS instance that is associated with the scaling group.
+     * @description Specifies whether to detach the ECS instances or elastic container instances that are marked for removal from the associated load balancers, and whether to remove the private IP addresses of these instances from the IP address whitelists of the associated ApsaraDB RDS instances.
      *
-     * If you set this parameter to both, the instances are removed from the default sever group and vServer groups of the associated CLB instance, and the IP addresses of the instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance.
+     * >  This parameter is not supported if you want to remove Alibaba Cloud-hosted third-party instances from a scaling group.
      * @example both
      *
      * @var string
@@ -41,6 +42,8 @@ class DetachInstancesRequest extends Model
     public $detachOption;
 
     /**
+     * @description 从伸缩组移出一批实例时，是否忽略其中无效的实例。取值范围：
+     * 默认值：false。
      * @example false
      *
      * @var bool
@@ -48,7 +51,7 @@ class DetachInstancesRequest extends Model
     public $ignoreInvalidInstance;
 
     /**
-     * @description The IDs of the ECS instances or elastic container instances that you want to remove from the scaling group.
+     * @description The IDs of the ECS instances, elastic container instances, or Aliababa Cloud-managed third-party instances that you want to remove from a scaling group.
      *
      * This parameter is required.
      * @var string[]
@@ -56,7 +59,7 @@ class DetachInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description Specifies whether to trigger a lifecycle hook for a scale-in activity. Valid values:
+     * @description Specifies whether to trigger a lifecycle hook for scale-in purposes when ECS instances or elastic container instances are removed from the scaling group. Valid values:
      *
      *   true
      *   false

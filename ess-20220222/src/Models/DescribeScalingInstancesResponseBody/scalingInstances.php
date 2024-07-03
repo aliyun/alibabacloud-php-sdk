@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scalingInstances extends Model
 {
     /**
-     * @description The time when the ECS instance was added to the scaling group. The value is accurate to seconds.
+     * @description The time when the ECS instances were added to the scaling group. The value is accurate to seconds.
      *
      * @example 2020-05-18T03:11:39Z
      *
@@ -18,7 +18,7 @@ class scalingInstances extends Model
     public $createdTime;
 
     /**
-     * @description The time when the ECS instance was added to the scaling group. The value is accurate to minutes.
+     * @description The time when the ECS instances were added to the scaling group. The value is accurate to the minute.
      *
      * @example 2020-05-18T03:11Z
      *
@@ -27,10 +27,10 @@ class scalingInstances extends Model
     public $creationTime;
 
     /**
-     * @description Indicates how the ECS instance is created. Valid values:
+     * @description The instance creation method. Valid values:
      *
-     *   AutoCreated: Auto Scaling automatically creates ECS instances based on the instance configuration source.
-     *   Attached: You manually add independent ECS instances to the scaling group.
+     *   AutoCreated: Auto Scaling created the ECS instances based on the instance configuration source.
+     *   Attached: You manually added the ECS instances to the scaling group.
      *
      * @example AutoCreated
      *
@@ -39,7 +39,7 @@ class scalingInstances extends Model
     public $creationType;
 
     /**
-     * @description Indicates whether the scaling group is allowed to manage the instance lifecycle when you manually add the instance. If the scaling group is allowed to manage the instance lifecycle, Auto Scaling can release the instance when the instance is automatically removed from the scaling group. This rule does not apply to instances that are manually removed from the scaling group. Valid values:
+     * @description Indicates whether the scaling group is allowed to manage the instance lifecycles when the ECS instances are added manually. If the scaling group is allowed to manage the instance lifecycles, Auto Scaling can release the ECS instances when they are automatically removed from the scaling group. Valid values:
      *
      *   true
      *   false
@@ -51,12 +51,12 @@ class scalingInstances extends Model
     public $entrusted;
 
     /**
-     * @description The health status of the ECS instance in the scaling group. If the ECS instance does not run as expected, Auto Scaling considers the ECS instance unhealthy. Valid values:
+     * @description The health status of the ECS instances in the scaling group. If an ECS instance is not in the Running state, it is deemed as unhealthy. Valid values:
      *
      *   Healthy
      *   Unhealthy
      *
-     * >  Make sure that you have sufficient balance within your Alibaba Cloud account. If you have overdue payments within your Alibaba Cloud account, pay-as-you-go and preemptible instances are stopped or even released. For information about how the states of ECS instances change when you have overdue payments within your Alibaba Cloud account, see [Overdue payments](https://help.aliyun.com/document_detail/170589.html).
+     * >  Make sure that you have sufficient balance within your Alibaba Cloud account. If your account has an overdue payment, all pay-as-you-go ECS instances, including preemptible instances, may be stopped or even released. For information about how the status of ECS instances changes when you have an overdue payment in your Alibaba Cloud account, see [Overdue payments](https://help.aliyun.com/document_detail/170589.html).
      * @example Healthy
      *
      * @var string
@@ -64,7 +64,7 @@ class scalingInstances extends Model
     public $healthStatus;
 
     /**
-     * @description The ID of the ECS instance
+     * @description The IDs of the ECS instances.
      *
      * @example i-bp109k5j3dum1ce6****
      *
@@ -91,16 +91,16 @@ class scalingInstances extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The lifecycle state of the ECS instance. Valid values:
+     * @description The lifecycle status of the ECS instances in the scaling group. Valid values:
      *
-     *   InService: The ECS instance is added to the scaling group and provides services as expected.
-     *   Pending: The ECS instance is being added to the scaling group. During this process, Auto Scaling adds the ECS instance to the backend server groups of the associated SLB instance and adds the private IP address of the ECS instance to the IP address whitelist of the associated ApsaraDB RDS instance.
-     *   Pending:Wait: The ECS instance is waiting to be added to the scaling group. If a lifecycle hook that applies to scale-outs is created for the scaling group, the ECS instance enters the Pending:Wait state. The ECS instance is added to the scaling group only after the lifecycle hook times out.
-     *   Protected: The ECS instance is being protected. The ECS instance can provide services as expected. However, Auto Scaling does not manage the lifecycle of the ECS instance. You must manually manage the lifecycle of the ECS instance.
-     *   Standby: The ECS instance is on standby. The ECS instance is out of service and the weight of the ECS instance as a backend server is set to zero. Auto Scaling does not manage the lifecycle of the ECS instance. You must manually manage the lifecycle of the ECS instance.
-     *   Stopped: The ECS instance is stopped. The ECS instance is stopped and cannot provide services.
-     *   Removing: The ECS instance is being removed from the scaling group. During this process, Auto Scaling removes the ECS instance from the backend server groups of the associated SLB instance and removes the IP address of the ECS instance from the IP address whitelist of the associated ApsaraDB RDS instance.
-     *   Removing:Wait: The ECS instance is waiting to be removed from the scaling group. If a lifecycle hook that applies to scale-ins is created for the scaling group, the ECS instance enters the Removing:Wait state. The ECS instance is removed from the scaling group only after the lifecycle hook times out.
+     *   InService: The ECS instances have been successfully added to the scaling group and are providing the intended services.
+     *   Pending: The ECS instances are in the process of being added to the scaling group. When an ECS instance is being added to the scaling group, Auto Scaling also adds it to the backend server groups of the attached load balancers and adds its private IP address to the IP address whitelists of the attached ApsaraDB RDS instances.
+     *   Pending:Wait: The ECS instances are awaiting addition to the scaling group. If a scale-out lifecycle hook is in effect, ECS instances will remain in the Pending:Wait state until the timeout period for the lifecycle hook expires.
+     *   Protected: The ECS instances are being safeguarded. Protected ECS instances can continue to provide services as expected, but Auto Scaling does not manage their lifecycles. You must manually manage the lifecycles of the ECS instances.
+     *   Standby: The ECS instances are on standby. Standby ECS instances do not provide services as expected, and their weights as backend servers are reset to zero. Auto Scaling does not manage their lifecycles. Therefore, you must manually manage the lifecycles of the ECS instances.
+     *   Stopped: The ECS instances are stopped. Stopped ECS instances do not provide services anymore.
+     *   Removing: The ECS instances are in the process of being removed from the scaling group. When an ECS instance is being removed from the scaling group, Auto Scaling also removes it from the backend server groups of the attached load balancers and removes its private IP address from the IP address whitelists of the attached ApsaraDB RDS instances.
+     *   Removing:Wait: The ECS instances are awaiting removal from the scaling group. If a scale-in lifecycle hook is in effect, ECS instances will remain in the Removing:Wait state until the timeout period for the lifecycle hook expires.
      *
      * @example InService
      *
@@ -109,7 +109,7 @@ class scalingInstances extends Model
     public $lifecycleState;
 
     /**
-     * @description The weight of the ECS instance as a backend server.
+     * @description The weight of each ECS instance as a backend server.
      *
      * @example 50
      *
@@ -118,7 +118,7 @@ class scalingInstances extends Model
     public $loadBalancerWeight;
 
     /**
-     * @description The private IP address of the ECS instance in the scaling group.
+     * @description The private IP address of the ECS instance.
      *
      * @example 1**.2*.1**.2**
      *
@@ -127,7 +127,7 @@ class scalingInstances extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the scaling activity during which the ECS instance is added to the scaling group.
+     * @description The ID of the scaling activity during which the ECS instances were added to the scaling group.
      *
      * @example asa-bp1c9djwrgxjyk31****
      *
@@ -154,7 +154,7 @@ class scalingInstances extends Model
     public $scalingGroupId;
 
     /**
-     * @description The identifier of the ECS instance in the scaling group. The identifier of an ECS instance or elastic container instance matches the ID of the ECS instance or elastic container instance.
+     * @description The ID of the ECS instance or elastic container instance.
      *
      * @example asi-j6cj1gcte640ekhb****
      *
@@ -163,10 +163,10 @@ class scalingInstances extends Model
     public $scalingInstanceId;
 
     /**
-     * @description The bidding policy for the preemptible instance. Valid values:
+     * @description The bidding policy for the preemptible instances. Valid values:
      *
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   SpotWithPriceLimit: The instances were created as preemptible instances with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances were preemptible instances for which the market price at the time of purchase was automatically used as the bidding price.
      *
      * @example SpotWithPriceLimit
      *
@@ -175,11 +175,11 @@ class scalingInstances extends Model
     public $spotStrategy;
 
     /**
-     * @description The warmup state of the ECS instance. Valid values:
+     * @description The warm-up status of the ECS instances. Valid values:
      *
-     *   NoNeedWarmup: The instance does not need to be warmed up.
-     *   WaitingForInstanceWarmup: The instance is being warmed up.
-     *   InstanceWarmupFinish: The instance is warmed up.
+     *   NoNeedWarmup: The ECS instances do not need to go through a warm-up period.
+     *   WaitingForInstanceWarmup: The ECS instances are undergoing the warm-up process.
+     *   InstanceWarmupFinish: The warm-up process for the ECS instances is completed.
      *
      * @example NoNeedWarmup
      *
@@ -197,7 +197,7 @@ class scalingInstances extends Model
     public $weightedCapacity;
 
     /**
-     * @description The zone ID of the ECS instance.
+     * @description The zone ID of the ECS instances.
      *
      * @example cn-hangzhou-g
      *

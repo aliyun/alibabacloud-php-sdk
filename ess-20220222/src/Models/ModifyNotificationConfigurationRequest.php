@@ -11,14 +11,14 @@ class ModifyNotificationConfigurationRequest extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
      *
-     *   If you use CloudMonitor as the notification method, the value format of this parameter is acs:ess:{region-id}:{account-id}:cloudmonitor.
-     *   If you use an MNS queue as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:queue/{queuename}.
-     *   If you use an MNS topic as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:topic/{topicname}.
+     *   If you use CloudMonitor as the notification method, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
+     *   If you use an MNS queue as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+     *   If you use an MNS topic as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
      *
      * The variables in the preceding formats have the following meanings:
      *
-     *   region-id: the region ID of the scaling group.
-     *   account-id: the ID of the Alibaba Cloud account.
+     *   region-id: the region ID of your scaling group.
+     *   account-id: the ID of your Alibaba Cloud.
      *   queuename: the name of the MNS queue.
      *   topicname: the name of the MNS topic.
      *
@@ -30,7 +30,7 @@ class ModifyNotificationConfigurationRequest extends Model
     public $notificationArn;
 
     /**
-     * @description The types of the notifications that you want to modify. You can modify one to eight notifications. Specify multiple values in the repeated list form.
+     * @description The event types.
      *
      * This parameter is required.
      * @var string[]

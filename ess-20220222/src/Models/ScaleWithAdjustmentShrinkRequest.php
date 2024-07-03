@@ -71,7 +71,7 @@ class ScaleWithAdjustmentShrinkRequest extends Model
     public $minAdjustmentMagnitude;
 
     /**
-     * @description The overrides that allow you to adjust the scaling group of the Elastic Container Instance type during a scale-out.
+     * @description The overrides that allow you to adjust the scaling group of the Elastic Container Instance type during a scale-out event.
      *
      * @var string
      */

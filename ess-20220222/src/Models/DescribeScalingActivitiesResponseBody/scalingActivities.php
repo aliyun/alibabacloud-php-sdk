@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class scalingActivities extends Model
 {
     /**
+     * @description The metadata of the scaling activity.
+     *
+     * @example {\\"goatscaler.io/managed\\":\\"true\\"}
+     *
      * @var string
      */
     public $activityMetadata;
 
     /**
-     * @description The total number of instances that are manually added to the scaling group after the scaling activity is complete.
+     * @description The total number of instances that are manually added to the scaling group after the scaling activity was complete.
      *
      * @example 0
      *
@@ -24,7 +28,7 @@ class scalingActivities extends Model
     public $attachedCapacity;
 
     /**
-     * @description The total number of instances that are created by Auto Scaling after the scaling activity is complete.
+     * @description The total number of instances that are created by Auto Scaling after the scaling activity was complete.
      *
      * @example 2
      *
@@ -33,7 +37,7 @@ class scalingActivities extends Model
     public $autoCreatedCapacity;
 
     /**
-     * @description The reason why the scaling activity is triggered.
+     * @description The reason why the scaling activity was triggered.
      *
      * @example A user requests to execute scaling rule \\"asr-bp12tcnol686y1ik****\\", changing the Total Capacity from \\"1\\" to \\"2\\".
      *
@@ -42,7 +46,7 @@ class scalingActivities extends Model
     public $cause;
 
     /**
-     * @description The number of instances that are created during the scale-out.
+     * @description The number of instances that are created during the scale-out event.
      *
      * @example 1
      *
@@ -51,7 +55,7 @@ class scalingActivities extends Model
     public $createdCapacity;
 
     /**
-     * @description The instances that are created during the scale-out.
+     * @description The instances that are created during the scale-out event.
      *
      * @var string[]
      */
@@ -67,7 +71,7 @@ class scalingActivities extends Model
     public $description;
 
     /**
-     * @description The number of instances that are released during the scale-in.
+     * @description The number of instances that are released during the scale-in event.
      *
      * @example 1
      *
@@ -76,7 +80,7 @@ class scalingActivities extends Model
     public $destroyedCapacity;
 
     /**
-     * @description The instances that are released during the scale-in.
+     * @description The instances that are released during the scale-in event.
      *
      * @var string[]
      */
@@ -92,7 +96,7 @@ class scalingActivities extends Model
     public $detail;
 
     /**
-     * @description The time when the scaling activity is complete.
+     * @description The time when the scaling activity was complete.
      *
      * @example 2020-09-10T09:54Z
      *
@@ -119,6 +123,8 @@ class scalingActivities extends Model
     public $errorMessage;
 
     /**
+     * @description The context of the lifecycle hook.
+     *
      * @var lifecycleHookContext
      */
     public $lifecycleHookContext;
@@ -151,9 +157,9 @@ class scalingActivities extends Model
     public $scalingGroupId;
 
     /**
-     * @description If you query a scale-out, the value of this parameter indicates the number of instances that are created or the number of instances that are started from the Economical Mode during the scale-out.
+     * @description If you query a scale-out activity, the value of this parameter indicates the number of instances that are created or the number of instances that are started from the Economical Mode during the scale-out event.
      *
-     * If you query a scale-in, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in the Economical Mode during the scale-in.
+     * If you query a scale-in activity, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in the Economical Mode during the scale-in event.
      * @example 1
      *
      * @var int
@@ -161,7 +167,7 @@ class scalingActivities extends Model
     public $scalingInstanceNumber;
 
     /**
-     * @description The time when the scaling activity is started.
+     * @description The time when the scaling activity was started.
      *
      * @example 2020-09-10T09:54Z
      *
@@ -170,7 +176,7 @@ class scalingActivities extends Model
     public $startTime;
 
     /**
-     * @description The number of instances that are started from the Economical Mode during the scale-out.
+     * @description The number of instances that are started from the Economical Mode during the scale-out event.
      *
      * @example 1
      *
@@ -179,7 +185,7 @@ class scalingActivities extends Model
     public $startedCapacity;
 
     /**
-     * @description The instances that are started from the Economical Mode during the scale-out.
+     * @description The instances that are started from the Economical Mode during the scale-out event.
      *
      * @var string[]
      */
@@ -210,7 +216,7 @@ class scalingActivities extends Model
     public $statusMessage;
 
     /**
-     * @description The number of instances that are stopped in the Economical Mode during the scale-in.
+     * @description The number of instances that are stopped in the Economical Mode during the scale-in event.
      *
      * @example 1
      *
@@ -219,14 +225,14 @@ class scalingActivities extends Model
     public $stoppedCapacity;
 
     /**
-     * @description The instances that are stopped in the Economical Mode during the scale-in.
+     * @description The instances that are stopped in the Economical Mode during the scale-in event.
      *
      * @var string[]
      */
     public $stoppedInstances;
 
     /**
-     * @description The total number of instances in the scaling group after the scaling activity is complete.
+     * @description The total number of instances in the scaling group after the scaling activity was complete.
      *
      * @example 2
      *
@@ -235,11 +241,27 @@ class scalingActivities extends Model
     public $totalCapacity;
 
     /**
+     * @description The ID of the trigger source of the scaling activity.
+     *
+     *   If TriggerSourceType is set to Cms, the ID of the trigger source is the ID of an event-triggered task.
+     *   If TriggerSourceType is set to Api, the ID of the trigger source is the ID of an Alibaba Cloud account or a RAM user.
+     *   If TriggerSourceType is set to Api, the ID of the trigger source is null.
+     *
+     * @example 2346366580*****
+     *
      * @var string
      */
     public $triggerSourceId;
 
     /**
+     * @description The type of the trigger source of the scaling activity.
+     *
+     *   Cms: triggered by an event-triggered task
+     *   APIs: triggered by API calling
+     *   Ess: triggered by a system task
+     *
+     * @example Api
+     *
      * @var string
      */
     public $triggerSourceType;

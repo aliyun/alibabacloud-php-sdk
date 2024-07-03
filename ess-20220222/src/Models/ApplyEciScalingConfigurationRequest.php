@@ -19,7 +19,7 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $content;
 
     /**
-     * @description Optional. The format of the configuration file. Default value: YAML. Set the value to YAML.
+     * @description Optional. Set the value to YAML.
      *
      * @example YAML
      *
@@ -37,8 +37,9 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the scaling configuration that you want to update. If you want to update a scaling configuration based on the value of Content, you must specify ScalingConfigurationId. If you want to create a scaling configuration based on the value of Content, you can leave ScalingConfigurationId empty.
+     * @description The ID of the scaling configuration.
      *
+     * If you want the system to update a scaling configuration of the Elastic Container Instance type based on a YAML configuration file, you must specify `ScalingConfigurationId`. If you do not specify `ScalingConfigurationId`, the system creates a new scaling configuration based on the YAML configuration file.
      * @example asc-bp1i65jd06v04vdh****
      *
      * @var string

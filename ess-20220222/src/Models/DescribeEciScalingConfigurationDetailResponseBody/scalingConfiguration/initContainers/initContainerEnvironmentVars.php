@@ -18,7 +18,7 @@ class initContainerEnvironmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
-     * @description The key of the environment variable.
+     * @description The name of the environment variable.
      *
      * @example PATH
      *

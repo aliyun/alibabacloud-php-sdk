@@ -17,7 +17,7 @@ use AlibabaCloud\Tea\Model;
 class CreateScalingGroupRequest extends Model
 {
     /**
-     * @description Details of the Application Load Balancer (ALB) server groups that you want to associate with the scaling group.
+     * @description The Application Load Balancer (ALB) server groups.
      *
      * @var albServerGroups[]
      */
@@ -37,7 +37,7 @@ class CreateScalingGroupRequest extends Model
     public $allocationStrategy;
 
     /**
-     * @description Specifies whether to evenly distribute instances in the scaling group across zones. This parameter is available only if you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
+     * @description Specifies whether to evenly distribute instances in the scaling group across multiple zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
      *
      *   true
      *   false
@@ -50,8 +50,9 @@ class CreateScalingGroupRequest extends Model
     public $azBalance;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -107,7 +108,7 @@ class CreateScalingGroupRequest extends Model
     public $DBInstances;
 
     /**
-     * @description The cooldown period of the scaling group after a scaling activity is complete. Valid values: 0 to 86400. Unit: seconds.
+     * @description The cooldown period of the scaling group after a scaling activity is complete in the scaling group. Valid values: 0 to 86400. Unit: seconds.
      *
      * Default value: 300.
      * @example 300
@@ -117,7 +118,7 @@ class CreateScalingGroupRequest extends Model
     public $defaultCooldown;
 
     /**
-     * @description The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the expected number of ECS instances. The value of the DesiredCapacity parameter cannot be greater than the value of the MaxSize parameter and less than the value of the MinSize parameter.
+     * @description The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the specified expected number of ECS instances. The DesiredCapacity value cannot be greater than the MaxSize value or less than the MinSize value.
      *
      * @example 5
      *
@@ -154,9 +155,10 @@ class CreateScalingGroupRequest extends Model
     /**
      * @description The health check mode of the scaling group. Valid values:
      *
-     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   NONE: Auto Scaling does not check the health status of instances.
      *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
-     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis for instances in the scaling group.
+     *   ECI: Auto Scaling checks the health status of elastic container instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
      *
      * Default value: ECS.
      * @example ECS
@@ -168,9 +170,10 @@ class CreateScalingGroupRequest extends Model
     /**
      * @description The health check modes of the scaling group. Valid values:
      *
-     *   NONE: Auto Scaling does not check the health status of instances in the scaling group.
+     *   NONE: Auto Scaling does not check the health status of instances.
      *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
-     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
+     *   ECI: Auto Scaling checks the health status of elastic container instances in the scaling group.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
      *
      * Default value: ECS.
      * @var string[]
@@ -178,7 +181,7 @@ class CreateScalingGroupRequest extends Model
     public $healthCheckTypes;
 
     /**
-     * @description The ID of the existing ECS instance that provides instance configurations for Auto Scaling to create a scaling configuration.
+     * @description The ID of the ECS instance. When you create a scaling group, you can specify an existing ECS instance. Auto Scaling obtains the configurations of the ECS instance and automatically creates a scaling configuration from the obtained configurations.
      *
      * @example i-28wt4****
      *
@@ -223,6 +226,8 @@ class CreateScalingGroupRequest extends Model
     public $lifecycleHooks;
 
     /**
+     * @description The load balancer configurations.
+     *
      * @var loadBalancerConfigs[]
      */
     public $loadBalancerConfigs;
@@ -248,11 +253,11 @@ class CreateScalingGroupRequest extends Model
     public $maxInstanceLifetime;
 
     /**
-     * @description The maximum number of ECS instances that can be contained in the scaling group. If the number of ECS instances in the scaling group is greater than the value of the MaxSize parameter, Auto Scaling removes ECS instances from the scaling group to ensure that the number of ECS instances is equal to the value of the MaxSize parameter.
+     * @description The maximum number of instances that can be contained in the scaling group. When the total number of ECS instances in the scaling group exceeds the value of MaxSize, Auto Scaling automatically removes ECS instances from the scaling group until the total number equals the maximum number.
      *
-     * The value range of the MaxSize parameter varies based on the instance quota. You can go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check the maximum number of instances that a scaling group can contain.
+     * The value range of MaxSize is directly correlated with the degree of dependency your business has on Auto Scaling. You can go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check **the maximum number of instances that a single scaling group can contain.**
      *
-     * For example, if the instance quota is 2,000, the value range of the **MaxSize** parameter is 0 to 2000.
+     * If **a single scaling group can contain up to 2,000 ECS instances**, the value range of MaxSize is 0 to 2,000.
      *
      * This parameter is required.
      * @example 20
@@ -262,7 +267,7 @@ class CreateScalingGroupRequest extends Model
     public $maxSize;
 
     /**
-     * @description The minimum number of ECS instances that must be contained in the scaling group. If the number of ECS instances in the scaling group is less than the value of the MinSize parameter, Auto Scaling adds ECS instances to the scaling group to ensure that the number of ECS instances in the scaling group is equal to the value of the MinSize parameter.
+     * @description The minimum number of instances that must be contained in the scaling group. When the total number of ECS instances in the scaling group is less than the value of MinSize, Auto Scaling automatically creates ECS instances in the scaling group until the total number reaches the minimum number.
      *
      * This parameter is required.
      * @example 2
@@ -272,15 +277,23 @@ class CreateScalingGroupRequest extends Model
     public $minSize;
 
     /**
-     * @description The scaling policy for the multi-zone scaling group that contains ECS instances. Valid values:
+     * @description The scaling policy for ECS instances in the multi-zone scaling group. Valid values:
      *
-     *   PRIORITY: scales ECS instances based on the priority of the vSwitch that is specified by the VSwitchIds parameter. Auto Scaling preferentially scales instances in the zone where the vSwitch that has the highest priority resides. If the scaling fails, Auto Scaling scales instances in the zone where the vSwitch that has the next highest priority resides.
+     *   PRIORITY: scale ECS instances based on the priority of the vSwitches specified by VSwitchIds. Auto Scaling preferentially scales instances in the zone where the vSwitch of the highest priority resides. If the scaling fails, Auto Scaling scales instances in the zone where the vSwitch of the next highest priority resides.
      *
-     *   COST_OPTIMIZED: scales ECS instances based on the unit price of vCPUs. Auto Scaling preferentially scales out ECS instances whose vCPUs are provided at the lowest price and scales in ECS instances whose vCPUs are provided at the highest price. If preemptible instance types are specified in the scaling configuration, Auto Scaling preferentially scales out preemptible instances. You can use the CompensateWithOnDemand parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
+     *   COST_OPTIMIZED: create ECS instances that have the lowest unit price of vCPUs during scale-out events and removes ECS instances that have the highest unit price of vCPUs during scale-in events. If you specify preemptible instance types in your scaling configuration, Auto Scaling will preferentially create preemptible instances. You can also specify CompensateWithOnDemand to allow Auto Scaling to create pay-as-you-go instances in the case that preemptible instances cannot be created due to limited stock.
      *
-     **Note** The COST_OPTIMIZED setting takes effect only when multiple instance types are specified or at least one preemptible instance type is specified.
+     **
      *
-     *   BALANCE: evenly distributes ECS instances across zones that are specified for the scaling group. If ECS instances are unevenly distributed across zones due to insufficient resources, you can call the [RebalanceInstance](https://help.aliyun.com/document_detail/71516.html) operation to evenly redistribute the instances across the zones.
+     **Note** The COST_OPTIMIZED setting takes effect only when your scaling configuration contains multiple instance types or specifically contains preemptible instance types.
+     *
+     *   BALANCE: evenly distribute ECS instances across the zones that are specified for the scaling group. If ECS instances are unevenly distributed across the specified zones due to insufficient inventory, you can call the [RebalanceInstance](https://help.aliyun.com/document_detail/71516.html) operation to evenly distribute the instances across the zones.
+     *
+     **
+     *
+     **Note** When you set `MultiAZPolicy` to `BALANCE`, this setting has an equivalent effect to setting `MultiAZPolicy` to `COMPOSABLE` and enabling `AzBalance` to `true`.
+     *
+     *   COMPOSABLE: combine the preceding policies into a custom scaling policy based on your business requirements. Alternatively, you can specify custom parameters to finely control the capacity of the scaling group.
      *
      * Default value: PRIORITY.
      * @example PRIORITY
@@ -368,10 +381,23 @@ class CreateScalingGroupRequest extends Model
     /**
      * @description The reclaim mode of the scaling group. Valid values:
      *
-     *   recycle: economical mode.
-     *   release: release mode.
+     *   recycle: the economical mode
      *
-     * The ScalingPolicy parameter specifies the reclaim mode of the scaling group. The RemovePolicy parameter of the RemoveInstances operation specifies how to remove instances in a specific manner.
+     *   release: the release mode
+     *
+     *   forcerelease: the forced release mode
+     *
+     **
+     *
+     **Note** If you set the value to forcerelease, Auto Scaling will forcibly release the ECS instances that are in the `Running` state during the scale-out events. Forced release equates to an immediate power-off, resulting in the irreversible deletion of all ephemeral data stored on the instance. Once executed, this action cannot be undone and the lost data cannot be recovered. Exercise caution when you select this option.
+     *
+     *   forcerecycle: the forced recycle mode
+     *
+     **
+     *
+     **Note** If you set the value to forcerecycle, Auto Scaling will forcibly shut down the ECS instances that are in the `Running` state during the scale-out events. Forced recycle equates to an immediate power-off, resulting in the irreversible deletion of all ephemeral data stored on the instance. Once executed, this action cannot be undone and the lost data cannot be recovered. Exercise caution when you select this option.
+     *
+     * ScalingPolicy specifies the reclaim mode of the scaling group. RemovePolicy of the RemoveInstances operation specifies the specific instance removal action. For more information, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
      * @example recycle
      *
      * @var string
@@ -379,9 +405,9 @@ class CreateScalingGroupRequest extends Model
     public $scalingPolicy;
 
     /**
-     * @description Details of the server groups.
+     * @description The server groups.
      *
-     * >  You cannot use the AlbServerGroups parameter and the ServerGroups parameter to specify the same server group.
+     * >  You cannot use AlbServerGroups and ServerGroups to specify the same server group.
      * @var serverGroups[]
      */
     public $serverGroups;
@@ -434,7 +460,7 @@ class CreateScalingGroupRequest extends Model
     public $tags;
 
     /**
-     * @description Details of the backend vServer groups that you want to associate with the scaling group.
+     * @description The backend vServer group that you want to associate with the scaling group.
      *
      * @var VServerGroups[]
      */
@@ -451,15 +477,15 @@ class CreateScalingGroupRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The IDs of vSwitches. If you specify the VSwitchIds parameter, the VSwitchId parameter is ignored. If you specify the VSwitchIds parameter, the network type of the scaling group is VPC.
+     * @description The IDs of the vSwitches. If you specify VSwitchIds, VSwitchId is ignored. If you specify VSwitchIds, the network type of the scaling group is VPC.
      *
      * If you specify multiple vSwitches, take note of the following items:
      *
      *   The vSwitches must belong to the same VPC.
      *   The vSwitches can belong to different zones.
-     *   The vSwitches are sorted in ascending order of priority. The first vSwitch that is specified by the VSwitchIds parameter has the highest priority. If Auto Scaling fails to create ECS instances in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch that has the next highest priority resides.
+     *   vSwitches are sorted in ascending order based on their priorities. The first vSwitch has the highest priority. If Auto Scaling fails to create ECS instances in the zone where the vSwitch of the highest priority resides, Auto Scaling attempts to create ECS instances in the zone where the vSwitch of the next highest priority resides.
      *
-     * > If you do not specify the VSwitchId or VSwitchIds parameter, the network type of the scaling group is classic network.
+     * >  If you do not specify VSwitchId or VSwitchIds for your scaling group, the network type of the scaling group is classic network.
      * @var string[]
      */
     public $vSwitchIds;

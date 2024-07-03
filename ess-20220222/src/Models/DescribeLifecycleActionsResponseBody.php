@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLifecycleActionsResponseBody extends Model
 {
     /**
-     * @description The lifecycle actions.
+     * @description The actions of the lifecycle hook.
      *
      * @var lifecycleActions[]
      */

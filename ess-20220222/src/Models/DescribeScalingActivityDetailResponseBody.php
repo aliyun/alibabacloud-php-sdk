@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingActivityDetailResponseBody extends Model
 {
     /**
-     * @description Details of the scaling activity.
+     * @description The details of the scaling activity. If the status of the scaling activity is Rejected, no result is displayed.
      *
      * @example new ECS instances \\"i-bp16t2cgmiiymeqv****\\" are created.
      *

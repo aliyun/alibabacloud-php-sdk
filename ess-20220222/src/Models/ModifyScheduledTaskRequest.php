@@ -137,9 +137,9 @@ class ModifyScheduledTaskRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description The scaling rule that you want to execute when the scheduled task is triggered. Specify the unique identifier of the scaling rule. If you specify the `ScheduledAction` parameter, you must select an existing scaling rule for the scheduled task.
+     * @description The scaling rule that you want to execute when the scheduled task is triggered. Enter the ID of the scaling rule. To obtain the ID of a scaling rule, go to the scaling rule details page. If you specify `ScheduledAction`, you must select an existing scaling rule for the scheduled task.
      *
-     * > You cannot specify the `ScheduledAction` and `ScalingGroupId` parameters at the same time.
+     * >  You can specify only one of `ScheduledAction` and `ScalingGroupId`.
      * @example ari:acs:ess:cn-hangzhou:14069264****:scalingrule/asr-bp12tcnol686y1ik****
      *
      * @var string

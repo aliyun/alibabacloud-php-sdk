@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciScalingConfigurationDetailRequest extends Model
 {
     /**
-     * @description The output format. Set the value to yaml.
+     * @description The output format. Set the value to YAML.
      *
      * @example yaml
      *

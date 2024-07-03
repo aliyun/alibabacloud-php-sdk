@@ -18,7 +18,7 @@ class scheduledTasks extends Model
     public $description;
 
     /**
-     * @description The expected number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     * @description The expected number of instances in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class scheduledTasks extends Model
     public $desiredCapacity;
 
     /**
-     * @description The time period during which the failed scheduled task is retried. Unit: seconds. Valid values: 0 to 21600.
+     * @description The time window during which the scheduled task can be retried. Unit: seconds. Valid values: 0 to 21600.
      *
      * @example 600
      *
@@ -45,7 +45,7 @@ class scheduledTasks extends Model
     public $launchTime;
 
     /**
-     * @description The maximum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     * @description The maximum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class scheduledTasks extends Model
     public $maxValue;
 
     /**
-     * @description The minimum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     * @description The minimum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
      *
      * @example 0
      *
@@ -72,7 +72,7 @@ class scheduledTasks extends Model
     public $recurrenceEndTime;
 
     /**
-     * @description The interval at which the scheduled task is repeated.
+     * @description The recurring interval of the scheduled task.
      *
      * @example Daily
      *
@@ -81,7 +81,7 @@ class scheduledTasks extends Model
     public $recurrenceType;
 
     /**
-     * @description The number of recurrences of the scheduled task.
+     * @description The frequency of recurrence of the scheduled task.
      *
      * @example 1
      *
@@ -99,7 +99,7 @@ class scheduledTasks extends Model
     public $scalingGroupId;
 
     /**
-     * @description The scaling rule that is executed when the scheduled task is triggered. This parameter is returned only after a scaling rule is specified for the scheduled task.
+     * @description The scaling rule of the scheduled task. A value is returned for this parameter only after you specify ScheduledActions.
      *
      * @example ari:acs:ess:cn-hangzhou:1406926474****:scalingrule/asr-bp1id5rhu8edp7kd****
      *

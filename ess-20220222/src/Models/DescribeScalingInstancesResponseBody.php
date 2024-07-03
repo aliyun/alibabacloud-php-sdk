@@ -24,6 +24,8 @@ class DescribeScalingInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example B13527BF-1FBD-4334-A512-20F5E9D3FB4D
      *
      * @var string

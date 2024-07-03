@@ -49,7 +49,7 @@ class scalingConfigurations extends Model
     /**
      * @description The performance mode of the burstable instances. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
      *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
@@ -61,7 +61,7 @@ class scalingConfigurations extends Model
     /**
      * @description The priority of the custom ECS instance type + vSwitch combination.
      *
-     * >  If you specified the priorities of only partial custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have specified priorities. If the custom combinations that have specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have specified priorities based on the specified orders of vSwitches and instance types.
+     * >  If you specify the priorities of only a portion of custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have specified priorities. If the custom combinations that have specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have specified priorities based on the specified orders of vSwitches and instance types.
      *
      *   Example: the specified order of vSwitches for your scaling group is vsw1 and vsw2 and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
      *
@@ -77,6 +77,10 @@ class scalingConfigurations extends Model
     public $dataDisks;
 
     /**
+     * @description The ID of the dedicated host cluster.
+     *
+     * @example dc-zm04u8r3lohsq****
+     *
      * @var string
      */
     public $dedicatedHostClusterId;
@@ -97,7 +101,7 @@ class scalingConfigurations extends Model
      *   true: Release Protection is enabled for the ECS instances. You cannot delete the ECS instances by using the ECS console or calling the DeleteInstance operation.
      *   false: Release Protection is disabled for the ECS instances. You can delete the ECS instances by using the ECS console or calling the DeleteInstance operation.
      *
-     * >  You can enable Release Protection for only pay-as-you-go instances to prevent unexpected instance deletion during scale-ins. The Release Protection feature does not affect normal scaling activities. In other words, an instance that meets the criteria of scale-in policies can be removed from a scaling group during a scale-in even if you enabled Release Protection for the instance.
+     * >  You can enable Release Protection for only pay-as-you-go instances to prevent unexpected instance deletion during scale-in events. The Release Protection feature does not affect normal scaling activities. In other words, an instance that meets the criteria of scale-in policies may be removed from a scaling group during a scale-in event even if you enabled Release Protection for the instance.
      * @example false
      *
      * @var bool
@@ -132,7 +136,7 @@ class scalingConfigurations extends Model
     public $hpcClusterId;
 
     /**
-     * @description The name of the image family. You can specify this parameter to obtain the latest available images in the current image family for instance creation. If you specify `ImageId`, you cannot specify this parameter.
+     * @description The name of the image family. You can specify this parameter to obtain the latest available images in the current image family for instance creation. If you specify ImageId, you cannot specify `ImageFamily`.
      *
      * @example hangzhou-daily-update
      *
@@ -171,7 +175,7 @@ class scalingConfigurations extends Model
     public $imageOptionsLoginAsNonRoot;
 
     /**
-     * @description The source of the image. Valid values:
+     * @description The image source. Valid values:
      *
      *   system: a public image provided by Alibaba Cloud
      *   self: a custom image that you created
@@ -219,7 +223,7 @@ class scalingConfigurations extends Model
     public $instancePatternInfos;
 
     /**
-     * @description The instance type of the ECS instances.
+     * @description The instance types of the ECS instances.
      *
      * @example ecs.g6.large
      *
@@ -300,8 +304,8 @@ class scalingConfigurations extends Model
     /**
      * @description The status of the scaling configuration in the scaling group. Valid values:
      *
-     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the scaling configuration that is in the Active state to create ECS instances during scale-outs.
-     *   Inactive: The scaling configuration is inactive in the scaling group. Scaling configurations that are in the Inactive state are still contained in the scaling group, but Auto Scaling does not use the inactive scaling configurations to create ECS instances during scale-outs.
+     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the scaling configuration that is in the Active state to create ECS instances during scale-out events.
+     *   Inactive: The scaling configuration is inactive in the scaling group. Scaling configurations that are in the Inactive state are still contained in the scaling group, but Auto Scaling does not use the inactive scaling configurations to create ECS instances during scale-out events.
      *
      * @example Active
      *
@@ -343,6 +347,11 @@ class scalingConfigurations extends Model
      * @var bool
      */
     public $passwordInherit;
+
+    /**
+     * @var bool
+     */
+    public $passwordSetted;
 
     /**
      * @var string
@@ -453,18 +462,18 @@ class scalingConfigurations extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description The information about the preemptible instances.
+     * @description The preemptible instances.
      *
      * @var spotPriceLimits[]
      */
     public $spotPriceLimits;
 
     /**
-     * @description The preemption policy that is applied to the pay-as-you-go instance. Valid values:
+     * @description The preemption policy that is applied to pay-as-you-go instances. Valid values:
      *
-     *   NoSpot: The instance is created as a pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   NoSpot: The instances are created as regular pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances are preemptible instances for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -531,7 +540,7 @@ class scalingConfigurations extends Model
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
      *   ephemeral_ssd: local SSD
-     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_essd: enterprise SSD (ESSD)
      *   cloud_auto: ESSD AutoPL
      *
      * @example cloud
@@ -698,6 +707,7 @@ class scalingConfigurations extends Model
         'memory'                           => 'Memory',
         'networkInterfaces'                => 'NetworkInterfaces',
         'passwordInherit'                  => 'PasswordInherit',
+        'passwordSetted'                   => 'PasswordSetted',
         'privatePoolOptions_id'            => 'PrivatePoolOptions.Id',
         'privatePoolOptions_matchCriteria' => 'PrivatePoolOptions.MatchCriteria',
         'ramRoleName'                      => 'RamRoleName',
@@ -866,6 +876,9 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
+        }
+        if (null !== $this->passwordSetted) {
+            $res['PasswordSetted'] = $this->passwordSetted;
         }
         if (null !== $this->privatePoolOptions_id) {
             $res['PrivatePoolOptions.Id'] = $this->privatePoolOptions_id;
@@ -1120,6 +1133,9 @@ class scalingConfigurations extends Model
         }
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];
+        }
+        if (isset($map['PasswordSetted'])) {
+            $model->passwordSetted = $map['PasswordSetted'];
         }
         if (isset($map['PrivatePoolOptions.Id'])) {
             $model->privatePoolOptions_id = $map['PrivatePoolOptions.Id'];
