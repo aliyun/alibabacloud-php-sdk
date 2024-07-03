@@ -59,10 +59,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取连接信息
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
@@ -147,9 +149,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param GetConnectionTicketRequest $request
+     * @summary 获取连接信息
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -159,10 +163,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListLFUAppRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ListLFUAppRequest $request ListLFUAppRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLFUAppResponse
+     * @return ListLFUAppResponse ListLFUAppResponse
      */
     public function listLFUAppWithOptions($request, $runtime)
     {
@@ -244,9 +248,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListLFUAppRequest $request
+     * @param ListLFUAppRequest $request ListLFUAppRequest
      *
-     * @return ListLFUAppResponse
+     * @return ListLFUAppResponse ListLFUAppResponse
      */
     public function listLFUApp($request)
     {
@@ -256,10 +260,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedAppInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 已上架应用列表
+     *  *
+     * @param ListPublishedAppInfoRequest $request ListPublishedAppInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublishedAppInfoResponse
+     * @return ListPublishedAppInfoResponse ListPublishedAppInfoResponse
      */
     public function listPublishedAppInfoWithOptions($request, $runtime)
     {
@@ -329,9 +335,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedAppInfoRequest $request
+     * @summary 已上架应用列表
+     *  *
+     * @param ListPublishedAppInfoRequest $request ListPublishedAppInfoRequest
      *
-     * @return ListPublishedAppInfoResponse
+     * @return ListPublishedAppInfoResponse ListPublishedAppInfoResponse
      */
     public function listPublishedAppInfo($request)
     {
@@ -341,10 +349,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListRunningAppsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 运行中应用列表
+     *  *
+     * @param ListRunningAppsRequest $request ListRunningAppsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRunningAppsResponse
+     * @return ListRunningAppsResponse ListRunningAppsResponse
      */
     public function listRunningAppsWithOptions($request, $runtime)
     {
@@ -405,9 +415,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param ListRunningAppsRequest $request
+     * @summary 运行中应用列表
+     *  *
+     * @param ListRunningAppsRequest $request ListRunningAppsRequest
      *
-     * @return ListRunningAppsResponse
+     * @return ListRunningAppsResponse ListRunningAppsResponse
      */
     public function listRunningApps($request)
     {
@@ -417,10 +429,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param StopAppRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary 停止应用
+     *  *
+     * @param StopAppRequest $request StopAppRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopAppResponse
+     * @return StopAppResponse StopAppResponse
      */
     public function stopAppWithOptions($request, $runtime)
     {
@@ -508,9 +522,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param StopAppRequest $request
+     * @summary 停止应用
+     *  *
+     * @param StopAppRequest $request StopAppRequest
      *
-     * @return StopAppResponse
+     * @return StopAppResponse StopAppResponse
      */
     public function stopApp($request)
     {
@@ -520,10 +536,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UnbindRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 解绑实例
+     *  *
+     * @param UnbindRequest  $request UnbindRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbindWithOptions($request, $runtime)
     {
@@ -587,9 +605,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param UnbindRequest $request
+     * @summary 解绑实例
+     *  *
+     * @param UnbindRequest $request UnbindRequest
      *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbind($request)
     {

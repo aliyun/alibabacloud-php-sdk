@@ -51,7 +51,7 @@ class ListPublishedAppInfoRequest extends Model
     public $clientIp;
 
     /**
-     * @example windows_\"Windows 10 Enterprise\" 10.0 (Build 14393)
+     * @example windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
      *
      * @var string
      */

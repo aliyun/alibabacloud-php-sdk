@@ -16,6 +16,8 @@ class UnbindRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aig-e1l4kqqykxt4uzdx9
      *
      * @var string
@@ -42,7 +44,7 @@ class UnbindRequest extends Model
     public $clientIp;
 
     /**
-     * @example windows_\"Windows 10 Pro\" 10.0 (Build 19041)
+     * @example windows_\\"Windows 10 Pro\\" 10.0 (Build 19041)
      *
      * @var string
      */
@@ -70,6 +72,8 @@ class UnbindRequest extends Model
     public $loginRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1e9c8e83d83ea11270871640059145702bde8c5be8c6b9a854ffb6a43bd2673c19a5551c83800724e024f488dbfb0b247
      *
      * @var string
@@ -77,6 +81,8 @@ class UnbindRequest extends Model
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string
@@ -84,6 +90,8 @@ class UnbindRequest extends Model
     public $productType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11040139-4fb4-4b35-9b44-6c07c746a43e
      *
      * @var string

@@ -103,6 +103,8 @@ class GetConnectionTicketRequest extends Model
     public $param;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CloudApp
      *
      * @var string
