@@ -40,6 +40,10 @@ class dataDisk extends Model
     public $diskName;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $diskSize;

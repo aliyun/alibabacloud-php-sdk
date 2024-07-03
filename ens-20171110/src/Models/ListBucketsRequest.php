@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListBucketsRequest extends Model
 {
     /**
-     * @description The number of the page. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListBucketsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The maximum number of returned buckets. If this parameter is not specified, the default value is 10. The value cannot be greater than 100.
+     * @description The maximum number of returned buckets. You can leave this parameter empty. The default value is 10. The value cannot be greater than 100.
      *
      * @example 5
      *
@@ -27,7 +27,7 @@ class ListBucketsRequest extends Model
     public $pageSize;
 
     /**
-     * @description Specifies the prefix that returned bucket names must contain. If this parameter is not specified, prefix information will not be used as a filter.
+     * @description The prefix that returned bucket names must contain. If this parameter is not specified, prefix information will not be used as a filter.
      *
      * @example image
      *

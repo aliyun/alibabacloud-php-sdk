@@ -197,6 +197,11 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @var int
      */
     public $unhealthyThreshold;
+
+    /**
+     * @var string
+     */
+    public $XForwardedFor;
     protected $_name = [
         'description'            => 'Description',
         'healthCheck'            => 'HealthCheck',
@@ -214,6 +219,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
         'requestTimeout'         => 'RequestTimeout',
         'scheduler'              => 'Scheduler',
         'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'XForwardedFor'          => 'XForwardedFor',
     ];
 
     public function validate()
@@ -270,6 +276,9 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
         }
         if (null !== $this->unhealthyThreshold) {
             $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        }
+        if (null !== $this->XForwardedFor) {
+            $res['XForwardedFor'] = $this->XForwardedFor;
         }
 
         return $res;
@@ -330,6 +339,9 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
         }
         if (isset($map['UnhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        }
+        if (isset($map['XForwardedFor'])) {
+            $model->XForwardedFor = $map['XForwardedFor'];
         }
 
         return $model;

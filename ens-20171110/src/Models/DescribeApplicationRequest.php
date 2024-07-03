@@ -28,7 +28,7 @@ class DescribeApplicationRequest extends Model
     public $appVersions;
 
     /**
-     * @description The region level by which edge resources of the application are collected. The value must be of the enumerated data type. Valid values:
+     * @description The region level by which edge resources of the application are collected. The value is of the enumeration type. Valid values:
      *
      *   National: Chinese mainland
      *   Big: area
@@ -53,6 +53,10 @@ class DescribeApplicationRequest extends Model
     public $outDetailStatParams;
 
     /**
+     * @description The resource filter.
+     *
+     * @example [{\\"regionCode\\": \\"cn-wuxi-telecom_unicom_cmcc-3\\",    \\"ispCode\\": \\"telecom\\",    \\"count\\": 2	},{    \\"regionCode\\": \\"cn-shanghai-cmcc\\",    \\"count\\": 4	}]
+     *
      * @var string
      */
     public $resourceSelector;

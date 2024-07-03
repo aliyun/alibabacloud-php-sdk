@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsSaleControlShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $aliUidAccount;
@@ -23,6 +21,11 @@ class CreateEnsSaleControlShrinkRequest extends Model
     public $commodityCode;
 
     /**
+     * @var string
+     */
+    public $customAccount;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -31,6 +34,7 @@ class CreateEnsSaleControlShrinkRequest extends Model
     protected $_name = [
         'aliUidAccount'      => 'AliUidAccount',
         'commodityCode'      => 'CommodityCode',
+        'customAccount'      => 'CustomAccount',
         'saleControlsShrink' => 'SaleControls',
     ];
 
@@ -46,6 +50,9 @@ class CreateEnsSaleControlShrinkRequest extends Model
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->customAccount) {
+            $res['CustomAccount'] = $this->customAccount;
         }
         if (null !== $this->saleControlsShrink) {
             $res['SaleControls'] = $this->saleControlsShrink;
@@ -67,6 +74,9 @@ class CreateEnsSaleControlShrinkRequest extends Model
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['CustomAccount'])) {
+            $model->customAccount = $map['CustomAccount'];
         }
         if (isset($map['SaleControls'])) {
             $model->saleControlsShrink = $map['SaleControls'];

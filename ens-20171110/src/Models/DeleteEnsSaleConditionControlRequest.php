@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnsSaleConditionControlRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $aliUidAccount;
@@ -24,6 +22,11 @@ class DeleteEnsSaleConditionControlRequest extends Model
     public $commodityCode;
 
     /**
+     * @var string
+     */
+    public $customAccount;
+
+    /**
      * @description This parameter is required.
      *
      * @var saleControls[]
@@ -32,6 +35,7 @@ class DeleteEnsSaleConditionControlRequest extends Model
     protected $_name = [
         'aliUidAccount' => 'AliUidAccount',
         'commodityCode' => 'CommodityCode',
+        'customAccount' => 'CustomAccount',
         'saleControls'  => 'SaleControls',
     ];
 
@@ -47,6 +51,9 @@ class DeleteEnsSaleConditionControlRequest extends Model
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->customAccount) {
+            $res['CustomAccount'] = $this->customAccount;
         }
         if (null !== $this->saleControls) {
             $res['SaleControls'] = [];
@@ -74,6 +81,9 @@ class DeleteEnsSaleConditionControlRequest extends Model
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['CustomAccount'])) {
+            $model->customAccount = $map['CustomAccount'];
         }
         if (isset($map['SaleControls'])) {
             if (!empty($map['SaleControls'])) {

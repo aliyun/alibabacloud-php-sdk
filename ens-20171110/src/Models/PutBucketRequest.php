@@ -22,7 +22,7 @@ class PutBucketRequest extends Model
     public $bucketAcl;
 
     /**
-     * @description The name of the bucket.
+     * @description The name of the bucket. This parameter can contain 3 to 50 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot start or end with a hyphen (-).
      *
      * This parameter is required.
      * @example test
@@ -39,6 +39,11 @@ class PutBucketRequest extends Model
      * @var string
      */
     public $comment;
+
+    /**
+     * @var string
+     */
+    public $dispatchScope;
 
     /**
      * @description The ID of the region where the node is located. If this parameter is not specified, the node is the global default node.
@@ -61,6 +66,7 @@ class PutBucketRequest extends Model
         'bucketAcl'         => 'BucketAcl',
         'bucketName'        => 'BucketName',
         'comment'           => 'Comment',
+        'dispatchScope'     => 'DispatchScope',
         'ensRegionId'       => 'EnsRegionId',
         'logicalBucketType' => 'LogicalBucketType',
     ];
@@ -80,6 +86,9 @@ class PutBucketRequest extends Model
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->dispatchScope) {
+            $res['DispatchScope'] = $this->dispatchScope;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -107,6 +116,9 @@ class PutBucketRequest extends Model
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['DispatchScope'])) {
+            $model->dispatchScope = $map['DispatchScope'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];

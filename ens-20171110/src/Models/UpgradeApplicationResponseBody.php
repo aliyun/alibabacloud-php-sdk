@@ -18,6 +18,10 @@ class UpgradeApplicationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID. You can use the task ID to query the upgrade progress or status.
+     *
+     * @example 6f24a774-6bd5-4026-bb7d-deffb1dad875
+     *
      * @var string
      */
     public $taskId;

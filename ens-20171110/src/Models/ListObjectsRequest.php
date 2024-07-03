@@ -37,7 +37,7 @@ class ListObjectsRequest extends Model
     public $encodingType;
 
     /**
-     * @description The position from which the list operation starts. The name of the object after which the list operation starts. If this parameter is specified, objects whose names are alphabetically greater than the value of Marker are returned. The Marker parameter is used to list the returned objects by page, and its value must be less than 1,024 bytes in length.
+     * @description The position from which the list operation starts. If this parameter is specified, objects whose names are alphabetically greater than value of Marker are returned. The Marker parameter is used to list the returned objects by page, and its value must be smaller than 1,024 bytes in length.
      *
      * Even if the value specified for Marker does not exist in the list during a conditional query, the list starts from the object whose name is alphabetically greater than the value of Marker.
      * @example a
@@ -47,9 +47,8 @@ class ListObjectsRequest extends Model
     public $marker;
 
     /**
-     * @description The maximum number of objects to return.
+     * @description The maximum number of objects to return. Valid values: 0 to 1000. Default value: 100.
      *
-     * Valid values: 0 to 1000. Default value: 100.
      * @example 100
      *
      * @var int
@@ -67,9 +66,8 @@ class ListObjectsRequest extends Model
     public $prefix;
 
     /**
-     * @description The position from which the list operation starts. The name of the object after which the list operation starts. If this parameter is specified, objects whose names are alphabetically greater than the value of StartAfter are returned. The StartAfter parameter is used to list the returned objects by page, and its value must be less than 1,000 bytes in length.
+     * @description The position from which the list operation starts. If this parameter is specified, objects whose names are alphabetically greater than the value of StartAfter are returned. The StartAfter parameter is used to list the returned objects by page, and its value must be less than 1,000 bytes in length. Even if the value specified for StartAfter does not exist in the list during a conditional query, the list starts from the object whose name is alphabetically greater than the value of StartAfter.
      *
-     * Even if the value specified for StartAfter does not exist in the list during a conditional query, the list starts from the object whose name is alphabetically greater than the value of StartAfter.
      * @example b
      *
      * @var string

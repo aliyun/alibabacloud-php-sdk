@@ -86,6 +86,15 @@ class DescribeInstancesShrinkRequest extends Model
     public $instanceResourceType;
 
     /**
+     * @description The instance type.
+     *
+     * @example ens.se1.tiny
+     *
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @description The internal IP address of the instance.
      *
      * @example 47.100.XX.XX
@@ -114,7 +123,7 @@ class DescribeInstancesShrinkRequest extends Model
     public $orderByParams;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**.
+     * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
      * @example 1
@@ -165,6 +174,8 @@ class DescribeInstancesShrinkRequest extends Model
     public $status;
 
     /**
+     * @description The tags that are added to the resource.
+     *
      * @var string
      */
     public $tagsShrink;
@@ -186,6 +197,7 @@ class DescribeInstancesShrinkRequest extends Model
         'instanceIds'          => 'InstanceIds',
         'instanceName'         => 'InstanceName',
         'instanceResourceType' => 'InstanceResourceType',
+        'instanceType'         => 'InstanceType',
         'intranetIp'           => 'IntranetIp',
         'networkId'            => 'NetworkId',
         'orderByParams'        => 'OrderByParams',
@@ -228,6 +240,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (null !== $this->instanceResourceType) {
             $res['InstanceResourceType'] = $this->instanceResourceType;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
@@ -294,6 +309,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (isset($map['InstanceResourceType'])) {
             $model->instanceResourceType = $map['InstanceResourceType'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];

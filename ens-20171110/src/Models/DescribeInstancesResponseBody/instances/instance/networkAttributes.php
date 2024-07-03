@@ -26,7 +26,7 @@ class networkAttributes extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-2zeh0r1pabwtg6wcs****
      *

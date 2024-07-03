@@ -19,7 +19,7 @@ class ListObjectsResponseBody extends Model
     public $bucketName;
 
     /**
-     * @description The container for all object names between Prefix and the next occurrence of the string specified by a delimiter. A response can contain CommonPrefixes only if you specify a delimiter.
+     * @description If the delimiter parameter is specified in the request, the response contains CommonPrefixes. Objects whose names contain the same string from the prefix to the next occurrence of the delimiter are grouped as a single result element in CommonPrefixes.
      *
      * @var string[]
      */
@@ -72,7 +72,7 @@ class ListObjectsResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The number of objects returned for this request.
+     * @description The number of keys returned for this request.
      *
      * @example 10
      *

@@ -155,6 +155,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGShrinkRequest;
@@ -299,6 +302,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsShrinkRequest;
@@ -358,6 +364,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ListBucketsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListBucketsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListObjectsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListObjectsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceRequest;
@@ -389,6 +397,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PutBucketAclRequest;
@@ -429,6 +440,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ReleasePrePaidInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveSDGRequest;
@@ -502,12 +516,19 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlShrinkRequest;
@@ -1760,6 +1781,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
         }
         if (!Utils::isUnset($request->saleControlsShrink)) {
             $query['SaleControls'] = $request->saleControlsShrink;
@@ -3688,6 +3712,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
         }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
+        }
         if (!Utils::isUnset($request->saleControlsShrink)) {
             $query['SaleControls'] = $request->saleControlsShrink;
         }
@@ -3745,6 +3772,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
         }
         if (!Utils::isUnset($request->saleControlsShrink)) {
             $query['SaleControls'] = $request->saleControlsShrink;
@@ -4399,8 +4429,11 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($tmpReq->SDGId)) {
             $request->SDGIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGId, 'SDGId', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->SDGIdShrink)) {
+            $query['SDGId'] = $request->SDGIdShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4408,7 +4441,7 @@ class Ens extends OpenApiClient
             'version'     => '2017-11-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4679,6 +4712,64 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 部署SDG到计算实例
+     *  *
+     * @param DeployInstanceSDGRequest $tmpReq  DeployInstanceSDGRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeployInstanceSDGResponse DeployInstanceSDGResponse
+     */
+    public function deployInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeployInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->deploymentType)) {
+            $query['DeploymentType'] = $request->deploymentType;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeployInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 部署SDG到计算实例
+     *  *
+     * @param DeployInstanceSDGRequest $request DeployInstanceSDGRequest
+     *
+     * @return DeployInstanceSDGResponse DeployInstanceSDGResponse
+     */
+    public function deployInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployInstanceSDGWithOptions($request, $runtime);
     }
 
     /**
@@ -7372,6 +7463,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->instanceResourceType)) {
             $query['InstanceResourceType'] = $request->instanceResourceType;
         }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         if (!Utils::isUnset($request->intranetIp)) {
             $query['IntranetIp'] = $request->intranetIp;
         }
@@ -7552,8 +7646,7 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries the configuration of an HTTP listener.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
+     * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
@@ -7592,8 +7685,7 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries the configuration of an HTTP listener.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
+     * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
@@ -8610,6 +8702,64 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 查询SDG信息
+     *  *
+     * @param DescribeSDGRequest $tmpReq  DescribeSDGRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSDGResponse DescribeSDGResponse
+     */
+    public function describeSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->SDGIds)) {
+            $request->SDGIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGIds, 'SDGIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->SDGIdsShrink)) {
+            $query['SDGIds'] = $request->SDGIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询SDG信息
+     *  *
+     * @param DescribeSDGRequest $request DescribeSDGRequest
+     *
+     * @return DescribeSDGResponse DescribeSDGResponse
+     */
+    public function describeSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSDGWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the deployment status of the shared data group (SDG).
      *  *
      * @param DescribeSDGDeploymentStatusRequest $request DescribeSDGDeploymentStatusRequest
@@ -8672,8 +8822,14 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($tmpReq->SDGIds)) {
             $request->SDGIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGIds, 'SDGIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGIdsShrink)) {
+            $query['SDGIds'] = $request->SDGIdsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -8681,7 +8837,7 @@ class Ens extends OpenApiClient
             'version'     => '2017-11-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -10131,7 +10287,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Lists all objects in a bucket.
+     * @summary Queries the information about all objects in a bucket.
      *  *
      * @param ListObjectsRequest $request ListObjectsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -10182,7 +10338,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Lists all objects in a bucket.
+     * @summary Queries the information about all objects in a bucket.
      *  *
      * @param ListObjectsRequest $request ListObjectsRequest
      *
@@ -10193,6 +10349,62 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -11055,6 +11267,70 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 节点及AIC的命名空间粒度预热SDG
+     *  *
+     * @param PreloadRegionSDGRequest $tmpReq  PreloadRegionSDGRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PreloadRegionSDGResponse PreloadRegionSDGResponse
+     */
+    public function preloadRegionSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PreloadRegionSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destinationRegionIds)) {
+            $request->destinationRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationRegionIds, 'DestinationRegionIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->namespaces)) {
+            $request->namespacesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->destinationRegionIdsShrink)) {
+            $query['DestinationRegionIds'] = $request->destinationRegionIdsShrink;
+        }
+        if (!Utils::isUnset($request->namespacesShrink)) {
+            $query['Namespaces'] = $request->namespacesShrink;
+        }
+        if (!Utils::isUnset($request->redundantNum)) {
+            $query['RedundantNum'] = $request->redundantNum;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreloadRegionSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreloadRegionSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 节点及AIC的命名空间粒度预热SDG
+     *  *
+     * @param PreloadRegionSDGRequest $request PreloadRegionSDGRequest
+     *
+     * @return PreloadRegionSDGResponse PreloadRegionSDGResponse
+     */
+    public function preloadRegionSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preloadRegionSDGWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Pushes the business or service data of an application to file servers.
      *  *
      * @param PushApplicationDataRequest $request PushApplicationDataRequest
@@ -11130,6 +11406,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->comment)) {
             $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->dispatchScope)) {
+            $body['DispatchScope'] = $request->dispatchScope;
         }
         if (!Utils::isUnset($request->ensRegionId)) {
             $body['EnsRegionId'] = $request->ensRegionId;
@@ -11222,8 +11501,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Configures lifecycle rules for objects.
      *  *
-     * @description - You can configure up to 1000 rules.
-     * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     * @description *   You can configure up to 1,000 rules.
+     * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
      *  *
      * @param PutBucketLifecycleRequest $request PutBucketLifecycleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -11276,8 +11555,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Configures lifecycle rules for objects.
      *  *
-     * @description - You can configure up to 1000 rules.
-     * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     * @description *   You can configure up to 1,000 rules.
+     * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
      *  *
      * @param PutBucketLifecycleRequest $request PutBucketLifecycleRequest
      *
@@ -11996,6 +12275,58 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeBackendServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 移除计算实例上已挂载的SDG
+     *  *
+     * @param RemoveInstanceSDGRequest $tmpReq  RemoveInstanceSDGRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveInstanceSDGResponse RemoveInstanceSDGResponse
+     */
+    public function removeInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 移除计算实例上已挂载的SDG
+     *  *
+     * @param RemoveInstanceSDGRequest $request RemoveInstanceSDGRequest
+     *
+     * @return RemoveInstanceSDGResponse RemoveInstanceSDGResponse
+     */
+    public function removeInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeInstanceSDGWithOptions($request, $runtime);
     }
 
     /**
@@ -13226,6 +13557,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
+        if (!Utils::isUnset($request->XForwardedFor)) {
+            $query['XForwardedFor'] = $request->XForwardedFor;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -14134,6 +14468,59 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Disassociates an elastic IP address (EIP) from an instance.
      *  *
      * @param UnAssociateEnsEipAddressRequest $request UnAssociateEnsEipAddressRequest
@@ -14281,6 +14668,123 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 释放预热的节点及AIC的命名空间粒度SDG
+     *  *
+     * @param UnloadRegionSDGRequest $tmpReq  UnloadRegionSDGRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnloadRegionSDGResponse UnloadRegionSDGResponse
+     */
+    public function unloadRegionSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UnloadRegionSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destinationRegionIds)) {
+            $request->destinationRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationRegionIds, 'DestinationRegionIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->namespaces)) {
+            $request->namespacesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->destinationRegionIdsShrink)) {
+            $query['DestinationRegionIds'] = $request->destinationRegionIdsShrink;
+        }
+        if (!Utils::isUnset($request->namespacesShrink)) {
+            $query['Namespaces'] = $request->namespacesShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnloadRegionSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnloadRegionSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 释放预热的节点及AIC的命名空间粒度SDG
+     *  *
+     * @param UnloadRegionSDGRequest $request UnloadRegionSDGRequest
+     *
+     * @return UnloadRegionSDGResponse UnloadRegionSDGResponse
+     */
+    public function unloadRegionSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unloadRegionSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改售卖约束
      *  *
      * @param UpdateEnsSaleControlRequest $tmpReq  UpdateEnsSaleControlRequest
@@ -14302,6 +14806,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
         }
         if (!Utils::isUnset($request->saleControlsShrink)) {
             $query['SaleControls'] = $request->saleControlsShrink;

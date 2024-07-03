@@ -18,6 +18,10 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The automatic release time of the instance.
+     *
+     * @example 2023-06-28T14:38:52Z
+     *
      * @var string
      */
     public $autoReleaseTime;
@@ -79,7 +83,7 @@ class instance extends Model
      *
      *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
      *   For a Windows instance, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot contain periods (.) or contain only digits.
-     *   For other operating systems: The hostname must be 2 to 64 characters in length and can contain letters, digits, and hyphens (-). It can be separated by periods (.).
+     *   For an instance that runs another operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
      *
      * @example testHostName
      *
@@ -113,7 +117,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the virtual private cloud (VPC).
+     * @description The name of the instance.
      *
      * @example i-5itef0f28t17bcdw9deu6meub
      *
@@ -122,7 +126,7 @@ class instance extends Model
     public $instanceName;
 
     /**
-     * @description The type of the instance. Valid values:
+     * @description The category of the instance. Valid values:
      *
      *   EnsInstance: ENS instances that you purchase.
      *   EnsService: ENS instances that belong to edge services.
@@ -233,6 +237,10 @@ class instance extends Model
     public $specName;
 
     /**
+     * @description The bidding policy of the preemptible instance.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
@@ -258,6 +266,8 @@ class instance extends Model
     public $systemDisk;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tags
      */
     public $tags;

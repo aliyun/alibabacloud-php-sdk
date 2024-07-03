@@ -31,7 +31,10 @@ class CreateARMServerInstancesRequest extends Model
     public $autoRenew;
 
     /**
-     * @description Specifies whether to use coupons. Valid values: true and false Default value: true.
+     * @description Specifies whether to use coupons. Valid values:
+     *
+     *   true
+     *   false (default)
      *
      * @example true
      *
@@ -69,29 +72,29 @@ class CreateARMServerInstancesRequest extends Model
     public $imageId;
 
     /**
-     * @description The specification of the Android in Container (AIC) instance. Valid values:
+     * @description The specification of the Android in Container (AIC) instance. Examples:
      *
-     *   aic.cf53r.c1.np
-     *   aic.cf53r.c2.np
-     *   aic.cf53r.c3.np
-     *   aic.cf53r.c4.np
-     *   aic.cf53r.c5.np
-     *   aic.cf53r.c6.np
-     *   aic.cf53r.c7.np
-     *   aic.cf53r.c8.np
-     *   ens.a6c2
-     *   aic.cf52m1r.c1.np
-     *   aic.cf52m1r.c2.np
-     *   aic.cf52m1r.c3.np
-     *   aic.cf52m1r.c4.np
-     *   aic.cf52m1r.c5.np
-     *   aic.cf53r.c6
-     *   aic.cf52m1r.c6
-     *   aic.cf53r.c7
      *   aic.cf52r.c1.np
      *   aic.cf52r.c2.np
-     *   aic.cf52r.c3.np
+     *   aic.cf53r.c2.np
      *   aic.cf52r.c4.np
+     *   aic.cf53r.c3.np
+     *   aic.cf52r.c3.np
+     *   aic.cf53r.c1.np
+     *   aic.cf53r.c5.np
+     *   aic.cf53r.c6
+     *   aic.cf53r.c4.np
+     *   aic.cf53r.c6.np
+     *   aic.cf53r.c7.np
+     *   aic.cf52m1r.c5.np
+     *   aic.cf53r.c8.np
+     *   aic.cf53r.c7
+     *   aic.cf52m1r.c2.np
+     *   aic.cf52m1r.c1.np
+     *   aic.cf52m1r.c3.np
+     *   aic.cf52m1r.c4.np
+     *   aic.cf52m1r.c6
+     *   ens.a6c2
      *
      * This parameter is required.
      * @example aic.cf53r.c6.np
@@ -110,7 +113,7 @@ class CreateARMServerInstancesRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example pre
      *
@@ -157,26 +160,15 @@ class CreateARMServerInstancesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The resolution. Valid values:
+     * @description The resolution. Examples:
      *
-     *   1920\\*1080
+     *   1920\\*864
      *   1080\\*1920
-     *   1280\\*720
+     *   1920\\*1080
      *   720\\*1280
      *   2400\\*1080
-     *   1920\\*864
      *   1080\\*2400
-     *   864\\*1920
-     *
-     * <!---->
-     *
-     *   1920\\*1080
-     *   1080\\*1920
      *   1280\\*720
-     *   720\\*1280
-     *   2400\\*1080
-     *   1920\\*864
-     *   1080\\*2400
      *   864\\*1920
      *
      * This parameter is required.
@@ -196,7 +188,7 @@ class CreateARMServerInstancesRequest extends Model
     public $serverName;
 
     /**
-     * @description The specification of the ARM server. Valid values:
+     * @description The specification of the ARM server. Examples:
      *
      *   cas.cf53r
      *   cas.cf52r

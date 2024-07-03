@@ -31,8 +31,6 @@ class ExportImageRequest extends Model
     /**
      * @description The prefix of the object as which you want to store the image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
      *
-     * @example dataCenter/972****\/
-     *
      * @var string
      */
     public $OSSPrefix;

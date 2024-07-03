@@ -117,12 +117,8 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
      *   Valid values: **1** to **300**.
      *   Unit: seconds.
      *
-     * >
-     *
-     *   This parameter is returned only if you set HealthCheck to on.
-     *
-     *   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
-     *
+     * >*   This parameter is returned only if you set HealthCheck to on.
+     * >*   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
      * @example 10
      *
      * @var int
@@ -132,12 +128,8 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @description The Uniform Resource Identifier (URI) that is used for health checks. The URI must be **1** to **80** characters in length.
      *
-     * >
-     *
-     *   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
-     *
-     *   This parameter is returned only if you set HealthCheck to on.
-     *
+     * >*   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
+     * >*   This parameter is returned only if you set HealthCheck to on.
      * @example /checkpreload.htm
      *
      * @var string
@@ -253,6 +245,18 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
      * @var int
      */
     public $unhealthyThreshold;
+
+    /**
+     * @description Specifies whether to use the X-Forwarded-For header to obtain the real IP address of the client. Valid values:
+     *
+     *   **on**
+     *   **off** (default)
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $XForwardedFor;
     protected $_name = [
         'bandwidth'              => 'Bandwidth',
         'description'            => 'Description',
@@ -275,6 +279,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         'serverCertificateId'    => 'ServerCertificateId',
         'status'                 => 'Status',
         'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'XForwardedFor'          => 'XForwardedFor',
     ];
 
     public function validate()
@@ -346,6 +351,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         }
         if (null !== $this->unhealthyThreshold) {
             $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        }
+        if (null !== $this->XForwardedFor) {
+            $res['XForwardedFor'] = $this->XForwardedFor;
         }
 
         return $res;
@@ -421,6 +429,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         }
         if (isset($map['UnhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        }
+        if (isset($map['XForwardedFor'])) {
+            $model->XForwardedFor = $map['XForwardedFor'];
         }
 
         return $model;

@@ -31,9 +31,9 @@ class PutBucketLifecycleRequest extends Model
     public $bucketName;
 
     /**
-     * @description The expiration data. EOS executes a lifecycle rule for objects that were last updated before the expiration date.
+     * @description The expiration time. EOS executes a lifecycle rule for objects that were last updated before the expiration time.
      *
-     * > ExpirationDays and CreateBeforeDate are mutually exclusive.
+     * >  ExpirationDays and CreateBeforeDate are mutually exclusive.
      * @example 2023-10-12T05:45:00Z
      *
      * @var string
@@ -43,7 +43,7 @@ class PutBucketLifecycleRequest extends Model
     /**
      * @description The number of days from when the objects were last modified to when the lifecycle rule takes effect. The value must be a positive integer that is greater than 0.
      *
-     * > ExpirationDays and CreateBeforeDate are mutually exclusive.
+     * >  ExpirationDays and CreateBeforeDate are mutually exclusive.
      * @example 5
      *
      * @var int
@@ -51,7 +51,7 @@ class PutBucketLifecycleRequest extends Model
     public $expirationDays;
 
     /**
-     * @description The prefix of a rule. The prefix must be unique.
+     * @description The prefix of a object name. The prefix must be unique.
      *
      *   If you specify a prefix, the rule applies only to objects in the bucket that match the prefix.
      *   If you do not specify a prefix, the rule applies to all objects in the bucket.
@@ -66,7 +66,7 @@ class PutBucketLifecycleRequest extends Model
      * @description The unique ID of the rule. The ID of a lifecycle rule can be up to 255 bytes in length.
      *
      *   You do not need to configure this parameter when you create a rule. The system automatically generates a unique ID.
-     *   When you update a rule, you need to specify the rule ID, and the rule must exist. Otherwise, an error occurs.
+     *   When you update a rule, you need to specify this parameter. Make sure that the rule specified by RuleId exists. Otherwise, an error occurs.
      *
      * @example 1
      *
@@ -77,8 +77,8 @@ class PutBucketLifecycleRequest extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   **Enabled**: The rule is periodically executed.
-     *   **Disabled**: The rule is ignored.
+     *   **Enabled**
+     *   **Disabled**
      *
      * This parameter is required.
      * @example Enabled

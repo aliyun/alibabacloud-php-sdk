@@ -11,12 +11,16 @@ class tags extends Model
     /**
      * @description The tag key. Valid values: 1 to 20.
      *
+     * @example tag
+     *
      * @var string
      */
     public $key;
 
     /**
      * @description The tag value. Valid values: 1 to 20.
+     *
+     * @example 2
      *
      * @var string
      */
