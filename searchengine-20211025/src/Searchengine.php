@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CloneSqlInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CloneSqlInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateAliasRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateAliasResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateConfigDirRequest;
@@ -32,6 +34,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAdvanceConfigResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAliasResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigDirRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigDirResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigFileRequest;
@@ -76,6 +79,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigDirRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigDirResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAdvanceConfigsResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAliasesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterNamesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterTasksResponse;
@@ -120,6 +124,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigFileReques
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigFileResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAdvanceConfigResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAliasRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyAliasResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterDescRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterDescResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyClusterOfflineConfigRequest;
@@ -406,6 +412,62 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->cloneSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param CreateAliasRequest $request    CreateAliasRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateAliasResponse CreateAliasResponse
+     */
+    public function createAliasWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newMode)) {
+            $query['newMode'] = $request->newMode;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->alias)) {
+            $body['alias'] = $request->alias;
+        }
+        if (!Utils::isUnset($request->index)) {
+            $body['index'] = $request->index;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAlias',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param CreateAliasRequest $request    CreateAliasRequest
+     *
+     * @return CreateAliasResponse CreateAliasResponse
+     */
+    public function createAlias($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAliasWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1116,6 +1178,48 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->deleteAdvanceConfigWithOptions($instanceId, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string         $alias
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAliasResponse DeleteAliasResponse
+     */
+    public function deleteAliasWithOptions($instanceId, $alias, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlias',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $alias
+     *
+     * @return DeleteAliasResponse DeleteAliasResponse
+     */
+    public function deleteAlias($instanceId, $alias)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAliasWithOptions($instanceId, $alias, $headers, $runtime);
     }
 
     /**
@@ -2869,6 +2973,46 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param string         $instanceId
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ListAliasesResponse ListAliasesResponse
+     */
+    public function listAliasesWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListAliases',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return ListAliasesResponse ListAliasesResponse
+     */
+    public function listAliases($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAliasesWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries cluster names.
      *  *
      * @description ### Method
@@ -4413,6 +4557,59 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->modifyAdvanceConfigFileWithOptions($instanceId, $configName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $alias
+     * @param ModifyAliasRequest $request    ModifyAliasRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAliasResponse ModifyAliasResponse
+     */
+    public function modifyAliasWithOptions($instanceId, $alias, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alias)) {
+            $body['alias'] = $request->alias;
+        }
+        if (!Utils::isUnset($request->index)) {
+            $body['index'] = $request->index;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAlias',
+            'version'     => '2021-10-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $alias
+     * @param ModifyAliasRequest $request    ModifyAliasRequest
+     *
+     * @return ModifyAliasResponse ModifyAliasResponse
+     */
+    public function modifyAlias($instanceId, $alias, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyAliasWithOptions($instanceId, $alias, $request, $headers, $runtime);
     }
 
     /**
