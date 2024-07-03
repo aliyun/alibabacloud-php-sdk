@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DetachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DetachKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DistributeImageRequest;
@@ -1447,6 +1449,71 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询异步任务
+     *  *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTasksResponse DescribeTasksResponse
+     */
+    public function describeTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->invokeId)) {
+            $query['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        if (!Utils::isUnset($request->taskStatus)) {
+            $query['TaskStatus'] = $request->taskStatus;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTasks',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询异步任务
+     *  *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     *
+     * @return DescribeTasksResponse DescribeTasksResponse
+     */
+    public function describeTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTasksWithOptions($request, $runtime);
     }
 
     /**
