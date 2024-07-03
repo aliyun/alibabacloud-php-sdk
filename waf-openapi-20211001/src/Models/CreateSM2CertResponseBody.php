@@ -6,18 +6,24 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyApisecLogDeliveryResponseBody extends Model
+class CreateSM2CertResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @example ***-cn-hangzhou
      *
-     * @example F35F45B0-5D6B-4238-BE02-A62D****E840
+     * @var string
+     */
+    public $certIdentifier;
+
+    /**
+     * @example D7861F61-5B61-46CE-A47C-***
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'certIdentifier' => 'CertIdentifier',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class ModifyApisecLogDeliveryResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certIdentifier) {
+            $res['CertIdentifier'] = $this->certIdentifier;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class ModifyApisecLogDeliveryResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyApisecLogDeliveryResponseBody
+     * @return CreateSM2CertResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertIdentifier'])) {
+            $model->certIdentifier = $map['CertIdentifier'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

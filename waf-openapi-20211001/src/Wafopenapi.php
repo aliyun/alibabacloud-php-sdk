@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventRequest;
@@ -63,6 +65,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupRequest;
@@ -842,6 +846,74 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary 上传国密证书
+     *  *
+     * @param CreateSM2CertRequest $request CreateSM2CertRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSM2CertResponse CreateSM2CertResponse
+     */
+    public function createSM2CertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->encryptCertificate)) {
+            $query['EncryptCertificate'] = $request->encryptCertificate;
+        }
+        if (!Utils::isUnset($request->encryptPrivateKey)) {
+            $query['EncryptPrivateKey'] = $request->encryptPrivateKey;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->signCertificate)) {
+            $query['SignCertificate'] = $request->signCertificate;
+        }
+        if (!Utils::isUnset($request->signPrivateKey)) {
+            $query['SignPrivateKey'] = $request->signPrivateKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSM2Cert',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 上传国密证书
+     *  *
+     * @param CreateSM2CertRequest $request CreateSM2CertRequest
+     *
+     * @return CreateSM2CertResponse CreateSM2CertResponse
+     */
+    public function createSM2Cert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSM2CertWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除API安全风险
      *  *
      * @param DeleteApisecAbnormalRequest $request DeleteApisecAbnormalRequest
@@ -1583,7 +1655,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 获取API安全日志订阅列表
+     * @summary Queries the configurations of API security log subscription.
      *  *
      * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1694,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 获取API安全日志订阅列表
+     * @summary Queries the configurations of API security log subscription.
      *  *
      * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
      *
@@ -1713,7 +1785,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志服务SLS的LogStore列表
+     * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
      *  *
      * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1758,7 +1830,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志服务SLS的LogStore列表
+     * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
      *  *
      * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
      *
@@ -1772,7 +1844,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志服务SLS的Project列表
+     * @summary Queries the projects whose names start with apisec- in Simple Log Service.
      *  *
      * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1814,7 +1886,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询日志服务SLS的Project列表
+     * @summary Queries the projects whose names start with apisec- in Simple Log Service.
      *  *
      * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
      *
@@ -2029,6 +2101,59 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeDDoSStatusRequest $request DescribeDDoSStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDDoSStatusResponse DescribeDDoSStatusResponse
+     */
+    public function describeDDoSStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDoSStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+     *  *
+     * @param DescribeDDoSStatusRequest $request DescribeDDoSStatusRequest
+     *
+     * @return DescribeDDoSStatusResponse DescribeDDoSStatusResponse
+     */
+    public function describeDDoSStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDDoSStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -5293,7 +5418,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改API安全日志订阅
+     * @summary Modifies the configurations of API security log subscription.
      *  *
      * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5344,7 +5469,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改API安全日志订阅
+     * @summary Modifies the configurations of API security log subscription.
      *  *
      * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
      *
@@ -5358,7 +5483,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改API安全日志订阅状态
+     * @summary Modifies the status of API security log subscription.
      *  *
      * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5403,7 +5528,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改API安全日志订阅状态
+     * @summary Modifies the status of API security log subscription.
      *  *
      * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
      *

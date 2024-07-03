@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApisecLogDeliveryStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F35F45B0-5D6B-4238-BE02-A62D****E840
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecSlsLogStoresResponseBody extends Model
 {
     /**
+     * @description The names of the Logstores in Simple Log Service.
+     *
      * @var string[]
      */
     public $logStores;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D7861F61-5B61-46CE-A47C-6B19****5EB0
      *
      * @var string

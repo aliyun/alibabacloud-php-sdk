@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecSlsProjectsResponseBody extends Model
 {
     /**
+     * @description The names of the projects in Simple Log Service.
+     *
      * @var string[]
      */
     public $projects;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D7861F61-5B61-46CE-A47C-6B19****5EB0
      *
      * @var string

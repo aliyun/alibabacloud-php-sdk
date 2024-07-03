@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecLogDeliveriesResponseBody extends Model
 {
     /**
+     * @description The configurations of API security log subscription.
+     *
      * @var deliveryConfigs[]
      */
     public $deliveryConfigs;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2EFCFE18-78F8-5079-B312-07***48B
      *
      * @var string

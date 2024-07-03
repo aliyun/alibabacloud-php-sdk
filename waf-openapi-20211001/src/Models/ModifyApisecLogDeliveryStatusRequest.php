@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyApisecLogDeliveryStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the log subscription. Valid values:
      *
+     *   **risk**: risk information.
+     *   **event**: attack event information.
+     *   **asset**: asset information.
+     *
+     * This parameter is required.
      * @example risk
      *
      * @var string
@@ -18,8 +23,9 @@ class ModifyApisecLogDeliveryStatusRequest extends Model
     public $assertKey;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * This parameter is required.
      * @example waf_v3_public_cn-uqm2z****0a
      *
      * @var string
@@ -27,6 +33,11 @@ class ModifyApisecLogDeliveryStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region where the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -34,6 +45,8 @@ class ModifyApisecLogDeliveryStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -41,8 +54,12 @@ class ModifyApisecLogDeliveryStatusRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The status of API security log subscription. Valid values:
      *
+     *   **true**: enabled.
+     *   **false**: disabled.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

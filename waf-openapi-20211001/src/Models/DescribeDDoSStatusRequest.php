@@ -6,40 +6,20 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeApisecSlsLogStoresRequest extends Model
+class DescribeDDoSStatusRequest extends Model
 {
     /**
-     * @description The ID of the Web Application Firewall (WAF) instance.
+     * @description The ID of the WAF instance that you want to query.
      *
      * This parameter is required.
-     * @example waf_v3_public_cn-uqm2z****0a
+     * @example waf_v3prepaid_public_cn-***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the region where logs are stored.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $logRegionId;
-
-    /**
-     * @description The name of the project in Simple Log Service.
-     *
-     * This parameter is required.
-     * @example apisec-project-14316572********
-     *
-     * @var string
-     */
-    public $projectName;
-
-    /**
-     * @description The region where the WAF instance is deployed. Valid values:
+     * @description The region in which the WAF instance is deployed. Valid values:
      *
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
@@ -60,8 +40,6 @@ class DescribeApisecSlsLogStoresRequest extends Model
     public $resourceManagerResourceGroupId;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
-        'logRegionId'                    => 'LogRegionId',
-        'projectName'                    => 'ProjectName',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
@@ -76,12 +54,6 @@ class DescribeApisecSlsLogStoresRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->logRegionId) {
-            $res['LogRegionId'] = $this->logRegionId;
-        }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -95,19 +67,13 @@ class DescribeApisecSlsLogStoresRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeApisecSlsLogStoresRequest
+     * @return DescribeDDoSStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['LogRegionId'])) {
-            $model->logRegionId = $map['LogRegionId'];
-        }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

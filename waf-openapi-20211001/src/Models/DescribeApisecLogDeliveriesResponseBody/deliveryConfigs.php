@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class deliveryConfigs extends Model
 {
     /**
+     * @description The type of the log subscription. Valid values:
+     *
+     *   **risk**: risk information.
+     *   **event**: attack event information.
+     *   **asset**: asset information.
+     *
      * @example risk
      *
      * @var string
@@ -16,6 +22,8 @@ class deliveryConfigs extends Model
     public $assertKey;
 
     /**
+     * @description The ID of the region where logs are stored.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,8 @@ class deliveryConfigs extends Model
     public $logRegionId;
 
     /**
+     * @description The name of the Logstore in Simple Log Service.
+     *
      * @example apisec-logstore***
      *
      * @var string
@@ -30,6 +40,8 @@ class deliveryConfigs extends Model
     public $logStoreName;
 
     /**
+     * @description The name of the project in Simple Log Service.
+     *
      * @example apisec-project-14316572********
      *
      * @var string
@@ -37,6 +49,11 @@ class deliveryConfigs extends Model
     public $projectName;
 
     /**
+     * @description The status of API security log subscription. Valid values:
+     *
+     *   **true**: enabled.
+     *   **false**: disabled.
+     *
      * @example true
      *
      * @var bool
