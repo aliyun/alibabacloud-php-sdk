@@ -38,8 +38,6 @@ class CreateVectorIndexRequest extends Model
     /**
      * @description Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
      *
-     * >
-     *
      *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
      *
      *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
@@ -88,8 +86,9 @@ class CreateVectorIndexRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description Distance Metrics。
+     * @description The method that is used to create vector indexes.Valid values:
      *
+     * - cosine: cosine similarity.
      * @example cosine
      *
      * @var string

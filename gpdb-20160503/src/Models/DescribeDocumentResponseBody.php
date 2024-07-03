@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocumentResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $chunkFileUrl;
+
+    /**
      * @example 100
      *
      * @var int
@@ -58,6 +63,11 @@ class DescribeDocumentResponseBody extends Model
     public $fileSize;
 
     /**
+     * @var string
+     */
+    public $fileUrl;
+
+    /**
      * @example 1
      *
      * @var int
@@ -70,6 +80,11 @@ class DescribeDocumentResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $plainChunkFileUrl;
 
     /**
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -99,19 +114,22 @@ class DescribeDocumentResponseBody extends Model
      */
     public $textSplitter;
     protected $_name = [
-        'docsCount'      => 'DocsCount',
-        'documentLoader' => 'DocumentLoader',
-        'fileExt'        => 'FileExt',
-        'fileMd5'        => 'FileMd5',
-        'fileMtime'      => 'FileMtime',
-        'fileName'       => 'FileName',
-        'fileSize'       => 'FileSize',
-        'fileVersion'    => 'FileVersion',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'source'         => 'Source',
-        'status'         => 'Status',
-        'textSplitter'   => 'TextSplitter',
+        'chunkFileUrl'      => 'ChunkFileUrl',
+        'docsCount'         => 'DocsCount',
+        'documentLoader'    => 'DocumentLoader',
+        'fileExt'           => 'FileExt',
+        'fileMd5'           => 'FileMd5',
+        'fileMtime'         => 'FileMtime',
+        'fileName'          => 'FileName',
+        'fileSize'          => 'FileSize',
+        'fileUrl'           => 'FileUrl',
+        'fileVersion'       => 'FileVersion',
+        'message'           => 'Message',
+        'plainChunkFileUrl' => 'PlainChunkFileUrl',
+        'requestId'         => 'RequestId',
+        'source'            => 'Source',
+        'status'            => 'Status',
+        'textSplitter'      => 'TextSplitter',
     ];
 
     public function validate()
@@ -121,6 +139,9 @@ class DescribeDocumentResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chunkFileUrl) {
+            $res['ChunkFileUrl'] = $this->chunkFileUrl;
+        }
         if (null !== $this->docsCount) {
             $res['DocsCount'] = $this->docsCount;
         }
@@ -142,11 +163,17 @@ class DescribeDocumentResponseBody extends Model
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
+        }
         if (null !== $this->fileVersion) {
             $res['FileVersion'] = $this->fileVersion;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->plainChunkFileUrl) {
+            $res['PlainChunkFileUrl'] = $this->plainChunkFileUrl;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -172,6 +199,9 @@ class DescribeDocumentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChunkFileUrl'])) {
+            $model->chunkFileUrl = $map['ChunkFileUrl'];
+        }
         if (isset($map['DocsCount'])) {
             $model->docsCount = $map['DocsCount'];
         }
@@ -193,11 +223,17 @@ class DescribeDocumentResponseBody extends Model
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
+        if (isset($map['FileUrl'])) {
+            $model->fileUrl = $map['FileUrl'];
+        }
         if (isset($map['FileVersion'])) {
             $model->fileVersion = $map['FileVersion'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['PlainChunkFileUrl'])) {
+            $model->plainChunkFileUrl = $map['PlainChunkFileUrl'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

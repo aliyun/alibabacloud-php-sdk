@@ -99,10 +99,6 @@ class CreateCollectionRequest extends Model
     /**
      * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
-     **
-     *
-     **Warning**Reserved fields such as id, vector, to_tsvector, and source cannot be used.
-     *
      * This parameter is required.
      * @example {"title":"text","content":"text","response":"int"}
      *
