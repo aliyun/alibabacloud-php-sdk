@@ -96,6 +96,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
@@ -150,6 +152,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationAppl
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
@@ -2506,6 +2510,74 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 入网用户列表
+     *  *
+     * @param ListNacUserCertRequest $request ListNacUserCertRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNacUserCertResponse ListNacUserCertResponse
+     */
+    public function listNacUserCertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->department)) {
+            $query['Department'] = $request->department;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNacUserCert',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNacUserCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 入网用户列表
+     *  *
+     * @param ListNacUserCertRequest $request ListNacUserCertRequest
+     *
+     * @return ListNacUserCertResponse ListNacUserCertResponse
+     */
+    public function listNacUserCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNacUserCertWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 批量查询内网访问应用的策略
      *  *
      * @param ListPolicesForPrivateAccessApplicationRequest $request ListPolicesForPrivateAccessApplicationRequest
@@ -3782,6 +3854,58 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIdpDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新NAC User 状态
+     *  *
+     * @param UpdateNacUserCertStatusRequest $request UpdateNacUserCertStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateNacUserCertStatusResponse UpdateNacUserCertStatusResponse
+     */
+    public function updateNacUserCertStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->idList)) {
+            $bodyFlat['IdList'] = $request->idList;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNacUserCertStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateNacUserCertStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新NAC User 状态
+     *  *
+     * @param UpdateNacUserCertStatusRequest $request UpdateNacUserCertStatusRequest
+     *
+     * @return UpdateNacUserCertStatusResponse UpdateNacUserCertStatusResponse
+     */
+    public function updateNacUserCertStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNacUserCertStatusWithOptions($request, $runtime);
     }
 
     /**
