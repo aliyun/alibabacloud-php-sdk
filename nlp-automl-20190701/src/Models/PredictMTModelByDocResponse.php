@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class PredictMTModelByDocResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $docId;
+    public $statusCode;
+
+    /**
+     * @var PredictMTModelByDocResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'docId'     => 'DocId',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('docId', $this->docId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->docId) {
-            $res['DocId'] = $this->docId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +56,14 @@ class PredictMTModelByDocResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DocId'])) {
-            $model->docId = $map['DocId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = PredictMTModelByDocResponseBody::fromMap($map['body']);
         }
 
         return $model;

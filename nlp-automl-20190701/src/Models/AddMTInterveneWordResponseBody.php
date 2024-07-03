@@ -6,40 +6,44 @@ namespace AlibabaCloud\SDK\Nlpautoml\V20190701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PredictMTModelResponse extends Model
+class AddMTInterveneWordResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
-     * @var int
+     * @example parameterError
+     *
+     * @var string
      */
     public $message;
 
     /**
-     * @var string
-     */
-    public $data;
-
-    /**
+     * @example 46E6B40D-2B6C-571B-AC41-86207DE288A5
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $wordId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'data'      => 'Data',
         'requestId' => 'RequestId',
+        'wordId'    => 'WordId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
@@ -51,11 +55,11 @@ class PredictMTModelResponse extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->wordId) {
+            $res['WordId'] = $this->wordId;
         }
 
         return $res;
@@ -64,7 +68,7 @@ class PredictMTModelResponse extends Model
     /**
      * @param array $map
      *
-     * @return PredictMTModelResponse
+     * @return AddMTInterveneWordResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -75,11 +79,11 @@ class PredictMTModelResponse extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['WordId'])) {
+            $model->wordId = $map['WordId'];
         }
 
         return $model;

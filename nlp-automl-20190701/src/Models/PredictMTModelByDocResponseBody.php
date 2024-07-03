@@ -6,24 +6,24 @@ namespace AlibabaCloud\SDK\Nlpautoml\V20190701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPredictDocRequest extends Model
+class PredictMTModelByDocResponseBody extends Model
 {
     /**
-     * @description This parameter is required.
+     * @example 1
      *
-     * @example 1000
-     *
-     * @var int
+     * @var string
      */
     public $docId;
 
     /**
+     * @example 86D18195-D89C-4C8C-9DC4-5FCE789CE6D5
+     *
      * @var string
      */
-    public $product;
+    public $requestId;
     protected $_name = [
-        'docId'   => 'DocId',
-        'product' => 'Product',
+        'docId'     => 'DocId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,8 +36,8 @@ class GetPredictDocRequest extends Model
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -46,7 +46,7 @@ class GetPredictDocRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPredictDocRequest
+     * @return PredictMTModelByDocResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -54,8 +54,8 @@ class GetPredictDocRequest extends Model
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

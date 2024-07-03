@@ -5,26 +5,20 @@
 namespace AlibabaCloud\SDK\Nlpautoml\V20190701;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\AddMtIntervenePackageRequest;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\AddMtIntervenePackageResponse;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\AddMTInterveneWordRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\AddMTInterveneWordResponse;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\BindIntervenePackageAndModelRequest;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\BindIntervenePackageAndModelResponse;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\GetPredictDocRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\GetPredictDocResponse;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\InvokeActionRequest;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\InvokeActionResponse;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\PredictMTModelByDocRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\PredictMTModelByDocResponse;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\PredictMTModelRequest;
-use AlibabaCloud\SDK\Nlpautoml\V20190701\Models\PredictMTModelResponse;
-use AlibabaCloud\Tea\Rpc\Rpc;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Nlpautoml extends Rpc
+class Nlpautoml extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -32,181 +26,6 @@ class Nlpautoml extends Rpc
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('nlp-automl', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
-    }
-
-    /**
-     * @param PredictMTModelByDocRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return PredictMTModelByDocResponse
-     */
-    public function predictMTModelByDocWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return PredictMTModelByDocResponse::fromMap($this->doRequest('PredictMTModelByDoc', 'HTTPS', 'POST', '2019-07-01', 'AK,APP,PrivateKey,BearerToken', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param PredictMTModelByDocRequest $request
-     *
-     * @return PredictMTModelByDocResponse
-     */
-    public function predictMTModelByDoc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->predictMTModelByDocWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindIntervenePackageAndModelRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return BindIntervenePackageAndModelResponse
-     */
-    public function bindIntervenePackageAndModelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return BindIntervenePackageAndModelResponse::fromMap($this->doRequest('BindIntervenePackageAndModel', 'HTTPS', 'POST', '2019-07-01', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param BindIntervenePackageAndModelRequest $request
-     *
-     * @return BindIntervenePackageAndModelResponse
-     */
-    public function bindIntervenePackageAndModel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindIntervenePackageAndModelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddMtIntervenePackageRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return AddMtIntervenePackageResponse
-     */
-    public function addMtIntervenePackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddMtIntervenePackageResponse::fromMap($this->doRequest('AddMtIntervenePackage', 'HTTPS', 'POST', '2019-07-01', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param AddMtIntervenePackageRequest $request
-     *
-     * @return AddMtIntervenePackageResponse
-     */
-    public function addMtIntervenePackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addMtIntervenePackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetPredictDocRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetPredictDocResponse
-     */
-    public function getPredictDocWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetPredictDocResponse::fromMap($this->doRequest('GetPredictDoc', 'HTTPS', 'POST', '2019-07-01', 'AK,APP,PrivateKey,BearerToken', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetPredictDocRequest $request
-     *
-     * @return GetPredictDocResponse
-     */
-    public function getPredictDoc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPredictDocWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddMTInterveneWordRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddMTInterveneWordResponse
-     */
-    public function addMTInterveneWordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddMTInterveneWordResponse::fromMap($this->doRequest('AddMTInterveneWord', 'HTTPS', 'POST', '2019-07-01', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param AddMTInterveneWordRequest $request
-     *
-     * @return AddMTInterveneWordResponse
-     */
-    public function addMTInterveneWord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addMTInterveneWordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PredictMTModelRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return PredictMTModelResponse
-     */
-    public function predictMTModelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return PredictMTModelResponse::fromMap($this->doRequest('PredictMTModel', 'HTTPS', 'POST', '2019-07-01', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param PredictMTModelRequest $request
-     *
-     * @return PredictMTModelResponse
-     */
-    public function predictMTModel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->predictMTModelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InvokeActionRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return InvokeActionResponse
-     */
-    public function invokeActionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return InvokeActionResponse::fromMap($this->doRequest('InvokeAction', 'HTTPS', 'POST', '2019-07-01', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param InvokeActionRequest $request
-     *
-     * @return InvokeActionResponse
-     */
-    public function invokeAction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->invokeActionWithOptions($request, $runtime);
     }
 
     /**
@@ -230,5 +49,160 @@ class Nlpautoml extends Rpc
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddMTInterveneWordRequest $request AddMTInterveneWordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddMTInterveneWordResponse AddMTInterveneWordResponse
+     */
+    public function addMTInterveneWordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->packageId)) {
+            $query['PackageId'] = $request->packageId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $query['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetText)) {
+            $query['TargetText'] = $request->targetText;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMTInterveneWord',
+            'version'     => '2019-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMTInterveneWordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMTInterveneWordRequest $request AddMTInterveneWordRequest
+     *
+     * @return AddMTInterveneWordResponse AddMTInterveneWordResponse
+     */
+    public function addMTInterveneWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMTInterveneWordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPredictDocRequest $request GetPredictDocRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetPredictDocResponse GetPredictDocResponse
+     */
+    public function getPredictDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->docId)) {
+            $query['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPredictDoc',
+            'version'     => '2019-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPredictDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPredictDocRequest $request GetPredictDocRequest
+     *
+     * @return GetPredictDocResponse GetPredictDocResponse
+     */
+    public function getPredictDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPredictDocWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PredictMTModelByDocRequest $request PredictMTModelByDocRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PredictMTModelByDocResponse PredictMTModelByDocResponse
+     */
+    public function predictMTModelByDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->modelVersion)) {
+            $query['ModelVersion'] = $request->modelVersion;
+        }
+        if (!Utils::isUnset($request->needXLIFF)) {
+            $query['NeedXLIFF'] = $request->needXLIFF;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->fileContent)) {
+            $body['FileContent'] = $request->fileContent;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PredictMTModelByDoc',
+            'version'     => '2019-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PredictMTModelByDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PredictMTModelByDocRequest $request PredictMTModelByDocRequest
+     *
+     * @return PredictMTModelByDocResponse PredictMTModelByDocResponse
+     */
+    public function predictMTModelByDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->predictMTModelByDocWithOptions($request, $runtime);
     }
 }

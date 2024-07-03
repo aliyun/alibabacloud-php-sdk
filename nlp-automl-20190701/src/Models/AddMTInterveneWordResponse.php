@@ -9,53 +9,40 @@ use AlibabaCloud\Tea\Model;
 class AddMTInterveneWordResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $code;
+    public $headers;
 
     /**
      * @var int
      */
-    public $message;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var AddMTInterveneWordResponseBody
      */
-    public $wordId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $body;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'wordId'    => 'WordId',
-        'requestId' => 'RequestId',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('wordId', $this->wordId, true);
-        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->wordId) {
-            $res['WordId'] = $this->wordId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +56,14 @@ class AddMTInterveneWordResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['WordId'])) {
-            $model->wordId = $map['WordId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['body'])) {
+            $model->body = AddMTInterveneWordResponseBody::fromMap($map['body']);
         }
 
         return $model;

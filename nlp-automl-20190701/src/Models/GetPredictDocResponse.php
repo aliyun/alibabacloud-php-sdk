@@ -9,53 +9,40 @@ use AlibabaCloud\Tea\Model;
 class GetPredictDocResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $resultContent;
+    public $headers;
 
     /**
      * @var int
      */
-    public $status;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var GetPredictDocResponseBody
      */
-    public $XLIFFInfo;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'resultContent' => 'ResultContent',
-        'status'        => 'Status',
-        'XLIFFInfo'     => 'XLIFFInfo',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('resultContent', $this->resultContent, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('XLIFFInfo', $this->XLIFFInfo, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->resultContent) {
-            $res['ResultContent'] = $this->resultContent;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->XLIFFInfo) {
-            $res['XLIFFInfo'] = $this->XLIFFInfo;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +56,14 @@ class GetPredictDocResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ResultContent'])) {
-            $model->resultContent = $map['ResultContent'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['XLIFFInfo'])) {
-            $model->XLIFFInfo = $map['XLIFFInfo'];
+        if (isset($map['body'])) {
+            $model->body = GetPredictDocResponseBody::fromMap($map['body']);
         }
 
         return $model;

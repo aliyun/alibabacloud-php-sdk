@@ -9,43 +9,57 @@ use AlibabaCloud\Tea\Model;
 class PredictMTModelByDocRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example [base64 encode content]
+     *
      * @var string
      */
     public $fileContent;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example docx
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $modelId;
 
     /**
-     * @var bool
-     */
-    public $needXLIFF;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $modelVersion;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $needXLIFF;
     protected $_name = [
         'fileContent'  => 'FileContent',
         'fileType'     => 'FileType',
         'modelId'      => 'ModelId',
-        'needXLIFF'    => 'NeedXLIFF',
         'modelVersion' => 'ModelVersion',
+        'needXLIFF'    => 'NeedXLIFF',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileContent', $this->fileContent, true);
-        Model::validateRequired('fileType', $this->fileType, true);
-        Model::validateRequired('modelId', $this->modelId, true);
-        Model::validateRequired('modelVersion', $this->modelVersion, true);
     }
 
     public function toMap()
@@ -60,11 +74,11 @@ class PredictMTModelByDocRequest extends Model
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-        if (null !== $this->needXLIFF) {
-            $res['NeedXLIFF'] = $this->needXLIFF;
-        }
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
+        }
+        if (null !== $this->needXLIFF) {
+            $res['NeedXLIFF'] = $this->needXLIFF;
         }
 
         return $res;
@@ -87,11 +101,11 @@ class PredictMTModelByDocRequest extends Model
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-        if (isset($map['NeedXLIFF'])) {
-            $model->needXLIFF = $map['NeedXLIFF'];
-        }
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
+        }
+        if (isset($map['NeedXLIFF'])) {
+            $model->needXLIFF = $map['NeedXLIFF'];
         }
 
         return $model;
