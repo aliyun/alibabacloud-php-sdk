@@ -19,6 +19,8 @@ class CreateCustomDomainInput extends Model
     public $certConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

@@ -55,6 +55,8 @@ class CreateFunctionInput extends Model
     public $environmentVariables;
 
     /**
+     * @description This parameter is required.
+     *
      * @example my-function-1
      *
      * @var string
@@ -67,6 +69,8 @@ class CreateFunctionInput extends Model
     public $gpuConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example index.handler
      *
      * @var string
@@ -127,6 +131,8 @@ class CreateFunctionInput extends Model
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @example python3.10
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EqualRule extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example /old
      *
      * @var string
@@ -16,6 +18,8 @@ class EqualRule extends Model
     public $match;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /new
      *
      * @var string

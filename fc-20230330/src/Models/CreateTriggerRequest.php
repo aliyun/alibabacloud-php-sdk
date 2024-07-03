@@ -11,6 +11,7 @@ class CreateTriggerRequest extends Model
     /**
      * @description The trigger configurations.
      *
+     * This parameter is required.
      * @var CreateTriggerInput
      */
     public $body;

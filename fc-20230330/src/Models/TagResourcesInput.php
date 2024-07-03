@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -21,6 +23,8 @@ class TagResourcesInput extends Model
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Tag[]
      */
     public $tag;

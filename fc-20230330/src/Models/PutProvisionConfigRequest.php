@@ -11,6 +11,7 @@ class PutProvisionConfigRequest extends Model
     /**
      * @description The information about the provisioned configuration.
      *
+     * This parameter is required.
      * @var PutProvisionConfigInput
      */
     public $body;

@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource identifiers.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -27,6 +28,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example function
      *
      * @var string

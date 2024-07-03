@@ -14,6 +14,8 @@ class CreateAliasInput extends Model
     public $additionalVersionWeight;
 
     /**
+     * @description This parameter is required.
+     *
      * @example prod
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateAliasInput extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

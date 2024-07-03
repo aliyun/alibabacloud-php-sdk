@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TLSConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $cipherSuites;
@@ -21,6 +23,8 @@ class TLSConfig extends Model
     public $maxVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example TLSv1.0
      *
      * @var string

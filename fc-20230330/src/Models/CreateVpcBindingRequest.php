@@ -11,6 +11,7 @@ class CreateVpcBindingRequest extends Model
     /**
      * @description The configurations of the virtual private cloud (VPC) binding.
      *
+     * This parameter is required.
      * @var CreateVpcBindingInput
      */
     public $body;

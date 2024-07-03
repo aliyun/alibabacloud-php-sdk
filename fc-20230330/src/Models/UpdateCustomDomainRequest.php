@@ -11,6 +11,7 @@ class UpdateCustomDomainRequest extends Model
     /**
      * @description The information about the custom domain name.
      *
+     * This parameter is required.
      * @var UpdateCustomDomainInput
      */
     public $body;

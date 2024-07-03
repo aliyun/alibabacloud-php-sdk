@@ -21,6 +21,8 @@ class PutProvisionConfigInput extends Model
     public $scheduledActions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

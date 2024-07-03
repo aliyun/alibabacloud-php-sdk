@@ -16,6 +16,8 @@ class ScheduledAction extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_1
      *
      * @var string
@@ -23,6 +25,8 @@ class ScheduledAction extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cron(0 0 22 * * *)
      *
      * @var string
@@ -37,6 +41,8 @@ class ScheduledAction extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 50
      *
      * @var int

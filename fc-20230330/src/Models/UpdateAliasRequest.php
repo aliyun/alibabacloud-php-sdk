@@ -11,6 +11,7 @@ class UpdateAliasRequest extends Model
     /**
      * @description The alias information to be updated.
      *
+     * This parameter is required.
      * @var UpdateAliasInput
      */
     public $body;

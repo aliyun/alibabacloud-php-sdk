@@ -11,6 +11,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The configuration of the resource tag.
      *
+     * This parameter is required.
      * @var TagResourcesInput
      */
     public $body;

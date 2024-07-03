@@ -11,6 +11,7 @@ class CreateCustomDomainRequest extends Model
     /**
      * @description The information about the custom domain name.
      *
+     * This parameter is required.
      * @var CreateCustomDomainInput
      */
     public $body;

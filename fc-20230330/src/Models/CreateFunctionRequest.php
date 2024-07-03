@@ -11,6 +11,7 @@ class CreateFunctionRequest extends Model
     /**
      * @description The information about function configurations.
      *
+     * This parameter is required.
      * @var CreateFunctionInput
      */
     public $body;

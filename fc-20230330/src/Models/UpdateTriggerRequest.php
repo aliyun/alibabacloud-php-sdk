@@ -11,6 +11,7 @@ class UpdateTriggerRequest extends Model
     /**
      * @description The trigger configurations.
      *
+     * This parameter is required.
      * @var UpdateTriggerInput
      */
     public $body;

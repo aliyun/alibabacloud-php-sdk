@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcBindingInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-8vb8x8dggvr0axxxxxxxx
      *
      * @var string

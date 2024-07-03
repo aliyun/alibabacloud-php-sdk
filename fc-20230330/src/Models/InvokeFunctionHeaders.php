@@ -11,6 +11,8 @@ class InvokeFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example test-id
+     *
      * @var string
      */
     public $xFcAsyncTaskId;

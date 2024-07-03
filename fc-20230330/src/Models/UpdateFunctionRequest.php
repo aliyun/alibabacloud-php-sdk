@@ -11,6 +11,7 @@ class UpdateFunctionRequest extends Model
     /**
      * @description The function information
      *
+     * This parameter is required.
      * @var UpdateFunctionInput
      */
     public $body;

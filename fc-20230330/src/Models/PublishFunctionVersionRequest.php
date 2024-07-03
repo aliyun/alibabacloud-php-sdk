@@ -11,6 +11,7 @@ class PublishFunctionVersionRequest extends Model
     /**
      * @description The information about the function version.
      *
+     * This parameter is required.
      * @var PublishVersionInput
      */
     public $body;

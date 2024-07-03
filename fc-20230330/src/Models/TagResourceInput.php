@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourceInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example acs:fc:cn-shanghai:xxx:functions/f1
      *
      * @var string
@@ -16,6 +18,8 @@ class TagResourceInput extends Model
     public $resourceArn;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $tags;

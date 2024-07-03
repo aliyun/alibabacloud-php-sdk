@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegexRule extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ^/api/.+?/(.*)
      *
      * @var string
@@ -16,6 +18,8 @@ class RegexRule extends Model
     public $match;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /api/v2/$1
      *
      * @var string

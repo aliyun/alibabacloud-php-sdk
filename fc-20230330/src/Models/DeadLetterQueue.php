@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeadLetterQueue extends Model
 {
     /**
-     * @example acs:mq:cn-shanghai:14319991365*****:/instances/MQ_INST_14319991365*****_BYWs****\/topic/testTopic
-     *
      * @var string
      */
     public $arn;

@@ -142,12 +142,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建函数别名。
+     *  *
      * @param string             $functionName
-     * @param CreateAliasRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param CreateAliasRequest $request      CreateAliasRequest
+     * @param string[]           $headers      map
+     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateAliasResponse
+     * @return CreateAliasResponse CreateAliasResponse
      */
     public function createAliasWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -172,10 +174,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建函数别名。
+     *  *
      * @param string             $functionName
-     * @param CreateAliasRequest $request
+     * @param CreateAliasRequest $request      CreateAliasRequest
      *
-     * @return CreateAliasResponse
+     * @return CreateAliasResponse CreateAliasResponse
      */
     public function createAlias($functionName, $request)
     {
@@ -186,11 +190,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomDomainRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建自定义域名。
+     *  *
+     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomDomainResponse
+     * @return CreateCustomDomainResponse CreateCustomDomainResponse
      */
     public function createCustomDomainWithOptions($request, $headers, $runtime)
     {
@@ -215,9 +221,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomDomainRequest $request
+     * @summary 创建自定义域名。
+     *  *
+     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      *
-     * @return CreateCustomDomainResponse
+     * @return CreateCustomDomainResponse CreateCustomDomainResponse
      */
     public function createCustomDomain($request)
     {
@@ -228,11 +236,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param CreateFunctionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a function.
+     *  *
+     * @param CreateFunctionRequest $request CreateFunctionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFunctionResponse
+     * @return CreateFunctionResponse CreateFunctionResponse
      */
     public function createFunctionWithOptions($request, $headers, $runtime)
     {
@@ -257,9 +267,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param CreateFunctionRequest $request
+     * @summary Creates a function.
+     *  *
+     * @param CreateFunctionRequest $request CreateFunctionRequest
      *
-     * @return CreateFunctionResponse
+     * @return CreateFunctionResponse CreateFunctionResponse
      */
     public function createFunction($request)
     {
@@ -270,12 +282,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建层版本。
+     *  *
      * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateLayerVersionResponse
+     * @return CreateLayerVersionResponse CreateLayerVersionResponse
      */
     public function createLayerVersionWithOptions($layerName, $request, $headers, $runtime)
     {
@@ -300,10 +314,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建层版本。
+     *  *
      * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request
+     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
      *
-     * @return CreateLayerVersionResponse
+     * @return CreateLayerVersionResponse CreateLayerVersionResponse
      */
     public function createLayerVersion($layerName, $request)
     {
@@ -314,12 +330,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建函数触发器。
+     *  *
      * @param string               $functionName
-     * @param CreateTriggerRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateTriggerRequest $request      CreateTriggerRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTriggerWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -344,10 +362,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary 创建函数触发器。
+     *  *
      * @param string               $functionName
-     * @param CreateTriggerRequest $request
+     * @param CreateTriggerRequest $request      CreateTriggerRequest
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTrigger($functionName, $request)
     {
@@ -358,12 +378,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates a VPC connection.
+     *  *
      * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcBindingResponse
+     * @return CreateVpcBindingResponse CreateVpcBindingResponse
      */
     public function createVpcBindingWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -388,10 +410,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates a VPC connection.
+     *  *
      * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request
+     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
      *
-     * @return CreateVpcBindingResponse
+     * @return CreateVpcBindingResponse CreateVpcBindingResponse
      */
     public function createVpcBinding($functionName, $request)
     {
@@ -402,12 +426,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an alias.
+     *  *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteAliasResponse
+     * @return DeleteAliasResponse DeleteAliasResponse
      */
     public function deleteAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -430,10 +456,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an alias.
+     *  *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return DeleteAliasResponse
+     * @return DeleteAliasResponse DeleteAliasResponse
      */
     public function deleteAlias($functionName, $aliasName)
     {
@@ -444,12 +472,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an asynchronous invocation configuration.
+     *  *
      * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
+     * @param string[]                       $headers      map
+     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteAsyncInvokeConfigResponse
+     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -478,10 +508,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an asynchronous invocation configuration.
+     *  *
      * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request
+     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
      *
-     * @return DeleteAsyncInvokeConfigResponse
+     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfig($functionName, $request)
     {
@@ -492,11 +524,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a concurrency configuration.
+     *  *
      * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteConcurrencyConfigResponse
+     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -519,9 +553,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a concurrency configuration.
+     *  *
      * @param string $functionName
      *
-     * @return DeleteConcurrencyConfigResponse
+     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfig($functionName)
     {
@@ -532,11 +568,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a custom domain name.
+     *  *
      * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomDomainResponse
+     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
      */
     public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -559,9 +597,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a custom domain name.
+     *  *
      * @param string $domainName
      *
-     * @return DeleteCustomDomainResponse
+     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
      */
     public function deleteCustomDomain($domainName)
     {
@@ -572,11 +612,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a function.
+     *  *
      * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionResponse
+     * @return DeleteFunctionResponse DeleteFunctionResponse
      */
     public function deleteFunctionWithOptions($functionName, $headers, $runtime)
     {
@@ -599,9 +641,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a function.
+     *  *
      * @param string $functionName
      *
-     * @return DeleteFunctionResponse
+     * @return DeleteFunctionResponse DeleteFunctionResponse
      */
     public function deleteFunction($functionName)
     {
@@ -612,12 +656,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a function version.
+     *  *
      * @param string         $functionName
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
@@ -640,10 +686,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a function version.
+     *  *
      * @param string $functionName
      * @param string $versionId
      *
-     * @return DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersion($functionName, $versionId)
     {
@@ -654,12 +702,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a layer version.
+     *  *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
      */
     public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -682,10 +732,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a layer version.
+     *  *
      * @param string $layerName
      * @param string $version
      *
-     * @return DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
      */
     public function deleteLayerVersion($layerName, $version)
     {
@@ -696,12 +748,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a provisioned configuration.
+     *  *
      * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteProvisionConfigResponse
+     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -730,10 +784,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a provisioned configuration.
+     *  *
      * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request
+     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
      *
-     * @return DeleteProvisionConfigResponse
+     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfig($functionName, $request)
     {
@@ -744,12 +800,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a trigger.
+     *  *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -772,10 +830,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a trigger.
+     *  *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTrigger($functionName, $triggerName)
     {
@@ -786,12 +846,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+     *  *
      * @param string         $functionName
      * @param string         $vpcId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
      */
     public function deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime)
     {
@@ -814,10 +876,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
+     *  *
      * @param string $functionName
      * @param string $vpcId
      *
-     * @return DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
      */
     public function deleteVpcBinding($functionName, $vpcId)
     {
@@ -828,12 +892,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about an alias.
+     *  *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetAliasResponse
+     * @return GetAliasResponse GetAliasResponse
      */
     public function getAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -856,10 +922,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about an alias.
+     *  *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return GetAliasResponse
+     * @return GetAliasResponse GetAliasResponse
      */
     public function getAlias($functionName, $aliasName)
     {
@@ -870,12 +938,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Gets asynchronous invocation configurations of a function.
+     *  *
      * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncInvokeConfigResponse
+     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -904,10 +974,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Gets asynchronous invocation configurations of a function.
+     *  *
      * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request
+     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
      *
-     * @return GetAsyncInvokeConfigResponse
+     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfig($functionName, $request)
     {
@@ -918,13 +990,15 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an asynchronous task.
+     *  *
      * @param string              $functionName
      * @param string              $taskId
-     * @param GetAsyncTaskRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetAsyncTaskRequest $request      GetAsyncTaskRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
     {
@@ -953,11 +1027,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an asynchronous task.
+     *  *
      * @param string              $functionName
      * @param string              $taskId
-     * @param GetAsyncTaskRequest $request
+     * @param GetAsyncTaskRequest $request      GetAsyncTaskRequest
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTask($functionName, $taskId, $request)
     {
@@ -968,11 +1044,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Obtains a concurrency configuration.
+     *  *
      * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetConcurrencyConfigResponse
+     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -995,9 +1073,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Obtains a concurrency configuration.
+     *  *
      * @param string $functionName
      *
-     * @return GetConcurrencyConfigResponse
+     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfig($functionName)
     {
@@ -1008,11 +1088,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a custom domain name.
+     *  *
      * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetCustomDomainResponse
+     * @return GetCustomDomainResponse GetCustomDomainResponse
      */
     public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -1035,9 +1117,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a custom domain name.
+     *  *
      * @param string $domainName
      *
-     * @return GetCustomDomainResponse
+     * @return GetCustomDomainResponse GetCustomDomainResponse
      */
     public function getCustomDomain($domainName)
     {
@@ -1048,12 +1132,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a function.
+     *  *
      * @param string             $functionName
-     * @param GetFunctionRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param GetFunctionRequest $request      GetFunctionRequest
+     * @param string[]           $headers      map
+     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionResponse
+     * @return GetFunctionResponse GetFunctionResponse
      */
     public function getFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1082,10 +1168,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a function.
+     *  *
      * @param string             $functionName
-     * @param GetFunctionRequest $request
+     * @param GetFunctionRequest $request      GetFunctionRequest
      *
-     * @return GetFunctionResponse
+     * @return GetFunctionResponse GetFunctionResponse
      */
     public function getFunction($functionName, $request)
     {
@@ -1096,12 +1184,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a code package of a function.
+     *  *
      * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionCodeResponse
+     * @return GetFunctionCodeResponse GetFunctionCodeResponse
      */
     public function getFunctionCodeWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1130,10 +1220,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a code package of a function.
+     *  *
      * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request
+     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
      *
-     * @return GetFunctionCodeResponse
+     * @return GetFunctionCodeResponse GetFunctionCodeResponse
      */
     public function getFunctionCode($functionName, $request)
     {
@@ -1144,12 +1236,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries versions of a layer.
+     *  *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetLayerVersionResponse
+     * @return GetLayerVersionResponse GetLayerVersionResponse
      */
     public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -1172,10 +1266,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries versions of a layer.
+     *  *
      * @param string $layerName
      * @param string $version
      *
-     * @return GetLayerVersionResponse
+     * @return GetLayerVersionResponse GetLayerVersionResponse
      */
     public function getLayerVersion($layerName, $version)
     {
@@ -1186,11 +1282,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Obtain version information of a layer by using ARNs.
+     *  *
      * @param string         $arn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLayerVersionByArnResponse
+     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
     {
@@ -1213,9 +1311,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Obtain version information of a layer by using ARNs.
+     *  *
      * @param string $arn
      *
-     * @return GetLayerVersionByArnResponse
+     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArn($arn)
     {
@@ -1226,12 +1326,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries provisioned configurations.
+     *  *
      * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetProvisionConfigResponse
+     * @return GetProvisionConfigResponse GetProvisionConfigResponse
      */
     public function getProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1260,10 +1362,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries provisioned configurations.
+     *  *
      * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request
+     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
      *
-     * @return GetProvisionConfigResponse
+     * @return GetProvisionConfigResponse GetProvisionConfigResponse
      */
     public function getProvisionConfig($functionName, $request)
     {
@@ -1274,12 +1378,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a trigger.
+     *  *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetTriggerResponse
+     * @return GetTriggerResponse GetTriggerResponse
      */
     public function getTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -1302,10 +1408,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a trigger.
+     *  *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return GetTriggerResponse
+     * @return GetTriggerResponse GetTriggerResponse
      */
     public function getTrigger($functionName, $triggerName)
     {
@@ -1316,12 +1424,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Invokes a function.
+     *  *
      * @param string                $functionName
-     * @param InvokeFunctionRequest $request
-     * @param InvokeFunctionHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
+     * @param InvokeFunctionHeaders $headers      InvokeFunctionHeaders
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return InvokeFunctionResponse
+     * @return InvokeFunctionResponse InvokeFunctionResponse
      */
     public function invokeFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1379,10 +1489,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Invokes a function.
+     *  *
      * @param string                $functionName
-     * @param InvokeFunctionRequest $request
+     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
      *
-     * @return InvokeFunctionResponse
+     * @return InvokeFunctionResponse InvokeFunctionResponse
      */
     public function invokeFunction($functionName, $request)
     {
@@ -1393,12 +1505,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries aliases.
+     *  *
      * @param string             $functionName
-     * @param ListAliasesRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListAliasesRequest $request      ListAliasesRequest
+     * @param string[]           $headers      map
+     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListAliasesResponse
+     * @return ListAliasesResponse ListAliasesResponse
      */
     public function listAliasesWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1433,10 +1547,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries aliases.
+     *  *
      * @param string             $functionName
-     * @param ListAliasesRequest $request
+     * @param ListAliasesRequest $request      ListAliasesRequest
      *
-     * @return ListAliasesResponse
+     * @return ListAliasesResponse ListAliasesResponse
      */
     public function listAliases($functionName, $request)
     {
@@ -1447,11 +1563,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncInvokeConfigsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary Queries all asynchronous configurations of a function.
+     *  *
+     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAsyncInvokeConfigsResponse
+     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigsWithOptions($request, $headers, $runtime)
     {
@@ -1486,9 +1604,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncInvokeConfigsRequest $request
+     * @summary Queries all asynchronous configurations of a function.
+     *  *
+     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
      *
-     * @return ListAsyncInvokeConfigsResponse
+     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigs($request)
     {
@@ -1499,12 +1619,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Lists asynchronous tasks.
+     *  *
      * @param string                $functionName
-     * @param ListAsyncTasksRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ListAsyncTasksRequest $request      ListAsyncTasksRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListAsyncTasksResponse
+     * @return ListAsyncTasksResponse ListAsyncTasksResponse
      */
     public function listAsyncTasksWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1557,10 +1679,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Lists asynchronous tasks.
+     *  *
      * @param string                $functionName
-     * @param ListAsyncTasksRequest $request
+     * @param ListAsyncTasksRequest $request      ListAsyncTasksRequest
      *
-     * @return ListAsyncTasksResponse
+     * @return ListAsyncTasksResponse ListAsyncTasksResponse
      */
     public function listAsyncTasks($functionName, $request)
     {
@@ -1571,11 +1695,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListConcurrencyConfigsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 列出函数并发度配置。
+     *  *
+     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConcurrencyConfigsResponse
+     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigsWithOptions($request, $headers, $runtime)
     {
@@ -1610,9 +1736,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListConcurrencyConfigsRequest $request
+     * @summary 列出函数并发度配置。
+     *  *
+     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
      *
-     * @return ListConcurrencyConfigsResponse
+     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigs($request)
     {
@@ -1623,11 +1751,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListCustomDomainsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries custom domain names.
+     *  *
+     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomDomainsResponse
+     * @return ListCustomDomainsResponse ListCustomDomainsResponse
      */
     public function listCustomDomainsWithOptions($request, $headers, $runtime)
     {
@@ -1662,9 +1792,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListCustomDomainsRequest $request
+     * @summary Queries custom domain names.
+     *  *
+     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
      *
-     * @return ListCustomDomainsResponse
+     * @return ListCustomDomainsResponse ListCustomDomainsResponse
      */
     public function listCustomDomains($request)
     {
@@ -1675,12 +1807,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries versions of a function.
+     *  *
      * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionVersionsResponse
+     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
      */
     public function listFunctionVersionsWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1715,10 +1849,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries versions of a function.
+     *  *
      * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request
+     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
      *
-     * @return ListFunctionVersionsResponse
+     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
      */
     public function listFunctionVersions($functionName, $request)
     {
@@ -1729,11 +1865,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 列出函数。
+     *  *
+     * @param ListFunctionsRequest $request ListFunctionsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctionsWithOptions($request, $headers, $runtime)
     {
@@ -1768,9 +1906,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionsRequest $request
+     * @summary 列出函数。
+     *  *
+     * @param ListFunctionsRequest $request ListFunctionsRequest
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctions($request)
     {
@@ -1781,12 +1921,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of function instances.
+     *  *
      * @param string               $functionName
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListInstancesRequest $request      ListInstancesRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -1818,10 +1960,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of function instances.
+     *  *
      * @param string               $functionName
-     * @param ListInstancesRequest $request
+     * @param ListInstancesRequest $request      ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($functionName, $request)
     {
@@ -1832,12 +1976,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Gets a list of layer versions.
+     *  *
      * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListLayerVersionsResponse
+     * @return ListLayerVersionsResponse ListLayerVersionsResponse
      */
     public function listLayerVersionsWithOptions($layerName, $request, $headers, $runtime)
     {
@@ -1869,10 +2015,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Gets a list of layer versions.
+     *  *
      * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request
+     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
      *
-     * @return ListLayerVersionsResponse
+     * @return ListLayerVersionsResponse ListLayerVersionsResponse
      */
     public function listLayerVersions($layerName, $request)
     {
@@ -1883,11 +2031,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListLayersRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Gets a list of layers.
+     *  *
+     * @param ListLayersRequest $request ListLayersRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLayersResponse
+     * @return ListLayersResponse ListLayersResponse
      */
     public function listLayersWithOptions($request, $headers, $runtime)
     {
@@ -1928,9 +2078,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListLayersRequest $request
+     * @summary Gets a list of layers.
+     *  *
+     * @param ListLayersRequest $request ListLayersRequest
      *
-     * @return ListLayersResponse
+     * @return ListLayersResponse ListLayersResponse
      */
     public function listLayers($request)
     {
@@ -1941,11 +2093,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListProvisionConfigsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of provisioned configurations.
+     *  *
+     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProvisionConfigsResponse
+     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
      */
     public function listProvisionConfigsWithOptions($request, $headers, $runtime)
     {
@@ -1980,9 +2134,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListProvisionConfigsRequest $request
+     * @summary Queries a list of provisioned configurations.
+     *  *
+     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
      *
-     * @return ListProvisionConfigsResponse
+     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
      */
     public function listProvisionConfigs($request)
     {
@@ -1993,11 +2149,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Lists all tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2046,9 +2204,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Lists all tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2059,12 +2219,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries the triggers of a function.
+     *  *
      * @param string              $functionName
-     * @param ListTriggersRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListTriggersRequest $request      ListTriggersRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListTriggersResponse
+     * @return ListTriggersResponse ListTriggersResponse
      */
     public function listTriggersWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2099,10 +2261,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries the triggers of a function.
+     *  *
      * @param string              $functionName
-     * @param ListTriggersRequest $request
+     * @param ListTriggersRequest $request      ListTriggersRequest
      *
-     * @return ListTriggersResponse
+     * @return ListTriggersResponse ListTriggersResponse
      */
     public function listTriggers($functionName, $request)
     {
@@ -2113,11 +2277,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of existing VPC connections.
+     *  *
      * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListVpcBindingsResponse
+     * @return ListVpcBindingsResponse ListVpcBindingsResponse
      */
     public function listVpcBindingsWithOptions($functionName, $headers, $runtime)
     {
@@ -2140,9 +2306,11 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of existing VPC connections.
+     *  *
      * @param string $functionName
      *
-     * @return ListVpcBindingsResponse
+     * @return ListVpcBindingsResponse ListVpcBindingsResponse
      */
     public function listVpcBindings($functionName)
     {
@@ -2153,12 +2321,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Publishes a function version.
+     *  *
      * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
+     * @param string[]                      $headers      map
+     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PublishFunctionVersionResponse
+     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
      */
     public function publishFunctionVersionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2183,10 +2353,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Publishes a function version.
+     *  *
      * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request
+     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
      *
-     * @return PublishFunctionVersionResponse
+     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
      */
     public function publishFunctionVersion($functionName, $request)
     {
@@ -2197,12 +2369,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates or modifies an asynchronous invocation configuration for a function.
+     *  *
      * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PutAsyncInvokeConfigResponse
+     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2232,10 +2406,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates or modifies an asynchronous invocation configuration for a function.
+     *  *
      * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request
+     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
      *
-     * @return PutAsyncInvokeConfigResponse
+     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfig($functionName, $request)
     {
@@ -2246,12 +2422,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Configures concurrency of a function.
+     *  *
      * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PutConcurrencyConfigResponse
+     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2276,10 +2454,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Configures concurrency of a function.
+     *  *
      * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request
+     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
      *
-     * @return PutConcurrencyConfigResponse
+     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfig($functionName, $request)
     {
@@ -2290,17 +2470,22 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Modifies permissions of a layer.
+     *  *
      * @param string             $layerName
-     * @param PutLayerACLRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param PutLayerACLRequest $request   PutLayerACLRequest
+     * @param string[]           $headers   map
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return PutLayerACLResponse
+     * @return PutLayerACLResponse PutLayerACLResponse
      */
     public function putLayerACLWithOptions($layerName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acl)) {
+            $query['acl'] = $request->acl;
+        }
         if (!Utils::isUnset($request->public_)) {
             $query['public'] = $request->public_;
         }
@@ -2324,10 +2509,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Modifies permissions of a layer.
+     *  *
      * @param string             $layerName
-     * @param PutLayerACLRequest $request
+     * @param PutLayerACLRequest $request   PutLayerACLRequest
      *
-     * @return PutLayerACLResponse
+     * @return PutLayerACLResponse PutLayerACLResponse
      */
     public function putLayerACL($layerName, $request)
     {
@@ -2338,12 +2525,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates provisioned configurations.
+     *  *
      * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return PutProvisionConfigResponse
+     * @return PutProvisionConfigResponse PutProvisionConfigResponse
      */
     public function putProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2373,10 +2562,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Creates provisioned configurations.
+     *  *
      * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request
+     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
      *
-     * @return PutProvisionConfigResponse
+     * @return PutProvisionConfigResponse PutProvisionConfigResponse
      */
     public function putProvisionConfig($functionName, $request)
     {
@@ -2387,13 +2578,15 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Stops an asynchronous task.
+     *  *
      * @param string               $functionName
      * @param string               $taskId
-     * @param StopAsyncTaskRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param StopAsyncTaskRequest $request      StopAsyncTaskRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return StopAsyncTaskResponse
+     * @return StopAsyncTaskResponse StopAsyncTaskResponse
      */
     public function stopAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
     {
@@ -2422,11 +2615,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Stops an asynchronous task.
+     *  *
      * @param string               $functionName
      * @param string               $taskId
-     * @param StopAsyncTaskRequest $request
+     * @param StopAsyncTaskRequest $request      StopAsyncTaskRequest
      *
-     * @return StopAsyncTaskResponse
+     * @return StopAsyncTaskResponse StopAsyncTaskResponse
      */
     public function stopAsyncTask($functionName, $taskId, $request)
     {
@@ -2437,11 +2632,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -2466,9 +2663,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2479,11 +2678,13 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2529,9 +2730,11 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2542,13 +2745,15 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Updates an alias.
+     *  *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateAliasRequest $request      UpdateAliasRequest
+     * @param string[]           $headers      map
+     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateAliasResponse
+     * @return UpdateAliasResponse UpdateAliasResponse
      */
     public function updateAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime)
     {
@@ -2573,11 +2778,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Updates an alias.
+     *  *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request
+     * @param UpdateAliasRequest $request      UpdateAliasRequest
      *
-     * @return UpdateAliasResponse
+     * @return UpdateAliasResponse UpdateAliasResponse
      */
     public function updateAlias($functionName, $aliasName, $request)
     {
@@ -2588,12 +2795,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Update a custom domain name.
+     *  *
      * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomDomainResponse
+     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
      */
     public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
@@ -2618,10 +2827,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Update a custom domain name.
+     *  *
      * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request
+     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
      *
-     * @return UpdateCustomDomainResponse
+     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
      */
     public function updateCustomDomain($domainName, $request)
     {
@@ -2632,12 +2843,14 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Updates the information about a function.
+     *  *
      * @param string                $functionName
-     * @param UpdateFunctionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateFunctionResponse
+     * @return UpdateFunctionResponse UpdateFunctionResponse
      */
     public function updateFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
@@ -2662,10 +2875,12 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Updates the information about a function.
+     *  *
      * @param string                $functionName
-     * @param UpdateFunctionRequest $request
+     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
      *
-     * @return UpdateFunctionResponse
+     * @return UpdateFunctionResponse UpdateFunctionResponse
      */
     public function updateFunction($functionName, $request)
     {
@@ -2676,13 +2891,15 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a trigger.
+     *  *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateTriggerResponse
+     * @return UpdateTriggerResponse UpdateTriggerResponse
      */
     public function updateTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime)
     {
@@ -2707,11 +2924,13 @@ class FC extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a trigger.
+     *  *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request
+     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
      *
-     * @return UpdateTriggerResponse
+     * @return UpdateTriggerResponse UpdateTriggerResponse
      */
     public function updateTrigger($functionName, $triggerName, $request)
     {

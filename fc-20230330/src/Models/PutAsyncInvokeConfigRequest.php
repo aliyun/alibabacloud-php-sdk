@@ -11,6 +11,7 @@ class PutAsyncInvokeConfigRequest extends Model
     /**
      * @description The configurations of asynchronous function invocation.
      *
+     * This parameter is required.
      * @var PutAsyncInvokeConfigInput
      */
     public $body;

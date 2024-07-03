@@ -11,6 +11,7 @@ class CreateLayerVersionRequest extends Model
     /**
      * @description The information about layer configurations.
      *
+     * This parameter is required.
      * @var CreateLayerVersionInput
      */
     public $body;

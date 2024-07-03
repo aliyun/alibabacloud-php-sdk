@@ -16,6 +16,8 @@ class TargetTrackingPolicy extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +25,8 @@ class TargetTrackingPolicy extends Model
     public $maxCapacity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0.6
      *
      * @var float
@@ -30,6 +34,8 @@ class TargetTrackingPolicy extends Model
     public $metricTarget;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CPUUtilization
      *
      * @var string
@@ -37,6 +43,8 @@ class TargetTrackingPolicy extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +52,8 @@ class TargetTrackingPolicy extends Model
     public $minCapacity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_1
      *
      * @var string

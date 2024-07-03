@@ -37,6 +37,8 @@ class CreateTriggerInput extends Model
     public $sourceArn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"events":["oss:ObjectCreated:*"],"filter":{"key":{"prefix":"/prefix","suffix":".zip"}}}
      *
      * @var string
@@ -44,6 +46,8 @@ class CreateTriggerInput extends Model
     public $triggerConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss_create_object_demo
      *
      * @var string
@@ -51,6 +55,8 @@ class CreateTriggerInput extends Model
     public $triggerName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss
      *
      * @var string

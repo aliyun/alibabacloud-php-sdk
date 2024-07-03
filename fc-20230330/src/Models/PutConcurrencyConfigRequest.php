@@ -11,6 +11,7 @@ class PutConcurrencyConfigRequest extends Model
     /**
      * @description The concurrency configurations.
      *
+     * This parameter is required.
      * @var PutConcurrencyInput
      */
     public $body;

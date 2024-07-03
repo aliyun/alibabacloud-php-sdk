@@ -11,6 +11,7 @@ class CreateAliasRequest extends Model
     /**
      * @description The request parameters for creating an alias.
      *
+     * This parameter is required.
      * @var CreateAliasInput
      */
     public $body;

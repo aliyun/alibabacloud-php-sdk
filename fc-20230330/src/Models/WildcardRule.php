@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class WildcardRule extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example /api/*
      *
      * @var string
@@ -16,6 +18,8 @@ class WildcardRule extends Model
     public $match;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /$1
      *
      * @var string

@@ -36,6 +36,7 @@ class ListTagResourcesShrinkRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example ALIYUN::FC:FUNCTION
      *
      * @var string
