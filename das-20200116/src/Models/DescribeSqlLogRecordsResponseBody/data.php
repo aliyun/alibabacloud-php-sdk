@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
      *
      * @example 1608888296000
      *
@@ -21,10 +21,10 @@ class data extends Model
     /**
      * @description Indicates whether the task was complete. Valid values:
      *
-     *   **0**: The task failed.
-     *   **1**: The task was complete.
+     *   **0**: no
+     *   **1**: yes
      *
-     * >  If the value of **Finish** is 0 and the value of **JobId** is returned, the request is an asynchronous request and the return result cannot be directly obtained. You must query the return result by using the value of **JobId**. Specify JobId as the key of **Filters** and the value of **JobId** as the value of Filters. Example: `Filters=[{"Key": "JobId", "Value": "******"}]`.
+     * >  If the value of **Finish** is 0 and the value of **JobId** is returned, the request is an asynchronous request and the return result cannot be directly obtained. You must query the return result based on the value of **JobId**. Specify JobId as the key of **Filters** and the value of **JobId** as the value of Filters. Example: `Filters=[{"Key": "JobId", "Value": "******"}]`.
      * @example 1
      *
      * @var string
@@ -48,7 +48,7 @@ class data extends Model
     public $jobId;
 
     /**
-     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
      *
      * @example 1596177993000
      *
@@ -57,7 +57,7 @@ class data extends Model
     public $startTime;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries.
      *
      * @example 1
      *

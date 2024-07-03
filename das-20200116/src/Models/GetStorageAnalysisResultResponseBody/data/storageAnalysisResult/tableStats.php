@@ -20,6 +20,7 @@ class tableStats extends Model
     /**
      * @description The size of space fragments. Unit: bytes.
      *
+     * >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. The fragmentation rate of a table is generally calculated based on the following formula: `Fragmentation rate = DataFree/(DataSize + IndexSize + DataFree)`. In this topic, `Fragmentation rate = DataFree/PhyTotalSize`.
      * @example 7340032
      *
      * @var int
@@ -27,7 +28,8 @@ class tableStats extends Model
     public $dataFree;
 
     /**
-     * @description The storage space occupied by data. Unit: bytes.
+     * @description *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by data. Unit: bytes.
+     *   For ApsaraDB for MongoDB instances, this parameter indicates the size of uncompressed data, that is, the amount of data. Unit: bytes.
      *
      * @example 1982857216
      *
@@ -47,6 +49,7 @@ class tableStats extends Model
     /**
      * @description The type of the storage engine used by the table.
      *
+     * >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * @example InnoDB
      *
      * @var string
@@ -54,9 +57,9 @@ class tableStats extends Model
     public $engine;
 
     /**
-     * @description 可回收空间大小（碎片空间大小），单位为Byte。
+     * @description The size of space that can be reclaimed. Unit: bytes.
      *
-     * > 该参数仅适用于MongoDB实例。表碎片率计算方式为：`FragmentSize/PhyTotalSize`。
+     * >  This parameter is applicable only to ApsaraDB for MongoDB instances. `Fragmentation rate = FragmentSize/PhyTotalSize`.
      * @example 362221568
      *
      * @var int
@@ -75,7 +78,7 @@ class tableStats extends Model
     /**
      * @description The storage space of the table. Unit: bytes.
      *
-     * >  The value of this parameter is the sum of the values of **DataSize**, **IndexSize**, and **DataFree**.
+     * >  For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, the value of the parameter is the sum of **DataSize**, **IndexSize**, and **DataFree**. For ApsaraDB for MongoDB instances, the value of this parameter is the sum of **DataSize** and **IndexSize**.
      * @example 3012493312
      *
      * @var int
@@ -85,7 +88,7 @@ class tableStats extends Model
     /**
      * @description The physical file size of the table. Unit: bytes.
      *
-     * >  You may fail to obtain the physical file size because of the deployment mode of the database instance.
+     * >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters. Data of specific database instances cannot be obtained due to deployment mode.
      * @example 3057655808
      *
      * @var int
@@ -113,6 +116,7 @@ class tableStats extends Model
     /**
      * @description The type of the table.
      *
+     * >  This parameter is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
      * @example BASE TABLE
      *
      * @var string
@@ -120,9 +124,9 @@ class tableStats extends Model
     public $tableType;
 
     /**
-     * @description The storage space occupied by table data and indexes. Unit: bytes.
+     * @description *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this parameter indicates the amount of space occupied by table data and indexes. Unit: bytes. The value is the sum of **DataSize** and **IndexSize**.
+     *   For ApsaraDB for MongoDB instances, this parameter indicates the actual size of space allocated by Block Manager. Unit: Bytes. The compression ratio of an ApsaraDB for MongoDB instance is calculated based on the following formula: `Compression ratio = TotalSize/DataSize`.
      *
-     * >  The value of this parameter is the sum of the values of **DataSize** and **IndexSize**.
      * @example 3005153280
      *
      * @var int

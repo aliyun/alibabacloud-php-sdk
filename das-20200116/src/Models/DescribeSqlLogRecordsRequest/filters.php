@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The name of the filter parameter.
+     * @description The filter parameter.
      *
-     * >  For more information about the supported filter parameters and their valid values, see the following **supplement about the Key parameter**.
+     * >  For more information about the supported filter parameters and their valid values, see the **Supported parameters and values for Key** section of this topic.
      * @example keyWords
      *
      * @var string

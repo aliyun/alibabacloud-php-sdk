@@ -18,7 +18,7 @@ class SQLLogRecord extends Model
     public $accountName;
 
     /**
-     * @description This is a reserved parameter.
+     * @description A reserved parameter.
      *
      * @example None
      *
@@ -27,7 +27,7 @@ class SQLLogRecord extends Model
     public $collection;
 
     /**
-     * @description The duration of the query. Unit: milliseconds.
+     * @description The amount of time that is consumed to execute the SQL statement. Unit: millisecond.
      *
      * @example 58
      *
@@ -36,7 +36,7 @@ class SQLLogRecord extends Model
     public $consume;
 
     /**
-     * @description The CPU execution duration. Unit: microseconds.
+     * @description The CPU execution duration. Unit: microsecond.
      *
      * @example 100
      *
@@ -45,7 +45,7 @@ class SQLLogRecord extends Model
     public $cpuTime;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example testdb
      *
@@ -54,7 +54,7 @@ class SQLLogRecord extends Model
     public $DBName;
 
     /**
-     * @description The time when the query was performed. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The time when the SQL statement was executed. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2023-12-07T02:15:32Z
      *
@@ -72,7 +72,7 @@ class SQLLogRecord extends Model
     public $ext;
 
     /**
-     * @description The number of rows that are pulled by the compute nodes of the PolarDB-X 2.0 database instance.
+     * @description The number of rows that are pulled by the compute nodes of the PolarDB-X 2.0 instance.
      *
      * @example 10
      *
@@ -90,7 +90,7 @@ class SQLLogRecord extends Model
     public $hostAddress;
 
     /**
-     * @description The lock wait duration. Unit: milliseconds.
+     * @description The lock wait duration. Unit: millisecond.
      *
      * @example 0
      *
@@ -117,7 +117,7 @@ class SQLLogRecord extends Model
     public $nodeId;
 
     /**
-     * @description The time when the query was performed. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
+     * @description The timestamp generated when the SQL statement was executed. The value of this parameter is a UNIX timestamp. Unit: millisecond.
      *
      * @example 1701886532000
      *
@@ -126,7 +126,7 @@ class SQLLogRecord extends Model
     public $originTime;
 
     /**
-     * @description The parallel queue time of the PolarDB for MySQL instance. Unit: milliseconds.
+     * @description The parallel queue time of the PolarDB for MySQL instance. Unit: millisecond.
      *
      * @example 10
      *
@@ -135,7 +135,7 @@ class SQLLogRecord extends Model
     public $parallelDegree;
 
     /**
-     * @description The parallelism of the PolarDB for MySQL instance.
+     * @description The parallelism of the PolarDB for MySQL cluster.
      *
      * @example 2
      *
@@ -153,7 +153,7 @@ class SQLLogRecord extends Model
     public $physicAsyncRead;
 
     /**
-     * @description The number of physical reads.
+     * @description The total number of physical reads.
      *
      * @example 0
      *
@@ -171,7 +171,7 @@ class SQLLogRecord extends Model
     public $physicSyncRead;
 
     /**
-     * @description The number of rows that are returned.
+     * @description The number of rows returned by the SQL statement.
      *
      * @example 0
      *
@@ -180,7 +180,7 @@ class SQLLogRecord extends Model
     public $returnRows;
 
     /**
-     * @description The total number of rows that are updated or returned by the compute nodes of the PolarDB-X 2.0 database instance.
+     * @description The total number of rows that are updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
      *
      * @example 10
      *
@@ -189,7 +189,7 @@ class SQLLogRecord extends Model
     public $rows;
 
     /**
-     * @description The number of rows that are scanned.
+     * @description The number of scanned rows.
      *
      * @example 0
      *
@@ -198,7 +198,7 @@ class SQLLogRecord extends Model
     public $scanRows;
 
     /**
-     * @description The number of requests that are sent to the data nodes by the compute nodes of the PolarDB-X 2.0 database instance.
+     * @description The number of requests that are sent from the compute nodes to the data nodes of the PolarDB-X 2.0 instance.
      *
      * @example 10
      *
@@ -234,10 +234,10 @@ class SQLLogRecord extends Model
     public $sqlType;
 
     /**
-     * @description The state of the query. Valid values:
+     * @description The execution status of the SQL statement.
      *
-     *   **0**: The query was successful.
-     *   **1**: The query failed to be performed.
+     *   **0**: The execution was successful.
+     *   **1**: The execution failed.
      *
      * @example 0
      *
@@ -255,7 +255,7 @@ class SQLLogRecord extends Model
     public $threadId;
 
     /**
-     * @description The trace ID of the PolarDB-X 2.0 database instance. The value is the execution ID of the SQL statement on the data nodes.
+     * @description The trace ID of the PolarDB-X 2.0 instance. The value is the execution ID of the SQL statement on the data node.
      *
      * @example 14c93b7c7bf00000
      *
@@ -282,7 +282,7 @@ class SQLLogRecord extends Model
     public $updateRows;
 
     /**
-     * @description Indicates whether the In-Memory Column Index (IMCI) feature is enabled for the PolarDB for MySQL instance. Valid values:
+     * @description Indicates whether the In-Memory Column Index (IMCI) feature is enabled for the PolarDB for MySQL cluster. Valid values:
      *
      *   **true**
      *   **false**
@@ -303,7 +303,7 @@ class SQLLogRecord extends Model
     public $vip;
 
     /**
-     * @description The number of writes that are performed by the ApsaraDB RDS for SQL Server engine.
+     * @description The number of writes to the ApsaraDB RDS for SQL Server instance.
      *
      * @example 10
      *

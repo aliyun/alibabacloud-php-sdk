@@ -18,6 +18,11 @@ class queries extends Model
     public $accountName;
 
     /**
+     * @var string
+     */
+    public $collection;
+
+    /**
      * @description The execution duration. Unit: millisecond.
      *
      * @example 58
@@ -307,6 +312,7 @@ class queries extends Model
     public $writes;
     protected $_name = [
         'accountName'       => 'AccountName',
+        'collection'        => 'Collection',
         'consume'           => 'Consume',
         'cpuTime'           => 'CpuTime',
         'DBName'            => 'DBName',
@@ -349,6 +355,9 @@ class queries extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->collection) {
+            $res['Collection'] = $this->collection;
         }
         if (null !== $this->consume) {
             $res['Consume'] = $this->consume;
@@ -457,6 +466,9 @@ class queries extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['Collection'])) {
+            $model->collection = $map['Collection'];
         }
         if (isset($map['Consume'])) {
             $model->consume = $map['Consume'];
