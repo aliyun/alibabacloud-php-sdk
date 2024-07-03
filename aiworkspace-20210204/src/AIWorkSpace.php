@@ -740,6 +740,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->approvalStatus)) {
             $body['ApprovalStatus'] = $request->approvalStatus;
         }
+        if (!Utils::isUnset($request->compressionSpec)) {
+            $body['CompressionSpec'] = $request->compressionSpec;
+        }
         if (!Utils::isUnset($request->evaluationSpec)) {
             $body['EvaluationSpec'] = $request->evaluationSpec;
         }
@@ -3466,6 +3469,9 @@ class AIWorkSpace extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->approvalStatus)) {
             $body['ApprovalStatus'] = $request->approvalStatus;
+        }
+        if (!Utils::isUnset($request->compressionSpec)) {
+            $body['CompressionSpec'] = $request->compressionSpec;
         }
         if (!Utils::isUnset($request->evaluationSpec)) {
             $body['EvaluationSpec'] = $request->evaluationSpec;

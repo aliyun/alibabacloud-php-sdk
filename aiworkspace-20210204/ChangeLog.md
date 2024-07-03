@@ -1,3 +1,9 @@
+2024-07-03 Version: 1.0.8
+- Update API CreateModelVersion: update param body.
+- Update API GetModelVersion: update response param.
+- Update API UpdateModelVersion: update param body.
+
+
 2024-06-20 Version: 1.0.7
 - Update API CreateDataset: update param body.
 - Update API GetPermission: add param Option.

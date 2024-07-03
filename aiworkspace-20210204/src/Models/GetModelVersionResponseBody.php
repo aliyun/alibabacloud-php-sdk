@@ -20,6 +20,13 @@ class GetModelVersionResponseBody extends Model
      *
      * @var mixed[]
      */
+    public $compressionSpec;
+
+    /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
     public $evaluationSpec;
 
     /**
@@ -143,6 +150,7 @@ class GetModelVersionResponseBody extends Model
     public $versionName;
     protected $_name = [
         'approvalStatus'     => 'ApprovalStatus',
+        'compressionSpec'    => 'CompressionSpec',
         'evaluationSpec'     => 'EvaluationSpec',
         'extraInfo'          => 'ExtraInfo',
         'formatType'         => 'FormatType',
@@ -173,6 +181,9 @@ class GetModelVersionResponseBody extends Model
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+        if (null !== $this->compressionSpec) {
+            $res['CompressionSpec'] = $this->compressionSpec;
         }
         if (null !== $this->evaluationSpec) {
             $res['EvaluationSpec'] = $this->evaluationSpec;
@@ -251,6 +262,9 @@ class GetModelVersionResponseBody extends Model
         $model = new self();
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
+        }
+        if (isset($map['CompressionSpec'])) {
+            $model->compressionSpec = $map['CompressionSpec'];
         }
         if (isset($map['EvaluationSpec'])) {
             $model->evaluationSpec = $map['EvaluationSpec'];
