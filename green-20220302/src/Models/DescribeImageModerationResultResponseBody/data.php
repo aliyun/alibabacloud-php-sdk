@@ -39,12 +39,18 @@ class data extends Model
      * @var result[]
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
     protected $_name = [
-        'dataId'   => 'DataId',
-        'frame'    => 'Frame',
-        'frameNum' => 'FrameNum',
-        'reqId'    => 'ReqId',
-        'result'   => 'Result',
+        'dataId'    => 'DataId',
+        'frame'     => 'Frame',
+        'frameNum'  => 'FrameNum',
+        'reqId'     => 'ReqId',
+        'result'    => 'Result',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class data extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -107,6 +116,9 @@ class data extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

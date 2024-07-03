@@ -21,15 +21,21 @@ class data extends Model
     public $result;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @example 1
      *
      * @var float
      */
     public $score;
     protected $_name = [
-        'advice' => 'Advice',
-        'result' => 'Result',
-        'score'  => 'Score',
+        'advice'    => 'Advice',
+        'result'    => 'Result',
+        'riskLevel' => 'RiskLevel',
+        'score'     => 'Score',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class data extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -89,6 +98,9 @@ class data extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
