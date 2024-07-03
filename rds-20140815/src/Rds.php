@@ -63,6 +63,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceForRebuildRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceForRebuildResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBNodesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBNodesResponse;
@@ -117,6 +119,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBNodesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBNodesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBNodesShrinkRequest;
@@ -234,6 +238,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesByExpireTimeRequest
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesByExpireTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesByPerformanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesByPerformanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesForCloneRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesForCloneResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesRequest;
@@ -470,6 +476,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceProxyConfigurationRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceProxyConfigurationResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecShrinkRequest;
@@ -3136,6 +3144,77 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 创建实例主机安全组规则
+     *  *
+     * @param CreateDBInstanceSecurityGroupRuleRequest $request CreateDBInstanceSecurityGroupRuleRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDBInstanceSecurityGroupRuleResponse CreateDBInstanceSecurityGroupRuleResponse
+     */
+    public function createDBInstanceSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->portRange)) {
+            $query['PortRange'] = $request->portRange;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceCidrIp)) {
+            $query['SourceCidrIp'] = $request->sourceCidrIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBInstanceSecurityGroupRule',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBInstanceSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建实例主机安全组规则
+     *  *
+     * @param CreateDBInstanceSecurityGroupRuleRequest $request CreateDBInstanceSecurityGroupRuleRequest
+     *
+     * @return CreateDBInstanceSecurityGroupRuleResponse CreateDBInstanceSecurityGroupRuleResponse
+     */
+    public function createDBInstanceSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBInstanceSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
      *  *
      * @description ### Supported database engines
@@ -5349,6 +5428,74 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBInstanceEndpointAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除实例主机安全组规则
+     *  *
+     * @param DeleteDBInstanceSecurityGroupRuleRequest $request DeleteDBInstanceSecurityGroupRuleRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDBInstanceSecurityGroupRuleResponse DeleteDBInstanceSecurityGroupRuleResponse
+     */
+    public function deleteDBInstanceSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupRuleIds)) {
+            $query['SecurityGroupRuleIds'] = $request->securityGroupRuleIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBInstanceSecurityGroupRule',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBInstanceSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除实例主机安全组规则
+     *  *
+     * @param DeleteDBInstanceSecurityGroupRuleRequest $request DeleteDBInstanceSecurityGroupRuleRequest
+     *
+     * @return DeleteDBInstanceSecurityGroupRuleResponse DeleteDBInstanceSecurityGroupRuleResponse
+     */
+    public function deleteDBInstanceSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBInstanceSecurityGroupRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -9600,6 +9747,65 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 描述实例主机安全组规则
+     *  *
+     * @param DescribeDBInstanceSecurityGroupRuleRequest $request DescribeDBInstanceSecurityGroupRuleRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBInstanceSecurityGroupRuleResponse DescribeDBInstanceSecurityGroupRuleResponse
+     */
+    public function describeDBInstanceSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceSecurityGroupRule',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 描述实例主机安全组规则
+     *  *
+     * @param DescribeDBInstanceSecurityGroupRuleRequest $request DescribeDBInstanceSecurityGroupRuleRequest
+     *
+     * @return DescribeDBInstanceSecurityGroupRuleResponse DescribeDBInstanceSecurityGroupRuleResponse
+     */
+    public function describeDBInstanceSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSecurityGroupRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -14974,16 +15180,17 @@ class Rds extends OpenApiClient
      * @summary Queries the statistics on slow query logs.
      *  *
      * @description ### [](#)Supported database engines
-     * *   MySQL
+     * *   RDS MySQL
      *     **
      *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-     * *   SQL Server
+     * *   RDS SQL Server
      *     **
      *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-     * *   MariaDB
+     * *   RDS MariaDB
      * ### [](#)Precautions
      * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-     * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+     * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
+     * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
      *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -15049,16 +15256,17 @@ class Rds extends OpenApiClient
      * @summary Queries the statistics on slow query logs.
      *  *
      * @description ### [](#)Supported database engines
-     * *   MySQL
+     * *   RDS MySQL
      *     **
      *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-     * *   SQL Server
+     * *   RDS SQL Server
      *     **
      *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-     * *   MariaDB
+     * *   RDS MariaDB
      * ### [](#)Precautions
      * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-     * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+     * *   If the return result is empty, check whether the StartTime and EndTime parameters are in UTC. If yes, no slow logs are generated within the specified time range.
+     * *   Starting from December 13, 2023, the optimized template algorithm is used for slow queries. As a result, different **SQLHash** values are generated for the same SQLText before and after optimization. For more information, see [[Notice\\] Optimization of the template algorithm for slow queries](~~2637024~~).
      *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
@@ -15301,12 +15509,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+     * @summary Queries the check report for a major engine version upgrade of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance.
      *  *
      * @description ### [](#)Supported database engines
+     * MySQL
      * PostgreSQL
      * ### [](#)References
-     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Check report for the major engine version upgrade of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2794383.html)
      * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
      * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
      *  *
@@ -15365,12 +15575,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+     * @summary Queries the check report for a major engine version upgrade of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance.
      *  *
      * @description ### [](#)Supported database engines
+     * MySQL
      * PostgreSQL
      * ### [](#)References
-     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Check report for the major engine version upgrade of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2794383.html)
      * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
      * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
      *  *
@@ -19240,6 +19452,80 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例主机安全组规则
+     *  *
+     * @param ModifyDBInstanceSecurityGroupRuleRequest $request ModifyDBInstanceSecurityGroupRuleRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstanceSecurityGroupRuleResponse ModifyDBInstanceSecurityGroupRuleResponse
+     */
+    public function modifyDBInstanceSecurityGroupRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ipProtocol)) {
+            $query['IpProtocol'] = $request->ipProtocol;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->portRange)) {
+            $query['PortRange'] = $request->portRange;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupRuleId)) {
+            $query['SecurityGroupRuleId'] = $request->securityGroupRuleId;
+        }
+        if (!Utils::isUnset($request->sourceCidrIp)) {
+            $query['SourceCidrIp'] = $request->sourceCidrIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceSecurityGroupRule',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改实例主机安全组规则
+     *  *
+     * @param ModifyDBInstanceSecurityGroupRuleRequest $request ModifyDBInstanceSecurityGroupRuleRequest
+     *
+     * @return ModifyDBInstanceSecurityGroupRuleResponse ModifyDBInstanceSecurityGroupRuleResponse
+     */
+    public function modifyDBInstanceSecurityGroupRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceSecurityGroupRuleWithOptions($request, $runtime);
     }
 
     /**

@@ -181,6 +181,16 @@ class backup extends Model
     public $encryption;
 
     /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
      * @description The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
      *
      * @example 5882781
@@ -265,6 +275,8 @@ class backup extends Model
         'copyOnlyBackup'            => 'CopyOnlyBackup',
         'DBInstanceId'              => 'DBInstanceId',
         'encryption'                => 'Encryption',
+        'engine'                    => 'Engine',
+        'engineVersion'             => 'EngineVersion',
         'hostInstanceID'            => 'HostInstanceID',
         'isAvail'                   => 'IsAvail',
         'metaStatus'                => 'MetaStatus',
@@ -330,6 +342,12 @@ class backup extends Model
         }
         if (null !== $this->encryption) {
             $res['Encryption'] = $this->encryption;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->hostInstanceID) {
             $res['HostInstanceID'] = $this->hostInstanceID;
@@ -411,6 +429,12 @@ class backup extends Model
         }
         if (isset($map['Encryption'])) {
             $model->encryption = $map['Encryption'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['HostInstanceID'])) {
             $model->hostInstanceID = $map['HostInstanceID'];

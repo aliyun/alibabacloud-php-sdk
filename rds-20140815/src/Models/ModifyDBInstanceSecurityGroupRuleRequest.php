@@ -6,27 +6,34 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSlotsRequest extends Model
+class ModifyDBInstanceSecurityGroupRuleRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description This parameter is required.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     * @example ETnLKlblzczshOTUbOC****
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example pgm-bp102g323jd4****
+     * @example rm-bp15i4hn07r******
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example zht_test
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example TCP
+     *
+     * @var string
+     */
+    public $ipProtocol;
 
     /**
      * @var string
@@ -34,18 +41,18 @@ class DescribeSlotsRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var int
+     * @var string
      */
     public $ownerId;
 
     /**
-     * @description The resource group ID. You can leave this parameter empty.
+     * @description This parameter is required.
      *
-     * @example rg-acfmy*****
+     * @example 1/200
      *
      * @var string
      */
-    public $resourceGroupId;
+    public $portRange;
 
     /**
      * @var string
@@ -56,14 +63,35 @@ class DescribeSlotsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example sgr-2ze17u******
+     *
+     * @var string
+     */
+    public $securityGroupRuleId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 192.XX.XX.100
+     *
+     * @var string
+     */
+    public $sourceCidrIp;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
+        'description'          => 'Description',
+        'ipProtocol'           => 'IpProtocol',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'portRange'            => 'PortRange',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityGroupRuleId'  => 'SecurityGroupRuleId',
+        'sourceCidrIp'         => 'SourceCidrIp',
     ];
 
     public function validate()
@@ -73,11 +101,14 @@ class DescribeSlotsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ipProtocol) {
+            $res['IpProtocol'] = $this->ipProtocol;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -85,14 +116,20 @@ class DescribeSlotsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityGroupRuleId) {
+            $res['SecurityGroupRuleId'] = $this->securityGroupRuleId;
+        }
+        if (null !== $this->sourceCidrIp) {
+            $res['SourceCidrIp'] = $this->sourceCidrIp;
         }
 
         return $res;
@@ -101,16 +138,19 @@ class DescribeSlotsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSlotsRequest
+     * @return ModifyDBInstanceSecurityGroupRuleRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['IpProtocol'])) {
+            $model->ipProtocol = $map['IpProtocol'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -118,14 +158,20 @@ class DescribeSlotsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupRuleId'])) {
+            $model->securityGroupRuleId = $map['SecurityGroupRuleId'];
+        }
+        if (isset($map['SourceCidrIp'])) {
+            $model->sourceCidrIp = $map['SourceCidrIp'];
         }
 
         return $model;

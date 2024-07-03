@@ -11,7 +11,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average execution duration per SQL statement in the query. Unit: seconds.
      *
-     ****
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 1
      *
      * @var int
@@ -21,7 +21,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average number of I/O writes per SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -31,7 +31,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average number of rows that were affected by the last SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -41,7 +41,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average number of logical reads per SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -51,7 +51,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average number of physical reads per SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -61,7 +61,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average number of rows that were affected per SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -107,7 +107,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest number of I/O writes that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -117,7 +117,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest number of rows that were affected by the last SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -145,7 +145,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest number of logical reads that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -155,7 +155,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest number of physical reads that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -165,7 +165,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest number of rows that were affected by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -175,7 +175,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest number of I/O writes that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -185,7 +185,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest number of rows that were affected by the last SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -195,7 +195,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest number of logical reads that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -205,7 +205,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest number of physical reads that were performed by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -215,7 +215,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest number of rows that were affected by a specific SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -306,7 +306,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average amount of CPU time per SQL statement in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -316,7 +316,7 @@ class SQLSlowLog extends Model
     /**
      * @description The average execution duration per SQL statement in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -326,7 +326,7 @@ class SQLSlowLog extends Model
     /**
      * @description The largest amount of CPU time that was used by a specific SQL statement in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -334,9 +334,9 @@ class SQLSlowLog extends Model
     public $SQLServerMaxCpuTime;
 
     /**
-     * @description The smallest amount of CPU time that was used by a specific SQL statement. Unit: seconds.
+     * @description The smallest amount of CPU time that was used by a specific SQL statement in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -346,7 +346,7 @@ class SQLSlowLog extends Model
     /**
      * @description The smallest execution duration of a specific SQL statement in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -356,7 +356,7 @@ class SQLSlowLog extends Model
     /**
      * @description The total amount of CPU time that was used by all SQL statements in the query. Unit: seconds.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -402,7 +402,7 @@ class SQLSlowLog extends Model
     /**
      * @description The total number of I/O writes that were performed by all SQL statements in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -412,7 +412,7 @@ class SQLSlowLog extends Model
     /**
      * @description The total number of rows that were affected by the last SQL statement in the query.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 0
      *
      * @var int
@@ -438,7 +438,7 @@ class SQLSlowLog extends Model
     public $totalLogicalReadCounts;
 
     /**
-     * @description The total number of physical reads that were performed by all SQL statements in the query .
+     * @description The total number of physical reads that were performed by all SQL statements in the query.
      *
      * @example 1
      *

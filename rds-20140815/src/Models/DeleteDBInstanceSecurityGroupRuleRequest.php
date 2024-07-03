@@ -6,23 +6,19 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSlotsRequest extends Model
+class DeleteDBInstanceSecurityGroupRuleRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     * @example ETnLKlblzczshOTUbOC****
+     * @example ETnLKlblzczshOTUbOC******
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example pgm-bp102g323jd4****
+     * @example rm-bp15i4hn07r******
      *
      * @var string
      */
@@ -34,14 +30,12 @@ class DescribeSlotsRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var int
+     * @var string
      */
     public $ownerId;
 
     /**
-     * @description The resource group ID. You can leave this parameter empty.
-     *
-     * @example rg-acfmy*****
+     * @example rg-acfmy****
      *
      * @var string
      */
@@ -56,6 +50,15 @@ class DescribeSlotsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example sgr-2ze17u******
+     *
+     * @var string
+     */
+    public $securityGroupRuleIds;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
@@ -64,6 +67,7 @@ class DescribeSlotsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityGroupRuleIds' => 'SecurityGroupRuleIds',
     ];
 
     public function validate()
@@ -94,6 +98,9 @@ class DescribeSlotsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->securityGroupRuleIds) {
+            $res['SecurityGroupRuleIds'] = $this->securityGroupRuleIds;
+        }
 
         return $res;
     }
@@ -101,7 +108,7 @@ class DescribeSlotsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSlotsRequest
+     * @return DeleteDBInstanceSecurityGroupRuleRequest
      */
     public static function fromMap($map = [])
     {
@@ -126,6 +133,9 @@ class DescribeSlotsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupRuleIds'])) {
+            $model->securityGroupRuleIds = $map['SecurityGroupRuleIds'];
         }
 
         return $model;

@@ -87,7 +87,7 @@ class DBClusterNode extends Model
     public $nodeZoneId;
 
     /**
-     * @description The node status. Default value: true. Valid values:
+     * @description The node status. Valid values:
      *
      *   active
      *   creating

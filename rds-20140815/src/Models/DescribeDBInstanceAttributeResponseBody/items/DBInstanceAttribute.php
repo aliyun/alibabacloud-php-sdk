@@ -83,6 +83,9 @@ class DBInstanceAttribute extends Model
     public $burstingEnabled;
 
     /**
+     * @description Indicates whether the conditions for a temporary upgrade are met.
+     *
+     * >  Pay-as-you-go instances do not support temporary upgrades.
      * @example true
      *
      * @var bool
@@ -106,7 +109,7 @@ class DBInstanceAttribute extends Model
     public $category;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A reserved parameter.
      *
      * @example None
      *
@@ -285,7 +288,7 @@ class DBInstanceAttribute extends Model
      *
      *   **local_ssd** or **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: Enterprise SSD (ESSD)
+     *   **cloud_essd**: Enterprise SSD (ESSD).
      *   **general_essd**: general ESSD
      *
      * @example local_ssd
@@ -295,7 +298,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The instance type. Valid values:
+     * @description The type of the instance. Valid values:
      *
      *   **Primary**: primary instance
      *   **Readonly**: read-only instance
@@ -318,7 +321,7 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @description The ID of the dedicated cluster to which the instances belong.
+     * @description The ID of the dedicated cluster to which the instance belongs.
      *
      * @example dhg-7a9*****
      *
@@ -551,7 +554,7 @@ class DBInstanceAttribute extends Model
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
-     *   **SERVERLESS**: serverless
+     *   **SERVERLESS**
      *
      * @example Postpaid
      *
@@ -672,6 +675,9 @@ class DBInstanceAttribute extends Model
     public $tempDBInstanceId;
 
     /**
+     * @description The end time of the temporary upgrade of the instance.
+     *
+     * >  This parameter is unavailable for pay-as-you-go instances.
      * @example 2024-05-30 00:00:00
      *
      * @var string
@@ -679,6 +685,9 @@ class DBInstanceAttribute extends Model
     public $tempUpgradeTimeEnd;
 
     /**
+     * @description The start time of the temporary upgrade of the instance.
+     *
+     * >  This parameter is unavailable for pay-as-you-go instances.
      * @example 2024-05-29 00:00:00
      *
      * @var string
@@ -725,7 +734,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the instance. This parameter is returned only when the instance resides in a VPC.
+     * @description The ID of the VPC. This parameter is returned only when the instance resides in a VPC.
      *
      * @example vpc-23rsxdf*****
      *
