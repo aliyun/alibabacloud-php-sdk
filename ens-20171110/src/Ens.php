@@ -98,6 +98,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnatEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationRequest;
@@ -153,6 +156,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageGatewayRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageGatewayResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGRequest;
@@ -3336,6 +3341,58 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary Creates a storage gateway.
+     *  *
+     * @param CreateStorageGatewayRequest $tmpReq  CreateStorageGatewayRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStorageGatewayResponse CreateStorageGatewayResponse
+     */
+    public function createStorageGatewayWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateStorageGatewayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->orderDetails)) {
+            $request->orderDetailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderDetails, 'OrderDetails', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->orderDetailsShrink)) {
+            $query['OrderDetails'] = $request->orderDetailsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStorageGateway',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStorageGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a storage gateway.
+     *  *
+     * @param CreateStorageGatewayRequest $request CreateStorageGatewayRequest
+     *
+     * @return CreateStorageGatewayResponse CreateStorageGatewayResponse
+     */
+    public function createStorageGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStorageGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a vSwitch.
      *  *
      * @param CreateVSwitchRequest $request CreateVSwitchRequest
@@ -4661,6 +4718,53 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSnatIpForSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a storage gateway.
+     *  *
+     * @param DeleteStorageGatewayRequest $request DeleteStorageGatewayRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteStorageGatewayResponse DeleteStorageGatewayResponse
+     */
+    public function deleteStorageGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStorageGateway',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStorageGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a storage gateway.
+     *  *
+     * @param DeleteStorageGatewayRequest $request DeleteStorageGatewayRequest
+     *
+     * @return DeleteStorageGatewayResponse DeleteStorageGatewayResponse
+     */
+    public function deleteStorageGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStorageGatewayWithOptions($request, $runtime);
     }
 
     /**

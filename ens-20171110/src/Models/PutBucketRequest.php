@@ -41,6 +41,11 @@ class PutBucketRequest extends Model
     public $comment;
 
     /**
+     * @description Scheduling Scope, this parameter is only effective for globally scheduled Buckets.
+     *
+     * - oversea
+     * @example domestic
+     *
      * @var string
      */
     public $dispatchScope;
