@@ -16,6 +16,11 @@ class JobItem extends Model
     public $codeSource;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var dataSources[]
      */
     public $dataSources;
@@ -237,6 +242,7 @@ class JobItem extends Model
     public $workspaceName;
     protected $_name = [
         'codeSource'          => 'CodeSource',
+        'credentialConfig'    => 'CredentialConfig',
         'dataSources'         => 'DataSources',
         'displayName'         => 'DisplayName',
         'duration'            => 'Duration',
@@ -281,6 +287,9 @@ class JobItem extends Model
         $res = [];
         if (null !== $this->codeSource) {
             $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toMap() : null;
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->dataSources) {
             $res['DataSources'] = [];
@@ -407,6 +416,9 @@ class JobItem extends Model
         $model = new self();
         if (isset($map['CodeSource'])) {
             $model->codeSource = codeSource::fromMap($map['CodeSource']);
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
