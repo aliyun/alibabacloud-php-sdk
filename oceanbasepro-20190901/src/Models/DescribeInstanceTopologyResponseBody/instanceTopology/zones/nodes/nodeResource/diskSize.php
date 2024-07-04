@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
-     * @description The deployment type of the primary zone.
-     *
-     * @example 400
-     *
      * @var float
      */
     public $totalDiskSize;
 
     /**
-     * @description The status of the tenant.
-     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
-     * @example 200
-     *
      * @var float
      */
     public $usedDiskSize;
