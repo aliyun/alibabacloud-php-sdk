@@ -39,6 +39,16 @@ class DescribeScheduledTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $recurrenceType;
+
+    /**
+     * @var string
+     */
+    public $recurrenceValue;
+
+    /**
      * @description The region ID of the scaling group to which the scheduled task belongs.
      *
      * This parameter is required.
@@ -87,11 +97,23 @@ class DescribeScheduledTasksRequest extends Model
      * @var string[]
      */
     public $scheduledTaskNames;
+
+    /**
+     * @var bool
+     */
+    public $taskEnabled;
+
+    /**
+     * @var string
+     */
+    public $taskName;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'recurrenceType'       => 'RecurrenceType',
+        'recurrenceValue'      => 'RecurrenceValue',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -99,6 +121,8 @@ class DescribeScheduledTasksRequest extends Model
         'scheduledActions'     => 'ScheduledActions',
         'scheduledTaskIds'     => 'ScheduledTaskIds',
         'scheduledTaskNames'   => 'ScheduledTaskNames',
+        'taskEnabled'          => 'TaskEnabled',
+        'taskName'             => 'TaskName',
     ];
 
     public function validate()
@@ -120,6 +144,12 @@ class DescribeScheduledTasksRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->recurrenceType) {
+            $res['RecurrenceType'] = $this->recurrenceType;
+        }
+        if (null !== $this->recurrenceValue) {
+            $res['RecurrenceValue'] = $this->recurrenceValue;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -140,6 +170,12 @@ class DescribeScheduledTasksRequest extends Model
         }
         if (null !== $this->scheduledTaskNames) {
             $res['ScheduledTaskNames'] = $this->scheduledTaskNames;
+        }
+        if (null !== $this->taskEnabled) {
+            $res['TaskEnabled'] = $this->taskEnabled;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -164,6 +200,12 @@ class DescribeScheduledTasksRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RecurrenceType'])) {
+            $model->recurrenceType = $map['RecurrenceType'];
+        }
+        if (isset($map['RecurrenceValue'])) {
+            $model->recurrenceValue = $map['RecurrenceValue'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -191,6 +233,12 @@ class DescribeScheduledTasksRequest extends Model
             if (!empty($map['ScheduledTaskNames'])) {
                 $model->scheduledTaskNames = $map['ScheduledTaskNames'];
             }
+        }
+        if (isset($map['TaskEnabled'])) {
+            $model->taskEnabled = $map['TaskEnabled'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

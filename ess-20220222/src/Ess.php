@@ -4095,6 +4095,12 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->recurrenceType)) {
+            $query['RecurrenceType'] = $request->recurrenceType;
+        }
+        if (!Utils::isUnset($request->recurrenceValue)) {
+            $query['RecurrenceValue'] = $request->recurrenceValue;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4115,6 +4121,12 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->scheduledTaskNames)) {
             $query['ScheduledTaskNames'] = $request->scheduledTaskNames;
+        }
+        if (!Utils::isUnset($request->taskEnabled)) {
+            $query['TaskEnabled'] = $request->taskEnabled;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
