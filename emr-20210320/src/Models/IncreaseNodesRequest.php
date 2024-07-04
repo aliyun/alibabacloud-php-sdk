@@ -11,6 +11,8 @@ class IncreaseNodesRequest extends Model
     /**
      * @description The configurations of the applications. Valid values of N: 1 to 1000.
      *
+     * @example Month
+     *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
@@ -27,6 +29,11 @@ class IncreaseNodesRequest extends Model
      * @var bool
      */
     public $autoPayOrder;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
 
     /**
      * @description The ID of the cluster.
@@ -49,6 +56,11 @@ class IncreaseNodesRequest extends Model
     public $increaseNodeCount;
 
     /**
+     * @description The minimum number of nodes that can be added. Valid values: 1 to 500.
+     *
+     *   If you configure this parameter, and the number of available Elastic Compute Service (ECS) instances is less than the value of the IncreaseNodeCount parameter, the system tries to add nodes based on the number specified by the `MinIncreaseNodeCount` parameter. If the minimum number of nodes are added, the scale-out status is `PARTIAL_COMPLETED`.
+     *   If you do not configure this parameter, and the number of available ECS instances is less than the value of the IncreaseNodeCount parameter, the scale-out process fails. The scale-out status is `FAILED`.
+     *
      * @var int
      */
     public $minIncreaseNodeCount;
@@ -95,6 +107,7 @@ class IncreaseNodesRequest extends Model
     protected $_name = [
         'applicationConfigs'   => 'ApplicationConfigs',
         'autoPayOrder'         => 'AutoPayOrder',
+        'autoRenew'            => 'AutoRenew',
         'clusterId'            => 'ClusterId',
         'increaseNodeCount'    => 'IncreaseNodeCount',
         'minIncreaseNodeCount' => 'MinIncreaseNodeCount',
@@ -122,6 +135,9 @@ class IncreaseNodesRequest extends Model
         }
         if (null !== $this->autoPayOrder) {
             $res['AutoPayOrder'] = $this->autoPayOrder;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -167,6 +183,9 @@ class IncreaseNodesRequest extends Model
         }
         if (isset($map['AutoPayOrder'])) {
             $model->autoPayOrder = $map['AutoPayOrder'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];

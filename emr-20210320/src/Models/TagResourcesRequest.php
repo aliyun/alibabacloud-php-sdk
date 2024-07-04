@@ -41,7 +41,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags to be bound.
+     * @description The tags.
      *
      * This parameter is required.
      * @example [null]

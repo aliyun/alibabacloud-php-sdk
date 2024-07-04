@@ -45,7 +45,7 @@ class scalingPolicy extends Model
     public $scalingPolicyId;
 
     /**
-     * @description The scaling rules.
+     * @description The auto scaling rules.
      *
      * @var scalingRules[]
      */

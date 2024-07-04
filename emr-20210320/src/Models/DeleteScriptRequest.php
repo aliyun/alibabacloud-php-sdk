@@ -6,28 +6,20 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateNodeGroupRequest extends Model
+class DeleteScriptRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description 集群ID。
      *
      * This parameter is required.
-     * @example C-E525E04F3914****
+     * @example c-b933c5aac8fe****
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The information about the node group.
-     *
-     * This parameter is required.
-     * @var NodeGroupConfig
-     */
-    public $nodeGroup;
-
-    /**
-     * @description The region ID.
+     * @description 区域ID。
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -35,10 +27,31 @@ class CreateNodeGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description 脚本ID。
+     *
+     * This parameter is required.
+     * @example cs-da7476a7679a4d4c9cede62ebe09****
+     *
+     * @var string
+     */
+    public $scriptId;
+
+    /**
+     * @description 集群脚本类型。
+     *
+     * This parameter is required.
+     * @example BOOTSTRAP
+     *
+     * @var string
+     */
+    public $scriptType;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'nodeGroup' => 'NodeGroup',
-        'regionId'  => 'RegionId',
+        'clusterId'  => 'ClusterId',
+        'regionId'   => 'RegionId',
+        'scriptId'   => 'ScriptId',
+        'scriptType' => 'ScriptType',
     ];
 
     public function validate()
@@ -51,11 +64,14 @@ class CreateNodeGroupRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->nodeGroup) {
-            $res['NodeGroup'] = null !== $this->nodeGroup ? $this->nodeGroup->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scriptId) {
+            $res['ScriptId'] = $this->scriptId;
+        }
+        if (null !== $this->scriptType) {
+            $res['ScriptType'] = $this->scriptType;
         }
 
         return $res;
@@ -64,7 +80,7 @@ class CreateNodeGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateNodeGroupRequest
+     * @return DeleteScriptRequest
      */
     public static function fromMap($map = [])
     {
@@ -72,11 +88,14 @@ class CreateNodeGroupRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['NodeGroup'])) {
-            $model->nodeGroup = NodeGroupConfig::fromMap($map['NodeGroup']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ScriptId'])) {
+            $model->scriptId = $map['ScriptId'];
+        }
+        if (isset($map['ScriptType'])) {
+            $model->scriptType = $map['ScriptType'];
         }
 
         return $model;

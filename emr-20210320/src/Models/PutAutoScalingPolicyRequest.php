@@ -19,7 +19,7 @@ class PutAutoScalingPolicyRequest extends Model
     public $clusterId;
 
     /**
-     * @description 最大最小值约束。
+     * @description The maximum and minimum numbers of nodes in a node group.
      *
      * @var ScalingConstraints
      */
@@ -46,8 +46,8 @@ class PutAutoScalingPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description 弹性伸缩规则描述列表。
-     * <p>
+     * @description The auto scaling rules. Number of elements in the array: 0 to 100.
+     *
      * @var ScalingRule[]
      */
     public $scalingRules;

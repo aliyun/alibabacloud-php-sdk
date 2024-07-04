@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class scripts extends Model
 {
     /**
-     * @description API名称。
+     * @description The name of the API operation.
      *
      * @example ListScripts
      *
@@ -19,7 +19,7 @@ class scripts extends Model
     public $action;
 
     /**
-     * @description 结束执行时间。
+     * @description The time when the system finishes the running of the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
      *
      * @example 1639715635819
      *
@@ -28,7 +28,10 @@ class scripts extends Model
     public $endTime;
 
     /**
-     * @description 执行失败策略。
+     * @description The policy that is used to handle execution failures of the script. Valid values:
+     *
+     *   FAILED_CONTINUE
+     *   FAILED_BLOCK
      *
      * @example FAILED_CONTINUE
      *
@@ -37,7 +40,10 @@ class scripts extends Model
     public $executionFailStrategy;
 
     /**
-     * @description 执行时机。
+     * @description The time based on which the system runs the script. Valid values:
+     *
+     *   BEFORE_INSTALL
+     *   AFTER_STARTED
      *
      * @example BEFORE_INSTALL
      *
@@ -46,12 +52,20 @@ class scripts extends Model
     public $executionMoment;
 
     /**
+     * @description The status of the script. This parameter is returned only if the `ScriptType` parameter is set to `NORMAL`. Valid values:
+     *
+     *   SCRIPT_COMPLETED
+     *   SCRIPT_SUBMISSION_FAILED
+     *   SCRIPT_RUNNING
+     *
+     * @example SCRIPT_COMPLETED
+     *
      * @var string
      */
     public $executionState;
 
     /**
-     * @description 最近一次编辑时间。
+     * @description The time when the script was last modified.
      *
      * @example 1639714634819
      *
@@ -60,14 +74,14 @@ class scripts extends Model
     public $lastUpdateTime;
 
     /**
-     * @description 节点选择器。
+     * @description The node selector.
      *
      * @var NodeSelector
      */
     public $nodeSelector;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +90,7 @@ class scripts extends Model
     public $regionId;
 
     /**
-     * @description 集群脚本执行参数。
+     * @description The runtime parameters of the script.
      *
      * @example --mode=client -h -p
      *
@@ -85,7 +99,7 @@ class scripts extends Model
     public $scriptArgs;
 
     /**
-     * @description 脚本ID。
+     * @description The script ID.
      *
      * @example cs-bf25219d103043a0820613e32781****
      *
@@ -94,7 +108,7 @@ class scripts extends Model
     public $scriptId;
 
     /**
-     * @description 集群脚本名称。
+     * @description The name of the script.
      *
      * @example check_env
      *
@@ -103,7 +117,7 @@ class scripts extends Model
     public $scriptName;
 
     /**
-     * @description 集群脚本路径。
+     * @description The path in which the script is stored.
      *
      * @example oss://bucket1/check_evn.sh
      *
@@ -112,7 +126,7 @@ class scripts extends Model
     public $scriptPath;
 
     /**
-     * @description 开始执行时间。
+     * @description The time when the system starts to run the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
      *
      * @example 1639714634000
      *

@@ -12,12 +12,16 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateNodeGroupRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\CreateNodeGroupResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CreateScriptRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CreateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DecreaseNodesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteScriptRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationRequest;
@@ -100,6 +104,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsStatsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsStatsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorReportsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorReportsResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListInspectionHistoryRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListInspectionHistoryResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListInstanceTypesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListInstanceTypesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListNodeGroupsRequest;
@@ -108,6 +114,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListReleaseVersionsResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListResourceHealthInspectionsRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListResourceHealthInspectionsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListScriptsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListScriptsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListTagResourcesRequest;
@@ -128,6 +136,9 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -416,9 +427,59 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param CreateScriptRequest $request CreateScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateScriptResponse CreateScriptResponse
+     */
+    public function createScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
+        }
+        if (!Utils::isUnset($request->scripts)) {
+            $query['Scripts'] = $request->scripts;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScript',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateScriptRequest $request CreateScriptRequest
+     *
+     * @return CreateScriptResponse CreateScriptResponse
+     */
+    public function createScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScriptWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Perform a scale-out operation on the target node group.
-     *  *
-     * @description 缩容节点。
      *  *
      * @param DecreaseNodesRequest $request DecreaseNodesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -464,8 +525,6 @@ class Emr extends OpenApiClient
 
     /**
      * @summary Perform a scale-out operation on the target node group.
-     *  *
-     * @description 缩容节点。
      *  *
      * @param DecreaseNodesRequest $request DecreaseNodesRequest
      *
@@ -578,6 +637,58 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteScriptRequest $request DeleteScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteScriptResponse DeleteScriptResponse
+     */
+    public function deleteScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
+        }
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScript',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteScriptRequest $request DeleteScriptRequest
+     *
+     * @return DeleteScriptResponse DeleteScriptResponse
+     */
+    public function deleteScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScriptWithOptions($request, $runtime);
     }
 
     /**
@@ -1714,8 +1825,6 @@ class Emr extends OpenApiClient
     /**
      * @summary Gets the details of an asynchronous operation.
      *  *
-     * @description 获取操作详情。
-     *  *
      * @param GetOperationRequest $request GetOperationRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1755,8 +1864,6 @@ class Emr extends OpenApiClient
     /**
      * @summary Gets the details of an asynchronous operation.
      *  *
-     * @description 获取操作详情。
-     *  *
      * @param GetOperationRequest $request GetOperationRequest
      *
      * @return GetOperationResponse GetOperationResponse
@@ -1785,6 +1892,9 @@ class Emr extends OpenApiClient
         }
         if (!Utils::isUnset($request->autoPayOrder)) {
             $query['AutoPayOrder'] = $request->autoPayOrder;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
@@ -3184,6 +3294,73 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param ListInspectionHistoryRequest $request ListInspectionHistoryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInspectionHistoryResponse ListInspectionHistoryResponse
+     */
+    public function listInspectionHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->component)) {
+            $query['Component'] = $request->component;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInspectionHistory',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInspectionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInspectionHistoryRequest $request ListInspectionHistoryRequest
+     *
+     * @return ListInspectionHistoryResponse ListInspectionHistoryResponse
+     */
+    public function listInspectionHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInspectionHistoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3459,8 +3636,83 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 查询集群脚本。
+     * @description 查询资源巡检项。
      *  *
+     * @param ListResourceHealthInspectionsRequest $request ListResourceHealthInspectionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListResourceHealthInspectionsResponse ListResourceHealthInspectionsResponse
+     */
+    public function listResourceHealthInspectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->componentName)) {
+            $query['ComponentName'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->healthStatuses)) {
+            $query['HealthStatuses'] = $request->healthStatuses;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->nodeIds)) {
+            $query['NodeIds'] = $request->nodeIds;
+        }
+        if (!Utils::isUnset($request->nodeNames)) {
+            $query['NodeNames'] = $request->nodeNames;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceHealthInspections',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceHealthInspectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @description 查询资源巡检项。
+     *  *
+     * @param ListResourceHealthInspectionsRequest $request ListResourceHealthInspectionsRequest
+     *
+     * @return ListResourceHealthInspectionsResponse ListResourceHealthInspectionsResponse
+     */
+    public function listResourceHealthInspections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceHealthInspectionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListScriptsRequest $request ListScriptsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -3504,8 +3756,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 查询集群脚本。
-     *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      *
      * @return ListScriptsResponse ListScriptsResponse
@@ -3692,8 +3942,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 执行集群模板
-     *  *
      * @param RunApiTemplateRequest $request RunApiTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3734,8 +3982,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 执行集群模板
-     *  *
      * @param RunApiTemplateRequest $request RunApiTemplateRequest
      *
      * @return RunApiTemplateResponse RunApiTemplateResponse
@@ -3873,8 +4119,6 @@ class Emr extends OpenApiClient
     /**
      * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
      *  *
-     * @description 删除指定资源标签。
-     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3920,8 +4164,6 @@ class Emr extends OpenApiClient
     /**
      * @summary Unbinds tags from a specified column in an EMR cluster. If the tag is not bound to other resources, the tag is automatically deleted.
      *  *
-     * @description 删除指定资源标签。
-     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -3934,6 +4176,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Updates an API operation template.
+     *  *
      * @description 修改集群模板
      *  *
      * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
@@ -3982,6 +4226,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Updates an API operation template.
+     *  *
      * @description 修改集群模板
      *  *
      * @param UpdateApiTemplateRequest $request UpdateApiTemplateRequest
@@ -4029,6 +4275,9 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->nodeId)) {
             $query['NodeId'] = $request->nodeId;
         }
+        if (!Utils::isUnset($request->refreshConfig)) {
+            $query['RefreshConfig'] = $request->refreshConfig;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4060,5 +4309,65 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateScriptRequest $tmpReq  UpdateScriptRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateScriptResponse UpdateScriptResponse
+     */
+    public function updateScriptWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateScriptShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->script)) {
+            $request->scriptShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->script, 'Script', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scriptShrink)) {
+            $query['Script'] = $request->scriptShrink;
+        }
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
+        }
+        if (!Utils::isUnset($request->scriptType)) {
+            $query['ScriptType'] = $request->scriptType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScript',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateScriptRequest $request UpdateScriptRequest
+     *
+     * @return UpdateScriptResponse UpdateScriptResponse
+     */
+    public function updateScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateScriptWithOptions($request, $runtime);
     }
 }

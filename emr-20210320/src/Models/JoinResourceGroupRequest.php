@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupRequest extends Model
 {
     /**
-     * @description The region ID.
+     * @description The ID of the region in which you want to create the instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

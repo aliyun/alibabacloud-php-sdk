@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetClusterResponseBody extends Model
 {
     /**
-     * @description The details of the master instance.
+     * @description The details of the cluster.
      *
      * @var Cluster
      */

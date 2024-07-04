@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListResourceHealthInspectionsResponseBody\healthInspections;
 use AlibabaCloud\Tea\Model;
 
-class ListApiTemplatesResponseBody extends Model
+class ListResourceHealthInspectionsResponseBody extends Model
 {
     /**
-     * @description The API operation templates.
-     *
-     * @deprecated
-     *
-     * @var ApiTemplate[]
+     * @var healthInspections[]
      */
-    public $apiTemplates;
+    public $healthInspections;
 
     /**
      * @description 本次请求所返回的最大记录条数。
@@ -53,11 +50,11 @@ class ListApiTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'apiTemplates' => 'ApiTemplates',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'healthInspections' => 'HealthInspections',
+        'maxResults'        => 'MaxResults',
+        'nextToken'         => 'NextToken',
+        'requestId'         => 'RequestId',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -67,12 +64,12 @@ class ListApiTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiTemplates) {
-            $res['ApiTemplates'] = [];
-            if (null !== $this->apiTemplates && \is_array($this->apiTemplates)) {
+        if (null !== $this->healthInspections) {
+            $res['HealthInspections'] = [];
+            if (null !== $this->healthInspections && \is_array($this->healthInspections)) {
                 $n = 0;
-                foreach ($this->apiTemplates as $item) {
-                    $res['ApiTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->healthInspections as $item) {
+                    $res['HealthInspections'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -95,17 +92,17 @@ class ListApiTemplatesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListApiTemplatesResponseBody
+     * @return ListResourceHealthInspectionsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiTemplates'])) {
-            if (!empty($map['ApiTemplates'])) {
-                $model->apiTemplates = [];
-                $n                   = 0;
-                foreach ($map['ApiTemplates'] as $item) {
-                    $model->apiTemplates[$n++] = null !== $item ? ApiTemplate::fromMap($item) : $item;
+        if (isset($map['HealthInspections'])) {
+            if (!empty($map['HealthInspections'])) {
+                $model->healthInspections = [];
+                $n                        = 0;
+                foreach ($map['HealthInspections'] as $item) {
+                    $model->healthInspections[$n++] = null !== $item ? healthInspections::fromMap($item) : $item;
                 }
             }
         }

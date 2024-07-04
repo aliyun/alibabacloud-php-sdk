@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListClustersResponseBody extends Model
 {
     /**
-     * @description The list of clusters.
+     * @description The clusters.
      *
      * @var ClusterSummary[]
      */

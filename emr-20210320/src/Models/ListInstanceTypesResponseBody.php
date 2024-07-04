@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceTypesResponseBody extends Model
 {
     /**
+     * @description The instance types.
+     *
      * @var InstanceType[]
      */
     public $instanceTypes;

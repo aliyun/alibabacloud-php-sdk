@@ -91,6 +91,15 @@ class UpdateApplicationConfigsRequest extends Model
     public $nodeId;
 
     /**
+     * @description Specifies whether to refresh the configurations.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $refreshConfig;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -108,6 +117,7 @@ class UpdateApplicationConfigsRequest extends Model
         'description'        => 'Description',
         'nodeGroupId'        => 'NodeGroupId',
         'nodeId'             => 'NodeId',
+        'refreshConfig'      => 'RefreshConfig',
         'regionId'           => 'RegionId',
     ];
 
@@ -147,6 +157,9 @@ class UpdateApplicationConfigsRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->refreshConfig) {
+            $res['RefreshConfig'] = $this->refreshConfig;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -192,6 +205,9 @@ class UpdateApplicationConfigsRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['RefreshConfig'])) {
+            $model->refreshConfig = $map['RefreshConfig'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

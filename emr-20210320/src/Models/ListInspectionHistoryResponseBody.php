@@ -4,18 +4,17 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\ListInspectionHistoryResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListApiTemplatesResponseBody extends Model
+class ListInspectionHistoryResponseBody extends Model
 {
     /**
-     * @description The API operation templates.
+     * @description Created on 2023/8/21
      *
-     * @deprecated
-     *
-     * @var ApiTemplate[]
+     * @var data[]
      */
-    public $apiTemplates;
+    public $data;
 
     /**
      * @description 本次请求所返回的最大记录条数。
@@ -53,11 +52,11 @@ class ListApiTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'apiTemplates' => 'ApiTemplates',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'data'       => 'Data',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -67,12 +66,12 @@ class ListApiTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiTemplates) {
-            $res['ApiTemplates'] = [];
-            if (null !== $this->apiTemplates && \is_array($this->apiTemplates)) {
+        if (null !== $this->data) {
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
                 $n = 0;
-                foreach ($this->apiTemplates as $item) {
-                    $res['ApiTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -95,17 +94,17 @@ class ListApiTemplatesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListApiTemplatesResponseBody
+     * @return ListInspectionHistoryResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiTemplates'])) {
-            if (!empty($map['ApiTemplates'])) {
-                $model->apiTemplates = [];
-                $n                   = 0;
-                foreach ($map['ApiTemplates'] as $item) {
-                    $model->apiTemplates[$n++] = null !== $item ? ApiTemplate::fromMap($item) : $item;
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOperationResponseBody extends Model
 {
     /**
-     * @description The operation that is performed.
+     * @description The operation that was performed.
      *
      * @var Operation
      */

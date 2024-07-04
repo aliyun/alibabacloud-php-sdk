@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class abnInstances extends Model
 {
     /**
+     * @description The ID of the abnormal node.
+     *
      * @example i-bp1cudc25w2bfwl5****
      *
      * @var string
@@ -16,6 +18,8 @@ class abnInstances extends Model
     public $nodeId;
 
     /**
+     * @description The name of the abnormal node.
+     *
      * @example core1-1
      *
      * @var string

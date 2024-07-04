@@ -6,17 +6,8 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetApiTemplateResponseBody extends Model
+class CreateScriptResponseBody extends Model
 {
-    /**
-     * @description The content of the API operation template.
-     *
-     * @deprecated
-     *
-     * @var ApiTemplate
-     */
-    public $data;
-
     /**
      * @description 请求ID。
      *
@@ -25,9 +16,16 @@ class GetApiTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example cs-d6d6bc841c0d415fb81808bc6d09****
+     *
+     * @var string
+     */
+    public $scriptId;
     protected $_name = [
-        'data'      => 'Data',
         'requestId' => 'RequestId',
+        'scriptId'  => 'ScriptId',
     ];
 
     public function validate()
@@ -37,11 +35,11 @@ class GetApiTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->scriptId) {
+            $res['ScriptId'] = $this->scriptId;
         }
 
         return $res;
@@ -50,16 +48,16 @@ class GetApiTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetApiTemplateResponseBody
+     * @return CreateScriptResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = ApiTemplate::fromMap($map['Data']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScriptId'])) {
+            $model->scriptId = $map['ScriptId'];
         }
 
         return $model;

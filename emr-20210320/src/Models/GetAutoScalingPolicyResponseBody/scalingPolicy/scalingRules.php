@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class scalingRules extends Model
 {
     /**
-     * @description The type of the scaling activity. Valid values:
+     * @description The scaling type. Valid values:
      *
-     *   SCALE_OUT: scale-out rules
-     *   SCALE_IN: scale-in rules
+     *   SCALE_OUT
+     *   SCALE_IN
      *
      * @example SCALE_OUT
      *
@@ -32,7 +32,7 @@ class scalingRules extends Model
     public $adjustmentType;
 
     /**
-     * @description The adjustment value. The value must be a positive number, which indicates the number of instances to be scaled out or in.
+     * @description The adjustment value. The parameter value must be a positive integer, which indicates the number of instances that you want to add or remove.
      *
      * @example 100
      *
@@ -41,16 +41,11 @@ class scalingRules extends Model
     public $adjustmentValue;
 
     /**
-     * @description The description of scaling by load.
+     * @description The description of load-based scaling.
      *
      * @var MetricsTrigger
      */
     public $metricsTrigger;
-
-    /**
-     * @var int
-     */
-    public $minAdjustmentValue;
 
     /**
      * @description The name of the auto scaling rule.
@@ -62,17 +57,17 @@ class scalingRules extends Model
     public $ruleName;
 
     /**
-     * @description The description of scaling by time.
+     * @description The description of time-based scaling.
      *
      * @var TimeTrigger
      */
     public $timeTrigger;
 
     /**
-     * @description The type of the scaling rule. Valid values:
+     * @description The type of the auto scaling rule. Valid values:
      *
-     *   TIME_TRIGGER: scaling by time.
-     *   METRICS_TRIGGER: scaling by load.
+     *   TIME_TRIGGER: time-based scaling
+     *   METRICS_TRIGGER: load-based scaling
      *
      * @example TIME_TRIGGER
      *
@@ -80,14 +75,13 @@ class scalingRules extends Model
      */
     public $triggerType;
     protected $_name = [
-        'activityType'       => 'ActivityType',
-        'adjustmentType'     => 'AdjustmentType',
-        'adjustmentValue'    => 'AdjustmentValue',
-        'metricsTrigger'     => 'MetricsTrigger',
-        'minAdjustmentValue' => 'MinAdjustmentValue',
-        'ruleName'           => 'RuleName',
-        'timeTrigger'        => 'TimeTrigger',
-        'triggerType'        => 'TriggerType',
+        'activityType'    => 'ActivityType',
+        'adjustmentType'  => 'AdjustmentType',
+        'adjustmentValue' => 'AdjustmentValue',
+        'metricsTrigger'  => 'MetricsTrigger',
+        'ruleName'        => 'RuleName',
+        'timeTrigger'     => 'TimeTrigger',
+        'triggerType'     => 'TriggerType',
     ];
 
     public function validate()
@@ -108,9 +102,6 @@ class scalingRules extends Model
         }
         if (null !== $this->metricsTrigger) {
             $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toMap() : null;
-        }
-        if (null !== $this->minAdjustmentValue) {
-            $res['MinAdjustmentValue'] = $this->minAdjustmentValue;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -144,9 +135,6 @@ class scalingRules extends Model
         }
         if (isset($map['MetricsTrigger'])) {
             $model->metricsTrigger = MetricsTrigger::fromMap($map['MetricsTrigger']);
-        }
-        if (isset($map['MinAdjustmentValue'])) {
-            $model->minAdjustmentValue = $map['MinAdjustmentValue'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

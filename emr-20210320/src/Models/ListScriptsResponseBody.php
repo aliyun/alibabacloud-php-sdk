@@ -37,6 +37,8 @@ class ListScriptsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The scripts.
+     *
      * @var scripts[]
      */
     public $scripts;
