@@ -10,7 +10,17 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -169,6 +179,114 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 创建并运行pipeline
+     *  *
+     * @param string             $WorkspaceId
+     * @param CreateIndexRequest $tmpReq      CreateIndexRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateIndexResponse CreateIndexResponse
+     */
+    public function createIndexWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateIndexShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categoryIds)) {
+            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->columns)) {
+            $request->columnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->documentIds)) {
+            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->categoryIdsShrink)) {
+            $query['CategoryIds'] = $request->categoryIdsShrink;
+        }
+        if (!Utils::isUnset($request->chunkSize)) {
+            $query['ChunkSize'] = $request->chunkSize;
+        }
+        if (!Utils::isUnset($request->columnsShrink)) {
+            $query['Columns'] = $request->columnsShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->documentIdsShrink)) {
+            $query['DocumentIds'] = $request->documentIdsShrink;
+        }
+        if (!Utils::isUnset($request->embeddingModelName)) {
+            $query['EmbeddingModelName'] = $request->embeddingModelName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->overlapSize)) {
+            $query['OverlapSize'] = $request->overlapSize;
+        }
+        if (!Utils::isUnset($request->rerankMinScore)) {
+            $query['RerankMinScore'] = $request->rerankMinScore;
+        }
+        if (!Utils::isUnset($request->rerankModelName)) {
+            $query['RerankModelName'] = $request->rerankModelName;
+        }
+        if (!Utils::isUnset($request->separator)) {
+            $query['Separator'] = $request->separator;
+        }
+        if (!Utils::isUnset($request->sinkInstanceId)) {
+            $query['SinkInstanceId'] = $request->sinkInstanceId;
+        }
+        if (!Utils::isUnset($request->sinkRegion)) {
+            $query['SinkRegion'] = $request->sinkRegion;
+        }
+        if (!Utils::isUnset($request->sinkType)) {
+            $query['SinkType'] = $request->sinkType;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->structureType)) {
+            $query['StructureType'] = $request->structureType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIndex',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建并运行pipeline
+     *  *
+     * @param string             $WorkspaceId
+     * @param CreateIndexRequest $request     CreateIndexRequest
+     *
+     * @return CreateIndexResponse CreateIndexResponse
+     */
+    public function createIndex($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取文档基本信息，包括文档名称、类型、状态等。
      *  *
      * @param string         $WorkspaceId
@@ -212,5 +330,202 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->describeFileWithOptions($WorkspaceId, $FileId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Index运行状态
+     *  *
+     * @param string                   $WorkspaceId
+     * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
+     * @param string[]                 $headers     map
+     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetIndexJobStatusResponse GetIndexJobStatusResponse
+     */
+    public function getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIndexJobStatus',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/job/status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Index运行状态
+     *  *
+     * @param string                   $WorkspaceId
+     * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
+     *
+     * @return GetIndexJobStatusResponse GetIndexJobStatusResponse
+     */
+    public function getIndexJobStatus($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 召回测试
+     *  *
+     * @param string          $WorkspaceId
+     * @param RetrieveRequest $tmpReq      RetrieveRequest
+     * @param string[]        $headers     map
+     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RetrieveResponse RetrieveResponse
+     */
+    public function retrieveWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RetrieveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rerank)) {
+            $request->rerankShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rerank, 'Rerank', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rewrite)) {
+            $request->rewriteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewrite, 'Rewrite', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->denseSimilarityTopK)) {
+            $query['DenseSimilarityTopK'] = $request->denseSimilarityTopK;
+        }
+        if (!Utils::isUnset($request->enableReranking)) {
+            $query['EnableReranking'] = $request->enableReranking;
+        }
+        if (!Utils::isUnset($request->enableRewrite)) {
+            $query['EnableRewrite'] = $request->enableRewrite;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->rerankShrink)) {
+            $query['Rerank'] = $request->rerankShrink;
+        }
+        if (!Utils::isUnset($request->rerankMinScore)) {
+            $query['RerankMinScore'] = $request->rerankMinScore;
+        }
+        if (!Utils::isUnset($request->rerankTopN)) {
+            $query['RerankTopN'] = $request->rerankTopN;
+        }
+        if (!Utils::isUnset($request->rewriteShrink)) {
+            $query['Rewrite'] = $request->rewriteShrink;
+        }
+        if (!Utils::isUnset($request->saveRetrieverHistory)) {
+            $query['SaveRetrieverHistory'] = $request->saveRetrieverHistory;
+        }
+        if (!Utils::isUnset($request->sparseSimilarityTopK)) {
+            $query['SparseSimilarityTopK'] = $request->sparseSimilarityTopK;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Retrieve',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/retrieve',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 召回测试
+     *  *
+     * @param string          $WorkspaceId
+     * @param RetrieveRequest $request     RetrieveRequest
+     *
+     * @return RetrieveResponse RetrieveResponse
+     */
+    public function retrieve($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retrieveWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 提交索引任务
+     *  *
+     * @param string                $WorkspaceId
+     * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return SubmitIndexJobResponse SubmitIndexJobResponse
+     */
+    public function submitIndexJobWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitIndexJob',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/submit_index_job',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交索引任务
+     *  *
+     * @param string                $WorkspaceId
+     * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
+     *
+     * @return SubmitIndexJobResponse SubmitIndexJobResponse
+     */
+    public function submitIndexJob($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitIndexJobWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 }
