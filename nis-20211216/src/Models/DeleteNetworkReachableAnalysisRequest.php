@@ -11,6 +11,7 @@ class DeleteNetworkReachableAnalysisRequest extends Model
     /**
      * @description The IDs of the tasks for analyzing network reachability.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $networkReachableAnalysisIds;

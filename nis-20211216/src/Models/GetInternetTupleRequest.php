@@ -18,6 +18,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684373600099
      *
      * @var int
@@ -66,6 +67,7 @@ class GetInternetTupleRequest extends Model
      *   **in**: inbound
      *   **out**: outbound
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -75,6 +77,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1684373700099
      *
      * @var int
@@ -105,19 +108,6 @@ class GetInternetTupleRequest extends Model
      *   Rtt
      *   ByteCount
      *   PacketCount
-     *   InByteCount
-     *   OutByteCount
-     *   InPacketCount
-     *   OutPacketCount
-     *   InRetranCount
-     *   OutRetranCount
-     *   InDupAckCount
-     *   OutDupAckCount
-     *   InOutOrderCount
-     *   OutOutOrderCount
-     *   RetranCount
-     *   OutOrderCount
-     *   DupAckCount
      *   RetransmitRate
      *
      * @example ByteCount
@@ -189,6 +179,7 @@ class GetInternetTupleRequest extends Model
     /**
      * @description The ID of the region for which you want to query the Internet traffic.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -223,6 +214,7 @@ class GetInternetTupleRequest extends Model
      *   **2**: 2-tuple
      *   **5**: 5-tuple
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

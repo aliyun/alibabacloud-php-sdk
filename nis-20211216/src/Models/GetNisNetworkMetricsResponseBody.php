@@ -4,25 +4,18 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkMetricsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DeleteNetworkPathResponseBody extends Model
+class GetNisNetworkMetricsResponseBody extends Model
 {
     /**
-     * @description Result of operation.
-     *
-     * - **true**: Delete Success.
-     * - **false**: Delete Fail.
-     * @example true
-     *
-     * @var bool
+     * @var data
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example C4331873-C534-590F-A905-F66C53B88A47
+     * @example D5E98683-355B-5867-8D3D-A24755F6895B
      *
      * @var string
      */
@@ -40,7 +33,7 @@ class DeleteNetworkPathResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,13 +45,13 @@ class DeleteNetworkPathResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteNetworkPathResponseBody
+     * @return GetNisNetworkMetricsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

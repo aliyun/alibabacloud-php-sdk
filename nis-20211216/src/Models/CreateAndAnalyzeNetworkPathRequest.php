@@ -33,6 +33,7 @@ class CreateAndAnalyzeNetworkPathRequest extends Model
     /**
      * @description The ID of the source resource.
      *
+     * This parameter is required.
      * @example i-uf62y8khhbkbdrp6****
      *
      * @var string
@@ -66,6 +67,7 @@ class CreateAndAnalyzeNetworkPathRequest extends Model
      *   **vpn**: the VPN gateway
      *   **vbr**: the virtual border router (VBR)
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string

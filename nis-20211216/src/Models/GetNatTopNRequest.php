@@ -11,6 +11,7 @@ class GetNatTopNRequest extends Model
     /**
      * @description The beginning of the time range to query in milliseconds. If you do not specify **EndTime**, the point in time specified by **BeginTime** is queried.
      *
+     * This parameter is required.
      * @example 1638239092000
      *
      * @var int
@@ -38,6 +39,7 @@ class GetNatTopNRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-sample***
      *
      * @var string

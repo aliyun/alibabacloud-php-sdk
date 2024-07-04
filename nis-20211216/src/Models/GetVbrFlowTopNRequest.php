@@ -27,6 +27,7 @@ class GetVbrFlowTopNRequest extends Model
     /**
      * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
      *
+     * This parameter is required.
      * @example 1638239092000
      *
      * @var int
@@ -67,6 +68,7 @@ class GetVbrFlowTopNRequest extends Model
      *   **in**: traffic from a data center to Alibaba Cloud
      *   **out**: traffic from Alibaba Cloud to a data center
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -76,6 +78,7 @@ class GetVbrFlowTopNRequest extends Model
     /**
      * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The maximum time range that you can query is 24 hours.
      *
+     * This parameter is required.
      * @example 1638239093000
      *
      * @var int
@@ -92,6 +95,7 @@ class GetVbrFlowTopNRequest extends Model
      *   **OtherPort**: queries the rankings of hybrid cloud traffic data for the remote ports.
      *   **Protocol**: queries the rankings of hybrid cloud traffic data for the protocols.
      *
+     * This parameter is required.
      * @example 1Tuple
      *
      * @var string
@@ -139,6 +143,7 @@ class GetVbrFlowTopNRequest extends Model
     /**
      * @description The local region.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

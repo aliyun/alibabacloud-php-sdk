@@ -25,6 +25,12 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\GetNatTopNRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNatTopNResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNetworkReachableAnalysisRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNetworkReachableAnalysisResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkMetricsRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkMetricsResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkMetricsShrinkRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkRankingRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkRankingResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkRankingShrinkRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNShrinkRequest;
@@ -71,8 +77,10 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-     *   *
+     * @summary Initiates a task for analyzing network reachability.
+     *  *
+     * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+     *  *
      * @param CreateAndAnalyzeNetworkPathRequest $request CreateAndAnalyzeNetworkPathRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -101,8 +109,10 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-     *   *
+     * @summary Initiates a task for analyzing network reachability.
+     *  *
+     * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+     *  *
      * @param CreateAndAnalyzeNetworkPathRequest $request CreateAndAnalyzeNetworkPathRequest
      *
      * @return CreateAndAnalyzeNetworkPathResponse CreateAndAnalyzeNetworkPathResponse
@@ -115,9 +125,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-     *   * *   You can create up to 100 network paths within one Alibaba Cloud account.
-     *   *
+     * @summary Creates a network path in the cloud for reachability analysis.
+     *  *
+     * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+     * *   You can create up to 100 network paths within one Alibaba Cloud account.
+     *  *
      * @param CreateNetworkPathRequest $request CreateNetworkPathRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -188,9 +200,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-     *   * *   You can create up to 100 network paths within one Alibaba Cloud account.
-     *   *
+     * @summary Creates a network path in the cloud for reachability analysis.
+     *  *
+     * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+     * *   You can create up to 100 network paths within one Alibaba Cloud account.
+     *  *
      * @param CreateNetworkPathRequest $request CreateNetworkPathRequest
      *
      * @return CreateNetworkPathResponse CreateNetworkPathResponse
@@ -203,10 +217,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
-     *   * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
-     *   * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-     *   *
+     * @summary Creates a task for analyzing network reachability.
+     *  *
+     * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+     * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
+     * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
+     *  *
      * @param CreateNetworkReachableAnalysisRequest $request CreateNetworkReachableAnalysisRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -244,10 +260,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
-     *   * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
-     *   * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-     *   *
+     * @summary Creates a task for analyzing network reachability.
+     *  *
+     * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+     * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
+     * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
+     *  *
      * @param CreateNetworkReachableAnalysisRequest $request CreateNetworkReachableAnalysisRequest
      *
      * @return CreateNetworkReachableAnalysisResponse CreateNetworkReachableAnalysisResponse
@@ -260,10 +278,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkPathRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a network path.
+     *  *
+     * @param DeleteNetworkPathRequest $tmpReq  DeleteNetworkPathRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkPathResponse
+     * @return DeleteNetworkPathResponse DeleteNetworkPathResponse
      */
     public function deleteNetworkPathWithOptions($tmpReq, $runtime)
     {
@@ -299,9 +319,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkPathRequest $request
+     * @summary Deletes a network path.
+     *  *
+     * @param DeleteNetworkPathRequest $request DeleteNetworkPathRequest
      *
-     * @return DeleteNetworkPathResponse
+     * @return DeleteNetworkPathResponse DeleteNetworkPathResponse
      */
     public function deleteNetworkPath($request)
     {
@@ -311,10 +333,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkReachableAnalysisRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
+     * @summary Deletes a task for analyzing network reachability.
+     *  *
+     * @param DeleteNetworkReachableAnalysisRequest $tmpReq  DeleteNetworkReachableAnalysisRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkReachableAnalysisResponse
+     * @return DeleteNetworkReachableAnalysisResponse DeleteNetworkReachableAnalysisResponse
      */
     public function deleteNetworkReachableAnalysisWithOptions($tmpReq, $runtime)
     {
@@ -350,9 +374,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkReachableAnalysisRequest $request
+     * @summary Deletes a task for analyzing network reachability.
+     *  *
+     * @param DeleteNetworkReachableAnalysisRequest $request DeleteNetworkReachableAnalysisRequest
      *
-     * @return DeleteNetworkReachableAnalysisResponse
+     * @return DeleteNetworkReachableAnalysisResponse DeleteNetworkReachableAnalysisResponse
      */
     public function deleteNetworkReachableAnalysis($request)
     {
@@ -362,10 +388,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetInternetTupleRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetInternetTupleRequest $tmpReq  GetInternetTupleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInternetTupleResponse
+     * @return GetInternetTupleResponse GetInternetTupleResponse
      */
     public function getInternetTupleWithOptions($tmpReq, $runtime)
     {
@@ -464,9 +492,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetInternetTupleRequest $request
+     * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetInternetTupleRequest $request GetInternetTupleRequest
      *
-     * @return GetInternetTupleResponse
+     * @return GetInternetTupleResponse GetInternetTupleResponse
      */
     public function getInternetTuple($request)
     {
@@ -476,10 +506,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetNatTopNRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
+     *  *
+     * @param GetNatTopNRequest $request GetNatTopNRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNatTopNResponse
+     * @return GetNatTopNResponse GetNatTopNResponse
      */
     public function getNatTopNWithOptions($request, $runtime)
     {
@@ -525,9 +557,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetNatTopNRequest $request
+     * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
+     *  *
+     * @param GetNatTopNRequest $request GetNatTopNRequest
      *
-     * @return GetNatTopNResponse
+     * @return GetNatTopNResponse GetNatTopNResponse
      */
     public function getNatTopN($request)
     {
@@ -537,10 +571,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
-     *   * *   The **init** state indicates that the task is in progress.
-     *   * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-     *   *
+     * @summary Obtains the results of network reachability analysis.
+     *  *
+     * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+     * *   The **init** state indicates that the task is in progress.
+     * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
+     *  *
      * @param GetNetworkReachableAnalysisRequest $request GetNetworkReachableAnalysisRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -575,10 +611,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
-     *   * *   The **init** state indicates that the task is in progress.
-     *   * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-     *   *
+     * @summary Obtains the results of network reachability analysis.
+     *  *
+     * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+     * *   The **init** state indicates that the task is in progress.
+     * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
+     *  *
      * @param GetNetworkReachableAnalysisRequest $request GetNetworkReachableAnalysisRequest
      *
      * @return GetNetworkReachableAnalysisResponse GetNetworkReachableAnalysisResponse
@@ -591,10 +629,173 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetTransitRouterFlowTopNRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取云网络指标趋势
+     *  *
+     * @param GetNisNetworkMetricsRequest $tmpReq  GetNisNetworkMetricsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTransitRouterFlowTopNResponse
+     * @return GetNisNetworkMetricsResponse GetNisNetworkMetricsResponse
+     */
+    public function getNisNetworkMetricsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetNisNetworkMetricsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dimensions)) {
+            $request->dimensionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountIds)) {
+            $query['AccountIds'] = $request->accountIds;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->dimensionsShrink)) {
+            $query['Dimensions'] = $request->dimensionsShrink;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->scanBy)) {
+            $query['ScanBy'] = $request->scanBy;
+        }
+        if (!Utils::isUnset($request->useCrossAccount)) {
+            $query['UseCrossAccount'] = $request->useCrossAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNisNetworkMetrics',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNisNetworkMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取云网络指标趋势
+     *  *
+     * @param GetNisNetworkMetricsRequest $request GetNisNetworkMetricsRequest
+     *
+     * @return GetNisNetworkMetricsResponse GetNisNetworkMetricsResponse
+     */
+    public function getNisNetworkMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNisNetworkMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取云网络指标排名
+     *  *
+     * @param GetNisNetworkRankingRequest $tmpReq  GetNisNetworkRankingRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetNisNetworkRankingResponse GetNisNetworkRankingResponse
+     */
+    public function getNisNetworkRankingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetNisNetworkRankingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountIds)) {
+            $query['AccountIds'] = $request->accountIds;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filterShrink)) {
+            $query['Filter'] = $request->filterShrink;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->topN)) {
+            $query['TopN'] = $request->topN;
+        }
+        if (!Utils::isUnset($request->useCrossAccount)) {
+            $query['UseCrossAccount'] = $request->useCrossAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNisNetworkRanking',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNisNetworkRankingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取云网络指标排名
+     *  *
+     * @param GetNisNetworkRankingRequest $request GetNisNetworkRankingRequest
+     *
+     * @return GetNisNetworkRankingResponse GetNisNetworkRankingResponse
+     */
+    public function getNisNetworkRanking($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNisNetworkRankingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetTransitRouterFlowTopNRequest $tmpReq  GetTransitRouterFlowTopNRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTransitRouterFlowTopNResponse GetTransitRouterFlowTopNResponse
      */
     public function getTransitRouterFlowTopNWithOptions($tmpReq, $runtime)
     {
@@ -678,9 +879,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetTransitRouterFlowTopNRequest $request
+     * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetTransitRouterFlowTopNRequest $request GetTransitRouterFlowTopNRequest
      *
-     * @return GetTransitRouterFlowTopNResponse
+     * @return GetTransitRouterFlowTopNResponse GetTransitRouterFlowTopNResponse
      */
     public function getTransitRouterFlowTopN($request)
     {
@@ -690,10 +893,12 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetVbrFlowTopNRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetVbrFlowTopNRequest $tmpReq  GetVbrFlowTopNRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVbrFlowTopNResponse
+     * @return GetVbrFlowTopNResponse GetVbrFlowTopNResponse
      */
     public function getVbrFlowTopNWithOptions($tmpReq, $runtime)
     {
@@ -777,9 +982,11 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @param GetVbrFlowTopNRequest $request
+     * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *  *
+     * @param GetVbrFlowTopNRequest $request GetVbrFlowTopNRequest
      *
-     * @return GetVbrFlowTopNResponse
+     * @return GetVbrFlowTopNResponse GetVbrFlowTopNResponse
      */
     public function getVbrFlowTopN($request)
     {

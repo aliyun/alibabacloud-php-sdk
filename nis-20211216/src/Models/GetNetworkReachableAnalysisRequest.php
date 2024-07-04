@@ -11,6 +11,7 @@ class GetNetworkReachableAnalysisRequest extends Model
     /**
      * @description The ID of the task for analyzing network reachability. You can call the **CreateNetworkRearchableAnalysis** operation to obtain the ID of the task for analyzing network reachability.
      *
+     * This parameter is required.
      * @example nra-90eef36a9e6e4662****
      *
      * @var string

@@ -21,6 +21,7 @@ class CreateNetworkPathRequest extends Model
     /**
      * @description The name of the network path.
      *
+     * This parameter is required.
      * @example ecs2PublicIp
      *
      * @var string
@@ -61,6 +62,7 @@ class CreateNetworkPathRequest extends Model
     /**
      * @description The ID of the source resource.
      *
+     * This parameter is required.
      * @example i-2zef4ngqfarepyun****
      *
      * @var string
@@ -94,6 +96,7 @@ class CreateNetworkPathRequest extends Model
      *   **vpn**: the VPN gateway
      *   **vbr**: the virtual border router (VBR)
      *
+     * This parameter is required.
      * @example ecs
      *
      * @var string

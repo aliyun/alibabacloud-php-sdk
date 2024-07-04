@@ -11,6 +11,7 @@ class DeleteNetworkPathShrinkRequest extends Model
     /**
      * @description The IDs of network paths.
      *
+     * This parameter is required.
      * @var string
      */
     public $networkPathIdsShrink;

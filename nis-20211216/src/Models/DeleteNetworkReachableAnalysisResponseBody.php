@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkReachableAnalysisResponseBody extends Model
 {
     /**
+     * @description Result of operation.
+     * - **true**: Delete Success.
+     * - **false**: Delete Fail.
+     * @example true
+     *
      * @var bool
      */
     public $data;

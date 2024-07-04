@@ -4,25 +4,18 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkRankingResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DeleteNetworkPathResponseBody extends Model
+class GetNisNetworkRankingResponseBody extends Model
 {
     /**
-     * @description Result of operation.
-     *
-     * - **true**: Delete Success.
-     * - **false**: Delete Fail.
-     * @example true
-     *
-     * @var bool
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example C4331873-C534-590F-A905-F66C53B88A47
+     * @example A7F0D6EC-E19E-58AC-AC9F-08036763960F
      *
      * @var string
      */
@@ -40,7 +33,13 @@ class DeleteNetworkPathResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,13 +51,19 @@ class DeleteNetworkPathResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteNetworkPathResponseBody
+     * @return GetNisNetworkRankingResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
