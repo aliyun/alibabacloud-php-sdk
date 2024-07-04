@@ -1,0 +1,147 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Mts\V20180528\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class SubmitAnalysisJobRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $analysisConfig;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $pipelineId;
+
+    /**
+     * @var string
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $userData;
+    protected $_name = [
+        'analysisConfig'       => 'AnalysisConfig',
+        'input'                => 'Input',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'pipelineId'           => 'PipelineId',
+        'priority'             => 'Priority',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'userData'             => 'UserData',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->analysisConfig) {
+            $res['AnalysisConfig'] = $this->analysisConfig;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return SubmitAnalysisJobRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AnalysisConfig'])) {
+            $model->analysisConfig = $map['AnalysisConfig'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+
+        return $model;
+    }
+}
