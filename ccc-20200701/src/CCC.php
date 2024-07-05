@@ -238,6 +238,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCategoriesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCategoriesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCommonTicketFieldsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCommonTicketFieldsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsRequest;
@@ -6581,6 +6583,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCategoriesRequest $request ListCategoriesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCategoriesResponse ListCategoriesResponse
+     */
+    public function listCategoriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCategories',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCategoriesRequest $request ListCategoriesRequest
+     *
+     * @return ListCategoriesResponse ListCategoriesResponse
+     */
+    public function listCategories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCategoriesWithOptions($request, $runtime);
     }
 
     /**
