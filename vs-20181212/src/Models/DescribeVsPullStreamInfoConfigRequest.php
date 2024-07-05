@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsPullStreamInfoConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $alarmMethod;
@@ -16,9 +18,18 @@ class ModifyDeviceRequest extends Model
     /**
      * @var bool
      */
+    public $autoDirectory;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $autoPos;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
@@ -29,36 +40,52 @@ class ModifyDeviceRequest extends Model
     public $description;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example 3100000****000000002
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 119.20
+     *
      * @var string
      */
     public $latitude;
 
     /**
+     * @example 45.00
+     *
      * @var string
      */
     public $longitude;
@@ -74,41 +101,57 @@ class ModifyDeviceRequest extends Model
     public $ownerId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $posInterval;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example rtmp://xxx/xxx
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $username;
@@ -118,28 +161,29 @@ class ModifyDeviceRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'alarmMethod' => 'AlarmMethod',
-        'autoPos'     => 'AutoPos',
-        'autoStart'   => 'AutoStart',
-        'description' => 'Description',
-        'directoryId' => 'DirectoryId',
-        'gbId'        => 'GbId',
-        'groupId'     => 'GroupId',
-        'id'          => 'Id',
-        'ip'          => 'Ip',
-        'latitude'    => 'Latitude',
-        'longitude'   => 'Longitude',
-        'name'        => 'Name',
-        'ownerId'     => 'OwnerId',
-        'params'      => 'Params',
-        'parentId'    => 'ParentId',
-        'password'    => 'Password',
-        'port'        => 'Port',
-        'posInterval' => 'PosInterval',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'username'    => 'Username',
-        'vendor'      => 'Vendor',
+        'alarmMethod'   => 'AlarmMethod',
+        'autoDirectory' => 'AutoDirectory',
+        'autoPos'       => 'AutoPos',
+        'autoStart'     => 'AutoStart',
+        'description'   => 'Description',
+        'directoryId'   => 'DirectoryId',
+        'gbId'          => 'GbId',
+        'groupId'       => 'GroupId',
+        'id'            => 'Id',
+        'ip'            => 'Ip',
+        'latitude'      => 'Latitude',
+        'longitude'     => 'Longitude',
+        'name'          => 'Name',
+        'ownerId'       => 'OwnerId',
+        'params'        => 'Params',
+        'parentId'      => 'ParentId',
+        'password'      => 'Password',
+        'port'          => 'Port',
+        'posInterval'   => 'PosInterval',
+        'type'          => 'Type',
+        'url'           => 'Url',
+        'username'      => 'Username',
+        'vendor'        => 'Vendor',
     ];
 
     public function validate()
@@ -151,6 +195,9 @@ class ModifyDeviceRequest extends Model
         $res = [];
         if (null !== $this->alarmMethod) {
             $res['AlarmMethod'] = $this->alarmMethod;
+        }
+        if (null !== $this->autoDirectory) {
+            $res['AutoDirectory'] = $this->autoDirectory;
         }
         if (null !== $this->autoPos) {
             $res['AutoPos'] = $this->autoPos;
@@ -229,6 +276,9 @@ class ModifyDeviceRequest extends Model
         $model = new self();
         if (isset($map['AlarmMethod'])) {
             $model->alarmMethod = $map['AlarmMethod'];
+        }
+        if (isset($map['AutoDirectory'])) {
+            $model->autoDirectory = $map['AutoDirectory'];
         }
         if (isset($map['AutoPos'])) {
             $model->autoPos = $map['AutoPos'];

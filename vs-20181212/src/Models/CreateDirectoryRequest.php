@@ -14,11 +14,17 @@ class CreateDirectoryRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -29,6 +35,10 @@ class CreateDirectoryRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;

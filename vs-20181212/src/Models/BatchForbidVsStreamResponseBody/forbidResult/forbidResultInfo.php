@@ -15,16 +15,22 @@ class forbidResultInfo extends Model
     public $channels;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;

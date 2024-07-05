@@ -15,26 +15,36 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public $onlineInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B31FC4AD-3592-573E-8063-878F722B322A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceAlarmResponseBody extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $alarmDelay;
 
     /**
+     * @example 0hyNgTdgv2D000195842
+     *
      * @var string
      */
     public $alarmId;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @example 76E11E6A-4441-51C9-AF60-D354362257A7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rtmp://demo.aliyundoc.com/live/310101*****7542007?auth_key=1639130258-0-0-b2b04fe85ece6*****a6b1a42bc7e
+     *
      * @var string
      */
     public $url;

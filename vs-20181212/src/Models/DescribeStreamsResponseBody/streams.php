@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class streams extends Model
 {
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example 2018-12-10T17:00:00Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 31000000*****0000002
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $pushDomain;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $width;

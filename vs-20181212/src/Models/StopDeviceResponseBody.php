@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopDeviceResponseBody extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

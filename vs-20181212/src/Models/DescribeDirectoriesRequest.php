@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoriesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noPagination;
@@ -24,26 +30,36 @@ class DescribeDirectoriesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example ID
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class stats extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $deviceNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $iedNum;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $ipcNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $platformNum;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedDeviceResponseBody extends Model
 {
     /**
+     * @example 2018-12-10T21:00:00Z
+     *
      * @var string
      */
     public $createdTime;
@@ -19,6 +21,8 @@ class DescribePurchasedDeviceResponseBody extends Model
     public $description;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
@@ -29,46 +33,64 @@ class DescribePurchasedDeviceResponseBody extends Model
     public $groupName;
 
     /**
+     * @example 33763****77224964-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2117*****0447
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 12345*****67890
+     *
      * @var string
      */
     public $registerCode;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example dome
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 8yd*****qem
+     *
      * @var string
      */
     public $vendor;

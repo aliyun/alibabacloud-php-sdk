@@ -19,6 +19,8 @@ class liveStreamsNotifyConfig extends Model
     public $authType;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;

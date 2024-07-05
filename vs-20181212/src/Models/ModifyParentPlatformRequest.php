@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyParentPlatformRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clientAuth;
 
     /**
+     * @example admin123
+     *
      * @var string
      */
     public $clientPassword;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $clientUsername;
@@ -34,16 +42,24 @@ class ModifyParentPlatformRequest extends Model
     public $description;
 
     /**
+     * @example 31000*****2170123451
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 359*****374-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
@@ -59,6 +75,8 @@ class ModifyParentPlatformRequest extends Model
     public $ownerId;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $port;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDevicesRequest extends Model
 {
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example 7D0*****4C0
+     *
      * @var string
      */
     public $dsn;
 
     /**
+     * @example 310000000****0000002
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeDirectory;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeStats;
@@ -54,16 +68,22 @@ class DescribeDevicesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
@@ -74,21 +94,29 @@ class DescribeDevicesRequest extends Model
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 8yd*****qem
+     *
      * @var string
      */
     public $vendor;

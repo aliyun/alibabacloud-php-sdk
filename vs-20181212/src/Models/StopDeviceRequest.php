@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,6 +23,8 @@ class StopDeviceRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-12-10T10:00:00Z
+     *
      * @var string
      */
     public $startTime;

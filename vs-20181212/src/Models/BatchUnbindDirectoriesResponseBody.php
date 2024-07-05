@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindDirectoriesResponseBody extends Model
 {
     /**
+     * @example 64DB7F34-11A8-45DC-A421-40ACF446282C
+     *
      * @var string
      */
     public $requestId;

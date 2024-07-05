@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVsStreamsNotifyUrlConfigResponseBody extends Model
 {
     /**
+     * @example 4C747C97-7ECD-4C61-8A92-67AD806331FF
+     *
      * @var string
      */
     public $requestId;

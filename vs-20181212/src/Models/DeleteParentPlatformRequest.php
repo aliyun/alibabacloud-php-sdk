@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteParentPlatformRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 359*****374-cn-qingdao
+     *
      * @var string
      */
     public $id;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainReqTrafficDataRequest extends Model
 {
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-13T10:00:41Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example shanghai
+     *
      * @var string
      */
     public $locationNameEn;
@@ -39,6 +49,8 @@ class DescribeVsDomainReqTrafficDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-09-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

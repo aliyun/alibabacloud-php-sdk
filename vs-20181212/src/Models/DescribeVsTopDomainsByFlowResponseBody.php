@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsTopDomainsByFlowResponseBody extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $domainOnlineCount;
 
     /**
+     * @example 2018-12-10T18:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-12-10T10:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceCaptureRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $image;
@@ -24,6 +30,8 @@ class ModifyDeviceCaptureRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $video;

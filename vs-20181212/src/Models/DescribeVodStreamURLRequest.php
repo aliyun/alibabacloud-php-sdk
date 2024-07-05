@@ -14,17 +14,15 @@ class DescribeVodStreamURLRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $txId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example http://xxx/xxx.mp4
+     *
      * @var string
      */
     public $url;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'txId'    => 'TxId',
         'url'     => 'Url',
     ];
 
@@ -37,9 +35,6 @@ class DescribeVodStreamURLRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->txId) {
-            $res['TxId'] = $this->txId;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -58,9 +53,6 @@ class DescribeVodStreamURLRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['TxId'])) {
-            $model->txId = $map['TxId'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

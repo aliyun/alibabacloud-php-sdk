@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class stats extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $channelNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $failedNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offlineNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $onlineNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $streamNum;

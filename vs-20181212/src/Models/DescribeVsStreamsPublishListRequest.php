@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsStreamsPublishListRequest extends Model
 {
     /**
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2016-06-30T19:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example publish_time_asc
+     *
      * @var string
      */
     public $orderBy;
@@ -34,31 +46,45 @@ class DescribeVsStreamsPublishListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 3000
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example fuzzy
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2016-06-29T19:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $streamType;

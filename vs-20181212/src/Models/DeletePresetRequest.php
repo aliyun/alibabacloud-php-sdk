@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeletePresetRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,6 +23,10 @@ class DeletePresetRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $presetId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsTopDomainsByFlowRequest extends Model
 {
     /**
+     * @example 2018-12-10T18:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $limit;
@@ -24,6 +28,8 @@ class DescribeVsTopDomainsByFlowRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-12-12T10:00:00Z
+     *
      * @var string
      */
     public $startTime;

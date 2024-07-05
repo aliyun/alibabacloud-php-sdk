@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class SetVsStreamsNotifyUrlConfigRequest extends Model
 {
     /**
+     * @example ocs*****ace
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example type_a
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example http://xxx.com/xx
+     *
      * @var string
      */
     public $notifyUrl;

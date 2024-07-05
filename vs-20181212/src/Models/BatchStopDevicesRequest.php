@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStopDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 32388487****92996
+     *
      * @var string
      */
     public $id;
@@ -19,6 +23,8 @@ class BatchStopDevicesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-10-14T23:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindDirectoryResponseBody extends Model
 {
     /**
+     * @example 3CB843A9-DD34-4881-B8D6-B0D539D111E4
+     *
      * @var string
      */
     public $requestId;

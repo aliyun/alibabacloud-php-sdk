@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDevicesDataRequest extends Model
 {
     /**
+     * @example 2022-01-30T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +28,8 @@ class DescribeVsDevicesDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2022-01-04T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

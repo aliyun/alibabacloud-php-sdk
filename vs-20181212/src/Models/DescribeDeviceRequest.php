@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3238848****092996-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeDirectory;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeStats;

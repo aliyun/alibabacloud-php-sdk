@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSetVsDomainConfigsResponseBody extends Model
 {
     /**
+     * @example 9BEC5E85-C76B-56EF-A922-860EFDB8B64B
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeParentPlatformDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 359*****374-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,21 +23,29 @@ class DescribeParentPlatformDevicesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;

@@ -14,21 +14,33 @@ class DescribeDeviceURLRequest extends Model
     public $auth;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example push
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtmp
+     *
      * @var string
      */
     public $outProtocol;
@@ -39,6 +51,10 @@ class DescribeDeviceURLRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example live001
+     *
      * @var string
      */
     public $stream;

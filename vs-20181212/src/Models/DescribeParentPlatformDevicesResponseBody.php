@@ -15,26 +15,36 @@ class DescribeParentPlatformDevicesResponseBody extends Model
     public $devices;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

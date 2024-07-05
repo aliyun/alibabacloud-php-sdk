@@ -9,26 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodStreamURLResponseBody extends Model
 {
     /**
+     * @example rtsp
+     *
      * @var string
      */
     public $outProtocol;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $txId;
-
-    /**
+     * @example rtsp://domain/live/stream?sign=xxxxxx
+     *
      * @var string
      */
     public $url;
@@ -36,7 +39,6 @@ class DescribeVodStreamURLResponseBody extends Model
         'outProtocol' => 'OutProtocol',
         'port'        => 'Port',
         'requestId'   => 'RequestId',
-        'txId'        => 'TxId',
         'url'         => 'Url',
     ];
 
@@ -55,9 +57,6 @@ class DescribeVodStreamURLResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->txId) {
-            $res['TxId'] = $this->txId;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -82,9 +81,6 @@ class DescribeVodStreamURLResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TxId'])) {
-            $model->txId = $map['TxId'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

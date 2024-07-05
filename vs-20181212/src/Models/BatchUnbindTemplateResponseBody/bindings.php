@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class bindings extends Model
 {
     /**
+     * @example some error
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 323*****994-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example group
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $templateId;

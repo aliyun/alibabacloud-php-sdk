@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchResumeVsStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example live/stream1
+     *
      * @var string
      */
     public $channel;
@@ -19,11 +23,19 @@ class BatchResumeVsStreamRequest extends Model
     public $controlStreamAction;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example publisher
+     *
      * @var string
      */
     public $liveStreamType;

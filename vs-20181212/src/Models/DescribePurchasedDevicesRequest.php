@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedDevicesRequest extends Model
 {
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 4070*****1132-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -29,31 +33,43 @@ class DescribePurchasedDevicesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @example dome
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;

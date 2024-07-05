@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class channels extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $channelId;
 
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $deviceStatus;
 
     /**
+     * @example 3100000****000000002
+     *
      * @var string
      */
     public $gbId;
@@ -34,16 +42,22 @@ class channels extends Model
     public $name;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $streamId;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $streamStatus;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $id;

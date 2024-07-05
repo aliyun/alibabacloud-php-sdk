@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class liveStreamPublishInfo extends Model
 {
     /**
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $clientAddr;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $edgeNodeAddr;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $publishDomain;
 
     /**
+     * @example 2016-06-29T19:00:00Z
+     *
      * @var string
      */
     public $publishTime;
 
     /**
+     * @example center
+     *
      * @var string
      */
     public $publishType;
 
     /**
+     * @example https://example.aliyundoc.com/xxxApp/3402000****320000001.m3u8
+     *
      * @var string
      */
     public $publishUrl;
 
     /**
+     * @example 2016-06-29T19:00:00Z
+     *
      * @var string
      */
     public $stopTime;
 
     /**
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;
 
     /**
+     * @example https://example.aliyundoc.com/xxxApp/3402000****320000001.m3u8
+     *
      * @var string
      */
     public $streamUrl;
 
     /**
+     * @example 3888920****8138204-cn-qingdao
+     *
      * @var string
      */
     public $transcodeId;
 
     /**
+     * @example yes
+     *
      * @var string
      */
     public $transcoded;

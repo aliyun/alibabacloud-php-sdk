@@ -15,6 +15,8 @@ class DescribeVsDomainConfigsResponseBody extends Model
     public $domainConfigs;
 
     /**
+     * @example D94D0E1E-E71B-562D-8C18-969BB3653FBD
+     *
      * @var string
      */
     public $requestId;

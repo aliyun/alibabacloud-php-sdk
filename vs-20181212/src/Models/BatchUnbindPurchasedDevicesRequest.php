@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindPurchasedDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GotoPresetResponseBody extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 30295DF1-1DC7-48BA-BE5A-D58E61EB2375
+     *
      * @var string
      */
     public $requestId;

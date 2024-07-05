@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SyncCatalogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3238****739092996
+     *
      * @var string
      */
     public $id;

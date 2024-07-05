@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example some error
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 361*****212-cn-qingdao
+     *
      * @var string
      */
     public $parentPlatformId;

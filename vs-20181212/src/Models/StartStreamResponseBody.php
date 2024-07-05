@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartStreamResponseBody extends Model
 {
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 31000000000000000002
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

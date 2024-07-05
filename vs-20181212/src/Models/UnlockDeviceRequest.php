@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnlockDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 323884****9092996
+     *
      * @var string
      */
     public $id;

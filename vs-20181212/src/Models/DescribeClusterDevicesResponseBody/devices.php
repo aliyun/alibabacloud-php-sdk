@@ -33,6 +33,11 @@ class devices extends Model
     /**
      * @var string
      */
+    public $hostRom;
+
+    /**
+     * @var string
+     */
     public $imageId;
 
     /**
@@ -94,6 +99,7 @@ class devices extends Model
         'autoRenewPeriod'    => 'AutoRenewPeriod',
         'description'        => 'Description',
         'edgeNodeName'       => 'EdgeNodeName',
+        'hostRom'            => 'HostRom',
         'imageId'            => 'ImageId',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceId'         => 'InstanceId',
@@ -126,6 +132,9 @@ class devices extends Model
         }
         if (null !== $this->edgeNodeName) {
             $res['EdgeNodeName'] = $this->edgeNodeName;
+        }
+        if (null !== $this->hostRom) {
+            $res['HostRom'] = $this->hostRom;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -198,6 +207,9 @@ class devices extends Model
         }
         if (isset($map['EdgeNodeName'])) {
             $model->edgeNodeName = $map['EdgeNodeName'];
+        }
+        if (isset($map['HostRom'])) {
+            $model->hostRom = $map['HostRom'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

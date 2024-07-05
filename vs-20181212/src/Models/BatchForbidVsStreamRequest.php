@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchForbidVsStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example live/stream1,live/stream2
+     *
      * @var string
      */
     public $channel;
@@ -19,16 +23,26 @@ class BatchForbidVsStreamRequest extends Model
     public $controlStreamAction;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example publisher
+     *
      * @var string
      */
     public $liveStreamType;
 
     /**
+     * @example yes
+     *
      * @var string
      */
     public $oneshot;
@@ -39,6 +53,8 @@ class BatchForbidVsStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2015-12-01T17:37:00Z
+     *
      * @var string
      */
     public $resumeTime;

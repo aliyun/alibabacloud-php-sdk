@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2021-11-24T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -19,41 +23,63 @@ class DescribeRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $privateBucket;
 
     /**
+     * @example Id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2021-11-22T00:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $streamId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example record
+     *
      * @var string
      */
     public $type;

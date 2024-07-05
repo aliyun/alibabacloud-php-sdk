@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceResponseBody extends Model
 {
     /**
+     * @example 5
+     *
      * @var string
      */
     public $alarmMethod;
@@ -18,19 +20,32 @@ class DescribeDeviceResponseBody extends Model
     /**
      * @var bool
      */
+    public $autoDirectory;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $autoPos;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example 2019-02-28T17:01:17Z
+     *
      * @var string
      */
     public $channelSyncTime;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $createdTime;
@@ -46,46 +61,64 @@ class DescribeDeviceResponseBody extends Model
     public $directory;
 
     /**
+     * @example 3238848****092994-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example 7D0*****4C0
+     *
      * @var string
      */
     public $dsn;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 31000000****00000002
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 3238848****092994-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 3238848****092996-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 119.20
+     *
      * @var string
      */
     public $latitude;
 
     /**
+     * @example 45.00
+     *
      * @var string
      */
     public $longitude;
@@ -96,41 +129,57 @@ class DescribeDeviceResponseBody extends Model
     public $name;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 3238848****092995-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $posInterval;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $registeredTime;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -141,21 +190,29 @@ class DescribeDeviceResponseBody extends Model
     public $stats;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example rtmp://xxx/xxx
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $username;
@@ -166,6 +223,7 @@ class DescribeDeviceResponseBody extends Model
     public $vendor;
     protected $_name = [
         'alarmMethod'     => 'AlarmMethod',
+        'autoDirectory'   => 'AutoDirectory',
         'autoPos'         => 'AutoPos',
         'autoStart'       => 'AutoStart',
         'channelSyncTime' => 'ChannelSyncTime',
@@ -207,6 +265,9 @@ class DescribeDeviceResponseBody extends Model
         $res = [];
         if (null !== $this->alarmMethod) {
             $res['AlarmMethod'] = $this->alarmMethod;
+        }
+        if (null !== $this->autoDirectory) {
+            $res['AutoDirectory'] = $this->autoDirectory;
         }
         if (null !== $this->autoPos) {
             $res['AutoPos'] = $this->autoPos;
@@ -312,6 +373,9 @@ class DescribeDeviceResponseBody extends Model
         $model = new self();
         if (isset($map['AlarmMethod'])) {
             $model->alarmMethod = $map['AlarmMethod'];
+        }
+        if (isset($map['AutoDirectory'])) {
+            $model->autoDirectory = $map['AutoDirectory'];
         }
         if (isset($map['AutoPos'])) {
             $model->autoPos = $map['AutoPos'];

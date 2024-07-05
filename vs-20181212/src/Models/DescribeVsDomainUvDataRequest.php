@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainUvDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-11-24T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,6 +30,8 @@ class DescribeVsDomainUvDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-10-12T10:00:00Z
+     *
      * @var string
      */
     public $startTime;

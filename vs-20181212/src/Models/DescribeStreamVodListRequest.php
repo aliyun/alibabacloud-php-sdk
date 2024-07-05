@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamVodListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1634873413
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 18526049*****219118918-cn-beijing
+     *
      * @var string
      */
     public $id;
@@ -24,6 +32,10 @@ class DescribeStreamVodListRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1639077653
+     *
      * @var int
      */
     public $startTime;

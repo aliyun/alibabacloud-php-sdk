@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class liveAppRecord extends Model
 {
     /**
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2016-05-15T07:30:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example http://test
+     *
      * @var string
      */
     public $sourceUrl;
 
     /**
+     * @example 2016-05-15T01:30:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;

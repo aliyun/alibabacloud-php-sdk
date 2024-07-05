@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class transConfigs extends Model
 {
     /**
+     * @example 25
+     *
      * @var int
      */
     public $fps;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $gop;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 399*****430-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example sd
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $videoBitrate;
 
     /**
+     * @example h264
+     *
      * @var string
      */
     public $videoCodec;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $width;

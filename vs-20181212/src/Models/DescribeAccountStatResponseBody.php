@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountStatResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $groupLimit;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $groupNum;
 
     /**
+     * @description ID
+     *
+     * @example 3238848****092996
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $templateLimit;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $templateNum;

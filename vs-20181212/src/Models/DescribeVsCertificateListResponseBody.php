@@ -15,6 +15,8 @@ class DescribeVsCertificateListResponseBody extends Model
     public $certificateListModel;
 
     /**
+     * @example 6E310519-E035-51AB-80D4-C1CBECD39EB5
+     *
      * @var string
      */
     public $requestId;

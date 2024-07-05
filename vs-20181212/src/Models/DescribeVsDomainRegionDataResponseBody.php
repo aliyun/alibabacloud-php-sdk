@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainRegionDataResponseBody extends Model
 {
     /**
+     * @example 3600
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-31T15:59:59Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-10-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

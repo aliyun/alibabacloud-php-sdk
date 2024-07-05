@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDirectoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $id;

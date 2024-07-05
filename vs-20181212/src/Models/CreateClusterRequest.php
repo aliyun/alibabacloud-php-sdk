@@ -24,6 +24,8 @@ class CreateClusterRequest extends Model
     public $maintainTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceGatewayRequest extends Model
 {
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 24611****70597051-cn-beijing
+     *
      * @var string
      */
     public $id;

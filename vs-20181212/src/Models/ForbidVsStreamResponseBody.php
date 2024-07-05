@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ForbidVsStreamResponseBody extends Model
 {
     /**
+     * @example 119F7639-4646-51A4-B6C1-300D391C0104
+     *
      * @var string
      */
     public $requestId;

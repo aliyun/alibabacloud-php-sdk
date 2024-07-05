@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StartRecordStreamRequest extends Model
 {
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 310000*****000002
+     *
      * @var string
      */
     public $name;
@@ -29,6 +35,8 @@ class StartRecordStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $playDomain;

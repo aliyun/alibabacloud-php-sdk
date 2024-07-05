@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ContinuousAdjustRequest extends Model
 {
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $focus;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $iris;

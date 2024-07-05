@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ContinuousMoveRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,16 +23,22 @@ class ContinuousMoveRequest extends Model
     public $ownerId;
 
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $pan;
 
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $tilt;
 
     /**
+     * @example 0.5
+     *
      * @var string
      */
     public $zoom;

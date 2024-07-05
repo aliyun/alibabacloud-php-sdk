@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StartTransferStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,11 +23,17 @@ class StartTransferStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example sd
+     *
      * @var string
      */
     public $transcode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $url;

@@ -14,21 +14,29 @@ class describeVsUpPeakPublishStreamData extends Model
     public $bandWidth;
 
     /**
+     * @example 1522252320000
+     *
      * @var string
      */
     public $peakTime;
 
     /**
+     * @example 31
+     *
      * @var int
      */
     public $publishStreamNum;
 
     /**
+     * @example 1522166400000
+     *
      * @var string
      */
     public $queryTime;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $statName;

@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceAlarmRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $alarm;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1632314789000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $objectType;
@@ -44,11 +66,17 @@ class CreateDeviceAlarmRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1632121707000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $subAlarm;

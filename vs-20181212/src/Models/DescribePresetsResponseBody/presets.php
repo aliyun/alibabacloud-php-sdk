@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class presets extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $id;

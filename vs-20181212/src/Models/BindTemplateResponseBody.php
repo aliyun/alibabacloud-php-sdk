@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindTemplateResponseBody extends Model
 {
     /**
+     * @example 323*****994-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example group
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $templateId;

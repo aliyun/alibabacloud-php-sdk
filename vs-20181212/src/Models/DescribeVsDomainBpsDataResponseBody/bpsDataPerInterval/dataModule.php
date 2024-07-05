@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $bpsValue;
 
     /**
+     * @example 2015-12-10T20:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

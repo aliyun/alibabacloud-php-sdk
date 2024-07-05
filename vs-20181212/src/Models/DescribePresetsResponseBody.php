@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePresetsResponseBody extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -20,6 +22,8 @@ class DescribePresetsResponseBody extends Model
     public $presets;
 
     /**
+     * @example 9FE0CA83-BFD3-4EBD-A429-FABB9B9AE772
+     *
      * @var string
      */
     public $requestId;

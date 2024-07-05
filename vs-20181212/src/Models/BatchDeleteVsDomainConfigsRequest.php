@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteVsDomainConfigsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example https_force
+     *
      * @var string
      */
     public $functionNames;

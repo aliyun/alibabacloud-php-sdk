@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class BatchBindTemplatesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $applyAll;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****994-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example stream
+     *
      * @var string
      */
     public $instanceType;
@@ -29,16 +39,24 @@ class BatchBindTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $replace;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example timeshift
+     *
      * @var string
      */
     public $templateType;

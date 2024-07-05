@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceChannelsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $deviceStatus;
 
     /**
+     * @example 210235C3GN32090008286cf17e130d
+     *
      * @var string
      */
     public $dsn;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;

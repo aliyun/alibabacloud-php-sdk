@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @example 337639*****24964-cn-qingdao
+     *
      * @var string
      */
     public $aliasId;
 
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $createdTime;
@@ -35,21 +43,29 @@ class groups extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 31000000000000000001
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $gbIp;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $gbPort;
@@ -65,16 +81,22 @@ class groups extends Model
     public $gbUdpPorts;
 
     /**
+     * @example 33763950877224964-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $inProtocol;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $lazyPull;
@@ -85,21 +107,29 @@ class groups extends Model
     public $name;
 
     /**
+     * @example rtmp,flv,hls
+     *
      * @var string
      */
     public $outProtocol;
 
     /**
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $pushDomain;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
@@ -110,6 +140,8 @@ class groups extends Model
     public $stats;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;

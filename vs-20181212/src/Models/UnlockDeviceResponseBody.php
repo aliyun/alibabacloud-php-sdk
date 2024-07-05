@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnlockDeviceResponseBody extends Model
 {
     /**
+     * @example 323884****9092996
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

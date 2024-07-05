@@ -9,31 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamURLRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $auth;
 
     /**
+     * @example ocs*****ace
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 1571649499
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtmp
+     *
      * @var string
      */
     public $outProtocol;
@@ -44,16 +60,22 @@ class DescribeStreamURLRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1571639499
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example sd
+     *
      * @var string
      */
     public $transcode;
 
     /**
+     * @example live
+     *
      * @var string
      */
     public $type;

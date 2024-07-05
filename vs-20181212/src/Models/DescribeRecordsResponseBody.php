@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordsResponseBody extends Model
 {
     /**
+     * @example 2018-12-10T11:00:00Z
+     *
      * @var string
      */
     public $nextStartTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -35,11 +43,15 @@ class DescribeRecordsResponseBody extends Model
     public $records;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

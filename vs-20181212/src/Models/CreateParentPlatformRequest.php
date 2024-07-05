@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateParentPlatformRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clientAuth;
 
     /**
+     * @example admin123
+     *
      * @var string
      */
     public $clientPassword;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $clientUsername;
@@ -34,16 +42,26 @@ class CreateParentPlatformRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 31000*****2170123451
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -54,11 +72,17 @@ class CreateParentPlatformRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 5060
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;

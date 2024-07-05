@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesRequest extends Model
 {
     /**
+     * @example 323434****83423432
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $instanceId;
@@ -24,26 +28,36 @@ class DescribeTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @example record
+     *
      * @var string
      */
     public $type;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchBindTemplatesResponseBody extends Model
 {
     /**
+     * @example 20D0DFCE-5DB7-5D83-BD82-8482F2327636
+     *
      * @var string
      */
     public $requestId;

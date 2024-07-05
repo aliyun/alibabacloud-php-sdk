@@ -11,31 +11,43 @@ use AlibabaCloud\Tea\Model;
 class devices extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $alarmMethod;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoDirectory;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPos;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example 2019-02-28T17:01:17Z
+     *
      * @var string
      */
     public $channelSyncTime;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $createdTime;
@@ -51,46 +63,64 @@ class devices extends Model
     public $directory;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example 7D0*****4C0
+     *
      * @var string
      */
     public $dsn;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 310000000****0000002
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 119.20
+     *
      * @var string
      */
     public $latitude;
 
     /**
+     * @example 45.00
+     *
      * @var string
      */
     public $longitude;
@@ -101,36 +131,50 @@ class devices extends Model
     public $name;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 3238848****092995
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $posInterval;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $registeredTime;
@@ -141,21 +185,29 @@ class devices extends Model
     public $stats;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example rtmp://xxx/xxx
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $username;

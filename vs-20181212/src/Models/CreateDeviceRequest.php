@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $alarmMethod;
@@ -16,9 +18,18 @@ class CreateDeviceRequest extends Model
     /**
      * @var bool
      */
+    public $autoDirectory;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $autoPos;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
@@ -29,36 +40,52 @@ class CreateDeviceRequest extends Model
     public $description;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example 7D0*****4C0
+     *
      * @var string
      */
     public $dsn;
 
     /**
+     * @example 31000000****00000002
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 119.20
+     *
      * @var string
      */
     public $latitude;
 
     /**
+     * @example 45.00
+     *
      * @var string
      */
     public $longitude;
@@ -74,41 +101,59 @@ class CreateDeviceRequest extends Model
     public $ownerId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $posInterval;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ipc
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example rtmp://xxx/xxx
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $username;
@@ -118,28 +163,29 @@ class CreateDeviceRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'alarmMethod' => 'AlarmMethod',
-        'autoPos'     => 'AutoPos',
-        'autoStart'   => 'AutoStart',
-        'description' => 'Description',
-        'directoryId' => 'DirectoryId',
-        'dsn'         => 'Dsn',
-        'gbId'        => 'GbId',
-        'groupId'     => 'GroupId',
-        'ip'          => 'Ip',
-        'latitude'    => 'Latitude',
-        'longitude'   => 'Longitude',
-        'name'        => 'Name',
-        'ownerId'     => 'OwnerId',
-        'params'      => 'Params',
-        'parentId'    => 'ParentId',
-        'password'    => 'Password',
-        'port'        => 'Port',
-        'posInterval' => 'PosInterval',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'username'    => 'Username',
-        'vendor'      => 'Vendor',
+        'alarmMethod'   => 'AlarmMethod',
+        'autoDirectory' => 'AutoDirectory',
+        'autoPos'       => 'AutoPos',
+        'autoStart'     => 'AutoStart',
+        'description'   => 'Description',
+        'directoryId'   => 'DirectoryId',
+        'dsn'           => 'Dsn',
+        'gbId'          => 'GbId',
+        'groupId'       => 'GroupId',
+        'ip'            => 'Ip',
+        'latitude'      => 'Latitude',
+        'longitude'     => 'Longitude',
+        'name'          => 'Name',
+        'ownerId'       => 'OwnerId',
+        'params'        => 'Params',
+        'parentId'      => 'ParentId',
+        'password'      => 'Password',
+        'port'          => 'Port',
+        'posInterval'   => 'PosInterval',
+        'type'          => 'Type',
+        'url'           => 'Url',
+        'username'      => 'Username',
+        'vendor'        => 'Vendor',
     ];
 
     public function validate()
@@ -151,6 +197,9 @@ class CreateDeviceRequest extends Model
         $res = [];
         if (null !== $this->alarmMethod) {
             $res['AlarmMethod'] = $this->alarmMethod;
+        }
+        if (null !== $this->autoDirectory) {
+            $res['AutoDirectory'] = $this->autoDirectory;
         }
         if (null !== $this->autoPos) {
             $res['AutoPos'] = $this->autoPos;
@@ -229,6 +278,9 @@ class CreateDeviceRequest extends Model
         $model = new self();
         if (isset($map['AlarmMethod'])) {
             $model->alarmMethod = $map['AlarmMethod'];
+        }
+        if (isset($map['AutoDirectory'])) {
+            $model->autoDirectory = $map['AutoDirectory'];
         }
         if (isset($map['AutoPos'])) {
             $model->autoPos = $map['AutoPos'];

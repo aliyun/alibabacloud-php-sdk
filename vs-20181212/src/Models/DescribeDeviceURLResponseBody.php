@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceURLResponseBody extends Model
 {
     /**
+     * @example 1639130258
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rtmp://demo.aliyundoc.com/live/live001?auth_key=1639130258-0-0-b2b04fe85ece6*****a6b1a42bc7e
+     *
      * @var string
      */
     public $url;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopMoveRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,16 +23,22 @@ class StopMoveRequest extends Model
     public $ownerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pan;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $tilt;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $zoom;

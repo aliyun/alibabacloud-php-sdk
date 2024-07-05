@@ -15,6 +15,8 @@ class BatchForbidVsStreamResponseBody extends Model
     public $forbidResult;
 
     /**
+     * @example B058D71B-76EA-5DF6-ACAF-A617C1E7937F
+     *
      * @var string
      */
     public $requestId;

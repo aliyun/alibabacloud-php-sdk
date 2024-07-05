@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example 32388487****92996-cn-qingdao
+     *
      * @var string
      */
     public $id;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class streams extends Model
 {
     /**
+     * @example Stream not found
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 323884****9092997
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 32388*****39092997
+     *
      * @var string
      */
     public $name;

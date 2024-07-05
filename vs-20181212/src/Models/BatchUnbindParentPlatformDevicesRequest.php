@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindParentPlatformDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
@@ -19,6 +23,10 @@ class BatchUnbindParentPlatformDevicesRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 361*****212-cn-qingdao
+     *
      * @var string
      */
     public $parentPlatformId;

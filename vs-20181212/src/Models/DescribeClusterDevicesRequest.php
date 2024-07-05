@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -39,6 +41,8 @@ class DescribeClusterDevicesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $platform;

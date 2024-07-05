@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class directory extends Model
 {
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $createdTime;
@@ -19,11 +21,15 @@ class directory extends Model
     public $description;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -34,6 +40,8 @@ class directory extends Model
     public $name;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;

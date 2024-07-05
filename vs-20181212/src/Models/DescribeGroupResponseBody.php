@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupResponseBody extends Model
 {
     /**
+     * @example 337639*****24964-cn-qingdao
+     *
      * @var string
      */
     public $aliasId;
 
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @example 2019-02-28T17:00:17Z
+     *
      * @var string
      */
     public $createdTime;
@@ -35,21 +43,29 @@ class DescribeGroupResponseBody extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @example 3100000*****0000001
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $gbIp;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $gbPort;
@@ -65,16 +81,22 @@ class DescribeGroupResponseBody extends Model
     public $gbUdpPorts;
 
     /**
+     * @example 337639****224964-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $inProtocol;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $lazyPull;
@@ -85,26 +107,36 @@ class DescribeGroupResponseBody extends Model
     public $name;
 
     /**
+     * @example flv,hls,rtmp
+     *
      * @var string
      */
     public $outProtocol;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $pushDomain;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -115,6 +147,8 @@ class DescribeGroupResponseBody extends Model
     public $stats;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;

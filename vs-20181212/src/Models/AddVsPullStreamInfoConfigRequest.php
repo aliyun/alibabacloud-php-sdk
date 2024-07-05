@@ -14,16 +14,26 @@ class AddVsPullStreamInfoConfigRequest extends Model
     public $always;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2017-08-28T09:30:30Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,16 +44,26 @@ class AddVsPullStreamInfoConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example up.******.com.cn
+     *
      * @var string
      */
     public $sourceUrl;
 
     /**
+     * @example 2017-08-28T07:30:30Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class certList extends Model
 {
     /**
+     * @example 6338888
+     *
      * @var int
      */
     public $certId;
 
     /**
+     * @example cert-5391062
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $common;
 
     /**
+     * @example 3EB2585309AE5C8F369****7CDA6A8F5CEC8B2D4
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @example xxxxCert Inc
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @example 1632462708
+     *
      * @var int
      */
     public $lastTime;

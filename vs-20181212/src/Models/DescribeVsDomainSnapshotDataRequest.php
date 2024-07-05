@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainSnapshotDataRequest extends Model
 {
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-18T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,6 +28,8 @@ class DescribeVsDomainSnapshotDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-10-05T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

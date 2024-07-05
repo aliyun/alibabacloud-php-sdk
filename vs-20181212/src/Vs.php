@@ -6,12 +6,6 @@ namespace AlibabaCloud\SDK\Vs\V20181212;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredDeviceResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredVendorRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRegisteredVendorResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRenderingDeviceInternetPortsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\AddRenderingDeviceInternetPortsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindDirectoriesRequest;
@@ -60,14 +54,10 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CaptureDeviceSnapshotRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CaptureDeviceSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateAIConfigRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateAIConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
@@ -80,34 +70,34 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDeviceRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteAIConfigRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteAIConfigResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteFileRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePresetResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePurchasedDeviceRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePurchasedDeviceResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDeviceInternetPortsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDeviceInternetPortsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingDevicesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePublicKeyRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePublicKeyResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsPullStreamInfoConfigRequest;
@@ -116,12 +106,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigListRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigListResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIConfigResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIEventListRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAIEventListResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterRequest;
@@ -144,14 +128,10 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoriesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDirectoryResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeExternalStreamURLRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeExternalStreamURLResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeGroupsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeNodeDevicesInfoRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeNodeDevicesInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformRequest;
@@ -160,14 +140,19 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeParentPlatformsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePresetsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePresetsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePublishStreamStatusRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePublishStreamStatusResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRecordsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRecordsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingDevicesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceConfigurationRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceConfigurationResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceConfigurationShrinkRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeStreamsRequest;
@@ -198,8 +183,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainConfigsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainDetailRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainDetailResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainOnlineUserNumRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainOnlineUserNumResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainPvUvDataRequest;
@@ -218,14 +201,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamConfigRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageTrafficUsageDataRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageTrafficUsageDataResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsOnlineListRequest;
@@ -238,18 +215,30 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUpPeakPublishStreamDataReques
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUpPeakPublishStreamDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsVerifyContentRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsVerifyContentResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\GetObjectTotalRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\GetObjectTotalResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceStreamingInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetRenderingInstanceStreamingInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilePushStatusesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilePushStatusesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceCaptureRequest;
@@ -264,21 +253,23 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyPurchasedDeviceRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyPurchasedDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\OpenVsServiceResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\OperateRenderingDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\OperateRenderingDevicesResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ResetRenderingDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\ResetRenderingDevicesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RenewRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RenewRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\SendRenderingInstanceCommandsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\SendRenderingInstanceCommandsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SetPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SetPresetResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SetVsDomainCertificateRequest;
@@ -289,6 +280,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\StartDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StartPublishStreamRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StartPublishStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartRecordStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartRecordStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StartStreamRequest;
@@ -301,8 +294,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\StopDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopMoveResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\StopParentPlatformRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\StopParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StopPublishStreamRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\StopPublishStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopRecordStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopRecordStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopStreamRequest;
@@ -319,22 +312,29 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindPurchasedDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindPurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UninstallCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateAIConfigRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateAIConfigResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateCloudAppInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateCloudAppInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingDeviceSpecRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingDeviceSpecResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateFileInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateFileInfoResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingInstanceConfigurationRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingInstanceConfigurationResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingInstanceConfigurationShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesHostOSResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingDevicesImageResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadFileRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadFileResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadPublicKeyRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadPublicKeyResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\VerifyVsDomainOwnerRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\VerifyVsDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -346,7 +346,8 @@ class Vs extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -375,169 +376,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param AddRegisteredDeviceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param AddVsPullStreamInfoConfigRequest $request AddVsPullStreamInfoConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRegisteredDeviceResponse
-     */
-    public function addRegisteredDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dsn)) {
-            $query['Dsn'] = $request->dsn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->registerCode)) {
-            $query['RegisterCode'] = $request->registerCode;
-        }
-        if (!Utils::isUnset($request->secretKey)) {
-            $query['SecretKey'] = $request->secretKey;
-        }
-        if (!Utils::isUnset($request->vendor)) {
-            $query['Vendor'] = $request->vendor;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddRegisteredDevice',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddRegisteredDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddRegisteredDeviceRequest $request
-     *
-     * @return AddRegisteredDeviceResponse
-     */
-    public function addRegisteredDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addRegisteredDeviceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddRegisteredVendorRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AddRegisteredVendorResponse
-     */
-    public function addRegisteredVendorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddRegisteredVendor',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddRegisteredVendorResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddRegisteredVendorRequest $request
-     *
-     * @return AddRegisteredVendorResponse
-     */
-    public function addRegisteredVendor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addRegisteredVendorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddRenderingDeviceInternetPortsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AddRenderingDeviceInternetPortsResponse
-     */
-    public function addRenderingDeviceInternetPortsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ISP)) {
-            $query['ISP'] = $request->ISP;
-        }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->internalPort)) {
-            $query['InternalPort'] = $request->internalPort;
-        }
-        if (!Utils::isUnset($request->ipProtocol)) {
-            $query['IpProtocol'] = $request->ipProtocol;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddRenderingDeviceInternetPorts',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddRenderingDeviceInternetPortsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddRenderingDeviceInternetPortsRequest $request
-     *
-     * @return AddRenderingDeviceInternetPortsResponse
-     */
-    public function addRenderingDeviceInternetPorts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addRenderingDeviceInternetPortsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddVsPullStreamInfoConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AddVsPullStreamInfoConfigResponse
+     * @return AddVsPullStreamInfoConfigResponse AddVsPullStreamInfoConfigResponse
      */
     public function addVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
@@ -586,9 +428,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param AddVsPullStreamInfoConfigRequest $request
+     * @param AddVsPullStreamInfoConfigRequest $request AddVsPullStreamInfoConfigRequest
      *
-     * @return AddVsPullStreamInfoConfigResponse
+     * @return AddVsPullStreamInfoConfigResponse AddVsPullStreamInfoConfigResponse
      */
     public function addVsPullStreamInfoConfig($request)
     {
@@ -598,10 +440,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindDirectoriesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param BatchBindDirectoriesRequest $request BatchBindDirectoriesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindDirectoriesResponse
+     * @return BatchBindDirectoriesResponse BatchBindDirectoriesResponse
      */
     public function batchBindDirectoriesWithOptions($request, $runtime)
     {
@@ -635,9 +477,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindDirectoriesRequest $request
+     * @param BatchBindDirectoriesRequest $request BatchBindDirectoriesRequest
      *
-     * @return BatchBindDirectoriesResponse
+     * @return BatchBindDirectoriesResponse BatchBindDirectoriesResponse
      */
     public function batchBindDirectories($request)
     {
@@ -647,10 +489,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindParentPlatformDevicesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param BatchBindParentPlatformDevicesRequest $request BatchBindParentPlatformDevicesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindParentPlatformDevicesResponse
+     * @return BatchBindParentPlatformDevicesResponse BatchBindParentPlatformDevicesResponse
      */
     public function batchBindParentPlatformDevicesWithOptions($request, $runtime)
     {
@@ -684,9 +526,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindParentPlatformDevicesRequest $request
+     * @param BatchBindParentPlatformDevicesRequest $request BatchBindParentPlatformDevicesRequest
      *
-     * @return BatchBindParentPlatformDevicesResponse
+     * @return BatchBindParentPlatformDevicesResponse BatchBindParentPlatformDevicesResponse
      */
     public function batchBindParentPlatformDevices($request)
     {
@@ -696,10 +538,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindPurchasedDevicesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param BatchBindPurchasedDevicesRequest $request BatchBindPurchasedDevicesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindPurchasedDevicesResponse
+     * @return BatchBindPurchasedDevicesResponse BatchBindPurchasedDevicesResponse
      */
     public function batchBindPurchasedDevicesWithOptions($request, $runtime)
     {
@@ -736,9 +578,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindPurchasedDevicesRequest $request
+     * @param BatchBindPurchasedDevicesRequest $request BatchBindPurchasedDevicesRequest
      *
-     * @return BatchBindPurchasedDevicesResponse
+     * @return BatchBindPurchasedDevicesResponse BatchBindPurchasedDevicesResponse
      */
     public function batchBindPurchasedDevices($request)
     {
@@ -748,10 +590,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param BatchBindTemplateRequest $request BatchBindTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindTemplateResponse
+     * @return BatchBindTemplateResponse BatchBindTemplateResponse
      */
     public function batchBindTemplateWithOptions($request, $runtime)
     {
@@ -794,9 +636,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindTemplateRequest $request
+     * @param BatchBindTemplateRequest $request BatchBindTemplateRequest
      *
-     * @return BatchBindTemplateResponse
+     * @return BatchBindTemplateResponse BatchBindTemplateResponse
      */
     public function batchBindTemplate($request)
     {
@@ -806,10 +648,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindTemplatesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param BatchBindTemplatesRequest $request BatchBindTemplatesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchBindTemplatesResponse
+     * @return BatchBindTemplatesResponse BatchBindTemplatesResponse
      */
     public function batchBindTemplatesWithOptions($request, $runtime)
     {
@@ -855,9 +697,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchBindTemplatesRequest $request
+     * @param BatchBindTemplatesRequest $request BatchBindTemplatesRequest
      *
-     * @return BatchBindTemplatesResponse
+     * @return BatchBindTemplatesResponse BatchBindTemplatesResponse
      */
     public function batchBindTemplates($request)
     {
@@ -867,10 +709,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteDevicesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param BatchDeleteDevicesRequest $request BatchDeleteDevicesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteDevicesResponse
+     * @return BatchDeleteDevicesResponse BatchDeleteDevicesResponse
      */
     public function batchDeleteDevicesWithOptions($request, $runtime)
     {
@@ -901,9 +743,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteDevicesRequest $request
+     * @param BatchDeleteDevicesRequest $request BatchDeleteDevicesRequest
      *
-     * @return BatchDeleteDevicesResponse
+     * @return BatchDeleteDevicesResponse BatchDeleteDevicesResponse
      */
     public function batchDeleteDevices($request)
     {
@@ -913,10 +755,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteVsDomainConfigsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param BatchDeleteVsDomainConfigsRequest $request BatchDeleteVsDomainConfigsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteVsDomainConfigsResponse
+     * @return BatchDeleteVsDomainConfigsResponse BatchDeleteVsDomainConfigsResponse
      */
     public function batchDeleteVsDomainConfigsWithOptions($request, $runtime)
     {
@@ -950,9 +792,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteVsDomainConfigsRequest $request
+     * @param BatchDeleteVsDomainConfigsRequest $request BatchDeleteVsDomainConfigsRequest
      *
-     * @return BatchDeleteVsDomainConfigsResponse
+     * @return BatchDeleteVsDomainConfigsResponse BatchDeleteVsDomainConfigsResponse
      */
     public function batchDeleteVsDomainConfigs($request)
     {
@@ -962,10 +804,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchForbidVsStreamRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param BatchForbidVsStreamRequest $request BatchForbidVsStreamRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchForbidVsStreamResponse
+     * @return BatchForbidVsStreamResponse BatchForbidVsStreamResponse
      */
     public function batchForbidVsStreamWithOptions($request, $runtime)
     {
@@ -1011,9 +853,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchForbidVsStreamRequest $request
+     * @param BatchForbidVsStreamRequest $request BatchForbidVsStreamRequest
      *
-     * @return BatchForbidVsStreamResponse
+     * @return BatchForbidVsStreamResponse BatchForbidVsStreamResponse
      */
     public function batchForbidVsStream($request)
     {
@@ -1023,10 +865,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchResumeVsStreamRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param BatchResumeVsStreamRequest $request BatchResumeVsStreamRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchResumeVsStreamResponse
+     * @return BatchResumeVsStreamResponse BatchResumeVsStreamResponse
      */
     public function batchResumeVsStreamWithOptions($request, $runtime)
     {
@@ -1066,9 +908,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchResumeVsStreamRequest $request
+     * @param BatchResumeVsStreamRequest $request BatchResumeVsStreamRequest
      *
-     * @return BatchResumeVsStreamResponse
+     * @return BatchResumeVsStreamResponse BatchResumeVsStreamResponse
      */
     public function batchResumeVsStream($request)
     {
@@ -1078,10 +920,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchSetVsDomainConfigsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param BatchSetVsDomainConfigsRequest $request BatchSetVsDomainConfigsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSetVsDomainConfigsResponse
+     * @return BatchSetVsDomainConfigsResponse BatchSetVsDomainConfigsResponse
      */
     public function batchSetVsDomainConfigsWithOptions($request, $runtime)
     {
@@ -1115,9 +957,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchSetVsDomainConfigsRequest $request
+     * @param BatchSetVsDomainConfigsRequest $request BatchSetVsDomainConfigsRequest
      *
-     * @return BatchSetVsDomainConfigsResponse
+     * @return BatchSetVsDomainConfigsResponse BatchSetVsDomainConfigsResponse
      */
     public function batchSetVsDomainConfigs($request)
     {
@@ -1127,10 +969,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStartDevicesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param BatchStartDevicesRequest $request BatchStartDevicesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStartDevicesResponse
+     * @return BatchStartDevicesResponse BatchStartDevicesResponse
      */
     public function batchStartDevicesWithOptions($request, $runtime)
     {
@@ -1161,9 +1003,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStartDevicesRequest $request
+     * @param BatchStartDevicesRequest $request BatchStartDevicesRequest
      *
-     * @return BatchStartDevicesResponse
+     * @return BatchStartDevicesResponse BatchStartDevicesResponse
      */
     public function batchStartDevices($request)
     {
@@ -1173,10 +1015,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStartStreamsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param BatchStartStreamsRequest $request BatchStartStreamsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStartStreamsResponse
+     * @return BatchStartStreamsResponse BatchStartStreamsResponse
      */
     public function batchStartStreamsWithOptions($request, $runtime)
     {
@@ -1207,9 +1049,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStartStreamsRequest $request
+     * @param BatchStartStreamsRequest $request BatchStartStreamsRequest
      *
-     * @return BatchStartStreamsResponse
+     * @return BatchStartStreamsResponse BatchStartStreamsResponse
      */
     public function batchStartStreams($request)
     {
@@ -1219,10 +1061,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStopDevicesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param BatchStopDevicesRequest $request BatchStopDevicesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStopDevicesResponse
+     * @return BatchStopDevicesResponse BatchStopDevicesResponse
      */
     public function batchStopDevicesWithOptions($request, $runtime)
     {
@@ -1256,9 +1098,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStopDevicesRequest $request
+     * @param BatchStopDevicesRequest $request BatchStopDevicesRequest
      *
-     * @return BatchStopDevicesResponse
+     * @return BatchStopDevicesResponse BatchStopDevicesResponse
      */
     public function batchStopDevices($request)
     {
@@ -1268,10 +1110,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStopStreamsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param BatchStopStreamsRequest $request BatchStopStreamsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStopStreamsResponse
+     * @return BatchStopStreamsResponse BatchStopStreamsResponse
      */
     public function batchStopStreamsWithOptions($request, $runtime)
     {
@@ -1305,9 +1147,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchStopStreamsRequest $request
+     * @param BatchStopStreamsRequest $request BatchStopStreamsRequest
      *
-     * @return BatchStopStreamsResponse
+     * @return BatchStopStreamsResponse BatchStopStreamsResponse
      */
     public function batchStopStreams($request)
     {
@@ -1317,10 +1159,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindDirectoriesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param BatchUnbindDirectoriesRequest $request BatchUnbindDirectoriesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindDirectoriesResponse
+     * @return BatchUnbindDirectoriesResponse BatchUnbindDirectoriesResponse
      */
     public function batchUnbindDirectoriesWithOptions($request, $runtime)
     {
@@ -1354,9 +1196,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindDirectoriesRequest $request
+     * @param BatchUnbindDirectoriesRequest $request BatchUnbindDirectoriesRequest
      *
-     * @return BatchUnbindDirectoriesResponse
+     * @return BatchUnbindDirectoriesResponse BatchUnbindDirectoriesResponse
      */
     public function batchUnbindDirectories($request)
     {
@@ -1366,10 +1208,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindParentPlatformDevicesRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param BatchUnbindParentPlatformDevicesRequest $request BatchUnbindParentPlatformDevicesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindParentPlatformDevicesResponse
+     * @return BatchUnbindParentPlatformDevicesResponse BatchUnbindParentPlatformDevicesResponse
      */
     public function batchUnbindParentPlatformDevicesWithOptions($request, $runtime)
     {
@@ -1403,9 +1245,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindParentPlatformDevicesRequest $request
+     * @param BatchUnbindParentPlatformDevicesRequest $request BatchUnbindParentPlatformDevicesRequest
      *
-     * @return BatchUnbindParentPlatformDevicesResponse
+     * @return BatchUnbindParentPlatformDevicesResponse BatchUnbindParentPlatformDevicesResponse
      */
     public function batchUnbindParentPlatformDevices($request)
     {
@@ -1415,10 +1257,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindPurchasedDevicesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param BatchUnbindPurchasedDevicesRequest $request BatchUnbindPurchasedDevicesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindPurchasedDevicesResponse
+     * @return BatchUnbindPurchasedDevicesResponse BatchUnbindPurchasedDevicesResponse
      */
     public function batchUnbindPurchasedDevicesWithOptions($request, $runtime)
     {
@@ -1449,9 +1291,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindPurchasedDevicesRequest $request
+     * @param BatchUnbindPurchasedDevicesRequest $request BatchUnbindPurchasedDevicesRequest
      *
-     * @return BatchUnbindPurchasedDevicesResponse
+     * @return BatchUnbindPurchasedDevicesResponse BatchUnbindPurchasedDevicesResponse
      */
     public function batchUnbindPurchasedDevices($request)
     {
@@ -1461,10 +1303,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindTemplateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param BatchUnbindTemplateRequest $request BatchUnbindTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindTemplateResponse
+     * @return BatchUnbindTemplateResponse BatchUnbindTemplateResponse
      */
     public function batchUnbindTemplateWithOptions($request, $runtime)
     {
@@ -1504,9 +1346,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindTemplateRequest $request
+     * @param BatchUnbindTemplateRequest $request BatchUnbindTemplateRequest
      *
-     * @return BatchUnbindTemplateResponse
+     * @return BatchUnbindTemplateResponse BatchUnbindTemplateResponse
      */
     public function batchUnbindTemplate($request)
     {
@@ -1516,10 +1358,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindTemplatesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param BatchUnbindTemplatesRequest $request BatchUnbindTemplatesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUnbindTemplatesResponse
+     * @return BatchUnbindTemplatesResponse BatchUnbindTemplatesResponse
      */
     public function batchUnbindTemplatesWithOptions($request, $runtime)
     {
@@ -1559,9 +1401,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BatchUnbindTemplatesRequest $request
+     * @param BatchUnbindTemplatesRequest $request BatchUnbindTemplatesRequest
      *
-     * @return BatchUnbindTemplatesResponse
+     * @return BatchUnbindTemplatesResponse BatchUnbindTemplatesResponse
      */
     public function batchUnbindTemplates($request)
     {
@@ -1571,10 +1413,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindDirectoryRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param BindDirectoryRequest $request BindDirectoryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindDirectoryResponse
+     * @return BindDirectoryResponse BindDirectoryResponse
      */
     public function bindDirectoryWithOptions($request, $runtime)
     {
@@ -1608,9 +1450,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindDirectoryRequest $request
+     * @param BindDirectoryRequest $request BindDirectoryRequest
      *
-     * @return BindDirectoryResponse
+     * @return BindDirectoryResponse BindDirectoryResponse
      */
     public function bindDirectory($request)
     {
@@ -1620,10 +1462,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindParentPlatformDeviceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param BindParentPlatformDeviceRequest $request BindParentPlatformDeviceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindParentPlatformDeviceResponse
+     * @return BindParentPlatformDeviceResponse BindParentPlatformDeviceResponse
      */
     public function bindParentPlatformDeviceWithOptions($request, $runtime)
     {
@@ -1657,9 +1499,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindParentPlatformDeviceRequest $request
+     * @param BindParentPlatformDeviceRequest $request BindParentPlatformDeviceRequest
      *
-     * @return BindParentPlatformDeviceResponse
+     * @return BindParentPlatformDeviceResponse BindParentPlatformDeviceResponse
      */
     public function bindParentPlatformDevice($request)
     {
@@ -1669,10 +1511,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindPurchasedDeviceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param BindPurchasedDeviceRequest $request BindPurchasedDeviceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindPurchasedDeviceResponse
+     * @return BindPurchasedDeviceResponse BindPurchasedDeviceResponse
      */
     public function bindPurchasedDeviceWithOptions($request, $runtime)
     {
@@ -1709,9 +1551,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindPurchasedDeviceRequest $request
+     * @param BindPurchasedDeviceRequest $request BindPurchasedDeviceRequest
      *
-     * @return BindPurchasedDeviceResponse
+     * @return BindPurchasedDeviceResponse BindPurchasedDeviceResponse
      */
     public function bindPurchasedDevice($request)
     {
@@ -1721,10 +1563,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindTemplateRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param BindTemplateRequest $request BindTemplateRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindTemplateResponse
+     * @return BindTemplateResponse BindTemplateResponse
      */
     public function bindTemplateWithOptions($request, $runtime)
     {
@@ -1770,9 +1612,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param BindTemplateRequest $request
+     * @param BindTemplateRequest $request BindTemplateRequest
      *
-     * @return BindTemplateResponse
+     * @return BindTemplateResponse BindTemplateResponse
      */
     public function bindTemplate($request)
     {
@@ -1782,65 +1624,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CaptureDeviceSnapshotRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ContinuousAdjustRequest $request ContinuousAdjustRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CaptureDeviceSnapshotResponse
-     */
-    public function captureDeviceSnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->snapshotConfig)) {
-            $query['SnapshotConfig'] = $request->snapshotConfig;
-        }
-        if (!Utils::isUnset($request->streamId)) {
-            $query['StreamId'] = $request->streamId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CaptureDeviceSnapshot',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CaptureDeviceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CaptureDeviceSnapshotRequest $request
-     *
-     * @return CaptureDeviceSnapshotResponse
-     */
-    public function captureDeviceSnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->captureDeviceSnapshotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ContinuousAdjustRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ContinuousAdjustResponse
+     * @return ContinuousAdjustResponse ContinuousAdjustResponse
      */
     public function continuousAdjustWithOptions($request, $runtime)
     {
@@ -1877,9 +1664,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ContinuousAdjustRequest $request
+     * @param ContinuousAdjustRequest $request ContinuousAdjustRequest
      *
-     * @return ContinuousAdjustResponse
+     * @return ContinuousAdjustResponse ContinuousAdjustResponse
      */
     public function continuousAdjust($request)
     {
@@ -1889,10 +1676,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ContinuousMoveRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ContinuousMoveRequest $request ContinuousMoveRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContinuousMoveResponse
+     * @return ContinuousMoveResponse ContinuousMoveResponse
      */
     public function continuousMoveWithOptions($request, $runtime)
     {
@@ -1932,9 +1719,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ContinuousMoveRequest $request
+     * @param ContinuousMoveRequest $request ContinuousMoveRequest
      *
-     * @return ContinuousMoveResponse
+     * @return ContinuousMoveResponse ContinuousMoveResponse
      */
     public function continuousMove($request)
     {
@@ -1944,80 +1731,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateAIConfigRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAIConfigResponse
-     */
-    public function createAIConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->captureInterval)) {
-            $query['CaptureInterval'] = $request->captureInterval;
-        }
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->features)) {
-            $query['Features'] = $request->features;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAIConfig',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateAIConfigRequest $request
-     *
-     * @return CreateAIConfigResponse
-     */
-    public function createAIConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAIConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -2060,9 +1777,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -2072,10 +1789,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateDeviceRequest $request CreateDeviceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDeviceResponse
+     * @return CreateDeviceResponse CreateDeviceResponse
      */
     public function createDeviceWithOptions($request, $runtime)
     {
@@ -2083,6 +1800,9 @@ class Vs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alarmMethod)) {
             $query['AlarmMethod'] = $request->alarmMethod;
+        }
+        if (!Utils::isUnset($request->autoDirectory)) {
+            $query['AutoDirectory'] = $request->autoDirectory;
         }
         if (!Utils::isUnset($request->autoPos)) {
             $query['AutoPos'] = $request->autoPos;
@@ -2166,9 +1886,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceRequest $request
+     * @param CreateDeviceRequest $request CreateDeviceRequest
      *
-     * @return CreateDeviceResponse
+     * @return CreateDeviceResponse CreateDeviceResponse
      */
     public function createDevice($request)
     {
@@ -2178,10 +1898,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceAlarmRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateDeviceAlarmRequest $request CreateDeviceAlarmRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDeviceAlarmResponse
+     * @return CreateDeviceAlarmResponse CreateDeviceAlarmResponse
      */
     public function createDeviceAlarmWithOptions($request, $runtime)
     {
@@ -2233,9 +1953,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDeviceAlarmRequest $request
+     * @param CreateDeviceAlarmRequest $request CreateDeviceAlarmRequest
      *
-     * @return CreateDeviceAlarmResponse
+     * @return CreateDeviceAlarmResponse CreateDeviceAlarmResponse
      */
     public function createDeviceAlarm($request)
     {
@@ -2245,10 +1965,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateDirectoryRequest $request CreateDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDirectoryResponse
+     * @return CreateDirectoryResponse CreateDirectoryResponse
      */
     public function createDirectoryWithOptions($request, $runtime)
     {
@@ -2288,9 +2008,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateDirectoryRequest $request
+     * @param CreateDirectoryRequest $request CreateDirectoryRequest
      *
-     * @return CreateDirectoryResponse
+     * @return CreateDirectoryResponse CreateDirectoryResponse
      */
     public function createDirectory($request)
     {
@@ -2300,10 +2020,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
@@ -2361,9 +2081,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -2373,10 +2093,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateParentPlatformRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateParentPlatformRequest $request CreateParentPlatformRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateParentPlatformResponse
+     * @return CreateParentPlatformResponse CreateParentPlatformResponse
      */
     public function createParentPlatformWithOptions($request, $runtime)
     {
@@ -2434,9 +2154,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateParentPlatformRequest $request
+     * @param CreateParentPlatformRequest $request CreateParentPlatformRequest
      *
-     * @return CreateParentPlatformResponse
+     * @return CreateParentPlatformResponse CreateParentPlatformResponse
      */
     public function createParentPlatform($request)
     {
@@ -2446,68 +2166,48 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateRenderingDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 申请云渲染资源实例
+     *  *
+     * @param CreateRenderingInstanceRequest $tmpReq  CreateRenderingInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRenderingDeviceResponse
+     * @return CreateRenderingInstanceResponse CreateRenderingInstanceResponse
      */
-    public function createRenderingDeviceWithOptions($request, $runtime)
+    public function createRenderingInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateRenderingInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clientInfo)) {
+            $request->clientInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clientInfo, 'ClientInfo', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
-        }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->edgeNodeName)) {
-            $query['EdgeNodeName'] = $request->edgeNodeName;
-        }
-        if (!Utils::isUnset($request->ISP)) {
-            $query['ISP'] = $request->ISP;
-        }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->clientInfoShrink)) {
+            $query['ClientInfo'] = $request->clientInfoShrink;
         }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+        if (!Utils::isUnset($request->internetMaxBandwidth)) {
+            $query['InternetMaxBandwidth'] = $request->internetMaxBandwidth;
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
-        }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+        if (!Utils::isUnset($request->renderingSpec)) {
+            $query['RenderingSpec'] = $request->renderingSpec;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRenderingDevice',
+            'action'      => 'CreateRenderingInstance',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -2518,26 +2218,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateRenderingDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateRenderingDeviceRequest $request
+     * @summary 申请云渲染资源实例
+     *  *
+     * @param CreateRenderingInstanceRequest $request CreateRenderingInstanceRequest
      *
-     * @return CreateRenderingDeviceResponse
+     * @return CreateRenderingInstanceResponse CreateRenderingInstanceResponse
      */
-    public function createRenderingDevice($request)
+    public function createRenderingInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createRenderingDeviceWithOptions($request, $runtime);
+        return $this->createRenderingInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateStreamSnapshotRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateStreamSnapshotRequest $request CreateStreamSnapshotRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStreamSnapshotResponse
+     * @return CreateStreamSnapshotResponse CreateStreamSnapshotResponse
      */
     public function createStreamSnapshotWithOptions($request, $runtime)
     {
@@ -2571,9 +2273,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateStreamSnapshotRequest $request
+     * @param CreateStreamSnapshotRequest $request CreateStreamSnapshotRequest
      *
-     * @return CreateStreamSnapshotResponse
+     * @return CreateStreamSnapshotResponse CreateStreamSnapshotResponse
      */
     public function createStreamSnapshot($request)
     {
@@ -2583,10 +2285,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateTemplateRequest $request CreateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($request, $runtime)
     {
@@ -2674,9 +2376,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
+     * @param CreateTemplateRequest $request CreateTemplateRequest
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -2686,26 +2388,25 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteAIConfigRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除云应用
+     *  *
+     * @param DeleteCloudAppRequest $request DeleteCloudAppRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAIConfigResponse
+     * @return DeleteCloudAppResponse DeleteCloudAppResponse
      */
-    public function deleteAIConfigWithOptions($request, $runtime)
+    public function deleteCloudAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAIConfig',
+            'action'      => 'DeleteCloudApp',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -2716,72 +2417,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCloudAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteAIConfigRequest $request
+     * @summary 删除云应用
+     *  *
+     * @param DeleteCloudAppRequest $request DeleteCloudAppRequest
      *
-     * @return DeleteAIConfigResponse
+     * @return DeleteCloudAppResponse DeleteCloudAppResponse
      */
-    public function deleteAIConfig($request)
+    public function deleteCloudApp($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteAIConfigWithOptions($request, $runtime);
+        return $this->deleteCloudAppWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteBucketRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBucketResponse
-     */
-    public function deleteBucketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBucket',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteBucketResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteBucketRequest $request
-     *
-     * @return DeleteBucketResponse
-     */
-    public function deleteBucket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBucketWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -2812,9 +2469,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -2824,10 +2481,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteDeviceRequest $request DeleteDeviceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceResponse
+     * @return DeleteDeviceResponse DeleteDeviceResponse
      */
     public function deleteDeviceWithOptions($request, $runtime)
     {
@@ -2858,9 +2515,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceRequest $request
+     * @param DeleteDeviceRequest $request DeleteDeviceRequest
      *
-     * @return DeleteDeviceResponse
+     * @return DeleteDeviceResponse DeleteDeviceResponse
      */
     public function deleteDevice($request)
     {
@@ -2870,10 +2527,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDirectoryResponse
+     * @return DeleteDirectoryResponse DeleteDirectoryResponse
      */
     public function deleteDirectoryWithOptions($request, $runtime)
     {
@@ -2904,9 +2561,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteDirectoryRequest $request
+     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
      *
-     * @return DeleteDirectoryResponse
+     * @return DeleteDirectoryResponse DeleteDirectoryResponse
      */
     public function deleteDirectory($request)
     {
@@ -2916,10 +2573,57 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除文件对象。
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteFileResponse DeleteFileResponse
+     */
+    public function deleteFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除文件对象。
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
+     *
+     * @return DeleteFileResponse DeleteFileResponse
+     */
+    public function deleteFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
@@ -2950,9 +2654,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -2962,10 +2666,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteParentPlatformRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteParentPlatformRequest $request DeleteParentPlatformRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteParentPlatformResponse
+     * @return DeleteParentPlatformResponse DeleteParentPlatformResponse
      */
     public function deleteParentPlatformWithOptions($request, $runtime)
     {
@@ -2996,9 +2700,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteParentPlatformRequest $request
+     * @param DeleteParentPlatformRequest $request DeleteParentPlatformRequest
      *
-     * @return DeleteParentPlatformResponse
+     * @return DeleteParentPlatformResponse DeleteParentPlatformResponse
      */
     public function deleteParentPlatform($request)
     {
@@ -3008,10 +2712,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeletePresetRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeletePresetRequest $request DeletePresetRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePresetResponse
+     * @return DeletePresetResponse DeletePresetResponse
      */
     public function deletePresetWithOptions($request, $runtime)
     {
@@ -3045,9 +2749,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeletePresetRequest $request
+     * @param DeletePresetRequest $request DeletePresetRequest
      *
-     * @return DeletePresetResponse
+     * @return DeletePresetResponse DeletePresetResponse
      */
     public function deletePreset($request)
     {
@@ -3057,26 +2761,25 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeletePurchasedDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除公钥信息
+     *  *
+     * @param DeletePublicKeyRequest $request DeletePublicKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePurchasedDeviceResponse
+     * @return DeletePublicKeyResponse DeletePublicKeyResponse
      */
-    public function deletePurchasedDeviceWithOptions($request, $runtime)
+    public function deletePublicKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->keyName)) {
+            $query['KeyName'] = $request->keyName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePurchasedDevice',
+            'action'      => 'DeletePublicKey',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -3087,51 +2790,53 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeletePurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePurchasedDeviceRequest $request
+     * @summary 删除公钥信息
+     *  *
+     * @param DeletePublicKeyRequest $request DeletePublicKeyRequest
      *
-     * @return DeletePurchasedDeviceResponse
+     * @return DeletePublicKeyResponse DeletePublicKeyResponse
      */
-    public function deletePurchasedDevice($request)
+    public function deletePublicKey($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deletePurchasedDeviceWithOptions($request, $runtime);
+        return $this->deletePublicKeyWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteRenderingDeviceInternetPortsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 删除云渲染实例配置参数
+     *  *
+     * @param DeleteRenderingInstanceConfigurationRequest $tmpReq  DeleteRenderingInstanceConfigurationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRenderingDeviceInternetPortsResponse
+     * @return DeleteRenderingInstanceConfigurationResponse DeleteRenderingInstanceConfigurationResponse
      */
-    public function deleteRenderingDeviceInternetPortsWithOptions($request, $runtime)
+    public function deleteRenderingInstanceConfigurationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DeleteRenderingInstanceConfigurationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        }
         $query = [];
-        if (!Utils::isUnset($request->ISP)) {
-            $query['ISP'] = $request->ISP;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->internalPort)) {
-            $query['InternalPort'] = $request->internalPort;
-        }
-        if (!Utils::isUnset($request->ipProtocol)) {
-            $query['IpProtocol'] = $request->ipProtocol;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        $body = [];
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRenderingDeviceInternetPorts',
+            'action'      => 'DeleteRenderingInstanceConfiguration',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -3142,72 +2847,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteRenderingDeviceInternetPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRenderingInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteRenderingDeviceInternetPortsRequest $request
+     * @summary 删除云渲染实例配置参数
+     *  *
+     * @param DeleteRenderingInstanceConfigurationRequest $request DeleteRenderingInstanceConfigurationRequest
      *
-     * @return DeleteRenderingDeviceInternetPortsResponse
+     * @return DeleteRenderingInstanceConfigurationResponse DeleteRenderingInstanceConfigurationResponse
      */
-    public function deleteRenderingDeviceInternetPorts($request)
+    public function deleteRenderingInstanceConfiguration($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteRenderingDeviceInternetPortsWithOptions($request, $runtime);
+        return $this->deleteRenderingInstanceConfigurationWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteRenderingDevicesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRenderingDevicesResponse
-     */
-    public function deleteRenderingDevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteRenderingDevices',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRenderingDevicesRequest $request
-     *
-     * @return DeleteRenderingDevicesResponse
-     */
-    public function deleteRenderingDevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRenderingDevicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteTemplateRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
@@ -3238,9 +2899,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -3250,10 +2911,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteVsPullStreamInfoConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DeleteVsPullStreamInfoConfigRequest $request DeleteVsPullStreamInfoConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVsPullStreamInfoConfigResponse
+     * @return DeleteVsPullStreamInfoConfigResponse DeleteVsPullStreamInfoConfigResponse
      */
     public function deleteVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
@@ -3290,9 +2951,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteVsPullStreamInfoConfigRequest $request
+     * @param DeleteVsPullStreamInfoConfigRequest $request DeleteVsPullStreamInfoConfigRequest
      *
-     * @return DeleteVsPullStreamInfoConfigResponse
+     * @return DeleteVsPullStreamInfoConfigResponse DeleteVsPullStreamInfoConfigResponse
      */
     public function deleteVsPullStreamInfoConfig($request)
     {
@@ -3302,10 +2963,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteVsStreamsNotifyUrlConfigRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DeleteVsStreamsNotifyUrlConfigRequest $request DeleteVsStreamsNotifyUrlConfigRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVsStreamsNotifyUrlConfigResponse
+     * @return DeleteVsStreamsNotifyUrlConfigResponse DeleteVsStreamsNotifyUrlConfigResponse
      */
     public function deleteVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
@@ -3336,9 +2997,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DeleteVsStreamsNotifyUrlConfigRequest $request
+     * @param DeleteVsStreamsNotifyUrlConfigRequest $request DeleteVsStreamsNotifyUrlConfigRequest
      *
-     * @return DeleteVsStreamsNotifyUrlConfigResponse
+     * @return DeleteVsStreamsNotifyUrlConfigResponse DeleteVsStreamsNotifyUrlConfigResponse
      */
     public function deleteVsStreamsNotifyUrlConfig($request)
     {
@@ -3348,145 +3009,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeAIConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeAccountStatRequest $request DescribeAccountStatRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAIConfigResponse
-     */
-    public function describeAIConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAIConfig',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAIConfigRequest $request
-     *
-     * @return DescribeAIConfigResponse
-     */
-    public function describeAIConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAIConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAIConfigListRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeAIConfigListResponse
-     */
-    public function describeAIConfigListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAIConfigList',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAIConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAIConfigListRequest $request
-     *
-     * @return DescribeAIConfigListResponse
-     */
-    public function describeAIConfigList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAIConfigListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAIEventListRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeAIEventListResponse
-     */
-    public function describeAIEventListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAIEventList',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAIEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAIEventListRequest $request
-     *
-     * @return DescribeAIEventListResponse
-     */
-    public function describeAIEventList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAIEventListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAccountStatRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeAccountStatResponse
+     * @return DescribeAccountStatResponse DescribeAccountStatResponse
      */
     public function describeAccountStatWithOptions($request, $runtime)
     {
@@ -3517,9 +3043,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountStatRequest $request
+     * @param DescribeAccountStatRequest $request DescribeAccountStatRequest
      *
-     * @return DescribeAccountStatResponse
+     * @return DescribeAccountStatResponse DescribeAccountStatResponse
      */
     public function describeAccountStat($request)
     {
@@ -3529,10 +3055,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeClusterRequest $request DescribeClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterResponse
+     * @return DescribeClusterResponse DescribeClusterResponse
      */
     public function describeClusterWithOptions($request, $runtime)
     {
@@ -3563,9 +3089,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRequest $request
+     * @param DescribeClusterRequest $request DescribeClusterRequest
      *
-     * @return DescribeClusterResponse
+     * @return DescribeClusterResponse DescribeClusterResponse
      */
     public function describeCluster($request)
     {
@@ -3575,10 +3101,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterDevicesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeClusterDevicesRequest $request DescribeClusterDevicesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterDevicesResponse
+     * @return DescribeClusterDevicesResponse DescribeClusterDevicesResponse
      */
     public function describeClusterDevicesWithOptions($request, $runtime)
     {
@@ -3627,9 +3153,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterDevicesRequest $request
+     * @param DescribeClusterDevicesRequest $request DescribeClusterDevicesRequest
      *
-     * @return DescribeClusterDevicesResponse
+     * @return DescribeClusterDevicesResponse DescribeClusterDevicesResponse
      */
     public function describeClusterDevices($request)
     {
@@ -3639,10 +3165,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeClustersRequest $request DescribeClustersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClustersResponse
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
     public function describeClustersWithOptions($request, $runtime)
     {
@@ -3676,9 +3202,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersRequest $request
+     * @param DescribeClustersRequest $request DescribeClustersRequest
      *
-     * @return DescribeClustersResponse
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
     public function describeClusters($request)
     {
@@ -3688,10 +3214,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerInstanceIdRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeContainerInstanceIdRequest $request DescribeContainerInstanceIdRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerInstanceIdResponse
+     * @return DescribeContainerInstanceIdResponse DescribeContainerInstanceIdResponse
      */
     public function describeContainerInstanceIdWithOptions($request, $runtime)
     {
@@ -3725,9 +3251,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerInstanceIdRequest $request
+     * @param DescribeContainerInstanceIdRequest $request DescribeContainerInstanceIdRequest
      *
-     * @return DescribeContainerInstanceIdResponse
+     * @return DescribeContainerInstanceIdResponse DescribeContainerInstanceIdResponse
      */
     public function describeContainerInstanceId($request)
     {
@@ -3737,10 +3263,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeDeviceRequest $request DescribeDeviceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceResponse
+     * @return DescribeDeviceResponse DescribeDeviceResponse
      */
     public function describeDeviceWithOptions($request, $runtime)
     {
@@ -3777,9 +3303,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceRequest $request
+     * @param DescribeDeviceRequest $request DescribeDeviceRequest
      *
-     * @return DescribeDeviceResponse
+     * @return DescribeDeviceResponse DescribeDeviceResponse
      */
     public function describeDevice($request)
     {
@@ -3789,10 +3315,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceChannelsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeDeviceChannelsRequest $request DescribeDeviceChannelsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceChannelsResponse
+     * @return DescribeDeviceChannelsResponse DescribeDeviceChannelsResponse
      */
     public function describeDeviceChannelsWithOptions($request, $runtime)
     {
@@ -3829,9 +3355,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceChannelsRequest $request
+     * @param DescribeDeviceChannelsRequest $request DescribeDeviceChannelsRequest
      *
-     * @return DescribeDeviceChannelsResponse
+     * @return DescribeDeviceChannelsResponse DescribeDeviceChannelsResponse
      */
     public function describeDeviceChannels($request)
     {
@@ -3841,10 +3367,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceGatewayRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeDeviceGatewayRequest $request DescribeDeviceGatewayRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceGatewayResponse
+     * @return DescribeDeviceGatewayResponse DescribeDeviceGatewayResponse
      */
     public function describeDeviceGatewayWithOptions($request, $runtime)
     {
@@ -3881,9 +3407,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceGatewayRequest $request
+     * @param DescribeDeviceGatewayRequest $request DescribeDeviceGatewayRequest
      *
-     * @return DescribeDeviceGatewayResponse
+     * @return DescribeDeviceGatewayResponse DescribeDeviceGatewayResponse
      */
     public function describeDeviceGateway($request)
     {
@@ -3893,10 +3419,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceURLRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeDeviceURLRequest $request DescribeDeviceURLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceURLResponse
+     * @return DescribeDeviceURLResponse DescribeDeviceURLResponse
      */
     public function describeDeviceURLWithOptions($request, $runtime)
     {
@@ -3945,9 +3471,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceURLRequest $request
+     * @param DescribeDeviceURLRequest $request DescribeDeviceURLRequest
      *
-     * @return DescribeDeviceURLResponse
+     * @return DescribeDeviceURLResponse DescribeDeviceURLResponse
      */
     public function describeDeviceURL($request)
     {
@@ -3957,10 +3483,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDevicesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeDevicesRequest $request DescribeDevicesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDevicesResponse
+     * @return DescribeDevicesResponse DescribeDevicesResponse
      */
     public function describeDevicesWithOptions($request, $runtime)
     {
@@ -4036,9 +3562,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDevicesRequest $request
+     * @param DescribeDevicesRequest $request DescribeDevicesRequest
      *
-     * @return DescribeDevicesResponse
+     * @return DescribeDevicesResponse DescribeDevicesResponse
      */
     public function describeDevices($request)
     {
@@ -4048,10 +3574,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectoriesWithOptions($request, $runtime)
     {
@@ -4100,9 +3626,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectories($request)
     {
@@ -4112,10 +3638,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoryRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeDirectoryRequest $request DescribeDirectoryRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDirectoryResponse
+     * @return DescribeDirectoryResponse DescribeDirectoryResponse
      */
     public function describeDirectoryWithOptions($request, $runtime)
     {
@@ -4146,9 +3672,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoryRequest $request
+     * @param DescribeDirectoryRequest $request DescribeDirectoryRequest
      *
-     * @return DescribeDirectoryResponse
+     * @return DescribeDirectoryResponse DescribeDirectoryResponse
      */
     public function describeDirectory($request)
     {
@@ -4158,65 +3684,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeExternalStreamURLRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeGroupRequest $request DescribeGroupRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExternalStreamURLResponse
-     */
-    public function describeExternalStreamURLWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->kind)) {
-            $query['Kind'] = $request->kind;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->profile)) {
-            $query['Profile'] = $request->profile;
-        }
-        if (!Utils::isUnset($request->txId)) {
-            $query['TxId'] = $request->txId;
-        }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeExternalStreamURL',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeExternalStreamURLResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeExternalStreamURLRequest $request
-     *
-     * @return DescribeExternalStreamURLResponse
-     */
-    public function describeExternalStreamURL($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeExternalStreamURLWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGroupRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeGroupResponse
+     * @return DescribeGroupResponse DescribeGroupResponse
      */
     public function describeGroupWithOptions($request, $runtime)
     {
@@ -4250,9 +3721,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupRequest $request
+     * @param DescribeGroupRequest $request DescribeGroupRequest
      *
-     * @return DescribeGroupResponse
+     * @return DescribeGroupResponse DescribeGroupResponse
      */
     public function describeGroup($request)
     {
@@ -4262,10 +3733,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeGroupsRequest $request DescribeGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupsResponse
+     * @return DescribeGroupsResponse DescribeGroupsResponse
      */
     public function describeGroupsWithOptions($request, $runtime)
     {
@@ -4323,9 +3794,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupsRequest $request
+     * @param DescribeGroupsRequest $request DescribeGroupsRequest
      *
-     * @return DescribeGroupsResponse
+     * @return DescribeGroupsResponse DescribeGroupsResponse
      */
     public function describeGroups($request)
     {
@@ -4335,56 +3806,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeDevicesInfoRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeParentPlatformRequest $request DescribeParentPlatformRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodeDevicesInfoResponse
-     */
-    public function describeNodeDevicesInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeNodeDevicesInfo',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeNodeDevicesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeNodeDevicesInfoRequest $request
-     *
-     * @return DescribeNodeDevicesInfoResponse
-     */
-    public function describeNodeDevicesInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNodeDevicesInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeParentPlatformRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeParentPlatformResponse
+     * @return DescribeParentPlatformResponse DescribeParentPlatformResponse
      */
     public function describeParentPlatformWithOptions($request, $runtime)
     {
@@ -4415,9 +3840,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentPlatformRequest $request
+     * @param DescribeParentPlatformRequest $request DescribeParentPlatformRequest
      *
-     * @return DescribeParentPlatformResponse
+     * @return DescribeParentPlatformResponse DescribeParentPlatformResponse
      */
     public function describeParentPlatform($request)
     {
@@ -4427,10 +3852,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentPlatformDevicesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeParentPlatformDevicesRequest $request DescribeParentPlatformDevicesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParentPlatformDevicesResponse
+     * @return DescribeParentPlatformDevicesResponse DescribeParentPlatformDevicesResponse
      */
     public function describeParentPlatformDevicesWithOptions($request, $runtime)
     {
@@ -4473,9 +3898,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentPlatformDevicesRequest $request
+     * @param DescribeParentPlatformDevicesRequest $request DescribeParentPlatformDevicesRequest
      *
-     * @return DescribeParentPlatformDevicesResponse
+     * @return DescribeParentPlatformDevicesResponse DescribeParentPlatformDevicesResponse
      */
     public function describeParentPlatformDevices($request)
     {
@@ -4485,10 +3910,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentPlatformsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeParentPlatformsRequest $request DescribeParentPlatformsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParentPlatformsResponse
+     * @return DescribeParentPlatformsResponse DescribeParentPlatformsResponse
      */
     public function describeParentPlatformsWithOptions($request, $runtime)
     {
@@ -4534,9 +3959,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeParentPlatformsRequest $request
+     * @param DescribeParentPlatformsRequest $request DescribeParentPlatformsRequest
      *
-     * @return DescribeParentPlatformsResponse
+     * @return DescribeParentPlatformsResponse DescribeParentPlatformsResponse
      */
     public function describeParentPlatforms($request)
     {
@@ -4546,10 +3971,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePresetsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribePresetsRequest $request DescribePresetsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePresetsResponse
+     * @return DescribePresetsResponse DescribePresetsResponse
      */
     public function describePresetsWithOptions($request, $runtime)
     {
@@ -4580,9 +4005,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePresetsRequest $request
+     * @param DescribePresetsRequest $request DescribePresetsRequest
      *
-     * @return DescribePresetsResponse
+     * @return DescribePresetsResponse DescribePresetsResponse
      */
     public function describePresets($request)
     {
@@ -4592,10 +4017,56 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePurchasedDeviceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribePublishStreamStatusRequest $request DescribePublishStreamStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePurchasedDeviceResponse
+     * @return DescribePublishStreamStatusResponse DescribePublishStreamStatusResponse
+     */
+    public function describePublishStreamStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePublishStreamStatus',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePublishStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePublishStreamStatusRequest $request DescribePublishStreamStatusRequest
+     *
+     * @return DescribePublishStreamStatusResponse DescribePublishStreamStatusResponse
+     */
+    public function describePublishStreamStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePublishStreamStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePurchasedDeviceRequest $request DescribePurchasedDeviceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePurchasedDeviceResponse DescribePurchasedDeviceResponse
      */
     public function describePurchasedDeviceWithOptions($request, $runtime)
     {
@@ -4626,9 +4097,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePurchasedDeviceRequest $request
+     * @param DescribePurchasedDeviceRequest $request DescribePurchasedDeviceRequest
      *
-     * @return DescribePurchasedDeviceResponse
+     * @return DescribePurchasedDeviceResponse DescribePurchasedDeviceResponse
      */
     public function describePurchasedDevice($request)
     {
@@ -4638,10 +4109,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePurchasedDevicesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribePurchasedDevicesRequest $request DescribePurchasedDevicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePurchasedDevicesResponse
+     * @return DescribePurchasedDevicesResponse DescribePurchasedDevicesResponse
      */
     public function describePurchasedDevicesWithOptions($request, $runtime)
     {
@@ -4699,9 +4170,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribePurchasedDevicesRequest $request
+     * @param DescribePurchasedDevicesRequest $request DescribePurchasedDevicesRequest
      *
-     * @return DescribePurchasedDevicesResponse
+     * @return DescribePurchasedDevicesResponse DescribePurchasedDevicesResponse
      */
     public function describePurchasedDevices($request)
     {
@@ -4711,10 +4182,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRecordsRequest $request DescribeRecordsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordsResponse
+     * @return DescribeRecordsResponse DescribeRecordsResponse
      */
     public function describeRecordsWithOptions($request, $runtime)
     {
@@ -4769,9 +4240,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordsRequest $request
+     * @param DescribeRecordsRequest $request DescribeRecordsRequest
      *
-     * @return DescribeRecordsResponse
+     * @return DescribeRecordsResponse DescribeRecordsResponse
      */
     public function describeRecords($request)
     {
@@ -4781,56 +4252,103 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeRenderingDevicesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询云渲染实例详细信息。
+     *  *
+     * @param DescribeRenderingInstanceRequest $request DescribeRenderingInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRenderingDevicesResponse
+     * @return DescribeRenderingInstanceResponse DescribeRenderingInstanceResponse
      */
-    public function describeRenderingDevicesWithOptions($request, $runtime)
+    public function describeRenderingInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRenderingDevices',
+            'action'      => 'DescribeRenderingInstance',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'POST',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return DescribeRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRenderingDevicesRequest $request
+     * @summary 查询云渲染实例详细信息。
+     *  *
+     * @param DescribeRenderingInstanceRequest $request DescribeRenderingInstanceRequest
      *
-     * @return DescribeRenderingDevicesResponse
+     * @return DescribeRenderingInstanceResponse DescribeRenderingInstanceResponse
      */
-    public function describeRenderingDevices($request)
+    public function describeRenderingInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRenderingDevicesWithOptions($request, $runtime);
+        return $this->describeRenderingInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeStreamRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询云渲染实例模块配置参数
+     *  *
+     * @param DescribeRenderingInstanceConfigurationRequest $tmpReq  DescribeRenderingInstanceConfigurationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStreamResponse
+     * @return DescribeRenderingInstanceConfigurationResponse DescribeRenderingInstanceConfigurationResponse
+     */
+    public function describeRenderingInstanceConfigurationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeRenderingInstanceConfigurationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRenderingInstanceConfiguration',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRenderingInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询云渲染实例模块配置参数
+     *  *
+     * @param DescribeRenderingInstanceConfigurationRequest $request DescribeRenderingInstanceConfigurationRequest
+     *
+     * @return DescribeRenderingInstanceConfigurationResponse DescribeRenderingInstanceConfigurationResponse
+     */
+    public function describeRenderingInstanceConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRenderingInstanceConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeStreamRequest $request DescribeStreamRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStreamResponse DescribeStreamResponse
      */
     public function describeStreamWithOptions($request, $runtime)
     {
@@ -4861,9 +4379,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamRequest $request
+     * @param DescribeStreamRequest $request DescribeStreamRequest
      *
-     * @return DescribeStreamResponse
+     * @return DescribeStreamResponse DescribeStreamResponse
      */
     public function describeStream($request)
     {
@@ -4873,10 +4391,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamURLRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeStreamURLRequest $request DescribeStreamURLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStreamURLResponse
+     * @return DescribeStreamURLResponse DescribeStreamURLResponse
      */
     public function describeStreamURLWithOptions($request, $runtime)
     {
@@ -4931,9 +4449,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamURLRequest $request
+     * @param DescribeStreamURLRequest $request DescribeStreamURLRequest
      *
-     * @return DescribeStreamURLResponse
+     * @return DescribeStreamURLResponse DescribeStreamURLResponse
      */
     public function describeStreamURL($request)
     {
@@ -4943,10 +4461,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamVodListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeStreamVodListRequest $request DescribeStreamVodListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStreamVodListResponse
+     * @return DescribeStreamVodListResponse DescribeStreamVodListResponse
      */
     public function describeStreamVodListWithOptions($request, $runtime)
     {
@@ -4983,9 +4501,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamVodListRequest $request
+     * @param DescribeStreamVodListRequest $request DescribeStreamVodListRequest
      *
-     * @return DescribeStreamVodListResponse
+     * @return DescribeStreamVodListResponse DescribeStreamVodListResponse
      */
     public function describeStreamVodList($request)
     {
@@ -4995,10 +4513,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeStreamsRequest $request DescribeStreamsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStreamsResponse
+     * @return DescribeStreamsResponse DescribeStreamsResponse
      */
     public function describeStreamsWithOptions($request, $runtime)
     {
@@ -5059,9 +4577,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeStreamsRequest $request
+     * @param DescribeStreamsRequest $request DescribeStreamsRequest
      *
-     * @return DescribeStreamsResponse
+     * @return DescribeStreamsResponse DescribeStreamsResponse
      */
     public function describeStreams($request)
     {
@@ -5071,10 +4589,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeTemplateRequest $request DescribeTemplateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateResponse
+     * @return DescribeTemplateResponse DescribeTemplateResponse
      */
     public function describeTemplateWithOptions($request, $runtime)
     {
@@ -5105,9 +4623,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateRequest $request
+     * @param DescribeTemplateRequest $request DescribeTemplateRequest
      *
-     * @return DescribeTemplateResponse
+     * @return DescribeTemplateResponse DescribeTemplateResponse
      */
     public function describeTemplate($request)
     {
@@ -5117,10 +4635,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplatesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplatesWithOptions($request, $runtime)
     {
@@ -5169,9 +4687,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplatesRequest $request
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplates($request)
     {
@@ -5181,10 +4699,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserDevicesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeUserDevicesRequest $request DescribeUserDevicesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserDevicesResponse
+     * @return DescribeUserDevicesResponse DescribeUserDevicesResponse
      */
     public function describeUserDevicesWithOptions($request, $runtime)
     {
@@ -5218,9 +4736,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserDevicesRequest $request
+     * @param DescribeUserDevicesRequest $request DescribeUserDevicesRequest
      *
-     * @return DescribeUserDevicesResponse
+     * @return DescribeUserDevicesResponse DescribeUserDevicesResponse
      */
     public function describeUserDevices($request)
     {
@@ -5230,10 +4748,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodStreamURLRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeVodStreamURLRequest $request DescribeVodStreamURLRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodStreamURLResponse
+     * @return DescribeVodStreamURLResponse DescribeVodStreamURLResponse
      */
     public function describeVodStreamURLWithOptions($request, $runtime)
     {
@@ -5241,9 +4759,6 @@ class Vs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->txId)) {
-            $query['TxId'] = $request->txId;
         }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
@@ -5267,9 +4782,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVodStreamURLRequest $request
+     * @param DescribeVodStreamURLRequest $request DescribeVodStreamURLRequest
      *
-     * @return DescribeVodStreamURLResponse
+     * @return DescribeVodStreamURLResponse DescribeVodStreamURLResponse
      */
     public function describeVodStreamURL($request)
     {
@@ -5279,10 +4794,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsCertificateDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeVsCertificateDetailRequest $request DescribeVsCertificateDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsCertificateDetailResponse
+     * @return DescribeVsCertificateDetailResponse DescribeVsCertificateDetailResponse
      */
     public function describeVsCertificateDetailWithOptions($request, $runtime)
     {
@@ -5313,9 +4828,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsCertificateDetailRequest $request
+     * @param DescribeVsCertificateDetailRequest $request DescribeVsCertificateDetailRequest
      *
-     * @return DescribeVsCertificateDetailResponse
+     * @return DescribeVsCertificateDetailResponse DescribeVsCertificateDetailResponse
      */
     public function describeVsCertificateDetail($request)
     {
@@ -5325,10 +4840,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsCertificateListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeVsCertificateListRequest $request DescribeVsCertificateListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsCertificateListResponse
+     * @return DescribeVsCertificateListResponse DescribeVsCertificateListResponse
      */
     public function describeVsCertificateListWithOptions($request, $runtime)
     {
@@ -5359,9 +4874,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsCertificateListRequest $request
+     * @param DescribeVsCertificateListRequest $request DescribeVsCertificateListRequest
      *
-     * @return DescribeVsCertificateListResponse
+     * @return DescribeVsCertificateListResponse DescribeVsCertificateListResponse
      */
     public function describeVsCertificateList($request)
     {
@@ -5371,10 +4886,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDevicesDataRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeVsDevicesDataRequest $request DescribeVsDevicesDataRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDevicesDataResponse
+     * @return DescribeVsDevicesDataResponse DescribeVsDevicesDataResponse
      */
     public function describeVsDevicesDataWithOptions($request, $runtime)
     {
@@ -5411,9 +4926,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDevicesDataRequest $request
+     * @param DescribeVsDevicesDataRequest $request DescribeVsDevicesDataRequest
      *
-     * @return DescribeVsDevicesDataResponse
+     * @return DescribeVsDevicesDataResponse DescribeVsDevicesDataResponse
      */
     public function describeVsDevicesData($request)
     {
@@ -5423,10 +4938,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainBpsDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeVsDomainBpsDataRequest $request DescribeVsDomainBpsDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainBpsDataResponse
+     * @return DescribeVsDomainBpsDataResponse DescribeVsDomainBpsDataResponse
      */
     public function describeVsDomainBpsDataWithOptions($request, $runtime)
     {
@@ -5472,9 +4987,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainBpsDataRequest $request
+     * @param DescribeVsDomainBpsDataRequest $request DescribeVsDomainBpsDataRequest
      *
-     * @return DescribeVsDomainBpsDataResponse
+     * @return DescribeVsDomainBpsDataResponse DescribeVsDomainBpsDataResponse
      */
     public function describeVsDomainBpsData($request)
     {
@@ -5484,10 +4999,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainCertificateInfoRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeVsDomainCertificateInfoRequest $request DescribeVsDomainCertificateInfoRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainCertificateInfoResponse
+     * @return DescribeVsDomainCertificateInfoResponse DescribeVsDomainCertificateInfoResponse
      */
     public function describeVsDomainCertificateInfoWithOptions($request, $runtime)
     {
@@ -5518,9 +5033,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainCertificateInfoRequest $request
+     * @param DescribeVsDomainCertificateInfoRequest $request DescribeVsDomainCertificateInfoRequest
      *
-     * @return DescribeVsDomainCertificateInfoResponse
+     * @return DescribeVsDomainCertificateInfoResponse DescribeVsDomainCertificateInfoResponse
      */
     public function describeVsDomainCertificateInfo($request)
     {
@@ -5530,10 +5045,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainConfigsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeVsDomainConfigsRequest $request DescribeVsDomainConfigsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainConfigsResponse
+     * @return DescribeVsDomainConfigsResponse DescribeVsDomainConfigsResponse
      */
     public function describeVsDomainConfigsWithOptions($request, $runtime)
     {
@@ -5567,9 +5082,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainConfigsRequest $request
+     * @param DescribeVsDomainConfigsRequest $request DescribeVsDomainConfigsRequest
      *
-     * @return DescribeVsDomainConfigsResponse
+     * @return DescribeVsDomainConfigsResponse DescribeVsDomainConfigsResponse
      */
     public function describeVsDomainConfigs($request)
     {
@@ -5579,10 +5094,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeVsDomainDetailRequest $request DescribeVsDomainDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainDetailResponse
+     * @return DescribeVsDomainDetailResponse DescribeVsDomainDetailResponse
      */
     public function describeVsDomainDetailWithOptions($request, $runtime)
     {
@@ -5613,9 +5128,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainDetailRequest $request
+     * @param DescribeVsDomainDetailRequest $request DescribeVsDomainDetailRequest
      *
-     * @return DescribeVsDomainDetailResponse
+     * @return DescribeVsDomainDetailResponse DescribeVsDomainDetailResponse
      */
     public function describeVsDomainDetail($request)
     {
@@ -5625,59 +5140,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainOnlineUserNumRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeVsDomainPvDataRequest $request DescribeVsDomainPvDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainOnlineUserNumResponse
-     */
-    public function describeVsDomainOnlineUserNumWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->queryTime)) {
-            $query['QueryTime'] = $request->queryTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVsDomainOnlineUserNum',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVsDomainOnlineUserNumResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVsDomainOnlineUserNumRequest $request
-     *
-     * @return DescribeVsDomainOnlineUserNumResponse
-     */
-    public function describeVsDomainOnlineUserNum($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVsDomainOnlineUserNumWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVsDomainPvDataRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeVsDomainPvDataResponse
+     * @return DescribeVsDomainPvDataResponse DescribeVsDomainPvDataResponse
      */
     public function describeVsDomainPvDataWithOptions($request, $runtime)
     {
@@ -5714,9 +5180,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainPvDataRequest $request
+     * @param DescribeVsDomainPvDataRequest $request DescribeVsDomainPvDataRequest
      *
-     * @return DescribeVsDomainPvDataResponse
+     * @return DescribeVsDomainPvDataResponse DescribeVsDomainPvDataResponse
      */
     public function describeVsDomainPvData($request)
     {
@@ -5726,10 +5192,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainPvUvDataRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeVsDomainPvUvDataRequest $request DescribeVsDomainPvUvDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainPvUvDataResponse
+     * @return DescribeVsDomainPvUvDataResponse DescribeVsDomainPvUvDataResponse
      */
     public function describeVsDomainPvUvDataWithOptions($request, $runtime)
     {
@@ -5766,9 +5232,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainPvUvDataRequest $request
+     * @param DescribeVsDomainPvUvDataRequest $request DescribeVsDomainPvUvDataRequest
      *
-     * @return DescribeVsDomainPvUvDataResponse
+     * @return DescribeVsDomainPvUvDataResponse DescribeVsDomainPvUvDataResponse
      */
     public function describeVsDomainPvUvData($request)
     {
@@ -5778,10 +5244,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainRecordDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeVsDomainRecordDataRequest $request DescribeVsDomainRecordDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainRecordDataResponse
+     * @return DescribeVsDomainRecordDataResponse DescribeVsDomainRecordDataResponse
      */
     public function describeVsDomainRecordDataWithOptions($request, $runtime)
     {
@@ -5821,9 +5287,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainRecordDataRequest $request
+     * @param DescribeVsDomainRecordDataRequest $request DescribeVsDomainRecordDataRequest
      *
-     * @return DescribeVsDomainRecordDataResponse
+     * @return DescribeVsDomainRecordDataResponse DescribeVsDomainRecordDataResponse
      */
     public function describeVsDomainRecordData($request)
     {
@@ -5833,10 +5299,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainRegionDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeVsDomainRegionDataRequest $request DescribeVsDomainRegionDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainRegionDataResponse
+     * @return DescribeVsDomainRegionDataResponse DescribeVsDomainRegionDataResponse
      */
     public function describeVsDomainRegionDataWithOptions($request, $runtime)
     {
@@ -5873,9 +5339,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainRegionDataRequest $request
+     * @param DescribeVsDomainRegionDataRequest $request DescribeVsDomainRegionDataRequest
      *
-     * @return DescribeVsDomainRegionDataResponse
+     * @return DescribeVsDomainRegionDataResponse DescribeVsDomainRegionDataResponse
      */
     public function describeVsDomainRegionData($request)
     {
@@ -5885,10 +5351,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainReqBpsDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeVsDomainReqBpsDataRequest $request DescribeVsDomainReqBpsDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainReqBpsDataResponse
+     * @return DescribeVsDomainReqBpsDataResponse DescribeVsDomainReqBpsDataResponse
      */
     public function describeVsDomainReqBpsDataWithOptions($request, $runtime)
     {
@@ -5934,9 +5400,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainReqBpsDataRequest $request
+     * @param DescribeVsDomainReqBpsDataRequest $request DescribeVsDomainReqBpsDataRequest
      *
-     * @return DescribeVsDomainReqBpsDataResponse
+     * @return DescribeVsDomainReqBpsDataResponse DescribeVsDomainReqBpsDataResponse
      */
     public function describeVsDomainReqBpsData($request)
     {
@@ -5946,10 +5412,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainReqTrafficDataRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeVsDomainReqTrafficDataRequest $request DescribeVsDomainReqTrafficDataRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainReqTrafficDataResponse
+     * @return DescribeVsDomainReqTrafficDataResponse DescribeVsDomainReqTrafficDataResponse
      */
     public function describeVsDomainReqTrafficDataWithOptions($request, $runtime)
     {
@@ -5995,9 +5461,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainReqTrafficDataRequest $request
+     * @param DescribeVsDomainReqTrafficDataRequest $request DescribeVsDomainReqTrafficDataRequest
      *
-     * @return DescribeVsDomainReqTrafficDataResponse
+     * @return DescribeVsDomainReqTrafficDataResponse DescribeVsDomainReqTrafficDataResponse
      */
     public function describeVsDomainReqTrafficData($request)
     {
@@ -6007,10 +5473,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainSnapshotDataRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeVsDomainSnapshotDataRequest $request DescribeVsDomainSnapshotDataRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainSnapshotDataResponse
+     * @return DescribeVsDomainSnapshotDataResponse DescribeVsDomainSnapshotDataResponse
      */
     public function describeVsDomainSnapshotDataWithOptions($request, $runtime)
     {
@@ -6047,9 +5513,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainSnapshotDataRequest $request
+     * @param DescribeVsDomainSnapshotDataRequest $request DescribeVsDomainSnapshotDataRequest
      *
-     * @return DescribeVsDomainSnapshotDataResponse
+     * @return DescribeVsDomainSnapshotDataResponse DescribeVsDomainSnapshotDataResponse
      */
     public function describeVsDomainSnapshotData($request)
     {
@@ -6059,10 +5525,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainTrafficDataRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeVsDomainTrafficDataRequest $request DescribeVsDomainTrafficDataRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainTrafficDataResponse
+     * @return DescribeVsDomainTrafficDataResponse DescribeVsDomainTrafficDataResponse
      */
     public function describeVsDomainTrafficDataWithOptions($request, $runtime)
     {
@@ -6108,9 +5574,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainTrafficDataRequest $request
+     * @param DescribeVsDomainTrafficDataRequest $request DescribeVsDomainTrafficDataRequest
      *
-     * @return DescribeVsDomainTrafficDataResponse
+     * @return DescribeVsDomainTrafficDataResponse DescribeVsDomainTrafficDataResponse
      */
     public function describeVsDomainTrafficData($request)
     {
@@ -6120,10 +5586,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainUvDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeVsDomainUvDataRequest $request DescribeVsDomainUvDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsDomainUvDataResponse
+     * @return DescribeVsDomainUvDataResponse DescribeVsDomainUvDataResponse
      */
     public function describeVsDomainUvDataWithOptions($request, $runtime)
     {
@@ -6160,9 +5626,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsDomainUvDataRequest $request
+     * @param DescribeVsDomainUvDataRequest $request DescribeVsDomainUvDataRequest
      *
-     * @return DescribeVsDomainUvDataResponse
+     * @return DescribeVsDomainUvDataResponse DescribeVsDomainUvDataResponse
      */
     public function describeVsDomainUvData($request)
     {
@@ -6172,56 +5638,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsPullStreamConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeVsPullStreamInfoConfigRequest $request DescribeVsPullStreamInfoConfigRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsPullStreamConfigResponse
-     */
-    public function describeVsPullStreamConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVsPullStreamConfig',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVsPullStreamConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVsPullStreamConfigRequest $request
-     *
-     * @return DescribeVsPullStreamConfigResponse
-     */
-    public function describeVsPullStreamConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVsPullStreamConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVsPullStreamInfoConfigRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeVsPullStreamInfoConfigResponse
+     * @return DescribeVsPullStreamInfoConfigResponse DescribeVsPullStreamInfoConfigResponse
      */
     public function describeVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
@@ -6252,9 +5672,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsPullStreamInfoConfigRequest $request
+     * @param DescribeVsPullStreamInfoConfigRequest $request DescribeVsPullStreamInfoConfigRequest
      *
-     * @return DescribeVsPullStreamInfoConfigResponse
+     * @return DescribeVsPullStreamInfoConfigResponse DescribeVsPullStreamInfoConfigResponse
      */
     public function describeVsPullStreamInfoConfig($request)
     {
@@ -6264,126 +5684,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStorageTrafficUsageDataRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeVsStreamsNotifyUrlConfigRequest $request DescribeVsStreamsNotifyUrlConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsStorageTrafficUsageDataResponse
-     */
-    public function describeVsStorageTrafficUsageDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVsStorageTrafficUsageData',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVsStorageTrafficUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVsStorageTrafficUsageDataRequest $request
-     *
-     * @return DescribeVsStorageTrafficUsageDataResponse
-     */
-    public function describeVsStorageTrafficUsageData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVsStorageTrafficUsageDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVsStorageUsageDataRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeVsStorageUsageDataResponse
-     */
-    public function describeVsStorageUsageDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->splitBy)) {
-            $query['SplitBy'] = $request->splitBy;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVsStorageUsageData',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVsStorageUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVsStorageUsageDataRequest $request
-     *
-     * @return DescribeVsStorageUsageDataResponse
-     */
-    public function describeVsStorageUsageData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVsStorageUsageDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVsStreamsNotifyUrlConfigRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeVsStreamsNotifyUrlConfigResponse
+     * @return DescribeVsStreamsNotifyUrlConfigResponse DescribeVsStreamsNotifyUrlConfigResponse
      */
     public function describeVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
@@ -6414,9 +5718,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStreamsNotifyUrlConfigRequest $request
+     * @param DescribeVsStreamsNotifyUrlConfigRequest $request DescribeVsStreamsNotifyUrlConfigRequest
      *
-     * @return DescribeVsStreamsNotifyUrlConfigResponse
+     * @return DescribeVsStreamsNotifyUrlConfigResponse DescribeVsStreamsNotifyUrlConfigResponse
      */
     public function describeVsStreamsNotifyUrlConfig($request)
     {
@@ -6426,10 +5730,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStreamsOnlineListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeVsStreamsOnlineListRequest $request DescribeVsStreamsOnlineListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsStreamsOnlineListResponse
+     * @return DescribeVsStreamsOnlineListResponse DescribeVsStreamsOnlineListResponse
      */
     public function describeVsStreamsOnlineListWithOptions($request, $runtime)
     {
@@ -6487,9 +5791,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStreamsOnlineListRequest $request
+     * @param DescribeVsStreamsOnlineListRequest $request DescribeVsStreamsOnlineListRequest
      *
-     * @return DescribeVsStreamsOnlineListResponse
+     * @return DescribeVsStreamsOnlineListResponse DescribeVsStreamsOnlineListResponse
      */
     public function describeVsStreamsOnlineList($request)
     {
@@ -6499,10 +5803,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStreamsPublishListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeVsStreamsPublishListRequest $request DescribeVsStreamsPublishListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsStreamsPublishListResponse
+     * @return DescribeVsStreamsPublishListResponse DescribeVsStreamsPublishListResponse
      */
     public function describeVsStreamsPublishListWithOptions($request, $runtime)
     {
@@ -6560,9 +5864,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsStreamsPublishListRequest $request
+     * @param DescribeVsStreamsPublishListRequest $request DescribeVsStreamsPublishListRequest
      *
-     * @return DescribeVsStreamsPublishListResponse
+     * @return DescribeVsStreamsPublishListResponse DescribeVsStreamsPublishListResponse
      */
     public function describeVsStreamsPublishList($request)
     {
@@ -6572,10 +5876,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsTopDomainsByFlowRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeVsTopDomainsByFlowRequest $request DescribeVsTopDomainsByFlowRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsTopDomainsByFlowResponse
+     * @return DescribeVsTopDomainsByFlowResponse DescribeVsTopDomainsByFlowResponse
      */
     public function describeVsTopDomainsByFlowWithOptions($request, $runtime)
     {
@@ -6612,9 +5916,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsTopDomainsByFlowRequest $request
+     * @param DescribeVsTopDomainsByFlowRequest $request DescribeVsTopDomainsByFlowRequest
      *
-     * @return DescribeVsTopDomainsByFlowResponse
+     * @return DescribeVsTopDomainsByFlowResponse DescribeVsTopDomainsByFlowResponse
      */
     public function describeVsTopDomainsByFlow($request)
     {
@@ -6624,10 +5928,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsUpPeakPublishStreamDataRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeVsUpPeakPublishStreamDataRequest $request DescribeVsUpPeakPublishStreamDataRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsUpPeakPublishStreamDataResponse
+     * @return DescribeVsUpPeakPublishStreamDataResponse DescribeVsUpPeakPublishStreamDataResponse
      */
     public function describeVsUpPeakPublishStreamDataWithOptions($request, $runtime)
     {
@@ -6667,9 +5971,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsUpPeakPublishStreamDataRequest $request
+     * @param DescribeVsUpPeakPublishStreamDataRequest $request DescribeVsUpPeakPublishStreamDataRequest
      *
-     * @return DescribeVsUpPeakPublishStreamDataResponse
+     * @return DescribeVsUpPeakPublishStreamDataResponse DescribeVsUpPeakPublishStreamDataResponse
      */
     public function describeVsUpPeakPublishStreamData($request)
     {
@@ -6679,10 +5983,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsUserResourcePackageRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeVsUserResourcePackageRequest $request DescribeVsUserResourcePackageRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVsUserResourcePackageResponse
+     * @return DescribeVsUserResourcePackageResponse DescribeVsUserResourcePackageResponse
      */
     public function describeVsUserResourcePackageWithOptions($request, $runtime)
     {
@@ -6713,9 +6017,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param DescribeVsUserResourcePackageRequest $request
+     * @param DescribeVsUserResourcePackageRequest $request DescribeVsUserResourcePackageRequest
      *
-     * @return DescribeVsUserResourcePackageResponse
+     * @return DescribeVsUserResourcePackageResponse DescribeVsUserResourcePackageResponse
      */
     public function describeVsUserResourcePackage($request)
     {
@@ -6725,10 +6029,56 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ForbidVsStreamRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeVsVerifyContentRequest $request DescribeVsVerifyContentRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ForbidVsStreamResponse
+     * @return DescribeVsVerifyContentResponse DescribeVsVerifyContentResponse
+     */
+    public function describeVsVerifyContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVsVerifyContent',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVsVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsVerifyContentRequest $request DescribeVsVerifyContentRequest
+     *
+     * @return DescribeVsVerifyContentResponse DescribeVsVerifyContentResponse
+     */
+    public function describeVsVerifyContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsVerifyContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ForbidVsStreamRequest $request ForbidVsStreamRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ForbidVsStreamResponse ForbidVsStreamResponse
      */
     public function forbidVsStreamWithOptions($request, $runtime)
     {
@@ -6777,9 +6127,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ForbidVsStreamRequest $request
+     * @param ForbidVsStreamRequest $request ForbidVsStreamRequest
      *
-     * @return ForbidVsStreamResponse
+     * @return ForbidVsStreamResponse ForbidVsStreamResponse
      */
     public function forbidVsStream($request)
     {
@@ -6789,26 +6139,25 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param GetBucketInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息
+     *  *
+     * @param GetRenderingInstanceStreamingInfoRequest $request GetRenderingInstanceStreamingInfoRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBucketInfoResponse
+     * @return GetRenderingInstanceStreamingInfoResponse GetRenderingInstanceStreamingInfoResponse
      */
-    public function getBucketInfoWithOptions($request, $runtime)
+    public function getRenderingInstanceStreamingInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBucketInfo',
+            'action'      => 'GetRenderingInstanceStreamingInfo',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -6819,72 +6168,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetBucketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRenderingInstanceStreamingInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetBucketInfoRequest $request
+     * @summary 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息
+     *  *
+     * @param GetRenderingInstanceStreamingInfoRequest $request GetRenderingInstanceStreamingInfoRequest
      *
-     * @return GetBucketInfoResponse
+     * @return GetRenderingInstanceStreamingInfoResponse GetRenderingInstanceStreamingInfoResponse
      */
-    public function getBucketInfo($request)
+    public function getRenderingInstanceStreamingInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getBucketInfoWithOptions($request, $runtime);
+        return $this->getRenderingInstanceStreamingInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetObjectTotalRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GotoPresetRequest $request GotoPresetRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetObjectTotalResponse
-     */
-    public function getObjectTotalWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetObjectTotal',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetObjectTotalResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetObjectTotalRequest $request
-     *
-     * @return GetObjectTotalResponse
-     */
-    public function getObjectTotal($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getObjectTotalWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GotoPresetRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GotoPresetResponse
+     * @return GotoPresetResponse GotoPresetResponse
      */
     public function gotoPresetWithOptions($request, $runtime)
     {
@@ -6918,9 +6223,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param GotoPresetRequest $request
+     * @param GotoPresetRequest $request GotoPresetRequest
      *
-     * @return GotoPresetResponse
+     * @return GotoPresetResponse GotoPresetResponse
      */
     public function gotoPreset($request)
     {
@@ -6930,38 +6235,28 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ListBucketsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 安装云应用
+     *  *
+     * @param InstallCloudAppRequest $request InstallCloudAppRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBucketsResponse
+     * @return InstallCloudAppResponse InstallCloudAppResponse
      */
-    public function listBucketsWithOptions($request, $runtime)
+    public function installCloudAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['Prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBuckets',
+            'action'      => 'InstallCloudApp',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -6972,63 +6267,316 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListBucketsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallCloudAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListBucketsRequest $request
+     * @summary 安装云应用
+     *  *
+     * @param InstallCloudAppRequest $request InstallCloudAppRequest
      *
-     * @return ListBucketsResponse
+     * @return InstallCloudAppResponse InstallCloudAppResponse
      */
-    public function listBuckets($request)
+    public function installCloudApp($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBucketsWithOptions($request, $runtime);
+        return $this->installCloudAppWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListObjectsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询云应用安装信息列表
+     *  *
+     * @param ListCloudAppInstallationsRequest $request ListCloudAppInstallationsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListObjectsResponse
+     * @return ListCloudAppInstallationsResponse ListCloudAppInstallationsResponse
      */
-    public function listObjectsWithOptions($request, $runtime)
+    public function listCloudAppInstallationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudAppInstallations',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudAppInstallationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询云应用安装信息列表
+     *  *
+     * @param ListCloudAppInstallationsRequest $request ListCloudAppInstallationsRequest
+     *
+     * @return ListCloudAppInstallationsResponse ListCloudAppInstallationsResponse
+     */
+    public function listCloudAppInstallations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAppInstallationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询云应用列表
+     *  *
+     * @param ListCloudAppsRequest $request ListCloudAppsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudAppsResponse ListCloudAppsResponse
+     */
+    public function listCloudAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudApps',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询云应用列表
+     *  *
+     * @param ListCloudAppsRequest $request ListCloudAppsRequest
+     *
+     * @return ListCloudAppsResponse ListCloudAppsResponse
+     */
+    public function listCloudApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询文件的实例推送状态信息列表。
+     *  *
+     * @param ListFilePushStatusesRequest $request ListFilePushStatusesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListFilePushStatusesResponse ListFilePushStatusesResponse
+     */
+    public function listFilePushStatusesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFilePushStatuses',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFilePushStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询文件的实例推送状态信息列表。
+     *  *
+     * @param ListFilePushStatusesRequest $request ListFilePushStatusesRequest
+     *
+     * @return ListFilePushStatusesResponse ListFilePushStatusesResponse
+     */
+    public function listFilePushStatuses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFilePushStatusesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询可用文件列表。
+     *  *
+     * @param ListFilesRequest $request ListFilesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListFilesResponse ListFilesResponse
+     */
+    public function listFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFiles',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询可用文件列表。
+     *  *
+     * @param ListFilesRequest $request ListFilesRequest
+     *
+     * @return ListFilesResponse ListFilesResponse
+     */
+    public function listFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询公钥信息
+     *  *
+     * @param ListPublicKeysRequest $request ListPublicKeysRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPublicKeysResponse ListPublicKeysResponse
+     */
+    public function listPublicKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPublicKeys',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPublicKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询公钥信息
+     *  *
+     * @param ListPublicKeysRequest $request ListPublicKeysRequest
+     *
+     * @return ListPublicKeysResponse ListPublicKeysResponse
+     */
+    public function listPublicKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPublicKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询所有云渲染实例信息，支持分页查询。
+     *  *
+     * @param ListRenderingInstancesRequest $request ListRenderingInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRenderingInstancesResponse ListRenderingInstancesResponse
+     */
+    public function listRenderingInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRenderingInstances',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRenderingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询所有云渲染实例信息，支持分页查询。
+     *  *
+     * @param ListRenderingInstancesRequest $request ListRenderingInstancesRequest
+     *
+     * @return ListRenderingInstancesResponse ListRenderingInstancesResponse
+     */
+    public function listRenderingInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRenderingInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 安全登陆管理
+     *  *
+     * @param ManageLoginRequest $request ManageLoginRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ManageLoginResponse ManageLoginResponse
+     */
+    public function manageLoginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
+        if (!Utils::isUnset($request->actionName)) {
+            $query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->continuationToken)) {
-            $query['ContinuationToken'] = $request->continuationToken;
+        if (!Utils::isUnset($request->keyGroup)) {
+            $query['KeyGroup'] = $request->keyGroup;
         }
-        if (!Utils::isUnset($request->delimiter)) {
-            $query['Delimiter'] = $request->delimiter;
+        if (!Utils::isUnset($request->keyName)) {
+            $query['KeyName'] = $request->keyName;
         }
-        if (!Utils::isUnset($request->encodingType)) {
-            $query['EncodingType'] = $request->encodingType;
-        }
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
-        }
-        if (!Utils::isUnset($request->maxKeys)) {
-            $query['MaxKeys'] = $request->maxKeys;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['Prefix'] = $request->prefix;
-        }
-        if (!Utils::isUnset($request->startAfter)) {
-            $query['StartAfter'] = $request->startAfter;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListObjects',
+            'action'      => 'ManageLogin',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7039,26 +6587,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ManageLoginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListObjectsRequest $request
+     * @summary 安全登陆管理
+     *  *
+     * @param ManageLoginRequest $request ManageLoginRequest
      *
-     * @return ListObjectsResponse
+     * @return ManageLoginResponse ManageLoginResponse
      */
-    public function listObjects($request)
+    public function manageLogin($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listObjectsWithOptions($request, $runtime);
+        return $this->manageLoginWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyDeviceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ModifyDeviceRequest $request ModifyDeviceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeviceResponse
+     * @return ModifyDeviceResponse ModifyDeviceResponse
      */
     public function modifyDeviceWithOptions($request, $runtime)
     {
@@ -7066,6 +6616,9 @@ class Vs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alarmMethod)) {
             $query['AlarmMethod'] = $request->alarmMethod;
+        }
+        if (!Utils::isUnset($request->autoDirectory)) {
+            $query['AutoDirectory'] = $request->autoDirectory;
         }
         if (!Utils::isUnset($request->autoPos)) {
             $query['AutoPos'] = $request->autoPos;
@@ -7149,9 +6702,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceRequest $request
+     * @param ModifyDeviceRequest $request ModifyDeviceRequest
      *
-     * @return ModifyDeviceResponse
+     * @return ModifyDeviceResponse ModifyDeviceResponse
      */
     public function modifyDevice($request)
     {
@@ -7161,10 +6714,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceAlarmRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ModifyDeviceAlarmRequest $request ModifyDeviceAlarmRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeviceAlarmResponse
+     * @return ModifyDeviceAlarmResponse ModifyDeviceAlarmResponse
      */
     public function modifyDeviceAlarmWithOptions($request, $runtime)
     {
@@ -7204,9 +6757,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceAlarmRequest $request
+     * @param ModifyDeviceAlarmRequest $request ModifyDeviceAlarmRequest
      *
-     * @return ModifyDeviceAlarmResponse
+     * @return ModifyDeviceAlarmResponse ModifyDeviceAlarmResponse
      */
     public function modifyDeviceAlarm($request)
     {
@@ -7216,10 +6769,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceCaptureRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ModifyDeviceCaptureRequest $request ModifyDeviceCaptureRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeviceCaptureResponse
+     * @return ModifyDeviceCaptureResponse ModifyDeviceCaptureResponse
      */
     public function modifyDeviceCaptureWithOptions($request, $runtime)
     {
@@ -7256,9 +6809,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceCaptureRequest $request
+     * @param ModifyDeviceCaptureRequest $request ModifyDeviceCaptureRequest
      *
-     * @return ModifyDeviceCaptureResponse
+     * @return ModifyDeviceCaptureResponse ModifyDeviceCaptureResponse
      */
     public function modifyDeviceCapture($request)
     {
@@ -7268,10 +6821,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceChannelsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyDeviceChannelsRequest $request ModifyDeviceChannelsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeviceChannelsResponse
+     * @return ModifyDeviceChannelsResponse ModifyDeviceChannelsResponse
      */
     public function modifyDeviceChannelsWithOptions($request, $runtime)
     {
@@ -7311,9 +6864,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceChannelsRequest $request
+     * @param ModifyDeviceChannelsRequest $request ModifyDeviceChannelsRequest
      *
-     * @return ModifyDeviceChannelsResponse
+     * @return ModifyDeviceChannelsResponse ModifyDeviceChannelsResponse
      */
     public function modifyDeviceChannels($request)
     {
@@ -7323,10 +6876,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyDirectoryRequest $request ModifyDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDirectoryResponse
+     * @return ModifyDirectoryResponse ModifyDirectoryResponse
      */
     public function modifyDirectoryWithOptions($request, $runtime)
     {
@@ -7363,9 +6916,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDirectoryRequest $request
+     * @param ModifyDirectoryRequest $request ModifyDirectoryRequest
      *
-     * @return ModifyDirectoryResponse
+     * @return ModifyDirectoryResponse ModifyDirectoryResponse
      */
     public function modifyDirectory($request)
     {
@@ -7375,10 +6928,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ModifyGroupRequest $request ModifyGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGroupResponse
+     * @return ModifyGroupResponse ModifyGroupResponse
      */
     public function modifyGroupWithOptions($request, $runtime)
     {
@@ -7439,9 +6992,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupRequest $request
+     * @param ModifyGroupRequest $request ModifyGroupRequest
      *
-     * @return ModifyGroupResponse
+     * @return ModifyGroupResponse ModifyGroupResponse
      */
     public function modifyGroup($request)
     {
@@ -7451,10 +7004,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyParentPlatformRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyParentPlatformRequest $request ModifyParentPlatformRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyParentPlatformResponse
+     * @return ModifyParentPlatformResponse ModifyParentPlatformResponse
      */
     public function modifyParentPlatformWithOptions($request, $runtime)
     {
@@ -7512,9 +7065,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyParentPlatformRequest $request
+     * @param ModifyParentPlatformRequest $request ModifyParentPlatformRequest
      *
-     * @return ModifyParentPlatformResponse
+     * @return ModifyParentPlatformResponse ModifyParentPlatformResponse
      */
     public function modifyParentPlatform($request)
     {
@@ -7524,44 +7077,31 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyPurchasedDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 修改云渲染实例限速带宽
+     *  *
+     * @param ModifyRenderingInstanceBandwidthRequest $request ModifyRenderingInstanceBandwidthRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPurchasedDeviceResponse
+     * @return ModifyRenderingInstanceBandwidthResponse ModifyRenderingInstanceBandwidthResponse
      */
-    public function modifyPurchasedDeviceWithOptions($request, $runtime)
+    public function modifyRenderingInstanceBandwidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (!Utils::isUnset($request->maxEgressBandwidth)) {
+            $query['MaxEgressBandwidth'] = $request->maxEgressBandwidth;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (!Utils::isUnset($request->maxIngressBandwidth)) {
+            $query['MaxIngressBandwidth'] = $request->maxIngressBandwidth;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->registerCode)) {
-            $query['RegisterCode'] = $request->registerCode;
-        }
-        if (!Utils::isUnset($request->subType)) {
-            $query['SubType'] = $request->subType;
-        }
-        if (!Utils::isUnset($request->vendor)) {
-            $query['Vendor'] = $request->vendor;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPurchasedDevice',
+            'action'      => 'ModifyRenderingInstanceBandwidth',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7572,26 +7112,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ModifyPurchasedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRenderingInstanceBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyPurchasedDeviceRequest $request
+     * @summary 修改云渲染实例限速带宽
+     *  *
+     * @param ModifyRenderingInstanceBandwidthRequest $request ModifyRenderingInstanceBandwidthRequest
      *
-     * @return ModifyPurchasedDeviceResponse
+     * @return ModifyRenderingInstanceBandwidthResponse ModifyRenderingInstanceBandwidthResponse
      */
-    public function modifyPurchasedDevice($request)
+    public function modifyRenderingInstanceBandwidth($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyPurchasedDeviceWithOptions($request, $runtime);
+        return $this->modifyRenderingInstanceBandwidthWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ModifyTemplateRequest $request ModifyTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTemplateResponse
+     * @return ModifyTemplateResponse ModifyTemplateResponse
      */
     public function modifyTemplateWithOptions($request, $runtime)
     {
@@ -7679,9 +7221,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ModifyTemplateRequest $request
+     * @param ModifyTemplateRequest $request ModifyTemplateRequest
      *
-     * @return ModifyTemplateResponse
+     * @return ModifyTemplateResponse ModifyTemplateResponse
      */
     public function modifyTemplate($request)
     {
@@ -7691,9 +7233,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenVsServiceResponse
+     * @return OpenVsServiceResponse OpenVsServiceResponse
      */
     public function openVsServiceWithOptions($runtime)
     {
@@ -7714,7 +7256,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @return OpenVsServiceResponse
+     * @return OpenVsServiceResponse OpenVsServiceResponse
      */
     public function openVsService()
     {
@@ -7724,32 +7266,28 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param OperateRenderingDevicesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 预推文件到云渲染实例。
+     *  *
+     * @param PushFileRequest $request PushFileRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateRenderingDevicesResponse
+     * @return PushFileResponse PushFileResponse
      */
-    public function operateRenderingDevicesWithOptions($request, $runtime)
+    public function pushFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->podId)) {
-            $query['PodId'] = $request->podId;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateRenderingDevices',
+            'action'      => 'PushFile',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7760,45 +7298,43 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return OperateRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OperateRenderingDevicesRequest $request
+     * @summary 预推文件到云渲染实例。
+     *  *
+     * @param PushFileRequest $request PushFileRequest
      *
-     * @return OperateRenderingDevicesResponse
+     * @return PushFileResponse PushFileResponse
      */
-    public function operateRenderingDevices($request)
+    public function pushFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->operateRenderingDevicesWithOptions($request, $runtime);
+        return $this->pushFileWithOptions($request, $runtime);
     }
 
     /**
-     * @param PrepareUploadRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 重启云渲染实例
+     *  *
+     * @param RebootRenderingInstanceRequest $request RebootRenderingInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return PrepareUploadResponse
+     * @return RebootRenderingInstanceResponse RebootRenderingInstanceResponse
      */
-    public function prepareUploadWithOptions($request, $runtime)
+    public function rebootRenderingInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->clientIp)) {
-            $query['ClientIp'] = $request->clientIp;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PrepareUpload',
+            'action'      => 'RebootRenderingInstance',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7809,63 +7345,43 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PrepareUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebootRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PrepareUploadRequest $request
+     * @summary 重启云渲染实例
+     *  *
+     * @param RebootRenderingInstanceRequest $request RebootRenderingInstanceRequest
      *
-     * @return PrepareUploadResponse
+     * @return RebootRenderingInstanceResponse RebootRenderingInstanceResponse
      */
-    public function prepareUpload($request)
+    public function rebootRenderingInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->prepareUploadWithOptions($request, $runtime);
+        return $this->rebootRenderingInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param PutBucketRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 释放云渲染实例
+     *  *
+     * @param ReleaseRenderingInstanceRequest $request ReleaseRenderingInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutBucketResponse
+     * @return ReleaseRenderingInstanceResponse ReleaseRenderingInstanceResponse
      */
-    public function putBucketWithOptions($request, $runtime)
+    public function releaseRenderingInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->bucketAcl)) {
-            $query['BucketAcl'] = $request->bucketAcl;
-        }
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
-        }
-        if (!Utils::isUnset($request->dataRedundancyType)) {
-            $query['DataRedundancyType'] = $request->dataRedundancyType;
-        }
-        if (!Utils::isUnset($request->dispatcherType)) {
-            $query['DispatcherType'] = $request->dispatcherType;
-        }
-        if (!Utils::isUnset($request->endpoint)) {
-            $query['Endpoint'] = $request->endpoint;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->storageClass)) {
-            $query['StorageClass'] = $request->storageClass;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutBucket',
+            'action'      => 'ReleaseRenderingInstance',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7876,48 +7392,49 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return PutBucketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PutBucketRequest $request
+     * @summary 释放云渲染实例
+     *  *
+     * @param ReleaseRenderingInstanceRequest $request ReleaseRenderingInstanceRequest
      *
-     * @return PutBucketResponse
+     * @return ReleaseRenderingInstanceResponse ReleaseRenderingInstanceResponse
      */
-    public function putBucket($request)
+    public function releaseRenderingInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->putBucketWithOptions($request, $runtime);
+        return $this->releaseRenderingInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param ResetRenderingDevicesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 续费云渲染资源实例
+     *  *
+     * @param RenewRenderingInstanceRequest $request RenewRenderingInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetRenderingDevicesResponse
+     * @return RenewRenderingInstanceResponse RenewRenderingInstanceResponse
      */
-    public function resetRenderingDevicesWithOptions($request, $runtime)
+    public function renewRenderingInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->podId)) {
-            $query['PodId'] = $request->podId;
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetRenderingDevices',
+            'action'      => 'RenewRenderingInstance',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7928,26 +7445,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ResetRenderingDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResetRenderingDevicesRequest $request
+     * @summary 续费云渲染资源实例
+     *  *
+     * @param RenewRenderingInstanceRequest $request RenewRenderingInstanceRequest
      *
-     * @return ResetRenderingDevicesResponse
+     * @return RenewRenderingInstanceResponse RenewRenderingInstanceResponse
      */
-    public function resetRenderingDevices($request)
+    public function renewRenderingInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->resetRenderingDevicesWithOptions($request, $runtime);
+        return $this->renewRenderingInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param ResumeVsStreamRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ResumeVsStreamRequest $request ResumeVsStreamRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeVsStreamResponse
+     * @return ResumeVsStreamResponse ResumeVsStreamResponse
      */
     public function resumeVsStreamWithOptions($request, $runtime)
     {
@@ -7990,9 +7509,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param ResumeVsStreamRequest $request
+     * @param ResumeVsStreamRequest $request ResumeVsStreamRequest
      *
-     * @return ResumeVsStreamResponse
+     * @return ResumeVsStreamResponse ResumeVsStreamResponse
      */
     public function resumeVsStream($request)
     {
@@ -8002,10 +7521,62 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetPresetRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 下发shell命令，同步响应。不适用于耗时命令。
+     *  *
+     * @param SendRenderingInstanceCommandsRequest $request SendRenderingInstanceCommandsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPresetResponse
+     * @return SendRenderingInstanceCommandsResponse SendRenderingInstanceCommandsResponse
+     */
+    public function sendRenderingInstanceCommandsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commands)) {
+            $body['Commands'] = $request->commands;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendRenderingInstanceCommands',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendRenderingInstanceCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 下发shell命令，同步响应。不适用于耗时命令。
+     *  *
+     * @param SendRenderingInstanceCommandsRequest $request SendRenderingInstanceCommandsRequest
+     *
+     * @return SendRenderingInstanceCommandsResponse SendRenderingInstanceCommandsResponse
+     */
+    public function sendRenderingInstanceCommands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendRenderingInstanceCommandsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPresetRequest $request SetPresetRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetPresetResponse SetPresetResponse
      */
     public function setPresetWithOptions($request, $runtime)
     {
@@ -8039,9 +7610,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetPresetRequest $request
+     * @param SetPresetRequest $request SetPresetRequest
      *
-     * @return SetPresetResponse
+     * @return SetPresetResponse SetPresetResponse
      */
     public function setPreset($request)
     {
@@ -8051,10 +7622,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetVsDomainCertificateRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param SetVsDomainCertificateRequest $request SetVsDomainCertificateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetVsDomainCertificateResponse
+     * @return SetVsDomainCertificateResponse SetVsDomainCertificateResponse
      */
     public function setVsDomainCertificateWithOptions($request, $runtime)
     {
@@ -8106,9 +7677,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetVsDomainCertificateRequest $request
+     * @param SetVsDomainCertificateRequest $request SetVsDomainCertificateRequest
      *
-     * @return SetVsDomainCertificateResponse
+     * @return SetVsDomainCertificateResponse SetVsDomainCertificateResponse
      */
     public function setVsDomainCertificate($request)
     {
@@ -8118,10 +7689,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetVsStreamsNotifyUrlConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param SetVsStreamsNotifyUrlConfigRequest $request SetVsStreamsNotifyUrlConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetVsStreamsNotifyUrlConfigResponse
+     * @return SetVsStreamsNotifyUrlConfigResponse SetVsStreamsNotifyUrlConfigResponse
      */
     public function setVsStreamsNotifyUrlConfigWithOptions($request, $runtime)
     {
@@ -8161,9 +7732,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SetVsStreamsNotifyUrlConfigRequest $request
+     * @param SetVsStreamsNotifyUrlConfigRequest $request SetVsStreamsNotifyUrlConfigRequest
      *
-     * @return SetVsStreamsNotifyUrlConfigResponse
+     * @return SetVsStreamsNotifyUrlConfigResponse SetVsStreamsNotifyUrlConfigResponse
      */
     public function setVsStreamsNotifyUrlConfig($request)
     {
@@ -8173,10 +7744,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartDeviceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param StartDeviceRequest $request StartDeviceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDeviceResponse
+     * @return StartDeviceResponse StartDeviceResponse
      */
     public function startDeviceWithOptions($request, $runtime)
     {
@@ -8207,9 +7778,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartDeviceRequest $request
+     * @param StartDeviceRequest $request StartDeviceRequest
      *
-     * @return StartDeviceResponse
+     * @return StartDeviceResponse StartDeviceResponse
      */
     public function startDevice($request)
     {
@@ -8219,10 +7790,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartParentPlatformRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param StartParentPlatformRequest $request StartParentPlatformRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartParentPlatformResponse
+     * @return StartParentPlatformResponse StartParentPlatformResponse
      */
     public function startParentPlatformWithOptions($request, $runtime)
     {
@@ -8253,9 +7824,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartParentPlatformRequest $request
+     * @param StartParentPlatformRequest $request StartParentPlatformRequest
      *
-     * @return StartParentPlatformResponse
+     * @return StartParentPlatformResponse StartParentPlatformResponse
      */
     public function startParentPlatform($request)
     {
@@ -8265,10 +7836,59 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartRecordStreamRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param StartPublishStreamRequest $request StartPublishStreamRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartRecordStreamResponse
+     * @return StartPublishStreamResponse StartPublishStreamResponse
+     */
+    public function startPublishStreamWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->publishUrl)) {
+            $query['PublishUrl'] = $request->publishUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPublishStream',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartPublishStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartPublishStreamRequest $request StartPublishStreamRequest
+     *
+     * @return StartPublishStreamResponse StartPublishStreamResponse
+     */
+    public function startPublishStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPublishStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartRecordStreamRequest $request StartRecordStreamRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartRecordStreamResponse StartRecordStreamResponse
      */
     public function startRecordStreamWithOptions($request, $runtime)
     {
@@ -8308,9 +7928,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartRecordStreamRequest $request
+     * @param StartRecordStreamRequest $request StartRecordStreamRequest
      *
-     * @return StartRecordStreamResponse
+     * @return StartRecordStreamResponse StartRecordStreamResponse
      */
     public function startRecordStream($request)
     {
@@ -8320,10 +7940,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartStreamRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param StartStreamRequest $request StartStreamRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartStreamResponse
+     * @return StartStreamResponse StartStreamResponse
      */
     public function startStreamWithOptions($request, $runtime)
     {
@@ -8360,9 +7980,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartStreamRequest $request
+     * @param StartStreamRequest $request StartStreamRequest
      *
-     * @return StartStreamResponse
+     * @return StartStreamResponse StartStreamResponse
      */
     public function startStream($request)
     {
@@ -8372,10 +7992,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartTransferStreamRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param StartTransferStreamRequest $request StartTransferStreamRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartTransferStreamResponse
+     * @return StartTransferStreamResponse StartTransferStreamResponse
      */
     public function startTransferStreamWithOptions($request, $runtime)
     {
@@ -8412,9 +8032,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StartTransferStreamRequest $request
+     * @param StartTransferStreamRequest $request StartTransferStreamRequest
      *
-     * @return StartTransferStreamResponse
+     * @return StartTransferStreamResponse StartTransferStreamResponse
      */
     public function startTransferStream($request)
     {
@@ -8424,10 +8044,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopAdjustRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param StopAdjustRequest $request StopAdjustRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopAdjustResponse
+     * @return StopAdjustResponse StopAdjustResponse
      */
     public function stopAdjustWithOptions($request, $runtime)
     {
@@ -8464,9 +8084,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopAdjustRequest $request
+     * @param StopAdjustRequest $request StopAdjustRequest
      *
-     * @return StopAdjustResponse
+     * @return StopAdjustResponse StopAdjustResponse
      */
     public function stopAdjust($request)
     {
@@ -8476,10 +8096,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopDeviceRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param StopDeviceRequest $request StopDeviceRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDeviceResponse
+     * @return StopDeviceResponse StopDeviceResponse
      */
     public function stopDeviceWithOptions($request, $runtime)
     {
@@ -8513,9 +8133,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopDeviceRequest $request
+     * @param StopDeviceRequest $request StopDeviceRequest
      *
-     * @return StopDeviceResponse
+     * @return StopDeviceResponse StopDeviceResponse
      */
     public function stopDevice($request)
     {
@@ -8525,10 +8145,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopMoveRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param StopMoveRequest $request StopMoveRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopMoveResponse
+     * @return StopMoveResponse StopMoveResponse
      */
     public function stopMoveWithOptions($request, $runtime)
     {
@@ -8568,9 +8188,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopMoveRequest $request
+     * @param StopMoveRequest $request StopMoveRequest
      *
-     * @return StopMoveResponse
+     * @return StopMoveResponse StopMoveResponse
      */
     public function stopMove($request)
     {
@@ -8580,17 +8200,17 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopParentPlatformRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param StopPublishStreamRequest $request StopPublishStreamRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopParentPlatformResponse
+     * @return StopPublishStreamResponse StopPublishStreamResponse
      */
-    public function stopParentPlatformWithOptions($request, $runtime)
+    public function stopPublishStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -8599,7 +8219,7 @@ class Vs extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopParentPlatform',
+            'action'      => 'StopPublishStream',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -8610,26 +8230,26 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StopParentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopPublishStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param StopParentPlatformRequest $request
+     * @param StopPublishStreamRequest $request StopPublishStreamRequest
      *
-     * @return StopParentPlatformResponse
+     * @return StopPublishStreamResponse StopPublishStreamResponse
      */
-    public function stopParentPlatform($request)
+    public function stopPublishStream($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->stopParentPlatformWithOptions($request, $runtime);
+        return $this->stopPublishStreamWithOptions($request, $runtime);
     }
 
     /**
-     * @param StopRecordStreamRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param StopRecordStreamRequest $request StopRecordStreamRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRecordStreamResponse
+     * @return StopRecordStreamResponse StopRecordStreamResponse
      */
     public function stopRecordStreamWithOptions($request, $runtime)
     {
@@ -8669,9 +8289,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopRecordStreamRequest $request
+     * @param StopRecordStreamRequest $request StopRecordStreamRequest
      *
-     * @return StopRecordStreamResponse
+     * @return StopRecordStreamResponse StopRecordStreamResponse
      */
     public function stopRecordStream($request)
     {
@@ -8681,10 +8301,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopStreamRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param StopStreamRequest $request StopStreamRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopStreamResponse
+     * @return StopStreamResponse StopStreamResponse
      */
     public function stopStreamWithOptions($request, $runtime)
     {
@@ -8721,9 +8341,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopStreamRequest $request
+     * @param StopStreamRequest $request StopStreamRequest
      *
-     * @return StopStreamResponse
+     * @return StopStreamResponse StopStreamResponse
      */
     public function stopStream($request)
     {
@@ -8733,10 +8353,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopTransferStreamRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param StopTransferStreamRequest $request StopTransferStreamRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopTransferStreamResponse
+     * @return StopTransferStreamResponse StopTransferStreamResponse
      */
     public function stopTransferStreamWithOptions($request, $runtime)
     {
@@ -8770,9 +8390,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param StopTransferStreamRequest $request
+     * @param StopTransferStreamRequest $request StopTransferStreamRequest
      *
-     * @return StopTransferStreamResponse
+     * @return StopTransferStreamResponse StopTransferStreamResponse
      */
     public function stopTransferStream($request)
     {
@@ -8782,10 +8402,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SyncCatalogsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param SyncCatalogsRequest $request SyncCatalogsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncCatalogsResponse
+     * @return SyncCatalogsResponse SyncCatalogsResponse
      */
     public function syncCatalogsWithOptions($request, $runtime)
     {
@@ -8816,9 +8436,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param SyncCatalogsRequest $request
+     * @param SyncCatalogsRequest $request SyncCatalogsRequest
      *
-     * @return SyncCatalogsResponse
+     * @return SyncCatalogsResponse SyncCatalogsResponse
      */
     public function syncCatalogs($request)
     {
@@ -8828,10 +8448,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UnbindDirectoryRequest $request UnbindDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindDirectoryResponse
+     * @return UnbindDirectoryResponse UnbindDirectoryResponse
      */
     public function unbindDirectoryWithOptions($request, $runtime)
     {
@@ -8865,9 +8485,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindDirectoryRequest $request
+     * @param UnbindDirectoryRequest $request UnbindDirectoryRequest
      *
-     * @return UnbindDirectoryResponse
+     * @return UnbindDirectoryResponse UnbindDirectoryResponse
      */
     public function unbindDirectory($request)
     {
@@ -8877,10 +8497,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindParentPlatformDeviceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param UnbindParentPlatformDeviceRequest $request UnbindParentPlatformDeviceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindParentPlatformDeviceResponse
+     * @return UnbindParentPlatformDeviceResponse UnbindParentPlatformDeviceResponse
      */
     public function unbindParentPlatformDeviceWithOptions($request, $runtime)
     {
@@ -8914,9 +8534,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindParentPlatformDeviceRequest $request
+     * @param UnbindParentPlatformDeviceRequest $request UnbindParentPlatformDeviceRequest
      *
-     * @return UnbindParentPlatformDeviceResponse
+     * @return UnbindParentPlatformDeviceResponse UnbindParentPlatformDeviceResponse
      */
     public function unbindParentPlatformDevice($request)
     {
@@ -8926,10 +8546,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindPurchasedDeviceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param UnbindPurchasedDeviceRequest $request UnbindPurchasedDeviceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindPurchasedDeviceResponse
+     * @return UnbindPurchasedDeviceResponse UnbindPurchasedDeviceResponse
      */
     public function unbindPurchasedDeviceWithOptions($request, $runtime)
     {
@@ -8960,9 +8580,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindPurchasedDeviceRequest $request
+     * @param UnbindPurchasedDeviceRequest $request UnbindPurchasedDeviceRequest
      *
-     * @return UnbindPurchasedDeviceResponse
+     * @return UnbindPurchasedDeviceResponse UnbindPurchasedDeviceResponse
      */
     public function unbindPurchasedDevice($request)
     {
@@ -8972,10 +8592,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UnbindTemplateRequest $request UnbindTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindTemplateResponse
+     * @return UnbindTemplateResponse UnbindTemplateResponse
      */
     public function unbindTemplateWithOptions($request, $runtime)
     {
@@ -9015,9 +8635,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnbindTemplateRequest $request
+     * @param UnbindTemplateRequest $request UnbindTemplateRequest
      *
-     * @return UnbindTemplateResponse
+     * @return UnbindTemplateResponse UnbindTemplateResponse
      */
     public function unbindTemplate($request)
     {
@@ -9027,10 +8647,60 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnlockDeviceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 卸载云应用
+     *  *
+     * @param UninstallCloudAppRequest $request UninstallCloudAppRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockDeviceResponse
+     * @return UninstallCloudAppResponse UninstallCloudAppResponse
+     */
+    public function uninstallCloudAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallCloudApp',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UninstallCloudAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 卸载云应用
+     *  *
+     * @param UninstallCloudAppRequest $request UninstallCloudAppRequest
+     *
+     * @return UninstallCloudAppResponse UninstallCloudAppResponse
+     */
+    public function uninstallCloudApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallCloudAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnlockDeviceRequest $request UnlockDeviceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnlockDeviceResponse UnlockDeviceResponse
      */
     public function unlockDeviceWithOptions($request, $runtime)
     {
@@ -9061,9 +8731,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UnlockDeviceRequest $request
+     * @param UnlockDeviceRequest $request UnlockDeviceRequest
      *
-     * @return UnlockDeviceResponse
+     * @return UnlockDeviceResponse UnlockDeviceResponse
      */
     public function unlockDevice($request)
     {
@@ -9073,47 +8743,28 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UpdateAIConfigRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 更新云应用信息
+     *  *
+     * @param UpdateCloudAppInfoRequest $request UpdateCloudAppInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAIConfigResponse
+     * @return UpdateCloudAppInfoResponse UpdateCloudAppInfoResponse
      */
-    public function updateAIConfigWithOptions($request, $runtime)
+    public function updateCloudAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->captureInterval)) {
-            $query['CaptureInterval'] = $request->captureInterval;
-        }
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->features)) {
-            $query['Features'] = $request->features;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAIConfig',
+            'action'      => 'UpdateCloudAppInfo',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -9124,75 +8775,28 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateAIConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCloudAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAIConfigRequest $request
+     * @summary 更新云应用信息
+     *  *
+     * @param UpdateCloudAppInfoRequest $request UpdateCloudAppInfoRequest
      *
-     * @return UpdateAIConfigResponse
+     * @return UpdateCloudAppInfoResponse UpdateCloudAppInfoResponse
      */
-    public function updateAIConfig($request)
+    public function updateCloudAppInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateAIConfigWithOptions($request, $runtime);
+        return $this->updateCloudAppInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateBucketInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateClusterRequest $request UpdateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBucketInfoResponse
-     */
-    public function updateBucketInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
-        }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateBucketInfo',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateBucketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateBucketInfoRequest $request
-     *
-     * @return UpdateBucketInfoResponse
-     */
-    public function updateBucketInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateBucketInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateClusterResponse
+     * @return UpdateClusterResponse UpdateClusterResponse
      */
     public function updateClusterWithOptions($request, $runtime)
     {
@@ -9241,9 +8845,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UpdateClusterRequest $request
+     * @param UpdateClusterRequest $request UpdateClusterRequest
      *
-     * @return UpdateClusterResponse
+     * @return UpdateClusterResponse UpdateClusterResponse
      */
     public function updateCluster($request)
     {
@@ -9253,47 +8857,28 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UpdateRenderingDeviceSpecRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新文件信息。
+     *  *
+     * @param UpdateFileInfoRequest $request UpdateFileInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRenderingDeviceSpecResponse
+     * @return UpdateFileInfoResponse UpdateFileInfoResponse
      */
-    public function updateRenderingDeviceSpecWithOptions($request, $runtime)
+    public function updateFileInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
-        }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
-        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
-        }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRenderingDeviceSpec',
+            'action'      => 'UpdateFileInfo',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -9304,26 +8889,85 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpdateRenderingDeviceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFileInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateRenderingDeviceSpecRequest $request
+     * @summary 更新文件信息。
+     *  *
+     * @param UpdateFileInfoRequest $request UpdateFileInfoRequest
      *
-     * @return UpdateRenderingDeviceSpecResponse
+     * @return UpdateFileInfoResponse UpdateFileInfoResponse
      */
-    public function updateRenderingDeviceSpec($request)
+    public function updateFileInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateRenderingDeviceSpecWithOptions($request, $runtime);
+        return $this->updateFileInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateVsPullStreamInfoConfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新云渲染实例配置参数
+     *  *
+     * @param UpdateRenderingInstanceConfigurationRequest $tmpReq  UpdateRenderingInstanceConfigurationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVsPullStreamInfoConfigResponse
+     * @return UpdateRenderingInstanceConfigurationResponse UpdateRenderingInstanceConfigurationResponse
+     */
+    public function updateRenderingInstanceConfigurationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateRenderingInstanceConfigurationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRenderingInstanceConfiguration',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRenderingInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新云渲染实例配置参数
+     *  *
+     * @param UpdateRenderingInstanceConfigurationRequest $request UpdateRenderingInstanceConfigurationRequest
+     *
+     * @return UpdateRenderingInstanceConfigurationResponse UpdateRenderingInstanceConfigurationResponse
+     */
+    public function updateRenderingInstanceConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRenderingInstanceConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateVsPullStreamInfoConfigRequest $request UpdateVsPullStreamInfoConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateVsPullStreamInfoConfigResponse UpdateVsPullStreamInfoConfigResponse
      */
     public function updateVsPullStreamInfoConfigWithOptions($request, $runtime)
     {
@@ -9372,9 +9016,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UpdateVsPullStreamInfoConfigRequest $request
+     * @param UpdateVsPullStreamInfoConfigRequest $request UpdateVsPullStreamInfoConfigRequest
      *
-     * @return UpdateVsPullStreamInfoConfigResponse
+     * @return UpdateVsPullStreamInfoConfigResponse UpdateVsPullStreamInfoConfigResponse
      */
     public function updateVsPullStreamInfoConfig($request)
     {
@@ -9384,35 +9028,37 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param UpgradeRenderingDevicesHostOSRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 应用上架
+     *  *
+     * @param UploadCloudAppRequest $request UploadCloudAppRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeRenderingDevicesHostOSResponse
+     * @return UploadCloudAppResponse UploadCloudAppResponse
      */
-    public function upgradeRenderingDevicesHostOSWithOptions($request, $runtime)
+    public function uploadCloudAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->romName)) {
-            $query['RomName'] = $request->romName;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->romPath)) {
-            $query['RomPath'] = $request->romPath;
+        if (!Utils::isUnset($request->downloadUrl)) {
+            $query['DownloadUrl'] = $request->downloadUrl;
         }
-        if (!Utils::isUnset($request->romVersion)) {
-            $query['RomVersion'] = $request->romVersion;
+        if (!Utils::isUnset($request->md5)) {
+            $query['Md5'] = $request->md5;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeRenderingDevicesHostOS',
+            'action'      => 'UploadCloudApp',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -9423,45 +9069,55 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpgradeRenderingDevicesHostOSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadCloudAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeRenderingDevicesHostOSRequest $request
+     * @summary 应用上架
+     *  *
+     * @param UploadCloudAppRequest $request UploadCloudAppRequest
      *
-     * @return UpgradeRenderingDevicesHostOSResponse
+     * @return UploadCloudAppResponse UploadCloudAppResponse
      */
-    public function upgradeRenderingDevicesHostOS($request)
+    public function uploadCloudApp($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->upgradeRenderingDevicesHostOSWithOptions($request, $runtime);
+        return $this->uploadCloudAppWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpgradeRenderingDevicesImageRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 文件上传
+     *  *
+     * @param UploadFileRequest $request UploadFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeRenderingDevicesImageResponse
+     * @return UploadFileResponse UploadFileResponse
      */
-    public function upgradeRenderingDevicesImageWithOptions($request, $runtime)
+    public function uploadFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->md5)) {
+            $query['Md5'] = $request->md5;
+        }
+        if (!Utils::isUnset($request->originUrl)) {
+            $query['OriginUrl'] = $request->originUrl;
+        }
+        if (!Utils::isUnset($request->targetPath)) {
+            $query['TargetPath'] = $request->targetPath;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeRenderingDevicesImage',
+            'action'      => 'UploadFile',
             'version'     => '2018-12-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -9472,18 +9128,125 @@ class Vs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UpgradeRenderingDevicesImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeRenderingDevicesImageRequest $request
+     * @summary 文件上传
+     *  *
+     * @param UploadFileRequest $request UploadFileRequest
      *
-     * @return UpgradeRenderingDevicesImageResponse
+     * @return UploadFileResponse UploadFileResponse
      */
-    public function upgradeRenderingDevicesImage($request)
+    public function uploadFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->upgradeRenderingDevicesImageWithOptions($request, $runtime);
+        return $this->uploadFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 上传公钥，用于安全登陆鉴权。
+     *  *
+     * @param UploadPublicKeyRequest $request UploadPublicKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadPublicKeyResponse UploadPublicKeyResponse
+     */
+    public function uploadPublicKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->keyGroup)) {
+            $query['KeyGroup'] = $request->keyGroup;
+        }
+        if (!Utils::isUnset($request->keyName)) {
+            $query['KeyName'] = $request->keyName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadPublicKey',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 上传公钥，用于安全登陆鉴权。
+     *  *
+     * @param UploadPublicKeyRequest $request UploadPublicKeyRequest
+     *
+     * @return UploadPublicKeyResponse UploadPublicKeyResponse
+     */
+    public function uploadPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyVsDomainOwnerRequest $request VerifyVsDomainOwnerRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VerifyVsDomainOwnerResponse VerifyVsDomainOwnerResponse
+     */
+    public function verifyVsDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyVsDomainOwner',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyVsDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyVsDomainOwnerRequest $request VerifyVsDomainOwnerRequest
+     *
+     * @return VerifyVsDomainOwnerResponse VerifyVsDomainOwnerResponse
+     */
+    public function verifyVsDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyVsDomainOwnerWithOptions($request, $runtime);
     }
 }

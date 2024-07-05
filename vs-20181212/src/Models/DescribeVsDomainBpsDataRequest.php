@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainBpsDataRequest extends Model
 {
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-02T02:30:48Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 300
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @example guangdong
+     *
      * @var string
      */
     public $locationNameEn;
@@ -39,6 +49,8 @@ class DescribeVsDomainBpsDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-12-26T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

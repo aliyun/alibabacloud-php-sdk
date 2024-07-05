@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStartDevicesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 32388487****92996-cn-qingdao
+     *
      * @var string
      */
     public $id;

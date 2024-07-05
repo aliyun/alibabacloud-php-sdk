@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainCertificateInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;

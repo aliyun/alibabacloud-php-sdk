@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @example 2021-11-23T18:33:48
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example hls
+     *
      * @var string
      */
     public $fileFormat;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 2be2a673-6033-4874-b6f2-f2bc0a1*****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example my_oss_bucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example oss-cn-qingdao.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @example record/live/310*****007/2021-11-23-18-19-38_2021-11-23-18-33-48.m3u8
+     *
      * @var string
      */
     public $ossObject;
 
     /**
+     * @example 2021-11-23T18:19:32
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $streamId;
 
     /**
+     * @example 388*****204-cn-qingdao
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example record
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example http://my_oss_bucket.oss-cn-qingdao.aliyuncs.com/record/live/310*****007/2021-11-23-18-19-38_2021-11-23-18-33-48.m3u8
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 1920
+     *
      * @var int
      */
     public $width;

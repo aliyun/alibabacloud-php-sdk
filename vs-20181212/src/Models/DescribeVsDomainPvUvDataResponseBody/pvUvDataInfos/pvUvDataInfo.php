@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class pvUvDataInfo extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $PV;
 
     /**
+     * @example 2021-10-14T23:00:00Z
+     *
      * @var string
      */
     public $timeStamp;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $UV;

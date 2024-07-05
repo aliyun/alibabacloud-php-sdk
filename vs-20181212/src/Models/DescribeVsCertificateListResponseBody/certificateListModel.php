@@ -15,6 +15,8 @@ class certificateListModel extends Model
     public $certList;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $count;

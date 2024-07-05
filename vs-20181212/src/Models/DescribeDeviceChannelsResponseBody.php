@@ -15,26 +15,36 @@ class DescribeDeviceChannelsResponseBody extends Model
     public $channels;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4641C72D-462E-4AEA-8485-FC267AF90B0A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

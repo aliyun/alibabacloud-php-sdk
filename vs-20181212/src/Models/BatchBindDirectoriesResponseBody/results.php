@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @example An error occurred while processing your request.
+     *
      * @var string
      */
     public $error;

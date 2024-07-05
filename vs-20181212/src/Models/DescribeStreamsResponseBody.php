@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamsResponseBody extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
@@ -35,6 +43,8 @@ class DescribeStreamsResponseBody extends Model
     public $streams;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

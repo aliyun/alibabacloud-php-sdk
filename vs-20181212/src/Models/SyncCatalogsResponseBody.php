@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SyncCatalogsResponseBody extends Model
 {
     /**
+     * @example 3238****739092996
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

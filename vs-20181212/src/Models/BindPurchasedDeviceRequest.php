@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BindPurchasedDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3939*****6580539-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 3484*****8732174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
@@ -24,6 +32,10 @@ class BindPurchasedDeviceRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;

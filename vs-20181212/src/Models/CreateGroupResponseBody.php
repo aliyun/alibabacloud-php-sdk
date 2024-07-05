@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupResponseBody extends Model
 {
     /**
+     * @example 31000000****00000001
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $gbIp;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $gbPort;
 
     /**
+     * @example 33763****77224964-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

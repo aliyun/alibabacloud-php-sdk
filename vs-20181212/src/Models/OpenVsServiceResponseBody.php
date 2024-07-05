@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenVsServiceResponseBody extends Model
 {
     /**
+     * @example 150275784
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

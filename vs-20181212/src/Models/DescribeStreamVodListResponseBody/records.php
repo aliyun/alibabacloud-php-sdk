@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @example 1634873413
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1639077653
+     *
      * @var int
      */
     public $startTime;

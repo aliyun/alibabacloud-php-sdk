@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsStreamsPublishListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 3000
+     *
      * @var int
      */
     public $pageSize;
@@ -25,16 +29,22 @@ class DescribeVsStreamsPublishListResponseBody extends Model
     public $publishInfo;
 
     /**
+     * @example 119F7639-4646-51A4-B6C1-300D391C0104
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

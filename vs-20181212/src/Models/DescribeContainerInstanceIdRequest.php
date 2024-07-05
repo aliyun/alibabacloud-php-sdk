@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerInstanceIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeName;
@@ -19,6 +21,8 @@ class DescribeContainerInstanceIdRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $podIndex;

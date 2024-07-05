@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamSnapshotResponseBody extends Model
 {
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 720
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example oss-cn-qingdao.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @example photos/live/340200*****100049/ondemand-1639126601767.jpg
+     *
      * @var string
      */
     public $ossObject;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1639126601767
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example http://examplebucket.oss-*****.aliyuncs.com/photos/live/340200*****100049/ondemand-1639126601767.jpg
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 1280
+     *
      * @var int
      */
     public $width;

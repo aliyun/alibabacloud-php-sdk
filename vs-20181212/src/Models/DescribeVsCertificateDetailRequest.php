@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsCertificateDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cert-539xxxx
+     *
      * @var string
      */
     public $certName;

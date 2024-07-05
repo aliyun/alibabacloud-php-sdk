@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class platforms extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clientAuth;
 
     /**
+     * @example 31010*****317542006
+     *
      * @var string
      */
     public $clientGbId;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @example admin123
+     *
      * @var string
      */
     public $clientPassword;
 
     /**
+     * @example 5160
+     *
      * @var int
      */
     public $clientPort;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $clientUsername;
 
     /**
+     * @example 2018-12-10T21:00:00Z
+     *
      * @var string
      */
     public $createdTime;
@@ -54,16 +70,22 @@ class platforms extends Model
     public $description;
 
     /**
+     * @example 31000*****2170123451
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 359*****374-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
@@ -74,16 +96,22 @@ class platforms extends Model
     public $name;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ResumeVsStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxApp
+     *
      * @var string
      */
     public $appName;
@@ -19,11 +23,19 @@ class ResumeVsStreamRequest extends Model
     public $controlStreamAction;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example publisher
+     *
      * @var string
      */
     public $liveStreamType;
@@ -34,6 +46,10 @@ class ResumeVsStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxStream
+     *
      * @var string
      */
     public $streamName;

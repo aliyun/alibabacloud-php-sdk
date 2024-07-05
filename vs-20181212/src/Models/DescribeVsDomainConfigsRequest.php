@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainConfigsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example path_based_ttl_set,oss_auth
+     *
      * @var string
      */
     public $functionNames;

@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsUpPeakPublishStreamDataRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $domainSwitch;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2017-12-10T21:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,6 +37,10 @@ class DescribeVsUpPeakPublishStreamDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2017-12-10T20:00:00Z
+     *
      * @var string
      */
     public $startTime;

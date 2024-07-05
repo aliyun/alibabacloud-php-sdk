@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteVsPullStreamInfoConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
@@ -24,6 +32,10 @@ class DeleteVsPullStreamInfoConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxStream
+     *
      * @var string
      */
     public $streamName;

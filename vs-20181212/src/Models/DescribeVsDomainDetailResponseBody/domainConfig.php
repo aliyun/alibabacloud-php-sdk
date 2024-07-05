@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class domainConfig extends Model
 {
     /**
+     * @example example.aliyundoc.com.*****.com
+     *
      * @var string
      */
     public $cname;
@@ -19,41 +21,57 @@ class domainConfig extends Model
     public $description;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example vs
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example 2021-07-19T10:27:23Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @example 2021-07-19T10:27:23Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example off
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @example domestic
+     *
      * @var string
      */
     public $scope;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindTemplatesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 400941290881239938-cn-beijing
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example stream
+     *
      * @var string
      */
     public $instanceType;
@@ -24,11 +32,15 @@ class BatchUnbindTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example record
+     *
      * @var string
      */
     public $templateType;

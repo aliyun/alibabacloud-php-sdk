@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 33763950751395843
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $ownerId;

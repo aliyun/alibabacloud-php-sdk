@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopTransferStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 323434****83423432
+     *
      * @var string
      */
     public $id;
@@ -19,6 +23,8 @@ class StopTransferStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example sd
+     *
      * @var string
      */
     public $transcode;

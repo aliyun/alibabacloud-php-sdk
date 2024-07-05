@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceGatewayResponseBody extends Model
 {
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 8080
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example f5578fbc-694c-461d-a2a2-eb090775cef0
+     *
      * @var string
      */
     public $token;

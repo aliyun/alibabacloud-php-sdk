@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 3614*****66212-cn-qingdao
+     *
      * @var string
      */
     public $id;

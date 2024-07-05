@@ -15,6 +15,8 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
     public $describeVsUpPeakPublishStreamDatas;
 
     /**
+     * @example 27A3C548-A699-48F9-97CD-F35D81075AF3
+     *
      * @var string
      */
     public $requestId;

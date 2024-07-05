@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StartStreamRequest extends Model
 {
     /**
+     * @example 1599336385
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -24,6 +30,8 @@ class StartStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1589336385
+     *
      * @var int
      */
     public $startTime;

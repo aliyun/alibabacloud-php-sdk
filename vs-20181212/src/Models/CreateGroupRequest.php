@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupRequest extends Model
 {
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
@@ -24,21 +28,31 @@ class CreateGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example rtmp
+     *
      * @var string
      */
     public $inProtocol;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $lazyPull;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example flv,rtmp
+     *
      * @var string
      */
     public $outProtocol;
@@ -49,16 +63,22 @@ class CreateGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example demo.aliyundoc.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $pushDomain;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

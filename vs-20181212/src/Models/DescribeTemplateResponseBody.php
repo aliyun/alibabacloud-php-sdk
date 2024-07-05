@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplateResponseBody extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @example 2020-12-10T10:00:00Z
+     *
      * @var string
      */
     public $createdTime;
@@ -25,51 +29,71 @@ class DescribeTemplateResponseBody extends Model
     public $description;
 
     /**
+     * @example hls
+     *
      * @var string
      */
     public $fileFormat;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $flv;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $hlsM3u8;
 
     /**
+     * @example osspath/record/{StreamName}/{UnixTimestamp}_{Sequence}
+     *
      * @var string
      */
     public $hlsTs;
 
     /**
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}/{UnixTimestamp}_ondemand.jpg
+     *
      * @var string
      */
     public $jpgOnDemand;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}.jpg
+     *
      * @var string
      */
     public $jpgOverwrite;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $jpgSequence;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $mp4;
@@ -80,31 +104,43 @@ class DescribeTemplateResponseBody extends Model
     public $name;
 
     /**
+     * @example my_oss_bucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example oss-cn-qingdao.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @example oss-prefix
+     *
      * @var string
      */
     public $ossFilePrefix;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $retention;
@@ -115,11 +151,15 @@ class DescribeTemplateResponseBody extends Model
     public $transConfigs;
 
     /**
+     * @example auto
+     *
      * @var string
      */
     public $trigger;
 
     /**
+     * @example record
+     *
      * @var string
      */
     public $type;

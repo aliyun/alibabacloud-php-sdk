@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceChannelsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -19,11 +23,15 @@ class DescribeDeviceChannelsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

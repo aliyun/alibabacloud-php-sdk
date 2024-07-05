@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupsRequest extends Model
 {
     /**
+     * @example 33763950877224964-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example rtmp
+     *
      * @var string
      */
     public $inProtocol;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeStats;
@@ -34,16 +40,22 @@ class DescribeGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
@@ -54,11 +66,15 @@ class DescribeGroupsRequest extends Model
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;

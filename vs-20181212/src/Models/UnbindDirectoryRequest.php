@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UnbindDirectoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 34871************3380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 3998**************9488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;

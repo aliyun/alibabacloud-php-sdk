@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTemplateRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
@@ -19,51 +21,73 @@ class ModifyTemplateRequest extends Model
     public $description;
 
     /**
+     * @example hls
+     *
      * @var string
      */
     public $fileFormat;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $flv;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $hlsM3u8;
 
     /**
+     * @example osspath/record/{StreamName}/{UnixTimestamp}_{Sequence}
+     *
      * @var string
      */
     public $hlsTs;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323*****998-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}/{UnixTimestamp}_ondemand.jpg
+     *
      * @var string
      */
     public $jpgOnDemand;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}.jpg
+     *
      * @var string
      */
     public $jpgOverwrite;
 
     /**
+     * @example osspath/snapshot/{AppName}/{StreamName}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $jpgSequence;
 
     /**
+     * @example osspath/record/{StreamName}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $mp4;
@@ -74,16 +98,22 @@ class ModifyTemplateRequest extends Model
     public $name;
 
     /**
+     * @example bucketname
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example oss-cn-qingdao.aliyuncs.com
+     *
      * @var string
      */
     public $ossEndpoint;
 
     /**
+     * @example oss-prefix
+     *
      * @var string
      */
     public $ossFilePrefix;
@@ -94,21 +124,29 @@ class ModifyTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $retention;
 
     /**
+     * @example [{"Fps":25,"Gop":50,"Height":720,"VideoCodec":"h264","Width":1280,"Name":"sd","VideoBitrate":800}]
+     *
      * @var string
      */
     public $transConfigsJSON;
 
     /**
+     * @example auto
+     *
      * @var string
      */
     public $trigger;

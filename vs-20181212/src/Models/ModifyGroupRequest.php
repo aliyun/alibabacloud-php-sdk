@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyGroupRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
@@ -19,31 +21,45 @@ class ModifyGroupRequest extends Model
     public $description;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 32388487739092994-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $inProtocol;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $lazyPull;
 
     /**
+     * @example myGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example flv,rtmp,hls
+     *
      * @var string
      */
     public $outProtocol;
@@ -54,16 +70,22 @@ class ModifyGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example myplay.com
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example mypush.com
+     *
      * @var string
      */
     public $pushDomain;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;

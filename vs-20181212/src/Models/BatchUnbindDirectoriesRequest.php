@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindDirectoriesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $directoryId;

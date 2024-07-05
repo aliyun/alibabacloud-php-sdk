@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDirectoryResponseBody extends Model
 {
     /**
+     * @example 2021-09-10T10:00:00Z
+     *
      * @var string
      */
     public $createdTime;
@@ -19,11 +21,15 @@ class DescribeDirectoryResponseBody extends Model
     public $description;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $id;
@@ -34,11 +40,15 @@ class DescribeDirectoryResponseBody extends Model
     public $name;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;

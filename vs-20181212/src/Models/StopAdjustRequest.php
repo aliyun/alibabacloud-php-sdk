@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class StopAdjustRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $focus;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $iris;

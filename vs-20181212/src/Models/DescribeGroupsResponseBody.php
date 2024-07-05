@@ -15,26 +15,36 @@ class DescribeGroupsResponseBody extends Model
     public $groups;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

@@ -14,6 +14,10 @@ class ModifyDirectoryRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 399*****488-cn-qingdao
+     *
      * @var string
      */
     public $id;

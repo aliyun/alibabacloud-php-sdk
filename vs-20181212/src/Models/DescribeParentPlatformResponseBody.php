@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeParentPlatformResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoStart;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clientAuth;
 
     /**
+     * @example 31010*****317542006
+     *
      * @var string
      */
     public $clientGbId;
 
     /**
+     * @example 192.168.0.1
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @example admin123
+     *
      * @var string
      */
     public $clientPassword;
 
     /**
+     * @example 5160
+     *
      * @var int
      */
     public $clientPort;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $clientUsername;
 
     /**
+     * @example 2018-12-10T21:00:00Z
+     *
      * @var string
      */
     public $createdTime;
@@ -54,16 +70,22 @@ class DescribeParentPlatformResponseBody extends Model
     public $description;
 
     /**
+     * @example 31000*****2170123451
+     *
      * @var string
      */
     public $gbId;
 
     /**
+     * @example 359*****374-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $ip;
@@ -74,21 +96,29 @@ class DescribeParentPlatformResponseBody extends Model
     public $name;
 
     /**
+     * @example 5060
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example gb28181
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $status;

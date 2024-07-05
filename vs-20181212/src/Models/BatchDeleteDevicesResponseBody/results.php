@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @example Device not found
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example 323884****9092996
+     *
      * @var string
      */
     public $id;

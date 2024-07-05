@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletePresetResponseBody extends Model
 {
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example F18FD685-B194-4489-9609-F80A9490A258
+     *
      * @var string
      */
     public $requestId;

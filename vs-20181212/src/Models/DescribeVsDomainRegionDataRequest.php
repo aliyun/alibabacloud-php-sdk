@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVsDomainRegionDataRequest extends Model
 {
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-31T15:59:59Z
+     *
      * @var string
      */
     public $endTime;
@@ -24,6 +28,8 @@ class DescribeVsDomainRegionDataRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-10-30T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchSetVsDomainConfigsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainNames;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example [{“functionArgs”:[{“argName”:”domain_name”,”argValue”:”api.hellodtworld.com”}],”functionName”:”set_req_host_header”}]
+     *
      * @var string
      */
     public $functions;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamsRequest extends Model
 {
     /**
+     * @example live
+     *
      * @var string
      */
     public $app;
 
     /**
+     * @example 348*****380-cn-qingdao
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 348*****174-cn-qingdao
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 323*****997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 3100000*****00000002
+     *
      * @var string
      */
     public $name;
@@ -44,26 +56,36 @@ class DescribeStreamsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 399*****774-cn-qingdao
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example Id
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $sortDirection;

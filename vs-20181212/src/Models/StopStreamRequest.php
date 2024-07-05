@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StopStreamRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 32388487****92997-cn-qingdao
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 31000000*****0000002
+     *
      * @var string
      */
     public $name;
@@ -24,6 +30,8 @@ class StopStreamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2021-12-12T10:00:00Z
+     *
      * @var string
      */
     public $startTime;

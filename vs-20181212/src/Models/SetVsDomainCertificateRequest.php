@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SetVsDomainCertificateRequest extends Model
 {
     /**
+     * @example Cert-77****7
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example free
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $forceSet;
@@ -34,21 +44,31 @@ class SetVsDomainCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example xxxxxxx
+     *
      * @var string
      */
     public $SSLPri;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example on
+     *
      * @var string
      */
     public $SSLProtocol;
 
     /**
+     * @example 328uiuii28****82dsada81
+     *
      * @var string
      */
     public $SSLPub;

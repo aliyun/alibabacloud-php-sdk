@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $includeStats;

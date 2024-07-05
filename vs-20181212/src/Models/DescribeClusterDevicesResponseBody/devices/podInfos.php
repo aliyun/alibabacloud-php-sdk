@@ -22,10 +22,16 @@ class podInfos extends Model
     /**
      * @var string
      */
+    public $podIp;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'network' => 'Network',
         'podId'   => 'PodId',
+        'podIp'   => 'PodIp',
         'status'  => 'Status',
     ];
 
@@ -47,6 +53,9 @@ class podInfos extends Model
         }
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
+        }
+        if (null !== $this->podIp) {
+            $res['PodIp'] = $this->podIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -74,6 +83,9 @@ class podInfos extends Model
         }
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
+        }
+        if (isset($map['PodIp'])) {
+            $model->podIp = $map['PodIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

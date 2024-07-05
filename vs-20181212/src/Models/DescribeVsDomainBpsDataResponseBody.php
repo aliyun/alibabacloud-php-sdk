@@ -15,26 +15,36 @@ class DescribeVsDomainBpsDataResponseBody extends Model
     public $bpsDataPerInterval;
 
     /**
+     * @example 2100
+     *
      * @var string
      */
     public $dataInterval;
 
     /**
+     * @example example.aliyundoc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2021-10-01T07:10:48Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-09-18T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
