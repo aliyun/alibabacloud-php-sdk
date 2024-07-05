@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class streams extends Model
 {
     /**
+     * @description The audio streams. A media file can contain up to four audio streams.
+     *
      * @var audioStreamList
      */
     public $audioStreamList;
 
     /**
+     * @description The subtitle streams. A media file can contain up to four subtitle streams.
+     *
      * @var subtitleStreamList
      */
     public $subtitleStreamList;
 
     /**
+     * @description The video streams. A media file can contain up to four video streams.
+     *
      * @var videoStreamList
      */
     public $videoStreamList;

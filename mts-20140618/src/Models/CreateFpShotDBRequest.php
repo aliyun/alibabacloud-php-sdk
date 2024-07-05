@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateFpShotDBRequest extends Model
 {
     /**
+     * @description The configurations of the media fingerprint library. By default, this parameter is left empty. You can customize the configurations based on your business requirements. The value must be a string in the JSON format.
+     *
+     * @example null
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The description of the media fingerprint library.
+     *
+     * @example The library is a text fingerprint library.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The model ID of the media fingerprint library. To create a text fingerprint library, set the parameter to **11**. To create a video fingerprint library, set the parameter to **12**. To create an audio fingerprint library, set the parameter to **13**. To create an image fingerprint library, set the parameter to **14**.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @description The name of the media fingerprint library.
+     *
+     * This parameter is required.
+     * @example example name
+     *
      * @var string
      */
     public $name;

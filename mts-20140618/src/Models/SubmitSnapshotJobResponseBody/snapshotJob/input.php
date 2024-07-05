@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The OSS bucket that stores the object.
+     *
+     * @example example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The region in which the OSS bucket resides.
+     *
+     * @example example-location\\"
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The OSS object that is used as the input file.
+     *
+     * @example example.flv
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+     *
+     * @example acs:ram::1:role/testrole
+     *
      * @var string
      */
     public $roleArn;

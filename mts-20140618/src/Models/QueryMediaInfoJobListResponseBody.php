@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaInfoJobListResponseBody extends Model
 {
     /**
+     * @description The details of each returned media information analysis job.
+     *
      * @var mediaInfoJobList
      */
     public $mediaInfoJobList;
 
     /**
+     * @description Nonexistent media information analysis jobs.
+     *
      * @var nonExistMediaInfoJobIds
      */
     public $nonExistMediaInfoJobIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 46A04AA5-B119-41BB-B750-7C5327AC3E7A
+     *
      * @var string
      */
     public $requestId;

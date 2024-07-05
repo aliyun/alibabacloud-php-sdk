@@ -9,21 +9,51 @@ use AlibabaCloud\Tea\Model;
 class opening extends Model
 {
     /**
+     * @description The height of the opening part.
+     *
+     *   Valid values: values in the range of (0,4096), -1, and full.
+     *   A value of -1 indicates that the original height of the opening part is retained.
+     *   A value of full indicates that the height of the opening part equals the height of the main part.
+     *   Default value: **-1**.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The amount of time after which the opening part is played.
+     *
+     *   The value starts from 0.
+     *   Unit: seconds.
+     *   Default value: **0**.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $start;
 
     /**
+     * @description The width of the opening part.
+     *
+     *   Valid values: values in the range of (0,4096), -1, and full.
+     *   A value of -1 indicates that the original width of the opening part is retained.
+     *   A value of full indicates that the width of the opening part equals the width of the main part.
+     *   Default value: **-1**.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $width;
 
     /**
+     * @description The OSS URL of the opening part.
+     *
+     * @example http://example.oss-cn-shanghai.aliyuncs.com/t5.mp4
+     *
      * @var string
      */
     public $openUrl;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class m3U8NonStandardSupport extends Model
 {
     /**
+     * @description The non-standard support configurations for TS files. The value is a JSON object. For more information, see the TS section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+     *
      * @var TS
      */
     public $TS;

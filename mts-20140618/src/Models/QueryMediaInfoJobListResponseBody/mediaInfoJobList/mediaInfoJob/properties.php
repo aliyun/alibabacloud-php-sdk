@@ -11,46 +11,78 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
+     * @description The bitrate of the media file.
+     *
+     * @example 1630.045
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The duration of the media file.
+     *
+     * @example 17.226000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The format of the input media file.
+     *
+     * @example QuickTime/MOV
+     *
      * @var string
      */
     public $fileFormat;
 
     /**
+     * @description The size of the image file.
+     *
+     * @example 3509895
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @description The format information.
+     *
      * @var format
      */
     public $format;
 
     /**
+     * @description The frame rate of the media file.
+     *
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height of the video. Unit: pixel.
+     *
+     * @example 720
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The media streams that are contained in the input media file.
+     *
      * @var streams
      */
     public $streams;
 
     /**
+     * @description The width of the video. Unit: pixel.
+     *
+     * @example 1280
+     *
      * @var string
      */
     public $width;

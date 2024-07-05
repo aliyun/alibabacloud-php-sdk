@@ -10,11 +10,28 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The category of the risky content that the moderated text hits. Valid values:
+     *
+     *   spam: spam
+     *   ad: ad
+     *   politics: political content
+     *   terrorism: terrorist content
+     *   abuse: abuse
+     *   porn: pornographic content
+     *   flood: excessive junk content
+     *   contraband: prohibited content
+     *   meaningless: meaningless content
+     *   customized: custom content, such as a custom keyword
+     *
+     * @example porn
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The context information of the risky content that the moderated text hits.
+     *
      * @var contexts[]
      */
     public $contexts;

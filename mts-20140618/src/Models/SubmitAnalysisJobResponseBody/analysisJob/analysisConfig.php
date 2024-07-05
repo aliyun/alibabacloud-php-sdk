@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class analysisConfig extends Model
 {
     /**
+     * @description The control on the attributes of the job output.
+     *
      * @var propertiesControl
      */
     public $propertiesControl;
 
     /**
+     * @description The quality control on the job output.
+     *
      * @var qualityControl
      */
     public $qualityControl;

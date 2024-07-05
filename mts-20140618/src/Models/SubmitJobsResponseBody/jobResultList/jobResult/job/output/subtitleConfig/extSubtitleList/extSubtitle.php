@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class extSubtitle extends Model
 {
     /**
+     * @description The character set used by the external subtitle.
+     *
+     *   Valid values: **UTF-8**, **GBK**, **BIG5**, and **auto**.
+     *   Default value: **auto**.
+     *
+     * >  If this parameter is set to **auto**, the detected character set may not be the actual character set. We recommend that you set this parameter to another value.
+     * @example UTF-8
+     *
      * @var string
      */
     public $charEnc;
 
     /**
+     * @description The font of the hardcoded subtitles converted from external subtitles. Default value: **SimSun**. For more information, see [Fonts](https://help.aliyun.com/document_detail/59950.html).
+     *
+     * @example "WenQuanYi Zen Hei", "Yuanti SC Regular", "SimSun"
+     *
      * @var string
      */
     public $fontName;
 
     /**
+     * @description The OSS object that is used as the external subtitle. The value is a JSON object. Files in the **SRT** or **ASS** format are supported.
+     *
      * @var input
      */
     public $input;

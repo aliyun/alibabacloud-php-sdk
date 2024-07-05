@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomEntityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example landmark
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @example { "finegrainName":"examplName" }
+     *
      * @var string
      */
     public $customEntityInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $customEntityName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $customGroupId;

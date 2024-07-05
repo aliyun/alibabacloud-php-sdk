@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaWorkflowTriggerModeRequest extends Model
 {
     /**
+     * @description The ID of the media workflow that you want to update. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
+     *
+     * This parameter is required.
+     * @example e00732b977da427d9177a4dee646****
+     *
      * @var string
      */
     public $mediaWorkflowId;
@@ -34,6 +39,14 @@ class UpdateMediaWorkflowTriggerModeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The trigger mode of the media workflow. Valid values:
+     *
+     *   **OssAutoTrigger**: automatically triggers the media workflow.
+     *   **NotInAuto**: does not automatically trigger the media workflow.
+     *
+     * This parameter is required.
+     * @example NotInAuto
+     *
      * @var string
      */
     public $triggerMode;

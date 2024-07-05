@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryFpDBDeleteJobListResponseBody extends Model
 {
     /**
+     * @description The jobs of deleting a media fingerprint library. For more information, see the "FpDBDeleteJob" section of the [Data types](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/datatypes) topic.
+     *
      * @var fpDBDeleteJobList
      */
     public $fpDBDeleteJobList;
 
     /**
+     * @description The IDs of the jobs that do not exist.
+     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4247B23C-26DE-529F-8D9F-FD6811AE979B
+     *
      * @var string
      */
     public $requestId;

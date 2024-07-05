@@ -10,61 +10,110 @@ use AlibabaCloud\Tea\Model;
 class play extends Model
 {
     /**
+     * @description The name of the workflow activity.
+     *
+     * @example test name
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @description The bitrate of the media file.
+     *
+     * @example 25.067
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The duration.
+     *
+     * @example 7.965000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description Indicates whether the media file is encrypted. Valid values:
+     *
+     *   **0**: The media file is not encrypted.
+     *   **1**: The media file is encrypted.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $encryption;
 
     /**
+     * @description The playback file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The encoding format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+     *
+     * @example mov
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The frame rate.
+     *
+     * @example 25.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height of the media file.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The ID of the workflow that generates the playback file.
+     *
+     * @example 6cc3aa66d1cb4bb2adf14e726c0a****
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the workflow that generates the playback file.
+     *
+     * @example example-mediaworkflow-****
+     *
      * @var string
      */
     public $mediaWorkflowName;
 
     /**
+     * @description The size.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The width.
+     *
+     * @example 11
+     *
      * @var string
      */
     public $width;

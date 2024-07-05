@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class outputFile extends Model
 {
     /**
+     * @description The name of the OSS bucket in which the output file is stored.
+     *
+     * @example example-bucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The OSS region in which the output file resides.
+     *
+     * @example oss-cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the OSS object that is used as the output file.
+     *
+     * @example example-output.flv
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The ARN of the RAM role used for delegated authorization.
+     *
+     * @example acs:ram::<your uid>:role/<your role name>
+     *
      * @var string
      */
     public $roleArn;

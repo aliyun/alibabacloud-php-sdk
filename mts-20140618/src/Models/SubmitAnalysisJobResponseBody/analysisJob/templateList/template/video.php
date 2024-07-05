@@ -10,81 +10,166 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The average bitrate of the video. Unit: Kbit/s.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The average bitrate range of the video.
+     *
      * @var bitrateBnd
      */
     public $bitrateBnd;
 
     /**
+     * @description The size of the buffer.
+     *
+     *   Unit: KB.
+     *   Default value: **6000**.
+     *
+     * @example 5000
+     *
      * @var string
      */
     public $bufsize;
 
     /**
+     * @description The video codec. Default value: **H.264**.
+     *
+     * @example H.264
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @description The constant rate factor.
+     *
+     *   Default value if the Codec parameter is set to H.264: **23**. Default value if the Codec parameter is set to H.265: **26**.
+     *   If this parameter is returned, the setting of the Bitrate parameter is invalid.
+     *
+     * @example 27
+     *
      * @var string
      */
     public $crf;
 
     /**
+     * @description The strength of the independent noise reduction algorithm.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $degrain;
 
     /**
+     * @description The frame rate.
+     *
+     *   The value is 60 if the frame rate of the input video exceeds 60.
+     *   Default value: the frame rate of the input video.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The maximum number of frames between two keyframes. Default value: **250**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $gop;
 
     /**
+     * @description The height of the video.
+     *
+     *   Unit: pixel.
+     *   Default value: the height of the input video.
+     *
+     * @example 1880
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The maximum bitrate of the video. Unit: Kbit/s.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $maxrate;
 
     /**
+     * @description The pixel format for video color encoding. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+     *
+     * @example yuvj420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @description The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $preset;
 
     /**
+     * @description The codec profile. Valid values:
+     *
+     *   **baseline**: applicable to mobile devices.
+     *   **main**: applicable to standard-definition devices.
+     *   **high**: applicable to high-definition devices.
+     *   Default value: **high**.
+     *
+     * @example baseline
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The level of quality control on the video.
+     *
+     * @example 15
+     *
      * @var string
      */
     public $qscale;
 
     /**
+     * @description The scan mode. Valid values:
+     *
+     *   **interlaced**
+     *   **progressive**
+     *
+     * @example progressive
+     *
      * @var string
      */
     public $scanMode;
 
     /**
+     * @description The width of the video.
+     *
+     *   Unit: pixel.
+     *   Default value: the width of the input video.
+     *
+     * @example 1990
+     *
      * @var string
      */
     public $width;

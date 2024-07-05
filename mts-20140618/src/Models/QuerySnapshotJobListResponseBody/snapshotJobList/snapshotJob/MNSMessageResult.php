@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MNSMessageResult extends Model
 {
     /**
+     * @description The number of snapshots that were taken.
+     *
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The OSS bucket that stores the input file.
+     *
+     * @example The resource operated InputFile is bad
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the region in which the input OSS bucket is located.
+     *
+     * @example 799454621135656C7F815F198A76****
+     *
      * @var string
      */
     public $messageId;

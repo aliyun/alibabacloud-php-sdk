@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class qrcodeLocations extends Model
 {
     /**
+     * @description The height of the QR code area. Unit: pixel.
+     *
+     * @example 413.0
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @description The URL that the detected QR code points to.
+     *
+     * @example http://xxx
+     *
      * @var string
      */
     public $qrcode;
 
     /**
+     * @description The width of the QR code area. Unit: pixel.
+     *
+     * @example 402.0
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @description The distance between the upper-left corner of the QR code area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 11
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @description The distance between the upper-left corner of the QR code area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $y;

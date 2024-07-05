@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @description The status of the file. Valid values:
+     *
+     * - **Normal**: normal
+     * - **Deleted**: deleted
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The OSS URL of the snapshot.
+     *
+     * @example http://example1-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example111-****.png
+     *
      * @var string
      */
     public $URL;

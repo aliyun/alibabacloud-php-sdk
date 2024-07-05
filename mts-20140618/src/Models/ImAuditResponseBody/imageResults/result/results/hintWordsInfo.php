@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class hintWordsInfo extends Model
 {
     /**
+     * @description The term hit by the detected text.
+     *
+     * @example Sensitive words
+     *
      * @var string
      */
     public $context;

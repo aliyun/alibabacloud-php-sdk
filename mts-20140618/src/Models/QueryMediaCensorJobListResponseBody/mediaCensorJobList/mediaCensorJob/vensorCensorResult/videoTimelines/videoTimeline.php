@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class videoTimeline extends Model
 {
     /**
+     * @description The moderation results that include information such as labels and scores.
+     *
      * @var censorResults
      */
     public $censorResults;
 
     /**
+     * @description The OSS object that is generated as the output snapshot.
+     *
+     * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
+     * @example output{Count}.jpg
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The position in the video. Format: `hh:mm:ss[.SSS]`.
+     *
+     * @example 00:02:59.999
+     *
      * @var string
      */
     public $timestamp;

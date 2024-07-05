@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagCustomPersonResponseBody extends Model
 {
     /**
+     * @example FD8B5B8C-0C3D-5776-B3B1-EE6AD11F905A
+     *
      * @var string
      */
     public $requestId;

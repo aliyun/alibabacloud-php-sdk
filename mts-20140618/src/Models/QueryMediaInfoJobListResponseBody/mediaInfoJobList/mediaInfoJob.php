@@ -12,56 +12,98 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
+     * @description Indicates whether the job is in asynchronous mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The error code returned if the job fails.
+     *
+     * @example InvalidParameter.JsonObjectFormatInvalid
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2014-01-10T12:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The information about the job input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 23ca1d184c0e4341e5b665e2a12****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The message sent by MNS to notify you of the job result.
+     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
+     * @description The error message returned if the job fails.
+     *
+     * @example The parameter ”*” does not conform to the JSON Object specification
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the MPS queue.
+     *
+     * @example 88c6ca184c0e432bbf5b665e2a15****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The information about the input file. For more information, see [AliyunProperties](https://help.aliyun.com/document_detail/29251.html).
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The status of the job.
+     *
+     *   **Analyzing**: The job is being run.
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The custom data.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;

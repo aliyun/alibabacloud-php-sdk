@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class sfaceData extends Model
 {
     /**
+     * @description The information about the face detected in the moderated image.
+     *
      * @var faces[]
      */
     public $faces;
 
     /**
+     * @description The height of the face area. Unit: pixel.
+     *
+     * @example 121
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @description The width of the face area. Unit: pixel.
+     *
+     * @example 47
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @description The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 49
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @description The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 39
+     *
      * @var float
      */
     public $y;

@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @description The name of the workflow activity that generates the snapshot.
+     *
+     * @example example-activity1-****
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @description The number of snapshots. This parameter is valid only when the value of the **Type** parameter is **Sequence**.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The snapshot.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The ID of the workflow that generates the snapshot.
+     *
+     * @example 6cc3aa66d1cb4bb2adf14e726c0a****
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the workflow that generates the snapshot.
+     *
+     * @example example-workflow-****
+     *
      * @var string
      */
     public $mediaWorkflowName;
 
     /**
+     * @description The type of the snapshot. Valid values:
+     *
+     * - **Single**
+     * - **Sequence**
+     * @example Sequence
+     *
      * @var string
      */
     public $type;

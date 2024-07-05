@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListJobResponseBody extends Model
 {
     /**
+     * @description The transcoding jobs.
+     *
      * @var jobList
      */
     public $jobList;
 
     /**
+     * @description The pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example 16f01ad6175e4230ac42bb5182cd****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example BC860F04-778A-472F-AB39-E1BF329C1EA8
+     *
      * @var string
      */
     public $requestId;

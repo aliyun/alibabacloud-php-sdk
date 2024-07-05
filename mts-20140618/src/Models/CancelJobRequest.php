@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelJobRequest extends Model
 {
     /**
+     * @description The ID of the transcoding job to be canceled. You can log on to the **MPS console** and click **Tasks** in the left-side navigation pane to obtain job IDs. Alternatively, you can obtain job IDs from the response of the [SubmitJobs](https://help.aliyun.com/document_detail/29226.html) operation.
+     *
+     * This parameter is required.
+     * @example d1ce4d3efcb549419193f50f1fcd****
+     *
      * @var string
      */
     public $jobId;

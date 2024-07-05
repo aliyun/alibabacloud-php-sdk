@@ -12,59 +12,112 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
+     * @description The error code returned if the job failed. If the job was successful, this parameter is not returned.
+     *
+     * @example InvalidParameter.NullValue
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2014-01-10T12:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The time when the job was complete.
+     *
+     * @example 2014-01-10T12:20:25Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The information about the job input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
+     * @example 31fa3c9ca8134fb4b0b0f7878301****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The message sent by Message Service (MNS) to notify users of the job result.
+     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
+     * @description The error message returned if the job failed. If the job was successful, this parameter is not returned.
+     *
+     * @example The specified parameter "%s" cannot be null.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The job output.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The transcoding progress.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $percent;
 
     /**
+     * @description The ID of the MPS queue that is used to run the job.
+     *
+     * @example 88c6ca184c0e47b665e2a1267971****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The job state. Valid values:
+     *
+     *   **Submitted**: The job was submitted.
+     *   **Transcoding**: Transcoding is in process.
+     *   **TranscodeSuccess**: The job was successful.
+     *   **TranscodeFail**: The job failed.
+     *   **TranscodeCancelled**: The job was canceled.
+     *
+     * @example TranscodeSuccess
+     *
      * @var string
      */
     public $state;
+
+    /**
+     * @description The time when the job was submitted.
+     *
+     * @example 2021-03-04T06:44:43Z
+     *
+     * @var string
+     */
+    public $submitTime;
     protected $_name = [
         'code'             => 'Code',
         'creationTime'     => 'CreationTime',
@@ -77,6 +130,7 @@ class job extends Model
         'percent'          => 'Percent',
         'pipelineId'       => 'PipelineId',
         'state'            => 'State',
+        'submitTime'       => 'SubmitTime',
     ];
 
     public function validate()
@@ -118,6 +172,9 @@ class job extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->submitTime) {
+            $res['SubmitTime'] = $this->submitTime;
         }
 
         return $res;
@@ -163,6 +220,9 @@ class job extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['SubmitTime'])) {
+            $model->submitTime = $map['SubmitTime'];
         }
 
         return $model;

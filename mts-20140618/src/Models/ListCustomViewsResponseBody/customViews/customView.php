@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customView extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $customViewId;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class mediaInfo extends Model
 {
     /**
+     * @description The format information.
+     *
      * @var format
      */
     public $format;
 
     /**
+     * @description The stream information.
+     *
      * @var streams
      */
     public $streams;

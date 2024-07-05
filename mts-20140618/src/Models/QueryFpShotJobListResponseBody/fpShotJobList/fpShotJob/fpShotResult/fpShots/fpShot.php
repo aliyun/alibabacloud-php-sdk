@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class fpShot extends Model
 {
     /**
+     * @description The video files that have similar fingerprints to the input video in the video fingerprint library.
+     *
      * @var fpShotSlices
      */
     public $fpShotSlices;
 
     /**
+     * @description The unique primary key of the input video.
+     *
+     * @example 498ac941373341599c4777c8d884****
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @description The overall similarity of the input video against video files that have similar fingerprints to the input video in the video fingerprint library.
+     *
+     * >  The overall similarity is the average value of the similarities of the input video clips with the clips of the video that has a similar fingerprint. If multiple video files that have similar fingerprints to the input video exist in the video fingerprint library, the similarities of the input video against multiple similar video clips are returned.
+     * @example 0.8914769887924194
+     *
      * @var string
      */
     public $similarity;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class notifyConfig extends Model
 {
     /**
+     * @description The tags of the messages.
+     *
+     * @example mts-test
+     *
      * @var string
      */
     public $mqTag;
 
     /**
+     * @description The queue of messages that are received.
+     *
+     * @example example1,example2
+     *
      * @var string
      */
     public $mqTopic;
 
     /**
+     * @description The queue that is created in MNS.
+     *
+     * @example example-queue-****
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @description The topic that is created in MNS.
+     *
+     * @example example-topic-****
+     *
      * @var string
      */
     public $topic;

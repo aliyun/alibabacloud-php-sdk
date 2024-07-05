@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class ImAuditResponseBody extends Model
 {
     /**
+     * @description Indicates whether the image moderation QPS exceeds the limit. Valid values: true and false. A value of true indicates that the QPS does not exceed the limit. A value of false indicates that the QPS exceeds the limit.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $imageQuotaExceed;
 
     /**
+     * @description The image moderation results. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. For more information about the parameters, see [Data returned by the ImAudit operation](https://help.aliyun.com/document_detail/268644.html).
+     *
      * @var imageResults
      */
     public $imageResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5210DBB0-E327-4D45-ADBC-0B83C8793421
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the text moderation QPS exceeds the limit. Valid values: true and false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $textQuotaExceed;
 
     /**
+     * @description The text moderation results. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. For more information about the parameters, see [Data returned by the ImAudit operation](https://help.aliyun.com/document_detail/268644.html).
+     *
      * @var textResults
      */
     public $textResults;

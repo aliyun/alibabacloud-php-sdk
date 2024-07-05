@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomGroupRequest extends Model
 {
     /**
+     * @description The custom type of the image library. Valid values:
+     *
+     *   landmark: custom landmarks.
+     *   object: custom objects.
+     *
+     * This parameter is required.
+     * @example landmark
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The ID of the custom image library.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var string
      */
     public $customGroupId;

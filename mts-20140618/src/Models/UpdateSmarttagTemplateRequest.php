@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class UpdateSmarttagTemplateRequest extends Model
 {
     /**
+     * @example ocr,asr
+     *
      * @var string
      */
     public $analyseTypes;
 
     /**
+     * @example celebrity
+     *
      * @var string
      */
     public $faceCategoryIds;
 
     /**
+     * @example { "faceDetThreshold":0.999, "faceRegThreshold":0.9 }
+     *
      * @var string
      */
     public $faceCustomParamsConfig;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $industry;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example { "type": "name,location,organization,other" }
+     *
      * @var string
      */
     public $keywordConfig;
 
     /**
+     * @example { "movie":"name,alias,chnl,genre", "music":"songName,artistName", "person":"name,gender" }
+     *
      * @var string
      */
     public $knowledgeConfig;
 
     /**
+     * @example hmi
+     *
      * @var string
      */
     public $labelType;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $labelVersion;
 
     /**
+     * @example common
+     *
      * @var string
      */
     public $landmarkGroupIds;
 
     /**
+     * @example general,item,weapon,animal
+     *
      * @var string
      */
     public $objectGroupIds;
@@ -84,16 +106,24 @@ class UpdateSmarttagTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example search
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 05de22f255284c7a8d2aab535dde****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example template-example-****
+     *
      * @var string
      */
     public $templateName;

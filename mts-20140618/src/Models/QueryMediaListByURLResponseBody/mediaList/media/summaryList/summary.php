@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class summary extends Model
 {
     /**
+     * @description The name of the workflow activity.
+     *
+     * @example example-activity-****
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @description The information about the input file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The ID of the workflow that generates the summary.
+     *
+     * @example 93ab850b4f6f44eab54b6e91d24d****
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the workflow that generates the summary.
+     *
+     * @example example-mediaworkflow-****
+     *
      * @var string
      */
     public $mediaWorkflowName;
 
     /**
+     * @description The type of the summary. Valid values:
+     *
+     *   **Video**: video
+     *   **Gif**: dynamic image
+     *
+     * @example Gif
+     *
      * @var string
      */
     public $type;

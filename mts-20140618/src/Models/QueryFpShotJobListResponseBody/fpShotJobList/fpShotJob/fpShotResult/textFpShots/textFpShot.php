@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class textFpShot extends Model
 {
     /**
+     * @description The unique primary key of the input text.
+     *
+     * @example 3e34ac649945b53a1b0f863ce030****
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @description The similarity of the input text against text snippets that have similar fingerprints to the input text in the text fingerprint library.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $similarity;
 
     /**
+     * @description The text snippets that have similar fingerprints to the input text in the text fingerprint library.
+     *
      * @var textFpShotSlices
      */
     public $textFpShotSlices;

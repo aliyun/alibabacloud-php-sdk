@@ -12,72 +12,133 @@ use AlibabaCloud\Tea\Model;
 class fpShotJob extends Model
 {
     /**
+     * @description The error code returned if the job fails.
+     *
+     * @example InvalidParameter.UUIDFormatInvalid
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2017-01-10T12:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The length of the input file.
+     * Unit: seconds.
+     * @example 5
+     *
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @description The ID of the uploaded file.
+     *
+     * @example ebb51ee30f0b49aba959823fa991****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The time when the job was complete.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The configurations of the job.
+     *
      * @var fpShotConfig
      */
     public $fpShotConfig;
 
     /**
+     * @description The results of the media fingerprint analysis job.
+     *
      * @var fpShotResult
      */
     public $fpShotResult;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The information about the job input.
+     *
+     * @example {"Bucket":"oss-test","Location":"oss-cn-beijing","Object":"test.mp4"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @description The information about the job input.
+     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
+     * @description The error message returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example The parameter \\"Id\\" is invalid.A uuid must:1)be comprised of chracters[a-f],numbers[0-9];2)be 32 characters long
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the MPS queue to which the analysis job is submitted.
+     *
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **Queuing**: The job is waiting in the queue.
+     *   **Analysing**: The job is in progress.
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The custom data.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
         'code'         => 'Code',
         'creationTime' => 'CreationTime',
+        'duration'     => 'Duration',
         'fileId'       => 'FileId',
         'finishTime'   => 'FinishTime',
         'fpShotConfig' => 'FpShotConfig',
@@ -103,6 +164,9 @@ class fpShotJob extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
@@ -154,6 +218,9 @@ class fpShotJob extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];

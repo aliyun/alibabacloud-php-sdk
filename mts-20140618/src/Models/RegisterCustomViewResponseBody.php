@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RegisterCustomViewResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $customViewId;
 
     /**
+     * @example 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+     *
      * @var string
      */
     public $requestId;

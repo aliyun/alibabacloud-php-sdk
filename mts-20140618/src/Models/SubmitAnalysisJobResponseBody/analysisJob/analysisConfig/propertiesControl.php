@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class propertiesControl extends Model
 {
     /**
+     * @description The cropping configurations of video images.
+     *
      * @var crop
      */
     public $crop;
 
     /**
+     * @description Indicates whether deinterlacing was forced to run. Valid values:
+     *
+     *   **Auto**: Deinterlacing was automatically run.
+     *   **Force**: Deinterlacing was forced to run.
+     *   **None**: Deinterlacing was forced not to run.
+     *
+     * @example Force
+     *
      * @var string
      */
     public $deinterlace;

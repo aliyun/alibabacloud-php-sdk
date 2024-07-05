@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListFpShotImportJobResponseBody extends Model
 {
     /**
+     * @description The jobs of importing text files to a text fingerprint library.
+     *
      * @var fpShotImportJobList[]
      */
     public $fpShotImportJobList;
 
     /**
+     * @description The job IDs that do not exist. This parameter is not returned if all specified job IDs exist.
+     *
      * @var string[]
      */
     public $nonExistIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class networkCost extends Model
 {
     /**
+     * @description The average bitrate.
+     *
+     * @example 2659.326
+     *
      * @var string
      */
     public $avgBitrate;
 
     /**
+     * @description The maximum bandwidth that was consumed.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $costBandwidth;
 
     /**
+     * @description The amount of preload time.
+     *
+     * @example 0.01
+     *
      * @var string
      */
     public $preloadTime;

@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class descCensorResult extends Model
 {
     /**
+     * @description The labels of the moderation result. Separate multiple labels with commas (,). Valid values:
+     *
+     *   **spam**: spam
+     *   **ad**: ads
+     *   **abuse**: abuse
+     *   **flood**: excessive junk content
+     *   **contraband**: prohibited content
+     *   **meaningless**: meaningless content
+     *   **normal**: normal content
+     *
+     * @example ad
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The score.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $rate;
 
     /**
+     * @description The moderation scenario. The value is **antispam**.
+     *
+     * @example antispam
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The recommended subsequent operation. Valid values:
+     *
+     *   **pass**: The content passes the moderation.
+     *   **review**: The content needs to be manually reviewed again.
+     *   **block**: The content needs to be blocked.
+     *
+     * @example pass
+     *
      * @var string
      */
     public $suggestion;

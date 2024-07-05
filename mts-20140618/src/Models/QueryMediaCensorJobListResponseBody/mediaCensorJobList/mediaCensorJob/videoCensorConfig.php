@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class videoCensorConfig extends Model
 {
     /**
+     * @description The moderation template. Default value: common. The default value indicates that the default template is used.
+     *
+     * > If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, a user ID is returned.
+     * @example common
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The information about output snapshots.
+     *
      * @var outputFile
      */
     public $outputFile;
 
     /**
+     * @description Indicates whether the video content needs to be moderated. Default value: true. Valid values:
+     *
+     *   **true**: The video content needs to be moderated.
+     *   **false**: The video content does not need to be moderated.
+     *
+     * @example true
+     *
      * @var string
      */
     public $videoCensor;

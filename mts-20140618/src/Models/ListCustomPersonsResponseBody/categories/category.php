@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
+     * @description The description of the figure library.
+     *
+     * @example CategoryDescription-****
+     *
      * @var string
      */
     public $categoryDescription;
 
     /**
+     * @description The ID of the figure library.
+     *
+     * @example CategoryId-****
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @description The name of the figure library.
+     *
+     * @example CategoryName-****
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @description The array of the figures.
+     *
      * @var persons
      */
     public $persons;

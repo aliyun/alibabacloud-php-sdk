@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class SearchPipelineResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The MPS queues.
+     *
      * @var pipelineList
      */
     public $pipelineList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

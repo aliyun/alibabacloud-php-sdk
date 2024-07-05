@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaCoverResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0DC39B9E-13D4-40BA-AE76-CFF9BD64239D
+     *
      * @var string
      */
     public $requestId;

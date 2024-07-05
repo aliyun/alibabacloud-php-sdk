@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaListByURLResponseBody extends Model
 {
     /**
+     * @description The list of media files.
+     *
      * @var mediaList
      */
     public $mediaList;
 
     /**
+     * @description The IDs of the media files that do not exist. This parameter is not returned if all specified media files exist.
+     *
      * @var nonExistFileURLs
      */
     public $nonExistFileURLs;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1C8A0AEB-4321-485B-B4CB-DA4E9E6C9B42
+     *
      * @var string
      */
     public $requestId;

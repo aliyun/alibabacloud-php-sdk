@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class fpShotImportJobList extends Model
 {
     /**
+     * @description The error code returned when the job fails.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2020-06-30T00:33:18Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the job was completed.
+     *
+     * @example 2020-06-30T00:34:02Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID of the text fingerprint library.
+     *
+     * @example 2288c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $fpDBId;
 
     /**
+     * @description The import configuration.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $fpImportConfig;
 
     /**
+     * @description The job ID.
+     *
+     * @example 25bacf2824614bcf9273dc0744db****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The input file.
+     *
+     * @example {\\"Bucket\\":\\"mts-example****\\",\\"Location\\":\\"oss-cn-shanghai\\",\\"Object\\":\\"test-0828/video/test.mp4\\"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @description The error message returned when the job fails.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted.
+     *
+     * @example ebb51ee30f0b49aba959823fa991****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The processing information of the job.
+     *
+     * @example http://testbucket.oss-cn-shanghai.aliyuncs.com/932ajjw***32ssoj_importResult.txt
+     *
      * @var string
      */
     public $processMessage;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   Processing: The job is in progress.
+     *   Fail: The job fails.
+     *   Success: The job is successful.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The user-defined data.
+     *
+     * @example 001
+     *
      * @var string
      */
     public $userData;

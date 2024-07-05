@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class RegisterCustomViewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example landmark
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $customEntityId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $customGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $imageUrl;

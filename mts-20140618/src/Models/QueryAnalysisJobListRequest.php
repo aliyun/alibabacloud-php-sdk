@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryAnalysisJobListRequest extends Model
 {
     /**
+     * @description The template analysis job ID list.
+     *
+     * This parameter is required.
+     * @example bb558c1cc25b45309aab5be44d19****
+     *
      * @var string
      */
     public $analysisJobIds;

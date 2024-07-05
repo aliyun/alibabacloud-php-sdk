@@ -9,51 +9,96 @@ use AlibabaCloud\Tea\Model;
 class fpDBDeleteJob extends Model
 {
     /**
+     * @description The error code returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example ServiceUnavailable
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2020-06-30T00:33:18Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The type of the operation.
+     *
+     * @example Purge
+     *
      * @var string
      */
     public $delType;
 
     /**
+     * @description The time when the job was complete.
+     *
+     * @example 2020-06-30T00:34:02Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID of the media fingerprint library.
+     *
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $fpDBId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 25bacf2824614bcf9273dc0744db****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The error message returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example The request has failed due to a temporary failure of the server.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+     *
+     * @example fb712a6890464059b1b2ea7c8647****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **Queuing**: The job is waiting in the queue.
+     *   **Analysing**: The job is in progress.
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The user-defined data.
+     *
+     * @example example data
+     *
      * @var string
      */
     public $userData;

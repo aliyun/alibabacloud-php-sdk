@@ -12,61 +12,105 @@ use AlibabaCloud\Tea\Model;
 class snapshotJob extends Model
 {
     /**
+     * @description You can call this operation to query up to 10 snapshot jobs at a time.
+     *
+     *
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     * @example InvalidParameter
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The stride of a single image.
+     *
+     * @example 2021-06-30T12:34:29Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The OSS output file of the tiling job.
+     *
+     * @example cc6cbef8e8d5481ca536f5d2a466****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The number of snapshots that are contained in the tiled image.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The OSS object that is used as the input file.
+     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
+     * @description The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+     *
+     * @example The resource operated InputFile is bad
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The start time for taking snapshots. Unit: milliseconds.
+     *
+     * @example b11c171cced04565b1f38f1ecc39****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The height of a single image. The default value is the height of the output snapshot.
+     *
      * @var snapshotConfig
      */
     public $snapshotConfig;
 
     /**
+     * @description The information about the job input.
+     *
+     * @example Snapshoting
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The snapshot job IDs that do not exist. This parameter is not returned if all specified snapshot jobs are found.
+     *
+     * @example 7
+     *
      * @var string
      */
     public $tileCount;
 
     /**
+     * @description The token that is used to retrieve the next page of the query results. The value is a 32-bit UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @description The segment length. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $duration;

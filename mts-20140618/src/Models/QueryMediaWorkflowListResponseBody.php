@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaWorkflowListResponseBody extends Model
 {
     /**
+     * @description The media workflows.
+     *
      * @var mediaWorkflowList
      */
     public $mediaWorkflowList;
 
     /**
+     * @description The workflows that do not exist.
+     *
      * @var nonExistMediaWorkflowIds
      */
     public $nonExistMediaWorkflowIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16CD0CDD-457E-420D-1234-8385075A618B
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaPublishStateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 91B6CAB9-034C-4E4E-A40B-E7F5C81E688C
+     *
      * @var string
      */
     public $requestId;

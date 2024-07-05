@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaInfoJobRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the asynchronous mode for the job. We recommend that you set this parameter to true. Valid values:
+     *
+     *   **true**: enables the asynchronous mode.
+     *   **false**: does not enable the asynchronous mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The information about the input media file. The value is a JSON string. You must perform the following operations to add the OSS bucket in which the input media file is stored as a media bucket: Log on to the **MPS console**, choose **Workflows** > **Media Buckets** in the left-side navigation pane, and then click **Add Bucket**. After you add the OSS bucket as a media bucket, you must perform URL encoding for the OSS object. For example, `{"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}` indicates the `example-bucket.example-location.aliyuncs.com/example/example.flv` file.
+     *
+     * This parameter is required.
+     * @example {"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}
+     *
      * @var string
      */
     public $input;
@@ -29,6 +41,10 @@ class SubmitMediaInfoJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the MPS queue to which the analysis job is submitted. To view the ID of the MPS queue, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+     *
+     * @example 88c6ca184c0e432bbf5b665e2a15****
+     *
      * @var string
      */
     public $pipelineId;
@@ -44,6 +60,10 @@ class SubmitMediaInfoJobRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The custom data. The custom data can contain letters, digits, and hyphens (-), and can be up to 1,024 bytes in length. The custom data cannot start with a special character.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;

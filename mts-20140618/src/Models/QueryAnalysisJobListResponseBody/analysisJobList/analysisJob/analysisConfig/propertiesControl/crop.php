@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class crop extends Model
 {
     /**
+     * @description The height of the video image after the margins are cropped out.
+     *
+     * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     * @example 8
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The left margin to be cropped out.
+     *
+     * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     * @example 8
+     *
      * @var string
      */
     public $left;
 
     /**
+     * @description The cropping mode. Valid values:
+     *
+     *   **Auto**: Cropping was automatically run.
+     *   **Force**: Cropping was forced to run.
+     *   **None**: Cropping was forced not to run.
+     *   This parameter is required if the value of the Crop parameter is not an empty JSON {}.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The top margin to be cropped out.
+     *
+     * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     * @example 8
+     *
      * @var string
      */
     public $top;
 
     /**
+     * @description The width of the video image after the margins are cropped out.
+     *
+     * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     * @example 8
+     *
      * @var string
      */
     public $width;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddWaterMarkTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 54BB917F-DD35-4F32-BABA-E60E31B21W63
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the watermark template.
+     *
      * @var waterMarkTemplate
      */
     public $waterMarkTemplate;

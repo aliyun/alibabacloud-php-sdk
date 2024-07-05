@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobRequest extends Model
 {
     /**
+     * @example 88c6ca184c0e432bbf5b665e2a15****
+     *
      * @var string
      */
     public $jobId;

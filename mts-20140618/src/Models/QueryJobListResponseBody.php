@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryJobListResponseBody extends Model
 {
     /**
+     * @description The transcoding jobs.
+     *
      * @var jobList
      */
     public $jobList;
 
     /**
+     * @description The list of nonexistent job IDs. If all queried job IDs exist, the response does not contain this parameter.
+     *
      * @var nonExistJobIds
      */
     public $nonExistJobIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 197ADF44-104C-514C-9F92-D8924CB34E2A
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class outSubtitleFile extends Model
 {
     /**
+     * @description The name of the OSS bucket in which the output caption is stored.
+     *
+     * @example exampleBucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The OSS region in which the output caption resides.
+     *
+     * @example oss-cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the OSS object that is used as the output caption.
+     *
+     * @example example.flv
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The ARN of the RAM role used for delegated authorization.
+     *
+     * @example acs:ram::<your uid>:role/<your role name>
+     *
      * @var string
      */
     public $roleArn;

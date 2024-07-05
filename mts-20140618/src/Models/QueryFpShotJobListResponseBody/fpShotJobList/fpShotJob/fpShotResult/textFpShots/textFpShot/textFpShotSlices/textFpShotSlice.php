@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class textFpShotSlice extends Model
 {
     /**
+     * @description The text snippet that has similar fingerprints to the input text in the text fingerprint library.
+     *
+     * @example It\\"s snowy today.
+     *
      * @var string
      */
     public $duplicationText;
 
     /**
+     * @description The start point in time and duration of the similar text snippet in the input text.
+     *
      * @var inputFragment
      */
     public $inputFragment;
 
     /**
+     * @description The input text for text fingerprint analysis.
+     *
+     * @example It\\"s snowy today.
+     *
      * @var string
      */
     public $inputText;
 
     /**
+     * @description The similarity of the input text against the text snippet that has similar fingerprints to the input text in the text fingerprint library.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $similarity;

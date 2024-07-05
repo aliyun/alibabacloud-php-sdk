@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class contexts extends Model
 {
     /**
+     * @description The term that the moderated text hits. If the text hits a term, the term is returned. If the text hits the algorithmic model, this parameter is not returned.
+     *
+     * @example Door-to-door service
+     *
      * @var string
      */
     public $context;
 
     /**
+     * @description The code of the custom text library. This parameter is returned if the moderated text hits a term in the custom text library.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $libCode;
 
     /**
+     * @description The name of the custom text library. This parameter is returned if the moderated text hits a term in the custom text library.
+     *
+     * @example Name of your custom text library
+     *
      * @var string
      */
     public $libName;
 
     /**
+     * @description The position of the term that the moderated text hits in the original text.
+     *
      * @var string[]
      */
     public $positions;
 
     /**
+     * @description The behavior rule. This parameter is returned if the moderated text hits the behavior rule. Valid values:
+     *
+     *   user_id
+     *   ip
+     *   umid
+     *   content
+     *   similar_content
+     *   imei
+     *   imsi
+     *
+     * @example ip
+     *
      * @var string
      */
     public $ruleType;

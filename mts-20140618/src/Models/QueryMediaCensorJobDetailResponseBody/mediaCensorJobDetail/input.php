@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The name of the OSS bucket in which the input media file is stored.
+     *
+     * @example bucket-test-in-****
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The OSS region in which the input media file resides.
+     *
+     * @example oss-cn-shanghai
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the OSS object that is used as the input media file.
+     *
+     * @example test/ai/censor/test-****.mp4
+     *
      * @var string
      */
     public $object;

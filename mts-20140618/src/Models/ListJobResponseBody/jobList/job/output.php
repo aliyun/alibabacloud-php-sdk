@@ -26,131 +26,216 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @description The audio configurations.
+     *
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The sequence number of the audio stream.
+     *
+     *   Format: `0:a:{Sequence number}`.
+     *   The sequence number is the index of the audio stream in the list and starts from 0. If no sequence number is specified, the default audio stream is used.
+     *
+     * @example 0:a:0
+     *
      * @var string
      */
     public $audioStreamMap;
 
     /**
+     * @description The information about the clip.
+     *
      * @var clip
      */
     public $clip;
 
     /**
+     * @description The container format configurations.
+     *
      * @var container
      */
     public $container;
 
     /**
+     * @description The configurations of watermark blurring. The value is a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+     *
+     * @example {"0": [{"l": 10,"t": 10,"w": 10,"h": 10},{"l": 100,"t": 0.1,"w": 10,"h": 10}],"128000": [],"250000": [{"l": 0.2,"t": 0.1,"w": 0.01,"h": 0.05}]}
+     *
      * @var string
      */
     public $deWatermark;
 
     /**
+     * @description The encryption configurations. Only outputs in the M3U8 format are supported.
+     *
      * @var encryption
      */
     public $encryption;
 
     /**
+     * @description The non-standard support configuration for M3U8. The value must be a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+     *
      * @var m3U8NonStandardSupport
      */
     public $m3U8NonStandardSupport;
 
     /**
+     * @description The URL of the merging configuration file. You can specify either MergeList or MergeConfigUrl when you submit the transcoding job.
+     *
+     *   The configuration file specified by MergeConfigUrl can contain up to 50 clips.
+     *   MergeConfigUrl indicates the URL of the configuration file for merging clips.
+     *   Make sure that the configuration file is stored as an object in OSS and that MPS can access the OSS object. For information about the file content, see the details of merging parameters.
+     *   Example of the content of the merging configuration file: `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}`.
+     *
+     * @example {"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}
+     *
      * @var string
      */
     public $mergeConfigUrl;
 
     /**
+     * @description The configurations for merging clips.
+     *
      * @var mergeList
      */
     public $mergeList;
 
     /**
+     * @description The transmuxing configurations.
+     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
+     * @description The opening parts.
+     *
      * @var openingList
      */
     public $openingList;
 
     /**
+     * @description The output subtitles.
+     *
      * @var outSubtitleList
      */
     public $outSubtitleList;
 
     /**
+     * @description The details of the output file.
+     *
      * @var outputFile
      */
     public $outputFile;
 
     /**
+     * @description The priority of the job in the MPS queue to which the job is added.
+     *
+     *   A value of 10 indicates the highest priority.
+     *   Default value: **6**.
+     *
+     * @example 6
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The media properties.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The rotation angle of the video.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @description The subtitle configurations.
+     *
      * @var subtitleConfig
      */
     public $subtitleConfig;
 
     /**
+     * @description The configurations for using the resolution of the source video.
+     *
      * @var superReso
      */
     public $superReso;
 
     /**
+     * @description The ending parts.
+     *
      * @var tailSlateList
      */
     public $tailSlateList;
 
     /**
+     * @description The template ID.
+     *
+     * @example S00000000-000010
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The general transcoding configurations. If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+     *
      * @var transConfig
      */
     public $transConfig;
 
     /**
+     * @description The custom data.
+     *
+     * @example test-001
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The video configurations.
+     *
      * @var video
      */
     public $video;
 
     /**
+     * @description The sequence number of the video stream.
+     *
+     *   Format: 0:a:{Sequence number}. Example value: 0:a:0.
+     *   The sequence number is the index of the video stream in the list and starts from 0.
+     *   If no sequence number is specified, the default video stream is used.
+     *
+     * @example 0:a:0
+     *
      * @var string
      */
     public $videoStreamMap;
 
     /**
+     * @description The URL of the watermark configuration file.
+     *
+     * @example http://example.com/configure
+     *
      * @var string
      */
     public $waterMarkConfigUrl;
 
     /**
+     * @description The watermarks.
+     *
      * @var waterMarkList
      */
     public $waterMarkList;

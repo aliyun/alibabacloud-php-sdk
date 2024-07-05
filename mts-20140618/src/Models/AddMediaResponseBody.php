@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddMediaResponseBody extends Model
 {
     /**
+     * @description The detailed information about the media file.
+     *
      * @var media
      */
     public $media;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
+     *
      * @var string
      */
     public $requestId;

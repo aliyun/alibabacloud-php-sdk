@@ -9,46 +9,96 @@ use AlibabaCloud\Tea\Model;
 class tileOut extends Model
 {
     /**
+     * @description The height of a single image. The default value is the height of the output snapshot.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $cellHeight;
 
     /**
+     * @description The step for selecting a single image.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $cellSelStep;
 
     /**
+     * @description The width of a single image. The default value is the width of the output snapshot.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $cellWidth;
 
     /**
+     * @description The background color.
+     *
+     *   Default value: **black**.
+     *   You can set the Color parameter to a **color keyword** or **random** in the request.
+     *
+     * > If you want to set the background color to black, you can specify the color keyword in one of the following three formats: Black, black, and #000000.
+     * @example black
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @description The number of columns that the tiled image contains. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $columns;
 
     /**
+     * @description Indicates whether the single images are retained. Valid values:
+     *
+     *   **true**: The single images are retained.
+     *   **false**: The single images are not retained.
+     *   Default value: **true**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isKeepCellPic;
 
     /**
+     * @description The number of rows that the tiled image contains. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $lines;
 
     /**
+     * @description The margin width of the tiled image.
+     *
+     *   Default value: **0**.
+     *   Unit: pixel.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $margin;
 
     /**
+     * @description The distance between two consecutive single images in the tiled image.
+     *
+     *   Default value: **0**.
+     *   Unit: pixel.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $padding;

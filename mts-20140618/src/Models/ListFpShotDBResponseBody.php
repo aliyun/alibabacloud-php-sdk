@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class ListFpShotDBResponseBody extends Model
 {
     /**
+     * @description The media fingerprint libraries.
+     *
      * @var fpShotDBList
      */
     public $fpShotDBList;
 
     /**
+     * @description The IDs of the media fingerprint libraries that do not exist.
+     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class face extends Model
 {
     /**
+     * @description The ID of the face.
+     *
+     * @example 15****
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @description The URL of the facial image that was registered for the figure.
+     *
+     * @example http://example-****.jpeg
+     *
      * @var string
      */
     public $imageUrl;

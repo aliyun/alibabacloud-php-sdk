@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @description The container format.
+     *
+     *   Default value: mp4.
+     *   Video formats include FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
+     *   Audio formats include MP3, MP4, Ogg, FLAC, and M4A.
+     *   Image formats include GIF and WebP. If the container format is GIF, the video codec must be GIF.
+     *   If the container format is WebP, the video codec must be WebP.
+     *   If the container format is FLV, the video codec cannot be H.265.
+     *
+     * @example mp4
+     *
      * @var string
      */
     public $format;

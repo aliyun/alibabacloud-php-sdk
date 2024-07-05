@@ -16,111 +16,192 @@ use AlibabaCloud\Tea\Model;
 class media extends Model
 {
     /**
+     * @description The bitrate.
+     *
+     * @example 593.192
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The ID of the category to which the media file belongs.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @description The review status of the media file. Valid values:
+     *
+     *   **Initiated**: The media file is uploaded but not reviewed.
+     *   **Pass**: The media file is uploaded and passes the review.
+     *
+     * @example Initiated
+     *
      * @var string
      */
     public $censorState;
 
     /**
+     * @description The OSS URL of the thumbnail.
+     *
+     * @example http://example-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example-****.png
+     *
      * @var string
      */
     public $coverURL;
 
     /**
+     * @description The time when the media file was created.
+     *
+     * @example 2021-07-14T13:05:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The description.
+     *
+     * @example This is description ****
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration.
+     *
+     * @example 79.204000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The details of the input file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+     *
+     * @example mov
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The frame rate.
+     *
+     * @example 15.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height of the queried media file.
+     *
+     * @example 360
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The ID of the media file.
+     *
+     * @example 52d7e98b05e648199612290bb819****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The media information.
+     *
      * @var mediaInfo
      */
     public $mediaInfo;
 
     /**
+     * @description The playlist.
+     *
      * @var playList
      */
     public $playList;
 
     /**
+     * @description The publishing status of the media file. Valid values:
+     *
+     * - **Initiated**: The media file is in the initial state.
+     * - **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
+     * - **Published**: The media file has been published, and the playback permission on the OSS object is Default.
+     * - **Deleted**: The file is deleted.
+     * @example Published
+     *
      * @var string
      */
     public $publishState;
 
     /**
+     * @description The IDs of the media workflow execution instances.
+     *
      * @var runIdList
      */
     public $runIdList;
 
     /**
+     * @description The size of the file.
+     *
+     * @example 5872904
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The list of snapshots.
+     *
      * @var snapshotList
      */
     public $snapshotList;
 
     /**
+     * @description The list of video summaries.
+     *
      * @var summaryList
      */
     public $summaryList;
 
     /**
+     * @description The tags of the media file.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The title.
+     *
+     * @example kled.mp4
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The width.
+     *
+     * @example 640
+     *
      * @var string
      */
     public $width;

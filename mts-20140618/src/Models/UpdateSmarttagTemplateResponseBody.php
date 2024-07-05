@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSmarttagTemplateResponseBody extends Model
 {
     /**
+     * @example 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+     *
      * @var string
      */
     public $requestId;

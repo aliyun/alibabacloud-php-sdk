@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class outputFile extends Model
 {
     /**
+     * @description The OSS bucket that stores the output file.
+     *
+     * @example example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The ID of the region in which the output OSS bucket is located.
+     *
+     * @example example-location
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The OSS object that is generated as the output file of the tiling job.
+     *
+     * @example example.png
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+     *
+     * @example acs:ram::1:role/testrole
+     *
      * @var string
      */
     public $roleArn;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class logoData extends Model
 {
     /**
+     * @description The height of the logo area. Unit: pixel.
+     *
+     * @example 106
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @description The name of the detected logo.
+     *
+     * @example Hunan TV
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the detected logo. For example, a value of TV indicates a controlled media logo.
+     *
+     * @example TV
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The width of the logo area. Unit: pixel.
+     *
+     * @example 106
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @description The distance between the upper-left corner of the logo area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 140
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @description The distance between the upper-left corner of the logo area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 68
+     *
      * @var float
      */
     public $y;

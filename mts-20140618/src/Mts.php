@@ -82,8 +82,6 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaWorkflowExecutionsRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaWorkflowExecutionsResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListResponse;
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryEditingJobListRequest;
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryEditingJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListRequest;
@@ -118,16 +116,12 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySnapshotJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySnapshotJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryTemplateListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryTemplateListResponse;
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoQualityJobRequest;
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomFaceRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomFaceResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomViewRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomViewResponse;
-use AlibabaCloud\SDK\Mts\V20140618\Models\ReportFpShotJobResultRequest;
-use AlibabaCloud\SDK\Mts\V20140618\Models\ReportFpShotJobResultResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SearchMediaWorkflowRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SearchMediaWorkflowResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SearchPipelineRequest;
@@ -156,8 +150,6 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSmarttagJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSmarttagJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSnapshotJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSnapshotJobResponse;
-use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoQualityJobRequest;
-use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\TagCustomPersonRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\TagCustomPersonResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\UnbindInputBucketRequest;
@@ -270,10 +262,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ActivateMediaWorkflowRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Activates a media workflow.
+     *  *
+     * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ActivateMediaWorkflowRequest $request ActivateMediaWorkflowRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ActivateMediaWorkflowResponse
+     * @return ActivateMediaWorkflowResponse ActivateMediaWorkflowResponse
      */
     public function activateMediaWorkflowWithOptions($request, $runtime)
     {
@@ -313,9 +311,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ActivateMediaWorkflowRequest $request
+     * @summary Activates a media workflow.
+     *  *
+     * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ActivateMediaWorkflowRequest $request ActivateMediaWorkflowRequest
      *
-     * @return ActivateMediaWorkflowResponse
+     * @return ActivateMediaWorkflowResponse ActivateMediaWorkflowResponse
      */
     public function activateMediaWorkflow($request)
     {
@@ -325,10 +329,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Adds a media file.
+     *  *
+     * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+     * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaRequest $request AddMediaRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMediaResponse
+     * @return AddMediaResponse AddMediaResponse
      */
     public function addMediaWithOptions($request, $runtime)
     {
@@ -395,9 +406,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaRequest $request
+     * @summary Adds a media file.
+     *  *
+     * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+     * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaRequest $request AddMediaRequest
      *
-     * @return AddMediaResponse
+     * @return AddMediaResponse AddMediaResponse
      */
     public function addMedia($request)
     {
@@ -407,10 +425,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaTagRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Adds a tag to a media file.
+     *  *
+     * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaTagRequest $request AddMediaTagRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMediaTagResponse
+     * @return AddMediaTagResponse AddMediaTagResponse
      */
     public function addMediaTagWithOptions($request, $runtime)
     {
@@ -453,9 +477,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaTagRequest $request
+     * @summary Adds a tag to a media file.
+     *  *
+     * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaTagRequest $request AddMediaTagRequest
      *
-     * @return AddMediaTagResponse
+     * @return AddMediaTagResponse AddMediaTagResponse
      */
     public function addMediaTag($request)
     {
@@ -465,10 +495,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaWorkflowRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a media workflow.
+     *  *
+     * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+     * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaWorkflowRequest $request AddMediaWorkflowRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMediaWorkflowResponse
+     * @return AddMediaWorkflowResponse AddMediaWorkflowResponse
      */
     public function addMediaWorkflowWithOptions($request, $runtime)
     {
@@ -514,9 +551,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddMediaWorkflowRequest $request
+     * @summary Creates a media workflow.
+     *  *
+     * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+     * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddMediaWorkflowRequest $request AddMediaWorkflowRequest
      *
-     * @return AddMediaWorkflowResponse
+     * @return AddMediaWorkflowResponse AddMediaWorkflowResponse
      */
     public function addMediaWorkflow($request)
     {
@@ -526,10 +570,12 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddPipelineRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @param AddPipelineRequest $request AddPipelineRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPipelineResponse
+     * @return AddPipelineResponse AddPipelineResponse
      */
     public function addPipelineWithOptions($request, $runtime)
     {
@@ -581,9 +627,11 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddPipelineRequest $request
+     * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @param AddPipelineRequest $request AddPipelineRequest
      *
-     * @return AddPipelineResponse
+     * @return AddPipelineResponse AddPipelineResponse
      */
     public function addPipeline($request)
     {
@@ -593,10 +641,12 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddSmarttagTemplateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 添加labelVersion、knowledgeConfig配置
+     *  *
+     * @param AddSmarttagTemplateRequest $request AddSmarttagTemplateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSmarttagTemplateResponse
+     * @return AddSmarttagTemplateResponse AddSmarttagTemplateResponse
      */
     public function addSmarttagTemplateWithOptions($request, $runtime)
     {
@@ -672,9 +722,11 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddSmarttagTemplateRequest $request
+     * @summary 添加labelVersion、knowledgeConfig配置
+     *  *
+     * @param AddSmarttagTemplateRequest $request AddSmarttagTemplateRequest
      *
-     * @return AddSmarttagTemplateResponse
+     * @return AddSmarttagTemplateResponse AddSmarttagTemplateResponse
      */
     public function addSmarttagTemplate($request)
     {
@@ -684,10 +736,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+     *  *
+     * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddTemplateRequest $request AddTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTemplateResponse
+     * @return AddTemplateResponse AddTemplateResponse
      */
     public function addTemplateWithOptions($request, $runtime)
     {
@@ -742,9 +800,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddTemplateRequest $request
+     * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+     *  *
+     * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddTemplateRequest $request AddTemplateRequest
      *
-     * @return AddTemplateResponse
+     * @return AddTemplateResponse AddTemplateResponse
      */
     public function addTemplate($request)
     {
@@ -754,10 +818,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddWaterMarkTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a watermark template.
+     *  *
+     * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddWaterMarkTemplateRequest $request AddWaterMarkTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddWaterMarkTemplateResponse
+     * @return AddWaterMarkTemplateResponse AddWaterMarkTemplateResponse
      */
     public function addWaterMarkTemplateWithOptions($request, $runtime)
     {
@@ -800,9 +870,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param AddWaterMarkTemplateRequest $request
+     * @summary Creates a watermark template.
+     *  *
+     * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param AddWaterMarkTemplateRequest $request AddWaterMarkTemplateRequest
      *
-     * @return AddWaterMarkTemplateResponse
+     * @return AddWaterMarkTemplateResponse AddWaterMarkTemplateResponse
      */
     public function addWaterMarkTemplate($request)
     {
@@ -812,10 +888,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param BindInputBucketRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Binds an input media bucket.
+     *  *
+     * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param BindInputBucketRequest $request BindInputBucketRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindInputBucketResponse
+     * @return BindInputBucketResponse BindInputBucketResponse
      */
     public function bindInputBucketWithOptions($request, $runtime)
     {
@@ -839,9 +921,6 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->roleArn)) {
-            $query['RoleArn'] = $request->roleArn;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -861,9 +940,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param BindInputBucketRequest $request
+     * @summary Binds an input media bucket.
+     *  *
+     * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param BindInputBucketRequest $request BindInputBucketRequest
      *
-     * @return BindInputBucketResponse
+     * @return BindInputBucketResponse BindInputBucketResponse
      */
     public function bindInputBucket($request)
     {
@@ -873,10 +958,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param BindOutputBucketRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Binds an output media bucket to the media library.
+     *  *
+     * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param BindOutputBucketRequest $request BindOutputBucketRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindOutputBucketResponse
+     * @return BindOutputBucketResponse BindOutputBucketResponse
      */
     public function bindOutputBucketWithOptions($request, $runtime)
     {
@@ -897,9 +988,6 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->roleArn)) {
-            $query['RoleArn'] = $request->roleArn;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -919,9 +1007,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param BindOutputBucketRequest $request
+     * @summary Binds an output media bucket to the media library.
+     *  *
+     * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param BindOutputBucketRequest $request BindOutputBucketRequest
      *
-     * @return BindOutputBucketResponse
+     * @return BindOutputBucketResponse BindOutputBucketResponse
      */
     public function bindOutputBucket($request)
     {
@@ -931,10 +1025,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CancelJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Cancels a transcoding job.
+     *  *
+     * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param CancelJobRequest $request CancelJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelJobResponse
+     * @return CancelJobResponse CancelJobResponse
      */
     public function cancelJobWithOptions($request, $runtime)
     {
@@ -974,9 +1075,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CancelJobRequest $request
+     * @summary Cancels a transcoding job.
+     *  *
+     * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param CancelJobRequest $request CancelJobRequest
      *
-     * @return CancelJobResponse
+     * @return CancelJobResponse CancelJobResponse
      */
     public function cancelJob($request)
     {
@@ -986,10 +1094,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomEntityRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateCustomEntityRequest $request CreateCustomEntityRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomEntityResponse
+     * @return CreateCustomEntityResponse CreateCustomEntityResponse
      */
     public function createCustomEntityWithOptions($request, $runtime)
     {
@@ -1038,9 +1146,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomEntityRequest $request
+     * @param CreateCustomEntityRequest $request CreateCustomEntityRequest
      *
-     * @return CreateCustomEntityResponse
+     * @return CreateCustomEntityResponse CreateCustomEntityResponse
      */
     public function createCustomEntity($request)
     {
@@ -1050,10 +1158,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateCustomGroupRequest $request CreateCustomGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomGroupResponse
+     * @return CreateCustomGroupResponse CreateCustomGroupResponse
      */
     public function createCustomGroupWithOptions($request, $runtime)
     {
@@ -1099,9 +1207,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomGroupRequest $request
+     * @param CreateCustomGroupRequest $request CreateCustomGroupRequest
      *
-     * @return CreateCustomGroupResponse
+     * @return CreateCustomGroupResponse CreateCustomGroupResponse
      */
     public function createCustomGroup($request)
     {
@@ -1111,10 +1219,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateFpShotDBRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Submits a job of creating a media fingerprint library.
+     *  *
+     * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+     * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
+     * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param CreateFpShotDBRequest $request CreateFpShotDBRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFpShotDBResponse
+     * @return CreateFpShotDBResponse CreateFpShotDBResponse
      */
     public function createFpShotDBWithOptions($request, $runtime)
     {
@@ -1163,9 +1279,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param CreateFpShotDBRequest $request
+     * @summary Submits a job of creating a media fingerprint library.
+     *  *
+     * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+     * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
+     * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param CreateFpShotDBRequest $request CreateFpShotDBRequest
      *
-     * @return CreateFpShotDBResponse
+     * @return CreateFpShotDBResponse CreateFpShotDBResponse
      */
     public function createFpShotDB($request)
     {
@@ -1175,10 +1299,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeactivateMediaWorkflowRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Disables a media workflow.
+     *  *
+     * @description The time when the media workflow was created.
+     *  *
+     * @param DeactivateMediaWorkflowRequest $request DeactivateMediaWorkflowRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeactivateMediaWorkflowResponse
+     * @return DeactivateMediaWorkflowResponse DeactivateMediaWorkflowResponse
      */
     public function deactivateMediaWorkflowWithOptions($request, $runtime)
     {
@@ -1218,9 +1346,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeactivateMediaWorkflowRequest $request
+     * @summary Disables a media workflow.
+     *  *
+     * @description The time when the media workflow was created.
+     *  *
+     * @param DeactivateMediaWorkflowRequest $request DeactivateMediaWorkflowRequest
      *
-     * @return DeactivateMediaWorkflowResponse
+     * @return DeactivateMediaWorkflowResponse DeactivateMediaWorkflowResponse
      */
     public function deactivateMediaWorkflow($request)
     {
@@ -1230,10 +1362,12 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomEntityRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a custom entity from a custom library.
+     *  *
+     * @param DeleteCustomEntityRequest $request DeleteCustomEntityRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomEntityResponse
+     * @return DeleteCustomEntityResponse DeleteCustomEntityResponse
      */
     public function deleteCustomEntityWithOptions($request, $runtime)
     {
@@ -1279,9 +1413,11 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomEntityRequest $request
+     * @summary Deletes a custom entity from a custom library.
+     *  *
+     * @param DeleteCustomEntityRequest $request DeleteCustomEntityRequest
      *
-     * @return DeleteCustomEntityResponse
+     * @return DeleteCustomEntityResponse DeleteCustomEntityResponse
      */
     public function deleteCustomEntity($request)
     {
@@ -1291,10 +1427,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Delete a custom image library.
+     *  *
+     * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteCustomGroupRequest $request DeleteCustomGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomGroupResponse
+     * @return DeleteCustomGroupResponse DeleteCustomGroupResponse
      */
     public function deleteCustomGroupWithOptions($request, $runtime)
     {
@@ -1337,9 +1479,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomGroupRequest $request
+     * @summary Delete a custom image library.
+     *  *
+     * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteCustomGroupRequest $request DeleteCustomGroupRequest
      *
-     * @return DeleteCustomGroupResponse
+     * @return DeleteCustomGroupResponse DeleteCustomGroupResponse
      */
     public function deleteCustomGroup($request)
     {
@@ -1349,10 +1497,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomViewRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteCustomViewRequest $request DeleteCustomViewRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomViewResponse
+     * @return DeleteCustomViewResponse DeleteCustomViewResponse
      */
     public function deleteCustomViewWithOptions($request, $runtime)
     {
@@ -1401,9 +1549,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomViewRequest $request
+     * @param DeleteCustomViewRequest $request DeleteCustomViewRequest
      *
-     * @return DeleteCustomViewResponse
+     * @return DeleteCustomViewResponse DeleteCustomViewResponse
      */
     public function deleteCustomView($request)
     {
@@ -1413,10 +1561,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
+     *  *
+     * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaRequest $request DeleteMediaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaResponse
+     * @return DeleteMediaResponse DeleteMediaResponse
      */
     public function deleteMediaWithOptions($request, $runtime)
     {
@@ -1456,9 +1610,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaRequest $request
+     * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
+     *  *
+     * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaRequest $request DeleteMediaRequest
      *
-     * @return DeleteMediaResponse
+     * @return DeleteMediaResponse DeleteMediaResponse
      */
     public function deleteMedia($request)
     {
@@ -1468,10 +1628,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaTagRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes a tag for a media file.
+     *  *
+     * @description You can call this operation to remove only one tag at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaTagRequest $request DeleteMediaTagRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaTagResponse
+     * @return DeleteMediaTagResponse DeleteMediaTagResponse
      */
     public function deleteMediaTagWithOptions($request, $runtime)
     {
@@ -1514,9 +1680,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaTagRequest $request
+     * @summary Removes a tag for a media file.
+     *  *
+     * @description You can call this operation to remove only one tag at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaTagRequest $request DeleteMediaTagRequest
      *
-     * @return DeleteMediaTagResponse
+     * @return DeleteMediaTagResponse DeleteMediaTagResponse
      */
     public function deleteMediaTag($request)
     {
@@ -1526,10 +1698,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaWorkflowRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a media workflow. This does not affect workflow instances that are running.
+     *  *
+     * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaWorkflowRequest $request DeleteMediaWorkflowRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaWorkflowResponse
+     * @return DeleteMediaWorkflowResponse DeleteMediaWorkflowResponse
      */
     public function deleteMediaWorkflowWithOptions($request, $runtime)
     {
@@ -1569,9 +1747,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaWorkflowRequest $request
+     * @summary Deletes a media workflow. This does not affect workflow instances that are running.
+     *  *
+     * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteMediaWorkflowRequest $request DeleteMediaWorkflowRequest
      *
-     * @return DeleteMediaWorkflowResponse
+     * @return DeleteMediaWorkflowResponse DeleteMediaWorkflowResponse
      */
     public function deleteMediaWorkflow($request)
     {
@@ -1581,10 +1765,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeletePipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @description You can call this operation to delete only one MPS queue at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeletePipelineRequest $request DeletePipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipelineWithOptions($request, $runtime)
     {
@@ -1624,9 +1814,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeletePipelineRequest $request
+     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @description You can call this operation to delete only one MPS queue at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeletePipelineRequest $request DeletePipelineRequest
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipeline($request)
     {
@@ -1636,10 +1832,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmarttagTemplateRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes a template.
+     *  *
+     * @description You can call this operation to delete only one template at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteSmarttagTemplateRequest $request DeleteSmarttagTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSmarttagTemplateResponse
+     * @return DeleteSmarttagTemplateResponse DeleteSmarttagTemplateResponse
      */
     public function deleteSmarttagTemplateWithOptions($request, $runtime)
     {
@@ -1679,9 +1881,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmarttagTemplateRequest $request
+     * @summary Deletes a template.
+     *  *
+     * @description You can call this operation to delete only one template at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteSmarttagTemplateRequest $request DeleteSmarttagTemplateRequest
      *
-     * @return DeleteSmarttagTemplateResponse
+     * @return DeleteSmarttagTemplateResponse DeleteSmarttagTemplateResponse
      */
     public function deleteSmarttagTemplate($request)
     {
@@ -1691,10 +1899,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a custom transcoding template.
+     *  *
+     * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
@@ -1734,9 +1948,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
+     * @summary Deletes a custom transcoding template.
+     *  *
+     * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -1746,10 +1966,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteWaterMarkTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a watermark template.
+     *  *
+     * @description A watermark template cannot be deleted if it is being used by a submitted job.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteWaterMarkTemplateRequest $request DeleteWaterMarkTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWaterMarkTemplateResponse
+     * @return DeleteWaterMarkTemplateResponse DeleteWaterMarkTemplateResponse
      */
     public function deleteWaterMarkTemplateWithOptions($request, $runtime)
     {
@@ -1789,9 +2015,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param DeleteWaterMarkTemplateRequest $request
+     * @summary Deletes a watermark template.
+     *  *
+     * @description A watermark template cannot be deleted if it is being used by a submitted job.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param DeleteWaterMarkTemplateRequest $request DeleteWaterMarkTemplateRequest
      *
-     * @return DeleteWaterMarkTemplateResponse
+     * @return DeleteWaterMarkTemplateResponse DeleteWaterMarkTemplateResponse
      */
     public function deleteWaterMarkTemplate($request)
     {
@@ -1801,10 +2033,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ImAuditRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Reviews images and text and returns the review results.
+     *  *
+     * @description *   The moderation results are synchronously returned after the moderation is complete.
+     * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ImAuditRequest $request ImAuditRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImAuditResponse
+     * @return ImAuditResponse ImAuditResponse
      */
     public function imAuditWithOptions($request, $runtime)
     {
@@ -1850,9 +2089,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ImAuditRequest $request
+     * @summary Reviews images and text and returns the review results.
+     *  *
+     * @description *   The moderation results are synchronously returned after the moderation is complete.
+     * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ImAuditRequest $request ImAuditRequest
      *
-     * @return ImAuditResponse
+     * @return ImAuditResponse ImAuditResponse
      */
     public function imAudit($request)
     {
@@ -1862,10 +2108,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ImportFpShotJobRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Submits a job of importing text files to a text fingerprint library.
+     *  *
+     * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+     * *   You can call this operation only in the China (Shanghai) region.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ImportFpShotJobRequest $request ImportFpShotJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportFpShotJobResponse
+     * @return ImportFpShotJobResponse ImportFpShotJobResponse
      */
     public function importFpShotJobWithOptions($request, $runtime)
     {
@@ -1917,9 +2170,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ImportFpShotJobRequest $request
+     * @summary Submits a job of importing text files to a text fingerprint library.
+     *  *
+     * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+     * *   You can call this operation only in the China (Shanghai) region.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ImportFpShotJobRequest $request ImportFpShotJobRequest
      *
-     * @return ImportFpShotJobResponse
+     * @return ImportFpShotJobResponse ImportFpShotJobResponse
      */
     public function importFpShotJob($request)
     {
@@ -1929,10 +2189,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListAllMediaBucketRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries all media buckets bound to the media library.
+     *  *
+     * @description A maximum of 100 media buckets can be returned.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListAllMediaBucketRequest $request ListAllMediaBucketRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAllMediaBucketResponse
+     * @return ListAllMediaBucketResponse ListAllMediaBucketResponse
      */
     public function listAllMediaBucketWithOptions($request, $runtime)
     {
@@ -1975,9 +2241,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListAllMediaBucketRequest $request
+     * @summary Queries all media buckets bound to the media library.
+     *  *
+     * @description A maximum of 100 media buckets can be returned.
+     * ### QPS limit
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListAllMediaBucketRequest $request ListAllMediaBucketRequest
      *
-     * @return ListAllMediaBucketResponse
+     * @return ListAllMediaBucketResponse ListAllMediaBucketResponse
      */
     public function listAllMediaBucket($request)
     {
@@ -1987,10 +2259,12 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomEntitiesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of entities in a custom library.
+     *  *
+     * @param ListCustomEntitiesRequest $request ListCustomEntitiesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomEntitiesResponse
+     * @return ListCustomEntitiesResponse ListCustomEntitiesResponse
      */
     public function listCustomEntitiesWithOptions($request, $runtime)
     {
@@ -2039,9 +2313,11 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomEntitiesRequest $request
+     * @summary Queries a list of entities in a custom library.
+     *  *
+     * @param ListCustomEntitiesRequest $request ListCustomEntitiesRequest
      *
-     * @return ListCustomEntitiesResponse
+     * @return ListCustomEntitiesResponse ListCustomEntitiesResponse
      */
     public function listCustomEntities($request)
     {
@@ -2051,10 +2327,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomGroupsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListCustomGroupsRequest $request ListCustomGroupsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomGroupsResponse
+     * @return ListCustomGroupsResponse ListCustomGroupsResponse
      */
     public function listCustomGroupsWithOptions($request, $runtime)
     {
@@ -2100,9 +2376,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomGroupsRequest $request
+     * @param ListCustomGroupsRequest $request ListCustomGroupsRequest
      *
-     * @return ListCustomGroupsResponse
+     * @return ListCustomGroupsResponse ListCustomGroupsResponse
      */
     public function listCustomGroups($request)
     {
@@ -2112,10 +2388,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomPersonsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about all figures and faces in a specific figure library.
+     *  *
+     * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListCustomPersonsRequest $request ListCustomPersonsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomPersonsResponse
+     * @return ListCustomPersonsResponse ListCustomPersonsResponse
      */
     public function listCustomPersonsWithOptions($request, $runtime)
     {
@@ -2158,9 +2440,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomPersonsRequest $request
+     * @summary Queries the information about all figures and faces in a specific figure library.
+     *  *
+     * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListCustomPersonsRequest $request ListCustomPersonsRequest
      *
-     * @return ListCustomPersonsResponse
+     * @return ListCustomPersonsResponse ListCustomPersonsResponse
      */
     public function listCustomPersons($request)
     {
@@ -2170,10 +2458,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomViewsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ListCustomViewsRequest $request ListCustomViewsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomViewsResponse
+     * @return ListCustomViewsResponse ListCustomViewsResponse
      */
     public function listCustomViewsWithOptions($request, $runtime)
     {
@@ -2225,9 +2513,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListCustomViewsRequest $request
+     * @param ListCustomViewsRequest $request ListCustomViewsRequest
      *
-     * @return ListCustomViewsResponse
+     * @return ListCustomViewsResponse ListCustomViewsResponse
      */
     public function listCustomViews($request)
     {
@@ -2237,10 +2525,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotDBRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries media fingerprint libraries.
+     *  *
+     * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+     * *   You can query text fingerprint libraries only in the China (Shanghai) region.
+     * *   You can call this operation to query up to 10 media fingerprint libraries.
+     * ### QPS limit
+     * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotDBRequest $request ListFpShotDBRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFpShotDBResponse
+     * @return ListFpShotDBResponse ListFpShotDBResponse
      */
     public function listFpShotDBWithOptions($request, $runtime)
     {
@@ -2280,9 +2576,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotDBRequest $request
+     * @summary Queries media fingerprint libraries.
+     *  *
+     * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+     * *   You can query text fingerprint libraries only in the China (Shanghai) region.
+     * *   You can call this operation to query up to 10 media fingerprint libraries.
+     * ### QPS limit
+     * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotDBRequest $request ListFpShotDBRequest
      *
-     * @return ListFpShotDBResponse
+     * @return ListFpShotDBResponse ListFpShotDBResponse
      */
     public function listFpShotDB($request)
     {
@@ -2292,15 +2596,25 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotFilesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries media files in a media fingerprint library.
+     *  *
+     * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+     * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotFilesRequest $request ListFpShotFilesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFpShotFilesResponse
+     * @return ListFpShotFilesResponse ListFpShotFilesResponse
      */
     public function listFpShotFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->fpDBId)) {
             $query['FpDBId'] = $request->fpDBId;
         }
@@ -2322,6 +2636,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2341,9 +2658,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotFilesRequest $request
+     * @summary Queries media files in a media fingerprint library.
+     *  *
+     * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+     * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotFilesRequest $request ListFpShotFilesRequest
      *
-     * @return ListFpShotFilesResponse
+     * @return ListFpShotFilesResponse ListFpShotFilesResponse
      */
     public function listFpShotFiles($request)
     {
@@ -2353,10 +2677,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotImportJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries jobs of importing text files to a text fingerprint library.
+     *  *
+     * @description You can call this operation only in the China (Shanghai) region.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotImportJobRequest $request ListFpShotImportJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFpShotImportJobResponse
+     * @return ListFpShotImportJobResponse ListFpShotImportJobResponse
      */
     public function listFpShotImportJobWithOptions($request, $runtime)
     {
@@ -2396,9 +2726,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListFpShotImportJobRequest $request
+     * @summary Queries jobs of importing text files to a text fingerprint library.
+     *  *
+     * @description You can call this operation only in the China (Shanghai) region.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListFpShotImportJobRequest $request ListFpShotImportJobRequest
      *
-     * @return ListFpShotImportJobResponse
+     * @return ListFpShotImportJobResponse ListFpShotImportJobResponse
      */
     public function listFpShotImportJob($request)
     {
@@ -2408,10 +2744,19 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListJobRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Traverses transcoding jobs
+     *  *
+     * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+     * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
+     * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
+     * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListJobRequest $request ListJobRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobResponse
+     * @return ListJobResponse ListJobResponse
      */
     public function listJobWithOptions($request, $runtime)
     {
@@ -2466,9 +2811,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListJobRequest $request
+     * @summary Traverses transcoding jobs
+     *  *
+     * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+     * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
+     * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
+     * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListJobRequest $request ListJobRequest
      *
-     * @return ListJobResponse
+     * @return ListJobResponse ListJobResponse
      */
     public function listJob($request)
     {
@@ -2478,10 +2832,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListMediaWorkflowExecutionsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the execution instances of a media workflow.
+     *  *
+     * @description This operation returns execution instances only in the recent 90 days.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListMediaWorkflowExecutionsRequest $request ListMediaWorkflowExecutionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMediaWorkflowExecutionsResponse
+     * @return ListMediaWorkflowExecutionsResponse ListMediaWorkflowExecutionsResponse
      */
     public function listMediaWorkflowExecutionsWithOptions($request, $runtime)
     {
@@ -2533,9 +2893,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ListMediaWorkflowExecutionsRequest $request
+     * @summary Queries the execution instances of a media workflow.
+     *  *
+     * @description This operation returns execution instances only in the recent 90 days.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param ListMediaWorkflowExecutionsRequest $request ListMediaWorkflowExecutionsRequest
      *
-     * @return ListMediaWorkflowExecutionsResponse
+     * @return ListMediaWorkflowExecutionsResponse ListMediaWorkflowExecutionsResponse
      */
     public function listMediaWorkflowExecutions($request)
     {
@@ -2545,10 +2911,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryAnalysisJobListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+     *  *
+     * @description The time when the job was created.
+     *  *
+     * @param QueryAnalysisJobListRequest $request QueryAnalysisJobListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAnalysisJobListResponse
+     * @return QueryAnalysisJobListResponse QueryAnalysisJobListResponse
      */
     public function queryAnalysisJobListWithOptions($request, $runtime)
     {
@@ -2588,9 +2958,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryAnalysisJobListRequest $request
+     * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+     *  *
+     * @description The time when the job was created.
+     *  *
+     * @param QueryAnalysisJobListRequest $request QueryAnalysisJobListRequest
      *
-     * @return QueryAnalysisJobListResponse
+     * @return QueryAnalysisJobListResponse QueryAnalysisJobListResponse
      */
     public function queryAnalysisJobList($request)
     {
@@ -2600,65 +2974,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryEditingJobListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the jobs of clearing or deleting a media fingerprint library.
+     *  *
+     * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpDBDeleteJobListRequest $request QueryFpDBDeleteJobListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEditingJobListResponse
-     */
-    public function queryEditingJobListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEditingJobList',
-            'version'     => '2014-06-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryEditingJobListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryEditingJobListRequest $request
-     *
-     * @return QueryEditingJobListResponse
-     */
-    public function queryEditingJobList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryEditingJobListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryFpDBDeleteJobListRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryFpDBDeleteJobListResponse
+     * @return QueryFpDBDeleteJobListResponse QueryFpDBDeleteJobListResponse
      */
     public function queryFpDBDeleteJobListWithOptions($request, $runtime)
     {
@@ -2698,9 +3023,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryFpDBDeleteJobListRequest $request
+     * @summary Queries the jobs of clearing or deleting a media fingerprint library.
+     *  *
+     * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpDBDeleteJobListRequest $request QueryFpDBDeleteJobListRequest
      *
-     * @return QueryFpDBDeleteJobListResponse
+     * @return QueryFpDBDeleteJobListResponse QueryFpDBDeleteJobListResponse
      */
     public function queryFpDBDeleteJobList($request)
     {
@@ -2710,10 +3041,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryFpFileDeleteJobListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the jobs of deleting media files from a media fingerprint library.
+     *  *
+     * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+     * ### QPS limit
+     * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpFileDeleteJobListRequest $request QueryFpFileDeleteJobListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFpFileDeleteJobListResponse
+     * @return QueryFpFileDeleteJobListResponse QueryFpFileDeleteJobListResponse
      */
     public function queryFpFileDeleteJobListWithOptions($request, $runtime)
     {
@@ -2753,9 +3090,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryFpFileDeleteJobListRequest $request
+     * @summary Queries the jobs of deleting media files from a media fingerprint library.
+     *  *
+     * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+     * ### QPS limit
+     * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpFileDeleteJobListRequest $request QueryFpFileDeleteJobListRequest
      *
-     * @return QueryFpFileDeleteJobListResponse
+     * @return QueryFpFileDeleteJobListResponse QueryFpFileDeleteJobListResponse
      */
     public function queryFpFileDeleteJobList($request)
     {
@@ -2765,17 +3108,33 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryFpShotJobListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+     *  *
+     * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+     * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpShotJobListRequest $request QueryFpShotJobListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFpShotJobListResponse
+     * @return QueryFpShotJobListResponse QueryFpShotJobListResponse
      */
     public function queryFpShotJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
+            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        }
         if (!Utils::isUnset($request->jobIds)) {
             $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->maximumPageSize)) {
+            $query['MaximumPageSize'] = $request->maximumPageSize;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -2783,11 +3142,20 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
+            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2808,9 +3176,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryFpShotJobListRequest $request
+     * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+     *  *
+     * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+     * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
+     * ### [](#qps)QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryFpShotJobListRequest $request QueryFpShotJobListRequest
      *
-     * @return QueryFpShotJobListResponse
+     * @return QueryFpShotJobListResponse QueryFpShotJobListResponse
      */
     public function queryFpShotJobList($request)
     {
@@ -2820,10 +3195,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryIProductionJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIProductionJobResponse
+     * @return QueryIProductionJobResponse QueryIProductionJobResponse
      */
     public function queryIProductionJobWithOptions($request, $runtime)
     {
@@ -2863,9 +3238,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryIProductionJobRequest $request
+     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
      *
-     * @return QueryIProductionJobResponse
+     * @return QueryIProductionJobResponse QueryIProductionJobResponse
      */
     public function queryIProductionJob($request)
     {
@@ -2875,10 +3250,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryJobListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries transcoding jobs at a time by job ID.
+     *  *
+     * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+     * *   You can call this operation to query up to 10 transcoding jobs at a time.
+     * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
+     * ## QPS limit
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryJobListRequest $request QueryJobListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryJobListResponse
+     * @return QueryJobListResponse QueryJobListResponse
      */
     public function queryJobListWithOptions($request, $runtime)
     {
@@ -2918,9 +3301,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryJobListRequest $request
+     * @summary Queries transcoding jobs at a time by job ID.
+     *  *
+     * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+     * *   You can call this operation to query up to 10 transcoding jobs at a time.
+     * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
+     * ## QPS limit
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryJobListRequest $request QueryJobListRequest
      *
-     * @return QueryJobListResponse
+     * @return QueryJobListResponse QueryJobListResponse
      */
     public function queryJobList($request)
     {
@@ -2930,10 +3321,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about a content moderation job.
+     *  *
+     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaCensorJobDetailResponse
+     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetailWithOptions($request, $runtime)
     {
@@ -2979,9 +3376,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobDetailRequest $request
+     * @summary Queries the information about a content moderation job.
+     *  *
+     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
      *
-     * @return QueryMediaCensorJobDetailResponse
+     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetail($request)
     {
@@ -2991,10 +3394,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries content moderation jobs.
+     *  *
+     * @description You can call this operation to query only the content moderation jobs within three months.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaCensorJobListResponse
+     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobListWithOptions($request, $runtime)
     {
@@ -3003,8 +3412,8 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
             $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
         }
         if (!Utils::isUnset($request->maximumPageSize)) {
             $query['MaximumPageSize'] = $request->maximumPageSize;
@@ -3052,9 +3461,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobListRequest $request
+     * @summary Queries content moderation jobs.
+     *  *
+     * @description You can call this operation to query only the content moderation jobs within three months.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
      *
-     * @return QueryMediaCensorJobListResponse
+     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobList($request)
     {
@@ -3064,10 +3479,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaInfoJobListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the results of media information analysis jobs.
+     *  *
+     * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+     * *   You can call this operation to query up to 10 media information analysis jobs at a time.
+     * *   By default, returned jobs are sorted in descending order by CreationTime.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaInfoJobListRequest $request QueryMediaInfoJobListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaInfoJobListResponse
+     * @return QueryMediaInfoJobListResponse QueryMediaInfoJobListResponse
      */
     public function queryMediaInfoJobListWithOptions($request, $runtime)
     {
@@ -3107,9 +3530,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaInfoJobListRequest $request
+     * @summary Queries the results of media information analysis jobs.
+     *  *
+     * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+     * *   You can call this operation to query up to 10 media information analysis jobs at a time.
+     * *   By default, returned jobs are sorted in descending order by CreationTime.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaInfoJobListRequest $request QueryMediaInfoJobListRequest
      *
-     * @return QueryMediaInfoJobListResponse
+     * @return QueryMediaInfoJobListResponse QueryMediaInfoJobListResponse
      */
     public function queryMediaInfoJobList($request)
     {
@@ -3119,10 +3550,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaListRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries media files based on media file IDs.
+     *  *
+     * @description You can call this operation to query up to 10 media files at a time.
+     * ## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryMediaListRequest $request QueryMediaListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaListResponse
+     * @return QueryMediaListResponse QueryMediaListResponse
      */
     public function queryMediaListWithOptions($request, $runtime)
     {
@@ -3174,9 +3611,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaListRequest $request
+     * @summary Queries media files based on media file IDs.
+     *  *
+     * @description You can call this operation to query up to 10 media files at a time.
+     * ## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryMediaListRequest $request QueryMediaListRequest
      *
-     * @return QueryMediaListResponse
+     * @return QueryMediaListResponse QueryMediaListResponse
      */
     public function queryMediaList($request)
     {
@@ -3186,10 +3629,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaListByURLRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries media files based on their Object Storage Service (OSS) URLs.
+     *  *
+     * @description *   You can call this operation to query up to 10 media files at a time.
+     * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
+     * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
+     * ## QPS limit
+     * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryMediaListByURLRequest $request QueryMediaListByURLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaListByURLResponse
+     * @return QueryMediaListByURLResponse QueryMediaListByURLResponse
      */
     public function queryMediaListByURLWithOptions($request, $runtime)
     {
@@ -3241,9 +3692,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaListByURLRequest $request
+     * @summary Queries media files based on their Object Storage Service (OSS) URLs.
+     *  *
+     * @description *   You can call this operation to query up to 10 media files at a time.
+     * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
+     * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
+     * ## QPS limit
+     * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param QueryMediaListByURLRequest $request QueryMediaListByURLRequest
      *
-     * @return QueryMediaListByURLResponse
+     * @return QueryMediaListByURLResponse QueryMediaListByURLResponse
      */
     public function queryMediaListByURL($request)
     {
@@ -3253,10 +3712,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaWorkflowExecutionListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries media workflow execution instances.
+     *  *
+     * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+     * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaWorkflowExecutionListRequest $request QueryMediaWorkflowExecutionListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaWorkflowExecutionListResponse
+     * @return QueryMediaWorkflowExecutionListResponse QueryMediaWorkflowExecutionListResponse
      */
     public function queryMediaWorkflowExecutionListWithOptions($request, $runtime)
     {
@@ -3296,9 +3762,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaWorkflowExecutionListRequest $request
+     * @summary Queries media workflow execution instances.
+     *  *
+     * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+     * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaWorkflowExecutionListRequest $request QueryMediaWorkflowExecutionListRequest
      *
-     * @return QueryMediaWorkflowExecutionListResponse
+     * @return QueryMediaWorkflowExecutionListResponse QueryMediaWorkflowExecutionListResponse
      */
     public function queryMediaWorkflowExecutionList($request)
     {
@@ -3308,10 +3781,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaWorkflowListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries registered media workflows.
+     *  *
+     * @description You can call this operation to query up to 10 media workflows at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaWorkflowListRequest $request QueryMediaWorkflowListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaWorkflowListResponse
+     * @return QueryMediaWorkflowListResponse QueryMediaWorkflowListResponse
      */
     public function queryMediaWorkflowListWithOptions($request, $runtime)
     {
@@ -3351,9 +3830,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaWorkflowListRequest $request
+     * @summary Queries registered media workflows.
+     *  *
+     * @description You can call this operation to query up to 10 media workflows at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryMediaWorkflowListRequest $request QueryMediaWorkflowListRequest
      *
-     * @return QueryMediaWorkflowListResponse
+     * @return QueryMediaWorkflowListResponse QueryMediaWorkflowListResponse
      */
     public function queryMediaWorkflowList($request)
     {
@@ -3363,10 +3848,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryPipelineListRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+     *  *
+     * @description *   You can call this operation to query up to 10 MPS queues at a time.
+     * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryPipelineListRequest $request QueryPipelineListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPipelineListResponse
+     * @return QueryPipelineListResponse QueryPipelineListResponse
      */
     public function queryPipelineListWithOptions($request, $runtime)
     {
@@ -3406,9 +3898,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryPipelineListRequest $request
+     * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+     *  *
+     * @description *   You can call this operation to query up to 10 MPS queues at a time.
+     * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryPipelineListRequest $request QueryPipelineListRequest
      *
-     * @return QueryPipelineListResponse
+     * @return QueryPipelineListResponse QueryPipelineListResponse
      */
     public function queryPipelineList($request)
     {
@@ -3418,10 +3917,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmarttagJobResponse
+     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
      */
     public function querySmarttagJobWithOptions($request, $runtime)
     {
@@ -3464,9 +3963,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagJobRequest $request
+     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
      *
-     * @return QuerySmarttagJobResponse
+     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
      */
     public function querySmarttagJob($request)
     {
@@ -3476,10 +3975,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagTemplateListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the analysis template of a smart tagging job.
+     *  *
+     * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QuerySmarttagTemplateListRequest $request QuerySmarttagTemplateListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmarttagTemplateListResponse
+     * @return QuerySmarttagTemplateListResponse QuerySmarttagTemplateListResponse
      */
     public function querySmarttagTemplateListWithOptions($request, $runtime)
     {
@@ -3519,9 +4024,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagTemplateListRequest $request
+     * @summary Queries the analysis template of a smart tagging job.
+     *  *
+     * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QuerySmarttagTemplateListRequest $request QuerySmarttagTemplateListRequest
      *
-     * @return QuerySmarttagTemplateListResponse
+     * @return QuerySmarttagTemplateListResponse QuerySmarttagTemplateListResponse
      */
     public function querySmarttagTemplateList($request)
     {
@@ -3531,10 +4042,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySnapshotJobListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries snapshot jobs.
+     *  *
+     * @description The status of the snapshot jobs that you want to query.
+     * *   **Submitted**: The job was submitted.
+     * *   **Snapshoting**: The job is being processed.
+     * *   **Success**: The job was successfully processed.
+     * *   **Fail**: The job failed.
+     *  *
+     * @param QuerySnapshotJobListRequest $request QuerySnapshotJobListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySnapshotJobListResponse
+     * @return QuerySnapshotJobListResponse QuerySnapshotJobListResponse
      */
     public function querySnapshotJobListWithOptions($request, $runtime)
     {
@@ -3592,9 +4111,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QuerySnapshotJobListRequest $request
+     * @summary Queries snapshot jobs.
+     *  *
+     * @description The status of the snapshot jobs that you want to query.
+     * *   **Submitted**: The job was submitted.
+     * *   **Snapshoting**: The job is being processed.
+     * *   **Success**: The job was successfully processed.
+     * *   **Fail**: The job failed.
+     *  *
+     * @param QuerySnapshotJobListRequest $request QuerySnapshotJobListRequest
      *
-     * @return QuerySnapshotJobListResponse
+     * @return QuerySnapshotJobListResponse QuerySnapshotJobListResponse
      */
     public function querySnapshotJobList($request)
     {
@@ -3604,10 +4131,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTemplateListRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary You can call this operation to query up to 10 transcoding templates at a time.
+     *  *
+     * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+     *  *
+     * @param QueryTemplateListRequest $request QueryTemplateListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTemplateListResponse
+     * @return QueryTemplateListResponse QueryTemplateListResponse
      */
     public function queryTemplateListWithOptions($request, $runtime)
     {
@@ -3647,9 +4178,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTemplateListRequest $request
+     * @summary You can call this operation to query up to 10 transcoding templates at a time.
+     *  *
+     * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+     *  *
+     * @param QueryTemplateListRequest $request QueryTemplateListRequest
      *
-     * @return QueryTemplateListResponse
+     * @return QueryTemplateListResponse QueryTemplateListResponse
      */
     public function queryTemplateList($request)
     {
@@ -3659,56 +4194,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryVideoQualityJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries watermark templates.
+     *  *
+     * @description You can call this operation to query up to 10 watermark templates at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryWaterMarkTemplateListRequest $request QueryWaterMarkTemplateListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVideoQualityJobResponse
-     */
-    public function queryVideoQualityJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryVideoQualityJob',
-            'version'     => '2014-06-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryVideoQualityJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryVideoQualityJobRequest $request
-     *
-     * @return QueryVideoQualityJobResponse
-     */
-    public function queryVideoQualityJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryVideoQualityJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryWaterMarkTemplateListRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return QueryWaterMarkTemplateListResponse
+     * @return QueryWaterMarkTemplateListResponse QueryWaterMarkTemplateListResponse
      */
     public function queryWaterMarkTemplateListWithOptions($request, $runtime)
     {
@@ -3748,9 +4243,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryWaterMarkTemplateListRequest $request
+     * @summary Queries watermark templates.
+     *  *
+     * @description You can call this operation to query up to 10 watermark templates at a time.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param QueryWaterMarkTemplateListRequest $request QueryWaterMarkTemplateListRequest
      *
-     * @return QueryWaterMarkTemplateListResponse
+     * @return QueryWaterMarkTemplateListResponse QueryWaterMarkTemplateListResponse
      */
     public function queryWaterMarkTemplateList($request)
     {
@@ -3760,10 +4261,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param RegisterCustomFaceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Registers a custom face.
+     *  *
+     * @description *   You can call this operation to register only one custom face at a time.
+     * *   A maximum of 10 images can be registered for a custom face.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param RegisterCustomFaceRequest $request RegisterCustomFaceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterCustomFaceResponse
+     * @return RegisterCustomFaceResponse RegisterCustomFaceResponse
      */
     public function registerCustomFaceWithOptions($request, $runtime)
     {
@@ -3809,9 +4317,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param RegisterCustomFaceRequest $request
+     * @summary Registers a custom face.
+     *  *
+     * @description *   You can call this operation to register only one custom face at a time.
+     * *   A maximum of 10 images can be registered for a custom face.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param RegisterCustomFaceRequest $request RegisterCustomFaceRequest
      *
-     * @return RegisterCustomFaceResponse
+     * @return RegisterCustomFaceResponse RegisterCustomFaceResponse
      */
     public function registerCustomFace($request)
     {
@@ -3821,10 +4336,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param RegisterCustomViewRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RegisterCustomViewRequest $request RegisterCustomViewRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterCustomViewResponse
+     * @return RegisterCustomViewResponse RegisterCustomViewResponse
      */
     public function registerCustomViewWithOptions($request, $runtime)
     {
@@ -3873,9 +4388,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param RegisterCustomViewRequest $request
+     * @param RegisterCustomViewRequest $request RegisterCustomViewRequest
      *
-     * @return RegisterCustomViewResponse
+     * @return RegisterCustomViewResponse RegisterCustomViewResponse
      */
     public function registerCustomView($request)
     {
@@ -3885,71 +4400,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param ReportFpShotJobResultRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries media workflows in the specified state.
+     *  *
+     * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchMediaWorkflowRequest $request SearchMediaWorkflowRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReportFpShotJobResultResponse
-     */
-    public function reportFpShotJobResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->details)) {
-            $query['Details'] = $request->details;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->result)) {
-            $query['Result'] = $request->result;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReportFpShotJobResult',
-            'version'     => '2014-06-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ReportFpShotJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ReportFpShotJobResultRequest $request
-     *
-     * @return ReportFpShotJobResultResponse
-     */
-    public function reportFpShotJobResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->reportFpShotJobResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SearchMediaWorkflowRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SearchMediaWorkflowResponse
+     * @return SearchMediaWorkflowResponse SearchMediaWorkflowResponse
      */
     public function searchMediaWorkflowWithOptions($request, $runtime)
     {
@@ -3995,9 +4455,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaWorkflowRequest $request
+     * @summary Queries media workflows in the specified state.
+     *  *
+     * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchMediaWorkflowRequest $request SearchMediaWorkflowRequest
      *
-     * @return SearchMediaWorkflowResponse
+     * @return SearchMediaWorkflowResponse SearchMediaWorkflowResponse
      */
     public function searchMediaWorkflow($request)
     {
@@ -4007,10 +4473,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchPipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+     *  *
+     * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchPipelineRequest $request SearchPipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchPipelineResponse
+     * @return SearchPipelineResponse SearchPipelineResponse
      */
     public function searchPipelineWithOptions($request, $runtime)
     {
@@ -4056,9 +4528,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchPipelineRequest $request
+     * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+     *  *
+     * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchPipelineRequest $request SearchPipelineRequest
      *
-     * @return SearchPipelineResponse
+     * @return SearchPipelineResponse SearchPipelineResponse
      */
     public function searchPipeline($request)
     {
@@ -4068,15 +4546,22 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary You can call this operation to query custom transcoding templates in the specified state.
+     *  *
+     * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchTemplateRequest $request SearchTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTemplateResponse
+     * @return SearchTemplateResponse SearchTemplateResponse
      */
     public function searchTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->namePrefix)) {
+            $query['NamePrefix'] = $request->namePrefix;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -4117,9 +4602,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchTemplateRequest $request
+     * @summary You can call this operation to query custom transcoding templates in the specified state.
+     *  *
+     * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SearchTemplateRequest $request SearchTemplateRequest
      *
-     * @return SearchTemplateResponse
+     * @return SearchTemplateResponse SearchTemplateResponse
      */
     public function searchTemplate($request)
     {
@@ -4129,10 +4618,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchWaterMarkTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Searches for watermark templates.
+     *  *
+     * @description The total number of returned entries.
+     *  *
+     * @param SearchWaterMarkTemplateRequest $request SearchWaterMarkTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchWaterMarkTemplateResponse
+     * @return SearchWaterMarkTemplateResponse SearchWaterMarkTemplateResponse
      */
     public function searchWaterMarkTemplateWithOptions($request, $runtime)
     {
@@ -4178,9 +4671,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SearchWaterMarkTemplateRequest $request
+     * @summary Searches for watermark templates.
+     *  *
+     * @description The total number of returned entries.
+     *  *
+     * @param SearchWaterMarkTemplateRequest $request SearchWaterMarkTemplateRequest
      *
-     * @return SearchWaterMarkTemplateResponse
+     * @return SearchWaterMarkTemplateResponse SearchWaterMarkTemplateResponse
      */
     public function searchWaterMarkTemplate($request)
     {
@@ -4190,10 +4687,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitAnalysisJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Submits a preset template analysis job.
+     *  *
+     * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+     * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitAnalysisJobRequest $request SubmitAnalysisJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAnalysisJobResponse
+     * @return SubmitAnalysisJobResponse SubmitAnalysisJobResponse
      */
     public function submitAnalysisJobWithOptions($request, $runtime)
     {
@@ -4245,9 +4749,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitAnalysisJobRequest $request
+     * @summary Submits a preset template analysis job.
+     *  *
+     * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+     * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitAnalysisJobRequest $request SubmitAnalysisJobRequest
      *
-     * @return SubmitAnalysisJobResponse
+     * @return SubmitAnalysisJobResponse SubmitAnalysisJobResponse
      */
     public function submitAnalysisJob($request)
     {
@@ -4257,10 +4768,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpDBDeleteJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Submits a job of clearing or deleting a media fingerprint library.
+     *  *
+     * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpDBDeleteJobRequest $request SubmitFpDBDeleteJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitFpDBDeleteJobResponse
+     * @return SubmitFpDBDeleteJobResponse SubmitFpDBDeleteJobResponse
      */
     public function submitFpDBDeleteJobWithOptions($request, $runtime)
     {
@@ -4309,9 +4826,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpDBDeleteJobRequest $request
+     * @summary Submits a job of clearing or deleting a media fingerprint library.
+     *  *
+     * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpDBDeleteJobRequest $request SubmitFpDBDeleteJobRequest
      *
-     * @return SubmitFpDBDeleteJobResponse
+     * @return SubmitFpDBDeleteJobResponse SubmitFpDBDeleteJobResponse
      */
     public function submitFpDBDeleteJob($request)
     {
@@ -4321,10 +4844,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpFileDeleteJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Submits a job of deleting media files from a media fingerprint library.
+     *  *
+     * @description ## [](#)Limits
+     * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
+     * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
+     * ## [](#qps-)QPS limits
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpFileDeleteJobRequest $request SubmitFpFileDeleteJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitFpFileDeleteJobResponse
+     * @return SubmitFpFileDeleteJobResponse SubmitFpFileDeleteJobResponse
      */
     public function submitFpFileDeleteJobWithOptions($request, $runtime)
     {
@@ -4376,9 +4907,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpFileDeleteJobRequest $request
+     * @summary Submits a job of deleting media files from a media fingerprint library.
+     *  *
+     * @description ## [](#)Limits
+     * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
+     * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
+     * ## [](#qps-)QPS limits
+     * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpFileDeleteJobRequest $request SubmitFpFileDeleteJobRequest
      *
-     * @return SubmitFpFileDeleteJobResponse
+     * @return SubmitFpFileDeleteJobResponse SubmitFpFileDeleteJobResponse
      */
     public function submitFpFileDeleteJob($request)
     {
@@ -4388,10 +4927,22 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpShotJobRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+     *  *
+     * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+     * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
+     * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+     * *   The input file of the job must be in one of the following formats:
+     *     *   Image formats: JPEG, PNG, and BMP.
+     *     *   Video formats: MP4, AVI, MKV, MPG, TS, MOV, FLV, MXF.
+     *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
+     * ### QPS limit
+     * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpShotJobRequest $request SubmitFpShotJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitFpShotJobResponse
+     * @return SubmitFpShotJobResponse SubmitFpShotJobResponse
      */
     public function submitFpShotJobWithOptions($request, $runtime)
     {
@@ -4440,9 +4991,21 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitFpShotJobRequest $request
+     * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+     *  *
+     * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+     * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
+     * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
+     * *   The input file of the job must be in one of the following formats:
+     *     *   Image formats: JPEG, PNG, and BMP.
+     *     *   Video formats: MP4, AVI, MKV, MPG, TS, MOV, FLV, MXF.
+     *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
+     * ### QPS limit
+     * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitFpShotJobRequest $request SubmitFpShotJobRequest
      *
-     * @return SubmitFpShotJobResponse
+     * @return SubmitFpShotJobResponse SubmitFpShotJobResponse
      */
     public function submitFpShotJob($request)
     {
@@ -4452,10 +5015,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitIProductionJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+     * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
+     * ### [](#qps)QPS limit
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitIProductionJobRequest $request SubmitIProductionJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitIProductionJobResponse
+     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
      */
     public function submitIProductionJobWithOptions($request, $runtime)
     {
@@ -4519,9 +5087,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitIProductionJobRequest $request
+     * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+     * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
+     * ### [](#qps)QPS limit
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitIProductionJobRequest $request SubmitIProductionJobRequest
      *
-     * @return SubmitIProductionJobResponse
+     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
      */
     public function submitIProductionJob($request)
     {
@@ -4531,10 +5104,21 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+     *  *
+     * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+     * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
+     * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
+     * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
+     * *   If you want to use multiple accounts in MPS, you can create Resource Access Management (RAM) users by using your Alibaba Cloud account. For more information, see [Create a RAM user and grant permissions to the RAM user](https://help.aliyun.com/document_detail/42841.html). If the Alibaba Cloud account that is used to query transcoding jobs is not the one that is used to submit the transcoding jobs, no data is returned.
+     * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitJobsRequest $request SubmitJobsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitJobsResponse
+     * @return SubmitJobsResponse SubmitJobsResponse
      */
     public function submitJobsWithOptions($request, $runtime)
     {
@@ -4586,9 +5170,20 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitJobsRequest $request
+     * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+     *  *
+     * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+     * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
+     * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
+     * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
+     * *   If you want to use multiple accounts in MPS, you can create Resource Access Management (RAM) users by using your Alibaba Cloud account. For more information, see [Create a RAM user and grant permissions to the RAM user](https://help.aliyun.com/document_detail/42841.html). If the Alibaba Cloud account that is used to query transcoding jobs is not the one that is used to submit the transcoding jobs, no data is returned.
+     * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitJobsRequest $request SubmitJobsRequest
      *
-     * @return SubmitJobsResponse
+     * @return SubmitJobsResponse SubmitJobsResponse
      */
     public function submitJobs($request)
     {
@@ -4598,10 +5193,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaCensorJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Submits a content moderation job.
+     *  *
+     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitMediaCensorJobRequest $request SubmitMediaCensorJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaCensorJobResponse
+     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJobWithOptions($request, $runtime)
     {
@@ -4665,9 +5266,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaCensorJobRequest $request
+     * @summary Submits a content moderation job.
+     *  *
+     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitMediaCensorJobRequest $request SubmitMediaCensorJobRequest
      *
-     * @return SubmitMediaCensorJobResponse
+     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJob($request)
     {
@@ -4677,10 +5284,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaInfoJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Submits a media information analysis job.
+     *  *
+     * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+     * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitMediaInfoJobRequest $request SubmitMediaInfoJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaInfoJobResponse
+     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJobWithOptions($request, $runtime)
     {
@@ -4729,9 +5343,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaInfoJobRequest $request
+     * @summary Submits a media information analysis job.
+     *  *
+     * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+     * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitMediaInfoJobRequest $request SubmitMediaInfoJobRequest
      *
-     * @return SubmitMediaInfoJobResponse
+     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJob($request)
     {
@@ -4741,10 +5362,10 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitSmarttagJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param SubmitSmarttagJobRequest $request SubmitSmarttagJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSmarttagJobResponse
+     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
      */
     public function submitSmarttagJobWithOptions($request, $runtime)
     {
@@ -4756,8 +5377,14 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->contentAddr)) {
             $query['ContentAddr'] = $request->contentAddr;
         }
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
         if (!Utils::isUnset($request->input)) {
             $query['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -4770,6 +5397,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->pipelineId)) {
             $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4805,9 +5435,9 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitSmarttagJobRequest $request
+     * @param SubmitSmarttagJobRequest $request SubmitSmarttagJobRequest
      *
-     * @return SubmitSmarttagJobResponse
+     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
      */
     public function submitSmarttagJob($request)
     {
@@ -4817,10 +5447,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Submits a snapshot job.
+     *  *
+     * @description *   Only JPG images can be generated by calling this operation.
+     * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
+     * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
@@ -4869,9 +5507,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $request
+     * @summary Submits a snapshot job.
+     *  *
+     * @description *   Only JPG images can be generated by calling this operation.
+     * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
+     * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
+     * ### QPS limit
+     * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJob($request)
     {
@@ -4881,80 +5527,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitVideoQualityJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The description of the figure. The description can be up to 512 characters in length.
+     *  *
+     * @description The response parameters.
+     *  *
+     * @param TagCustomPersonRequest $request TagCustomPersonRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitVideoQualityJobResponse
-     */
-    public function submitVideoQualityJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->input)) {
-            $query['Input'] = $request->input;
-        }
-        if (!Utils::isUnset($request->jobParams)) {
-            $query['JobParams'] = $request->jobParams;
-        }
-        if (!Utils::isUnset($request->modelId)) {
-            $query['ModelId'] = $request->modelId;
-        }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $query['NotifyUrl'] = $request->notifyUrl;
-        }
-        if (!Utils::isUnset($request->output)) {
-            $query['Output'] = $request->output;
-        }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
-        }
-        if (!Utils::isUnset($request->scheduleParams)) {
-            $query['ScheduleParams'] = $request->scheduleParams;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitVideoQualityJob',
-            'version'     => '2014-06-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitVideoQualityJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitVideoQualityJobRequest $request
-     *
-     * @return SubmitVideoQualityJobResponse
-     */
-    public function submitVideoQualityJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitVideoQualityJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagCustomPersonRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return TagCustomPersonResponse
+     * @return TagCustomPersonResponse TagCustomPersonResponse
      */
     public function tagCustomPersonWithOptions($request, $runtime)
     {
@@ -5009,9 +5589,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param TagCustomPersonRequest $request
+     * @summary The description of the figure. The description can be up to 512 characters in length.
+     *  *
+     * @description The response parameters.
+     *  *
+     * @param TagCustomPersonRequest $request TagCustomPersonRequest
      *
-     * @return TagCustomPersonResponse
+     * @return TagCustomPersonResponse TagCustomPersonResponse
      */
     public function tagCustomPerson($request)
     {
@@ -5021,10 +5605,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnbindInputBucketRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Unbinds an input media bucket from the media library.
+     *  *
+     * @description # Usage notes
+     * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
+     * # QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UnbindInputBucketRequest $request UnbindInputBucketRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindInputBucketResponse
+     * @return UnbindInputBucketResponse UnbindInputBucketResponse
      */
     public function unbindInputBucketWithOptions($request, $runtime)
     {
@@ -5067,9 +5658,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnbindInputBucketRequest $request
+     * @summary Unbinds an input media bucket from the media library.
+     *  *
+     * @description # Usage notes
+     * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
+     * # QPS limits
+     * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UnbindInputBucketRequest $request UnbindInputBucketRequest
      *
-     * @return UnbindInputBucketResponse
+     * @return UnbindInputBucketResponse UnbindInputBucketResponse
      */
     public function unbindInputBucket($request)
     {
@@ -5079,10 +5677,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnbindOutputBucketRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+     * ## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+     *  *
+     * @param UnbindOutputBucketRequest $request UnbindOutputBucketRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindOutputBucketResponse
+     * @return UnbindOutputBucketResponse UnbindOutputBucketResponse
      */
     public function unbindOutputBucketWithOptions($request, $runtime)
     {
@@ -5122,9 +5726,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnbindOutputBucketRequest $request
+     * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+     * ## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+     *  *
+     * @param UnbindOutputBucketRequest $request UnbindOutputBucketRequest
      *
-     * @return UnbindOutputBucketResponse
+     * @return UnbindOutputBucketResponse UnbindOutputBucketResponse
      */
     public function unbindOutputBucket($request)
     {
@@ -5134,10 +5744,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnregisterCustomFaceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+     *  *
+     * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UnregisterCustomFaceRequest $request UnregisterCustomFaceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnregisterCustomFaceResponse
+     * @return UnregisterCustomFaceResponse UnregisterCustomFaceResponse
      */
     public function unregisterCustomFaceWithOptions($request, $runtime)
     {
@@ -5183,9 +5799,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UnregisterCustomFaceRequest $request
+     * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+     *  *
+     * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UnregisterCustomFaceRequest $request UnregisterCustomFaceRequest
      *
-     * @return UnregisterCustomFaceResponse
+     * @return UnregisterCustomFaceResponse UnregisterCustomFaceResponse
      */
     public function unregisterCustomFace($request)
     {
@@ -5195,10 +5817,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Updates the basic information about a media file.
+     *  *
+     * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaRequest $request UpdateMediaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaResponse
+     * @return UpdateMediaResponse UpdateMediaResponse
      */
     public function updateMediaWithOptions($request, $runtime)
     {
@@ -5253,9 +5881,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaRequest $request
+     * @summary Updates the basic information about a media file.
+     *  *
+     * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaRequest $request UpdateMediaRequest
      *
-     * @return UpdateMediaResponse
+     * @return UpdateMediaResponse UpdateMediaResponse
      */
     public function updateMedia($request)
     {
@@ -5265,10 +5899,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaCategoryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Updates the category to which a media file belongs.
+     *  *
+     * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaCategoryRequest $request UpdateMediaCategoryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaCategoryResponse
+     * @return UpdateMediaCategoryResponse UpdateMediaCategoryResponse
      */
     public function updateMediaCategoryWithOptions($request, $runtime)
     {
@@ -5311,9 +5951,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaCategoryRequest $request
+     * @summary Updates the category to which a media file belongs.
+     *  *
+     * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaCategoryRequest $request UpdateMediaCategoryRequest
      *
-     * @return UpdateMediaCategoryResponse
+     * @return UpdateMediaCategoryResponse UpdateMediaCategoryResponse
      */
     public function updateMediaCategory($request)
     {
@@ -5323,10 +5969,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaCoverRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Updates the thumbnail of a media file.
+     *  *
+     * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+     * ## Limits on QPS
+     * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param UpdateMediaCoverRequest $request UpdateMediaCoverRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaCoverResponse
+     * @return UpdateMediaCoverResponse UpdateMediaCoverResponse
      */
     public function updateMediaCoverWithOptions($request, $runtime)
     {
@@ -5369,9 +6021,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaCoverRequest $request
+     * @summary Updates the thumbnail of a media file.
+     *  *
+     * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+     * ## Limits on QPS
+     * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *  *
+     * @param UpdateMediaCoverRequest $request UpdateMediaCoverRequest
      *
-     * @return UpdateMediaCoverResponse
+     * @return UpdateMediaCoverResponse UpdateMediaCoverResponse
      */
     public function updateMediaCover($request)
     {
@@ -5381,10 +6039,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaPublishStateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the publishing status of a media file.
+     *  *
+     * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaPublishStateRequest $request UpdateMediaPublishStateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaPublishStateResponse
+     * @return UpdateMediaPublishStateResponse UpdateMediaPublishStateResponse
      */
     public function updateMediaPublishStateWithOptions($request, $runtime)
     {
@@ -5427,9 +6091,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaPublishStateRequest $request
+     * @summary Updates the publishing status of a media file.
+     *  *
+     * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaPublishStateRequest $request UpdateMediaPublishStateRequest
      *
-     * @return UpdateMediaPublishStateResponse
+     * @return UpdateMediaPublishStateResponse UpdateMediaPublishStateResponse
      */
     public function updateMediaPublishState($request)
     {
@@ -5439,10 +6109,18 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaWorkflowRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Updates the topology of a media workflow.
+     *  *
+     * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+     * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+     * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
+     *  *
+     * @param UpdateMediaWorkflowRequest $request UpdateMediaWorkflowRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaWorkflowResponse
+     * @return UpdateMediaWorkflowResponse UpdateMediaWorkflowResponse
      */
     public function updateMediaWorkflowWithOptions($request, $runtime)
     {
@@ -5450,6 +6128,9 @@ class Mts extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->mediaWorkflowId)) {
             $query['MediaWorkflowId'] = $request->mediaWorkflowId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -5465,6 +6146,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->topology)) {
             $query['Topology'] = $request->topology;
+        }
+        if (!Utils::isUnset($request->triggerMode)) {
+            $query['TriggerMode'] = $request->triggerMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5485,9 +6169,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaWorkflowRequest $request
+     * @summary Updates the topology of a media workflow.
+     *  *
+     * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+     * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+     * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
+     *  *
+     * @param UpdateMediaWorkflowRequest $request UpdateMediaWorkflowRequest
      *
-     * @return UpdateMediaWorkflowResponse
+     * @return UpdateMediaWorkflowResponse UpdateMediaWorkflowResponse
      */
     public function updateMediaWorkflow($request)
     {
@@ -5497,10 +6189,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaWorkflowTriggerModeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Updates the trigger mode of a media workflow.
+     *  *
+     * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaWorkflowTriggerModeRequest $request UpdateMediaWorkflowTriggerModeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaWorkflowTriggerModeResponse
+     * @return UpdateMediaWorkflowTriggerModeResponse UpdateMediaWorkflowTriggerModeResponse
      */
     public function updateMediaWorkflowTriggerModeWithOptions($request, $runtime)
     {
@@ -5543,9 +6241,15 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaWorkflowTriggerModeRequest $request
+     * @summary Updates the trigger mode of a media workflow.
+     *  *
+     * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateMediaWorkflowTriggerModeRequest $request UpdateMediaWorkflowTriggerModeRequest
      *
-     * @return UpdateMediaWorkflowTriggerModeResponse
+     * @return UpdateMediaWorkflowTriggerModeResponse UpdateMediaWorkflowTriggerModeResponse
      */
     public function updateMediaWorkflowTriggerMode($request)
     {
@@ -5555,15 +6259,25 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdatePipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+     * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdatePipelineRequest $request UpdatePipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->extendConfig)) {
+            $query['ExtendConfig'] = $request->extendConfig;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -5610,9 +6324,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdatePipelineRequest $request
+     * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
+     *  *
+     * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+     * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdatePipelineRequest $request UpdatePipelineRequest
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipeline($request)
     {
@@ -5622,10 +6343,12 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateSmarttagTemplateRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 更新智能标签模板接口支持cpv
+     *  *
+     * @param UpdateSmarttagTemplateRequest $request UpdateSmarttagTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSmarttagTemplateResponse
+     * @return UpdateSmarttagTemplateResponse UpdateSmarttagTemplateResponse
      */
     public function updateSmarttagTemplateWithOptions($request, $runtime)
     {
@@ -5704,9 +6427,11 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateSmarttagTemplateRequest $request
+     * @summary 更新智能标签模板接口支持cpv
+     *  *
+     * @param UpdateSmarttagTemplateRequest $request UpdateSmarttagTemplateRequest
      *
-     * @return UpdateSmarttagTemplateResponse
+     * @return UpdateSmarttagTemplateResponse UpdateSmarttagTemplateResponse
      */
     public function updateSmarttagTemplate($request)
     {
@@ -5716,10 +6441,14 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($request, $runtime)
     {
@@ -5777,9 +6506,13 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
+     * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -5789,10 +6522,17 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateWaterMarkTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the name and configurations of the specified watermark template.
+     *  *
+     * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+     * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateWaterMarkTemplateRequest $request UpdateWaterMarkTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWaterMarkTemplateResponse
+     * @return UpdateWaterMarkTemplateResponse UpdateWaterMarkTemplateResponse
      */
     public function updateWaterMarkTemplateWithOptions($request, $runtime)
     {
@@ -5838,9 +6578,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param UpdateWaterMarkTemplateRequest $request
+     * @summary Updates the name and configurations of the specified watermark template.
+     *  *
+     * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+     * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
+     * ### QPS limit
+     * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+     *  *
+     * @param UpdateWaterMarkTemplateRequest $request UpdateWaterMarkTemplateRequest
      *
-     * @return UpdateWaterMarkTemplateResponse
+     * @return UpdateWaterMarkTemplateResponse UpdateWaterMarkTemplateResponse
      */
     public function updateWaterMarkTemplate($request)
     {

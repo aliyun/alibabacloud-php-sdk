@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryFpFileDeleteJobListResponseBody extends Model
 {
     /**
+     * @description The jobs of deleting media files from a media fingerprint library. For more information, see the "FpFileDeleteJob" section of the [Data types](https://help.aliyun.com/document_detail/93555.html) topic.
+     *
      * @var fpFileDeleteJobList
      */
     public $fpFileDeleteJobList;
 
     /**
+     * @description The response parameters.
+     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D127C68E-F1A1-4CE5-A874-8FF724881A12
+     *
      * @var string
      */
     public $requestId;

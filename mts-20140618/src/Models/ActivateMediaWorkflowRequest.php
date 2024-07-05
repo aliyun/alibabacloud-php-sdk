@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ActivateMediaWorkflowRequest extends Model
 {
     /**
+     * @description The ID of the media workflow. You can obtain the ID from the response of the [AddMediaWorkflow](https://help.aliyun.com/document_detail/44437.html) operation.
+     *
+     * This parameter is required.
+     * @example 93ab850b4f6f44eab54b6e9181d4****
+     *
      * @var string
      */
     public $mediaWorkflowId;

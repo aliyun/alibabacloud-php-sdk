@@ -10,36 +10,61 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The error code. The error code is the same as the HTTP status code. This parameter is not returned if the request is successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the moderated object.
+     *
+     * >  If you set the dataId parameter in the moderation request, the dataId parameter is returned in the response.
+     * @example uuid-1234-1234-1234
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The additional information about the image. If ad is specified for the Scenes parameter, the following content may be returned for this parameter: hitLibInfo: the information about the custom text library that is hit by the text in the image. The value of this parameter is an array. For more information about the structure, see [hitLibInfo](https://help.aliyun.com/document_detail/268644.html).
+     *
      * @var mixed[]
      */
     public $extras;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The returned data. If the call is successful, the array in the returned results contains one or more elements. Each element is a struct.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description The ID of the moderation task.
+     *
+     * @example img4wlJcb7p4wH4lAP3111111-12****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The URL of the moderated object.
+     *
+     * @example http://example.com/example-****.jpg
+     *
      * @var string
      */
     public $url;

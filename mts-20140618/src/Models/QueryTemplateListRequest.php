@@ -29,6 +29,11 @@ class QueryTemplateListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The response parameters.
+     *
+     * This parameter is required.
+     * @example 16f01ad6175e4230ac42bb5182cd****,88c6ca184c0e424d5w5b665e2a12****
+     *
      * @var string
      */
     public $templateIds;

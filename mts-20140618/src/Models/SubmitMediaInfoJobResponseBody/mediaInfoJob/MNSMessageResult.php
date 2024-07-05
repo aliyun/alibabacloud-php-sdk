@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MNSMessageResult extends Model
 {
     /**
+     * @description The error code that is returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example The parameter \\"Input\\" does not conform to the JSON Object specification
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message that is returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example InvalidParameter.JsonObjectFormatInvalid
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the message that is returned if the job is successful. This parameter is not returned if the job fails.
+     *
+     * @example 16f01ad6175e4230ac42bb5182cd****
+     *
      * @var string
      */
     public $messageId;

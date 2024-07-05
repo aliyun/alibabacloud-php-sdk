@@ -9,81 +9,151 @@ use AlibabaCloud\Tea\Model;
 class audioStream extends Model
 {
     /**
+     * @description The bitrate of the media file.
+     *
+     * @example 1536000
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The number of sound channels.
+     *
+     * @example 5.1(side)
+     *
      * @var string
      */
     public $channelLayout;
 
     /**
+     * @description The output layout of the sound channels.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @description The full name of the encoding format.
+     *
+     * @example DCA (DTS Coherent Acoustics)
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format. Valid values:
+     *
+     *   **acc**
+     *   **mp3**
+     *   **mp4**
+     *   **ogg**
+     *   **flac**
+     *
+     * @example acc
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
+     * @example 0x0000
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
+     * @example [0][0][0][0]
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1/48000
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The duration of the media file.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html?spm=a2c4g.11186623.2.66.243851cd2SntfN#Metadata).
+     *
+     * @example eng
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The sampling format.
+     *
+     * @example fltp
+     *
      * @var string
      */
     public $sampleFmt;
 
     /**
+     * @description The sampling rate.
+     *
+     * @example 48000
+     *
      * @var string
      */
     public $samplerate;
 
     /**
+     * @description The start time.
+     *
+     * @example 0.042000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 1/1000
+     *
      * @var string
      */
     public $timebase;

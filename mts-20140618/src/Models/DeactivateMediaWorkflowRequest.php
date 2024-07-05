@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeactivateMediaWorkflowRequest extends Model
 {
     /**
+     * @description The ID of the media workflow that is deactivated.
+     *
+     * This parameter is required.
+     * @example 93ab850b4f6f44eab54b6e9181d4****
+     *
      * @var string
      */
     public $mediaWorkflowId;

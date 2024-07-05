@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MNSMessageResult extends Model
 {
     /**
+     * @description The error code returned if the job failed. If the job was successful, this parameter is not returned.
+     *
+     * @example The Topic/Queue config is empty, not send message
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the job failed. If the job was successful, this parameter is not returned.
+     *
+     * @example MessageConfigEmpty
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the success message. If the job failed, this parameter is not returned.
+     *
+     * @example 4f3bc83233de4e2f81c7dade443e****
+     *
      * @var string
      */
     public $messageId;

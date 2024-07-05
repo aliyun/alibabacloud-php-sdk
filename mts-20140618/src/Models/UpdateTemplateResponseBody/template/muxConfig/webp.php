@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class webp extends Model
 {
     /**
+     * @description The transmuxing configurations for GIF.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $loop;

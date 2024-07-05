@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class subtitleConfig extends Model
 {
     /**
+     * @description The external captions.
+     *
      * @var extSubtitleList
      */
     public $extSubtitleList;
 
     /**
+     * @description The captions.
+     *
      * @var subtitleList
      */
     public $subtitleList;

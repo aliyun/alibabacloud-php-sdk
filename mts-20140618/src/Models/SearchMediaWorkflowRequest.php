@@ -19,11 +19,22 @@ class SearchMediaWorkflowRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   A maximum of **100** entries can be returned on each page.
+     *   Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +50,14 @@ class SearchMediaWorkflowRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the media workflows that you want to query. You can specify multiple states. Separate multiple states with commas (,). Default value: **Inactive,Active,Deleted**. Valid values:
+     *
+     *   **Inactive**: Deactivated media workflows are queried.
+     *   **Active**: Activated media workflows are queried.
+     *   **Deleted**: Deleted media workflows are queried.
+     *
+     * @example Inactive,Active,Deleted
+     *
      * @var string
      */
     public $stateList;

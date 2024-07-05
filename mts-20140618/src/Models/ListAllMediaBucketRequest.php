@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListAllMediaBucketRequest extends Model
 {
     /**
+     * @description The maximum number of media buckets to return. Valid values: 1 to 100. Default value: 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maximumPageSize;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The response to the first request contains this parameter, which is added to the next request.
+     *
+     * @example P2Zqo1PLGhZdygo-ajSsjUX5zrBHCgXy6j4hEvv****
+     *
      * @var string
      */
     public $nextPageToken;

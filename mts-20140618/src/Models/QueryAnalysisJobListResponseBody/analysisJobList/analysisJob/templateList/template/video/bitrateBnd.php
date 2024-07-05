@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class bitrateBnd extends Model
 {
     /**
+     * @description The upper limit of the total bitrate. Unit: Kbit/s.
+     *
+     * @example 1500
+     *
      * @var string
      */
     public $max;
 
     /**
+     * @description The lower limit of the total bitrate. Unit: Kbit/s.
+     *
+     * @example 800
+     *
      * @var string
      */
     public $min;

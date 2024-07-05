@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class qualityControl extends Model
 {
     /**
+     * @description The playback mode. Valid values:
+     *
+     *   **network**: online playback
+     *   **local**: playback on local devices
+     *   Default value: **network**.
+     *
+     * @example network
+     *
      * @var string
      */
     public $methodStreaming;
 
     /**
+     * @description The quality level of the output file.
+     *
+     * @example 50
+     *
      * @var string
      */
     public $rateQuality;

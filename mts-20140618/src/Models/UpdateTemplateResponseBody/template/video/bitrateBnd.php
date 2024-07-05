@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class bitrateBnd extends Model
 {
     /**
+     * @description The lower limit of the total bitrate. Unit: Kbit/s.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $max;
 
     /**
+     * @description The pixel format. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $min;

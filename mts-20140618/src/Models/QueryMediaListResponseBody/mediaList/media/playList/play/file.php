@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @description The status of the file. Valid values:
+     *
+     *   **Normal**: normal
+     *   **Deleted**: deleted
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The Object Storage Service (OSS) URL of the output file.
+     *
+     * @example http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+     *
      * @var string
      */
     public $URL;

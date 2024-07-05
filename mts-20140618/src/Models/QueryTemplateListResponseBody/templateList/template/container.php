@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @description The format of the container. Valid values: flv, mp4, ts, m3u8, gif, mp3, ogg, and flac.
+     *
+     * @example flv
+     *
      * @var string
      */
     public $format;

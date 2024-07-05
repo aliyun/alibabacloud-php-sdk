@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnbindInputBucketRequest extends Model
 {
     /**
+     * @description The name of the input media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **Historical Paths**.
+     *
+     * This parameter is required.
+     * @example example-bucket-****
+     *
      * @var string
      */
     public $bucket;
@@ -34,6 +39,10 @@ class UnbindInputBucketRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the role used for delegated authorization.
+     *
+     * @example acs:ram::174809843091****:role/exampleRole
+     *
      * @var string
      */
     public $roleArn;

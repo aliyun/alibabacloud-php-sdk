@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class SearchTemplateResponseBody extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC860F04-778A-472F-AB39-E1BF329C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The transcoding templates.
+     *
      * @var templateList
      */
     public $templateList;
 
     /**
+     * @description The total number of search results.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

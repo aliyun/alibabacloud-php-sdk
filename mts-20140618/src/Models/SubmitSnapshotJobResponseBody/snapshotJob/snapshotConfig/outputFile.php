@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class outputFile extends Model
 {
     /**
+     * @description The OSS bucket that stores the output snapshot.
+     *
+     * @example example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The OSS region in which the OSS bucket for storing the output snapshot resides.
+     *
+     * @example example-location
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The OSS object that is generated as the output file of the snapshot job.
+     *
+     * @example test.png
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+     *
+     * @example acs:ram::1:role/testrole
+     *
      * @var string
      */
     public $roleArn;

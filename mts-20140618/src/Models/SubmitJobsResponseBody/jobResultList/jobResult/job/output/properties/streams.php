@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class streams extends Model
 {
     /**
+     * @description The audio streams.
+     *
      * @var audioStreamList
      */
     public $audioStreamList;
 
     /**
+     * @description The subtitle streams.
+     *
      * @var subtitleStreamList
      */
     public $subtitleStreamList;
 
     /**
+     * @description The video streams.
+     *
      * @var videoStreamList
      */
     public $videoStreamList;

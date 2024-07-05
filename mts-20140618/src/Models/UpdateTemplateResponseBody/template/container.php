@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @description The container format.
+     *
+     * @example mp4
+     *
      * @var string
      */
     public $format;

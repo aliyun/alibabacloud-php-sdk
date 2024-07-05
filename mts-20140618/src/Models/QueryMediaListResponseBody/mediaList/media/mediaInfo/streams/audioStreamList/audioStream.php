@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class audioStream extends Model
 {
     /**
+     * @description The bitrate.
+     *
+     * @example 160.008
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The output layout of the sound channels.
+     *
+     * @example stereo
+     *
      * @var string
      */
     public $channelLayout;
 
     /**
+     * @description The number of sound channels.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @description The full name of the encoding format.
+     *
+     * @example AAC(Advanced Audio Coding)
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format. Valid values: H264, mov, aac, avc, and mpeg.
+     *
+     * @example mov
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
+     * @example 0x6134706d
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
+     * @example mp4a
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1/44100
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The duration.
+     *
+     * @example 182.591995
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+     *
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The sampling format.
+     *
+     * @example fltp
+     *
      * @var string
      */
     public $sampleFmt;
 
     /**
+     * @description The sampling rate.
+     *
+     * @example 44100
+     *
      * @var string
      */
     public $samplerate;
 
     /**
+     * @description The start time.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 1/44100
+     *
      * @var string
      */
     public $timebase;

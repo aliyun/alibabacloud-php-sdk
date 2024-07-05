@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class clip extends Model
 {
     /**
+     * @description The time span of the clip.
+     *
      * @var timeSpan
      */
     public $timeSpan;

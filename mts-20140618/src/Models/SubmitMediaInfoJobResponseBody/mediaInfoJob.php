@@ -12,56 +12,98 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
+     * @description Indicates whether the job is run in asynchronous mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @description The error code returned if the job fails.
+     *
+     * @example InvalidParameter.JsonObjectFormatInvalid
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2014-01-10T12:00:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The information about the input media file.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example 23ca1d184c0e4341e5b665e2a12****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The message sent by Message Service (MNS) to notify users of the job result.
+     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
+     * @description The error message returned if the job fails.
+     *
+     * @example The parameter ”*” does not conform to the JSON Object specification
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the MPS queue to which the analysis job is submitted.
+     *
+     * @example 88c6ca184c0e432bbf5b665e2a15****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The properties of the input media file.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *   **Analyzing**: The job is being run.
+     *
+     * @example Analyzing
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The custom data.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;

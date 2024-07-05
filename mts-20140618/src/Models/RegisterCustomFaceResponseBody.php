@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RegisterCustomFaceResponseBody extends Model
 {
     /**
+     * @description The ID of the face.
+     *
+     * @example c6cc71cb44a9491093818faf9d60****
+     *
      * @var string
      */
     public $faceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 91AEA76D-25B5-50DF-9126-AA6BB10FDAF4
+     *
      * @var string
      */
     public $requestId;

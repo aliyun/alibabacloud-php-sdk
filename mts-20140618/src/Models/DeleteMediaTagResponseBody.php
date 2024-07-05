@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaTagResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 283DC68C-146F-4489-A2A1-2F88F1472A56
+     *
      * @var string
      */
     public $requestId;

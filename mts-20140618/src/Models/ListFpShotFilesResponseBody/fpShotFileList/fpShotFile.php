@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class fpShotFile extends Model
 {
     /**
+     * @description The ID of the video file.
+     *
+     * @example 41e6536e4f2250e2e9bf26cdea19****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The information about the input file.
+     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
+     * @description The unique primary key of the input video.
+     *
+     * @example fb712a6890464059b1b2ea7c8647****
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @description The time when the media fingerprint file was stored. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     * @example 2022-09-08T23:32:56Z
+     *
      * @var string
      */
     public $storeTime;

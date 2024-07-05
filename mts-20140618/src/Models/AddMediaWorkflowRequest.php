@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddMediaWorkflowRequest extends Model
 {
     /**
+     * @description The name of the media workflow.
+     *
+     *   The value cannot be empty.
+     *   The name cannot be the same as that of an existing media workflow within the current Alibaba Cloud account.
+     *   The name can be up to 64 characters in length.
+     *   The value must be encoded in the UTF-8 format.
+     *
+     * This parameter is required.
+     * @example mediaworkflow-example
+     *
      * @var string
      */
     public $name;
@@ -34,11 +44,21 @@ class AddMediaWorkflowRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The topology of the media workflow. The value must be a JSON object that contains the activities and activity dependencies. For more information, see the **Sample topology** section of this topic.
+     *
+     * This parameter is required.
      * @var string
      */
     public $topology;
 
     /**
+     * @description The triggering mode of the media workflow. Valid values:
+     *
+     *   **OssAutoTrigger**: The media workflow is automatically triggered.
+     *   **NotInAuto**: The media workflow is not automatically triggered.
+     *
+     * @example OssAutoTrigger
+     *
      * @var string
      */
     public $triggerMode;

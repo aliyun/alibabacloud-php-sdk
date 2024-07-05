@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\o
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\encryption;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\m3U8NonStandardSupport;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\mergeList;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\multiSpeedInfo;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\muxConfig;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\openingList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\outputFile;
@@ -26,136 +27,230 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @description The audio configurations.
+     *
+     * >  If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The sequence number of the audio stream.
+     *
+     *   Format: 0:a:{Sequence number}. Example: 0:a:0.
+     *   The sequence number is the index of the audio stream in the list and starts from 0.
+     *   If no sequence number is specified, the default audio stream is used.
+     *
+     * @example 0:a:0
+     *
      * @var string
      */
     public $audioStreamMap;
 
     /**
+     * @description The information about clips.
+     *
      * @var clip
      */
     public $clip;
 
     /**
+     * @description The container format configurations.
+     *
      * @var container
      */
     public $container;
 
     /**
+     * @description The configurations of watermark blurring. The value is a JSON object. For more information, see the DeWatermark section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+     *
+     * @example {"0":[{"l":10,"t":10,"w":10,"h":10},{"l":100,"t":0.1,"w":10,"h":10}],"128000":[],"250000":[{"l":0.2,"t":0.1,"w":0.01,"h":0.05}]}
+     *
      * @var string
      */
     public $deWatermark;
 
     /**
+     * @description The encryption configurations. The encrypted video file is generated in the M3U8 format.
+     *
      * @var encryption
      */
     public $encryption;
 
     /**
+     * @description The custom fields.
+     *
+     * @example testid-002
+     *
      * @var string
      */
     public $extendData;
 
     /**
+     * @description The non-standard support configurations for M3U8. The value is a JSON object. For more information, see the M3U8NonStandardSupport section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+     *
      * @var m3U8NonStandardSupport
      */
     public $m3U8NonStandardSupport;
 
     /**
+     * @description The URL of the merging configuration file. Only one of MergeList and MergeConfigUrl takes effect.
+     *
+     *   The configuration file specified by MergeConfigUrl can contain up to 50 clips.
+     *   MergeConfigUrl indicates the URL of the configuration file for merging clips. Make sure that the configuration file is stored as an object in OSS and that MPS can access the OSS object. For information about the file content, see the details about merging parameters.
+     *   Example of the content of the merging configuration file: `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}`.
+     *
+     * @example https://ceshi-***.oss-cn-shanghai.aliyuncs.com/ccc/p0903q9wkkb.m3u8
+     *
      * @var string
      */
     public $mergeConfigUrl;
 
     /**
+     * @description The configurations of clip merging. Up to four clips can be merged.
+     *
      * @var mergeList
      */
     public $mergeList;
 
     /**
+     * @description The information about the high-speed transcoding job. This information is available only for jobs that are submitted by using an MPS queue for high-speed transcoding. This does not support MPS queues for high-speed transcoding of an earlier version.
+     *
+     * @var multiSpeedInfo
+     */
+    public $multiSpeedInfo;
+
+    /**
+     * @description The transmuxing configurations. The transmuxing configurations. If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
+     * @description The opening parts. The value is a JSON object.
+     *
      * @var openingList
      */
     public $openingList;
 
     /**
+     * @description The output captions.
+     *
      * @var outSubtitleList
      */
     public $outSubtitleList;
 
     /**
+     * @description The details of the output file.
+     *
      * @var outputFile
      */
     public $outputFile;
 
     /**
+     * @description The priority of the job in the ApsaraVideo Media Processing (MPS) queue to which the job is added.
+     *
+     *   A value of 10 indicates the highest priority.
+     *   Default value: **6**.
+     *
+     * @example 6
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The media properties.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The rotation angle of the video.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @description The caption configurations.
+     *
      * @var subtitleConfig
      */
     public $subtitleConfig;
 
     /**
+     * @description The configurations for using the resolution of the source video.
+     *
      * @var superReso
      */
     public $superReso;
 
     /**
+     * @description The ending parts.
+     *
      * @var tailSlateList
      */
     public $tailSlateList;
 
     /**
+     * @description The template ID.
+     *
+     * @example S00000001-200010
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The general transcoding configurations.
+     *
+     * >  If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
      * @var transConfig
      */
     public $transConfig;
 
     /**
+     * @description The custom data.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The video configurations.
+     *
      * @var video
      */
     public $video;
 
     /**
+     * @description The sequence number of the video stream. The sequence number is the index of the video stream in the list and starts from 0. If no sequence number is specified, the default video stream is used.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $videoStreamMap;
 
     /**
+     * @description The URL of the watermark configuration file.
+     *
+     * @example http://example.com/configure
+     *
      * @var string
      */
     public $waterMarkConfigUrl;
 
     /**
+     * @description The watermarks.
+     *
      * @var waterMarkList
      */
     public $waterMarkList;
@@ -170,6 +265,7 @@ class output extends Model
         'm3U8NonStandardSupport' => 'M3U8NonStandardSupport',
         'mergeConfigUrl'         => 'MergeConfigUrl',
         'mergeList'              => 'MergeList',
+        'multiSpeedInfo'         => 'MultiSpeedInfo',
         'muxConfig'              => 'MuxConfig',
         'openingList'            => 'OpeningList',
         'outSubtitleList'        => 'OutSubtitleList',
@@ -225,6 +321,9 @@ class output extends Model
         }
         if (null !== $this->mergeList) {
             $res['MergeList'] = null !== $this->mergeList ? $this->mergeList->toMap() : null;
+        }
+        if (null !== $this->multiSpeedInfo) {
+            $res['MultiSpeedInfo'] = null !== $this->multiSpeedInfo ? $this->multiSpeedInfo->toMap() : null;
         }
         if (null !== $this->muxConfig) {
             $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
@@ -318,6 +417,9 @@ class output extends Model
         }
         if (isset($map['MergeList'])) {
             $model->mergeList = mergeList::fromMap($map['MergeList']);
+        }
+        if (isset($map['MultiSpeedInfo'])) {
+            $model->multiSpeedInfo = multiSpeedInfo::fromMap($map['MultiSpeedInfo']);
         }
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);

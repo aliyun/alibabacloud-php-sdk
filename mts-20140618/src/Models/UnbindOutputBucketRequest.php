@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnbindOutputBucketRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * This parameter is required.
+     * @example example-bucket-****
+     *
      * @var string
      */
     public $bucket;

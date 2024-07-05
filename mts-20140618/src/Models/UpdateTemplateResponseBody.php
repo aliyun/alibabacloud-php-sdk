@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateResponseBody extends Model
 {
     /**
+     * @description The type of the transcoding template.
+     *
+     * @example 5E4FB22E-B9EA-4E24-8FFC-B407EA71QW21
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The type of the transcoding template.
+     *
      * @var template
      */
     public $template;

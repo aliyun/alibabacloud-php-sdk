@@ -9,46 +9,90 @@ use AlibabaCloud\Tea\Model;
 class tileOut extends Model
 {
     /**
+     * @description The interval for taking snapshots.
+     *
+     *   If this Interval parameter is specified in the request, snapshots are taken at intervals. The value must be greater than 0.
+     *   Unit: seconds.
+     *   Default value: **10**.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $cellHeight;
 
     /**
+     * @description The number of rows that the tiled image can contain. Default value: **10**.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $cellSelStep;
 
     /**
+     * @description The type of the snapshot. Valid values:
+     *
+     *   **normal**: normal frames.
+     *   **intra**: I-frames.
+     *   Default value: **intra**.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $cellWidth;
 
     /**
+     * @description Indicates whether the single images are retained. Default value: **true**.
+     *
+     * @example black
+     *
      * @var string
      */
     public $color;
 
     /**
+     * @description The height of the output snapshot.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $columns;
 
     /**
+     * @description The Object Storage Service (OSS) output file of the snapshot job.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isKeepCellPic;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $lines;
 
     /**
+     * @description The width of the output snapshot.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $margin;
 
     /**
+     * @description The number of columns that the tiled image can contain. Default value: **10**.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $padding;

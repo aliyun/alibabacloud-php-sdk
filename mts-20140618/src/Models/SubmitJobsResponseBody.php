@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitJobsResponseBody extends Model
 {
     /**
+     * @description The transcoding jobs that are generated.
+     *
      * @var jobResultList
      */
     public $jobResultList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 25818875-5F78-4A45S71F6-D73936451234
+     *
      * @var string
      */
     public $requestId;

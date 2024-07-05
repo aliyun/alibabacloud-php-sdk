@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class SubmitFpShotJobRequest extends Model
 {
     /**
+     * @description The configurations of the media fingerprint analysis job. The value is a JSON object. For more information, see the "FpShotConfig" section of the [Parameter details](https://help.aliyun.com/document_detail/93568.html) topic.
+     *
+     * This parameter is required.
+     * @example {
+     * "PrimaryKey": "12345****",
+     * "SaveType": "save",
+     * "FpDBId": "417f2ada5999daf****"
+     * }
      * @var string
      */
     public $fpShotConfig;
 
     /**
+     * @description The OSS URL of the job input. The value is a JSON object. You can query the OSS URL in the OSS or MPS console.
+     *
+     * This parameter is required.
+     * @example {"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.flv"}
+     *
      * @var string
      */
     public $input;
@@ -29,6 +42,10 @@ class SubmitFpShotJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the MPS queue. This ID can be used to associate the job with a notification method. To view the ID of the MPS queue, perform the following steps: Log on to the **MPS console**. In the left-side navigation pane, choose **Global Settings** > **Pipelines**.
+     *
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $pipelineId;
@@ -44,6 +61,10 @@ class SubmitFpShotJobRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The custom data. The value can be up to 128 bytes in length and cannot start with a special character.
+     *
+     * @example testid-****
+     *
      * @var string
      */
     public $userData;

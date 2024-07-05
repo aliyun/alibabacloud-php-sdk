@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class fpShot extends Model
 {
     /**
+     * @description The audio files that have similar fingerprints to the input audio in the audio fingerprint library.
+     *
      * @var fpShotSlices
      */
     public $fpShotSlices;
 
     /**
+     * @description The unique primary key of the input audio.
+     *
+     * @example 498ac941373341599c4777c8d884****
+     *
      * @var string
      */
     public $primaryKey;
 
     /**
+     * @description The overall similarity of the input audio against audio files that have similar fingerprints to the input audio in the audio fingerprint library.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $similarity;

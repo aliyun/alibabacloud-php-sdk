@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class imageResults extends Model
 {
     /**
+     * @description The image moderation results.
+     *
      * @var result[]
      */
     public $result;

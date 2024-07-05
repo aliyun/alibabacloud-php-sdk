@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class volume extends Model
 {
     /**
+     * @description The volume adjustment range. Default value: -20. Unit: dB.
+     *
+     * @example -20
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The method that is used to adjust the volume. Valid values:
+     *
+     *   **auto**
+     *   **dynamic**
+     *   **linear**
+     *
+     * @example auto
+     *
      * @var string
      */
     public $method;

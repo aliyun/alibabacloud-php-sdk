@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListMediaWorkflowExecutionsResponseBody extends Model
 {
     /**
+     * @description The details of the media workflows.
+     *
      * @var mediaWorkflowExecutionList
      */
     public $mediaWorkflowExecutionList;
 
     /**
+     * @description The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D1D5C080-8E2F-5030-8AB4-13092F17631B
+     *
      * @var string
      */
     public $requestId;

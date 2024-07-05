@@ -29,6 +29,11 @@ class DeleteSmarttagTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the template that you want to delete. You can obtain the template ID from the response of the [AddSmarttagTemplate](https://help.aliyun.com/document_detail/187759.html) operation.
+     *
+     * This parameter is required.
+     * @example 05de22f255284c7a8d2aab535dde****
+     *
      * @var string
      */
     public $templateId;

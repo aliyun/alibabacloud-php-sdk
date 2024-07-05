@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeactivateMediaWorkflowResponseBody extends Model
 {
     /**
+     * @description The topology of the media workflow.
+     *
      * @var mediaWorkflow
      */
     public $mediaWorkflow;
 
     /**
+     * @description The name of the media workflow that is deactivated.
+     *
+     * @example 16CD0CDD-457E-420D-9755-8385075A1234
+     *
      * @var string
      */
     public $requestId;

@@ -12,51 +12,85 @@ use AlibabaCloud\Tea\Model;
 class properties extends Model
 {
     /**
+     * @description The video bitrate.
+     *
+     * @example 490
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The video duration.
+     *
+     * @example 17
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The video format.
+     *
+     * @example mp4
+     *
      * @var string
      */
     public $fileFormat;
 
     /**
+     * @description The size of the media file.
+     *
+     * @example 1057273
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @description The format information.
+     *
      * @var format
      */
     public $format;
 
     /**
+     * @description The frame rate of the video.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The video height.
+     *
+     * @example 1280
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The non-engine layer keywords.
+     *
      * @var sourceLogos
      */
     public $sourceLogos;
 
     /**
+     * @description The stream information.
+     *
      * @var streams
      */
     public $streams;
 
     /**
+     * @description The video width.
+     *
+     * @example 720
+     *
      * @var string
      */
     public $width;

@@ -9,11 +9,35 @@ use AlibabaCloud\Tea\Model;
 class timeSpan extends Model
 {
     /**
+     * @description The duration of the clip.
+     *
+     *   Format: `hh:mm:ss[.SSS]`.
+     *   Example: 01:00:59.999.
+     *
+     * Or
+     *
+     *   Format: `sssss[.SSS]`.
+     *   Example: 32000.23.
+     *
+     * @example 01:00:59.999
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The point in time when the clip starts.
+     *
+     *   Format: `hh:mm:ss[.SSS]`.
+     *   Example: 01:59:59.999.
+     *
+     * Or
+     *
+     *   Format: `sssss[.SSS]`.
+     *   Example: 32000.23.
+     *
+     * @example 01:59:59.999
+     *
      * @var string
      */
     public $seek;

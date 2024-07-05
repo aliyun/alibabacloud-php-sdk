@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class format extends Model
 {
     /**
+     * @description The total bitrate. Unit: Kbit/s.
+     *
+     * @example 1630.045
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The duration of the input media file. Unit: seconds.
+     *
+     * @example 17.226000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The full name of the container format.
+     *
+     * @example QuickTime/MOV
+     *
      * @var string
      */
     public $formatLongName;
 
     /**
+     * @description The short name of the container format. For more information about the parameters, see [Parameter details](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/parameter-details-a).
+     *
+     * @example mov
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @description The total number of program streams.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $numPrograms;
 
     /**
+     * @description The total number of media streams.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $numStreams;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
+     * @example 3509895
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The start time.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;

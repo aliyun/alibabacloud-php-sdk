@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @description The status of the media file. Valid values:
+     *
+     *   **Normal**: The file is normal.
+     *   **Deleted**: The file is deleted.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The OSS URL of the input file.
+     *
+     * @example http://example-bucket-****.o
+     *
      * @var string
      */
     public $URL;

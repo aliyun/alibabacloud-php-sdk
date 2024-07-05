@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class format extends Model
 {
     /**
+     * @description The total bitrate.
+     *
+     * @example 1630.045
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The total duration.
+     *
+     * @example 17.226000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The full name of the container format.
+     *
+     * @example QuickTime/MOV
+     *
      * @var string
      */
     public $formatLongName;
 
     /**
+     * @description The short name of the container format.
+     *
+     * @example mov
+     *
      * @var string
      */
     public $formatName;
 
     /**
+     * @description The total number of program streams.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $numPrograms;
 
     /**
+     * @description The total number of media streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $numStreams;
 
     /**
+     * @description The size of the image file.
+     *
+     * @example 3509895
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The start time.
+     *
+     * @example 0.042000
+     *
      * @var string
      */
     public $startTime;

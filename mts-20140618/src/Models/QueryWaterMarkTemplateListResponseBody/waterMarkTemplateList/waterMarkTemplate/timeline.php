@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class timeline extends Model
 {
     /**
+     * @description The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The beginning of the time range during which the watermark is displayed.
+     *
+     *   Unit: seconds.
+     *   Default value: **0**.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $start;

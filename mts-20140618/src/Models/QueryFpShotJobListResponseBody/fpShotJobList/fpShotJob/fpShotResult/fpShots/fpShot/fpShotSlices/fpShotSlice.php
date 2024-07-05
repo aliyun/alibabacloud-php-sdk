@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class fpShotSlice extends Model
 {
     /**
+     * @description The start point in time and duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+     *
      * @var duplication
      */
     public $duplication;
 
     /**
+     * @description The start time and duration of the similar video clip in the input video.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The similarity of the input video clip against the video file that has similar fingerprints to the input video in the video fingerprint library.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $similarity;

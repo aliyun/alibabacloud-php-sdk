@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class subtitle extends Model
 {
     /**
+     * @description The sequence number of the video stream. The sequence number is the index of the video stream in the list and starts from 0. If you do not set the corresponding parameter in the request, the default video stream is selected.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $map;

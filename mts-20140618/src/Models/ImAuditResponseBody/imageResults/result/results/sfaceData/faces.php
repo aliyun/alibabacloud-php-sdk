@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class faces extends Model
 {
     /**
+     * @description The ID of the detected face. The value is a string.
+     *
+     * @example AliFace_0001234
+     *
      * @var string
      */
     public $idid;
 
     /**
+     * @description This value is a string, which indicates the name of a similar person.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The score of the confidence level. The value is a float point number. Valid values: 0 to 100. A greater value indicates a higher confidence level for facial recognition.
+     *
+     * @example 91.54
+     *
      * @var float
      */
     public $re;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnbindOutputBucketResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **UnbindOutputBucket**.
+     *
+     * @example 4AEA0480-32F4-1656-92B3-F4D4CDE6BBB3
+     *
      * @var string
      */
     public $requestId;

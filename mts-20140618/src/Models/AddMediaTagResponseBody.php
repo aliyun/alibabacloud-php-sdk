@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddMediaTagResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 91B6CAB9-034C-4E4E-A40B-E7F5C81E1A2K
+     *
      * @var string
      */
     public $requestId;

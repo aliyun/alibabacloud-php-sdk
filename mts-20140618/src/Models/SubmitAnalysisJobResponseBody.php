@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitAnalysisJobResponseBody extends Model
 {
     /**
+     * @description The information about the preset template analysis job that was submitted.
+     *
      * @var analysisJob
      */
     public $analysisJob;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B52658D4-07AB-43CD-82B0-210958A65E23
+     *
      * @var string
      */
     public $requestId;

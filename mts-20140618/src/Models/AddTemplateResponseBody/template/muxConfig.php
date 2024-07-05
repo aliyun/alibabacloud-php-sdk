@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class muxConfig extends Model
 {
     /**
+     * @description The transmuxing settings for GIF.
+     *
      * @var gif
      */
     public $gif;
 
     /**
+     * @description The segment settings.
+     *
      * @var segment
      */
     public $segment;
 
     /**
+     * @description The transmuxing settings for WebP.
+     *
      * @var webp
      */
     public $webp;

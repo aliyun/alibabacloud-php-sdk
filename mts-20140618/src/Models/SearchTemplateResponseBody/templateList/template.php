@@ -14,53 +14,88 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The audio codec configurations.
+     *
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The container format configurations.
+     *
      * @var container
      */
     public $container;
 
     /**
+     * @description The time when the template was created.
+     *
+     * @example 2021-03-04T06:44:43Z
+     *
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @description The transcoding template ID.
+     *
+     * @example 16f01ad6175e4230ac42bb5182cd****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The transmuxing configurations.
+     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
+     * @description The name of the template.
+     *
+     * @example MPS-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the template. Valid values:
+     *
+     *   **Normal**
+     *   **Deleted**
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The general transcoding configurations.
+     *
      * @var transConfig
      */
     public $transConfig;
 
     /**
+     * @description The video codec configurations.
+     *
      * @var video
      */
     public $video;
     protected $_name = [
-        'audio'       => 'Audio',
-        'container'   => 'Container',
-        'id'          => 'Id',
-        'muxConfig'   => 'MuxConfig',
-        'name'        => 'Name',
-        'state'       => 'State',
-        'transConfig' => 'TransConfig',
-        'video'       => 'Video',
+        'audio'        => 'Audio',
+        'container'    => 'Container',
+        'creationTime' => 'CreationTime',
+        'id'           => 'Id',
+        'muxConfig'    => 'MuxConfig',
+        'name'         => 'Name',
+        'state'        => 'State',
+        'transConfig'  => 'TransConfig',
+        'video'        => 'Video',
     ];
 
     public function validate()
@@ -75,6 +110,9 @@ class template extends Model
         }
         if (null !== $this->container) {
             $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -111,6 +149,9 @@ class template extends Model
         }
         if (isset($map['Container'])) {
             $model->container = container::fromMap($map['Container']);
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

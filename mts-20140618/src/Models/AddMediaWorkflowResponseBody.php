@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddMediaWorkflowResponseBody extends Model
 {
     /**
+     * @description The information about the media workflow.
+     *
      * @var mediaWorkflow
      */
     public $mediaWorkflow;
 
     /**
+     * @description The request ID.
+     *
+     * @example F1D21261-ADB9-406A-1234-491382139D59
+     *
      * @var string
      */
     public $requestId;

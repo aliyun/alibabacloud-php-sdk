@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class sourceLogo extends Model
 {
     /**
+     * @description The keyword.
+     *
+     * @example example
+     *
      * @var string
      */
     public $source;

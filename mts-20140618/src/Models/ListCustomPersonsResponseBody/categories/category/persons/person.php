@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class person extends Model
 {
     /**
+     * @description The array of the faces.
+     *
      * @var faces
      */
     public $faces;
 
     /**
+     * @description The description of the figure.
+     *
+     * @example PersonDescription-****
+     *
      * @var string
      */
     public $personDescription;
 
     /**
+     * @description The ID of the figure.
+     *
+     * @example PersonId-****
+     *
      * @var string
      */
     public $personId;
 
     /**
+     * @description The name of the figure.
+     *
+     * @example PersonName-****
+     *
      * @var string
      */
     public $personName;

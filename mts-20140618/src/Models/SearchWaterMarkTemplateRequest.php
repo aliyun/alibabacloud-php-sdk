@@ -19,11 +19,22 @@ class SearchWaterMarkTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     *   A maximum of **100** entries can be returned on each page.
+     *   Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +50,14 @@ class SearchWaterMarkTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The state of the watermark templates that you want to query. Valid values:
+     *
+     *   **All (default)**
+     *   **Normal**
+     *   **Deleted**
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;

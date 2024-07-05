@@ -12,61 +12,108 @@ use AlibabaCloud\Tea\Model;
 class snapshotJob extends Model
 {
     /**
+     * @description The error code returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example ResourceContentBad
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of snapshots that are captured.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The time when the job was created.
+     *
+     * @example 2021-05-19T03:11:48Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The ID of the snapshot job.
+     *
+     * @example f4e3b9ba9f3840c39d6e288056f0****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The information about the job input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The message sent by MNS to notify the user of the job result.
+     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
+     * @description The error message returned if the job fails. This parameter is not returned if the job is successful.
+     *
+     * @example The resource operated InputFile is bad
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the MPS queue to which the snapshot job is submitted.
+     *
+     * @example dd3dae411e704030b921e52698e5****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @description The snapshot configurations.
+     *
      * @var snapshotConfig
      */
     public $snapshotConfig;
 
     /**
+     * @description The status of the snapshot job. Valid values:
+     *
+     *   **Submitted**: The job is submitted.
+     *   **Snapshoting**: The job is being processed.
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *
+     * @example Snapshoting
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The number of single images that are contained in the tiled image.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $tileCount;
 
     /**
+     * @description The custom data.
+     *
+     * @example testid-001
+     *
      * @var string
      */
     public $userData;

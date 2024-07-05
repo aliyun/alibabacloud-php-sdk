@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. A higher confidence level indicates higher reliability of the moderation result. We recommend that you do not use this score in your business.
+     *
+     * @example 89.85
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @description The temporary access URL of the truncated frame. The URL is valid for 5 minutes.
+     *
+     * @example http://example.com/test-01.jpg
+     *
      * @var string
      */
     public $url;

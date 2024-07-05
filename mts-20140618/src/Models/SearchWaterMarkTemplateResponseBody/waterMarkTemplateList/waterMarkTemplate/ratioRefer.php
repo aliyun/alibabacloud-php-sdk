@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ratioRefer extends Model
 {
     /**
+     * @description The horizontal offset. Unit: pixel.
+     *
+     * @example 0.51
+     *
      * @var string
      */
     public $dx;
 
     /**
+     * @description The timeline of the watermark.
+     *
+     * @example 0.2
+     *
      * @var string
      */
     public $dy;
 
     /**
+     * @description The height of the watermark image. Unit: pixel.
+     *
+     * @example 0.33
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The width of the watermark image. Unit: pixel.
+     *
+     * @example 0.36
+     *
      * @var string
      */
     public $width;

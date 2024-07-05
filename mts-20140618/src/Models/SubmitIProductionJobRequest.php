@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ImageCartoonize
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example oss://example-****.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example {"Model":"gif"}
+     *
      * @var string
      */
     public $jobParams;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modelId;
 
     /**
+     * @example mns://125340688170****.mns.cn-beijing.aliyuncs.com/queues/example-pipeline
+     *
      * @var string
      */
     public $notifyUrl;
 
     /**
+     * @example oss://example-****.oss-cn-shanghai.aliyuncs.com/iproduction/{source}-{timestamp}-{sequenceId}.srt
+     *
      * @var string
      */
     public $output;
@@ -49,6 +63,8 @@ class SubmitIProductionJobRequest extends Model
     public $ownerId;
 
     /**
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $pipelineId;
@@ -64,11 +80,15 @@ class SubmitIProductionJobRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $scheduleParams;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $userData;

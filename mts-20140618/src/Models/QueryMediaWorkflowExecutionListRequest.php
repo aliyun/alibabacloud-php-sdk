@@ -29,6 +29,11 @@ class QueryMediaWorkflowExecutionListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IDs of the media workflow execution instances. To obtain the instance ID, log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Execution Instances** in the left-side navigation pane. Separate multiple IDs with commas (,). You can query a maximum of 10 media workflow execution instances at a time.
+     *
+     * This parameter is required.
+     * @example 48e33690ac19445488c706924321****
+     *
      * @var string
      */
     public $runIds;

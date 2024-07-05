@@ -29,6 +29,10 @@ class QuerySmarttagTemplateListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the template. You can obtain the template ID from the response of the [AddSmarttagTemplate](https://help.aliyun.com/document_detail/187759.html) operation. If you set this parameter to a specific value, the information about the corresponding template is returned. If you do not specify this parameter, the operation returns the information about all the templates that are created by the current RAM user.
+     *
+     * @example 05de22f255284c7a8d2aab535dde****
+     *
      * @var string
      */
     public $templateId;

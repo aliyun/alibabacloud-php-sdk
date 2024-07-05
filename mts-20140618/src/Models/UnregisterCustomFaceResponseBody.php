@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnregisterCustomFaceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1A3347BF-7BCE-40A6-B33E-43C2B8A9A278
+     *
      * @var string
      */
     public $requestId;

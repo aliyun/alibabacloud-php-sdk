@@ -10,101 +10,231 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The average bitrate of the video. Unit: Kbit/s.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The average bitrate range of the video.
+     *
      * @var bitrateBnd
      */
     public $bitrateBnd;
 
     /**
+     * @description The buffer size.
+     *
+     *   Unit: KB.
+     *   Default value: **6000**.
+     *
+     * @example 6000
+     *
      * @var string
      */
     public $bufsize;
 
     /**
+     * @description The video codec.
+     *
+     *   Valid values: H.264 and H.265.
+     *   Default value: H.264.
+     *
+     * @example H.264
+     *
      * @var string
      */
     public $codec;
 
     /**
+     * @description The constant rate factor.
+     *
+     *   Default value when the value of Codec is H.264: **23**, default value when the value of Codec is H.265: **26**.
+     *   If the value of this parameter is returned, the value of Bitrate becomes invalid.
+     *
+     * @example 26
+     *
      * @var string
      */
     public $crf;
 
     /**
+     * @description The method of video cropping. Valid values:
+     *
+     *   **border**: automatically detects and removes borders.
+     *   A value in the width:height:left:top format: The video image is cropped based on custom settings.
+     *
+     * @example 1280:800:0:140
+     *
      * @var string
      */
     public $crop;
 
     /**
+     * @description The strength of the independent noise reduction algorithm.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $degrain;
 
     /**
+     * @description The frame rate of the video.
+     *
+     *   Unit: frames per second.
+     *   The value is 60 if the frame rate of the input file exceeds 60.
+     *   Default value: the frame rate of the input video.
+     *
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The maximum interval between keyframes or the maximum number of frames in a frame group. Unit: seconds.
+     *
+     *   Default value: **250**.
+     *   If the maximum number of frames is returned, the value does not contain a unit.
+     *
+     * @example 250
+     *
      * @var string
      */
     public $gop;
 
     /**
+     * @description The height of the video.
+     *
+     *   Unit: pixel.
+     *   Default value: the height of the input video.
+     *
+     * @example 720
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The maximum frame rate.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $maxFps;
 
     /**
+     * @description The maximum bitrate of the video. Unit: Kbit/s.
+     *
+     * @example 3000
+     *
      * @var string
      */
     public $maxrate;
 
     /**
+     * @description The black bars that are added to the video.
+     *
+     *   Unit: pixel.
+     *   Format: width:height:left:top.
+     *
+     * @example 1280:800:0:140
+     *
      * @var string
      */
     public $pad;
 
     /**
+     * @description The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+     *
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @description The preset video algorithm. Default value: **medium**. Valid values:
+     *
+     *   **veryfast**
+     *   **fast**
+     *   **medium**
+     *   **slow**
+     *   **slower**
+     *
+     * @example medium
+     *
      * @var string
      */
     public $preset;
 
     /**
+     * @description The codec profile of the video. Valid values: baseline, main, and high.
+     *
+     * >  If multiple definitions are involved, we recommend that you use baseline for the lowest definition to ensure normal playback on low-end devices, and use main or high for other definitions.
+     *
+     *   **baseline**: applicable to mobile devices.
+     *   **main**: applicable to standard-definition devices.
+     *   **high**: applicable to high-definition devices.
+     *   Default value: **high**.
+     *
+     * @example high
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The level of quality control on the video.
+     *
+     * @example 15
+     *
      * @var string
      */
     public $qscale;
 
     /**
+     * @description The resource priority.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $resoPriority;
 
     /**
+     * @description The scan mode. Valid values:
+     *
+     *   If this parameter is left **empty**, the scan mode of the input video is used.
+     *   **auto**: automatic deinterlacing.
+     *   **progressive**: progressive scan.
+     *   **interlaced**: interlaced scan.
+     *   **By default**, this parameter is left empty.
+     *
+     **Best practice**: The interlaced scan mode saves data traffic than the progressive scan mode but provides poor image quality. Therefore, the progressive scan mode is commonly used in mainstream video production.
+     *
+     *   If **progressive** or **interlaced** is used when the scan mode of the input video is neither of them, the transcoding job fails.
+     *   We recommend that you use **the scan mode of the input video** or **automatic deinterlacing** for higher compatibility.
+     *
+     * @example interlaced
+     *
      * @var string
      */
     public $scanMode;
 
     /**
+     * @description The width of the video.
+     *
+     *   Unit: pixel.
+     *   Default value: the width of the input video.
+     *
+     * @example 1280
+     *
      * @var string
      */
     public $width;

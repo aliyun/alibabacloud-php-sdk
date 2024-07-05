@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class subtitle extends Model
 {
     /**
+     * @description The audio track. Format: `0:{Stream}:{Stream sequence number}`, which is `0:a:{audio_index}`. The value of Stream is a, which indicates an audio stream. The sequence number is the index of the audio stream in the list and starts from 0.
+     *
+     * @example 0:a:0
+     *
      * @var string
      */
     public $map;

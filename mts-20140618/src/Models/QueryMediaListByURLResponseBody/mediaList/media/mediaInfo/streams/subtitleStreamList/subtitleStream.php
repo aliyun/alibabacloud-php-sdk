@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class subtitleStream extends Model
 {
     /**
+     * @description The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language. For more information, see [FFmpeg language definition](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+     *
+     * @example und
+     *
      * @var string
      */
     public $lang;

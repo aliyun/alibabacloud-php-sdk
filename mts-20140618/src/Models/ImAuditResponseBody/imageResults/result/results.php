@@ -15,61 +15,162 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The category of the moderation results. Valid values vary based on the specified moderation scenario.
+     *
+     *   If the Scenes parameter is set to porn, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   sexy: sexy content
+     *   porn: pornographic content
+     *
+     *   If the Scenes parameter is set to terrorism, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   bloody: bloody content
+     *   explosion: explosions and smoke
+     *   outfit: special costume
+     *   logo: special logo
+     *   weapon: weapon
+     *   politics: political content
+     *   violence: violence
+     *   crowd: crowd
+     *   parade: parade
+     *   carcrash: car accident
+     *   flag: flag
+     *   location: landmark
+     *   others: other content
+     *
+     *   If the Scenes parameter is set to ad, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   ad: ad violation
+     *   politics: politically sensitive content in text
+     *   porn: pornographic content in text
+     *   abuse: abuse in text
+     *   terrorism: terrorist content in text
+     *   contraband: prohibited content in text
+     *   spam: junk content in text
+     *   npx: illegal ad
+     *   qrcode: QR code
+     *   programCode: mini program code
+     *
+     *   If the Scenes parameter is set to qrcode, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   qrcode: QR code
+     *   programCode: mini program code
+     *
+     *   If the Scenes parameter is set to live, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   meaningless: no content in the image, such as black or white screen
+     *   PIP: picture-in-picture
+     *   smoking: smoking
+     *   drivelive: live broadcasting in a running vehicle
+     *
+     *   If the Scenes parameter is set to logo, the valid values are:
+     *
+     *   normal: no pornographic content
+     *   TV: controlled logo
+     *   trademark: trademark
+     *
+     * @example sexy
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. A greater value indicates a higher confidence level. If a value of pass is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content is normal. If a value of review or block is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content contains violations.
+     *
+     * >  This score is for reference only. We strongly recommend that you do not use this score in your business. We recommend that you use the values that are returned for the suggestion, label, and sublabel parameters to determine whether the content contains violations. The sublabel parameter is returned by some operations.
+     * @example 91.54
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @description The image moderation scenario. Valid values:
+     *
+     *   porn: pornography
+     *   terrorism: terrorist content
+     *   ad: ad violation
+     *   qrcode: QR code
+     *   live: undesirable scene
+     *   logo: special logo
+     *
+     * @example porn
+     *
      * @var string
      */
     public $scene;
 
     /**
+     * @description The recommended subsequent operation. Valid values:
+     *
+     *   pass: The content passes the moderation. No further actions are required.
+     *   review: The moderation object contains suspected violations and requires human review.
+     *   block: The moderation object contains violations. We recommend that you delete or block the object.
+     *
+     * @example block
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description If the temporary access URL of the image is too long, a truncated temporary access URL is returned for each frame.
+     *
      * @var frames[]
      */
     public $frames;
 
     /**
+     * @description The information about the term hit by the ad or violation text detected in the moderated image.
+     *
      * @var hintWordsInfo[]
      */
     public $hintWordsInfo;
 
     /**
+     * @description The information about the logo detected in the moderated image.
+     *
      * @var logoData[]
      */
     public $logoData;
 
     /**
+     * @description ocrData
+     *
      * @var string[]
      */
     public $ocrData;
 
     /**
+     * @description The location information of the mini program code detected in the moderated image.
+     *
      * @var programCodeData[]
      */
     public $programCodeData;
 
     /**
+     * @description The information about the text that is included in the QR code detected in the moderated image.
+     *
      * @var string[]
      */
     public $qrcodeData;
 
     /**
+     * @description The coordinates of the QR code detected in the image.
+     *
      * @var qrcodeLocations[]
      */
     public $qrcodeLocations;
 
     /**
+     * @description The information about the terrorist content detected in the moderated image.
+     *
      * @var sfaceData[]
      */
     public $sfaceData;

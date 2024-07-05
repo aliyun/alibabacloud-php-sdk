@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class gif extends Model
 {
     /**
+     * @description The color dithering algorithm of the palette. Valid values: **sierra** and **bayer**.
+     *
+     * @example bayer
+     *
      * @var string
      */
     public $ditherMode;
 
     /**
+     * @description The duration for which the final frame is paused. Unit: centisecond.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $finalDelay;
 
     /**
+     * @description Indicates whether a custom palette is used. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $isCustomPalette;
 
     /**
+     * @description The loop count.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $loop;

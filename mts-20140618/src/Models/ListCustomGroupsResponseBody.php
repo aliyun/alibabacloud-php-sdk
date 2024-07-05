@@ -15,21 +15,29 @@ class ListCustomGroupsResponseBody extends Model
     public $customGroups;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

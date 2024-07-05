@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tileOutputFile extends Model
 {
     /**
+     * @description The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
+     *
+     * @example example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The error message returned when the job fails. This parameter is not returned if the job is successfully processed.
+     *
+     * @example example-location
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The ID of the message. This parameter is not returned if the job fails.
+     *
+     * @example example.png
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The message sent by MNS to notify the user of the job result.
+     *
+     * @example acs:ram::1:role/testrole
+     *
      * @var string
      */
     public $roleArn;

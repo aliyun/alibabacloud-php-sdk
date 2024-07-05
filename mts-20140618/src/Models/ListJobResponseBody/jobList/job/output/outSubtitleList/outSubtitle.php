@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class outSubtitle extends Model
 {
     /**
+     * @description The video track. Format: 0:{Stream}:{Stream sequence number}, that is, 0:v:{video_index}. The value of Stream is v, which indicates a video stream. The sequence number is the index of the video stream in the list and starts from 0.
+     *
+     * @example 0:v:0
+     *
      * @var string
      */
     public $map;
 
     /**
+     * @description The error message returned if the job failed to be created. This parameter is not returned if the job was created.
+     *
+     * @example The specified parameter “%s” cannot be null.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details of the output file.
+     *
      * @var outSubtitleFile
      */
     public $outSubtitleFile;
 
     /**
+     * @description Indicates whether the job was created. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

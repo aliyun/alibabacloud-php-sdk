@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class superReso extends Model
 {
     /**
+     * @description Indicates whether parameters related to the sampling rate are obtained. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $isHalfSample;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateFpShotDBResponseBody extends Model
 {
     /**
+     * @description The details of the media fingerprint library.
+     *
      * @var fpShotDB
      */
     public $fpShotDB;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

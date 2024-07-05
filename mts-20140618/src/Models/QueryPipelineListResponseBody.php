@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryPipelineListResponseBody extends Model
 {
     /**
+     * @description The IDs of MPS queues that do not exist.
+     *
      * @var nonExistPids
      */
     public $nonExistPids;
 
     /**
+     * @description The MPS queues.
+     *
      * @var pipelineList
      */
     public $pipelineList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1C538EAA-ACAF-5AD8-B091-A72C63007149
+     *
      * @var string
      */
     public $requestId;

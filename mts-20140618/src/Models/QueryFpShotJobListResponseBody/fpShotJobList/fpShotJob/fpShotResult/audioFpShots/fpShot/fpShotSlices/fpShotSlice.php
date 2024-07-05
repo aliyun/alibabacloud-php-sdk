@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class fpShotSlice extends Model
 {
     /**
+     * @description The start point in time and duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+     *
      * @var duplication
      */
     public $duplication;
 
     /**
+     * @description The start point in time and duration of the similar audio clip in the input audio.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The similarity of the input audio against the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $similarity;

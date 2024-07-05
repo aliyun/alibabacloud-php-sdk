@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @description The name of the template.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $duration;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The duration of the similar audio clip in the input audio.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The start point in time of the similar audio clip in the input audio.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $start;

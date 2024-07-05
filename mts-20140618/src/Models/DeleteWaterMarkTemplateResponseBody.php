@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteWaterMarkTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 030E2671-806A-52AF-A93C-DA8E308603A6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the deleted watermark template.
+     *
+     * @example 3780bd69b2b74540bc7b1096f564****
+     *
      * @var string
      */
     public $waterMarkTemplateId;

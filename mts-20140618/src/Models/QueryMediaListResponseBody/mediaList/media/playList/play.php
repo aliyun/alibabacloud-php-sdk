@@ -10,61 +10,110 @@ use AlibabaCloud\Tea\Model;
 class play extends Model
 {
     /**
+     * @description The name of the workflow activity.
+     *
+     * @example example-activity-****
+     *
      * @var string
      */
     public $activityName;
 
     /**
+     * @description The bitrate of the media file.
+     *
+     * @example 2659.326
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The duration of the media file.
+     *
+     * @example 7.965000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description Indicates whether the media file is encrypted. Valid values:
+     *
+     *   **0**: The media file is not encrypted.
+     *   **1**: The media file is encrypted.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $encryption;
 
     /**
+     * @description The playback file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The encoding format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+     *
+     * @example mp4
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The frame rate of the media file.
+     *
+     * @example 25.0
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The height.
+     *
+     * @example 1080
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The ID of the workflow that generates the playback file.
+     *
+     * @example 93ab850b4f6f44eab54b6e91d24d****
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the workflow that generates the playback file.
+     *
+     * @example example-mediaworkflow-****
+     *
      * @var string
      */
     public $mediaWorkflowName;
 
     /**
+     * @description The size of the media file.
+     *
+     * @example 2647692
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The width of the media file.
+     *
+     * @example 760
+     *
      * @var string
      */
     public $width;

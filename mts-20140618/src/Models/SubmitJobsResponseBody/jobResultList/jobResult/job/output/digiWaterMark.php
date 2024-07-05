@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class digiWaterMark extends Model
 {
     /**
+     * @description The transparency of the text or image.
+     *
+     *   Value values: **(0,1]**.
+     *   Default value: **1.0**.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $alpha;
 
     /**
+     * @description The details of the input file.
+     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
+     * @description The type of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Valid values:
+     *
+     *   **Image** (default)
+     *   **Text**
+     *
+     * @example Image
+     *
      * @var string
      */
     public $type;

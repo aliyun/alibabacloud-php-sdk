@@ -11,41 +11,76 @@ use AlibabaCloud\Tea\Model;
 class mediaWorkflowExecution extends Model
 {
     /**
+     * @description The methods that are called in the media workflow.
+     *
      * @var activityList
      */
     public $activityList;
 
     /**
+     * @description The time when the media workflow was created.
+     *
+     * @example 016-04-01T06:53:43Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The input data of the media workflow.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The ID of the media asset. A media file contains all the information about a media workflow.
+     *
+     * @example 512046582a924698a41e0f8b0d2b****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @description The ID of the media workflow.
+     *
+     * @example 93ab850b4f6f44eab54b6e91****81d4
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the media workflow.
+     *
+     * @example example-mediaworkflow-****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the execution instance.
+     *
+     * @example 48e33690ac19445488c706924321****
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @description The status of the media workflow. Valid values:
+     *
+     *   Running: The media workflow is running.
+     *   Completed: The media workflow is complete.
+     *
+     * > Completed only indicates that the media workflow is complete. View the status of each method in the workflow, such as the transcode and snapshot methods, to check whether the method is called.
+     *
+     *   Fail: The media workflow fails.
+     *
+     * @example Completed
+     *
      * @var string
      */
     public $state;

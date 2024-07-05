@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SubmitSnapshotJobResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 19B6D8C5-A5DD-467A-B435-29D393C71E2D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the snapshot job.
+     *
      * @var snapshotJob
      */
     public $snapshotJob;

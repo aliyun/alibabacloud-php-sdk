@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class subtitleConfig extends Model
 {
     /**
+     * @description The external subtitles. The value is a JSON array.
+     *
      * @var extSubtitleList
      */
     public $extSubtitleList;
 
     /**
+     * @description The subtitles.
+     *
      * @var subtitleList
      */
     public $subtitleList;

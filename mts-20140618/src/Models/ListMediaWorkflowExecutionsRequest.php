@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListMediaWorkflowExecutionsRequest extends Model
 {
     /**
+     * @description The Object Storage Service (OSS) URL of the input file of the media workflow. The URL complies with RFC 3986 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+     *
+     * @example http://example-****.cn-hangzhou.aliyuncs.com/test****.flv
+     *
      * @var string
      */
     public $inputFileURL;
 
     /**
+     * @description The maximum number of media workflow execution instances to return. Valid values: `[1,100]`. Default value: **10**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maximumPageSize;
 
     /**
+     * @description The ID of the media workflow whose execution instances you want to query. To obtain the workflow ID, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings**.
+     *
+     * @example 43b7335a4b1d4fe883670036affb****
+     *
      * @var string
      */
     public $mediaWorkflowId;
 
     /**
+     * @description The name of the media workflow. To obtain the workflow name, you can log on to the **MPS console** and choose **Workflows** > **Workflow Settings**.
+     *
+     * @example example-mediaworkflow-****
+     *
      * @var string
      */
     public $mediaWorkflowName;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. The value is a UUID that contains 32 characters. When you request the first page of query results, leave the NextPageToken parameter empty. When you request more query results, specify the value of the NextPageToken parameter returned in the query results on the previous page.
+     *
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $nextPageToken;

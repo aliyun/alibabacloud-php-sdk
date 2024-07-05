@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class videoCensorConfig extends Model
 {
     /**
+     * @description The custom business type. Default value: common.
+     *
+     * @example common
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The information about output snapshots.
+     *
      * @var outputFile
      */
     public $outputFile;
 
     /**
+     * @description Indicates whether the video content needs to be moderated. Default value: **true** Valid values:
+     *
+     *   **true**: The video content needs to be moderated.
+     *   **false**: The video content does not need to be moderated.
+     *
+     * @example true
+     *
      * @var string
      */
     public $videoCensor;

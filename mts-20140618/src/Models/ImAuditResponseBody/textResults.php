@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class textResults extends Model
 {
     /**
+     * @description The text moderation results.
+     *
      * @var result[]
      */
     public $result;

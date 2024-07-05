@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryTemplateListResponseBody extends Model
 {
     /**
+     * @description The IDs of the templates that do not exist. This parameter is not returned if all specified transcoding templates are found.
+     *
      * @var nonExistTids
      */
     public $nonExistTids;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BC860F04-778A-472F-AB39-E1BF329C1EA8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The transcoding templates.
+     *
      * @var templateList
      */
     public $templateList;

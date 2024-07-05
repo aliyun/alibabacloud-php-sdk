@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @description The transmuxing configurations. The value is a JSON object. For more information, see the [MuxConfig](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+     *
+     * @example {"Codec":"aac","Samplerate":"44100","Bitrate":"500","Channels":"2"}
+     *
      * @var string
      */
     public $audio;
 
     /**
+     * @description The configurations of the video stream. The value is a JSON object. For more information, see the [Video](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+     *
+     * @example {"Format":"mp4"}
+     *
      * @var string
      */
     public $container;
 
     /**
+     * @description The general transcoding configurations. The value is a JSON object. For more information, see the [TransConfig](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+     *
+     * @example {"Segment":{"Duration":"10"}}
+     *
      * @var string
      */
     public $muxConfig;
 
     /**
+     * @description The container format. The value is a JSON object. Default format: **MP4**.
+     *
+     *   Video formats: FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4)
+     *   Audio formats: MP3, MP4, OGG, FLAC, and M4A
+     *   Images formats: GIF and WebP
+     *
+     * This parameter is required.
+     * @example MPS-example
+     *
      * @var string
      */
     public $name;
@@ -49,16 +70,29 @@ class UpdateTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the template. The name can be up to 128 bytes in length.
+     *
+     * This parameter is required.
+     * @example 16f01ad6175e4230ac42bb5182cd****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example {"TransMode":"onepass"}
+     *
      * @var string
      */
     public $transConfig;
 
     /**
+     * @description The configurations of the audio stream. The value is a JSON object. For more information, see the [Audio](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+     *
+     * @example {"Codec":"H.264","Profile":"high","Bitrate":"500","Crf":"15","Width":"256","Height":"800","Fps":"25","Gop":"10"}
+     *
      * @var string
      */
     public $video;

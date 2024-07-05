@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListCustomEntitiesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example landmark
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $customGroupId;
@@ -29,11 +37,19 @@ class ListCustomEntitiesRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class QueryWaterMarkTemplateListResponseBody extends Model
 {
     /**
+     * @description The IDs of the templates that do not exist.
+     *
      * @var nonExistWids
      */
     public $nonExistWids;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 17079AF5-6276-51A9-B755-D26594C93F3C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the watermark templates.
+     *
      * @var waterMarkTemplateList
      */
     public $waterMarkTemplateList;

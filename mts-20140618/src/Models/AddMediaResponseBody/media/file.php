@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @description The status of the file. The default value is **Normal**.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The URL of the media file.
+     *
+     * @example http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4
+     *
      * @var string
      */
     public $URL;

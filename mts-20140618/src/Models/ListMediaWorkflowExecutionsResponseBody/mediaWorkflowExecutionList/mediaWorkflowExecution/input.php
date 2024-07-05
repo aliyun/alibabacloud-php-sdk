@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The information about the storage location of the input file of the media workflow in OSS.
+     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
+     * @description The custom data.
+     *
+     * @example example data
+     *
      * @var string
      */
     public $userData;

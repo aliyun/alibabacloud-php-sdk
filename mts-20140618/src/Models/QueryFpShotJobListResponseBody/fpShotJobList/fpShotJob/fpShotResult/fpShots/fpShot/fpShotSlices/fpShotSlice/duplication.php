@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class duplication extends Model
 {
     /**
+     * @description The duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+     *
+     * @example 48
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The start point in time of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+     *
+     * @example 1260
+     *
      * @var string
      */
     public $start;

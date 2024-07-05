@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class SubmitFpDBDeleteJobRequest extends Model
 {
     /**
+     * @description The operation type. Valid values:
+     *
+     *   **Purge**: clears the media fingerprint library. The content in the library is deleted, but the library is not deleted.
+     *   **Delete**: deletes the media fingerprint library. Both the library and its content are deleted.
+     *   Default value: **Purge**.
+     *
+     * @example Purge
+     *
      * @var string
      */
     public $delType;
 
     /**
+     * @description The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
+     *
+     * This parameter is required.
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $fpDBId;
@@ -29,6 +42,10 @@ class SubmitFpDBDeleteJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue. This ID can be used to associate the job with a notification method. To view the MPS queue ID, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+     *
+     * @example fb712a6890464059b1b2ea7c8647****
+     *
      * @var string
      */
     public $pipelineId;
@@ -44,6 +61,10 @@ class SubmitFpDBDeleteJobRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The custom data. The value can contain letters and digits and can be up to 128 bytes in length.
+     *
+     * @example example data
+     *
      * @var string
      */
     public $userData;

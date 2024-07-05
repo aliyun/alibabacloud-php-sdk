@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class vensorCensorResult extends Model
 {
     /**
+     * @description A collection of the moderation results. The information includes the summary about various scenarios such as pornographic content and terrorist content.
+     *
      * @var censorResults
      */
     public $censorResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example ea04afcca7cd4e80b9ece8fbb251****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The moderation results that are sorted in ascending order by time.
+     *
      * @var videoTimelines
      */
     public $videoTimelines;

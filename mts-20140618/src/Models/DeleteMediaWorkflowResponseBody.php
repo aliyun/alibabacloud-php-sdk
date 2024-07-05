@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaWorkflowResponseBody extends Model
 {
     /**
+     * @description The information about the media workflow.
+     *
      * @var mediaWorkflow
      */
     public $mediaWorkflow;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7D752035-97DA-54E5-88E2-E8405EEA4394
+     *
      * @var string
      */
     public $requestId;

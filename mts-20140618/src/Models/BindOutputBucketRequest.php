@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BindOutputBucketRequest extends Model
 {
     /**
+     * @description The name of the Object Storage Service (OSS) bucket that you want to bind. The name can be up to 64 bytes in size and can contain letters, digits, and hyphens (-). The name cannot start with a special character.
+     *
+     * This parameter is required.
+     * @example example-bucket-****
+     *
      * @var string
      */
     public $bucket;
@@ -32,18 +37,12 @@ class BindOutputBucketRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $roleArn;
     protected $_name = [
         'bucket'               => 'Bucket',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleArn'              => 'RoleArn',
     ];
 
     public function validate()
@@ -67,9 +66,6 @@ class BindOutputBucketRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->roleArn) {
-            $res['RoleArn'] = $this->roleArn;
         }
 
         return $res;
@@ -97,9 +93,6 @@ class BindOutputBucketRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RoleArn'])) {
-            $model->roleArn = $map['RoleArn'];
         }
 
         return $model;

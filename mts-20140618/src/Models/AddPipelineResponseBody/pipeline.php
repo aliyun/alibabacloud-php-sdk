@@ -10,41 +10,74 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
+     * @description The ID of the MPS queue.
+     *
+     * @example ed450ea0bfbd41e29f80a401fb4d****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the MPS queue.
+     *
+     * @example Media Fingerprint
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The MNS configuration.
+     *
      * @var notifyConfig
      */
     public $notifyConfig;
 
     /**
+     * @description The quota that is allocated to the MPS queue.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $quotaAllocate;
 
     /**
+     * @description The role.
+     *
+     * @example AliyunMTSDefaultRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The type of the MPS queue.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @description The level of the MPS queue.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $speedLevel;
 
     /**
+     * @description The state of the MPS queue.
+     *
+     *   Active: The MPS queue is active. The jobs in the MPS queue are scheduled and transcoded by MPS.
+     *   Paused: The MPS queue is paused. Jobs in the MPS queue are no longer scheduled for transcoding by MPS. All of the jobs in the MPS queue remain in the Submitted state. Jobs that are being transcoded are not affected.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $state;

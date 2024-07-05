@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class encryption extends Model
 {
     /**
+     * @description The encryption ID.
+     *
+     * @example 31fa3c9ca8134f9cec2b4b0b0f78****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The key that is used to encrypt the video.
+     *
+     * @example encryptionkey128
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The key encryption method. Keys cannot be transmitted to MPS in plaintext. Keys must be encrypted by using Base64 or Key Management Service (KMS). For example, if the key is encryptionkey128, you can encrypt the key by using the following method: Base64("encryptionkey128") or KMS(Base64("encryptionkey128").
+     *
+     * @example Base64
+     *
      * @var string
      */
     public $keyType;
 
     /**
+     * @description The URL that is used to request the key. The URL is Base64-encoded.
+     *
+     * @example https://1161758785*****.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/HLS-decyptServer/decyptServer/
+     *
      * @var string
      */
     public $keyUri;
 
     /**
+     * @description The number of unencrypted frames at the beginning of the video. Leaving these frames unencrypted enables video playback to quickly start.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $skipCnt;
 
     /**
+     * @description The encryption type. Only **hls-aes-128** may be returned.
+     *
+     * @example hls-aes-128
+     *
      * @var string
      */
     public $type;

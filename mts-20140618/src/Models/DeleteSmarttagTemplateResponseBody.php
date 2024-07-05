@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmarttagTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5F37036F-5267-43F1-AE47-10A18E840739
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MNSMessageResult extends Model
 {
     /**
+     * @description The error code returned if the MNS message fails to be sent. This parameter is not returned if the MNS message is sent.
+     *
+     * @example The Topic/Queue config is empty, not send message
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the MNS message fails to be sent. This parameter is not returned if the MNS message is sent.
+     *
+     * @example MessageConfigEmpty
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the message that indicates the MNS message is sent. This parameter is not returned if the MNS message fails to be sent.
+     *
+     * @example 4f3bc83233de4e2f81c7dade443e****
+     *
      * @var string
      */
     public $messageId;

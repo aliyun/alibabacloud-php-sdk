@@ -10,36 +10,77 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
+     * @description The ID of the MPS queue.
+     *
+     * @example d1ce4d3efcb549419193f50f1fcd****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The new name of the MPS queue.
+     *
+     * @example example-pipeline-****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The MNS configuration.
+     *
      * @var notifyConfig
      */
     public $notifyConfig;
 
     /**
+     * @description The quota that is allocated to the MPS queue.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $quotaAllocate;
 
     /**
+     * @description The role that is assigned to the current RAM user.
+     *
+     * @example AliyunMTSExampleRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The type of the MPS queue. Default value: **Standard**. Valid values:
+     *
+     *   **Boost**: MPS queue with transcoding speed boosted
+     *   **Standard**: standard MPS queue
+     *   **NarrowBandHDV2**: MPS queue that supports Narrowband HD 2.0
+     *   **AIVideoCover**: MPS queue for intelligent snapshot capture
+     *   **AIVideoFPShot**: MPS queue for media fingerprinting
+     *   **AIVideoCensor**: MPS queue for automated review
+     *   **AIVideoMCU**: MPS queue for smart tagging
+     *   **AIVideoSummary**: MPS queue for video synopsis
+     *   **AIVideoPorn**: MPS queue for pornography detection in videos
+     *   **AIAudioKWS**: MPS queue for keyword recognition in audio
+     *   **AIAudioASR**: MPS queue for speech-to-text conversion
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @description The state of the MPS queue. Valid values:
+     *
+     *   **Active**: The MPS queue is active.
+     *   **Paused**: The MPS queue is paused.
+     *
+     * @example Paused
+     *
      * @var string
      */
     public $state;

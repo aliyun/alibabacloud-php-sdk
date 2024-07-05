@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobResponseBody extends Model
 {
     /**
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example { "Code":"Success", "Details":[], "FunctionName":"ImageCartoonize", "JobId":"39f8e0bc005e4f309379701645f4****", "Message":"success", "State":"Success", "Type":"IProduction" }
+     *
      * @var string
      */
     public $result;

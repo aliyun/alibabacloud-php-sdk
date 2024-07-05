@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QuerySmarttagTemplateListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The templates.
+     *
      * @var templates
      */
     public $templates;

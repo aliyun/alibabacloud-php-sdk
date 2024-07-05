@@ -11,21 +11,36 @@ use AlibabaCloud\Tea\Model;
 class QuerySnapshotJobListResponseBody extends Model
 {
     /**
+     * @description The OSS object that is used as the input file.
+     *
+     * @example b11c171cced04565b1f38f1ecc39****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The OSS object that is generated as the output file of the tiling job.
+     *
      * @var nonExistSnapshotJobIds
      */
     public $nonExistSnapshotJobIds;
 
     /**
+     * @description The ID of the snapshot job.
+     *
+     * @example 34BCAB31-2833-43A7-9FBD-B34302AB23EQ
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The distance between images.
+     *
+     *   Default value: **0**.
+     *   Unit: pixel.
+     *
      * @var snapshotJobList
      */
     public $snapshotJobList;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class customEntity extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $customEntityId;
 
     /**
+     * @example { "finegrainName":"example" }
+     *
      * @var string
      */
     public $customEntityInfo;
 
     /**
+     * @example exampleName
+     *
      * @var string
      */
     public $customEntityName;

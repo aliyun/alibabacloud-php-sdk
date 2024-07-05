@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class duplication extends Model
 {
     /**
+     * @description The duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The start point in time of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $start;

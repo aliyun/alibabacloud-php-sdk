@@ -11,16 +11,29 @@ use AlibabaCloud\Tea\Model;
 class QueryAnalysisJobListResponseBody extends Model
 {
     /**
+     * @description The IDs of template analysis jobs.
+     *
      * @var analysisJobList
      */
     public $analysisJobList;
 
     /**
+     * @description The message sent by Message Service (MNS) to notify the user of the job result.
+     *
      * @var nonExistAnalysisJobIds
      */
     public $nonExistAnalysisJobIds;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   **Submitted**: The job has been submitted.
+     *   **Analyzing**: The job is being run.
+     *   **Success**: The job is successful.
+     *   **Fail**: The job fails.
+     *
+     * @example 5CA6E020-4102-4FFF-AA56-5ED7ECD811A1
+     *
      * @var string
      */
     public $requestId;

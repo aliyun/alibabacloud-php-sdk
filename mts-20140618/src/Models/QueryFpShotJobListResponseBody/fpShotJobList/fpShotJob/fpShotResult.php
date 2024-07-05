@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class fpShotResult extends Model
 {
     /**
+     * @description The audio fingerprint analysis results.
+     *
      * @var audioFpShots
      */
     public $audioFpShots;
 
     /**
+     * @description The video fingerprint analysis results.
+     *
      * @var fpShots
      */
     public $fpShots;
 
     /**
+     * @description The text fingerprint analysis results.
+     *
      * @var textFpShots
      */
     public $textFpShots;

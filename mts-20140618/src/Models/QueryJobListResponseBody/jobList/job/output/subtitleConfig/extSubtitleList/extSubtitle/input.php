@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The name of the OSS bucket in which the input caption file is stored.
+     *
+     * @example example-bucket-****
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The OSS region in which the input caption file resides.
+     *
+     * @example oss-cn-hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The name of the OSS object that is used as the input caption file.
+     *
+     * @example example-output.flv
+     *
      * @var string
      */
     public $object;

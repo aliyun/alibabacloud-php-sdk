@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class TagCustomPersonRequest extends Model
 {
     /**
+     * @example CategoryDescription001-****
+     *
      * @var string
      */
     public $categoryDescription;
 
     /**
+     * @example CategoryId001-****
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example CategoryNametest-****
+     *
      * @var string
      */
     public $categoryName;
@@ -34,16 +40,22 @@ class TagCustomPersonRequest extends Model
     public $ownerId;
 
     /**
+     * @example PersonDescriptiontest-****
+     *
      * @var string
      */
     public $personDescription;
 
     /**
+     * @example PersonId001-****
+     *
      * @var string
      */
     public $personId;
 
     /**
+     * @example PersonNametest-****
+     *
      * @var string
      */
     public $personName;

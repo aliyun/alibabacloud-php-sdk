@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class subtitleStream extends Model
 {
     /**
+     * @description The full name of the encoding format.
+     *
+     * @example ASS (Advanced SSA) subtitle
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format. Valid values:
+     *
+     *   **srt**
+     *   **ass**
+     *
+     * @example ass
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
+     * @example 0x0000
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
+     * @example [0][0][0][0]
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 0/1
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The duration of the audio stream. Unit: seconds.
+     *
+     * @example 1370.116000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language.
+     *
+     * @example eng
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The start time of the subtitle stream.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 1/1000
+     *
      * @var string
      */
     public $timebase;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class bitrateBnd extends Model
 {
     /**
+     * @description The maximum bitrate.
+     *
+     * @example 1500
+     *
      * @var string
      */
     public $max;
 
     /**
+     * @description The minimum bitrate.
+     *
+     * @example 800
+     *
      * @var string
      */
     public $min;

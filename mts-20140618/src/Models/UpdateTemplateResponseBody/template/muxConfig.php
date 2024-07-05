@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class muxConfig extends Model
 {
     /**
+     * @description The duration for which the final frame is paused. Unit: milliseconds.
+     *
      * @var gif
      */
     public $gif;
 
     /**
+     * @description The length of the segment. Unit: seconds.
+     *
      * @var segment
      */
     public $segment;
 
     /**
+     * @description The loop count.
+     *
      * @var webp
      */
     public $webp;

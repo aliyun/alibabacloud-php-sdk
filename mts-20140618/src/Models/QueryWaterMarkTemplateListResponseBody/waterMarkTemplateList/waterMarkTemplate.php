@@ -11,56 +11,113 @@ use AlibabaCloud\Tea\Model;
 class waterMarkTemplate extends Model
 {
     /**
+     * @description The horizontal offset. Unit: pixel.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $dx;
 
     /**
+     * @description The vertical offset. Unit: pixel.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $dy;
 
     /**
+     * @description The height of the watermark image. Unit: pixel.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The ID of the watermark template.
+     *
+     * @example 3780bd69b2b74540bc7b1096f564****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the watermark template.
+     *
+     * @example example-watermark
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+     *
+     *   **Width**: the width edge.
+     *   **Height**: the height edge.
+     *   **Long**: the long edge.
+     *   **Short**: the short edge.
+     *
      * @var ratioRefer
      */
     public $ratioRefer;
 
     /**
+     * @description The position of the watermark. Valid values:
+     *
+     *   **TopRight**: the upper-right corner.
+     *   **TopLeft**: the upper-left corner.
+     *   **BottomRight**: the lower-right corner.
+     *   **BottomLeft**: the lower-left corner.
+     *
+     * @example TopRight
+     *
      * @var string
      */
     public $referPos;
 
     /**
+     * @description The status of the watermark template. Valid values: Valid values:
+     *
+     *   **Normal**: The watermark template is normal.
+     *   **Deleted**: The watermark template is deleted.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The timeline of the watermark.
+     *
      * @var timeline
      */
     public $timeline;
 
     /**
+     * @description The type of the watermark. Valid values:
+     *
+     *   Image: an image watermark.
+     *   Text: a text watermark.
+     *
+     * > Only watermarks of the **Image** type are supported.
+     * @example Image
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The width of the watermark image. Unit: pixel.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $width;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MNSMessageResult extends Model
 {
     /**
+     * @description The error code returned if the job failed. This parameter is not returned if the job was successful.
+     *
+     * @example InvalidParameter.ResourceNotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message returned if the job failed. This parameter is not returned if the job was successful.
+     *
+     * @example The resource operated \\"PipelineId\\" cannot be found
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the message returned if the job was successful. This parameter is not returned if the job failed.
+     *
+     * @example 3ca84a39a9024f19853b21be9cf9****
+     *
      * @var string
      */
     public $messageId;

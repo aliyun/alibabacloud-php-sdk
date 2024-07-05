@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The duration of the similar video clip in the input video.
+     *
+     * @example 48
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The start point in time of the similar video clip in the input video.
+     *
+     * @example 46
+     *
      * @var string
      */
     public $start;

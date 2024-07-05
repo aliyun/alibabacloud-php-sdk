@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The error code. The error code is the same as the HTTP status code. For more information, see [Error codes](https://help.aliyun.com/document_detail/29254.html).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The text that you specify in the moderation request.
+     *
+     * @example This is test text.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The sequence number of the text.
+     *
+     * @example cfd33235-71a4-468b-8137-a5ffe323****
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The returned data. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. Each element is a struct.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description The ID of the moderation task.
+     *
+     * @example txt6HB8NQoEbU@5fosnj2xVEM-1t****
+     *
      * @var string
      */
     public $taskId;

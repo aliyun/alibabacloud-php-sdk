@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The ID of the snapshot job.
+     *
+     * @example example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The ID of the MPS queue to which the snapshot job was submitted.
+     *
+     * @example example-location
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
+     *
+     * @example example.flv
+     *
      * @var string
      */
     public $object;
 
     /**
+     * @description The custom data.
+     *
+     * @example acs:ram::1:role/testrole
+     *
      * @var string
      */
     public $roleArn;

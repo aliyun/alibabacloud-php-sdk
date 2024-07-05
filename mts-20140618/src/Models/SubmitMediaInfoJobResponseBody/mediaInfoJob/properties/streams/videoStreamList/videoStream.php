@@ -10,136 +10,247 @@ use AlibabaCloud\Tea\Model;
 class videoStream extends Model
 {
     /**
+     * @description The average frame rate.
+     *
+     * @example 23.976025
+     *
      * @var string
      */
     public $avgFPS;
 
     /**
+     * @description The bitrate. Unit: Kbit/s.
+     *
+     * @example 1496.46
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The full name of the encoding format.
+     *
+     * @example H.264/AVC/MPEG-4 AVC/MPEG-4 part 10
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format. Valid values:
+     *
+     *   **h264**
+     *   **h265**
+     *   **gif**
+     *   **webp**
+     *
+     * @example h264
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
+     * @example 0x31637661
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
+     * @example avc1
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1001/48000
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The level of color reconstruction.
+     *
+     * @example 700
+     *
      * @var string
      */
     public $colorPrimaries;
 
     /**
+     * @description The color range.
+     *
+     * @example 700
+     *
      * @var string
      */
     public $colorRange;
 
     /**
+     * @description The color channel.
+     *
+     * @example R255 G83 B170
+     *
      * @var string
      */
     public $colorTransfer;
 
     /**
+     * @description The display aspect ratio (DAR). DAR is the proportional relationship between the width and the height of a video. The value is used to determine whether the video is in portrait mode or landscape mode.
+     *
+     * @example 16:9
+     *
      * @var string
      */
     public $dar;
 
     /**
+     * @description The duration of the video stream. Unit: seconds.
+     *
+     * @example 17.225542
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The frame rate.
+     *
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description Indicates whether the video stream contains bidirectional frames (B-frames). A value of 1 indicates that the video stream contains B-frames. A value of 0 indicates that the video stream does not contain B-frames.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $hasBFrames;
 
     /**
+     * @description The height of the video. Unit: pixel.
+     *
+     * @example 1080
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The sequence number of the video stream. The value indicates the position of the video stream in all video streams. The sequence number of the first video stream to be played can be specified in some players. Default value: 1.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language.
+     *
+     * @example eng
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The codec level.
+     *
+     * @example 41
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The network bandwidth that is consumed.
+     *
      * @var networkCost
      */
     public $networkCost;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The pixel format.
+     *
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @description The codec profile.
+     *
+     * @example High
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The rotation angle of the video.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @description The sample aspect ratio (SAR).
+     *
+     * @example 1:1
+     *
      * @var string
      */
     public $sar;
 
     /**
+     * @description The start time of the video stream.
+     *
+     * @example 0.042000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 1/24000
+     *
      * @var string
      */
     public $timebase;
 
     /**
+     * @description The width of the video. Unit: pixel.
+     *
+     * @example 1920
+     *
      * @var string
      */
     public $width;

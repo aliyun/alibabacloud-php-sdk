@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class fpShotDB extends Model
 {
     /**
+     * @description The configurations of the media fingerprint library.
+     *
+     * @example null
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The description of the media fingerprint library.
+     *
+     * @example The library is a text fingerprint library.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the media fingerprint library. We recommend that you keep this ID for subsequent operation calls.
+     *
+     * @example 88c6ca184c0e47098a5b665e2a12****
+     *
      * @var string
      */
     public $fpDBId;
 
     /**
+     * @description The model ID of the media fingerprint library.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @description The name of the media fingerprint library.
+     *
+     * @example example-name-****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the media fingerprint library. After the media fingerprint library is created, it enters the **offline** state. After the media fingerprint library is processed at the backend, it enters the **active** state.
+     *
+     * @example offline
+     *
      * @var string
      */
     public $state;

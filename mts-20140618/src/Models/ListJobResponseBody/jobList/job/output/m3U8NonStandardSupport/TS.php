@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class TS extends Model
 {
     /**
+     * @description Indicates whether the MD5 value of the TS file is included in the M3U8 file. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $md5Support;
 
     /**
+     * @description Indicates whether the size of the TS file is included in the M3U8 file.
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sizeSupport;

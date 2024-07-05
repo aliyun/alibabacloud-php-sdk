@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListFpShotFilesResponseBody extends Model
 {
     /**
+     * @description The media fingerprint files. For more information, see the "FpShotFile" section of the [Data types](https://help.aliyun.com/document_detail/29251.html) topic.
+     *
      * @var fpShotFileList
      */
     public $fpShotFileList;
 
     /**
+     * @description The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example ae0fd49c0840e14daf0d66a75b83****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

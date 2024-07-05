@@ -9,41 +9,105 @@ use AlibabaCloud\Tea\Model;
 class transConfig extends Model
 {
     /**
+     * @description The method of resolution adjustment. Default value: **none**. Valid values: rescale, crop, pad, and none.
+     *
+     * @example none
+     *
      * @var string
      */
     public $adjDarMethod;
 
     /**
+     * @description Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+     *
+     *   **true**
+     *
+     *   **false**
+     *
+     *   Default value:
+     *
+     *   If this parameter is empty and the codec of the output audio is different from that of the input audio, the default value is false.
+     *   If this parameter is empty and the codec of the output audio is the same as that of the input audio, the default value is true.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckAudioBitrate;
 
     /**
+     * @description Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input audio is not transcoded and a transcoding failure is returned. This parameter has a higher priority than IsCheckAudioBitrate. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *   Default value: **false**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckAudioBitrateFail;
 
     /**
+     * @description Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+     *
+     *   **true**:
+     *   **false**
+     *   Default value: **false**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckReso;
 
     /**
+     * @description Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *   Default value: **false**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckResoFail;
 
     /**
+     * @description Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *   Default value: **false**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckVideoBitrate;
 
     /**
+     * @description Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input video is not transcoded and a transcoding failure is returned. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *   Default value: **false**.
+     *
+     * @example false
+     *
      * @var string
      */
     public $isCheckVideoBitrateFail;
 
     /**
+     * @description The transcoding mode.
+     *
+     *   Valid values: onepass, twopass, and CBR.
+     *   Default value: **onepass**.
+     *
+     * @example onepass
+     *
      * @var string
      */
     public $transMode;

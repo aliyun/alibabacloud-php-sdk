@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListCustomPersonsResponseBody extends Model
 {
     /**
+     * @description The array of the figure libraries.
+     *
      * @var categories
      */
     public $categories;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FD4DED6B-0C26-5A8B-A6BE-4FA542AE4D57
+     *
      * @var string
      */
     public $requestId;

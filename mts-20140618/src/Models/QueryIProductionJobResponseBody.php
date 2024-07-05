@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobResponseBody extends Model
 {
     /**
+     * @example ImageCartoonize
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example oss://example-****.oss-cn-hangzhou.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example 88c6ca184c0e432bbf5b665e2a15****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example {mode:"gif"}
+     *
      * @var string
      */
     public $jobParams;
 
     /**
+     * @example oss://example-****.oss-cn-hangzhou.aliyuncs.com/iproduction/{source}-{timestamp}-{sequenceId}.srt
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $pipelineId;
 
     /**
+     * @example D127C68E-F1A1-4CE5-A874-8FF724881A12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"Code":"Success","Data":"{\\"result\\":[{\\"file\\":\\"iproduction/test-result.jpg\\"},{\\"file\\":\\"iproduction/test-origin.jpg\\"}]}","Message":"Successful."}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $userData;

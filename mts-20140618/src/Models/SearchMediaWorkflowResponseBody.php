@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaWorkflowResponseBody extends Model
 {
     /**
+     * @description The details of the media workflows.
+     *
      * @var mediaWorkflowList
      */
     public $mediaWorkflowList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 16CD0CDD-457E-420D-9755-8385075A1234
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

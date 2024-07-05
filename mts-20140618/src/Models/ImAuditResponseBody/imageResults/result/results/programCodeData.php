@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class programCodeData extends Model
 {
     /**
+     * @description The height of the mini program code area. Unit: pixel.
+     *
+     * @example 413.0
+     *
      * @var float
      */
     public $h;
 
     /**
+     * @description The width of the mini program code area. Unit: pixel.
+     *
+     * @example 402.0
+     *
      * @var float
      */
     public $w;
 
     /**
+     * @description The distance between the upper-left corner of the mini program code area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 11.0
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @description The distance between the upper-left corner of the mini program code area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+     *
+     * @example 0.0
+     *
      * @var float
      */
     public $y;

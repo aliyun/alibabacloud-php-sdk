@@ -14,6 +14,8 @@ class customGroup extends Model
     public $customGroupDescription;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $customGroupId;

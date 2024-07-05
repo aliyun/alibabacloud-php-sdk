@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class inputFragment extends Model
 {
     /**
+     * @description The duration of the similar text snippet in the input text.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The start time of the similar text snippet in the input text.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $start;

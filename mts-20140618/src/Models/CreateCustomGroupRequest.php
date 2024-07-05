@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example landmark
+     *
      * @var string
      */
     public $algorithm;
@@ -19,6 +23,8 @@ class CreateCustomGroupRequest extends Model
     public $customGroupDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $customGroupName;

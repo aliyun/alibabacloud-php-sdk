@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ImportFpShotJobResponseBody extends Model
 {
     /**
+     * @description The ID of the import job. We recommend that you save this ID for subsequent operations.
+     *
+     * @example c074b118ace44395a02063a5ab94****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;

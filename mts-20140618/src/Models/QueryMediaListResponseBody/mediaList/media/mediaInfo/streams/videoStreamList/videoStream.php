@@ -10,121 +10,215 @@ use AlibabaCloud\Tea\Model;
 class videoStream extends Model
 {
     /**
+     * @description The average frame rate.
+     *
+     * @example 29.97003
+     *
      * @var string
      */
     public $avgFPS;
 
     /**
+     * @description The bitrate.
+     *
+     * @example 2659.326
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The full name of the encoding format.
+     *
+     * @example QuickTime/MOV
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+     *
+     * @example mov
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
+     * @example 0x31637661
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
+     * @example avc1
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1001/60000
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The display aspect ratio (DAR).
+     *
+     * @example 16:9
+     *
      * @var string
      */
     public $dar;
 
     /**
+     * @description The duration.
+     *
+     * @example 182.683000
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The frame rate.
+     *
+     * @example 29.97003
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description Indicates whether the video stream contains bidirectional frames (B-frames). A value of **1** indicates that the video stream contains B-frames. A value of **2** indicates that the video stream does not contain B-frames.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $hasBFrames;
 
     /**
+     * @description The latter number in the video resolution. The number indicates the video height.
+     *
+     * @example 1080
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @description The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+     *
+     * @example und
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The codec level.
+     *
+     * @example 40
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The network bandwidth consumption.
+     *
      * @var networkCost
      */
     public $networkCost;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The pixel format.
+     *
+     * @example yuv420p
+     *
      * @var string
      */
     public $pixFmt;
 
     /**
+     * @description The codec profile.
+     *
+     * @example High
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The video rotation angle.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $rotate;
 
     /**
+     * @description The sample aspect ratio (SAR).
+     *
+     * @example 1:1
+     *
      * @var string
      */
     public $sar;
 
     /**
+     * @description The start time.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base.
+     *
+     * @example 1/30000
+     *
      * @var string
      */
     public $timebase;
 
     /**
+     * @description The former number in the video resolution. The number indicates the video width.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $width;

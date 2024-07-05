@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class audioStream extends Model
 {
     /**
+     * @description The bitrate of the audio stream.
+     *
+     * @example 128.806
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The output layout of the sound channels.
+     *
+     * @example stereo
+     *
      * @var string
      */
     public $channelLayout;
 
     /**
+     * @description The number of sound channels.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $channels;
 
     /**
+     * @description The full name of the codec.
+     *
+     * @example AAC (Advanced Audio Coding)
+     *
      * @var string
      */
     public $codecLongName;
 
     /**
+     * @description The short name of the codec.
+     *
+     * @example aac
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The tag of the codec.
+     *
+     * @example 0x6134706d
+     *
      * @var string
      */
     public $codecTag;
 
     /**
+     * @description The tag string of the codec.
+     *
+     * @example mp4a
+     *
      * @var string
      */
     public $codecTagString;
 
     /**
+     * @description The codec time base.
+     *
+     * @example 1/44100
+     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
+     * @description The duration of the audio stream.
+     *
+     * @example 17.159546
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $index;
 
     /**
+     * @description The language of the audio stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+     *
+     * @example eng
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The total number of frames.
+     *
+     * @example 25
+     *
      * @var string
      */
     public $numFrames;
 
     /**
+     * @description The sampling format.
+     *
+     * @example fltp
+     *
      * @var string
      */
     public $sampleFmt;
 
     /**
+     * @description The sampling rate of the audio stream.
+     *
+     * @example 44100
+     *
      * @var string
      */
     public $samplerate;
 
     /**
+     * @description The start time of the audio stream.
+     *
+     * @example 0.000000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The time base of the audio stream.
+     *
+     * @example 1/44100
+     *
      * @var string
      */
     public $timebase;

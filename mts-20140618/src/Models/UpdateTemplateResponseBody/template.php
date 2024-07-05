@@ -14,41 +14,72 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The audio codec settings.
+     *
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The container format.
+     *
      * @var container
      */
     public $container;
 
     /**
+     * @description The container configurations.
+     *
+     * @example 16f01ad6175e4230ac42bb5182cd****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The transmuxing configurations for WebP.
+     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
+     * @description The audio codec configurations.
+     *
+     * @example MPS-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The transmuxing configurations.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Indicates whether the audio bitrate is checked. If the bitrate of the output audio is greater than the bitrate of the input audio, the bitrate of the input audio is retained after transcoding. In this case, the specified audio bitrate does not take effect. This parameter has a lower priority than the IsCheckAudioBitrateFail parameter. Valid values:
+     *
+     *   **true**: The audio bitrate is checked.
+     *
+     *   **false**: The audio bitrate is not checked.
+     *
+     *   Default value:
+     *
+     *   If the parameter is left empty and the codec of the output audio is different from that of the input audio, the default value is false.
+     *   If the parameter is left empty and the codec of the output audio is the same as that of the input audio, the default value is true.
+     *
      * @var transConfig
      */
     public $transConfig;
 
     /**
+     * @description The video codec configurations.
+     *
      * @var video
      */
     public $video;

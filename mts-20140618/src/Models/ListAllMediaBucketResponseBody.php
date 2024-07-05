@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListAllMediaBucketResponseBody extends Model
 {
     /**
+     * @description The media buckets returned.
+     *
      * @var mediaBucketList
      */
     public $mediaBucketList;
 
     /**
+     * @description The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example P2Zqo1PLGhZdygo-ajSsjUX5zrBHCgXy6j4hEvv****
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 79760D91-D3CF-4165-****-B7E2836EF62A
+     *
      * @var string
      */
     public $requestId;

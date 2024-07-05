@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitFpFileDeleteJobResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
+     * @example D127C68E-F1A1-4CE5-A874-8FF724881A12
+     *
      * @var string
      */
     public $requestId;

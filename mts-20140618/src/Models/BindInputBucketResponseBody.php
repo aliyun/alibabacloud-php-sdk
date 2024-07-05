@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BindInputBucketResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4AEA0480-32F4-1656-92B3-F4D4CDE6BBB3
+     *
      * @var string
      */
     public $requestId;

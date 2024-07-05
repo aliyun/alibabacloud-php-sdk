@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class transConfig extends Model
 {
     /**
+     * @description The transcoding mode. Default value: **onepass**. Valid values:
+     *
+     *   **onepass**
+     *   **twopass**
+     *   **CBR**
+     *
+     * @example onepass
+     *
      * @var string
      */
     public $transMode;

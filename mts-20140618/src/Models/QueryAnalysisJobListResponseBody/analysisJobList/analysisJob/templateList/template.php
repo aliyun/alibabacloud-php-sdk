@@ -14,41 +14,66 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The audio codec configurations.
+     *
      * @var audio
      */
     public $audio;
 
     /**
+     * @description The container format configurations.
+     *
      * @var container
      */
     public $container;
 
     /**
+     * @description The transcoding template ID.
+     *
+     * @example S00000000-00****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The transmuxing configurations.
+     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
+     * @description The name of the template.
+     *
+     * @example FLV-UD
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The state of the template. Valid values:
+     *
+     *   **Normal**
+     *   **Deleted**
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The general transcoding configurations.
+     *
      * @var transConfig
      */
     public $transConfig;
 
     /**
+     * @description The video codec configurations.
+     *
      * @var video
      */
     public $video;
