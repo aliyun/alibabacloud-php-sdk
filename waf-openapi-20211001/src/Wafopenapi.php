@@ -210,6 +210,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReleaseInstanceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\SyncProductInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\SyncProductInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesRequest;
@@ -846,7 +848,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 上传国密证书
+     * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *  *
      * @param CreateSM2CertRequest $request CreateSM2CertRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -900,7 +902,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 上传国密证书
+     * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *  *
      * @param CreateSM2CertRequest $request CreateSM2CertRequest
      *
@@ -6471,6 +6473,59 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 释放实例
+     *  *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     */
+    public function releaseInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstance',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 释放实例
+     *  *
+     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     *
+     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     */
+    public function releaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseInstanceWithOptions($request, $runtime);
     }
 
     /**

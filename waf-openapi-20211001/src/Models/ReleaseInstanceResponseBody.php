@@ -6,28 +6,16 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSM2CertResponseBody extends Model
+class ReleaseInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * @example ***-cn-hangzhou
-     *
-     * @var string
-     */
-    public $certIdentifier;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example D7861F61-5B61-46CE-A47C-***
+     * @example 65626467-8002-5022-9F5F-***
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'certIdentifier' => 'CertIdentifier',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -37,9 +25,6 @@ class CreateSM2CertResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certIdentifier) {
-            $res['CertIdentifier'] = $this->certIdentifier;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,14 +35,11 @@ class CreateSM2CertResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateSM2CertResponseBody
+     * @return ReleaseInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertIdentifier'])) {
-            $model->certIdentifier = $map['CertIdentifier'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
