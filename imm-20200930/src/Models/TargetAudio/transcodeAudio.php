@@ -21,6 +21,11 @@ class transcodeAudio extends Model
     /**
      * @var int
      */
+    public $bitsPerSample;
+
+    /**
+     * @var int
+     */
     public $channel;
 
     /**
@@ -45,6 +50,7 @@ class transcodeAudio extends Model
     protected $_name = [
         'bitrate'          => 'Bitrate',
         'bitrateOption'    => 'BitrateOption',
+        'bitsPerSample'    => 'BitsPerSample',
         'channel'          => 'Channel',
         'codec'            => 'Codec',
         'quality'          => 'Quality',
@@ -64,6 +70,9 @@ class transcodeAudio extends Model
         }
         if (null !== $this->bitrateOption) {
             $res['BitrateOption'] = $this->bitrateOption;
+        }
+        if (null !== $this->bitsPerSample) {
+            $res['BitsPerSample'] = $this->bitsPerSample;
         }
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
@@ -97,6 +106,9 @@ class transcodeAudio extends Model
         }
         if (isset($map['BitrateOption'])) {
             $model->bitrateOption = $map['BitrateOption'];
+        }
+        if (isset($map['BitsPerSample'])) {
+            $model->bitsPerSample = $map['BitsPerSample'];
         }
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];

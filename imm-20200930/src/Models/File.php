@@ -166,6 +166,11 @@ class File extends Model
     /**
      * @var string
      */
+    public $fileStatus;
+
+    /**
+     * @var string
+     */
     public $filename;
 
     /**
@@ -324,6 +329,16 @@ class File extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $reason;
+
+    /**
+     * @var SceneElement[]
+     */
+    public $sceneElements;
+
+    /**
      * @var string[]
      */
     public $semanticTypes;
@@ -439,6 +454,7 @@ class File extends Model
         'fileCreateTime'                        => 'FileCreateTime',
         'fileHash'                              => 'FileHash',
         'fileModifiedTime'                      => 'FileModifiedTime',
+        'fileStatus'                            => 'FileStatus',
         'filename'                              => 'Filename',
         'formatLongName'                        => 'FormatLongName',
         'formatName'                            => 'FormatName',
@@ -471,6 +487,8 @@ class File extends Model
         'produceTime'                           => 'ProduceTime',
         'programCount'                          => 'ProgramCount',
         'projectName'                           => 'ProjectName',
+        'reason'                                => 'Reason',
+        'sceneElements'                         => 'SceneElements',
         'semanticTypes'                         => 'SemanticTypes',
         'serverSideDataEncryption'              => 'ServerSideDataEncryption',
         'serverSideEncryption'                  => 'ServerSideEncryption',
@@ -626,6 +644,9 @@ class File extends Model
         if (null !== $this->fileModifiedTime) {
             $res['FileModifiedTime'] = $this->fileModifiedTime;
         }
+        if (null !== $this->fileStatus) {
+            $res['FileStatus'] = $this->fileStatus;
+        }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
@@ -733,6 +754,18 @@ class File extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->sceneElements) {
+            $res['SceneElements'] = [];
+            if (null !== $this->sceneElements && \is_array($this->sceneElements)) {
+                $n = 0;
+                foreach ($this->sceneElements as $item) {
+                    $res['SceneElements'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->semanticTypes) {
             $res['SemanticTypes'] = $this->semanticTypes;
@@ -938,6 +971,9 @@ class File extends Model
         if (isset($map['FileModifiedTime'])) {
             $model->fileModifiedTime = $map['FileModifiedTime'];
         }
+        if (isset($map['FileStatus'])) {
+            $model->fileStatus = $map['FileStatus'];
+        }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
@@ -1045,6 +1081,18 @@ class File extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+        if (isset($map['SceneElements'])) {
+            if (!empty($map['SceneElements'])) {
+                $model->sceneElements = [];
+                $n                    = 0;
+                foreach ($map['SceneElements'] as $item) {
+                    $model->sceneElements[$n++] = null !== $item ? SceneElement::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SemanticTypes'])) {
             if (!empty($map['SemanticTypes'])) {

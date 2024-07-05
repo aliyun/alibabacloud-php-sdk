@@ -14,6 +14,11 @@ class ElementContent extends Model
     public $content;
 
     /**
+     * @var int[]
+     */
+    public $timeRange;
+
+    /**
      * @var string
      */
     public $type;
@@ -23,9 +28,10 @@ class ElementContent extends Model
      */
     public $URL;
     protected $_name = [
-        'content' => 'Content',
-        'type'    => 'Type',
-        'URL'     => 'URL',
+        'content'   => 'Content',
+        'timeRange' => 'TimeRange',
+        'type'      => 'Type',
+        'URL'       => 'URL',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class ElementContent extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->timeRange) {
+            $res['TimeRange'] = $this->timeRange;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -58,6 +67,11 @@ class ElementContent extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['TimeRange'])) {
+            if (!empty($map['TimeRange'])) {
+                $model->timeRange = $map['TimeRange'];
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
