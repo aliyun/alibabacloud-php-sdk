@@ -158,6 +158,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->codeSource)) {
             $body['CodeSource'] = $request->codeSource;
         }
+        if (!Utils::isUnset($request->credentialConfig)) {
+            $body['CredentialConfig'] = $request->credentialConfig;
+        }
         if (!Utils::isUnset($request->dataSources)) {
             $body['DataSources'] = $request->dataSources;
         }
