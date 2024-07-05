@@ -124,6 +124,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseCountStatisticsRequ
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseCountStatisticsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseRecordsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseRecordsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewRequest;
@@ -1731,6 +1733,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+     *  *
+     * Deprecated
+     *
      * @param CreateWebCCRuleRequest $request CreateWebCCRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1786,6 +1792,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+     *  *
+     * Deprecated
+     *
      * @param CreateWebCCRuleRequest $request CreateWebCCRuleRequest
      *
      * @return CreateWebCCRuleResponse CreateWebCCRuleResponse
@@ -2341,8 +2351,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
+     *  *
      * @summary Deletes a custom frequency control rule of a website.
      *  *
+     * Deprecated
+     *
      * @param DeleteWebCCRuleRequest $request DeleteWebCCRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2380,8 +2394,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
+     *  *
      * @summary Deletes a custom frequency control rule of a website.
      *  *
+     * Deprecated
+     *
      * @param DeleteWebCCRuleRequest $request DeleteWebCCRuleRequest
      *
      * @return DeleteWebCCRuleResponse DeleteWebCCRuleResponse
@@ -3288,6 +3306,9 @@ class Ddoscoo extends OpenApiClient
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
+        if (!Utils::isUnset($request->range)) {
+            $query['Range'] = $request->range;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3401,6 +3422,9 @@ class Ddoscoo extends OpenApiClient
         }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->range)) {
+            $query['Range'] = $request->range;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3670,6 +3694,65 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefenseRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询目的端口事件
+     *  *
+     * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDestinationPortEventResponse DescribeDestinationPortEventResponse
+     */
+    public function describeDestinationPortEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->range)) {
+            $query['Range'] = $request->range;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDestinationPortEvent',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDestinationPortEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询目的端口事件
+     *  *
+     * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
+     *
+     * @return DescribeDestinationPortEventResponse DescribeDestinationPortEventResponse
+     */
+    public function describeDestinationPortEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDestinationPortEventWithOptions($request, $runtime);
     }
 
     /**
@@ -7281,8 +7364,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
+     *  *
      * @summary Queries the custom frequency control rules that are created for a website.
      *  *
+     * Deprecated
+     *
      * @param DescribeWebCCRulesRequest $request DescribeWebCCRulesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7323,8 +7410,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
+     *  *
      * @summary Queries the custom frequency control rules that are created for a website.
      *  *
+     * Deprecated
+     *
      * @param DescribeWebCCRulesRequest $request DescribeWebCCRulesRequest
      *
      * @return DescribeWebCCRulesResponse DescribeWebCCRulesResponse
@@ -9846,6 +9937,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+     *  *
+     * Deprecated
+     *
      * @param ModifyWebCCRuleRequest $request ModifyWebCCRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -9901,6 +9996,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
+     *  *
+     * Deprecated
+     *
      * @param ModifyWebCCRuleRequest $request ModifyWebCCRuleRequest
      *
      * @return ModifyWebCCRuleResponse ModifyWebCCRuleResponse

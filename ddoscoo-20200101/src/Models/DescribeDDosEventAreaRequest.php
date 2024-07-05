@@ -32,6 +32,11 @@ class DescribeDDosEventAreaRequest extends Model
     public $ip;
 
     /**
+     * @var int
+     */
+    public $range;
+
+    /**
      * @description The UNIX timestamp when the query starts. Unit: seconds.
      *
      * This parameter is required.
@@ -43,6 +48,7 @@ class DescribeDDosEventAreaRequest extends Model
     protected $_name = [
         'eventType' => 'EventType',
         'ip'        => 'Ip',
+        'range'     => 'Range',
         'startTime' => 'StartTime',
     ];
 
@@ -58,6 +64,9 @@ class DescribeDDosEventAreaRequest extends Model
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->range) {
+            $res['Range'] = $this->range;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -79,6 +88,9 @@ class DescribeDDosEventAreaRequest extends Model
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['Range'])) {
+            $model->range = $map['Range'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -16,12 +16,16 @@ class ConfigDomainSecurityProfileRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example {\\"global_rule_mode\\":\\"hard\\"}
+     *
      * @var string
      */
     public $config;
 
     /**
      * @description This parameter is required.
+     *
+     * @example live.abcde.com
      *
      * @var string
      */
