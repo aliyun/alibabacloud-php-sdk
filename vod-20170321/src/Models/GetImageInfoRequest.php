@@ -30,6 +30,7 @@ class GetImageInfoRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example 3e34733b40b9a96ccf5c1ff6f69****
      *
      * @var string

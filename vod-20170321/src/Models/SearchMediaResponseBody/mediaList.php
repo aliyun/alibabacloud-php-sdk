@@ -29,14 +29,14 @@ class mediaList extends Model
     public $aiRoughData;
 
     /**
-     * @description [The information about the auxiliary media asset](~~86991~~).
+     * @description [The information about the auxiliary media asset](https://help.aliyun.com/document_detail/86991.html).
      *
      * @var attachedMedia
      */
     public $attachedMedia;
 
     /**
-     * @description [The information about the audio](~~86991~~).
+     * @description [The information about the audio](https://help.aliyun.com/document_detail/86991.html).
      *
      * @var audio
      */
@@ -52,7 +52,7 @@ class mediaList extends Model
     public $creationTime;
 
     /**
-     * @description [The information about the image](~~86991~~).
+     * @description [The information about the image](https://help.aliyun.com/document_detail/86991.html).
      *
      * @var image
      */
@@ -82,7 +82,7 @@ class mediaList extends Model
     public $mediaType;
 
     /**
-     * @description [The information about the video](~~86991~~).
+     * @description [The information about the video](https://help.aliyun.com/document_detail/86991.html).
      *
      * @var video
      */

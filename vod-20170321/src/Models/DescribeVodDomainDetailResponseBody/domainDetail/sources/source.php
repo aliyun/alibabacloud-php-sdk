@@ -57,12 +57,22 @@ class source extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @description The weight of the origin server if multiple origin servers have been specified.
+     *
+     * @example 10
+     *
+     * @var string
+     */
+    public $weight;
     protected $_name = [
         'content'  => 'Content',
         'enabled'  => 'Enabled',
         'port'     => 'Port',
         'priority' => 'Priority',
         'type'     => 'Type',
+        'weight'   => 'Weight',
     ];
 
     public function validate()
@@ -86,6 +96,9 @@ class source extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -113,6 +126,9 @@ class source extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

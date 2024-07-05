@@ -21,6 +21,7 @@ class DeleteDynamicImageRequest extends Model
     /**
      * @description The ID of the video associated with the animated stickers whose information you want to delete.
      *
+     * This parameter is required.
      * @example 2321077d460b028700ef6c2f4d****
      *
      * @var string

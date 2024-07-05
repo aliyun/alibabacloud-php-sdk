@@ -21,7 +21,7 @@ class UpdateVodTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The configurations of the snapshot template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](~~98618~~) topic.
+     * @description The configurations of the snapshot template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](https://help.aliyun.com/document_detail/98618.html) topic.
      *
      * @example {"SnapshotConfig":{"Count":10,"SpecifiedOffsetTime":0,"Interval":1}
      *
@@ -32,6 +32,7 @@ class UpdateVodTemplateRequest extends Model
     /**
      * @description The ID of the snapshot template.
      *
+     * This parameter is required.
      * @example 8c75a02e339b*****0b0d2c48171a22
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RefreshMediaPlayUrlsResponseBody extends Model
 {
     /**
-     * @description The IDs of the media files that cannot be operated on. In most cases, media files cannot be operated on because you are not authorized to perform the operations. For more information, see [Overview](~~113600~~).
+     * @description The IDs of the media files that cannot be operated on. In most cases, media files cannot be operated on because you are not authorized to perform the operations. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example a6e49sfgd23p5g9ja7095863****
      *

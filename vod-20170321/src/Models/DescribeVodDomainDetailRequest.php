@@ -11,6 +11,7 @@ class DescribeVodDomainDetailRequest extends Model
     /**
      * @description The domain name for CDN.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

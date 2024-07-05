@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class qoeInfoList extends Model
 {
     /**
+     * @description The number of visits to the audio or video per day.
+     *
      * @example 5
      *
      * @var float
@@ -16,6 +18,8 @@ class qoeInfoList extends Model
     public $DAU;
 
     /**
+     * @description The ID of the media file (VideoId).
+     *
      * @example 9ae2af636ca6c10412f44891fc****
      *
      * @var string
@@ -23,6 +27,8 @@ class qoeInfoList extends Model
     public $mediaId;
 
     /**
+     * @description The total playback duration of the audio or video. Unit: seconds.
+     *
      * @example 2400
      *
      * @var float
@@ -30,6 +36,8 @@ class qoeInfoList extends Model
     public $playDuration;
 
     /**
+     * @description The average playback duration of the audio or video per viewer. Unit: seconds.
+     *
      * @example 120
      *
      * @var float
@@ -37,6 +45,8 @@ class qoeInfoList extends Model
     public $playDurationPerUv;
 
     /**
+     * @description The average number of times that the audio or video was played per viewer.
+     *
      * @example 4
      *
      * @var float
@@ -44,6 +54,8 @@ class qoeInfoList extends Model
     public $playPerVv;
 
     /**
+     * @description The total number of times the audio or video has been played.
+     *
      * @example 20
      *
      * @var float
@@ -51,6 +63,8 @@ class qoeInfoList extends Model
     public $playSuccessVv;
 
     /**
+     * @description The duration of the audio or video file. Unit: seconds.
+     *
      * @example 246
      *
      * @var float
@@ -58,7 +72,9 @@ class qoeInfoList extends Model
     public $videoDuration;
 
     /**
-     * @var float
+     * @description The name of the audio or video file.
+     *
+     * @var string
      */
     public $videoTitle;
     protected $_name = [

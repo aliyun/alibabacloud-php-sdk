@@ -14,6 +14,7 @@ class CreateAppInfoRequest extends Model
      *   The name can contain letters, digits, periods (.), hyphens (-), and at signs (@). The name can be up to 128 characters in length.
      *   The value must be encoded in UTF-8.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

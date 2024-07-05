@@ -11,6 +11,7 @@ class AddVodStorageForAppRequest extends Model
     /**
      * @description The IDs of applications. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) or [ListAppInfo](~~ListAppInfo~~) operation.
      *
+     * This parameter is required.
      * @example app-****
      *
      * @var string

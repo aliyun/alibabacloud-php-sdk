@@ -21,6 +21,7 @@ class GetEditingProjectRequest extends Model
     /**
      * @description The ID of the online editing project.
      *
+     * This parameter is required.
      * @example fb2101bf24b27*****54cb318787dc
      *
      * @var string

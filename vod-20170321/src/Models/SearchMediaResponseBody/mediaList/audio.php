@@ -96,8 +96,8 @@ class audio extends Model
      * @description The source of the audio file. Valid values:
      *
      *   **general**: The audio file is uploaded by using ApsaraVideo VOD.
-     *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](~~53407~~).
-     *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](~~68536~~).
+     *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](https://help.aliyun.com/document_detail/53407.html).
+     *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](https://help.aliyun.com/document_detail/68536.html).
      *   **live**: The audio file is recorded and uploaded as a file to ApsaraVideo VOD.
      *
      * @example general

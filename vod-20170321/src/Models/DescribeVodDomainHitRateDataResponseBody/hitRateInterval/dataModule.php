@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The HTTPS byte hit rate.
+     *
      * @example 50
      *
      * @var string
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-01-20T13:59:58Z
      *
      * @var string
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The total byte hit rate.
+     *
      * @example 100
      *
      * @var string

@@ -39,6 +39,7 @@ class UpdateEditingProjectRequest extends Model
     /**
      * @description The ID of the online editing project.
      *
+     * This parameter is required.
      * @example 4ee4b97e27*****b525142a6b2
      *
      * @var string
@@ -56,7 +57,7 @@ class UpdateEditingProjectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The timeline of the online editing project. For more information about the structure, see [Timeline](~~52839~~).
+     * @description The timeline of the online editing project. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
      *
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac500c*****a54328bc3443"},{"MediaId":"da87a9cff64*****d88bc6d8326e4"}]}]}
      *

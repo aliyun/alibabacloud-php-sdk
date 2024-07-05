@@ -29,6 +29,7 @@ class GetAttachedMediaInfoRequest extends Model
     /**
      * @description The ID of the auxiliary media asset. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
      *
+     * This parameter is required.
      * @example eb1861d2c9a842340e989dd56****,0222e203cf80f9c22870a4d2c****
      *
      * @var string

@@ -12,8 +12,9 @@ class UpdateAppInfoRequest extends Model
      * @description The ID of the application.
      *
      *   Default value: **app-1000000**.
-     *   For more information, see [Overview](~~113600~~).
+     *   For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
+     * This parameter is required.
      * @example app-****
      *
      * @var string

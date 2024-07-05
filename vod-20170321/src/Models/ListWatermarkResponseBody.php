@@ -17,6 +17,8 @@ class ListWatermarkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the watermark template.
+     *
      * @var watermarkInfos[]
      */
     public $watermarkInfos;

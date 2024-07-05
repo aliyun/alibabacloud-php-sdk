@@ -61,6 +61,7 @@ class GetMezzanineInfoRequest extends Model
     /**
      * @description The ID of the video.
      *
+     * This parameter is required.
      * @example 1f1a6fc03ca04814031b8a6559e****
      *
      * @var string

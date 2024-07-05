@@ -21,6 +21,7 @@ class GetMediaRefreshJobsRequest extends Model
     /**
      * @description The ID of the refresh or prefetch job. It is the value of the MediaRefreshJobId parameter that is returned from the call to the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation.
      *
+     * This parameter is required.
      * @example 41d465e31957****
      *
      * @var string

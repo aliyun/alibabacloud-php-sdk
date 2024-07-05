@@ -31,8 +31,6 @@ class material extends Model
     /**
      * @description The thumbnail URL of the material.
      *
-     * @example http://example.aliyundoc.com/aivideocover/46fa444aa34065cb9250f6c****\/image_01.jpg
-     *
      * @var string
      */
     public $coverURL;

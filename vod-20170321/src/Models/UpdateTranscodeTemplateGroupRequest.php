@@ -35,6 +35,7 @@ class UpdateTranscodeTemplateGroupRequest extends Model
     /**
      * @description The ID of the transcoding template group.
      *
+     * This parameter is required.
      * @example 4c71a339fe*****52b4fa6f4527
      *
      * @var string

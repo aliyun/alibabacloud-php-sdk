@@ -27,7 +27,7 @@ class UploadStreamByURLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The URL of the input stream. This parameter is used when you call the [GetURLUploadInfos](~~106830~~) operation.
+     * @description The URL of the input stream. This parameter is used when you call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      *
      * @example https://example.com/lesson-01.mp4
      *
@@ -36,9 +36,9 @@ class UploadStreamByURLResponseBody extends Model
     public $sourceURL;
 
     /**
-     * @description The ID of the stream upload job. This parameter is used when you call the [GetURLUploadInfos](~~106830~~) operation.
+     * @description The ID of the stream upload job. This parameter is used when you call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      *
-     * In ApsaraVideo VOD, you can upload only one transcoded stream in an upload job. For more information, see the PlayInfo: the playback information about a video stream section in [Basic structures](~~52839~~).
+     * In ApsaraVideo VOD, you can upload only one transcoded stream in an upload job. For more information, see the PlayInfo: the playback information about a video stream section in [Basic structures](https://help.aliyun.com/document_detail/52839.html).
      * @example e304b34fb3d959f92baef97b6496****
      *
      * @var string

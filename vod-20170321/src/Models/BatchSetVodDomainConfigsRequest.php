@@ -11,6 +11,7 @@ class BatchSetVodDomainConfigsRequest extends Model
     /**
      * @description The domain name for CDN. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -24,6 +25,7 @@ class BatchSetVodDomainConfigsRequest extends Model
      *   Specific features, such as filetype_based_ttl_set, support more than one configuration record. To update one of the configuration records, use the configId field to specify the record. `[{"functionArgs":[{"argName":"file_type","argValue":"jpg"},{"argName":"ttl","argValue":"18"},{"argName":"weight","argValue":"30"}],"functionName":"filetype_based_ttl_set","configId":5068995}]`
      *   For more information, see the **Feature description** section.
      *
+     * This parameter is required.
      * @example [{"functionArgs":[{"argName":"domain_name","argValue":"www.example.com"}],"functionName":"set_req_host_header"}]
      *
      * @var string

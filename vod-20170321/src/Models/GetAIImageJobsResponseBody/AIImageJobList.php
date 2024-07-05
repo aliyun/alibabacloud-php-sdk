@@ -91,7 +91,7 @@ class AIImageJobList extends Model
      *   The MessageCallback or Extend parameter is returned.
      *   The value contains a maximum of 512 bytes.
      *
-     * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
+     * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
      * @example {"Extend":{"localId":"****","test":"www"}}
      *
      * @var string

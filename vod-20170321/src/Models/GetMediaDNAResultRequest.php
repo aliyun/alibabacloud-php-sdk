@@ -11,6 +11,7 @@ class GetMediaDNAResultRequest extends Model
     /**
      * @description The ID of the video.
      *
+     * This parameter is required.
      * @example 88c6ca184c0e*****a5b665e2a126797
      *
      * @var string

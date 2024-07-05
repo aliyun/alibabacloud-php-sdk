@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadAttachedMediaRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -24,6 +24,7 @@ class CreateUploadAttachedMediaRequest extends Model
      *   **subtitle**
      *   **material**
      *
+     * This parameter is required.
      * @example watermark
      *
      * @var string
@@ -34,8 +35,8 @@ class CreateUploadAttachedMediaRequest extends Model
      * @description The one or more category IDs of the auxiliary media asset. Separate multiple category IDs with commas (,). A maximum of five category IDs can be specified. You can use one of the following methods to obtain the category ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories**. On the Categories page, you can view the category ID.
-     *   View the value of the CateId parameter returned by the [AddCategory](~~56401~~) operation that you called to create a category.
-     *   View the value of the CateId parameter returned by the [GetCategories](~~56406~~) operation that you called to query a category.
+     *   View the value of the CateId parameter returned by the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation that you called to create a category.
+     *   View the value of the CateId parameter returned by the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation that you called to query a category.
      *
      * @example 1298****,0813****
      *
@@ -58,7 +59,7 @@ class CreateUploadAttachedMediaRequest extends Model
     /**
      * @description The name of the source file.
      *
-     * @example D:\test.png
+     * @example D:\\test.png
      *
      * @var string
      */
@@ -125,10 +126,10 @@ class CreateUploadAttachedMediaRequest extends Model
     public $title;
 
     /**
-     * @description The custom configurations, including callback configurations and upload acceleration configurations. The value is a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
+     * @description The custom configurations, including callback configurations and upload acceleration configurations. The value is a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
      *
-     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console. For more information about how to configure an HTTP callback in the ApsaraVideo VOD console, see [Configure callback settings](~~86071~~).
-     * >*   To use the upload acceleration feature, submit a [ticket](https://ticket-intl.console.aliyun.com/#/ticket/createIndex) to enable this feature. For more information, see [Overview](~~55396~~).
+     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console. For more information about how to configure an HTTP callback in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
+     * >*   To use the upload acceleration feature, submit a [ticket](https://ticket-intl.console.aliyun.com/#/ticket/createIndex) to enable this feature. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectMaterialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example d3251979f9fd41f2acb29ccda5a6f772
      *
      * @var string
@@ -16,6 +18,8 @@ class AddEditingProjectMaterialsRequest extends Model
     public $materialIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -33,6 +37,8 @@ class AddEditingProjectMaterialsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example afa31b483b5c41609185de0e1b790579
      *
      * @var string

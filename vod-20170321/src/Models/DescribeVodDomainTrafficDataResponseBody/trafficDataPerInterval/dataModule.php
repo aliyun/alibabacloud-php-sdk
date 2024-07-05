@@ -54,7 +54,7 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-01-15T19:00:00Z
      *
@@ -63,7 +63,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total amount of network traffic. Unit: bytes.
+     * @description The total traffic. Unit: bytes.
      *
      * @example 0
      *

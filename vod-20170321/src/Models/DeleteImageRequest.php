@@ -15,6 +15,7 @@ class DeleteImageRequest extends Model
      *   **ImageId**: deletes images based on image IDs.
      *   **VideoId**: deletes images associated with a video based on the video ID.
      *
+     * This parameter is required.
      * @example VideoId
      *
      * @var string
@@ -25,8 +26,8 @@ class DeleteImageRequest extends Model
      * @description The ID of the image file. You can specify multiple image IDs. Separate multiple IDs with commas (,). You can use one of the following methods to obtain the image ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Image** to view the image ID. This method is applicable to images that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of the ImageId parameter from the response to the [CreateUploadImage](~~55619~~) operation.
-     *   Obtain the value of the ImageId parameter from the response to the [SearchMedia](~~86044~~) operation after you upload images.
+     *   Obtain the value of the ImageId parameter from the response to the [CreateUploadImage](https://help.aliyun.com/document_detail/55619.html) operation.
+     *   Obtain the value of the ImageId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload images.
      *
      * > This parameter is required only if you set **DeleteImageType** to **ImageId**.
      * @example bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****
@@ -51,7 +52,7 @@ class DeleteImageRequest extends Model
     public $imageType;
 
     /**
-     * @description The URL of the image. You can obtain the value of ImageURL from the response to the [CreateUploadImage](~~55619~~) operation. You can specify multiple URLs. Separate multiple URLs with commas (,).
+     * @description The URL of the image. You can obtain the value of ImageURL from the response to the [CreateUploadImage](https://help.aliyun.com/document_detail/55619.html) operation. You can specify multiple URLs. Separate multiple URLs with commas (,).
      *
      * > This parameter is required only if you set **DeleteImageType** to **ImageURL**.
      * @example https://example.aliyundoc.com/image/default/41AE7ADABBE*****.png
@@ -64,8 +65,8 @@ class DeleteImageRequest extends Model
      * @description The ID of the video file. You can use one of the following methods to obtain the video ID:
      *
      *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the media file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of the VideoId parameter from the response to the [CreateUploadVideo](~~55407~~) operation.
-     *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](~~86044~~) operation after you upload media files.
+     *   Obtain the value of the VideoId parameter from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation.
+     *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
      *
      * > This parameter is required only if you set **DeleteImageType** to **VideoId**.
      * @example eb1861d2c9a8842340e989dd56****

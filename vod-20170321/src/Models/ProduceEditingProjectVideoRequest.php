@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ProduceEditingProjectVideoRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -36,7 +36,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $description;
 
     /**
-     * @description The video metadata. The value must be in JSON format. For more information about the parameter structure, see [MediaMetadata](~~52839#title_rtf_ry5\_gjp~~).
+     * @description The video metadata. The value must be in JSON format. For more information about the parameter structure, see [MediaMetadata](~~52839#title_rtf_ry5_gjp~~).
      *
      * @example {"Description":"video description","Title":"userData test"}
      *
@@ -63,7 +63,7 @@ class ProduceEditingProjectVideoRequest extends Model
      * @description The ID of the online editing project. You can use one of the following methods to obtain the ID of the online editing project:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Production Center** > **Video Editing** to view the ID of the online editing project.
-     *   Obtain the value of ProjectId from the response to the [AddEditingProject](~~69048~~) operation.
+     *   Obtain the value of ProjectId from the response to the [AddEditingProject](https://help.aliyun.com/document_detail/69048.html) operation.
      *
      * @example fb2101bf24b4cb318787dc****
      *
@@ -100,7 +100,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $title;
 
     /**
-     * @description The custom configurations, such as the callback configuration. The value must be a JSON string. For more information about the parameter structure, see [UserData](~~86952#title_vz7\_xzs\_0c5~~).
+     * @description The custom configurations, such as the callback configuration. The value must be a JSON string. For more information about the parameter structure, see [UserData](~~86952#title_vz7_xzs_0c5~~).
      *
      * > The callback configurations take effect only after you specify an HTTP URL for receiving callback notifications and select the event types in the ApsaraVideo VOD console.
      * @example {"Extend":{"width":1280,"id":"028a8e56b1ebf6bb7afc74****","height":720},"MessageCallback":{"CallbackURL":"https://example.aliyundoc.com/2016-08-15/proxy/httpcallback/testcallback/","CallbackType":"http"}}

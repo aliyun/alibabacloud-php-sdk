@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class watermarkInfos extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example app-****
      *
      * @var string
@@ -16,6 +18,8 @@ class watermarkInfos extends Model
     public $appId;
 
     /**
+     * @description The time when the watermark template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-11-07T09:05:52Z
      *
      * @var string
@@ -23,6 +27,9 @@ class watermarkInfos extends Model
     public $creationTime;
 
     /**
+     * @description The URL of the watermark file. The URL is an Object Storage Service (OSS) URL or an Alibaba Cloud CDN URL.
+     *
+     * >  This parameter is returned only for image watermark templates.
      * @example https://outin-3262681cd*****89f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/8CC8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozB****
      *
      * @var string
@@ -30,6 +37,11 @@ class watermarkInfos extends Model
     public $fileUrl;
 
     /**
+     * @description Indicates whether the watermark template is the default one. Valid values:
+     *
+     *   **Default**
+     *   **NotDefault**
+     *
      * @example NotDefault
      *
      * @var string
@@ -37,11 +49,18 @@ class watermarkInfos extends Model
     public $isDefault;
 
     /**
+     * @description The name of the watermark template.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the watermark template.
+     *
+     *   **Image**: image watermark template
+     *   **Text**: text watermark template
+     *
      * @example Text
      *
      * @var string
@@ -49,11 +68,15 @@ class watermarkInfos extends Model
     public $type;
 
     /**
+     * @description The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+     *
      * @var string
      */
     public $watermarkConfig;
 
     /**
+     * @description The ID of the watermark template.
+     *
      * @example 9bcc8bfadb843*****109a2671d0df97
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainHitRateDataResponseBody extends Model
 {
     /**
+     * @description The time interval at which data is returned, which is the time granularity. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVodDomainHitRateDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeVodDomainHitRateDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range.
+     *
      * @example 2024-01-20T14:59:58Z
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeVodDomainHitRateDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The byte hit rate data at each time interval.
+     *
      * @var hitRateInterval
      */
     public $hitRateInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D94E471F-1A27-442E-552D-D4D2000C****
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeVodDomainHitRateDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range.
+     *
      * @example 2024-01-20T13:59:58Z
      *
      * @var string

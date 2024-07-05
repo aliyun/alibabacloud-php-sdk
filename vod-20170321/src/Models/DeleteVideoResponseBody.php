@@ -10,7 +10,7 @@ class DeleteVideoResponseBody extends Model
 {
     /**
      * @description The IDs of the videos that cannot be deleted.
-     * > Generally, videos cannot be deleted if you do not have the required [permissions](~~113600~~).
+     * > Generally, videos cannot be deleted if you do not have the required [permissions](https://help.aliyun.com/document_detail/113600.html).
      * @var string[]
      */
     public $forbiddenVideoIds;

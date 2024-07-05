@@ -14,6 +14,7 @@ class ListAITemplateRequest extends Model
      *   **AIMediaAudit**: automated review
      *   **AIImage**: smart thumbnail
      *
+     * This parameter is required.
      * @example AIMediaAudit
      *
      * @var string

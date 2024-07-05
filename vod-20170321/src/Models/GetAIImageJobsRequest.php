@@ -13,6 +13,7 @@ class GetAIImageJobsRequest extends Model
      *   You can specify a maximum of 10 IDs.
      *   Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example cf08a2c6e11e*****de1711b738b9067
      *
      * @var string

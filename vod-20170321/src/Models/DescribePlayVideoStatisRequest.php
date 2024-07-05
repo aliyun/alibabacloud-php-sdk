@@ -11,6 +11,7 @@ class DescribePlayVideoStatisRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2016-06-30T13:00:00Z
      *
      * @var string
@@ -25,6 +26,7 @@ class DescribePlayVideoStatisRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2016-06-29T13:00:00Z
      *
      * @var string
@@ -34,6 +36,7 @@ class DescribePlayVideoStatisRequest extends Model
     /**
      * @description The video ID.
      *
+     * This parameter is required.
      * @example 2a8d4cb9ecbb487681473****aba8fda
      *
      * @var string

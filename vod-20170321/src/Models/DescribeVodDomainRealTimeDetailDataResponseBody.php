@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
+     * @description The returned results.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,8 @@ class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1710298E-8AFA-5F6D-A3E9-47103C52177D
      *
      * @var string

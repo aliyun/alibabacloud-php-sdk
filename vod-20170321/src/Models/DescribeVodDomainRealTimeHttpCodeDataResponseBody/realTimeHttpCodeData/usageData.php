@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-11-30T05:39:00Z
      *
      * @var string
@@ -17,6 +19,8 @@ class usageData extends Model
     public $timeStamp;
 
     /**
+     * @description The proportion of each HTTP status code is displayed in a data list.
+     *
      * @var value
      */
     public $value;

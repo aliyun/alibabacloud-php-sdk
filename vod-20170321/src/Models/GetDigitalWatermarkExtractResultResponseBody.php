@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetDigitalWatermarkExtractResultResponseBody extends Model
 {
     /**
-     * @description The information about the job.
+     * @description The details of the watermark extraction job.
      *
      * @var aiExtractResultList[]
      */

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
 {
     /**
+     * @description The time interval at which data is returned. Unit: seconds.
+     *
+     * The returned value varies based on the time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600 (1 hour). For more information, see the **Time granularity** section in the **API documentation**.
      * @example 60
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +29,8 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range.
+     *
      * @example 2019-12-10T20:01:00Z
      *
      * @var string
@@ -31,11 +38,15 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The details of traffic data in each time interval.
+     *
      * @var realTimeTrafficDataPerInterval
      */
     public $realTimeTrafficDataPerInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A666D44F-19D6-490E-97CF-1A64AB962C57
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range.
+     *
      * @example 2019-12-10T20:00:00Z
      *
      * @var string

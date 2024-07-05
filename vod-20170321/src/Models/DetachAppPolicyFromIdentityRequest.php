@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DetachAppPolicyFromIdentityRequest extends Model
 {
     /**
-     * @description The ID of the application. This parameter is optional when the PolicyNames parameter is set to VODAppAdministratorAccess. This parameter is required when the PolicyNames parameter is set to other values.
+     * @description The ID of the application. This parameter is optional if you set PolicyNames to VODAppAdministratorAccess. This parameter is required if you set PolicyNames to a value other than VODAppAdministratorAccess.
+     *
      *   Default value: **app-1000000**.
-     *   For more information, see [Overview](~~113600~~).
+     *   For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -20,10 +21,12 @@ class DetachAppPolicyFromIdentityRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the identity.
-     *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
-     *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
+     * @description The ID of the RAM user or the name of the RAM role.
      *
+     *   Specifies the ID of the RAM user for this parameter if you set IdentityType to RamUser.
+     *   Specifies the name of the RAM role for this parameter if you set IdentityType to RamRole.
+     *
+     * This parameter is required.
      * @example test****name
      *
      * @var string
@@ -32,9 +35,11 @@ class DetachAppPolicyFromIdentityRequest extends Model
 
     /**
      * @description The type of the identity. Valid values:
-     *   **RamUser**: a RAM user.
-     *   **RamRole**: a RAM role.
      *
+     *   **RamUser**: RAM user
+     *   **RamRole**: RAM role
+     *
+     * This parameter is required.
      * @example RamUser
      *
      * @var string
@@ -42,11 +47,13 @@ class DetachAppPolicyFromIdentityRequest extends Model
     public $identityType;
 
     /**
-     * @description The name of the policy. Separate multiple policies with commas (,). Only system policies are supported.
-     *   **VODAppFullAccess**: authorizes an identity to manage all resources in an application.
-     *   **VODAppReadOnlyAccess**: authorizes an identity to access all resources in an application in read-only mode.
-     *   **VODAppAdministratorAccess**: assigns the application administrator role to an identity.
+     * @description The name of the policy. Separate multiple names with commas (,). Only system policies are supported.
      *
+     *   **VODAppFullAccess**: permissions to manage all resources in an application
+     *   **VODAppReadOnlyAccess**: permissions to read all resources in an application
+     *   **VODAppAdministratorAccess**: permissions of the application administrator
+     *
+     * This parameter is required.
      * @example VODAppFullAccess
      *
      * @var string

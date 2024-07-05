@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddCategoryResponseBody extends Model
 {
     /**
-     * @description The information about the video category.
+     * @description The information about the category.
      *
      * @var category
      */

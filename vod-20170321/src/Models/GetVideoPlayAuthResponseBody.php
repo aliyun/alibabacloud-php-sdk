@@ -28,7 +28,7 @@ class GetVideoPlayAuthResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The metadata of the media file.
+     * @description The metadata of the audio or video file.
      *
      * @var videoMeta
      */

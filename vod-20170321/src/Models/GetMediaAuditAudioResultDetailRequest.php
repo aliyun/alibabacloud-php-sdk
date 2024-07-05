@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditAudioResultDetailRequest extends Model
 {
     /**
-     * @description The ID of the video. You can query the video ID by using the ApsaraVideo VOD console or calling the [SearchMedia](~~86044~~) operation.
+     * @description The ID of the video. You can query the video ID by using the ApsaraVideo VOD console or calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation.
      *
+     * This parameter is required.
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
      * @var string

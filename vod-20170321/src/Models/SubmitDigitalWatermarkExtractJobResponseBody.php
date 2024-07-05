@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitDigitalWatermarkExtractJobResponseBody extends Model
 {
     /**
-     * @description The ID of the job.
+     * @description The ID of the watermark extraction job.
      *
      * @example ad90a501b1b9472374ad005046****
      *

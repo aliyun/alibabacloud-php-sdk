@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainRealTimeDetailDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify a maximum of 20 accelerated domain names in each call. Separate domain names with commas (,).
+     *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * This parameter is required.
      * @example 2019-01-23T12:40:00Z
      *
      * @var string
@@ -23,6 +29,9 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of data that you want to query. You can specify multiple data types and separate them with commas (,). Valid values:
+     *
+     * This parameter is required.
      * @example bps
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $field;
 
     /**
+     * @description The name of the Internet service provider (ISP).
+     *
      * @example unicom
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The name of the region. If you do not specify a region, data in all regions is queried.
+     *
      * @example shanghai
      *
      * @var string
@@ -44,6 +57,9 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description Specifies whether to return a summary value. Valid values:
+     *
+     * true false (default)
      * @example false
      *
      * @var string
@@ -51,6 +67,12 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $merge;
 
     /**
+     * @description Specifies whether to return a summary value. Valid values:
+     *
+     *   **true**: groups the results by domain name and merges the results by region and ISP.
+     *   **false**: groups the results by domain name.
+     *
+     * Default value: **false**.
      * @example true
      *
      * @var string
@@ -63,6 +85,9 @@ class DescribeVodDomainRealTimeDetailDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * This parameter is required.
      * @example 2019-01-23T12:35:12Z
      *
      * @var string

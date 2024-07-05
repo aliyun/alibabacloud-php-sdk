@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadVideoRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-1000000
      *
@@ -21,8 +21,8 @@ class CreateUploadVideoRequest extends Model
      * @description The category ID of the media file. You can use one of the following methods to obtain the category ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID of the media file.
-     *   Obtain the value of CateId from the response to the [AddCategory](~~56401~~) operation.
-     *   Obtain the value of CateId from the response to the [GetCategories](~~56406~~) operation.
+     *   Obtain the value of CateId from the response to the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation.
+     *   Obtain the value of CateId from the response to the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation.
      *
      * @example 100036****
      *
@@ -55,9 +55,10 @@ class CreateUploadVideoRequest extends Model
      * @description The name of the audio or video file.
      *
      *   The name must contain a file name extension, which is not case-sensitive.
-     *   For more information about file name extensions supported by ApsaraVideo VOD, see [Overview](~~55396~~).
+     *   For more information about file name extensions supported by ApsaraVideo VOD, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      *
-     * @example D:\video_01.mp4
+     * This parameter is required.
+     * @example D:\\video_01.mp4
      *
      * @var string
      */
@@ -100,8 +101,8 @@ class CreateUploadVideoRequest extends Model
      * @description The ID of the transcoding template group. You can use one of the following methods to obtain the ID of the transcoding template group:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups** to view the ID of the transcoding template group.
-     *   Obtain the value of TranscodeTemplateGroupId in the response to the [AddTranscodeTemplateGroup](~~102665~~) operation.
-     *   Obtain the value of TranscodeTemplateGroupId in the response to the [ListTranscodeTemplateGroup](~~102669~~) operation.
+     *   Obtain the value of TranscodeTemplateGroupId in the response to the [AddTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102665.html) operation.
+     *   Obtain the value of TranscodeTemplateGroupId in the response to the [ListTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102669.html) operation.
      *
      * > If you leave this parameter empty, the default transcoding template group is used. If you specify this parameter, the specified transcoding template group is used for transcoding.
      * @example 405477f9e214d19ea2c7c854****
@@ -116,6 +117,7 @@ class CreateUploadVideoRequest extends Model
      *   The title can be up to 128 characters in length.
      *   The value must be encoded in UTF-8.
      *
+     * This parameter is required.
      * @example UploadTest
      *
      * @var string
@@ -123,10 +125,10 @@ class CreateUploadVideoRequest extends Model
     public $title;
 
     /**
-     * @description The custom configurations such as callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see [Request parameters](~~86952~~).
+     * @description The custom configurations such as callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see [Request parameters](https://help.aliyun.com/document_detail/86952.html).
      *
-     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](~~86071~~).
-     * >*   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](~~55396~~).
+     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
+     * >*   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
      *
      * @var string
@@ -136,7 +138,7 @@ class CreateUploadVideoRequest extends Model
     /**
      * @description The ID of the workflow. To view the ID of the workflow, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
      *
-     * > If you specify the WorkflowId and TemplateGroupId parameters, the value of the WorkflowId parameter takes effect. For more information, see [Workflows](~~115347~~).
+     * > If you specify the WorkflowId and TemplateGroupId parameters, the value of the WorkflowId parameter takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
      * @example 613efff3887ec34af685714cc461****
      *
      * @var string

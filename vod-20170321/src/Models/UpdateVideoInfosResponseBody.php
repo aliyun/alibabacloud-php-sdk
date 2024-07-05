@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateVideoInfosResponseBody extends Model
 {
     /**
-     * @description The IDs of the videos that cannot be modified. Generally, videos cannot be modified if you do not have required [permissions](~~113600~~).
+     * @description The IDs of the videos that cannot be modified. Generally, videos cannot be modified if you do not have required [permissions](https://help.aliyun.com/document_detail/113600.html).
      *
      * @var string[]
      */

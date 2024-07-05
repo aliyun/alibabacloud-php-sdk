@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainSrcBpsDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the entries returned. Unit: seconds.
+     * @description The time interval at which data is returned, which is the time granularity. Unit: seconds.
      *
      * @example 300
      *
@@ -19,7 +19,7 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain name whose ICP filing status you want to update.
      *
      * @example sample.com
      *
@@ -28,7 +28,7 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The end of the time range.
      *
      * @example 2022-08-23T02:02:57Z
      *
@@ -46,14 +46,14 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the origin bandwidth data returned at each time interval. Unit: bit/s.
+     * @description The origin bandwidth data at each time interval.
      *
      * @var srcBpsDataPerInterval
      */
     public $srcBpsDataPerInterval;
 
     /**
-     * @description The start of the time range during which data was queried.
+     * @description The beginning of the time range.
      *
      * @example 2022-07-12T16:00:00Z
      *

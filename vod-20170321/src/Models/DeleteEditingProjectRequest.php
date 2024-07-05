@@ -21,6 +21,7 @@ class DeleteEditingProjectRequest extends Model
     /**
      * @description The ID of the online editing project. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example fb2101bf24bf41*****cb318787dc
      *
      * @var string

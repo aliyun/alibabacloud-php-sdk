@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListVodTemplateRequest extends Model
 {
     /**
-     * @description The ID of the application. Set the value to **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Set the value to **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -20,6 +20,7 @@ class ListVodTemplateRequest extends Model
     /**
      * @description The type of the template. Set the value to **Snapshot**.
      *
+     * This parameter is required.
      * @example Snapshot
      *
      * @var string

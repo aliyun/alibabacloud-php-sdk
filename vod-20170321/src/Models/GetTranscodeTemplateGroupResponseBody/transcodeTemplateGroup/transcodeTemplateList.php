@@ -11,7 +11,7 @@ class transcodeTemplateList extends Model
     /**
      * @description The transcoding configurations of the audio stream. The value is a JSON string.
      *
-     * @example {\"Codec\":\"AAC\",\"Remove\":\"false\",\"Bitrate\":\"44\",\"Samplerate\":\"32000\",\"Channels\":\"2\",\"Profile\":\"aac_low\"}
+     * @example {\\"Codec\\":\\"AAC\\",\\"Remove\\":\\"false\\",\\"Bitrate\\":\\"44\\",\\"Samplerate\\":\\"32000\\",\\"Channels\\":\\"2\\",\\"Profile\\":\\"aac_low\\"}
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class transcodeTemplateList extends Model
     /**
      * @description The clipping configurations of the video. The value is a JSON string. For example, this parameter is returned if you extract 5 seconds of content from a video to generate a new video.
      *
-     * @example {\"TimeSpan\":{\"Seek\":\"1\",\"Duration\":\"5\"}
+     * @example {\\"TimeSpan\\":{\\"Seek\\":\\"1\\",\\"Duration\\":\\"5\\"}
      *
      * @var string
      */

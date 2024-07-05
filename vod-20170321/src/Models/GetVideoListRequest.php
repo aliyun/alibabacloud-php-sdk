@@ -12,8 +12,8 @@ class GetVideoListRequest extends Model
      * @description The ID of the category. You can use one of the following methods to obtain the category ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID.
-     *   Obtain the value of CateId from the response to the [AddCategory](~~56401~~) operation.
-     *   Obtain the value of CateId from the response to the [GetCategories](~~56406~~) operation.
+     *   Obtain the value of CateId from the response to the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation.
+     *   Obtain the value of CateId from the response to the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation.
      *
      * @example 781111
      *

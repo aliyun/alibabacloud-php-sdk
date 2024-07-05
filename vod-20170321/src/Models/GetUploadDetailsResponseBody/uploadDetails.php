@@ -63,7 +63,7 @@ class uploadDetails extends Model
     public $modificationTime;
 
     /**
-     * @description The status of the video. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](~~52839~~) topic.
+     * @description The status of the video. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
      *
      * @example Uploading
      *
@@ -117,7 +117,7 @@ class uploadDetails extends Model
     public $uploadSource;
 
     /**
-     * @description The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](~~52839~~) topic.
+     * @description The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
      *
      * @example Uploading
      *

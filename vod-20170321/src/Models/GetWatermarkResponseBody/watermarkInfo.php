@@ -18,7 +18,7 @@ class watermarkInfo extends Model
     public $appId;
 
     /**
-     * @description The time when the watermark was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the watermark template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-11-06T08:03:17Z
      *
@@ -27,8 +27,9 @@ class watermarkInfo extends Model
     public $creationTime;
 
     /**
-     * @description The Object Storage Service (OSS) URL or CDN URL of the watermark file. A text watermark does not have a file URL.
+     * @description The URL of the watermark file. The URL is an Object Storage Service (OSS) URL or an Alibaba Cloud CDN URL.
      *
+     * >  This parameter is returned only for image watermark templates.
      * @example https://outin-32*****f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/F85529C8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozBW****
      *
      * @var string
@@ -36,7 +37,7 @@ class watermarkInfo extends Model
     public $fileUrl;
 
     /**
-     * @description Indicates whether the watermark is the default one. Valid values:
+     * @description Indicates whether the watermark template is the default one. Valid values:
      *
      *   **Default**
      *   **NotDefault**
@@ -48,7 +49,7 @@ class watermarkInfo extends Model
     public $isDefault;
 
     /**
-     * @description The name of the watermark.
+     * @description The name of the watermark template.
      *
      * @example image watermark test
      *
@@ -57,10 +58,10 @@ class watermarkInfo extends Model
     public $name;
 
     /**
-     * @description The type of the watermark. Valid values:
+     * @description The type of the watermark template. Valid values:
      *
-     *   **Image**
-     *   **Text**
+     *   **Image**: image watermark template
+     *   **Text**: text watermark template
      *
      * @example Text
      *
@@ -69,7 +70,7 @@ class watermarkInfo extends Model
     public $type;
 
     /**
-     * @description The configuration information such as the position and effect about the text watermark or image watermark. The value is a JSON string. For more information about the data structure, see the "WatermarkConfig: specifies the watermark configurations" section of the [Parameters for media processing](~~98618~~) topic.
+     * @description The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
      *
      * @example {"ReferPos": "BottomRight","Height": "55","Width": "55","Dx": "8","Dy": "8" }
      *
@@ -78,7 +79,7 @@ class watermarkInfo extends Model
     public $watermarkConfig;
 
     /**
-     * @description The ID of the watermark.
+     * @description The ID of the watermark template.
      *
      * @example 505e2e287ea*****ecfddd386d384
      *

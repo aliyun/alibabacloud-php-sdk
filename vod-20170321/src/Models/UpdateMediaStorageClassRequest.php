@@ -25,9 +25,10 @@ class UpdateMediaStorageClassRequest extends Model
      * @description The media asset ID. You can specify a maximum of 20 IDs. Separate multiple IDs with commas (,). You can use one of the following methods to obtain the ID:
      *
      *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, you can view the ID of the media asset. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of the VideoId parameter from the response to the [CreateUploadVideo](~~55407~~) operation that you call to upload media assets.
-     *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](~~86044~~) operation that you call to query the media ID after the media asset is uploaded.
+     *   Obtain the value of the VideoId parameter from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you call to upload media assets.
+     *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the media ID after the media asset is uploaded.
      *
+     * This parameter is required.
      * @example d56c2ac0cee271ed80004710b5ba****
      *
      * @var string
@@ -67,6 +68,7 @@ class UpdateMediaStorageClassRequest extends Model
      *   **Archive**
      *   **ColdArchive**
      *
+     * This parameter is required.
      * @example Archive
      *
      * @var string

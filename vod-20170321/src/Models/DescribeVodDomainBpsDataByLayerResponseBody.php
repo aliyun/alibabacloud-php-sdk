@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainBpsDataByLayerResponseBody extends Model
 {
     /**
+     * @description The bandwidth returned at each time interval. Unit: bit/s.
+     *
      * @var bpsDataInterval
      */
     public $bpsDataInterval;
 
     /**
+     * @description The time interval between the entries returned. Unit: seconds.
+     *
      * @example 300
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeVodDomainBpsDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string

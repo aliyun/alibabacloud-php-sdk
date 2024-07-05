@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The application ID. Default value: **app-1000000**. For more information, see [Use the multi-application service](~~113600~~).
+     * @description The application ID. Default value: **app-1000000**. For more information, see [Use the multi-application service](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -41,7 +41,7 @@ class AddTranscodeTemplateGroupRequest extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The configurations of the transcoding template. The value is a string in JSON format. For more information about the data structure, see [TranscodeTemplate](~~52839~~).
+     * @description The configurations of the transcoding template. The value is a string in JSON format. For more information about the data structure, see [TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html).
      *
      * > *   If you do not specify this parameter, the transcoding job cannot be automatically created after you upload a video.
      * > *   If you do not need to set Width or Height, do not specify the corresponding parameter. You cannot set the value to an empty string, such as "Height":"".

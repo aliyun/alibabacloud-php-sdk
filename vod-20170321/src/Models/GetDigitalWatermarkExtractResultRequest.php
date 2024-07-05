@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetDigitalWatermarkExtractResultRequest extends Model
 {
     /**
-     * @description The type of the digital watermark. Valid values:
+     * @description The type of the watermark. Valid values:
      *
-     *   TraceMark: tracing watermark
-     *   CopyrightMark: copyright watermark
+     *   **TraceMark**: user-tracing watermark
+     *   **CopyrightMark**: copyright watermark
      *
+     * This parameter is required.
      * @example TraceMark
      *
      * @var string
@@ -21,7 +22,10 @@ class GetDigitalWatermarkExtractResultRequest extends Model
     public $extractType;
 
     /**
-     * @description The ID of the job.
+     * @description The ID of the watermark extraction job.
+     *
+     *   You can obtain the ID from the response to the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation.
+     *   If you specify this parameter, the result of the specified watermark extraction job is returned. If you leave this parameter empty, the results of all watermark extraction jobs submitted for the video are returned.
      *
      * @example 2bf4390af9e5491c09cc720ad****
      *
@@ -30,8 +34,12 @@ class GetDigitalWatermarkExtractResultRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the video file. You can query the video ID by using the ApsaraVideo VOD console or calling the SearchMedia operation.
+     * @description The ID of the video from which you want to query the watermark content. You can specify only one ID. You can use one of the following methods to obtain the ID:
      *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video** to view the video ID.
+     *   Obtain the VideoId from the response to the [SearchMedia](~~SearchMedia~~) operation.
+     *
+     * This parameter is required.
      * @example 93ab850b4f6f54b6e91d24d81d4****
      *
      * @var string

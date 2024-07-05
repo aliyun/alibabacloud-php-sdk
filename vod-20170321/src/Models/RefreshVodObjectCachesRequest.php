@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefreshVodObjectCachesRequest extends Model
 {
     /**
-     * @description Specifies whether to refresh resources in a directory if the resources are different from the resources in the same directory in the origin server. Default value: false.
+     * @description Specifies whether to purge resources in a directory if the resources requested are different from the resources on the origin server.
      *
-     * - false:refresh the changed resources in the directory.
+     *   **true**: refreshes all resources in the directory. If you set this parameter to true, when the requested content matches the resource in the directory, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
+     *   **false** (default): refreshes the changed resources in the directory. If you set this parameter to false, when the requested content matches the resource in the directory, the POP obtains the Last-Modified parameter of the resource from the origin server. If the value of the obtained Last-Modified parameter is the same as that of the cached resource, the cached resource is returned. Otherwise, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
+     *
      * @example false
      *
      * @var bool
@@ -19,8 +21,9 @@ class RefreshVodObjectCachesRequest extends Model
     public $force;
 
     /**
-     * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\n or \r\n).
+     * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\\n or \\r\\n).
      *
+     * This parameter is required.
      * @example abc.com/image/1.png
      *
      * @var string
@@ -30,12 +33,11 @@ class RefreshVodObjectCachesRequest extends Model
     /**
      * @description The type of the object that you want to refresh. Valid values:
      *
-     *   **File** (default): refreshes files.
+     *   **File** (default): refreshes one or more files.
      *   **Directory**: refreshes the files in specified directories.
      *   **Regex**: refreshes content based on regular expressions.
-     *   **ExQuery**: omits parameters after the question mark in the URL and refreshes content.
+     *   **IgnoreParams**: removes the question mark (?) and parameters after the question mark (?) in a request URL and refreshes content. After you call this operation with the request URL submitted, the system compares the submitted URL with the URL of the cached resource without specific parameters. If the URLs match, the POPs refresh the cached resource.
      *
-     * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
      * @example File
      *
      * @var string

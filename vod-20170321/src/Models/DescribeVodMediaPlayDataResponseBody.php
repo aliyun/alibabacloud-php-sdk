@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodMediaPlayDataResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVodMediaPlayDataResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeVodMediaPlayDataResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The data returned.
+     *
      * @var qoeInfoList[]
      */
     public $qoeInfoList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeVodMediaPlayDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

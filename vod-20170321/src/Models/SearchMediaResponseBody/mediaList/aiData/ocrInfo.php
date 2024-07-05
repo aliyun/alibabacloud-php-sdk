@@ -11,7 +11,7 @@ class ocrInfo extends Model
     /**
      * @description The text content.
      *
-     * @example I\"m Jane.
+     * @example I\\"m Jane.
      *
      * @var string
      */

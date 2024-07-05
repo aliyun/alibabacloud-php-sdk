@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddWatermarkRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. If you have activated the multi-application service, specify the ID of the application to add the watermark template in the specified application. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-****
      *
@@ -18,8 +18,10 @@ class AddWatermarkRequest extends Model
     public $appId;
 
     /**
-     * @description The Object Storage Service (OSS) URL of the watermark file. This parameter is required if you add image watermarks.
+     * @description The URL of the watermark file. The URL must be an Object Storage Service (OSS) URL and cannot contain the information used for URL signing.
      *
+     * > *   This parameter is required if you set `Type` to `Image`.
+     * > *  You can obtain the URL from the `FileURL` parameter in the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to upload the watermark image to ApsaraVideo VOD.
      * @example http://outin-326268*****63e1403e7.oss-cn-shanghai.aliyuncs.com/image/cover/C99345*****E7FDEC-6-2.png
      *
      * @var string
@@ -27,11 +29,13 @@ class AddWatermarkRequest extends Model
     public $fileUrl;
 
     /**
-     * @description The name of the watermark. The name can contain only letters and digits.
+     * @description The name of the watermark template.
      *
-     *   The name can be up to 128 bytes in length.
+     *   Only letters and digits are supported.
+     *   The name cannot exceed 128 bytes.
      *   The value must be encoded in UTF-8.
      *
+     * This parameter is required.
      * @example watermark
      *
      * @var string
@@ -39,11 +43,12 @@ class AddWatermarkRequest extends Model
     public $name;
 
     /**
-     * @description The type of the watermark. Valid values:
+     * @description The type of the watermark template. Valid values:
      *
-     *   **Image** (default)
-     *   **Text**
+     *   **Image** (default): image watermark template
+     *   **Text**: text watermark template
      *
+     * This parameter is required.
      * @example Text
      *
      * @var string
@@ -51,9 +56,9 @@ class AddWatermarkRequest extends Model
     public $type;
 
     /**
-     * @description The configurations such as the position and effect of the text watermark or image watermark. The value must be a JSON string.
+     * @description The configuration information of the watermark such as the display position and special effects. The value must be a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
      *
-     * > The value of this parameter varies based on the watermark type. For more information about the data structure, see [WatermarkConfig](~~98618~~).
+     * This parameter is required.
      * @example {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft","Type":"Image"}
      *
      * @var string

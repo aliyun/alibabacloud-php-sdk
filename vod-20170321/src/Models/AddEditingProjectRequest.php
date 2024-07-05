@@ -56,7 +56,7 @@ class AddEditingProjectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](~~52839~~).
+     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
      *
      * If you do not specify this parameter, an empty timeline is created and the duration of the online editing project is zero.
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac5006aed55a54328bc3443****"},{"MediaId":"95948ddba24446b6aed5db985e78****"}]}]}
@@ -68,6 +68,7 @@ class AddEditingProjectRequest extends Model
     /**
      * @description The title of the online editing project.
      *
+     * This parameter is required.
      * @example testtimeline
      *
      * @var string

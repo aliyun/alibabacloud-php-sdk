@@ -29,8 +29,6 @@ class AIImageInfoList extends Model
     /**
      * @description The URL of the image file.
      *
-     * @example http://example.aliyundoc.com/357a8748c5789d2726e6436aa****\/image/ai/b0a7612554d6400013-0****.gif?auth_key=1602745717-0-0-005ee05616c5925596d****
-     *
      * @var string
      */
     public $fileURL;

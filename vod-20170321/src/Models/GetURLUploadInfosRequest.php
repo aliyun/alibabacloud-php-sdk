@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetURLUploadInfosRequest extends Model
 {
     /**
-     * @description The one or more IDs of upload jobs. You can obtain the job IDs in the response parameter JobId of the [UploadMediaByURL](~~86311~~) operation.
+     * @description The one or more IDs of upload jobs. You can obtain the job IDs in the response parameter JobId of the [UploadMediaByURL](https://help.aliyun.com/document_detail/86311.html) operation.
      *
      * > You must set one of the JobIds and the UploadURLs parameters. If you set both the JobIds and UploadURLs parameters, only the value of the JobIds parameter takes effect.
      * @example 86c1925fba0****,7afb201e7fa****,2cc4997378****

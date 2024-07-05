@@ -180,7 +180,7 @@ class videoStreamList extends Model
     public $profile;
 
     /**
-     * @description The rotation angle of the video. Valid values: **\[0,360)**.
+     * @description The rotation angle of the video. Valid values: **[0,360)**.
      *
      * @example 90
      *

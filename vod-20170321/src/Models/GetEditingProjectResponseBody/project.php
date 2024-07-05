@@ -89,7 +89,7 @@ class project extends Model
     /**
      * @description The timeline of the online editing project.
      *
-     * @example {\"TimelineIn\":0,\"TimelineOut\":9.42}
+     * @example {\\"TimelineIn\\":0,\\"TimelineOut\\":9.42}
      *
      * @var string
      */

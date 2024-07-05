@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadAttachedMediaResponseBody extends Model
 {
     /**
-     * @description The OSS URL of the file. The URL does not contain the information used for URL signing. You can set the FileUrl parameter to this URL when you call the [AddWatermark](~~98617~~) operation.
+     * @description The OSS URL of the file. The URL does not contain the information used for URL signing. You can set the FileUrl parameter to this URL when you call the [AddWatermark](https://help.aliyun.com/document_detail/98617.html) operation.
      *
      * @example https://****.oss-cn-shanghai.aliyuncs.com/watermark/****.mov
      *
@@ -29,7 +29,7 @@ class CreateUploadAttachedMediaResponseBody extends Model
     /**
      * @description The URL of the auxiliary media asset. If a domain name for Alibaba Cloud CDN (CDN) is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
      *
-     * >  If you enable the URL signing feature of ApsaraVideo VOD, you may be unable to access the returned URL of the auxiliary media asset by using a browser and the HTTP status code 403 may be returned. You can disable the [URL signing](~~86090~~) feature or [generate an authentication signature](~~57007~~).
+     * >  If you enable the URL signing feature of ApsaraVideo VOD, you may be unable to access the returned URL of the auxiliary media asset by using a browser and the HTTP status code 403 may be returned. You can disable the [URL signing](https://help.aliyun.com/document_detail/86090.html) feature or [generate an authentication signature](https://help.aliyun.com/document_detail/57007.html).
      * @example http://example.aliyundoc.com/watermark/****.mov?auth_key=****
      *
      * @var string

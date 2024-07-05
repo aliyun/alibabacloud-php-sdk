@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth values of origin HTTPS requests.
+     * @description The bandwidth consumed for fetching resources from the origin over HTTPS.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2022-08-23T02:02:57Z
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The bandwidth value at each time interval.
+     * @description The total origin bandwidth data. Unit: bit/s.
      *
      * @example 0
      *

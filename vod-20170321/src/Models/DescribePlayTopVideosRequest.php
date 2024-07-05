@@ -11,6 +11,7 @@ class DescribePlayTopVideosRequest extends Model
     /**
      * @description The time to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2016-06-29T13:00:00Z
      *
      * @var string

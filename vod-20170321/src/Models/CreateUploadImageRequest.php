@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadImageRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * @example app-1000000
      *
@@ -21,8 +21,8 @@ class CreateUploadImageRequest extends Model
      * @description The category ID of the image. You can use one of the following methods to obtain the category ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories**. On the Categories page, you can view the category ID of the image.
-     *   Obtain the value of CateId from the response to the [AddCategory](~~56401~~) operation.
-     *   Obtain the value of CateId from the response to the [GetCategories](~~56406~~) operation.
+     *   Obtain the value of CateId from the response to the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation.
+     *   Obtain the value of CateId from the response to the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation.
      *
      * @example 100036****
      *
@@ -63,6 +63,8 @@ class CreateUploadImageRequest extends Model
      *   **cover**: the thumbnail.
      *
      * > You can manage only images of the **default** type in the ApsaraVideo VOD console.
+     *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -73,7 +75,7 @@ class CreateUploadImageRequest extends Model
      * @description The name of the source file.
      *
      * > The name must contain a file name extension. The file name extension is not case-sensitive.
-     * @example D:\picture_01.png
+     * @example D:\\picture_01.png
      *
      * @var string
      */
@@ -116,10 +118,10 @@ class CreateUploadImageRequest extends Model
     public $title;
 
     /**
-     * @description The custom configurations, including callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
+     * @description The custom configurations, including callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
      *
-     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](~~86071~~).
-     * >*   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](~~55396~~).
+     * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
+     * >*   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectResponseBody extends Model
 {
     /**
-     * @description The information about the online editing project. For more information about the structure, see [EditingProject](~~52839~~).
+     * @description The information about the online editing project. For more information about the structure, see [EditingProject](https://help.aliyun.com/document_detail/52839.html).
      *
      * @var project
      */

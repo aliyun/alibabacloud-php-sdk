@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainTrafficDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the entries returned. Unit: seconds.
+     * @description The time interval at which data is returned, which is the time granularity. Unit: seconds.
      *
      * @example 3600
      *
@@ -28,7 +28,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end of the time range.
      *
      * @example 2019-01-20T14:59:58Z
      *
@@ -46,7 +46,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range.
      *
      * @example 2019-01-20T13:59:58Z
      *
@@ -64,7 +64,7 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
     public $totalTraffic;
 
     /**
-     * @description The network traffic that was collected at each interval.
+     * @description The amount of network traffic at each time interval.
      *
      * @var trafficDataPerInterval
      */

@@ -66,6 +66,7 @@ class UpdateVideoInfoRequest extends Model
     /**
      * @description The ID of the video.
      *
+     * This parameter is required.
      * @example 2deda93265312baf9b0ed810d****
      *
      * @var string

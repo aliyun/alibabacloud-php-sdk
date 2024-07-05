@@ -19,7 +19,7 @@ class GetWatermarkResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the watermark.
+     * @description The information about the watermark template.
      *
      * @var watermarkInfo
      */

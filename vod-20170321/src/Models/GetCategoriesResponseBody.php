@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesResponseBody extends Model
 {
     /**
-     * @description The information about the specified category.
+     * @description The information about the category.
      *
      * @var category
      */
@@ -27,7 +27,7 @@ class GetCategoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of subcategories.
+     * @description The details of the subcategory.
      *
      * @var subCategories
      */

@@ -11,6 +11,7 @@ class DeleteVodDomainRequest extends Model
     /**
      * @description The domain name for CDN that you want to delete.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

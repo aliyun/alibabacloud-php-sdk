@@ -19,10 +19,10 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The review status of the video. Valid values:
+     * @description The final review result of the audio or video file. Valid values:
      *
      *   **Normal**: pass
-     *   **Blocked**: failed
+     *   **Blocked**: blocked
      *
      * @example Normal
      *
@@ -67,7 +67,7 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The custom information about the media file.\n\n> This parameter has been deprecated. This parameter is no longer returned after you call the operation.
+     * @description The custom information about the media file.\\n\\n> This parameter has been deprecated. This parameter is no longer returned after you call the operation.
      *
      * @example {"aaa":"test"}
      *
@@ -85,6 +85,18 @@ class video extends Model
     public $description;
 
     /**
+     * @description Indicates whether the offline download feature is enabled. If you enable the offline download feature, users can download and play videos by using the ApsaraVideo Player on a local PC. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html). Valid values:
+     *
+     *   **on**: the offline download feature is enabled.
+     *   **off**: the offline download feature is not enabled.
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $downloadSwitch;
+
+    /**
      * @description The duration of the media file. Unit: seconds.
      *
      * @example 135.6
@@ -94,7 +106,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The time when the media file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T10:15:50Z
      *
@@ -150,15 +162,15 @@ class video extends Model
     public $snapshots;
 
     /**
-     * @description The status of the video. For information about the operations that can be performed on videos in different statuses and limits, see the Status: the status of a video section of the [Basic data types](~~52839~~) topic. Valid values:
+     * @description The status of the media file. For more information about the operations that you can perform on files in different statuses and usage limits, see [Status: the status of a video](~~52839#title-vqg-8cz-7p8~~). Valid values:
      *
-     *   **Uploading**: The video is being uploaded.
-     *   **UploadFail**: The video failed to be uploaded.
-     *   **UploadSucc**: The video has been uploaded.
-     *   **Transcoding**: The video is being transcoded.
-     *   **TranscodeFail**: The video failed to be transcoded.
-     *   **Blocked**: The video is blocked.
-     *   **Normal**: The video is normal.
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSucc**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**
      *
      * @example Normal
      *
@@ -195,7 +207,7 @@ class video extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the media file. Multiple tags are separated by commas (,).
+     * @description The tags of the audio or video file. Multiple tags are separated by commas (,).
      *
      * @example Tag 1,Tag 2
      *
@@ -238,6 +250,7 @@ class video extends Model
         'creationTime'      => 'CreationTime',
         'customMediaInfo'   => 'CustomMediaInfo',
         'description'       => 'Description',
+        'downloadSwitch'    => 'DownloadSwitch',
         'duration'          => 'Duration',
         'modificationTime'  => 'ModificationTime',
         'regionId'          => 'RegionId',
@@ -284,6 +297,9 @@ class video extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->downloadSwitch) {
+            $res['DownloadSwitch'] = $this->downloadSwitch;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -362,6 +378,9 @@ class video extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DownloadSwitch'])) {
+            $model->downloadSwitch = $map['DownloadSwitch'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

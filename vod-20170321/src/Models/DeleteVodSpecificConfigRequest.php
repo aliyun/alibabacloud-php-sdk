@@ -11,6 +11,7 @@ class DeleteVodSpecificConfigRequest extends Model
     /**
      * @description The ID of the configuration.
      *
+     * This parameter is required.
      * @example 2317****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteVodSpecificConfigRequest extends Model
     /**
      * @description The domain name for CDN.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

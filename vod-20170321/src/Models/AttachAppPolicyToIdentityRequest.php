@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachAppPolicyToIdentityRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](~~113600~~).
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
      *
      * > This parameter is optional only if you set the policy name to VODAppAdministratorAccess.
      * @example app-****
@@ -24,6 +24,7 @@ class AttachAppPolicyToIdentityRequest extends Model
      *   Specify the ID of the RAM user when the IdentityType parameter is set to RamUser.
      *   Specify the name of the RAM role when the IdentityType parameter is set to RamRole.
      *
+     * This parameter is required.
      * @example ****
      *
      * @var string
@@ -36,6 +37,7 @@ class AttachAppPolicyToIdentityRequest extends Model
      *   **RamUser**: a RAM user
      *   **RamRole**: a RAM role
      *
+     * This parameter is required.
      * @example RamRole
      *
      * @var string
@@ -49,6 +51,7 @@ class AttachAppPolicyToIdentityRequest extends Model
      *   **VODAppReadOnlyAccess**: permissions to read all resources in an application.
      *   **VODAppAdministratorAccess**: permissions of the application administrator.
      *
+     * This parameter is required.
      * @example VODAppFullAccess
      *
      * @var string

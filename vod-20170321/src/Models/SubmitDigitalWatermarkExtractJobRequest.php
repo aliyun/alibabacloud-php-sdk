@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SubmitDigitalWatermarkExtractJobRequest extends Model
 {
     /**
-     * @description The type of the digital watermark that you want to extract. Valid values:
+     * @description The type of the watermark that you want to extract. Valid values:
      *
-     *   TraceMark: tracing watermark
-     *   CopyrightMark: copyright watermark
+     *   **TraceMark**: user-tracing watermark
+     *   **CopyrightMark**: copyright watermark
      *
+     * This parameter is required.
      * @example TraceMark
      *
      * @var string
@@ -21,8 +22,12 @@ class SubmitDigitalWatermarkExtractJobRequest extends Model
     public $extractType;
 
     /**
-     * @description The ID of the video file. You can query the video ID by using the ApsaraVideo VOD console or calling the SearchMedia operation.
+     * @description The ID of the video from which you want to extract the watermark. You can specify only one ID. You can use one of the following methods to obtain the ID:
      *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video** to view the video ID.
+     *   Obtain the VideoId from the response to the [SearchMedia](~~SearchMedia~~) operation.
+     *
+     * This parameter is required.
      * @example 0222e203cf80f9c22870a4d2c****
      *
      * @var string

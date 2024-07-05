@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends Model
 {
     /**
+     * @description The time interval at which data is returned. Unit: seconds.
+     *
+     * The returned value varies based on the time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600 (1 hour). For more information, see the **Time granularity** section in the **API documentation**.
      * @example 60
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +29,8 @@ class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range.
+     *
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -31,11 +38,15 @@ class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The proportion of each HTTP status code in each time interval.
+     *
      * @var realTimeHttpCodeData
      */
     public $realTimeHttpCodeData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BC858082-736F-4A25-867B-E5B67C85ACF7
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range.
+     *
      * @example 2019-11-30T05:39:00Z
      *
      * @var string

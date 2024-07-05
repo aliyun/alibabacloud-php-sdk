@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesRequest extends Model
 {
     /**
-     * @description The ID of the category. Default value: **-1**, which indicates the parent category ID of a level 1 category.
+     * @description The ID of the category. If you specify this parameter, the system queries the category based on the ID. You can specify only one category ID. You can use one of the following methods to obtain the ID:
+     *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). Choose **Configuration Management** > **Media Management** > **Categories**. On the Audio and Video / Image Category or Short Video Material Category tab, view the category ID.
+     *   Obtain the category ID from the response to the [AddCategory](~~AddCategory~~) operation.
      *
      * @example 49339****
      *
@@ -36,7 +39,7 @@ class GetCategoriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The method for sorting the results. Valid values:
+     * @description The sorting method of the results. Valid values:
      *
      *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.
      *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
@@ -48,10 +51,10 @@ class GetCategoriesRequest extends Model
     public $sortBy;
 
     /**
-     * @description The type of the category. Valid values:
+     * @description The type of the category. If you specify this parameter, the system queries the category based on the type. Valid values:
      *
-     *   **default** (default): default category
-     *   **material**: material category
+     *   **default** (default): audio, video, and image files
+     *   **material**: short video materials
      *
      * @example default
      *

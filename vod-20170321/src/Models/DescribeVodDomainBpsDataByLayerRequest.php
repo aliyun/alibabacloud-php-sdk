@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainBpsDataByLayerRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify a maximum of 500 accelerated domain names. Separate multiple domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-01-23T12:40:12Z
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $endTime;
 
     /**
+     * @description The time interval between the data entries. Unit: seconds.
+     *
+     * The time granularity varies based on the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the supported time granularity described in Usage notes.
      * @example 300
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $interval;
 
     /**
+     * @description The name of the Internet service provider (ISP).
+     *
      * @example unicom
      *
      * @var string
@@ -37,6 +47,9 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The layer at which you want to query the data.
+     *
+     * Network layer: IPv4 and IPv6. Application layer: http, https, and quic. all: specifies that both the network and application layers are included. Default value: all.
      * @example IPv4
      *
      * @var string
@@ -44,6 +57,8 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $layer;
 
     /**
+     * @description The name of the region.
+     *
      * @example beijing
      *
      * @var string
@@ -56,6 +71,9 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-01-23T12:35:12Z
      *
      * @var string

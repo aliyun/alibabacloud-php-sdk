@@ -45,7 +45,7 @@ class videoList extends Model
     public $coverURL;
 
     /**
-     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the media file was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-06-26T05:38:48Z
      *
@@ -63,7 +63,19 @@ class videoList extends Model
     public $description;
 
     /**
-     * @description The duration of the audio or video file. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
+     * @description Indicates whether the offline download feature is enabled. If you enable the offline download feature, users can download and play videos by using the ApsaraVideo Player on a local PC. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html). Valid values:
+     *
+     *   **on**: the offline download feature is enabled.
+     *   **off**: the offline download feature is not enabled.
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $downloadSwitch;
+
+    /**
+     * @description The duration of the audio or video file. Unit: seconds.
      *
      * @example 120
      *
@@ -72,7 +84,7 @@ class videoList extends Model
     public $duration;
 
     /**
-     * @description The time when the audio or video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was last updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-06-26T06:38:48Z
      *
@@ -81,7 +93,7 @@ class videoList extends Model
     public $modificationTime;
 
     /**
-     * @description The period of time in which the audio or video file remains in the restored state.
+     * @description The period of time in which the audio file remains in the restored state.
      *
      * @example 2023-03-30T10:14:14Z
      *
@@ -90,7 +102,7 @@ class videoList extends Model
     public $restoreExpiration;
 
     /**
-     * @description The restoration status of the audio or video file. Valid values:
+     * @description The restoration status of the audio file. Valid values:
      *
      *   **Processing**
      *   **Success**
@@ -112,7 +124,7 @@ class videoList extends Model
     public $size;
 
     /**
-     * @description The URL array of video snapshots.
+     * @description The video snapshot URLs.
      *
      * @var string[]
      */
@@ -121,13 +133,13 @@ class videoList extends Model
     /**
      * @description The status of the video. Valid values:
      *
-     *   **Uploading**: The video is being uploaded.
-     *   **UploadFail**: The video failed to be uploaded.
-     *   **UploadSucc**: The video is uploaded.
-     *   **Transcoding**: The video is being transcoded.
-     *   **TranscodeFail**: The video failed to be transcoded.
-     *   **Blocked**: The video is blocked.
-     *   **Normal**: The video is normal.
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSucc**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**
      *
      * @example Normal
      *
@@ -136,7 +148,7 @@ class videoList extends Model
     public $status;
 
     /**
-     * @description The storage class of the audio or video file. Valid values:
+     * @description The storage class of the audio file. Valid values:
      *
      *   **Standard**: All media resources are stored as Standard objects.
      *   **IA**: All media resources are stored as IA objects.
@@ -144,8 +156,8 @@ class videoList extends Model
      *   **ColdArchive**: All media resources are stored as Cold Archive objects.
      *   **SourceIA**: Only the source files are IA objects.
      *   **SourceArchive**: Only the source files are Archive objects.
-     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-     *   **Changing**: The storage class of the audio or video file is being changed.
+     *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
+     *   **Changing**: The storage class of the video file is being changed.
      *   **SourceChanging**: The storage class of the source file is being changed.
      *
      * @example Standard
@@ -205,6 +217,7 @@ class videoList extends Model
         'coverURL'          => 'CoverURL',
         'creationTime'      => 'CreationTime',
         'description'       => 'Description',
+        'downloadSwitch'    => 'DownloadSwitch',
         'duration'          => 'Duration',
         'modificationTime'  => 'ModificationTime',
         'restoreExpiration' => 'RestoreExpiration',
@@ -244,6 +257,9 @@ class videoList extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->downloadSwitch) {
+            $res['DownloadSwitch'] = $this->downloadSwitch;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -313,6 +329,9 @@ class videoList extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DownloadSwitch'])) {
+            $model->downloadSwitch = $map['DownloadSwitch'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

@@ -27,7 +27,7 @@ class videoMeta extends Model
     public $duration;
 
     /**
-     * @description The status of the media file. For more information about the value range and description, see [Status: the status of a video](~~52839~~).
+     * @description The status of the media file. For more information about the value range and description, see [Status: the status of a video](~~52839#title-vqg-8cz-7p8~~).
      *
      * @example Normal
      *

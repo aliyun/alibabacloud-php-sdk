@@ -26,7 +26,7 @@ class GetURLUploadInfosResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about URL-based upload jobs. For more information, see the "URLUploadInfo: the information about a URL-based upload job" section of the [Basic structures](~~52839~~) topic.
+     * @description The information about URL-based upload jobs. For more information, see the "URLUploadInfo: the information about a URL-based upload job" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
      *
      * @var URLUploadInfoList[]
      */
