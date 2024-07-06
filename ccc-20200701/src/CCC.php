@@ -122,6 +122,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\FinishTicketTaskRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\FinishTicketTaskResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAccessChannelOfStagingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAccessChannelOfStagingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileDownloadUrlRequest;
@@ -3527,6 +3529,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportDoNotCallNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FinishTicketTaskRequest $request FinishTicketTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FinishTicketTaskResponse FinishTicketTaskResponse
+     */
+    public function finishTicketTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->ticketId)) {
+            $query['TicketId'] = $request->ticketId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FinishTicketTask',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FinishTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FinishTicketTaskRequest $request FinishTicketTaskRequest
+     *
+     * @return FinishTicketTaskResponse FinishTicketTaskResponse
+     */
+    public function finishTicketTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->finishTicketTaskWithOptions($request, $runtime);
     }
 
     /**
