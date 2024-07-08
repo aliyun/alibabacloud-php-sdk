@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\requestedResource;
@@ -18,6 +19,11 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $accessibility;
+
+    /**
+     * @var affinity
+     */
+    public $affinity;
 
     /**
      * @example []
@@ -128,6 +134,7 @@ class UpdateInstanceRequest extends Model
     public $workspaceSource;
     protected $_name = [
         'accessibility'            => 'Accessibility',
+        'affinity'                 => 'Affinity',
         'cloudDisks'               => 'CloudDisks',
         'datasets'                 => 'Datasets',
         'disassociateDatasets'     => 'DisassociateDatasets',
@@ -155,6 +162,9 @@ class UpdateInstanceRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+        if (null !== $this->affinity) {
+            $res['Affinity'] = null !== $this->affinity ? $this->affinity->toMap() : null;
         }
         if (null !== $this->cloudDisks) {
             $res['CloudDisks'] = [];
@@ -230,6 +240,9 @@ class UpdateInstanceRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+        if (isset($map['Affinity'])) {
+            $model->affinity = affinity::fromMap($map['Affinity']);
         }
         if (isset($map['CloudDisks'])) {
             if (!empty($map['CloudDisks'])) {

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\idleInstanceCuller;
@@ -37,6 +38,11 @@ class instances extends Model
      * @var int
      */
     public $accumulatedRunningTimeInMs;
+
+    /**
+     * @var affinity
+     */
+    public $affinity;
 
     /**
      * @example []
@@ -282,6 +288,7 @@ class instances extends Model
         'acceleratorType'            => 'AcceleratorType',
         'accessibility'              => 'Accessibility',
         'accumulatedRunningTimeInMs' => 'AccumulatedRunningTimeInMs',
+        'affinity'                   => 'Affinity',
         'cloudDisks'                 => 'CloudDisks',
         'datasets'                   => 'Datasets',
         'driver'                     => 'Driver',
@@ -334,6 +341,9 @@ class instances extends Model
         }
         if (null !== $this->accumulatedRunningTimeInMs) {
             $res['AccumulatedRunningTimeInMs'] = $this->accumulatedRunningTimeInMs;
+        }
+        if (null !== $this->affinity) {
+            $res['Affinity'] = null !== $this->affinity ? $this->affinity->toMap() : null;
         }
         if (null !== $this->cloudDisks) {
             $res['CloudDisks'] = [];
@@ -484,6 +494,9 @@ class instances extends Model
         }
         if (isset($map['AccumulatedRunningTimeInMs'])) {
             $model->accumulatedRunningTimeInMs = $map['AccumulatedRunningTimeInMs'];
+        }
+        if (isset($map['Affinity'])) {
+            $model->affinity = affinity::fromMap($map['Affinity']);
         }
         if (isset($map['CloudDisks'])) {
             if (!empty($map['CloudDisks'])) {

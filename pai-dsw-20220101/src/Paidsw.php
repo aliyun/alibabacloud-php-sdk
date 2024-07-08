@@ -158,6 +158,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->accessibility)) {
             $body['Accessibility'] = $request->accessibility;
         }
+        if (!Utils::isUnset($request->affinity)) {
+            $body['Affinity'] = $request->affinity;
+        }
         if (!Utils::isUnset($request->cloudDisks)) {
             $body['CloudDisks'] = $request->cloudDisks;
         }
@@ -1471,6 +1474,9 @@ class Paidsw extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->accessibility)) {
             $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->affinity)) {
+            $body['Affinity'] = $request->affinity;
         }
         if (!Utils::isUnset($request->cloudDisks)) {
             $body['CloudDisks'] = $request->cloudDisks;
