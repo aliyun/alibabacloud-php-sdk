@@ -46,6 +46,10 @@ class autoSnapshotPolicy extends Model
     public $fileSystemNums;
 
     /**
+     * @description The type of the file system.
+     *
+     * @example extreme
+     *
      * @var string
      */
     public $fileSystemType;

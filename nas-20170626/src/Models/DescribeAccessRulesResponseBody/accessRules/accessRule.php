@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class accessRule extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $accessGroupName;
@@ -23,6 +27,15 @@ class accessRule extends Model
     public $accessRuleId;
 
     /**
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+     *   extreme: Extreme NAS file system
+     *
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;
@@ -61,14 +74,16 @@ class accessRule extends Model
     public $RWAccess;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
      * @description The IP address or CIDR block of the authorized object.
-     *
-     * @example 10.0.*.*\/**
      *
      * @var string
      */

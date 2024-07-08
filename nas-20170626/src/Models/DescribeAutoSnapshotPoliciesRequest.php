@@ -20,7 +20,7 @@ class DescribeAutoSnapshotPoliciesRequest extends Model
     /**
      * @description The type of the file system.
      *
-     * Valid value: extreme, which indicates Extreme NAS file systems.
+     * Valid value: extreme, which indicates Extreme Apsara File Storage NAS (NAS) file systems.
      * @example extreme
      *
      * @var string

@@ -42,6 +42,10 @@ class snapshot extends Model
     public $encryptType;
 
     /**
+     * @description The type of the file system.
+     *
+     * @example extreme
+     *
      * @var string
      */
     public $fileSystemType;
@@ -99,6 +103,13 @@ class snapshot extends Model
     public $snapshotName;
 
     /**
+     * @description The snapshot type. Valid values:
+     *
+     *   auto: automatically created snapshots
+     *   user: manually created snapshots
+     *
+     * @example user
+     *
      * @var string
      */
     public $snapshotType;

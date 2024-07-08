@@ -19,7 +19,7 @@ class DescribeAccessRulesRequest extends Model
     public $accessGroupName;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example 1
      *

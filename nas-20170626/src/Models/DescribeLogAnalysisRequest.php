@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogAnalysisRequest extends Model
 {
     /**
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard: General-purpose NAS file system
+     *   extreme: Extreme NAS file system
+     *   all (default): all types
+     *
+     * @example all
+     *
      * @var string
      */
     public $fileSystemType;

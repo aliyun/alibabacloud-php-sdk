@@ -57,6 +57,7 @@ class ModifyMountTargetRequest extends Model
      *   Active: The mount target is available.
      *   Inactive: The mount target is unavailable.
      *
+     * >  Only General-purpose Apsara File Storage NAS (NAS) file systems support changing the mount target status.
      * @example Inactive
      *
      * @var string

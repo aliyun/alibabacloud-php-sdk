@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\
 
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\ldap;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\options;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\packages;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\supportedFeatures;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\tags;
@@ -170,6 +171,11 @@ class fileSystem extends Model
     public $mountTargets;
 
     /**
+     * @var options
+     */
+    public $options;
+
+    /**
      * @description The information about storage plans.
      *
      * @var packages
@@ -287,6 +293,7 @@ class fileSystem extends Model
         'meteredIASize'      => 'MeteredIASize',
         'meteredSize'        => 'MeteredSize',
         'mountTargets'       => 'MountTargets',
+        'options'            => 'Options',
         'packages'           => 'Packages',
         'protocolType'       => 'ProtocolType',
         'regionId'           => 'RegionId',
@@ -353,6 +360,9 @@ class fileSystem extends Model
         }
         if (null !== $this->mountTargets) {
             $res['MountTargets'] = null !== $this->mountTargets ? $this->mountTargets->toMap() : null;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
         }
         if (null !== $this->packages) {
             $res['Packages'] = null !== $this->packages ? $this->packages->toMap() : null;
@@ -443,6 +453,9 @@ class fileSystem extends Model
         }
         if (isset($map['MountTargets'])) {
             $model->mountTargets = mountTargets::fromMap($map['MountTargets']);
+        }
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
         if (isset($map['Packages'])) {
             $model->packages = packages::fromMap($map['Packages']);

@@ -29,6 +29,15 @@ class entry extends Model
     public $CTime;
 
     /**
+     * @description Indicates whether the directory contains files stored in the Archive storage class.
+     *
+     * Valid values:
+     *
+     *   true: The directory contains files stored in the Archive storage class.
+     *   false: The directory does not contain files stored in the Archive storage class.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasArchiveFile;

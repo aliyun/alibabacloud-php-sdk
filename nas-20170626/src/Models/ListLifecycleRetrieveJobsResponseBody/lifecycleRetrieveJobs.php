@@ -46,6 +46,8 @@ class lifecycleRetrieveJobs extends Model
     public $jobId;
 
     /**
+     * @description The execution path of the data retrieval task.
+     *
      * @var string[]
      */
     public $paths;
@@ -74,6 +76,13 @@ class lifecycleRetrieveJobs extends Model
     public $status;
 
     /**
+     * @description The storage class.
+     *
+     *   InfrequentAccess: the IA storage class.
+     *   Archive: the Archive storage class.
+     *
+     * @example InfrequentAccess
+     *
      * @var string
      */
     public $storageType;

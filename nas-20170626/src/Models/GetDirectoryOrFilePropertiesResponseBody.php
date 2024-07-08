@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetDirectoryOrFilePropertiesResponseBody extends Model
 {
     /**
-     * @description The details about the file or directory.
+     * @description The details about the files or directories.
      *
      * @var entry
      */

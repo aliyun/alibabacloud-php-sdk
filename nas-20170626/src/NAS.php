@@ -190,6 +190,7 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFilesetRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFilesetResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemShrinkRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyLDAPConfigRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyLDAPConfigResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyLifecyclePolicyRequest;
@@ -5004,7 +5005,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+     * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
      *  *
      * @description Only General-purpose NAS file systems support this operation.
      *  *
@@ -5042,7 +5043,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether a specified directory contains files stored in the IA storage medium or whether a specified file is stored in the IA storage medium.
+     * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
      *  *
      * @description Only General-purpose NAS file systems support this operation.
      *  *
@@ -5832,20 +5833,28 @@ class NAS extends OpenApiClient
     /**
      * @summary Modifies the description of a file system.
      *  *
-     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
+     * @param ModifyFileSystemRequest $tmpReq  ModifyFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyFileSystemResponse ModifyFileSystemResponse
      */
-    public function modifyFileSystemWithOptions($request, $runtime)
+    public function modifyFileSystemWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyFileSystemShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->options)) {
+            $request->optionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->fileSystemId)) {
             $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->optionsShrink)) {
+            $query['Options'] = $request->optionsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6579,7 +6588,7 @@ class NAS extends OpenApiClient
     /**
      * @summary Creates a directory quota for a file system.
      *  *
-     * @description Only General-purpose NFS file systems support the directory quota feature.
+     * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
      *  *
      * @param SetDirQuotaRequest $request SetDirQuotaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -6632,7 +6641,7 @@ class NAS extends OpenApiClient
     /**
      * @summary Creates a directory quota for a file system.
      *  *
-     * @description Only General-purpose NFS file systems support the directory quota feature.
+     * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
      *  *
      * @param SetDirQuotaRequest $request SetDirQuotaRequest
      *

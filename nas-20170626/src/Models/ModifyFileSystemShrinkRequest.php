@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest\options;
 use AlibabaCloud\Tea\Model;
 
-class ModifyFileSystemRequest extends Model
+class ModifyFileSystemShrinkRequest extends Model
 {
     /**
      * @description The description of the file system.
@@ -38,13 +37,13 @@ class ModifyFileSystemRequest extends Model
     public $fileSystemId;
 
     /**
-     * @var options
+     * @var string
      */
-    public $options;
+    public $optionsShrink;
     protected $_name = [
-        'description'  => 'Description',
-        'fileSystemId' => 'FileSystemId',
-        'options'      => 'Options',
+        'description'   => 'Description',
+        'fileSystemId'  => 'FileSystemId',
+        'optionsShrink' => 'Options',
     ];
 
     public function validate()
@@ -60,8 +59,8 @@ class ModifyFileSystemRequest extends Model
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-        if (null !== $this->options) {
-            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
+        if (null !== $this->optionsShrink) {
+            $res['Options'] = $this->optionsShrink;
         }
 
         return $res;
@@ -70,7 +69,7 @@ class ModifyFileSystemRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyFileSystemRequest
+     * @return ModifyFileSystemShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -82,7 +81,7 @@ class ModifyFileSystemRequest extends Model
             $model->fileSystemId = $map['FileSystemId'];
         }
         if (isset($map['Options'])) {
-            $model->options = options::fromMap($map['Options']);
+            $model->optionsShrink = $map['Options'];
         }
 
         return $model;
