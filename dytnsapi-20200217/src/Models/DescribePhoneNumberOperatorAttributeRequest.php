@@ -21,6 +21,13 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
     public $authCode;
 
     /**
+     * @example 示例值
+     *
+     * @var string
+     */
+    public $flowName;
+
+    /**
      * @description The phone number to be queried.
      *
      *   If the value of Mask is NORMAL, specify an 11-digit phone number in plaintext.
@@ -62,13 +69,22 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $resultCount;
     protected $_name = [
         'authCode'             => 'AuthCode',
+        'flowName'             => 'FlowName',
         'inputNumber'          => 'InputNumber',
         'mask'                 => 'Mask',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'resultCount'          => 'ResultCount',
     ];
 
     public function validate()
@@ -80,6 +96,9 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
         $res = [];
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
+        }
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
         }
         if (null !== $this->inputNumber) {
             $res['InputNumber'] = $this->inputNumber;
@@ -96,6 +115,9 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->resultCount) {
+            $res['ResultCount'] = $this->resultCount;
+        }
 
         return $res;
     }
@@ -111,6 +133,9 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
+        }
         if (isset($map['InputNumber'])) {
             $model->inputNumber = $map['InputNumber'];
         }
@@ -125,6 +150,9 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResultCount'])) {
+            $model->resultCount = $map['ResultCount'];
         }
 
         return $model;

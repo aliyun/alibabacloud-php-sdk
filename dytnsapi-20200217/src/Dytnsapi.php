@@ -849,6 +849,9 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
+        if (!Utils::isUnset($request->flowName)) {
+            $query['FlowName'] = $request->flowName;
+        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -863,6 +866,9 @@ class Dytnsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resultCount)) {
+            $query['ResultCount'] = $request->resultCount;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
