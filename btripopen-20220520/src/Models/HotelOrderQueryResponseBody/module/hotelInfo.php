@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class hotelInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $brandCode;
+
+    /**
+     * @var string
+     */
+    public $brandGroup;
+
+    /**
+     * @var string
+     */
+    public $brandName;
+
+    /**
      * @example 1669344020
      *
      * @var int
@@ -73,6 +88,9 @@ class hotelInfo extends Model
      */
     public $roomType;
     protected $_name = [
+        'brandCode'                  => 'brand_code',
+        'brandGroup'                 => 'brand_group',
+        'brandName'                  => 'brand_name',
         'checkIn'                    => 'check_in',
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
@@ -93,6 +111,15 @@ class hotelInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->brandCode) {
+            $res['brand_code'] = $this->brandCode;
+        }
+        if (null !== $this->brandGroup) {
+            $res['brand_group'] = $this->brandGroup;
+        }
+        if (null !== $this->brandName) {
+            $res['brand_name'] = $this->brandName;
+        }
         if (null !== $this->checkIn) {
             $res['check_in'] = $this->checkIn;
         }
@@ -138,6 +165,15 @@ class hotelInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['brand_code'])) {
+            $model->brandCode = $map['brand_code'];
+        }
+        if (isset($map['brand_group'])) {
+            $model->brandGroup = $map['brand_group'];
+        }
+        if (isset($map['brand_name'])) {
+            $model->brandName = $map['brand_name'];
+        }
         if (isset($map['check_in'])) {
             $model->checkIn = $map['check_in'];
         }

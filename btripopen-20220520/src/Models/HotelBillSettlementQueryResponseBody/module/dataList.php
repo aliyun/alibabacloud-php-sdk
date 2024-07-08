@@ -238,6 +238,26 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $insOrderId;
+
+    /**
+     * @var string
+     */
+    public $insuranceNumber;
+
+    /**
+     * @var float
+     */
+    public $insurancePrice;
+
+    /**
+     * @var string
+     */
+    public $insuranceProductName;
+
+    /**
+     * @var string
+     */
     public $invoiceTitle;
 
     /**
@@ -508,6 +528,10 @@ class dataList extends Model
         'fuPointFee'             => 'fu_point_fee',
         'hotelName'              => 'hotel_name',
         'index'                  => 'index',
+        'insOrderId'             => 'ins_order_id',
+        'insuranceNumber'        => 'insurance_number',
+        'insurancePrice'         => 'insurance_price',
+        'insuranceProductName'   => 'insurance_product_name',
         'invoiceTitle'           => 'invoice_title',
         'isEarlyDeparture'       => 'is_early_departure',
         'isNegotiation'          => 'is_negotiation',
@@ -671,6 +695,18 @@ class dataList extends Model
         }
         if (null !== $this->index) {
             $res['index'] = $this->index;
+        }
+        if (null !== $this->insOrderId) {
+            $res['ins_order_id'] = $this->insOrderId;
+        }
+        if (null !== $this->insuranceNumber) {
+            $res['insurance_number'] = $this->insuranceNumber;
+        }
+        if (null !== $this->insurancePrice) {
+            $res['insurance_price'] = $this->insurancePrice;
+        }
+        if (null !== $this->insuranceProductName) {
+            $res['insurance_product_name'] = $this->insuranceProductName;
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
@@ -914,6 +950,18 @@ class dataList extends Model
         }
         if (isset($map['index'])) {
             $model->index = $map['index'];
+        }
+        if (isset($map['ins_order_id'])) {
+            $model->insOrderId = $map['ins_order_id'];
+        }
+        if (isset($map['insurance_number'])) {
+            $model->insuranceNumber = $map['insurance_number'];
+        }
+        if (isset($map['insurance_price'])) {
+            $model->insurancePrice = $map['insurance_price'];
+        }
+        if (isset($map['insurance_product_name'])) {
+            $model->insuranceProductName = $map['insurance_product_name'];
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];

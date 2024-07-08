@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @var int
+     */
+    public $applyId;
+
+    /**
      * @example 2024032522001423601409393178
      *
      * @var string
@@ -128,6 +133,7 @@ class module extends Model
      */
     public $userId;
     protected $_name = [
+        'applyId'            => 'apply_id',
         'corpCodeOrderId'    => 'corp_code_order_id',
         'corpId'             => 'corp_id',
         'corpPayAmount'      => 'corp_pay_amount',
@@ -155,6 +161,9 @@ class module extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
+        }
         if (null !== $this->corpCodeOrderId) {
             $res['corp_code_order_id'] = $this->corpCodeOrderId;
         }
@@ -221,6 +230,9 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
+        }
         if (isset($map['corp_code_order_id'])) {
             $model->corpCodeOrderId = $map['corp_code_order_id'];
         }

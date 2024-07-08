@@ -345,9 +345,6 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestHeaders;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestRequest;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
@@ -8371,78 +8368,6 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelStaticInfoHeaders([]);
 
         return $this->hotelStaticInfoWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 酒店关键词搜索
-     *  *
-     * @param HotelSuggestRequest $request HotelSuggestRequest
-     * @param HotelSuggestHeaders $headers HotelSuggestHeaders
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return HotelSuggestResponse HotelSuggestResponse
-     */
-    public function hotelSuggestWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
-        }
-        if (!Utils::isUnset($request->checkIn)) {
-            $query['check_in'] = $request->checkIn;
-        }
-        if (!Utils::isUnset($request->checkOut)) {
-            $query['check_out'] = $request->checkOut;
-        }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
-        }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['search_type'] = $request->searchType;
-        }
-        $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'HotelSuggest',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/suggest-infos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return HotelSuggestResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 酒店关键词搜索
-     *  *
-     * @param HotelSuggestRequest $request HotelSuggestRequest
-     *
-     * @return HotelSuggestResponse HotelSuggestResponse
-     */
-    public function hotelSuggest($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new HotelSuggestHeaders([]);
-
-        return $this->hotelSuggestWithOptions($request, $headers, $runtime);
     }
 
     /**

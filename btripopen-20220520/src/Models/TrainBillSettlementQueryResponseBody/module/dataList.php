@@ -127,6 +127,16 @@ class dataList extends Model
     public $cascadeDepartment;
 
     /**
+     * @var string
+     */
+    public $changeAffiliateNo;
+
+    /**
+     * @var string
+     */
+    public $changeApplyId;
+
+    /**
      * @example 23.0
      *
      * @var float
@@ -286,6 +296,16 @@ class dataList extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $refundAffiliateNo;
+
+    /**
+     * @var string
+     */
+    public $refundApplyId;
+
+    /**
      * @example 0
      *
      * @var float
@@ -363,6 +383,11 @@ class dataList extends Model
      * @var string
      */
     public $shortTicketNo;
+
+    /**
+     * @var float
+     */
+    public $speedPackageFee;
 
     /**
      * @example 1
@@ -468,6 +493,8 @@ class dataList extends Model
         'businessTripResult'     => 'business_trip_result',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
+        'changeAffiliateNo'      => 'change_affiliate_no',
+        'changeApplyId'          => 'change_apply_id',
         'changeFee'              => 'change_fee',
         'changeResult'           => 'change_result',
         'coachNo'                => 'coach_no',
@@ -495,6 +522,8 @@ class dataList extends Model
         'printTicketPrice'       => 'print_ticket_price',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
+        'refundAffiliateNo'      => 'refund_affiliate_no',
+        'refundApplyId'          => 'refund_apply_id',
         'refundFee'              => 'refund_fee',
         'refundReason'           => 'refund_reason',
         'remark'                 => 'remark',
@@ -508,6 +537,7 @@ class dataList extends Model
         'settlementTime'         => 'settlement_time',
         'settlementType'         => 'settlement_type',
         'shortTicketNo'          => 'short_ticket_no',
+        'speedPackageFee'        => 'speed_package_fee',
         'status'                 => 'status',
         'taxRate'                => 'tax_rate',
         'thirdItineraryId'       => 'third_itinerary_id',
@@ -591,6 +621,12 @@ class dataList extends Model
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
+        if (null !== $this->changeAffiliateNo) {
+            $res['change_affiliate_no'] = $this->changeAffiliateNo;
+        }
+        if (null !== $this->changeApplyId) {
+            $res['change_apply_id'] = $this->changeApplyId;
+        }
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
         }
@@ -672,6 +708,12 @@ class dataList extends Model
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
         }
+        if (null !== $this->refundAffiliateNo) {
+            $res['refund_affiliate_no'] = $this->refundAffiliateNo;
+        }
+        if (null !== $this->refundApplyId) {
+            $res['refund_apply_id'] = $this->refundApplyId;
+        }
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
         }
@@ -710,6 +752,9 @@ class dataList extends Model
         }
         if (null !== $this->shortTicketNo) {
             $res['short_ticket_no'] = $this->shortTicketNo;
+        }
+        if (null !== $this->speedPackageFee) {
+            $res['speed_package_fee'] = $this->speedPackageFee;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -825,6 +870,12 @@ class dataList extends Model
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
+        if (isset($map['change_affiliate_no'])) {
+            $model->changeAffiliateNo = $map['change_affiliate_no'];
+        }
+        if (isset($map['change_apply_id'])) {
+            $model->changeApplyId = $map['change_apply_id'];
+        }
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
         }
@@ -906,6 +957,12 @@ class dataList extends Model
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];
         }
+        if (isset($map['refund_affiliate_no'])) {
+            $model->refundAffiliateNo = $map['refund_affiliate_no'];
+        }
+        if (isset($map['refund_apply_id'])) {
+            $model->refundApplyId = $map['refund_apply_id'];
+        }
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];
         }
@@ -944,6 +1001,9 @@ class dataList extends Model
         }
         if (isset($map['short_ticket_no'])) {
             $model->shortTicketNo = $map['short_ticket_no'];
+        }
+        if (isset($map['speed_package_fee'])) {
+            $model->speedPackageFee = $map['speed_package_fee'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

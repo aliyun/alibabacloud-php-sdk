@@ -31,6 +31,11 @@ class items extends Model
     public $billDate;
 
     /**
+     * @var int
+     */
+    public $category;
+
+    /**
      * @description 校验码
      *
      * @example 07122942791187744475
@@ -125,6 +130,11 @@ class items extends Model
     public $invoiceTitle;
 
     /**
+     * @var int
+     */
+    public $invoiceType;
+
+    /**
      * @description 机器码
      *
      * @example 661619906841
@@ -132,6 +142,11 @@ class items extends Model
      * @var string
      */
     public $machineCode;
+
+    /**
+     * @var string
+     */
+    public $ofdOssUrl;
 
     /**
      * @example 3137168772101111000
@@ -268,10 +283,16 @@ class items extends Model
      * @var string
      */
     public $totalAmountInWords;
+
+    /**
+     * @var string
+     */
+    public $xmlOssUrl;
     protected $_name = [
         'amountWithTax'            => 'amount_with_tax',
         'amountWithoutTax'         => 'amount_without_tax',
         'billDate'                 => 'bill_date',
+        'category'                 => 'category',
         'checkCode'                => 'check_code',
         'costCenter'               => 'cost_center',
         'department'               => 'department',
@@ -286,7 +307,9 @@ class items extends Model
         'invoiceLocation'          => 'invoice_location',
         'invoiceNo'                => 'invoice_no',
         'invoiceTitle'             => 'invoice_title',
+        'invoiceType'              => 'invoice_type',
         'machineCode'              => 'machine_code',
+        'ofdOssUrl'                => 'ofd_oss_url',
         'orderId'                  => 'order_id',
         'ossUrl'                   => 'oss_url',
         'passenger'                => 'passenger',
@@ -307,6 +330,7 @@ class items extends Model
         'taxAmount'                => 'tax_amount',
         'taxRate'                  => 'tax_rate',
         'totalAmountInWords'       => 'total_amount_in_words',
+        'xmlOssUrl'                => 'xml_oss_url',
     ];
 
     public function validate()
@@ -324,6 +348,9 @@ class items extends Model
         }
         if (null !== $this->billDate) {
             $res['bill_date'] = $this->billDate;
+        }
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
         }
         if (null !== $this->checkCode) {
             $res['check_code'] = $this->checkCode;
@@ -373,8 +400,14 @@ class items extends Model
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
         }
+        if (null !== $this->invoiceType) {
+            $res['invoice_type'] = $this->invoiceType;
+        }
         if (null !== $this->machineCode) {
             $res['machine_code'] = $this->machineCode;
+        }
+        if (null !== $this->ofdOssUrl) {
+            $res['ofd_oss_url'] = $this->ofdOssUrl;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
@@ -436,6 +469,9 @@ class items extends Model
         if (null !== $this->totalAmountInWords) {
             $res['total_amount_in_words'] = $this->totalAmountInWords;
         }
+        if (null !== $this->xmlOssUrl) {
+            $res['xml_oss_url'] = $this->xmlOssUrl;
+        }
 
         return $res;
     }
@@ -456,6 +492,9 @@ class items extends Model
         }
         if (isset($map['bill_date'])) {
             $model->billDate = $map['bill_date'];
+        }
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
         }
         if (isset($map['check_code'])) {
             $model->checkCode = $map['check_code'];
@@ -505,8 +544,14 @@ class items extends Model
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
         }
+        if (isset($map['invoice_type'])) {
+            $model->invoiceType = $map['invoice_type'];
+        }
         if (isset($map['machine_code'])) {
             $model->machineCode = $map['machine_code'];
+        }
+        if (isset($map['ofd_oss_url'])) {
+            $model->ofdOssUrl = $map['ofd_oss_url'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
@@ -567,6 +612,9 @@ class items extends Model
         }
         if (isset($map['total_amount_in_words'])) {
             $model->totalAmountInWords = $map['total_amount_in_words'];
+        }
+        if (isset($map['xml_oss_url'])) {
+            $model->xmlOssUrl = $map['xml_oss_url'];
         }
 
         return $model;
