@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateChangeRequestRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateChangeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommentRequest;
@@ -243,6 +245,11 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionIntegra
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionIntegratedMetadataResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListAppReleaseStageExecutionsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListChangeRequestsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListChangeRequestsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListChangeRequestsShrinkRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListChangeRequestWorkflowExecutionsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListChangeRequestWorkflowExecutionsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesRequest;
@@ -921,6 +928,81 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建变更
+     *  *
+     * @param string                     $appName
+     * @param CreateChangeRequestRequest $request CreateChangeRequestRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateChangeRequestResponse CreateChangeRequestResponse
+     */
+    public function createChangeRequestWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appCodeRepoSn)) {
+            $body['appCodeRepoSn'] = $request->appCodeRepoSn;
+        }
+        if (!Utils::isUnset($request->autoDeleteBranchWhenEnd)) {
+            $body['autoDeleteBranchWhenEnd'] = $request->autoDeleteBranchWhenEnd;
+        }
+        if (!Utils::isUnset($request->branchName)) {
+            $body['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->createBranch)) {
+            $body['createBranch'] = $request->createBranch;
+        }
+        if (!Utils::isUnset($request->ownerAccountId)) {
+            $body['ownerAccountId'] = $request->ownerAccountId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $body['ownerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateChangeRequest',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateChangeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建变更
+     *  *
+     * @param string                     $appName
+     * @param CreateChangeRequestRequest $request CreateChangeRequestRequest
+     *
+     * @return CreateChangeRequestResponse CreateChangeRequestResponse
+     */
+    public function createChangeRequest($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createChangeRequestWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**
@@ -8239,6 +8321,171 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listApplicationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询变更研发流程运行记录
+     *  *
+     * @param string                                     $appName
+     * @param string                                     $sn
+     * @param ListChangeRequestWorkflowExecutionsRequest $request ListChangeRequestWorkflowExecutionsRequest
+     * @param string[]                                   $headers map
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListChangeRequestWorkflowExecutionsResponse ListChangeRequestWorkflowExecutionsResponse
+     */
+    public function listChangeRequestWorkflowExecutionsWithOptions($appName, $sn, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->perPage)) {
+            $query['perPage'] = $request->perPage;
+        }
+        if (!Utils::isUnset($request->releaseStageSn)) {
+            $query['releaseStageSn'] = $request->releaseStageSn;
+        }
+        if (!Utils::isUnset($request->releaseWorkflowSn)) {
+            $query['releaseWorkflowSn'] = $request->releaseWorkflowSn;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChangeRequestWorkflowExecutions',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests/' . OpenApiUtilClient::getEncodeParam($sn) . '/executions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListChangeRequestWorkflowExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询变更研发流程运行记录
+     *  *
+     * @param string                                     $appName
+     * @param string                                     $sn
+     * @param ListChangeRequestWorkflowExecutionsRequest $request ListChangeRequestWorkflowExecutionsRequest
+     *
+     * @return ListChangeRequestWorkflowExecutionsResponse ListChangeRequestWorkflowExecutionsResponse
+     */
+    public function listChangeRequestWorkflowExecutions($appName, $sn, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChangeRequestWorkflowExecutionsWithOptions($appName, $sn, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询变更列表
+     *  *
+     * @param string                    $appName
+     * @param ListChangeRequestsRequest $tmpReq  ListChangeRequestsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListChangeRequestsResponse ListChangeRequestsResponse
+     */
+    public function listChangeRequestsWithOptions($appName, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListChangeRequestsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->appNameList)) {
+            $request->appNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appNameList, 'appNameList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ownerIdList)) {
+            $request->ownerIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ownerIdList, 'ownerIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->stateList)) {
+            $request->stateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stateList, 'stateList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appNameListShrink)) {
+            $query['appNameList'] = $request->appNameListShrink;
+        }
+        if (!Utils::isUnset($request->displayNameKeyword)) {
+            $query['displayNameKeyword'] = $request->displayNameKeyword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->ownerIdListShrink)) {
+            $query['ownerIdList'] = $request->ownerIdListShrink;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pagination)) {
+            $query['pagination'] = $request->pagination;
+        }
+        if (!Utils::isUnset($request->perPage)) {
+            $query['perPage'] = $request->perPage;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->stateListShrink)) {
+            $query['stateList'] = $request->stateListShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChangeRequests',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListChangeRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询变更列表
+     *  *
+     * @param string                    $appName
+     * @param ListChangeRequestsRequest $request ListChangeRequestsRequest
+     *
+     * @return ListChangeRequestsResponse ListChangeRequestsResponse
+     */
+    public function listChangeRequests($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChangeRequestsWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**
