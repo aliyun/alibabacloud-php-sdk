@@ -60,6 +60,11 @@ class CreateInstanceRequest extends Model
     public $environmentVariables;
 
     /**
+     * @var string
+     */
+    public $imageAuth;
+
+    /**
      * @example image-05cefd0be2exxxx
      *
      * @var string
@@ -141,6 +146,7 @@ class CreateInstanceRequest extends Model
         'driver'               => 'Driver',
         'ecsSpec'              => 'EcsSpec',
         'environmentVariables' => 'EnvironmentVariables',
+        'imageAuth'            => 'ImageAuth',
         'imageId'              => 'ImageId',
         'imageUrl'             => 'ImageUrl',
         'instanceName'         => 'InstanceName',
@@ -193,6 +199,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->environmentVariables) {
             $res['EnvironmentVariables'] = $this->environmentVariables;
+        }
+        if (null !== $this->imageAuth) {
+            $res['ImageAuth'] = $this->imageAuth;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -277,6 +286,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['EnvironmentVariables'])) {
             $model->environmentVariables = $map['EnvironmentVariables'];
+        }
+        if (isset($map['ImageAuth'])) {
+            $model->imageAuth = $map['ImageAuth'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

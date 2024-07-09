@@ -114,6 +114,11 @@ class GetInstanceResponseBody extends Model
     public $idleInstanceCuller;
 
     /**
+     * @var string
+     */
+    public $imageAuth;
+
+    /**
      * @example image-05cefd0be2exxxx
      *
      * @var string
@@ -340,6 +345,7 @@ class GetInstanceResponseBody extends Model
         'gmtModifiedTime'            => 'GmtModifiedTime',
         'httpStatusCode'             => 'HttpStatusCode',
         'idleInstanceCuller'         => 'IdleInstanceCuller',
+        'imageAuth'                  => 'ImageAuth',
         'imageId'                    => 'ImageId',
         'imageName'                  => 'ImageName',
         'imageUrl'                   => 'ImageUrl',
@@ -433,6 +439,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->idleInstanceCuller) {
             $res['IdleInstanceCuller'] = null !== $this->idleInstanceCuller ? $this->idleInstanceCuller->toMap() : null;
+        }
+        if (null !== $this->imageAuth) {
+            $res['ImageAuth'] = $this->imageAuth;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -604,6 +613,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['IdleInstanceCuller'])) {
             $model->idleInstanceCuller = idleInstanceCuller::fromMap($map['IdleInstanceCuller']);
+        }
+        if (isset($map['ImageAuth'])) {
+            $model->imageAuth = $map['ImageAuth'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

@@ -176,6 +176,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->environmentVariables)) {
             $body['EnvironmentVariables'] = $request->environmentVariables;
         }
+        if (!Utils::isUnset($request->imageAuth)) {
+            $body['ImageAuth'] = $request->imageAuth;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $body['ImageId'] = $request->imageId;
         }
@@ -1501,6 +1504,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->ecsSpec)) {
             $body['EcsSpec'] = $request->ecsSpec;
+        }
+        if (!Utils::isUnset($request->imageAuth)) {
+            $body['ImageAuth'] = $request->imageAuth;
         }
         if (!Utils::isUnset($request->imageId)) {
             $body['ImageId'] = $request->imageId;

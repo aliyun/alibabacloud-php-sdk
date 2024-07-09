@@ -80,6 +80,11 @@ class UpdateInstanceRequest extends Model
     public $ecsSpec;
 
     /**
+     * @var string
+     */
+    public $imageAuth;
+
+    /**
      * @example image-05cefd0be2exxxx
      *
      * @var string
@@ -143,6 +148,7 @@ class UpdateInstanceRequest extends Model
         'disassociateVpc'          => 'DisassociateVpc',
         'driver'                   => 'Driver',
         'ecsSpec'                  => 'EcsSpec',
+        'imageAuth'                => 'ImageAuth',
         'imageId'                  => 'ImageId',
         'imageUrl'                 => 'ImageUrl',
         'instanceName'             => 'InstanceName',
@@ -201,6 +207,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
+        }
+        if (null !== $this->imageAuth) {
+            $res['ImageAuth'] = $this->imageAuth;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -279,6 +288,9 @@ class UpdateInstanceRequest extends Model
         }
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
+        }
+        if (isset($map['ImageAuth'])) {
+            $model->imageAuth = $map['ImageAuth'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

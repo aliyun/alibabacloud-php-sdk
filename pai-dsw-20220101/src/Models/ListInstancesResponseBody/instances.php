@@ -99,6 +99,11 @@ class instances extends Model
     public $idleInstanceCuller;
 
     /**
+     * @var string
+     */
+    public $imageAuth;
+
+    /**
      * @example image-05cefd0be2exxxx
      *
      * @var string
@@ -297,6 +302,7 @@ class instances extends Model
         'gmtCreateTime'              => 'GmtCreateTime',
         'gmtModifiedTime'            => 'GmtModifiedTime',
         'idleInstanceCuller'         => 'IdleInstanceCuller',
+        'imageAuth'                  => 'ImageAuth',
         'imageId'                    => 'ImageId',
         'imageName'                  => 'ImageName',
         'imageUrl'                   => 'ImageUrl',
@@ -380,6 +386,9 @@ class instances extends Model
         }
         if (null !== $this->idleInstanceCuller) {
             $res['IdleInstanceCuller'] = null !== $this->idleInstanceCuller ? $this->idleInstanceCuller->toMap() : null;
+        }
+        if (null !== $this->imageAuth) {
+            $res['ImageAuth'] = $this->imageAuth;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -533,6 +542,9 @@ class instances extends Model
         }
         if (isset($map['IdleInstanceCuller'])) {
             $model->idleInstanceCuller = idleInstanceCuller::fromMap($map['IdleInstanceCuller']);
+        }
+        if (isset($map['ImageAuth'])) {
+            $model->imageAuth = $map['ImageAuth'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
