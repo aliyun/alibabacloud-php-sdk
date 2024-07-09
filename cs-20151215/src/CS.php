@@ -4111,7 +4111,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 修改资源删除保护配置
+     * @summary Queries whether the deletion protection feature is enabled for the specified resources. The resources that you can query include namespaces and Services.
      *  *
      * @param string                                   $ClusterId
      * @param string                                   $ResourceType
@@ -4151,7 +4151,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 修改资源删除保护配置
+     * @summary Queries whether the deletion protection feature is enabled for the specified resources. The resources that you can query include namespaces and Services.
      *  *
      * @param string                                   $ClusterId
      * @param string                                   $ResourceType
@@ -7574,7 +7574,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 修改资源删除保护配置
+     * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services.
      *  *
      * @param string                                 $ClusterId
      * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest
@@ -7619,7 +7619,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 修改资源删除保护配置
+     * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services.
      *  *
      * @param string                                 $ClusterId
      * @param UpdateResourcesDeleteProtectionRequest $request   UpdateResourcesDeleteProtectionRequest

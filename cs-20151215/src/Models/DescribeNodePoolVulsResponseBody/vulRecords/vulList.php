@@ -38,9 +38,9 @@ class vulList extends Model
      *
      * Valid values:
      *
-     *   nntf: You can ignore the vulnerability
-     *   later: You can fix the vulnerability later
-     *   asap: You need to fix the vulnerability at the earliest opportunity
+     *   nntf: You can ignore the vulnerability.
+     *   later: You can fix the vulnerability later.
+     *   asap: You need to fix the vulnerability at the earliest opportunity.
      *
      * @example asap
      *
@@ -49,6 +49,8 @@ class vulList extends Model
     public $necessity;
 
     /**
+     * @description Indicates whether a restart is required.
+     *
      * @var bool
      */
     public $needReboot;

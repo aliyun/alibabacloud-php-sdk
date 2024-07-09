@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcesDeleteProtectionRequest extends Model
 {
     /**
+     * @description The namespace to which the resource belongs.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeResourcesDeleteProtectionRequest extends Model
     public $namespace;
 
     /**
+     * @description The name of the resource that you want to query. Separate multiple resource names with commas (,).
+     *
      * @example test1,test2
      *
      * @var string

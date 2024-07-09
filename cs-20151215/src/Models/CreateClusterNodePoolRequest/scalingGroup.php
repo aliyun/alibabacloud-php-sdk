@@ -274,6 +274,13 @@ class scalingGroup extends Model
     public $privatePoolOptions;
 
     /**
+     * @example example-role
+     *
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
      * @description The ApsaraDB RDS instances.
      *
      * @var string[]
@@ -506,6 +513,7 @@ class scalingGroup extends Model
         'periodUnit'                          => 'period_unit',
         'platform'                            => 'platform',
         'privatePoolOptions'                  => 'private_pool_options',
+        'ramRoleName'                         => 'ram_role_name',
         'rdsInstances'                        => 'rds_instances',
         'scalingPolicy'                       => 'scaling_policy',
         'securityGroupId'                     => 'security_group_id',
@@ -619,6 +627,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->privatePoolOptions) {
             $res['private_pool_options'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['ram_role_name'] = $this->ramRoleName;
         }
         if (null !== $this->rdsInstances) {
             $res['rds_instances'] = $this->rdsInstances;
@@ -792,6 +803,9 @@ class scalingGroup extends Model
         }
         if (isset($map['private_pool_options'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['private_pool_options']);
+        }
+        if (isset($map['ram_role_name'])) {
+            $model->ramRoleName = $map['ram_role_name'];
         }
         if (isset($map['rds_instances'])) {
             if (!empty($map['rds_instances'])) {

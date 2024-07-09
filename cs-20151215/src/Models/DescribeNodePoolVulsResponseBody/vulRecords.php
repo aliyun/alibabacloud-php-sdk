@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example i-t4n2qolb0wtzt0pz****
      *

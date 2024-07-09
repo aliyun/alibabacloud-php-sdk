@@ -262,6 +262,13 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
+     * @example KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
+     *
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
      * @description The ApsaraDB RDS instances. If you specify the list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
      *
      * @var string[]
@@ -491,6 +498,7 @@ class scalingGroup extends Model
         'platform'                            => 'platform',
         'privatePoolOptions'                  => 'private_pool_options',
         'ramPolicy'                           => 'ram_policy',
+        'ramRoleName'                         => 'ram_role_name',
         'rdsInstances'                        => 'rds_instances',
         'scalingGroupId'                      => 'scaling_group_id',
         'scalingPolicy'                       => 'scaling_policy',
@@ -608,6 +616,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->ramPolicy) {
             $res['ram_policy'] = $this->ramPolicy;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['ram_role_name'] = $this->ramRoleName;
         }
         if (null !== $this->rdsInstances) {
             $res['rds_instances'] = $this->rdsInstances;
@@ -787,6 +798,9 @@ class scalingGroup extends Model
         }
         if (isset($map['ram_policy'])) {
             $model->ramPolicy = $map['ram_policy'];
+        }
+        if (isset($map['ram_role_name'])) {
+            $model->ramRoleName = $map['ram_role_name'];
         }
         if (isset($map['rds_instances'])) {
             if (!empty($map['rds_instances'])) {

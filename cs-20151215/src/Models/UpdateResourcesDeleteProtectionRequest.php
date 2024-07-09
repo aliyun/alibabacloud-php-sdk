@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourcesDeleteProtectionRequest extends Model
 {
     /**
+     * @description Specify whether to enable deletion protection. Set the value to true to enable deletion protection and set the value to false to disable deletion protection.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateResourcesDeleteProtectionRequest extends Model
     public $enable;
 
     /**
+     * @description The namespace to which the resource belongs.
+     *
      * @example default
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateResourcesDeleteProtectionRequest extends Model
     public $namespace;
 
     /**
+     * @description The type of resource for which deletion protection is enabled or disabled. You can specify namespaces or Services.
+     *
      * @example services
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateResourcesDeleteProtectionRequest extends Model
     public $resourceType;
 
     /**
+     * @description The resources list.
+     *
      * @var string[]
      */
     public $resources;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the resource.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -18,6 +19,8 @@ class body extends Model
     public $name;
 
     /**
+     * @description The namespace to which the resource belongs.
+     *
      * @example default
      *
      * @var string
@@ -25,11 +28,23 @@ class body extends Model
     public $namespace;
 
     /**
+     * @description The type of resource for which deletion protection is enabled.
+     *
+     * @example namespaces
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description Indicates whether deletion protection is enabled.
+     *
+     *   true: deletion protection is enabled.
+     *   false: deletion protection is disabled.
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $protection;
