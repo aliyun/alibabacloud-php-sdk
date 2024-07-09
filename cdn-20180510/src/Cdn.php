@@ -93,6 +93,10 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainLogsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainLogsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPConfigRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPHistoryRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPHistoryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnMigrateRegisterStatusRequest;
@@ -313,6 +317,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSSLCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSSLCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnFullDomainsBlockIPRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnFullDomainsBlockIPResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigRequest;
@@ -2987,6 +2993,106 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnDomainStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取海量封禁全量配置
+     *  *
+     * @param DescribeCdnFullDomainsBlockIPConfigRequest $request DescribeCdnFullDomainsBlockIPConfigRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCdnFullDomainsBlockIPConfigResponse DescribeCdnFullDomainsBlockIPConfigResponse
+     */
+    public function describeCdnFullDomainsBlockIPConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnFullDomainsBlockIPConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnFullDomainsBlockIPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取海量封禁全量配置
+     *  *
+     * @param DescribeCdnFullDomainsBlockIPConfigRequest $request DescribeCdnFullDomainsBlockIPConfigRequest
+     *
+     * @return DescribeCdnFullDomainsBlockIPConfigResponse DescribeCdnFullDomainsBlockIPConfigResponse
+     */
+    public function describeCdnFullDomainsBlockIPConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnFullDomainsBlockIPConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户海量封禁历史
+     *  *
+     * @param DescribeCdnFullDomainsBlockIPHistoryRequest $request DescribeCdnFullDomainsBlockIPHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCdnFullDomainsBlockIPHistoryResponse DescribeCdnFullDomainsBlockIPHistoryResponse
+     */
+    public function describeCdnFullDomainsBlockIPHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnFullDomainsBlockIPHistory',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnFullDomainsBlockIPHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户海量封禁历史
+     *  *
+     * @param DescribeCdnFullDomainsBlockIPHistoryRequest $request DescribeCdnFullDomainsBlockIPHistoryRequest
+     *
+     * @return DescribeCdnFullDomainsBlockIPHistoryResponse DescribeCdnFullDomainsBlockIPHistoryResponse
+     */
+    public function describeCdnFullDomainsBlockIPHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnFullDomainsBlockIPHistoryWithOptions($request, $runtime);
     }
 
     /**
@@ -9941,6 +10047,62 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setCdnDomainStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 配置CDN上的海量封禁功能
+     *  *
+     * @param SetCdnFullDomainsBlockIPRequest $request SetCdnFullDomainsBlockIPRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetCdnFullDomainsBlockIPResponse SetCdnFullDomainsBlockIPResponse
+     */
+    public function setCdnFullDomainsBlockIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->blockInterval)) {
+            $body['BlockInterval'] = $request->blockInterval;
+        }
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->updateType)) {
+            $body['UpdateType'] = $request->updateType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCdnFullDomainsBlockIP',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetCdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置CDN上的海量封禁功能
+     *  *
+     * @param SetCdnFullDomainsBlockIPRequest $request SetCdnFullDomainsBlockIPRequest
+     *
+     * @return SetCdnFullDomainsBlockIPResponse SetCdnFullDomainsBlockIPResponse
+     */
+    public function setCdnFullDomainsBlockIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setCdnFullDomainsBlockIPWithOptions($request, $runtime);
     }
 
     /**

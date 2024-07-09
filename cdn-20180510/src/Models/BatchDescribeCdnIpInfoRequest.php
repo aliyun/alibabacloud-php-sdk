@@ -22,6 +22,13 @@ class BatchDescribeCdnIpInfoRequest extends Model
     public $ipAddrList;
 
     /**
+     * @description The language of the query results. Valid values:
+     *
+     *   **zh** (default): Simplified Chinese.
+     *   **en**: English.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;

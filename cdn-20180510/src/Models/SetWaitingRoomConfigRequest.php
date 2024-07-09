@@ -52,8 +52,6 @@ class SetWaitingRoomConfigRequest extends Model
      * @description The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
      *
      * This parameter is required.
-     * @example .*\/aaa/bbb$
-     *
      * @var string
      */
     public $waitUri;
