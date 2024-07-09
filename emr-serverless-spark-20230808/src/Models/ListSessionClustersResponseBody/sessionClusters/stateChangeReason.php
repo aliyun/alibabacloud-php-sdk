@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stateChangeReason extends Model
 {
     /**
+     * @description The status change code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class stateChangeReason extends Model
     public $code;
 
     /**
+     * @description The status change message.
+     *
      * @example ok
      *
      * @var string

@@ -13,21 +13,44 @@ use AlibabaCloud\Tea\Model;
 class sessionClusters extends Model
 {
     /**
+     * @description The SQL Compute configurations, which are equivalent to the configurations of the Spark job.
+     *
      * @var applicationConfigs[]
      */
     public $applicationConfigs;
 
     /**
+     * @description The automatic startup configurations.
+     *
      * @var autoStartConfiguration
      */
     public $autoStartConfiguration;
 
     /**
+     * @description The automatic termination configurations.
+     *
      * @var autoStopConfiguration
      */
     public $autoStopConfiguration;
 
     /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $draftId;
+
+    /**
+     * @var string
+     */
+    public $kind;
+
+    /**
+     * @description The name of the SQL Compute.
+     *
      * @example adhoc_query
      *
      * @var string
@@ -35,7 +58,7 @@ class sessionClusters extends Model
     public $name;
 
     /**
-     * @description 作业实例名称。
+     * @description The name of the queue on which the SQL Compute runs.
      *
      * @example dev_queue
      *
@@ -44,7 +67,12 @@ class sessionClusters extends Model
     public $queueName;
 
     /**
-     * @description SQL Compute id
+     * @var string
+     */
+    public $releaseVersion;
+
+    /**
+     * @description The SQL Compute ID.
      *
      * @example sc-123131
      *
@@ -53,7 +81,7 @@ class sessionClusters extends Model
     public $sessionClusterId;
 
     /**
-     * @description 作业状态。
+     * @description The status of the SQL Compute.
      *
      * @example Running
      *
@@ -62,12 +90,14 @@ class sessionClusters extends Model
     public $state;
 
     /**
+     * @description The details of the last status change of the SQL Compute.
+     *
      * @var stateChangeReason
      */
     public $stateChangeReason;
 
     /**
-     * @description 任务实例ID。
+     * @description The user ID.
      *
      * @example 123131
      *
@@ -76,6 +106,8 @@ class sessionClusters extends Model
     public $userId;
 
     /**
+     * @description The name of the user.
+     *
      * @example test_user
      *
      * @var string
@@ -83,7 +115,12 @@ class sessionClusters extends Model
     public $userName;
 
     /**
-     * @description 工作空间id。
+     * @var string
+     */
+    public $webUI;
+
+    /**
+     * @description The workspace ID.
      *
      * @example w-1234abcd
      *
@@ -94,13 +131,18 @@ class sessionClusters extends Model
         'applicationConfigs'     => 'applicationConfigs',
         'autoStartConfiguration' => 'autoStartConfiguration',
         'autoStopConfiguration'  => 'autoStopConfiguration',
+        'domain'                 => 'domain',
+        'draftId'                => 'draftId',
+        'kind'                   => 'kind',
         'name'                   => 'name',
         'queueName'              => 'queueName',
+        'releaseVersion'         => 'releaseVersion',
         'sessionClusterId'       => 'sessionClusterId',
         'state'                  => 'state',
         'stateChangeReason'      => 'stateChangeReason',
         'userId'                 => 'userId',
         'userName'               => 'userName',
+        'webUI'                  => 'webUI',
         'workspaceId'            => 'workspaceId',
     ];
 
@@ -126,11 +168,23 @@ class sessionClusters extends Model
         if (null !== $this->autoStopConfiguration) {
             $res['autoStopConfiguration'] = null !== $this->autoStopConfiguration ? $this->autoStopConfiguration->toMap() : null;
         }
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
+        }
+        if (null !== $this->draftId) {
+            $res['draftId'] = $this->draftId;
+        }
+        if (null !== $this->kind) {
+            $res['kind'] = $this->kind;
+        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
         if (null !== $this->queueName) {
             $res['queueName'] = $this->queueName;
+        }
+        if (null !== $this->releaseVersion) {
+            $res['releaseVersion'] = $this->releaseVersion;
         }
         if (null !== $this->sessionClusterId) {
             $res['sessionClusterId'] = $this->sessionClusterId;
@@ -146,6 +200,9 @@ class sessionClusters extends Model
         }
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
+        }
+        if (null !== $this->webUI) {
+            $res['webUI'] = $this->webUI;
         }
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
@@ -177,11 +234,23 @@ class sessionClusters extends Model
         if (isset($map['autoStopConfiguration'])) {
             $model->autoStopConfiguration = autoStopConfiguration::fromMap($map['autoStopConfiguration']);
         }
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
+        }
+        if (isset($map['draftId'])) {
+            $model->draftId = $map['draftId'];
+        }
+        if (isset($map['kind'])) {
+            $model->kind = $map['kind'];
+        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
         if (isset($map['queueName'])) {
             $model->queueName = $map['queueName'];
+        }
+        if (isset($map['releaseVersion'])) {
+            $model->releaseVersion = $map['releaseVersion'];
         }
         if (isset($map['sessionClusterId'])) {
             $model->sessionClusterId = $map['sessionClusterId'];
@@ -197,6 +266,9 @@ class sessionClusters extends Model
         }
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
+        }
+        if (isset($map['webUI'])) {
+            $model->webUI = $map['webUI'];
         }
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];

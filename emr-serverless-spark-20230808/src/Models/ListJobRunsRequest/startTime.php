@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class startTime extends Model
 {
     /**
+     * @description The end of the start time range.
+     *
      * @example 1710432000000
      *
      * @var int
@@ -16,6 +18,8 @@ class startTime extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the start time range.
+     *
      * @example 1709740800000
      *
      * @var int

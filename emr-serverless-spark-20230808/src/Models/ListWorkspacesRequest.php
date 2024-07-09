@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesRequest extends Model
 {
     /**
-     * @description 一次获取的最大记录数。
+     * @description The maximum number of entries to return.
      *
      * @example 20
      *
@@ -18,6 +18,8 @@ class ListWorkspacesRequest extends Model
     public $maxResults;
 
     /**
+     * @description Fuzzy match is supported.
+     *
      * @example test_workspace
      *
      * @var string
@@ -25,7 +27,7 @@ class ListWorkspacesRequest extends Model
     public $name;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example 1
      *
@@ -34,6 +36,8 @@ class ListWorkspacesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +45,8 @@ class ListWorkspacesRequest extends Model
     public $regionId;
 
     /**
+     * @description The workspace status.
+     *
      * @example running
      *
      * @var string

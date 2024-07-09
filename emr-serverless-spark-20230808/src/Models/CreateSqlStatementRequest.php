@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSqlStatementRequest extends Model
 {
     /**
+     * @description The SQL code. You can specify one or more SQL statements.
+     *
      * @example SHOW TABLES
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSqlStatementRequest extends Model
     public $codeContent;
 
     /**
+     * @description The default Data Lake Formation (DLF) catalog ID.
+     *
      * @example default_catalog
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSqlStatementRequest extends Model
     public $defaultCatalog;
 
     /**
+     * @description The name of the default database.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateSqlStatementRequest extends Model
     public $defaultDatabase;
 
     /**
+     * @description The maximum number of entries to return. Valid values: 1 to 10000.
+     *
      * @example 1000
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateSqlStatementRequest extends Model
     public $limit;
 
     /**
+     * @description The SQL Compute ID. You can create an SQL Compute in the workspace created in EMR Serverless Spark.
+     *
      * @example sc-dfahdfjafhajd****
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateSqlStatementRequest extends Model
     public $sqlComputeId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

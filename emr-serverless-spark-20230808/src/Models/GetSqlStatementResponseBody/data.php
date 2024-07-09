@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of time that is consumed by SQL queries.
+     *
      * @var int[]
      */
     public $executionTime;
 
     /**
+     * @description The error code.
+     *
      * @example ERROR-102
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $sqlErrorCode;
 
     /**
+     * @description The error message.
+     *
      * @example error message
      *
      * @var string
@@ -29,11 +35,23 @@ class data extends Model
     public $sqlErrorMessage;
 
     /**
+     * @description The query results.
+     *
      * @var sqlOutputs[]
      */
     public $sqlOutputs;
 
     /**
+     * @description The query status.
+     *
+     * Valid values:
+     *
+     *   running
+     *   available
+     *   cancelled
+     *   error
+     *   cancelling
+     *
      * @example running
      *
      * @var string
@@ -41,6 +59,8 @@ class data extends Model
     public $state;
 
     /**
+     * @description The query ID.
+     *
      * @example st-1231311abadfaa
      *
      * @var string

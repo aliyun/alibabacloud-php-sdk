@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSessionClustersResponseBody extends Model
 {
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of entries returned.
      *
      * @example 20
      *
@@ -19,7 +19,7 @@ class ListSessionClustersResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 返回读取到的数据位置，空代表数据已经读取完毕。
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -28,7 +28,7 @@ class ListSessionClustersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -37,12 +37,14 @@ class ListSessionClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The SQL Computes.
+     *
      * @var sessionClusters[]
      */
     public $sessionClusters;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of entries returned.
      *
      * @example 200
      *

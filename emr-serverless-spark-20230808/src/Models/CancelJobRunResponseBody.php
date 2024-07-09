@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelJobRunResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example jr-1a2bc3
      *
      * @var string
@@ -16,7 +18,7 @@ class CancelJobRunResponseBody extends Model
     public $jobRunId;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *

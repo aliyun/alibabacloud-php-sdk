@@ -16,8 +16,9 @@ class AddMembersRequest extends Model
     public $memberArns;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
      *
+     * This parameter is required.
      * @example w-975bcfda9625****
      *
      * @var string
@@ -25,6 +26,8 @@ class AddMembersRequest extends Model
     public $workspaceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stateChangeReason extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example ERR-100000
      *
      * @var string
@@ -16,6 +18,8 @@ class stateChangeReason extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example connection refused
      *
      * @var string

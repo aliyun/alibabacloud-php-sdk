@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantRoleToUsersRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the role.
+     *
      * @example acs:emr::w-975bcfda9625****:role/Owner
      *
      * @var string
@@ -21,6 +23,8 @@ class GrantRoleToUsersRequest extends Model
     public $userArns;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

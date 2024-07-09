@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListReleaseVersionsResponseBody extends Model
 {
     /**
-     * @description 一次获取的最大记录数。
+     * @description The maximum number of entries returned.
      *
      * @example 20
      *
@@ -19,7 +19,7 @@ class ListReleaseVersionsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 下一页TOKEN。
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example 1
      *
@@ -28,12 +28,14 @@ class ListReleaseVersionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The versions.
+     *
      * @var releaseVersions[]
      */
     public $releaseVersions;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -42,7 +44,7 @@ class ListReleaseVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 记录总数。
+     * @description The total number of entries returned.
      *
      * @example 200
      *

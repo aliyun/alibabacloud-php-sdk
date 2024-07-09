@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StartJobRunRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example 8e6aae2810c8f67229ca70bb31cd6028
      *
      * @var string
@@ -17,6 +19,12 @@ class StartJobRunRequest extends Model
     public $clientToken;
 
     /**
+     * @description The code type of the job. Valid values:
+     *
+     *   SQL
+     *   JAR
+     *   PYTHON
+     *
      * @example SQL
      *
      * @var string
@@ -24,11 +32,15 @@ class StartJobRunRequest extends Model
     public $codeType;
 
     /**
+     * @description The advanced configurations of Spark.
+     *
      * @var configurationOverrides
      */
     public $configurationOverrides;
 
     /**
+     * @description The timeout period of the job.
+     *
      * @example 100
      *
      * @var int
@@ -36,11 +48,15 @@ class StartJobRunRequest extends Model
     public $executionTimeoutSeconds;
 
     /**
+     * @description The information about Spark Driver.
+     *
      * @var JobDriver
      */
     public $jobDriver;
 
     /**
+     * @description The job ID.
+     *
      * @example jr-12345
      *
      * @var string
@@ -48,6 +64,8 @@ class StartJobRunRequest extends Model
     public $jobId;
 
     /**
+     * @description The job name.
+     *
      * @example spark_job_name
      *
      * @var string
@@ -55,6 +73,8 @@ class StartJobRunRequest extends Model
     public $name;
 
     /**
+     * @description The version number of Spark.
+     *
      * @example esr-3.3.1
      *
      * @var string
@@ -62,6 +82,8 @@ class StartJobRunRequest extends Model
     public $releaseVersion;
 
     /**
+     * @description The name of the resource queue on which the Spark job runs.
+     *
      * @example dev_queue
      *
      * @var string
@@ -69,11 +91,15 @@ class StartJobRunRequest extends Model
     public $resourceQueueId;
 
     /**
+     * @description The tags of the job.
+     *
      * @var Tag[]
      */
     public $tags;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

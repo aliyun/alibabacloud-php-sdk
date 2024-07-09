@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sqlOutputs extends Model
 {
     /**
+     * @description The queried data, which is a string in the JSON format.
+     *
      * @example [{\\"values\\":[\\"test_db\\",\\"test_table\\",false]}
      *
      * @var string
@@ -16,6 +18,8 @@ class sqlOutputs extends Model
     public $rows;
 
     /**
+     * @description The information about the schema, which is a string in the JSON format.
+     *
      * @example {\\"type\\":\\"struct\\",\\"fields\\":[{\\"name\\":\\"namespace\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"tableName\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"isTemporary\\",\\"type\\":\\"boolean\\",\\"nullable\\":false,\\"metadata\\":{}}]}
      *
      * @var string

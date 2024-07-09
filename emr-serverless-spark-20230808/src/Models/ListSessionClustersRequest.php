@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListSessionClustersRequest extends Model
 {
     /**
-     * @description 一次获取的最大记录数。
+     * @var string
+     */
+    public $kind;
+
+    /**
+     * @description The maximum number of entries to return.
      *
      * @example 20
      *
@@ -18,7 +23,7 @@ class ListSessionClustersRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -27,6 +32,8 @@ class ListSessionClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The name of the queue.
+     *
      * @example root
      *
      * @var string
@@ -34,6 +41,8 @@ class ListSessionClustersRequest extends Model
     public $queueName;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +50,7 @@ class ListSessionClustersRequest extends Model
     public $regionId;
 
     /**
-     * @description 作业名称。
+     * @description The name of the job.
      *
      * @example emr-spark-demo-job
      *
@@ -49,6 +58,7 @@ class ListSessionClustersRequest extends Model
      */
     public $sessionClusterId;
     protected $_name = [
+        'kind'             => 'kind',
         'maxResults'       => 'maxResults',
         'nextToken'        => 'nextToken',
         'queueName'        => 'queueName',
@@ -63,6 +73,9 @@ class ListSessionClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->kind) {
+            $res['kind'] = $this->kind;
+        }
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
@@ -90,6 +103,9 @@ class ListSessionClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['kind'])) {
+            $model->kind = $map['kind'];
+        }
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }

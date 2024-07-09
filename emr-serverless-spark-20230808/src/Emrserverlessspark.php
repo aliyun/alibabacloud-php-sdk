@@ -73,7 +73,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户
+     * @summary Adds a RAM user or RAM role to a workspace as a member.
      *  *
      * @param AddMembersRequest $request AddMembersRequest
      * @param string[]          $headers map
@@ -116,7 +116,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户
+     * @summary Adds a RAM user or RAM role to a workspace as a member.
      *  *
      * @param AddMembersRequest $request AddMembersRequest
      *
@@ -131,7 +131,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 取消jobRun作业
+     * @summary Terminates a Spark job.
      *  *
      * @param string              $workspaceId
      * @param string              $jobRunId
@@ -168,7 +168,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 取消jobRun作业
+     * @summary Terminates a Spark job.
      *  *
      * @param string              $workspaceId
      * @param string              $jobRunId
@@ -254,7 +254,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务
+     * @summary Obtain the job details.
      *  *
      * @param string           $workspaceId
      * @param string           $jobRunId
@@ -291,7 +291,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务
+     * @summary Obtain the job details.
      *  *
      * @param string           $workspaceId
      * @param string           $jobRunId
@@ -362,7 +362,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 给用户授权Role列表
+     * @summary Assigns a specified role to users.
      *  *
      * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
      * @param string[]                $headers map
@@ -405,7 +405,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 给用户授权Role列表
+     * @summary Assigns a specified role to users.
      *  *
      * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
      *
@@ -420,7 +420,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询run列表
+     * @summary Queries a list of Spark jobs.
      *  *
      * @param string             $workspaceId
      * @param ListJobRunsRequest $tmpReq      ListJobRunsRequest
@@ -503,7 +503,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询run列表
+     * @summary Queries a list of Spark jobs.
      *  *
      * @param string             $workspaceId
      * @param ListJobRunsRequest $request     ListJobRunsRequest
@@ -591,6 +591,9 @@ class Emrserverlessspark extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->kind)) {
+            $query['kind'] = $request->kind;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['maxResults'] = $request->maxResults;
         }
@@ -697,7 +700,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查看工作空间列表
+     * @summary Queries a list of workspaces.
      *  *
      * @param ListWorkspacesRequest $request ListWorkspacesRequest
      * @param string[]              $headers map
@@ -744,7 +747,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查看工作空间列表
+     * @summary Queries a list of workspaces.
      *  *
      * @param ListWorkspacesRequest $request ListWorkspacesRequest
      *
@@ -759,7 +762,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动作业
+     * @summary Starts a Spark job.
      *  *
      * @param string             $workspaceId
      * @param StartJobRunRequest $request     StartJobRunRequest
@@ -827,7 +830,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动作业
+     * @summary Starts a Spark job.
      *  *
      * @param string             $workspaceId
      * @param StartJobRunRequest $request     StartJobRunRequest

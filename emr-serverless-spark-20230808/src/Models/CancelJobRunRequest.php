@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelJobRunRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

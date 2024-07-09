@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class workspaces extends Model
 {
     /**
-     * @description 是否自动续费(pre付费类型必须)。
+     * @description Indicates whether auto-renewal is enabled. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example true
      *
@@ -19,7 +19,7 @@ class workspaces extends Model
     public $autoRenew;
 
     /**
-     * @description 自动续费时长(pre付费类型必须)。
+     * @description The auto-renewal duration. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class workspaces extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description 自动续费周期(pre付费类型必须)。
+     * @description The unit of the auto-renewal duration. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
      *
@@ -37,6 +37,8 @@ class workspaces extends Model
     public $autoRenewPeriodUnit;
 
     /**
+     * @description The time when the workspace was created.
+     *
      * @example 1684115879955
      *
      * @var int
@@ -44,7 +46,7 @@ class workspaces extends Model
     public $createTime;
 
     /**
-     * @description dlf catalog 信息。
+     * @description The information of the Data Lake Formation (DLF) catalog.
      *
      * @example default
      *
@@ -53,7 +55,7 @@ class workspaces extends Model
     public $dlfCatalogId;
 
     /**
-     * @description 订购周期数量(pre付费类型必须)。
+     * @description The subscription period. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example 1
      *
@@ -62,6 +64,8 @@ class workspaces extends Model
     public $duration;
 
     /**
+     * @description The time when the workspace was released.
+     *
      * @example 1687103999999
      *
      * @var int
@@ -69,7 +73,7 @@ class workspaces extends Model
     public $endTime;
 
     /**
-     * @description 失败原因。
+     * @description The reason for the failure.
      *
      * @example out of stock
      *
@@ -78,7 +82,7 @@ class workspaces extends Model
     public $failReason;
 
     /**
-     * @description 订购周期(pre付费类型必须)。
+     * @description The unit of the subscription duration. This parameter is required only if the paymentType parameter is set to Subscription.
      *
      * @example YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
      *
@@ -87,7 +91,7 @@ class workspaces extends Model
     public $paymentDurationUnit;
 
     /**
-     * @description 支付状态。
+     * @description The status of the payment.
      *
      * @example PAID/UNPAID
      *
@@ -96,7 +100,7 @@ class workspaces extends Model
     public $paymentStatus;
 
     /**
-     * @description 付费类型。
+     * @description The payment type.
      *
      * @example PayAsYouGo or Subscription
      *
@@ -105,6 +109,8 @@ class workspaces extends Model
     public $paymentType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -112,6 +118,8 @@ class workspaces extends Model
     public $regionId;
 
     /**
+     * @description The reason why the workspace is released.
+     *
      * @example SERVICE_RELEASE
      *
      * @var string
@@ -119,7 +127,7 @@ class workspaces extends Model
     public $releaseType;
 
     /**
-     * @description 资源规格。
+     * @description The resource specifications.
      *
      * @example 100cu
      *
@@ -128,12 +136,14 @@ class workspaces extends Model
     public $resourceSpec;
 
     /**
+     * @description The information about the workspace status change.
+     *
      * @var stateChangeReason
      */
     public $stateChangeReason;
 
     /**
-     * @description oss 路径。
+     * @description The Object Storage Service (OSS) path.
      *
      * @example spark-result
      *
@@ -142,7 +152,7 @@ class workspaces extends Model
     public $storage;
 
     /**
-     * @description Workspace Id。
+     * @description The workspace ID.
      *
      * @example w-******
      *
@@ -151,7 +161,7 @@ class workspaces extends Model
     public $workspaceId;
 
     /**
-     * @description 工作空间名称。
+     * @description The name of the workspace.
      *
      * @example spark批作业空间-1
      *
@@ -160,7 +170,7 @@ class workspaces extends Model
     public $workspaceName;
 
     /**
-     * @description 工作空间状态。
+     * @description The workspace status.
      *
      * @example STARTING,RUNNING,TERMINATED
      *

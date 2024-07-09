@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
-     * @description 队列允许的操作
+     * @description The operations allowed for the queue.
      *
      * @var allowActions[]
      */
     public $allowActions;
 
     /**
+     * @description The ID of the user who created the queue.
+     *
      * @example 237109
      *
      * @var string
@@ -24,12 +26,14 @@ class queues extends Model
     public $creator;
 
     /**
+     * @description The environment types of the queue.
+     *
      * @var string[]
      */
     public $environments;
 
     /**
-     * @description 队列资源最大容量
+     * @description The maximum capacity of resources that can be used in the queue.
      *
      * @example {"cpu": "2","memory": "2Gi"}
      *
@@ -38,7 +42,7 @@ class queues extends Model
     public $maxResource;
 
     /**
-     * @description 队列资源最小容量
+     * @description The minimum capacity of resources that can be used in the queue.
      *
      * @example {"cpu": "2","memory": "2Gi"}
      *
@@ -47,7 +51,7 @@ class queues extends Model
     public $minResource;
 
     /**
-     * @description 队列Label
+     * @description The queue label.
      *
      * @example dev_queue
      *
@@ -56,7 +60,7 @@ class queues extends Model
     public $properties;
 
     /**
-     * @description 队列名称。
+     * @description The name of the queue.
      *
      * @example dev_queue
      *
@@ -65,7 +69,7 @@ class queues extends Model
     public $queueName;
 
     /**
-     * @description 队列架构
+     * @description The queue architecture.
      *
      * @example {"arch": "x86"}
      *
@@ -74,6 +78,8 @@ class queues extends Model
     public $queueScope;
 
     /**
+     * @description The status of the queue.
+     *
      * @example RUNNING
      *
      * @var string
@@ -81,7 +87,7 @@ class queues extends Model
     public $queueStatus;
 
     /**
-     * @description 队列类型
+     * @description The queue type.
      *
      * @example instance, instanceChildren
      *
@@ -90,7 +96,7 @@ class queues extends Model
     public $queueType;
 
     /**
-     * @description regionId。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -99,7 +105,7 @@ class queues extends Model
     public $regionId;
 
     /**
-     * @description 队列资源使用容量
+     * @description The capacity of resources that are used in the queue.
      *
      * @example {"cpu": "2","memory": "2Gi"}
      *
@@ -108,7 +114,7 @@ class queues extends Model
     public $usedResource;
 
     /**
-     * @description 工作空间id。
+     * @description The workspace ID.
      *
      * @example w-1234abcd
      *

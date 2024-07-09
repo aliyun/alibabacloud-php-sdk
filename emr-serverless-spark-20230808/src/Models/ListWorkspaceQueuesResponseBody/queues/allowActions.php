@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class allowActions extends Model
 {
     /**
-     * @description 行为 arn。
+     * @description The Alibaba Cloud Resource Name (ARN) of a behavior.
      *
      * @example acs:emr::workspaceId:action/create_queue
      *
@@ -18,7 +18,7 @@ class allowActions extends Model
     public $actionArn;
 
     /**
-     * @description 权限名称。
+     * @description The name of the permission.
      *
      * @example view
      *
@@ -27,7 +27,7 @@ class allowActions extends Model
     public $actionName;
 
     /**
-     * @description action 依赖列表。
+     * @description The dependencies of the operation.
      *
      * @example ["view"]
      *
@@ -36,7 +36,7 @@ class allowActions extends Model
     public $dependencies;
 
     /**
-     * @description action 描述。
+     * @description The description of the operation.
      *
      * @example 文件目录遍历、文件浏览
      *
@@ -45,7 +45,7 @@ class allowActions extends Model
     public $description;
 
     /**
-     * @description 权限展示名称。
+     * @description The display name of the permission.
      *
      * @example 文件目录遍历、文件浏览
      *

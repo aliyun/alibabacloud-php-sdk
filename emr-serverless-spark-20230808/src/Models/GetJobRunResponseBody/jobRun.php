@@ -14,7 +14,11 @@ use AlibabaCloud\Tea\Model;
 class jobRun extends Model
 {
     /**
-     * @description 作业代码类型。
+     * @description The code type of the job. Valid values:
+     *
+     *   SQL
+     *   JAR
+     *   PYTHON
      *
      * @example SQL
      *
@@ -23,12 +27,14 @@ class jobRun extends Model
     public $codeType;
 
     /**
+     * @description The task configurations of Spark.
+     *
      * @var configurationOverrides
      */
     public $configurationOverrides;
 
     /**
-     * @description 作业结束时间。
+     * @description The end time of the job.
      *
      * @example 1684119314000
      *
@@ -37,7 +43,7 @@ class jobRun extends Model
     public $endTime;
 
     /**
-     * @description 运行超时时间。
+     * @description The timeout period of the job.
      *
      * @example 3600
      *
@@ -46,12 +52,14 @@ class jobRun extends Model
     public $executionTimeoutSeconds;
 
     /**
+     * @description The information about Spark Driver.
+     *
      * @var JobDriver
      */
     public $jobDriver;
 
     /**
-     * @description 任务实例ID。
+     * @description The job ID.
      *
      * @example jr-231231
      *
@@ -60,12 +68,14 @@ class jobRun extends Model
     public $jobRunId;
 
     /**
+     * @description The path where the operational logs are stored.
+     *
      * @var RunLog
      */
     public $log;
 
     /**
-     * @description 作业实例名称。
+     * @description The job name.
      *
      * @example jobName
      *
@@ -74,6 +84,8 @@ class jobRun extends Model
     public $name;
 
     /**
+     * @description The version of the Spark engine on which the job runs.
+     *
      * @example esr-3.3.1
      *
      * @var string
@@ -81,7 +93,7 @@ class jobRun extends Model
     public $releaseVersion;
 
     /**
-     * @description 创建用户Uid。
+     * @description The ID of the user who created the job.
      *
      * @example 1509789347011222
      *
@@ -90,6 +102,8 @@ class jobRun extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the queue on which the job runs.
+     *
      * @example root_queue
      *
      * @var string
@@ -97,7 +111,7 @@ class jobRun extends Model
     public $resourceQueueId;
 
     /**
-     * @description 作业状态。
+     * @description The job state.
      *
      * @example Running
      *
@@ -106,12 +120,14 @@ class jobRun extends Model
     public $state;
 
     /**
+     * @description The reason of the job status change.
+     *
      * @var stateChangeReason
      */
     public $stateChangeReason;
 
     /**
-     * @description 作业提交时间。
+     * @description The time when the job was submitted.
      *
      * @example 1684119314000
      *
@@ -120,14 +136,14 @@ class jobRun extends Model
     public $submitTime;
 
     /**
-     * @description 标签。
+     * @description The tags of the job.
      *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 作业web ui。
+     * @description The web UI of the job.
      *
      * @example http://spark-ui
      *
@@ -136,7 +152,7 @@ class jobRun extends Model
     public $webUI;
 
     /**
-     * @description 工作空间id。
+     * @description The workspace ID.
      *
      * @example w-1234abcd
      *

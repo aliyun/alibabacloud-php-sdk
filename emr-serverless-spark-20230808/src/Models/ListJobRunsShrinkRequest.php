@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListJobRunsShrinkRequest extends Model
 {
     /**
-     * @description 创建用户Uid。
+     * @description The ID of the user who creates a Spark job.
      *
      * @example 1509789347011222
      *
@@ -18,6 +18,8 @@ class ListJobRunsShrinkRequest extends Model
     public $creator;
 
     /**
+     * @description The range of end time.
+     *
      * @var string
      */
     public $endTimeShrink;
@@ -28,7 +30,7 @@ class ListJobRunsShrinkRequest extends Model
     public $jobRunDeploymentId;
 
     /**
-     * @description 作业id。
+     * @description The job ID.
      *
      * @example j-xxx
      *
@@ -37,7 +39,7 @@ class ListJobRunsShrinkRequest extends Model
     public $jobRunId;
 
     /**
-     * @description 一次获取的最大记录数。
+     * @description The maximum number of entries to return.
      *
      * @example 20
      *
@@ -46,7 +48,7 @@ class ListJobRunsShrinkRequest extends Model
     public $maxResults;
 
     /**
-     * @description 作业名称。
+     * @description The job name.
      *
      * @example emr-spark-demo-job
      *
@@ -55,7 +57,7 @@ class ListJobRunsShrinkRequest extends Model
     public $name;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -64,6 +66,8 @@ class ListJobRunsShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +75,8 @@ class ListJobRunsShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the resource queue on which the Spark jobs run.
+     *
      * @example dev_queue
      *
      * @var string
@@ -78,12 +84,14 @@ class ListJobRunsShrinkRequest extends Model
     public $resourceQueueId;
 
     /**
+     * @description The range of start time.
+     *
      * @var string
      */
     public $startTimeShrink;
 
     /**
-     * @description 作业状态。
+     * @description The job states.
      *
      * @example ["Running","Submitted"]
      *
@@ -92,7 +100,7 @@ class ListJobRunsShrinkRequest extends Model
     public $statesShrink;
 
     /**
-     * @description 标签。
+     * @description The tags of the job.
      *
      * @var string
      */

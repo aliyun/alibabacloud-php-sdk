@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoStartConfiguration extends Model
 {
     /**
+     * @description Indicates whether automatic startup is enabled.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class configurationOverrides extends Model
 {
     /**
+     * @description The SparkConf objects.
+     *
      * @var configurations[]
      */
     public $configurations;

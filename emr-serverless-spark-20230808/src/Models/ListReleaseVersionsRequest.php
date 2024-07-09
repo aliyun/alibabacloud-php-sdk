@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListReleaseVersionsRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,13 @@ class ListReleaseVersionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the version.
+     *
+     * Valid values:
+     *
+     *   stable
+     *   beta
+     *
      * @example stable
      *
      * @var string
@@ -23,6 +32,8 @@ class ListReleaseVersionsRequest extends Model
     public $releaseType;
 
     /**
+     * @description The version of Serverless Spark.
+     *
      * @example esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
      *
      * @var string
@@ -30,6 +41,13 @@ class ListReleaseVersionsRequest extends Model
     public $releaseVersion;
 
     /**
+     * @description The status of the version. Valid values:
+     *
+     * Valid values:
+     *
+     *   ONLINE
+     *   OFFLINE
+     *
      * @example ONLINE
      *
      * @var string

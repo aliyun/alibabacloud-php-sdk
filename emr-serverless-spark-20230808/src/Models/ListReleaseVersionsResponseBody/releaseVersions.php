@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class releaseVersions extends Model
 {
     /**
+     * @description The version number of open source Spark.
+     *
      * @example Spark 3.3.1
      *
      * @var string
@@ -16,11 +18,15 @@ class releaseVersions extends Model
     public $communityVersion;
 
     /**
+     * @description The CPU architectures.
+     *
      * @var string[]
      */
     public $cpuArchitectures;
 
     /**
+     * @description The creation time.
+     *
      * @example 1716215854101
      *
      * @var int
@@ -28,6 +34,8 @@ class releaseVersions extends Model
     public $gmtCreate;
 
     /**
+     * @description The type of the Infrastructure as a Service (IaaS) layer.
+     *
      * @example ASI
      *
      * @var string
@@ -35,6 +43,8 @@ class releaseVersions extends Model
     public $iaasType;
 
     /**
+     * @description The version.
+     *
      * @example esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
      *
      * @var string
@@ -42,6 +52,8 @@ class releaseVersions extends Model
     public $releaseVersion;
 
     /**
+     * @description The version of Scala.
+     *
      * @example 2.12
      *
      * @var string
@@ -49,6 +61,8 @@ class releaseVersions extends Model
     public $scalaVersion;
 
     /**
+     * @description The status of the version.
+     *
      * @example ONLINE
      *
      * @var string
@@ -56,6 +70,8 @@ class releaseVersions extends Model
     public $state;
 
     /**
+     * @description The type of the version.
+     *
      * @example stable
      *
      * @var string

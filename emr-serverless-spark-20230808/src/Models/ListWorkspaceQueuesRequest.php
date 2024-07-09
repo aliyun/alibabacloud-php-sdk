@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspaceQueuesRequest extends Model
 {
     /**
+     * @description The environment type.
+     *
+     * Valid values:
+     *
+     *   dev
+     *   production
+     *
      * @example production
      *
      * @var string
@@ -16,6 +23,8 @@ class ListWorkspaceQueuesRequest extends Model
     public $environment;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

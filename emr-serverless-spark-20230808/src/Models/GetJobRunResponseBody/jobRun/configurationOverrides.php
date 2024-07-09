@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class configurationOverrides extends Model
 {
     /**
+     * @description The configurations.
+     *
      * @var Configuration[]
      */
     public $configurations;
