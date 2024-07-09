@@ -18,9 +18,9 @@ class sessions extends Model
     public $clientIp;
 
     /**
-     * @description The OS that the client runs.
+     * @description The client OS.
      *
-     * @example windows_\"Windows10Enterprise\"10.0(Build22000)
+     * @example windows_\\"Windows10Enterprise\\"10.0(Build22000)
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class sessions extends Model
     public $clientVersion;
 
     /**
-     * @description The cloud desktop ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-g6t1ukbaea****
      *
@@ -45,7 +45,7 @@ class sessions extends Model
     public $desktopId;
 
     /**
-     * @description The cloud desktop name.
+     * @description The name of the cloud computer.
      *
      * @example testDesktop
      *
@@ -72,7 +72,7 @@ class sessions extends Model
     public $endUserId;
 
     /**
-     * @description The duration of the latest session. Unit: seconds.
+     * @description The duration of the last connection to the cloud computer. Unit: seconds.
      *
      * @example 120
      *
@@ -81,7 +81,7 @@ class sessions extends Model
     public $latestConnectionTime;
 
     /**
-     * @description The workspace ID.
+     * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-8904****
      *
@@ -90,7 +90,7 @@ class sessions extends Model
     public $officeSiteId;
 
     /**
-     * @description The workspace name.
+     * @description The name of the office network.
      *
      * @example DemoOfficeSite
      *
@@ -99,10 +99,17 @@ class sessions extends Model
     public $officeSiteName;
 
     /**
-     * @description The OS. Valid values:
+     * @var string
+     */
+    public $osSessionStatus;
+
+    /**
+     * @description The OS.
      *
-     *   Windows
+     * Valid values:
+     *
      *   Linux
+     *   Windows
      *
      * @example Windows
      *
@@ -111,7 +118,9 @@ class sessions extends Model
     public $osType;
 
     /**
-     * @description The protocol type that is supported by the cloud desktop. Valid values:
+     * @description The protocol type.
+     *
+     * Valid values:
      *
      *   HDX
      *   ASP
@@ -150,7 +159,9 @@ class sessions extends Model
     public $sessionStartTime;
 
     /**
-     * @description The session status. Valid values:
+     * @description The state of the session.
+     *
+     * Valid values:
      *
      *   Connected
      *   Disconnected
@@ -162,7 +173,12 @@ class sessions extends Model
     public $sessionStatus;
 
     /**
-     * @description The total session duration. Unit: seconds.
+     * @var string
+     */
+    public $subPayType;
+
+    /**
+     * @description The total connection duration. Unit: seconds.
      *
      * @example 240
      *
@@ -180,12 +196,14 @@ class sessions extends Model
         'latestConnectionTime'       => 'LatestConnectionTime',
         'officeSiteId'               => 'OfficeSiteId',
         'officeSiteName'             => 'OfficeSiteName',
+        'osSessionStatus'            => 'OsSessionStatus',
         'osType'                     => 'OsType',
         'protocolType'               => 'ProtocolType',
         'sessionEndTime'             => 'SessionEndTime',
         'sessionIdleTime'            => 'SessionIdleTime',
         'sessionStartTime'           => 'SessionStartTime',
         'sessionStatus'              => 'SessionStatus',
+        'subPayType'                 => 'SubPayType',
         'totalConnectionTime'        => 'TotalConnectionTime',
     ];
 
@@ -226,6 +244,9 @@ class sessions extends Model
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
+        if (null !== $this->osSessionStatus) {
+            $res['OsSessionStatus'] = $this->osSessionStatus;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
@@ -243,6 +264,9 @@ class sessions extends Model
         }
         if (null !== $this->sessionStatus) {
             $res['SessionStatus'] = $this->sessionStatus;
+        }
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
         }
         if (null !== $this->totalConnectionTime) {
             $res['TotalConnectionTime'] = $this->totalConnectionTime;
@@ -289,6 +313,9 @@ class sessions extends Model
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
+        if (isset($map['OsSessionStatus'])) {
+            $model->osSessionStatus = $map['OsSessionStatus'];
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
@@ -306,6 +333,9 @@ class sessions extends Model
         }
         if (isset($map['SessionStatus'])) {
             $model->sessionStatus = $map['SessionStatus'];
+        }
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
         if (isset($map['TotalConnectionTime'])) {
             $model->totalConnectionTime = $map['TotalConnectionTime'];

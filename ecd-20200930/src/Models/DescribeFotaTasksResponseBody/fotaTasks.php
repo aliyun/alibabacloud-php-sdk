@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fotaTasks extends Model
 {
     /**
-     * @description The image version. You can call the [DescribeImages](~~188895~~) operation to obtain the value of this parameter.
+     * @description The image version. You can call the [DescribeImages](https://help.aliyun.com/document_detail/188895.html) operation to obtain the value of this parameter.
      *
      * @example 0.0.1-D-20220513.143129
      *

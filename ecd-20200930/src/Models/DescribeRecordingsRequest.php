@@ -51,6 +51,8 @@ class DescribeRecordingsRequest extends Model
     public $policyGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

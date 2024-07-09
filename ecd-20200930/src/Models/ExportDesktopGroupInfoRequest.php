@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ExportDesktopGroupInfoRequest extends Model
@@ -102,13 +103,21 @@ class ExportDesktopGroupInfoRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The tags attached to the cloud computer pool. You can specify 1 to 20 tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'chargeType'       => 'ChargeType',
         'desktopGroupId'   => 'DesktopGroupId',
@@ -121,6 +130,7 @@ class ExportDesktopGroupInfoRequest extends Model
         'officeSiteId'     => 'OfficeSiteId',
         'policyGroupId'    => 'PolicyGroupId',
         'regionId'         => 'RegionId',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -162,6 +172,15 @@ class ExportDesktopGroupInfoRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -211,6 +230,15 @@ class ExportDesktopGroupInfoRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

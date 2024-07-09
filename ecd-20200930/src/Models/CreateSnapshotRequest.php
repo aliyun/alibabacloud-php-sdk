@@ -20,6 +20,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The ID of the cloud computer.
      *
+     * This parameter is required.
      * @example ecd-gx2x1dhsmucyy****"
      *
      * @var string
@@ -27,8 +28,9 @@ class CreateSnapshotRequest extends Model
     public $desktopId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,8 +38,9 @@ class CreateSnapshotRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (\_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      *
+     * This parameter is required.
      * @example testSnapshotName
      *
      * @var string
@@ -55,7 +58,7 @@ class CreateSnapshotRequest extends Model
      *
      *   data: data disk
      *
-     * <!-- -->
+     * This parameter is required.
      * @example system
      *
      * @var string

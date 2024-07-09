@@ -11,6 +11,7 @@ class CancelAutoSnapshotPolicyRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify 1 to 50 IDs. The IDs cannot be an empty string. The IDs can be up to 64 characters in length and cannot contain `http://` or `https://`. The IDs cannot start with `acs:` or `aliyun`.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
@@ -18,6 +19,7 @@ class CancelAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the automatic snapshot policy.
      *
+     * This parameter is required.
      * @example sp-78lhzpe7kjfnd****
      *
      * @var string
@@ -25,8 +27,9 @@ class CancelAutoSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

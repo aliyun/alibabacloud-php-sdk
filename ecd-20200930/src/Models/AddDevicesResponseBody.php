@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddDevicesResponseBody extends Model
 {
     /**
+     * @description The execution result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned error message. This parameter is not returned if the value of Code is `success`.
+     *
+     * @example The parameter is not specified.
+     *
      * @var string
      */
     public $message;

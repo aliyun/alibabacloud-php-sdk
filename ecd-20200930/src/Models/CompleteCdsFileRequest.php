@@ -11,6 +11,7 @@ class CompleteCdsFileRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-shanghai+cds-465878****
      *
      * @var string
@@ -29,6 +30,7 @@ class CompleteCdsFileRequest extends Model
     /**
      * @description The file ID. An ID is the unique identifier of a file.
      *
+     * This parameter is required.
      * @example 635a316c94f40f35f5354da29b2aee88c9d1****
      *
      * @var string
@@ -43,6 +45,7 @@ class CompleteCdsFileRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +55,7 @@ class CompleteCdsFileRequest extends Model
     /**
      * @description The ID of the file uploading task.
      *
+     * This parameter is required.
      * @example 6C48B55A1FAC4E1A9E0579059514****
      *
      * @var string

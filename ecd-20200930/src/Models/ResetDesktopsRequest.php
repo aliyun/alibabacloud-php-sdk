@@ -51,8 +51,9 @@ class ResetDesktopsRequest extends Model
     public $payType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -83,6 +84,7 @@ class ResetDesktopsRequest extends Model
      *   2: resets only the user disk.
      *   3: resets the system disk and the user disk.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

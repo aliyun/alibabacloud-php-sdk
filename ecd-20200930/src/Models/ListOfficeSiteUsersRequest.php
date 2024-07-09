@@ -50,6 +50,7 @@ class ListOfficeSiteUsersRequest extends Model
     /**
      * @description The office network ID. The office network must be of the enterprise AD account type.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -57,8 +58,9 @@ class ListOfficeSiteUsersRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

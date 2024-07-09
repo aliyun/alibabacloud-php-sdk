@@ -20,6 +20,7 @@ class StopInvocationRequest extends Model
     /**
      * @description The ID of the execution.
      *
+     * This parameter is required.
      * @example t-7d2a745b412b4601b2d47f6a768d****
      *
      * @var string
@@ -29,6 +30,7 @@ class StopInvocationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -52,6 +52,8 @@ class CreateCloudDriveServiceRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 536870912000
      *
      * @var int
@@ -94,6 +96,7 @@ class CreateCloudDriveServiceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

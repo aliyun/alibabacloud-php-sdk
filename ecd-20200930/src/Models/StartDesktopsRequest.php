@@ -11,6 +11,7 @@ class StartDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
+     * This parameter is required.
      * @example ecd-7w78ozhjcwa3u****
      *
      * @var string[]
@@ -18,8 +19,9 @@ class StartDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

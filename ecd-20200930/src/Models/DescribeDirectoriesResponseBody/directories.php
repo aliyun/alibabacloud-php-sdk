@@ -18,6 +18,21 @@ class directories extends Model
     public $ADConnectors;
 
     /**
+     * @var string
+     */
+    public $adHostname;
+
+    /**
+     * @var string
+     */
+    public $backupDCHostname;
+
+    /**
+     * @var string
+     */
+    public $backupDns;
+
+    /**
      * @description The time when the directory was created.
      *
      * @example 2020-11-02T01:44Z
@@ -197,7 +212,7 @@ class directories extends Model
     public $name;
 
     /**
-     * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\
+     * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\\
      * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
      * @example false
      *
@@ -283,6 +298,9 @@ class directories extends Model
     public $vpcId;
     protected $_name = [
         'ADConnectors'             => 'ADConnectors',
+        'adHostname'               => 'AdHostname',
+        'backupDCHostname'         => 'BackupDCHostname',
+        'backupDns'                => 'BackupDns',
         'creationTime'             => 'CreationTime',
         'customSecurityGroupId'    => 'CustomSecurityGroupId',
         'desktopAccessType'        => 'DesktopAccessType',
@@ -327,6 +345,15 @@ class directories extends Model
                     $res['ADConnectors'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->adHostname) {
+            $res['AdHostname'] = $this->adHostname;
+        }
+        if (null !== $this->backupDCHostname) {
+            $res['BackupDCHostname'] = $this->backupDCHostname;
+        }
+        if (null !== $this->backupDns) {
+            $res['BackupDns'] = $this->backupDns;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -435,6 +462,15 @@ class directories extends Model
                     $model->ADConnectors[$n++] = null !== $item ? ADConnectors::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AdHostname'])) {
+            $model->adHostname = $map['AdHostname'];
+        }
+        if (isset($map['BackupDCHostname'])) {
+            $model->backupDCHostname = $map['BackupDCHostname'];
+        }
+        if (isset($map['BackupDns'])) {
+            $model->backupDns = $map['BackupDns'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

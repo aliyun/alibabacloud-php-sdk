@@ -11,6 +11,7 @@ class authorizeAccessPolicyRule extends Model
     /**
      * @description The CIDR block that the client can access.
      *
+     * This parameter is required.
      * @example 47.100.XX.XX/16
      *
      * @var string

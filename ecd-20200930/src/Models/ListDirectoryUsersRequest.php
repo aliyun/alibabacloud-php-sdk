@@ -11,6 +11,7 @@ class ListDirectoryUsersRequest extends Model
     /**
      * @description The ID of the AD directory.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
      * @var string
@@ -55,8 +56,9 @@ class ListDirectoryUsersRequest extends Model
     public $OUPath;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

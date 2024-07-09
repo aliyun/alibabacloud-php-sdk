@@ -18,6 +18,16 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public $adHostname;
 
     /**
+     * @var string
+     */
+    public $backupDCHostname;
+
+    /**
+     * @var string
+     */
+    public $backupDns;
+
+    /**
      * @description Details of the IP addresses of the Domain Name System (DNS) servers that correspond to the enterprise AD system. You can specify only one IP address.
      *
      * @example 127.0.*.*
@@ -73,7 +83,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The name of the organizational unit (OU) in the AD domain. You can call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain OUs.
+     * @description The name of the organizational unit (OU) in the AD domain. You can call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to obtain OUs.
      *
      * @example oldad.com/Domain Controllers
      *
@@ -84,6 +94,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     /**
      * @description The office network ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -91,7 +102,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * @example test
      *
@@ -100,8 +111,9 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -127,6 +139,8 @@ class ModifyADConnectorOfficeSiteRequest extends Model
     public $subDomainName;
     protected $_name = [
         'adHostname'          => 'AdHostname',
+        'backupDCHostname'    => 'BackupDCHostname',
+        'backupDns'           => 'BackupDns',
         'dnsAddress'          => 'DnsAddress',
         'domainName'          => 'DomainName',
         'domainPassword'      => 'DomainPassword',
@@ -149,6 +163,12 @@ class ModifyADConnectorOfficeSiteRequest extends Model
         $res = [];
         if (null !== $this->adHostname) {
             $res['AdHostname'] = $this->adHostname;
+        }
+        if (null !== $this->backupDCHostname) {
+            $res['BackupDCHostname'] = $this->backupDCHostname;
+        }
+        if (null !== $this->backupDns) {
+            $res['BackupDns'] = $this->backupDns;
         }
         if (null !== $this->dnsAddress) {
             $res['DnsAddress'] = $this->dnsAddress;
@@ -197,6 +217,12 @@ class ModifyADConnectorOfficeSiteRequest extends Model
         $model = new self();
         if (isset($map['AdHostname'])) {
             $model->adHostname = $map['AdHostname'];
+        }
+        if (isset($map['BackupDCHostname'])) {
+            $model->backupDCHostname = $map['BackupDCHostname'];
+        }
+        if (isset($map['BackupDns'])) {
+            $model->backupDns = $map['BackupDns'];
         }
         if (isset($map['DnsAddress'])) {
             if (!empty($map['DnsAddress'])) {

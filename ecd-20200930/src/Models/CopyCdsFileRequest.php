@@ -29,6 +29,7 @@ class CopyCdsFileRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-352282****
      *
      * @var string
@@ -47,6 +48,7 @@ class CopyCdsFileRequest extends Model
     /**
      * @description The file ID. You can call the CreateCdsFile operation to query the file ID.
      *
+     * This parameter is required.
      * @example 640985a0ca2f71f489d2497682ca0bf468de****
      *
      * @var string
@@ -79,6 +81,7 @@ class CopyCdsFileRequest extends Model
     /**
      * @description The ID of the parent folder of the folder to which you want to copy the file. If you want to copy the file to the root directory, set this parameter to root.
      *
+     * This parameter is required.
      * @example root
      *
      * @var string
@@ -86,8 +89,9 @@ class CopyCdsFileRequest extends Model
     public $parentFolderId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

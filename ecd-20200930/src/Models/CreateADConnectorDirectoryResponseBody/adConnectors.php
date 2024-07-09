@@ -11,7 +11,7 @@ class adConnectors extends Model
     /**
      * @description The connection address.
      *
-     * @example 127.0.**.**
+     * @example 127.0.\*\*.**
      *
      * @var string
      */

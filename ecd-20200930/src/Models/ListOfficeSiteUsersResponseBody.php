@@ -28,7 +28,7 @@ class ListOfficeSiteUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The usernames of AD users.\
+     * @description The usernames of AD users.\\
      * If the only Administrator and Guest users exist in the enterprise AD, an empty User array is returned.
      * @var users[]
      */

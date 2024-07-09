@@ -20,6 +20,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the automatic snapshot policy.
      *
+     * This parameter is required.
      * @example sp-itcmrhqt01tdo****
      *
      * @var string
@@ -27,7 +28,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). This parameter is empty by default.
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-). This parameter is empty by default.
      *
      * @example Automatic system snapshot
      *
@@ -36,8 +37,9 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $policyName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

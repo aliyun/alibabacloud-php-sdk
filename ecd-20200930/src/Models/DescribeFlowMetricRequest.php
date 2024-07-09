@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1664714703743
      *
      * @var string
@@ -16,11 +18,15 @@ class DescribeFlowMetricRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example desktop
      *
      * @var string
@@ -28,6 +34,8 @@ class DescribeFlowMetricRequest extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example intranetOutRate
      *
      * @var string
@@ -35,6 +43,8 @@ class DescribeFlowMetricRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60
      *
      * @var int
@@ -42,6 +52,8 @@ class DescribeFlowMetricRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +61,8 @@ class DescribeFlowMetricRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1651817220643
      *
      * @var string

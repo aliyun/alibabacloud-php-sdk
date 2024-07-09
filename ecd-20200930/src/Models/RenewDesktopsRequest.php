@@ -27,8 +27,14 @@ class RenewDesktopsRequest extends Model
     public $autoPay;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @description The IDs of the cloud computers. Only IDs of subscription cloud computers are supported.
      *
+     * This parameter is required.
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -76,8 +82,9 @@ class RenewDesktopsRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -90,6 +97,7 @@ class RenewDesktopsRequest extends Model
     public $resourceType;
     protected $_name = [
         'autoPay'      => 'AutoPay',
+        'autoRenew'    => 'AutoRenew',
         'desktopId'    => 'DesktopId',
         'period'       => 'Period',
         'periodUnit'   => 'PeriodUnit',
@@ -107,6 +115,9 @@ class RenewDesktopsRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -140,6 +151,9 @@ class RenewDesktopsRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {

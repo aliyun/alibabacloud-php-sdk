@@ -11,6 +11,7 @@ class DeletePolicyGroupsRequest extends Model
     /**
      * @description The ID of the policy. You can specify 1 to 100 policy IDs.
      *
+     * This parameter is required.
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string[]
@@ -20,6 +21,7 @@ class DeletePolicyGroupsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

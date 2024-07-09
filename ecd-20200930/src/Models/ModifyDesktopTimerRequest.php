@@ -12,6 +12,7 @@ class ModifyDesktopTimerRequest extends Model
     /**
      * @description The IDs of the cloud computers.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
@@ -24,8 +25,9 @@ class ModifyDesktopTimerRequest extends Model
     public $desktopTimers;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

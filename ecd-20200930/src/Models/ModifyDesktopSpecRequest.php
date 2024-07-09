@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopSpecRequest\resourceSpecs;
 use AlibabaCloud\Tea\Model;
 
 class ModifyDesktopSpecRequest extends Model
@@ -36,8 +37,9 @@ class ModifyDesktopSpecRequest extends Model
     public $desktopId;
 
     /**
-     * @description The destination instance type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
+     * @description The destination instance type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
      *
+     * This parameter is required.
      * @example eds.general.2c8g
      *
      * @var string
@@ -54,13 +56,24 @@ class ModifyDesktopSpecRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var resourceSpecs[]
+     */
+    public $resourceSpecs;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @description The size of the new system disk. Unit: GiB. Valid values: 80 to 500 GiB. The value must be a multiple of 10.
@@ -114,6 +127,8 @@ class ModifyDesktopSpecRequest extends Model
         'desktopType'              => 'DesktopType',
         'promotionId'              => 'PromotionId',
         'regionId'                 => 'RegionId',
+        'resourceSpecs'            => 'ResourceSpecs',
+        'resourceType'             => 'ResourceType',
         'rootDiskSizeGib'          => 'RootDiskSizeGib',
         'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
         'userDiskSizeGib'          => 'UserDiskSizeGib',
@@ -140,6 +155,18 @@ class ModifyDesktopSpecRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceSpecs) {
+            $res['ResourceSpecs'] = [];
+            if (null !== $this->resourceSpecs && \is_array($this->resourceSpecs)) {
+                $n = 0;
+                foreach ($this->resourceSpecs as $item) {
+                    $res['ResourceSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->rootDiskSizeGib) {
             $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
@@ -176,6 +203,18 @@ class ModifyDesktopSpecRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceSpecs'])) {
+            if (!empty($map['ResourceSpecs'])) {
+                $model->resourceSpecs = [];
+                $n                    = 0;
+                foreach ($map['ResourceSpecs'] as $item) {
+                    $model->resourceSpecs[$n++] = null !== $item ? resourceSpecs::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['RootDiskSizeGib'])) {
             $model->rootDiskSizeGib = $map['RootDiskSizeGib'];

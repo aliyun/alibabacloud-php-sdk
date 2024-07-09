@@ -11,6 +11,7 @@ class cdsIdentity extends Model
     /**
      * @description The user ID or group ID.
      *
+     * This parameter is required.
      * @example 249dsfseee643h33g3dv****
      *
      * @var string
@@ -28,7 +29,7 @@ class cdsIdentity extends Model
      *
      *   IT_User
      *
-     * <!-- -->
+     * This parameter is required.
      * @example IT_User
      *
      * @var string

@@ -61,7 +61,7 @@ class authorizeSecurityPolicyRule extends Model
      *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to gre, set the value to -1/-1.
      *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to all, set the value to -1/-1.
      *
-     * For more information about the common ports of typical applications, see [Common ports](~~40724~~).
+     * For more information about the common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
      * @example 22/22
      *
      * @var string

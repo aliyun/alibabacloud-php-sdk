@@ -45,7 +45,7 @@ class DescribeClientEventsRequest extends Model
     public $directoryId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
      * If you do not specify a value for this parameter, the current time is used.
      * @example 2020-11-31T06:32:31Z
      *
@@ -112,7 +112,7 @@ class DescribeClientEventsRequest extends Model
     public $eventTypes;
 
     /**
-     * @description The number of entries per page.\
+     * @description The number of entries per page.\\
      * Default value: 100.
      * @example 10
      *
@@ -148,8 +148,9 @@ class DescribeClientEventsRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -157,7 +158,7 @@ class DescribeClientEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
      * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
      * @example 2020-11-30T06:32:31Z
      *

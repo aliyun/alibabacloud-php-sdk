@@ -20,6 +20,7 @@ class ModifyADConnectorDirectoryRequest extends Model
     /**
      * @description The ID of the directory.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
      *
      * @var string
@@ -38,7 +39,7 @@ class ModifyADConnectorDirectoryRequest extends Model
     /**
      * @description The IP address of the DNS server corresponding to the enterprise AD. You can specify only one IP address. Make sure that the specified IP address is accessible in the network of the selected vSwitch.
      *
-     * @example 127.0.**.**
+     * @example 127.0.\*\*.**
      *
      * @var string[]
      */
@@ -99,8 +100,9 @@ class ModifyADConnectorDirectoryRequest extends Model
     public $OUName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -108,9 +110,9 @@ class ModifyADConnectorDirectoryRequest extends Model
     public $regionId;
 
     /**
-     * @description The DNS address of the existing AD subdomain.\
+     * @description The DNS address of the existing AD subdomain.\\
      * If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
-     * @example 127.0.**.**
+     * @example 127.0.\*\*.**
      *
      * @var string[]
      */

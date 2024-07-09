@@ -14,7 +14,7 @@ class clientTypes extends Model
      * Valid values:
      *
      *   html5: web client
-     *   linux: WUYING hardware terminal
+     *   linux: Alibaba Cloud Workspace hardware terminal
      *   android: Android client
      *   windows: Windows client
      *   ios: iOS client

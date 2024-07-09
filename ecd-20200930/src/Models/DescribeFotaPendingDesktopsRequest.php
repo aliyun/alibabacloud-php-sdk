@@ -48,7 +48,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the office network. You can call the [DescribeOfficeSites](~~216071~~) operation to obtain the value of this parameter.
+     * @description The ID of the office network. You can call the [DescribeOfficeSites](https://help.aliyun.com/document_detail/216071.html) operation to obtain the value of this parameter.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -57,8 +57,9 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,7 +67,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the image update task. You can call the [DescribeFotaTasks](~~437001~~) operation to obtain the value of this parameter.
+     * @description The ID of the image update task. You can call the [DescribeFotaTasks](https://help.aliyun.com/document_detail/437001.html) operation to obtain the value of this parameter.
      *
      * @example aot-c4khwrp9ocml4****
      *

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class desktops extends Model
 {
     /**
-     * @description The connection status of the user. Valid values:
+     * @description The connection status of the user.
+     *
+     * Valid values:
      *
      *   Connected
      *   Disconnected
@@ -21,7 +23,7 @@ class desktops extends Model
     public $connectionStatus;
 
     /**
-     * @description The version of the image that is used by the cloud computer.
+     * @description The version of the cloud computer image.
      *
      * @example 1.4.0-R-***
      *
@@ -30,12 +32,16 @@ class desktops extends Model
     public $currentAppVersion;
 
     /**
+     * @description The ID of the cloud computer pool.
+     *
+     * @example dg-3uiojcc0j4kh7****
+     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
-     * @description The cloud computer ID.
+     * @description The ID of the cloud computer.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -44,16 +50,18 @@ class desktops extends Model
     public $desktopId;
 
     /**
-     * @description The status of the cloud computer. Valid values:
+     * @description The status of the cloud computer.
      *
-     *   Pending: The cloud computer is being created.
-     *   Starting: The cloud computer is being started.
-     *   Running: The cloud computer is running.
-     *   Stopping: The cloud computer is being stopped.
-     *   Stopped: The cloud computer is stopped.
-     *   Expired: The cloud computer is expired.
-     *   Deleted: The cloud computer is deleted.
-     *   Failed: Failed to create the cloud computer.
+     * Valid values:
+     *
+     *   Stopped
+     *   Failed
+     *   Starting
+     *   Running
+     *   Stopping
+     *   Expired
+     *   Deleted
+     *   Pending
      *
      * @example Running
      *
@@ -78,7 +86,7 @@ class desktops extends Model
     public $newAppSize;
 
     /**
-     * @description The destination version to which the image of the cloud computer can be updated.
+     * @description The version number of the image that can be updated on the cloud computer.
      *
      * @example 1.6.0-R-***
      *
@@ -87,7 +95,7 @@ class desktops extends Model
     public $newAppVersion;
 
     /**
-     * @description The description of the destination version to which the image of the cloud computer can be updated.
+     * @description The description of the image version that can be updated.
      *
      * @example Test package 03-07
      *
@@ -96,7 +104,7 @@ class desktops extends Model
     public $releaseNote;
 
     /**
-     * @description The first time when the cloud computer was started.
+     * @description The time when the cloud computer was first started.
      *
      * @example 2020-11-06T08:31Z
      *

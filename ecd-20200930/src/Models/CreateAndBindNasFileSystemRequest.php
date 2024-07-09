@@ -20,6 +20,7 @@ class CreateAndBindNasFileSystemRequest extends Model
     /**
      * @description The ID of the desktop group.
      *
+     * This parameter is required.
      * @example dg-fh0vdzyh6rdc*****
      *
      * @var string
@@ -50,6 +51,7 @@ class CreateAndBindNasFileSystemRequest extends Model
     /**
      * @description The name of the NAS file system.
      *
+     * This parameter is required.
      * @example szy-asp-upm-test
      *
      * @var string
@@ -59,6 +61,7 @@ class CreateAndBindNasFileSystemRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example cn-beijing+dir-15657*****
      *
      * @var string
@@ -68,6 +71,7 @@ class CreateAndBindNasFileSystemRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,7 +84,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      *   Capacity
      *   Performance
      *
-     * Default value: Capacity.
+     * This parameter is required.
      * @example Capacity
      *
      * @var string

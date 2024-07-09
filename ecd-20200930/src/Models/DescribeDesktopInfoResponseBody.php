@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopInfoResponseBody extends Model
 {
     /**
-     * @description Details of the cloud computers.
+     * @description The basic information about cloud computers.
      *
      * @var desktops[]
      */

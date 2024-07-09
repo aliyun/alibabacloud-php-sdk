@@ -103,7 +103,7 @@ class CreatePolicyGroupRequest extends Model
     public $clipboard;
 
     /**
-     * @description Access control for domain names. The wildcard character (\*) is supported for domain names. Separate multiple domain names with commas (,). Valid values:
+     * @description Access control for domain names. The wildcard character (\\*) is supported for domain names. Separate multiple domain names with commas (,). Valid values:
      *
      *   off
      *   on
@@ -249,6 +249,11 @@ class CreatePolicyGroupRequest extends Model
      * @var string
      */
     public $localDrive;
+
+    /**
+     * @var int
+     */
+    public $maxReconnectTime;
 
     /**
      * @description The name of the policy.
@@ -452,6 +457,7 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -719,6 +725,7 @@ class CreatePolicyGroupRequest extends Model
         'html5FileTransfer'             => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'localDrive'                    => 'LocalDrive',
+        'maxReconnectTime'              => 'MaxReconnectTime',
         'name'                          => 'Name',
         'netRedirect'                   => 'NetRedirect',
         'preemptLogin'                  => 'PreemptLogin',
@@ -838,6 +845,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->maxReconnectTime) {
+            $res['MaxReconnectTime'] = $this->maxReconnectTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -1039,6 +1049,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['MaxReconnectTime'])) {
+            $model->maxReconnectTime = $map['MaxReconnectTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

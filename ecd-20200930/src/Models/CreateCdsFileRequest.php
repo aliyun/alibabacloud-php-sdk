@@ -11,6 +11,7 @@ class CreateCdsFileRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-82414*****
      *
      * @var string
@@ -64,6 +65,7 @@ class CreateCdsFileRequest extends Model
     /**
      * @description The file size. Unit: bytes.
      *
+     * This parameter is required.
      * @example 2048
      *
      * @var int
@@ -73,6 +75,7 @@ class CreateCdsFileRequest extends Model
     /**
      * @description The file name.
      *
+     * This parameter is required.
      * @example testFile.txt
      *
      * @var string
@@ -90,7 +93,7 @@ class CreateCdsFileRequest extends Model
      *
      *   folder
      *
-     * <!-- -->
+     * This parameter is required.
      * @example file
      *
      * @var string
@@ -105,6 +108,7 @@ class CreateCdsFileRequest extends Model
     /**
      * @description The ID of the parent folder.
      *
+     * This parameter is required.
      * @example 637c9163b453b1a384874264ba79f3f9eab9****
      *
      * @var string
@@ -114,6 +118,7 @@ class CreateCdsFileRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

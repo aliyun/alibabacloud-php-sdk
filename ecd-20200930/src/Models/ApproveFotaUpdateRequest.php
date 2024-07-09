@@ -11,6 +11,7 @@ class ApproveFotaUpdateRequest extends Model
     /**
      * @description Mirror version.
      *
+     * This parameter is required.
      * @example 0.0.1-D-20220513.143129
      *
      * @var string
@@ -20,6 +21,7 @@ class ApproveFotaUpdateRequest extends Model
     /**
      * @description The ID of the cloud computer.
      *
+     * This parameter is required.
      * @example ecd-138dsptkrt00u****
      *
      * @var string
@@ -27,8 +29,9 @@ class ApproveFotaUpdateRequest extends Model
     public $desktopId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

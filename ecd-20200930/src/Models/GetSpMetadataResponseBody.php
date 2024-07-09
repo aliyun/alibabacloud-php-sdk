@@ -20,8 +20,6 @@ class GetSpMetadataResponseBody extends Model
     /**
      * @description The metadata of the SP.
      *
-     * @example <?xml version=************\/md:EntityDescriptor>
-     *
      * @var string
      */
     public $spMetadata;

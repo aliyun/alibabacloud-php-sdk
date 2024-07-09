@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class WakeupDesktopsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -88,6 +88,11 @@ class describePolicyGroups extends Model
     public $clipboard;
 
     /**
+     * @var string
+     */
+    public $colorEnhancement;
+
+    /**
      * @description The CPU underclocking duration. Valid values: 30 to 120.
      *
      * @example 30
@@ -140,7 +145,12 @@ class describePolicyGroups extends Model
     public $cpuSingleRateLimit;
 
     /**
-     * @description Indicates whether the access control for domain names is enabled. The domain names can contain wildcard characters (\*). Multiple domain names are separated by commas (,). Valid values:
+     * @var string
+     */
+    public $displayMode;
+
+    /**
+     * @description Indicates whether the access control for domain names is enabled. The domain names can contain wildcard characters (\\*). Multiple domain names are separated by commas (,). Valid values:
      *
      *   off
      *   on
@@ -173,7 +183,7 @@ class describePolicyGroups extends Model
     public $domainResolveRuleType;
 
     /**
-     * @description The number of cloud desktops that are associated with the policy.\
+     * @description The number of cloud desktops that are associated with the policy.\\
      * This parameter is returned only for custom policies.
      * @example 1
      *
@@ -270,6 +280,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $localDrive;
+
+    /**
+     * @var int
+     */
+    public $maxReconnectTime;
 
     /**
      * @description The duration required for underclocking memory by a single process. Valid values: 30 to 120.
@@ -421,6 +436,11 @@ class describePolicyGroups extends Model
     public $printerRedirection;
 
     /**
+     * @var string
+     */
+    public $qualityEnhancement;
+
+    /**
      * @description Indicates whether the custom screen recording feature is enabled. Valid values:
      *
      *   on
@@ -570,6 +590,21 @@ class describePolicyGroups extends Model
     public $scopeValue;
 
     /**
+     * @var string
+     */
+    public $smoothEnhancement;
+
+    /**
+     * @var string
+     */
+    public $streamingMode;
+
+    /**
+     * @var int
+     */
+    public $targetFps;
+
+    /**
      * @description Indicates whether the USB redirection feature is enabled.
      *
      * Valid values:
@@ -589,6 +624,31 @@ class describePolicyGroups extends Model
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
+
+    /**
+     * @var int
+     */
+    public $videoEncAvgKbps;
+
+    /**
+     * @var int
+     */
+    public $videoEncMaxQP;
+
+    /**
+     * @var int
+     */
+    public $videoEncMinQP;
+
+    /**
+     * @var int
+     */
+    public $videoEncPeakKbps;
+
+    /**
+     * @var string
+     */
+    public $videoEncPolicy;
 
     /**
      * @description Indicates whether the multimedia redirection feature is enabled. Valid values: on and off.
@@ -760,12 +820,14 @@ class describePolicyGroups extends Model
         'cameraRedirect'                => 'CameraRedirect',
         'clientTypes'                   => 'ClientTypes',
         'clipboard'                     => 'Clipboard',
+        'colorEnhancement'              => 'ColorEnhancement',
         'cpuDownGradeDuration'          => 'CpuDownGradeDuration',
         'cpuProcessors'                 => 'CpuProcessors',
         'cpuProtectedMode'              => 'CpuProtectedMode',
         'cpuRateLimit'                  => 'CpuRateLimit',
         'cpuSampleDuration'             => 'CpuSampleDuration',
         'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
+        'displayMode'                   => 'DisplayMode',
         'domainList'                    => 'DomainList',
         'domainResolveRule'             => 'DomainResolveRule',
         'domainResolveRuleType'         => 'DomainResolveRuleType',
@@ -777,6 +839,7 @@ class describePolicyGroups extends Model
         'html5FileTransfer'             => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'localDrive'                    => 'LocalDrive',
+        'maxReconnectTime'              => 'MaxReconnectTime',
         'memoryDownGradeDuration'       => 'MemoryDownGradeDuration',
         'memoryProcessors'              => 'MemoryProcessors',
         'memoryProtectedMode'           => 'MemoryProtectedMode',
@@ -792,6 +855,7 @@ class describePolicyGroups extends Model
         'preemptLogin'                  => 'PreemptLogin',
         'preemptLoginUsers'             => 'PreemptLoginUsers',
         'printerRedirection'            => 'PrinterRedirection',
+        'qualityEnhancement'            => 'QualityEnhancement',
         'recordContent'                 => 'RecordContent',
         'recordContentExpires'          => 'RecordContentExpires',
         'recording'                     => 'Recording',
@@ -806,8 +870,16 @@ class describePolicyGroups extends Model
         'remoteCoordinate'              => 'RemoteCoordinate',
         'scope'                         => 'Scope',
         'scopeValue'                    => 'ScopeValue',
+        'smoothEnhancement'             => 'SmoothEnhancement',
+        'streamingMode'                 => 'StreamingMode',
+        'targetFps'                     => 'TargetFps',
         'usbRedirect'                   => 'UsbRedirect',
         'usbSupplyRedirectRule'         => 'UsbSupplyRedirectRule',
+        'videoEncAvgKbps'               => 'VideoEncAvgKbps',
+        'videoEncMaxQP'                 => 'VideoEncMaxQP',
+        'videoEncMinQP'                 => 'VideoEncMinQP',
+        'videoEncPeakKbps'              => 'VideoEncPeakKbps',
+        'videoEncPolicy'                => 'VideoEncPolicy',
         'videoRedirect'                 => 'VideoRedirect',
         'visualQuality'                 => 'VisualQuality',
         'watermark'                     => 'Watermark',
@@ -871,6 +943,9 @@ class describePolicyGroups extends Model
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
         }
+        if (null !== $this->colorEnhancement) {
+            $res['ColorEnhancement'] = $this->colorEnhancement;
+        }
         if (null !== $this->cpuDownGradeDuration) {
             $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
         }
@@ -888,6 +963,9 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->cpuSingleRateLimit) {
             $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
+        }
+        if (null !== $this->displayMode) {
+            $res['DisplayMode'] = $this->displayMode;
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
@@ -927,6 +1005,9 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->maxReconnectTime) {
+            $res['MaxReconnectTime'] = $this->maxReconnectTime;
         }
         if (null !== $this->memoryDownGradeDuration) {
             $res['MemoryDownGradeDuration'] = $this->memoryDownGradeDuration;
@@ -979,6 +1060,9 @@ class describePolicyGroups extends Model
         if (null !== $this->printerRedirection) {
             $res['PrinterRedirection'] = $this->printerRedirection;
         }
+        if (null !== $this->qualityEnhancement) {
+            $res['QualityEnhancement'] = $this->qualityEnhancement;
+        }
         if (null !== $this->recordContent) {
             $res['RecordContent'] = $this->recordContent;
         }
@@ -1021,6 +1105,15 @@ class describePolicyGroups extends Model
         if (null !== $this->scopeValue) {
             $res['ScopeValue'] = $this->scopeValue;
         }
+        if (null !== $this->smoothEnhancement) {
+            $res['SmoothEnhancement'] = $this->smoothEnhancement;
+        }
+        if (null !== $this->streamingMode) {
+            $res['StreamingMode'] = $this->streamingMode;
+        }
+        if (null !== $this->targetFps) {
+            $res['TargetFps'] = $this->targetFps;
+        }
         if (null !== $this->usbRedirect) {
             $res['UsbRedirect'] = $this->usbRedirect;
         }
@@ -1032,6 +1125,21 @@ class describePolicyGroups extends Model
                     $res['UsbSupplyRedirectRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->videoEncAvgKbps) {
+            $res['VideoEncAvgKbps'] = $this->videoEncAvgKbps;
+        }
+        if (null !== $this->videoEncMaxQP) {
+            $res['VideoEncMaxQP'] = $this->videoEncMaxQP;
+        }
+        if (null !== $this->videoEncMinQP) {
+            $res['VideoEncMinQP'] = $this->videoEncMinQP;
+        }
+        if (null !== $this->videoEncPeakKbps) {
+            $res['VideoEncPeakKbps'] = $this->videoEncPeakKbps;
+        }
+        if (null !== $this->videoEncPolicy) {
+            $res['VideoEncPolicy'] = $this->videoEncPolicy;
         }
         if (null !== $this->videoRedirect) {
             $res['VideoRedirect'] = $this->videoRedirect;
@@ -1129,6 +1237,9 @@ class describePolicyGroups extends Model
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
         }
+        if (isset($map['ColorEnhancement'])) {
+            $model->colorEnhancement = $map['ColorEnhancement'];
+        }
         if (isset($map['CpuDownGradeDuration'])) {
             $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
         }
@@ -1148,6 +1259,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['CpuSingleRateLimit'])) {
             $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
+        }
+        if (isset($map['DisplayMode'])) {
+            $model->displayMode = $map['DisplayMode'];
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
@@ -1187,6 +1301,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['MaxReconnectTime'])) {
+            $model->maxReconnectTime = $map['MaxReconnectTime'];
         }
         if (isset($map['MemoryDownGradeDuration'])) {
             $model->memoryDownGradeDuration = $map['MemoryDownGradeDuration'];
@@ -1243,6 +1360,9 @@ class describePolicyGroups extends Model
         if (isset($map['PrinterRedirection'])) {
             $model->printerRedirection = $map['PrinterRedirection'];
         }
+        if (isset($map['QualityEnhancement'])) {
+            $model->qualityEnhancement = $map['QualityEnhancement'];
+        }
         if (isset($map['RecordContent'])) {
             $model->recordContent = $map['RecordContent'];
         }
@@ -1287,6 +1407,15 @@ class describePolicyGroups extends Model
                 $model->scopeValue = $map['ScopeValue'];
             }
         }
+        if (isset($map['SmoothEnhancement'])) {
+            $model->smoothEnhancement = $map['SmoothEnhancement'];
+        }
+        if (isset($map['StreamingMode'])) {
+            $model->streamingMode = $map['StreamingMode'];
+        }
+        if (isset($map['TargetFps'])) {
+            $model->targetFps = $map['TargetFps'];
+        }
         if (isset($map['UsbRedirect'])) {
             $model->usbRedirect = $map['UsbRedirect'];
         }
@@ -1298,6 +1427,21 @@ class describePolicyGroups extends Model
                     $model->usbSupplyRedirectRule[$n++] = null !== $item ? usbSupplyRedirectRule::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VideoEncAvgKbps'])) {
+            $model->videoEncAvgKbps = $map['VideoEncAvgKbps'];
+        }
+        if (isset($map['VideoEncMaxQP'])) {
+            $model->videoEncMaxQP = $map['VideoEncMaxQP'];
+        }
+        if (isset($map['VideoEncMinQP'])) {
+            $model->videoEncMinQP = $map['VideoEncMinQP'];
+        }
+        if (isset($map['VideoEncPeakKbps'])) {
+            $model->videoEncPeakKbps = $map['VideoEncPeakKbps'];
+        }
+        if (isset($map['VideoEncPolicy'])) {
+            $model->videoEncPolicy = $map['VideoEncPolicy'];
         }
         if (isset($map['VideoRedirect'])) {
             $model->videoRedirect = $map['VideoRedirect'];

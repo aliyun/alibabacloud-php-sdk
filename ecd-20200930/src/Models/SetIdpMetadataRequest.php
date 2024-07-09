@@ -20,6 +20,7 @@ class SetIdpMetadataRequest extends Model
     /**
      * @description The metadata of the IdP.
      *
+     * This parameter is required.
      * @example &lt;EntityDescriptor ID********Descriptor&gt;
      *
      * @var string
@@ -38,6 +39,7 @@ class SetIdpMetadataRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

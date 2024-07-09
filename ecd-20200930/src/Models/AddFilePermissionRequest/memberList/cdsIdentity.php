@@ -11,6 +11,7 @@ class cdsIdentity extends Model
     /**
      * @description The ID of the user.
      *
+     * This parameter is required.
      * @example user01
      *
      * @var string
@@ -28,7 +29,7 @@ class cdsIdentity extends Model
      *
      *   <!-- -->
      *
-     * <!-- -->
+     * This parameter is required.
      * @example IT_User
      *
      * @var string

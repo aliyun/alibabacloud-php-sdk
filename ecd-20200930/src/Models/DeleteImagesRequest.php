@@ -20,13 +20,15 @@ class DeleteImagesRequest extends Model
     /**
      * @description The image IDs. You can specify 1 to 100 image IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $imageId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

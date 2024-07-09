@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachEndUserRequest extends Model
 {
     /**
-     * @description The address of the Active Directory (AD) workspace.
+     * @description The address of the Active Directory (AD) office network.
      *
      * @example xn--0zw****
      *
@@ -18,11 +18,13 @@ class AttachEndUserRequest extends Model
     public $adDomain;
 
     /**
-     * @description The type of the Alibaba Cloud Workspace client that runs on the device.
+     * @description The type of the client.
      *
-     *   1: the hardware client
-     *   2: the software client
+     * Valid values:
      *
+     *   1: hardware client.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -30,8 +32,9 @@ class AttachEndUserRequest extends Model
     public $clientType;
 
     /**
-     * @description The ID of the device.
+     * @description The serial number (SN) of the hardware client.
      *
+     * This parameter is required.
      * @example 111810122200F0C24CF7F1BF-*05AY****
      *
      * @var string
@@ -39,7 +42,7 @@ class AttachEndUserRequest extends Model
     public $deviceId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the convenient office network.
      *
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
@@ -48,8 +51,9 @@ class AttachEndUserRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the user.
+     * @description The ID of the user that you want to bind to the hardware client.
      *
+     * This parameter is required.
      * @example moli
      *
      * @var string
@@ -57,7 +61,7 @@ class AttachEndUserRequest extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -68,8 +72,10 @@ class AttachEndUserRequest extends Model
     /**
      * @description The account type of the user.
      *
-     *   SIMPLE: the convenience user
-     *   AD: the AD user
+     * Valid values:
+     *
+     *   AD: enterprise AD account.
+     *   SIMPLE: convenience account
      *
      * @example SIMPLE
      *

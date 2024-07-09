@@ -28,8 +28,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +53,7 @@ class ListTagResourcesRequest extends Model
      *
      * ALIYUN::GWS::INSTANCE: cloud computer.
      *
+     * This parameter is required.
      * @example ALIYUN::GWS::INSTANCE
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDevicesRequest extends Model
 {
     /**
-     * @description The address of the Active Directory (AD) workspace.
+     * @description The address of the Active Directory (AD) office network.
      *
      * @example xn--0zw****
      *
@@ -18,11 +18,14 @@ class DescribeDevicesRequest extends Model
     public $adDomain;
 
     /**
-     * @description The type of the Alibaba Cloud Workspace client.
+     * @description The type of the client.
+     *
+     * Valid values:
      *
      *   1: hardware client.
      *   2: software client.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -30,7 +33,7 @@ class DescribeDevicesRequest extends Model
     public $clientType;
 
     /**
-     * @description The ID of the device.
+     * @description The ID of the device. The serial number (SN) of the hardware client or the UUID of the software client.
      *
      * @example 5F52817BE267A43C608D245070D2****
      *
@@ -39,7 +42,7 @@ class DescribeDevicesRequest extends Model
     public $deviceId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the convenient office network.
      *
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
@@ -48,7 +51,7 @@ class DescribeDevicesRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the convenience user to whom you want to bind the device.
+     * @description The ID of the bound user.
      *
      * @example moli
      *
@@ -57,7 +60,7 @@ class DescribeDevicesRequest extends Model
     public $endUserId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 10
      *
@@ -66,7 +69,7 @@ class DescribeDevicesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -75,7 +78,7 @@ class DescribeDevicesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *
@@ -84,10 +87,12 @@ class DescribeDevicesRequest extends Model
     public $region;
 
     /**
-     * @description The type of the user account.
+     * @description The account type of the user.
      *
-     *   SIMPLE: convenience account.
-     *   AD: AD account.
+     * Valid values:
+     *
+     *   AD: enterprise AD account.
+     *   SIMPLE: convenience account
      *
      * @example SIMPLE
      *

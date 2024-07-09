@@ -12,6 +12,7 @@ class RemoveFilePermissionRequest extends Model
     /**
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -30,6 +31,7 @@ class RemoveFilePermissionRequest extends Model
     /**
      * @description The file ID. The ID is a unique identifier for the file.
      *
+     * This parameter is required.
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -46,13 +48,15 @@ class RemoveFilePermissionRequest extends Model
     /**
      * @description The users that you want to authorize.
      *
+     * This parameter is required.
      * @var memberList[]
      */
     public $memberList;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -20,6 +20,7 @@ class SetDesktopGroupTimerRequest extends Model
     /**
      * @description The ID of the cloud computer pool.
      *
+     * This parameter is required.
      * @example dg-dbdkfmh883****
      *
      * @var string
@@ -36,8 +37,9 @@ class SetDesktopGroupTimerRequest extends Model
     public $force;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +66,7 @@ class SetDesktopGroupTimerRequest extends Model
      *   3: scheduled stop
      *   4: scheduled restart
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

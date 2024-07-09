@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopGroupsRequest extends Model
@@ -156,8 +157,9 @@ class DescribeDesktopGroupsRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -178,6 +180,13 @@ class DescribeDesktopGroupsRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @description The tags attached to the cloud computer pool. You can specify 1 to 20 tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'bundleId'           => 'BundleId',
         'desktopGroupId'     => 'DesktopGroupId',
@@ -195,6 +204,7 @@ class DescribeDesktopGroupsRequest extends Model
         'protocolType'       => 'ProtocolType',
         'regionId'           => 'RegionId',
         'status'             => 'Status',
+        'tag'                => 'Tag',
     ];
 
     public function validate()
@@ -251,6 +261,15 @@ class DescribeDesktopGroupsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -319,6 +338,15 @@ class DescribeDesktopGroupsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -11,6 +11,7 @@ class CreateCdsFileShareLinkRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-shanghai+cds-135515****
      *
      * @var string

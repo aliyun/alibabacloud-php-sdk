@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCloudDriveUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou+cds-596198****
      *
      * @var string
@@ -16,11 +18,15 @@ class ModifyCloudDriveUsersRequest extends Model
     public $cdsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

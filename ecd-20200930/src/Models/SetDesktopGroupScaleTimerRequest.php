@@ -12,6 +12,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
     /**
      * @description The ID of the cloud computer pool.
      *
+     * This parameter is required.
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -19,8 +20,9 @@ class SetDesktopGroupScaleTimerRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

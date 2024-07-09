@@ -11,13 +11,15 @@ class DeleteNetworkPackagesRequest extends Model
     /**
      * @description The IDs of premium bandwidth plans. You can specify one or more IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $networkPackageId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

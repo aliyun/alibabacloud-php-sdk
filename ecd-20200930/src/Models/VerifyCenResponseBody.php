@@ -37,7 +37,7 @@ class VerifyCenResponseBody extends Model
      *
      * Valid values:
      *
-     *   InvalidCen.CenUidInvalid: The Alibaba Cloud account is invalid or the Alibaba Cloud account does not have the permission to access WUYING Workspace.
+     *   InvalidCen.CenUidInvalid: The Alibaba Cloud account is invalid or the Alibaba Cloud account does not have the permission to access Elastic Desktop Service.
      *   VerifyCode.InvalidTokenCode: The verification code is invalid.
      *   VerifyCode.ReachTokenRetryTime: The maximum number of times for entering a verification code reaches the limit.
      *   Conflict: A CIDR block conflict exists. If the verification result of at least one route is Conflict, Conflict is returned for this parameter.

@@ -14,16 +14,9 @@ class logs extends Model
      * Valid values:
      *
      *   ERROR
-     *
-     * <!-- -->
-     *
      *   INFO
-     *
-     * <!-- -->
-     *
      *   WARN
      *
-     * <!-- -->
      * @example INFO
      *
      * @var string

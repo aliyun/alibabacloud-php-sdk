@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDevicesResponseBody extends Model
 {
     /**
-     * @description Details of the devices that are returned.
+     * @description The information about devices that you queried.
      *
      * @var devices[]
      */

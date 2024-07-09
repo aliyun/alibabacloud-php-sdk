@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
-     * @description Specifies whether to clear private data of users. If you set AutoCleanUserdata to `true`, the custom image clears the data directories, excluding the `Administrator` and `Public` directories, in the `C:\Users` directory.
+     * @description Specifies whether to clear private data of users. If you set AutoCleanUserdata to `true`, the custom image clears the data directories, excluding the `Administrator` and `Public` directories, in the `C:\\Users` directory.
      *
      * @example false
      *
@@ -46,7 +46,7 @@ class CreateImageRequest extends Model
     public $diskType;
 
     /**
-     * @description The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testImageName
      *
@@ -64,8 +64,9 @@ class CreateImageRequest extends Model
     public $imageResourceType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

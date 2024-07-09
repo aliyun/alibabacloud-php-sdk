@@ -18,6 +18,11 @@ class ModifyDesktopSpecResponseBody extends Model
     public $orderId;
 
     /**
+     * @var int[]
+     */
+    public $orderIds;
+
+    /**
      * @description The ID of the request.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -27,6 +32,7 @@ class ModifyDesktopSpecResponseBody extends Model
     public $requestId;
     protected $_name = [
         'orderId'   => 'OrderId',
+        'orderIds'  => 'OrderIds',
         'requestId' => 'RequestId',
     ];
 
@@ -39,6 +45,9 @@ class ModifyDesktopSpecResponseBody extends Model
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->orderIds) {
+            $res['OrderIds'] = $this->orderIds;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +66,11 @@ class ModifyDesktopSpecResponseBody extends Model
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['OrderIds'])) {
+            if (!empty($map['OrderIds'])) {
+                $model->orderIds = $map['OrderIds'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

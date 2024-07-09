@@ -11,6 +11,7 @@ class DeleteCloudDriveGroupsRequest extends Model
     /**
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-532033****
      *
      * @var string
@@ -27,6 +28,7 @@ class DeleteCloudDriveGroupsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

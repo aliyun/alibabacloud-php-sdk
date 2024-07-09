@@ -16,7 +16,7 @@ class ApplyCoordinationForMonitoringRequest extends Model
      *
      *   The value FULL_CONTROL specifies that the cloud desktop is shared and remote access to the cloud desktop is allowed.
      *
-     * <!-- -->
+     * This parameter is required.
      * @example FULL_CONTROL
      *
      * @var string
@@ -49,6 +49,7 @@ class ApplyCoordinationForMonitoringRequest extends Model
     /**
      * @description The region ID. You can call the [DescribeRegions](https://next.api.aliyun.com/document/ecd/2020-09-30/DescribeRegions) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +59,7 @@ class ApplyCoordinationForMonitoringRequest extends Model
     /**
      * @description The list of cloud desktops that run the collaboration task at the same time.
      *
+     * This parameter is required.
      * @var resourceCandidates[]
      */
     public $resourceCandidates;
@@ -65,6 +67,7 @@ class ApplyCoordinationForMonitoringRequest extends Model
     /**
      * @description The universally unique identifier (UUID) of the device.
      *
+     * This parameter is required.
      * @example 62f2f1f252f04e0e9d8bc****
      *
      * @var string

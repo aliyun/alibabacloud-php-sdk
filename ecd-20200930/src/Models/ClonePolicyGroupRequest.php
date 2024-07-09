@@ -11,6 +11,7 @@ class ClonePolicyGroupRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example testPolicyGroupName
      *
      * @var string
@@ -20,6 +21,7 @@ class ClonePolicyGroupRequest extends Model
     /**
      * @description The ID of the policy that you want to clone.
      *
+     * This parameter is required.
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -29,6 +31,7 @@ class ClonePolicyGroupRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

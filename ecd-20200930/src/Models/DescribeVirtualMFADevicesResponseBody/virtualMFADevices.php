@@ -36,7 +36,7 @@ class virtualMFADevices extends Model
     public $endUserId;
 
     /**
-     * @description The time when the virtual MFA device was started. The time follows the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the virtual MFA device was started. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-12-20T14:52:28Z
      *
@@ -45,7 +45,7 @@ class virtualMFADevices extends Model
     public $gmtEnabled;
 
     /**
-     * @description The time when a locked virtual MFA device was automatically unlocked. The time follows the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when a locked virtual MFA device was automatically unlocked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-12-21T15:21:28Z
      *

@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfficeSiteAttributeRequest extends Model
 {
     /**
-     * @description The method to connect to cloud computers from WUYING clients.
+     * @description The method to connect to cloud computers from Alibaba Cloud Workspace clients.
      *
      * Valid values:
      *
      *   INTERNET (default): allows end users to connect to cloud computers over the Internet.
      *   VPC: allows end users to connect to cloud computers over VPCs.
-     *   ANY: allows end users to connect to cloud computers over the Internet and VPCs. When end users connect to cloud computers from WUYING clients, you can choose a connection method based on your business requirements.
+     *   ANY: allows end users to connect to cloud computers over the Internet and VPCs. When end users connect to cloud computers from Elastic Desktop Service, you can choose a connection method based on your business requirements.
      *
      * @example INTERNET
      *
@@ -38,7 +38,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public $enableAdminAccess;
 
     /**
-     * @description Specifies whether to enable two-factor verification when an end user logs on to a WUYING client. This parameter is required only for convenience office networks. If two-factor verification is enabled, the system checks whether security risks exist within the logon account when the end user uses a convenience user to log on to the client. If risks are detected, the system sends a verification code to the email address that is associated with the account of the convenience user. Then, the end user can log on to the client only when the verification code is correct.
+     * @description Specifies whether to enable two-factor verification when an end user logs on to an Alibaba Cloud Workspace client. This parameter is required only for convenience office networks. If two-factor verification is enabled, the system checks whether security risks exist within the logon account when the end user uses a convenience user to log on to the client. If risks are detected, the system sends a verification code to the email address that is associated with the account of the convenience user. Then, the end user can log on to the client only when the verification code is correct.
      *
      * @example false
      *
@@ -58,6 +58,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @description The office network ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-882398****
      *
      * @var string
@@ -65,7 +66,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\
+     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\\
      * This parameter is empty by default.
      * @example test
      *
@@ -74,8 +75,9 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

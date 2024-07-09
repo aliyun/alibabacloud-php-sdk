@@ -11,6 +11,7 @@ class ConfigADConnectorUserRequest extends Model
     /**
      * @description The password of the AD user that has the permissions to join computers to domains.
      *
+     * This parameter is required.
      * @example testPassword
      *
      * @var string
@@ -20,7 +21,7 @@ class ConfigADConnectorUserRequest extends Model
     /**
      * @description The username of the AD user that has the permissions to join computers to domains.
      *
-     * After the username is configured, the cloud desktops in the same AD workspace are joined to the specified OU.
+     * This parameter is required.
      * @example Administrator
      *
      * @var string
@@ -28,7 +29,7 @@ class ConfigADConnectorUserRequest extends Model
     public $domainUserName;
 
     /**
-     * @description The name of the OU in the AD domain. You can call the [ListUserAdOrganizationUnits](~~311259~~) to obtain the OU name.
+     * @description The name of the OU in the AD domain. You can call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the OU name.
      *
      * @example example.com/Domain Controllers
      *
@@ -39,6 +40,7 @@ class ConfigADConnectorUserRequest extends Model
     /**
      * @description The ID of the AD workspace.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-778418****
      *
      * @var string
@@ -48,6 +50,7 @@ class ConfigADConnectorUserRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

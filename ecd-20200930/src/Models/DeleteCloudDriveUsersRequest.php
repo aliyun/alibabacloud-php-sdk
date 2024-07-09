@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudDriveUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou+cds-64326*****
      *
      * @var string
@@ -21,6 +23,8 @@ class DeleteCloudDriveUsersRequest extends Model
     public $endUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

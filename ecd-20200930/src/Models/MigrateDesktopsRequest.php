@@ -11,13 +11,15 @@ class MigrateDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -27,6 +29,7 @@ class MigrateDesktopsRequest extends Model
     /**
      * @description The ID of the destination office network.
      *
+     * This parameter is required.
      * @example cn-shenzhen+dir-388505****
      *
      * @var string

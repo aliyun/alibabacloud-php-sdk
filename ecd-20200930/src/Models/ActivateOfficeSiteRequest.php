@@ -11,6 +11,7 @@ class ActivateOfficeSiteRequest extends Model
     /**
      * @description The ID of the convenience office network that is locked.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-803704****
      *
      * @var string
@@ -18,8 +19,9 @@ class ActivateOfficeSiteRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

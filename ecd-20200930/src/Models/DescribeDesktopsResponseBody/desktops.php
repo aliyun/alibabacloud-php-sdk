@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\disks;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\fotaUpdate;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\resourceGroups;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\sessions;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\tags;
 use AlibabaCloud\Tea\Model;
@@ -492,6 +493,11 @@ class desktops extends Model
     public $protocolType;
 
     /**
+     * @var resourceGroups[]
+     */
+    public $resourceGroups;
+
+    /**
      * @description The type of the session.
      *
      * Valid values:
@@ -587,7 +593,7 @@ class desktops extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *
@@ -651,6 +657,7 @@ class desktops extends Model
         'policyGroupNameList'          => 'PolicyGroupNameList',
         'progress'                     => 'Progress',
         'protocolType'                 => 'ProtocolType',
+        'resourceGroups'               => 'ResourceGroups',
         'sessionType'                  => 'SessionType',
         'sessions'                     => 'Sessions',
         'snapshotPolicyId'             => 'SnapshotPolicyId',
@@ -818,6 +825,15 @@ class desktops extends Model
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->resourceGroups) {
+            $res['ResourceGroups'] = [];
+            if (null !== $this->resourceGroups && \is_array($this->resourceGroups)) {
+                $n = 0;
+                foreach ($this->resourceGroups as $item) {
+                    $res['ResourceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
@@ -1033,6 +1049,15 @@ class desktops extends Model
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['ResourceGroups'])) {
+            if (!empty($map['ResourceGroups'])) {
+                $model->resourceGroups = [];
+                $n                     = 0;
+                foreach ($map['ResourceGroups'] as $item) {
+                    $model->resourceGroups[$n++] = null !== $item ? resourceGroups::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];

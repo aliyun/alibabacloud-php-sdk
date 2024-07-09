@@ -52,7 +52,7 @@ class disks extends Model
      *   PL2
      *   PL3
      *
-     * For more information about the differences among ESSDs at different PLs, see [Enhanced SSDs](~~122389~~).
+     * For more information about the differences among ESSDs at different PLs, see [Enhanced SSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL0
      *
      * @var string

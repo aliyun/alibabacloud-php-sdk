@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
-     * @description The point in time at which the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+     * @description The point in time at which the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2020-12-20T14:52:28Z
      *
@@ -27,7 +27,7 @@ class snapshots extends Model
     public $creator;
 
     /**
-     * @description The time when the snapshot was deleted. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+     * @description The time when the snapshot was deleted. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2020-12-20T14:52:28Z
      *
@@ -214,7 +214,7 @@ class snapshots extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to query the list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *

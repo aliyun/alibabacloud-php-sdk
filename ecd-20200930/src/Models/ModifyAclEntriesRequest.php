@@ -17,6 +17,7 @@ class ModifyAclEntriesRequest extends Model
      *
      *   disable: forbids access to the Internet.
      *
+     * This parameter is required.
      * @example allow
      *
      * @var string
@@ -24,8 +25,9 @@ class ModifyAclEntriesRequest extends Model
     public $policy;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -35,6 +37,7 @@ class ModifyAclEntriesRequest extends Model
     /**
      * @description The instance IDs (office network IDs or cloud computer IDs) to which the Internet access control policy is applicable.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $sourceId;
@@ -48,6 +51,7 @@ class ModifyAclEntriesRequest extends Model
      *
      *   vpc: office network granularity.
      *
+     * This parameter is required.
      * @example desktop
      *
      * @var string

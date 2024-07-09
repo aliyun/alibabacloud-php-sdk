@@ -385,6 +385,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerStatusResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopMaintenanceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopMaintenanceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataRequest;
@@ -457,8 +459,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
-     *   *
+     * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+     *  *
+     * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+     *  *
      * @param ActivateOfficeSiteRequest $request ActivateOfficeSiteRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -493,8 +497,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
-     *   *
+     * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+     *  *
+     * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+     *  *
      * @param ActivateOfficeSiteRequest $request ActivateOfficeSiteRequest
      *
      * @return ActivateOfficeSiteResponse ActivateOfficeSiteResponse
@@ -507,10 +513,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddDesktopOversoldUserGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 添加桌面超卖用户组
+     *  *
+     * @param AddDesktopOversoldUserGroupRequest $request AddDesktopOversoldUserGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDesktopOversoldUserGroupResponse
+     * @return AddDesktopOversoldUserGroupResponse AddDesktopOversoldUserGroupResponse
      */
     public function addDesktopOversoldUserGroupWithOptions($request, $runtime)
     {
@@ -527,6 +535,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -547,9 +558,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddDesktopOversoldUserGroupRequest $request
+     * @summary 添加桌面超卖用户组
+     *  *
+     * @param AddDesktopOversoldUserGroupRequest $request AddDesktopOversoldUserGroupRequest
      *
-     * @return AddDesktopOversoldUserGroupResponse
+     * @return AddDesktopOversoldUserGroupResponse AddDesktopOversoldUserGroupResponse
      */
     public function addDesktopOversoldUserGroup($request)
     {
@@ -559,8 +572,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can add only one device to a tenant.
-     *   *
+     * @summary Adds trusted devices.
+     *  *
+     * @description Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+     *  *
      * @param AddDevicesRequest $request AddDevicesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -598,8 +613,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can add only one device to a tenant.
-     *   *
+     * @summary Adds trusted devices.
+     *  *
+     * @description Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+     *  *
      * @param AddDevicesRequest $request AddDevicesRequest
      *
      * @return AddDevicesResponse AddDevicesResponse
@@ -612,8 +629,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
-     *   *
+     * @summary Shares a folder of a cloud disk with other users.
+     *  *
+     * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     *  *
      * @param AddFilePermissionRequest $tmpReq  AddFilePermissionRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -665,8 +684,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
-     *   *
+     * @summary Shares a folder of a cloud disk with other users.
+     *  *
+     * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     *  *
      * @param AddFilePermissionRequest $request AddFilePermissionRequest
      *
      * @return AddFilePermissionResponse AddFilePermissionResponse
@@ -679,10 +700,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddUserToDesktopGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Adds authorized end users of a desktop group.
+     *  *
+     * @param AddUserToDesktopGroupRequest $request AddUserToDesktopGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToDesktopGroupResponse
+     * @return AddUserToDesktopGroupResponse AddUserToDesktopGroupResponse
      */
     public function addUserToDesktopGroupWithOptions($request, $runtime)
     {
@@ -722,9 +745,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddUserToDesktopGroupRequest $request
+     * @summary Adds authorized end users of a desktop group.
+     *  *
+     * @param AddUserToDesktopGroupRequest $request AddUserToDesktopGroupRequest
      *
-     * @return AddUserToDesktopGroupResponse
+     * @return AddUserToDesktopGroupResponse AddUserToDesktopGroupResponse
      */
     public function addUserToDesktopGroup($request)
     {
@@ -734,10 +759,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddUserToDesktopOversoldUserGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 添加用户到超卖用户组
+     *  *
+     * @param AddUserToDesktopOversoldUserGroupRequest $request AddUserToDesktopOversoldUserGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToDesktopOversoldUserGroupResponse
+     * @return AddUserToDesktopOversoldUserGroupResponse AddUserToDesktopOversoldUserGroupResponse
      */
     public function addUserToDesktopOversoldUserGroupWithOptions($request, $runtime)
     {
@@ -774,9 +801,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddUserToDesktopOversoldUserGroupRequest $request
+     * @summary 添加用户到超卖用户组
+     *  *
+     * @param AddUserToDesktopOversoldUserGroupRequest $request AddUserToDesktopOversoldUserGroupRequest
      *
-     * @return AddUserToDesktopOversoldUserGroupResponse
+     * @return AddUserToDesktopOversoldUserGroupResponse AddUserToDesktopOversoldUserGroupResponse
      */
     public function addUserToDesktopOversoldUserGroup($request)
     {
@@ -786,9 +815,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-     *   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
-     *   *
+     * @summary Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
+     *  *
+     * @description You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
+     * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+     *  *
      * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -826,9 +857,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-     *   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
-     *   *
+     * @summary Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
+     *  *
+     * @description You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
+     * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+     *  *
      * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      *
      * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
@@ -841,10 +874,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApplyCoordinatePrivilegeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Applies for the coordinate permissions.
+     *  *
+     * @param ApplyCoordinatePrivilegeRequest $request ApplyCoordinatePrivilegeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyCoordinatePrivilegeResponse
+     * @return ApplyCoordinatePrivilegeResponse ApplyCoordinatePrivilegeResponse
      */
     public function applyCoordinatePrivilegeWithOptions($request, $runtime)
     {
@@ -884,9 +919,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApplyCoordinatePrivilegeRequest $request
+     * @summary Applies for the coordinate permissions.
+     *  *
+     * @param ApplyCoordinatePrivilegeRequest $request ApplyCoordinatePrivilegeRequest
      *
-     * @return ApplyCoordinatePrivilegeResponse
+     * @return ApplyCoordinatePrivilegeResponse ApplyCoordinatePrivilegeResponse
      */
     public function applyCoordinatePrivilege($request)
     {
@@ -896,10 +933,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApplyCoordinationForMonitoringRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+     *  *
+     * @param ApplyCoordinationForMonitoringRequest $request ApplyCoordinationForMonitoringRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyCoordinationForMonitoringResponse
+     * @return ApplyCoordinationForMonitoringResponse ApplyCoordinationForMonitoringResponse
      */
     public function applyCoordinationForMonitoringWithOptions($request, $runtime)
     {
@@ -942,9 +981,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ApplyCoordinationForMonitoringRequest $request
+     * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+     *  *
+     * @param ApplyCoordinationForMonitoringRequest $request ApplyCoordinationForMonitoringRequest
      *
-     * @return ApplyCoordinationForMonitoringResponse
+     * @return ApplyCoordinationForMonitoringResponse ApplyCoordinationForMonitoringResponse
      */
     public function applyCoordinationForMonitoring($request)
     {
@@ -954,8 +995,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers for which you want to allow image updates must be in the Running state.
-     *   *
+     * @summary Allows you to upgrade images.
+     *  *
+     * @description The cloud computers for which you want to allow image updates must be in the Running state.
+     *  *
      * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -993,8 +1036,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers for which you want to allow image updates must be in the Running state.
-     *   *
+     * @summary Allows you to upgrade images.
+     *  *
+     * @description The cloud computers for which you want to allow image updates must be in the Running state.
+     *  *
      * @param ApproveFotaUpdateRequest $request ApproveFotaUpdateRequest
      *
      * @return ApproveFotaUpdateResponse ApproveFotaUpdateResponse
@@ -1007,10 +1052,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AssociateNetworkPackageRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+     *  *
+     * @param AssociateNetworkPackageRequest $request AssociateNetworkPackageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateNetworkPackageResponse
+     * @return AssociateNetworkPackageResponse AssociateNetworkPackageResponse
      */
     public function associateNetworkPackageWithOptions($request, $runtime)
     {
@@ -1044,9 +1091,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AssociateNetworkPackageRequest $request
+     * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+     *  *
+     * @param AssociateNetworkPackageRequest $request AssociateNetworkPackageRequest
      *
-     * @return AssociateNetworkPackageResponse
+     * @return AssociateNetworkPackageResponse AssociateNetworkPackageResponse
      */
     public function associateNetworkPackage($request)
     {
@@ -1056,11 +1105,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Prerequisites
-     *   * *   A CEN instance is created.
-     *   * *   The office network is an advanced office network, and the account system type is convenient account.
-     *   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
-     *   *
+     * @summary Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description Prerequisites
+     * *   A CEN instance is created.
+     * *   The office network is an advanced office network, and the account system type is convenient account.
+     * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+     *  *
      * @param AttachCenRequest $request AttachCenRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1104,11 +1155,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Prerequisites
-     *   * *   A CEN instance is created.
-     *   * *   The office network is an advanced office network, and the account system type is convenient account.
-     *   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
-     *   *
+     * @summary Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description Prerequisites
+     * *   A CEN instance is created.
+     * *   The office network is an advanced office network, and the account system type is convenient account.
+     * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+     *  *
      * @param AttachCenRequest $request AttachCenRequest
      *
      * @return AttachCenResponse AttachCenResponse
@@ -1121,10 +1174,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AttachEndUserRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Binds a hardware client to a user.
+     *  *
+     * @param AttachEndUserRequest $request AttachEndUserRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachEndUserResponse
+     * @return AttachEndUserResponse AttachEndUserResponse
      */
     public function attachEndUserWithOptions($request, $runtime)
     {
@@ -1170,9 +1225,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AttachEndUserRequest $request
+     * @summary Binds a hardware client to a user.
+     *  *
+     * @param AttachEndUserRequest $request AttachEndUserRequest
      *
-     * @return AttachEndUserResponse
+     * @return AttachEndUserResponse AttachEndUserResponse
      */
     public function attachEndUser($request)
     {
@@ -1182,10 +1239,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelAutoSnapshotPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Cancels an automatic snapshot policy for cloud computers.
+     *  *
+     * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelAutoSnapshotPolicyResponse
+     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicyWithOptions($request, $runtime)
     {
@@ -1219,9 +1278,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelAutoSnapshotPolicyRequest $request
+     * @summary Cancels an automatic snapshot policy for cloud computers.
+     *  *
+     * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
      *
-     * @return CancelAutoSnapshotPolicyResponse
+     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicy($request)
     {
@@ -1231,10 +1292,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCdsFileShareLinkRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Cancels a file sharing task.
+     *  *
+     * @param CancelCdsFileShareLinkRequest $request CancelCdsFileShareLinkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelCdsFileShareLinkResponse
+     * @return CancelCdsFileShareLinkResponse CancelCdsFileShareLinkResponse
      */
     public function cancelCdsFileShareLinkWithOptions($request, $runtime)
     {
@@ -1265,9 +1328,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCdsFileShareLinkRequest $request
+     * @summary Cancels a file sharing task.
+     *  *
+     * @param CancelCdsFileShareLinkRequest $request CancelCdsFileShareLinkRequest
      *
-     * @return CancelCdsFileShareLinkResponse
+     * @return CancelCdsFileShareLinkResponse CancelCdsFileShareLinkResponse
      */
     public function cancelCdsFileShareLink($request)
     {
@@ -1277,10 +1342,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCoordinationForMonitoringRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Cancels monitoring on stream collaboration.
+     *  *
+     * @param CancelCoordinationForMonitoringRequest $request CancelCoordinationForMonitoringRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelCoordinationForMonitoringResponse
+     * @return CancelCoordinationForMonitoringResponse CancelCoordinationForMonitoringResponse
      */
     public function cancelCoordinationForMonitoringWithOptions($request, $runtime)
     {
@@ -1317,9 +1384,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCoordinationForMonitoringRequest $request
+     * @summary Cancels monitoring on stream collaboration.
+     *  *
+     * @param CancelCoordinationForMonitoringRequest $request CancelCoordinationForMonitoringRequest
      *
-     * @return CancelCoordinationForMonitoringResponse
+     * @return CancelCoordinationForMonitoringResponse CancelCoordinationForMonitoringResponse
      */
     public function cancelCoordinationForMonitoring($request)
     {
@@ -1329,10 +1398,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCopyImageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Cancels the operation of copying an image to another region.
+     *  *
+     * @param CancelCopyImageRequest $request CancelCopyImageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelCopyImageResponse
+     * @return CancelCopyImageResponse CancelCopyImageResponse
      */
     public function cancelCopyImageWithOptions($request, $runtime)
     {
@@ -1363,9 +1434,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CancelCopyImageRequest $request
+     * @summary Cancels the operation of copying an image to another region.
+     *  *
+     * @param CancelCopyImageRequest $request CancelCopyImageRequest
      *
-     * @return CancelCopyImageResponse
+     * @return CancelCopyImageResponse CancelCopyImageResponse
      */
     public function cancelCopyImage($request)
     {
@@ -1375,10 +1448,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ClonePolicyGroupRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Clones an existing policy.
+     *  *
+     * @param ClonePolicyGroupRequest $request ClonePolicyGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClonePolicyGroupResponse
+     * @return ClonePolicyGroupResponse ClonePolicyGroupResponse
      */
     public function clonePolicyGroupWithOptions($request, $runtime)
     {
@@ -1412,9 +1487,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ClonePolicyGroupRequest $request
+     * @summary Clones an existing policy.
+     *  *
+     * @param ClonePolicyGroupRequest $request ClonePolicyGroupRequest
      *
-     * @return ClonePolicyGroupResponse
+     * @return ClonePolicyGroupResponse ClonePolicyGroupResponse
      */
     public function clonePolicyGroup($request)
     {
@@ -1424,10 +1501,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CompleteCdsFileRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Completes a file uploading task.
+     *  *
+     * @param CompleteCdsFileRequest $request CompleteCdsFileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompleteCdsFileResponse
+     * @return CompleteCdsFileResponse CompleteCdsFileResponse
      */
     public function completeCdsFileWithOptions($request, $runtime)
     {
@@ -1470,9 +1549,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CompleteCdsFileRequest $request
+     * @summary Completes a file uploading task.
+     *  *
+     * @param CompleteCdsFileRequest $request CompleteCdsFileRequest
      *
-     * @return CompleteCdsFileResponse
+     * @return CompleteCdsFileResponse CompleteCdsFileResponse
      */
     public function completeCdsFile($request)
     {
@@ -1482,10 +1563,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ConfigADConnectorTrustRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+     *  *
+     * @param ConfigADConnectorTrustRequest $request ConfigADConnectorTrustRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigADConnectorTrustResponse
+     * @return ConfigADConnectorTrustResponse ConfigADConnectorTrustResponse
      */
     public function configADConnectorTrustWithOptions($request, $runtime)
     {
@@ -1522,9 +1605,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ConfigADConnectorTrustRequest $request
+     * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+     *  *
+     * @param ConfigADConnectorTrustRequest $request ConfigADConnectorTrustRequest
      *
-     * @return ConfigADConnectorTrustResponse
+     * @return ConfigADConnectorTrustResponse ConfigADConnectorTrustResponse
      */
     public function configADConnectorTrust($request)
     {
@@ -1534,10 +1619,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ConfigADConnectorUserRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ConfigADConnectorUserRequest $request ConfigADConnectorUserRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigADConnectorUserResponse
+     * @return ConfigADConnectorUserResponse ConfigADConnectorUserResponse
      */
     public function configADConnectorUserWithOptions($request, $runtime)
     {
@@ -1577,9 +1662,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ConfigADConnectorUserRequest $request
+     * @param ConfigADConnectorUserRequest $request ConfigADConnectorUserRequest
      *
-     * @return ConfigADConnectorUserResponse
+     * @return ConfigADConnectorUserResponse ConfigADConnectorUserResponse
      */
     public function configADConnectorUser($request)
     {
@@ -1589,10 +1674,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CopyCdsFileRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Copies a file or a directory.
+     *  *
+     * @param CopyCdsFileRequest $request CopyCdsFileRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyCdsFileResponse
+     * @return CopyCdsFileResponse CopyCdsFileResponse
      */
     public function copyCdsFileWithOptions($request, $runtime)
     {
@@ -1644,9 +1731,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CopyCdsFileRequest $request
+     * @summary Copies a file or a directory.
+     *  *
+     * @param CopyCdsFileRequest $request CopyCdsFileRequest
      *
-     * @return CopyCdsFileResponse
+     * @return CopyCdsFileResponse CopyCdsFileResponse
      */
     public function copyCdsFile($request)
     {
@@ -1656,10 +1745,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CopyImageRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+     *  *
+     * @param CopyImageRequest $request CopyImageRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyImageResponse
+     * @return CopyImageResponse CopyImageResponse
      */
     public function copyImageWithOptions($request, $runtime)
     {
@@ -1699,9 +1790,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CopyImageRequest $request
+     * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+     *  *
+     * @param CopyImageRequest $request CopyImageRequest
      *
-     * @return CopyImageResponse
+     * @return CopyImageResponse CopyImageResponse
      */
     public function copyImage($request)
     {
@@ -1711,8 +1804,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
-     *   *
+     * @summary Creates a directory of the Active Directory (AD) type.
+     *  *
+     * @description An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     *  *
      * @param CreateADConnectorDirectoryRequest $request CreateADConnectorDirectoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1780,8 +1875,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
-     *   *
+     * @summary Creates a directory of the Active Directory (AD) type.
+     *  *
+     * @description An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     *  *
      * @param CreateADConnectorDirectoryRequest $request CreateADConnectorDirectoryRequest
      *
      * @return CreateADConnectorDirectoryResponse CreateADConnectorDirectoryResponse
@@ -1794,14 +1891,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](~~188395~~).
-     *   * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
-     *   * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
-     *   * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship with the AD office network.
-     *   * 3.  Call the [ListUserAdOrganizationUnits](~~311259~~) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and administrator for the AD office network.
-     *   *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
-     *   * For more information, see [Create and manage enterprise AD office networks](~~214469~~).
-     *   *
+     * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+     *  *
+     * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
+     * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
+     * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
+     * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
+     *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
+     * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+     *  *
      * @param CreateADConnectorOfficeSiteRequest $request CreateADConnectorOfficeSiteRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1813,6 +1912,12 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->adHostname)) {
             $query['AdHostname'] = $request->adHostname;
+        }
+        if (!Utils::isUnset($request->backupDCHostname)) {
+            $query['BackupDCHostname'] = $request->backupDCHostname;
+        }
+        if (!Utils::isUnset($request->backupDns)) {
+            $query['BackupDns'] = $request->backupDns;
         }
         if (!Utils::isUnset($request->bandwidth)) {
             $query['Bandwidth'] = $request->bandwidth;
@@ -1890,14 +1995,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](~~188395~~).
-     *   * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
-     *   * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
-     *   * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship with the AD office network.
-     *   * 3.  Call the [ListUserAdOrganizationUnits](~~311259~~) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and administrator for the AD office network.
-     *   *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
-     *   * For more information, see [Create and manage enterprise AD office networks](~~214469~~).
-     *   *
+     * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+     *  *
+     * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
+     * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
+     * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
+     * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
+     *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
+     * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+     *  *
      * @param CreateADConnectorOfficeSiteRequest $request CreateADConnectorOfficeSiteRequest
      *
      * @return CreateADConnectorOfficeSiteResponse CreateADConnectorOfficeSiteResponse
@@ -1910,10 +2017,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateAndBindNasFileSystemRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+     *  *
+     * @param CreateAndBindNasFileSystemRequest $request CreateAndBindNasFileSystemRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAndBindNasFileSystemResponse
+     * @return CreateAndBindNasFileSystemResponse CreateAndBindNasFileSystemResponse
      */
     public function createAndBindNasFileSystemWithOptions($request, $runtime)
     {
@@ -1962,9 +2071,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateAndBindNasFileSystemRequest $request
+     * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+     *  *
+     * @param CreateAndBindNasFileSystemRequest $request CreateAndBindNasFileSystemRequest
      *
-     * @return CreateAndBindNasFileSystemResponse
+     * @return CreateAndBindNasFileSystemResponse CreateAndBindNasFileSystemResponse
      */
     public function createAndBindNasFileSystem($request)
     {
@@ -1974,8 +2085,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
-     *   *
+     * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
+     *  *
+     * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+     *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2016,8 +2129,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
-     *   *
+     * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
+     *  *
+     * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+     *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      *
      * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
@@ -2030,8 +2145,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
-     *   *
+     * @summary Creates a custom cloud computer template.
+     *  *
+     * @description Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+     *  *
      * @param CreateBundleRequest $request CreateBundleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2090,8 +2207,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
-     *   *
+     * @summary Creates a custom cloud computer template.
+     *  *
+     * @description Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+     *  *
      * @param CreateBundleRequest $request CreateBundleRequest
      *
      * @return CreateBundleResponse CreateBundleResponse
@@ -2104,8 +2223,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
-     *   *
+     * @summary Uploads a file to a cloud disk.
+     *  *
+     * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+     *  *
      * @param CreateCdsFileRequest $request CreateCdsFileRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2164,8 +2285,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
-     *   *
+     * @summary Uploads a file to a cloud disk.
+     *  *
+     * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+     *  *
      * @param CreateCdsFileRequest $request CreateCdsFileRequest
      *
      * @return CreateCdsFileResponse CreateCdsFileResponse
@@ -2178,10 +2301,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCdsFileShareLinkRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a file sharing task.
+     *  *
+     * @param CreateCdsFileShareLinkRequest $request CreateCdsFileShareLinkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCdsFileShareLinkResponse
+     * @return CreateCdsFileShareLinkResponse CreateCdsFileShareLinkResponse
      */
     public function createCdsFileShareLinkWithOptions($request, $runtime)
     {
@@ -2248,9 +2373,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCdsFileShareLinkRequest $request
+     * @summary Creates a file sharing task.
+     *  *
+     * @param CreateCdsFileShareLinkRequest $request CreateCdsFileShareLinkRequest
      *
-     * @return CreateCdsFileShareLinkResponse
+     * @return CreateCdsFileShareLinkResponse CreateCdsFileShareLinkResponse
      */
     public function createCdsFileShareLink($request)
     {
@@ -2260,10 +2387,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudDriveServiceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a cloud disk.
+     *  *
+     * @param CreateCloudDriveServiceRequest $request CreateCloudDriveServiceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCloudDriveServiceResponse
+     * @return CreateCloudDriveServiceResponse CreateCloudDriveServiceResponse
      */
     public function createCloudDriveServiceWithOptions($request, $runtime)
     {
@@ -2339,9 +2468,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudDriveServiceRequest $request
+     * @summary Creates a cloud disk.
+     *  *
+     * @param CreateCloudDriveServiceRequest $request CreateCloudDriveServiceRequest
      *
-     * @return CreateCloudDriveServiceResponse
+     * @return CreateCloudDriveServiceResponse CreateCloudDriveServiceResponse
      */
     public function createCloudDriveService($request)
     {
@@ -2351,10 +2482,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudDriveUsersRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates the users of a cloud disk.
+     *  *
+     * @param CreateCloudDriveUsersRequest $request CreateCloudDriveUsersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCloudDriveUsersResponse
+     * @return CreateCloudDriveUsersResponse CreateCloudDriveUsersResponse
      */
     public function createCloudDriveUsersWithOptions($request, $runtime)
     {
@@ -2391,9 +2524,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudDriveUsersRequest $request
+     * @summary Creates the users of a cloud disk.
+     *  *
+     * @param CreateCloudDriveUsersRequest $request CreateCloudDriveUsersRequest
      *
-     * @return CreateCloudDriveUsersResponse
+     * @return CreateCloudDriveUsersResponse CreateCloudDriveUsersResponse
      */
     public function createCloudDriveUsers($request)
     {
@@ -2403,10 +2538,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-     *   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](~~290959~~) of desktop groups.
-     *   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
-     *   *
+     * @summary Creates a cloud computer pool (formerly desktop group).
+     *  *
+     * @description Before you call this operation to create a desktop group, make sure that the following operations are complete:
+     * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
+     * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+     *  *
      * @param CreateDesktopGroupRequest $request CreateDesktopGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2521,6 +2658,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->stopDuration)) {
             $query['StopDuration'] = $request->stopDuration;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->volumeEncryptionEnabled)) {
             $query['VolumeEncryptionEnabled'] = $request->volumeEncryptionEnabled;
         }
@@ -2549,10 +2689,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-     *   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](~~290959~~) of desktop groups.
-     *   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
-     *   *
+     * @summary Creates a cloud computer pool (formerly desktop group).
+     *  *
+     * @description Before you call this operation to create a desktop group, make sure that the following operations are complete:
+     * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
+     * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+     *  *
      * @param CreateDesktopGroupRequest $request CreateDesktopGroupRequest
      *
      * @return CreateDesktopGroupResponse CreateDesktopGroupResponse
@@ -2565,10 +2707,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 创建桌面超卖组
+     *  *
+     * @param CreateDesktopOversoldGroupRequest $request CreateDesktopOversoldGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDesktopOversoldGroupResponse
+     * @return CreateDesktopOversoldGroupResponse CreateDesktopOversoldGroupResponse
      */
     public function createDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -2641,9 +2785,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateDesktopOversoldGroupRequest $request
+     * @summary 创建桌面超卖组
+     *  *
+     * @param CreateDesktopOversoldGroupRequest $request CreateDesktopOversoldGroupRequest
      *
-     * @return CreateDesktopOversoldGroupResponse
+     * @return CreateDesktopOversoldGroupResponse CreateDesktopOversoldGroupResponse
      */
     public function createDesktopOversoldGroup($request)
     {
@@ -2653,14 +2799,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create cloud computers, complete the following preparations:
-     *   * *   An office network (formerly called workspace) and users are created. For more information, see:
-     *   *     *   Convenience office network: [CreateSimpleOfficeSite](~~215416~~) and [CreateUsers](~~437832~~).
-     *   *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](~~215417~~) and [Create an AD user](~~188619~~).
-     *   * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](~~188883~~) operation to create a template.
-     *   * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](~~188889~~) operation to create a policy.
-     *   * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
-     *   *
+     * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+     *  *
+     * @description Before you create cloud computers, complete the following preparations:
+     * *   An office network (formerly called workspace) and users are created. For more information, see:
+     *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
+     * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
+     * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
+     * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+     *  *
      * @param CreateDesktopsRequest $request CreateDesktopsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2773,14 +2921,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create cloud computers, complete the following preparations:
-     *   * *   An office network (formerly called workspace) and users are created. For more information, see:
-     *   *     *   Convenience office network: [CreateSimpleOfficeSite](~~215416~~) and [CreateUsers](~~437832~~).
-     *   *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](~~215417~~) and [Create an AD user](~~188619~~).
-     *   * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](~~188883~~) operation to create a template.
-     *   * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](~~188889~~) operation to create a policy.
-     *   * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
-     *   *
+     * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+     *  *
+     * @description Before you create cloud computers, complete the following preparations:
+     * *   An office network (formerly called workspace) and users are created. For more information, see:
+     *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
+     * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
+     * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
+     * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+     *  *
      * @param CreateDesktopsRequest $request CreateDesktopsRequest
      *
      * @return CreateDesktopsResponse CreateDesktopsResponse
@@ -2793,10 +2943,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateDiskEncryptionServiceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateDiskEncryptionServiceRequest $request CreateDiskEncryptionServiceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDiskEncryptionServiceResponse
+     * @return CreateDiskEncryptionServiceResponse CreateDiskEncryptionServiceResponse
      */
     public function createDiskEncryptionServiceWithOptions($request, $runtime)
     {
@@ -2824,9 +2976,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateDiskEncryptionServiceRequest $request
+     * @summary Enables the disk encryption feature and adds the service-linked role that is encrypted by Cloud Drive Service to a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateDiskEncryptionServiceRequest $request CreateDiskEncryptionServiceRequest
      *
-     * @return CreateDiskEncryptionServiceResponse
+     * @return CreateDiskEncryptionServiceResponse CreateDiskEncryptionServiceResponse
      */
     public function createDiskEncryptionService($request)
     {
@@ -2836,10 +2990,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+     *  *
+     * @param CreateImageRequest $request CreateImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImageWithOptions($request, $runtime)
     {
@@ -2891,9 +3047,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
+     * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+     *  *
+     * @param CreateImageRequest $request CreateImageRequest
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImage($request)
     {
@@ -2903,10 +3061,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateNASFileSystemRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNASFileSystemResponse
+     * @return CreateNASFileSystemResponse CreateNASFileSystemResponse
      */
     public function createNASFileSystemWithOptions($request, $runtime)
     {
@@ -2949,9 +3107,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateNASFileSystemRequest $request
+     * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
      *
-     * @return CreateNASFileSystemResponse
+     * @return CreateNASFileSystemResponse CreateNASFileSystemResponse
      */
     public function createNASFileSystem($request)
     {
@@ -2961,10 +3119,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkPackageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a premium bandwidth plan for an office network.
+     *  *
+     * @param CreateNetworkPackageRequest $request CreateNetworkPackageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkPackageResponse
+     * @return CreateNetworkPackageResponse CreateNetworkPackageResponse
      */
     public function createNetworkPackageWithOptions($request, $runtime)
     {
@@ -3019,9 +3179,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkPackageRequest $request
+     * @summary Creates a premium bandwidth plan for an office network.
+     *  *
+     * @param CreateNetworkPackageRequest $request CreateNetworkPackageRequest
      *
-     * @return CreateNetworkPackageResponse
+     * @return CreateNetworkPackageResponse CreateNetworkPackageResponse
      */
     public function createNetworkPackage($request)
     {
@@ -3031,8 +3193,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](~~189345~~).
-     *   *
+     * @summary Creates a policy.
+     *  *
+     * @description A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     *  *
      * @param CreatePolicyGroupRequest $request CreatePolicyGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3092,6 +3256,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->localDrive)) {
             $query['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->maxReconnectTime)) {
+            $query['MaxReconnectTime'] = $request->maxReconnectTime;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -3220,8 +3387,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](~~189345~~).
-     *   *
+     * @summary Creates a policy.
+     *  *
+     * @description A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     *  *
      * @param CreatePolicyGroupRequest $request CreatePolicyGroupRequest
      *
      * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
@@ -3234,10 +3403,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create a RAM directory, complete the following preparations:
-     *   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
-     *   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
-     *   *
+     * @summary Creates a Resource Access Management (RAM) directory.
+     *  *
+     * @description Before you create a RAM directory, complete the following preparations:
+     * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
+     * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+     *  *
      * @param CreateRAMDirectoryRequest $request CreateRAMDirectoryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3284,10 +3455,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you create a RAM directory, complete the following preparations:
-     *   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
-     *   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
-     *   *
+     * @summary Creates a Resource Access Management (RAM) directory.
+     *  *
+     * @description Before you create a RAM directory, complete the following preparations:
+     * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
+     * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+     *  *
      * @param CreateRAMDirectoryRequest $request CreateRAMDirectoryRequest
      *
      * @return CreateRAMDirectoryResponse CreateRAMDirectoryResponse
@@ -3300,10 +3473,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateSimpleOfficeSiteRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+     *  *
+     * @param CreateSimpleOfficeSiteRequest $request CreateSimpleOfficeSiteRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimpleOfficeSiteResponse
+     * @return CreateSimpleOfficeSiteResponse CreateSimpleOfficeSiteResponse
      */
     public function createSimpleOfficeSiteWithOptions($request, $runtime)
     {
@@ -3370,9 +3545,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateSimpleOfficeSiteRequest $request
+     * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+     *  *
+     * @param CreateSimpleOfficeSiteRequest $request CreateSimpleOfficeSiteRequest
      *
-     * @return CreateSimpleOfficeSiteResponse
+     * @return CreateSimpleOfficeSiteResponse CreateSimpleOfficeSiteResponse
      */
     public function createSimpleOfficeSite($request)
     {
@@ -3382,8 +3559,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer must be in the **Running** or **Stopped** state.
-     *   *
+     * @summary Create a snapshot for a disk of a cloud computer to back up or restore the data on the disk.
+     *  *
+     * @description The cloud computer must be in the **Running** or **Stopped** state.
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3427,8 +3606,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer must be in the **Running** or **Stopped** state.
-     *   *
+     * @summary Create a snapshot for a disk of a cloud computer to back up or restore the data on the disk.
+     *  *
+     * @description The cloud computer must be in the **Running** or **Stopped** state.
+     *  *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
      * @return CreateSnapshotResponse CreateSnapshotResponse
@@ -3441,10 +3622,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoSnapshotPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes an automatic snapshot policy.
+     *  *
+     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAutoSnapshotPolicyResponse
+     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicyWithOptions($request, $runtime)
     {
@@ -3475,9 +3658,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoSnapshotPolicyRequest $request
+     * @summary Deletes an automatic snapshot policy.
+     *  *
+     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      *
-     * @return DeleteAutoSnapshotPolicyResponse
+     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicy($request)
     {
@@ -3487,10 +3672,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteBundlesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes custom cloud computer templates.
+     *  *
+     * @param DeleteBundlesRequest $request DeleteBundlesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBundlesResponse
+     * @return DeleteBundlesResponse DeleteBundlesResponse
      */
     public function deleteBundlesWithOptions($request, $runtime)
     {
@@ -3521,9 +3708,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteBundlesRequest $request
+     * @summary Deletes custom cloud computer templates.
+     *  *
+     * @param DeleteBundlesRequest $request DeleteBundlesRequest
      *
-     * @return DeleteBundlesResponse
+     * @return DeleteBundlesResponse DeleteBundlesResponse
      */
     public function deleteBundles($request)
     {
@@ -3533,10 +3722,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCdsFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+     *  *
+     * @param DeleteCdsFileRequest $request DeleteCdsFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCdsFileResponse
+     * @return DeleteCdsFileResponse DeleteCdsFileResponse
      */
     public function deleteCdsFileWithOptions($request, $runtime)
     {
@@ -3576,9 +3767,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCdsFileRequest $request
+     * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+     *  *
+     * @param DeleteCdsFileRequest $request DeleteCdsFileRequest
      *
-     * @return DeleteCdsFileResponse
+     * @return DeleteCdsFileResponse DeleteCdsFileResponse
      */
     public function deleteCdsFile($request)
     {
@@ -3588,10 +3781,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCloudDriveGroupsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes team spaces.
+     *  *
+     * @param DeleteCloudDriveGroupsRequest $request DeleteCloudDriveGroupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCloudDriveGroupsResponse
+     * @return DeleteCloudDriveGroupsResponse DeleteCloudDriveGroupsResponse
      */
     public function deleteCloudDriveGroupsWithOptions($request, $runtime)
     {
@@ -3625,9 +3820,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCloudDriveGroupsRequest $request
+     * @summary Deletes team spaces.
+     *  *
+     * @param DeleteCloudDriveGroupsRequest $request DeleteCloudDriveGroupsRequest
      *
-     * @return DeleteCloudDriveGroupsResponse
+     * @return DeleteCloudDriveGroupsResponse DeleteCloudDriveGroupsResponse
      */
     public function deleteCloudDriveGroups($request)
     {
@@ -3637,10 +3834,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCloudDriveUsersRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除无影网盘中的终端用户
+     *  *
+     * @param DeleteCloudDriveUsersRequest $request DeleteCloudDriveUsersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCloudDriveUsersResponse
+     * @return DeleteCloudDriveUsersResponse DeleteCloudDriveUsersResponse
      */
     public function deleteCloudDriveUsersWithOptions($request, $runtime)
     {
@@ -3674,9 +3873,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteCloudDriveUsersRequest $request
+     * @summary 删除无影网盘中的终端用户
+     *  *
+     * @param DeleteCloudDriveUsersRequest $request DeleteCloudDriveUsersRequest
      *
-     * @return DeleteCloudDriveUsersResponse
+     * @return DeleteCloudDriveUsersResponse DeleteCloudDriveUsersResponse
      */
     public function deleteCloudDriveUsers($request)
     {
@@ -3686,10 +3887,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-     *   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-     *   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
-     *   *
+     * @summary Releases a desktop group.
+     *  *
+     * @description *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
+     * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
+     * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+     *  *
      * @param DeleteDesktopGroupRequest $request DeleteDesktopGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3724,10 +3927,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-     *   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-     *   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
-     *   *
+     * @summary Releases a desktop group.
+     *  *
+     * @description *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
+     * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
+     * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+     *  *
      * @param DeleteDesktopGroupRequest $request DeleteDesktopGroupRequest
      *
      * @return DeleteDesktopGroupResponse DeleteDesktopGroupResponse
@@ -3740,10 +3945,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteDesktopsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+     *  *
+     * @param DeleteDesktopsRequest $request DeleteDesktopsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDesktopsResponse
+     * @return DeleteDesktopsResponse DeleteDesktopsResponse
      */
     public function deleteDesktopsWithOptions($request, $runtime)
     {
@@ -3774,9 +3981,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteDesktopsRequest $request
+     * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+     *  *
+     * @param DeleteDesktopsRequest $request DeleteDesktopsRequest
      *
-     * @return DeleteDesktopsResponse
+     * @return DeleteDesktopsResponse DeleteDesktopsResponse
      */
     public function deleteDesktops($request)
     {
@@ -3786,8 +3995,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to manage client devices.
-     *   *
+     * @summary Deletes trusted devices.
+     *  *
+     * @description You can call the operation to manage client devices.
+     *  *
      * @param DeleteDevicesRequest $request DeleteDevicesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -3828,8 +4039,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to manage client devices.
-     *   *
+     * @summary Deletes trusted devices.
+     *  *
+     * @description You can call the operation to manage client devices.
+     *  *
      * @param DeleteDevicesRequest $request DeleteDevicesRequest
      *
      * @return DeleteDevicesResponse DeleteDevicesResponse
@@ -3842,8 +4055,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
-     *   *
+     * @summary Deletes one or more directories.
+     *  *
+     * @description You cannot delete a directory that has a cloud computer or is used by a cloud computer.
+     *  *
      * @param DeleteDirectoriesRequest $request DeleteDirectoriesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3878,8 +4093,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
-     *   *
+     * @summary Deletes one or more directories.
+     *  *
+     * @description You cannot delete a directory that has a cloud computer or is used by a cloud computer.
+     *  *
      * @param DeleteDirectoriesRequest $request DeleteDirectoriesRequest
      *
      * @return DeleteDirectoriesResponse DeleteDirectoriesResponse
@@ -3892,10 +4109,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteEduRoomRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteEduRoomRequest $request DeleteEduRoomRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEduRoomResponse
+     * @return DeleteEduRoomResponse DeleteEduRoomResponse
      */
     public function deleteEduRoomWithOptions($request, $runtime)
     {
@@ -3926,9 +4143,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteEduRoomRequest $request
+     * @param DeleteEduRoomRequest $request DeleteEduRoomRequest
      *
-     * @return DeleteEduRoomResponse
+     * @return DeleteEduRoomResponse DeleteEduRoomResponse
      */
     public function deleteEduRoom($request)
     {
@@ -3938,9 +4155,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Images include system images and custom images. System images cannot be deleted.
-     *   * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](~~436972~~) operation to delete the cloud computer template before you delete the image.
-     *   *
+     * @summary Deletes one or more custom images.
+     *  *
+     * @description *   Images include system images and custom images. System images cannot be deleted.
+     * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+     *  *
      * @param DeleteImagesRequest $request DeleteImagesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -3978,9 +4197,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Images include system images and custom images. System images cannot be deleted.
-     *   * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](~~436972~~) operation to delete the cloud computer template before you delete the image.
-     *   *
+     * @summary Deletes one or more custom images.
+     *  *
+     * @description *   Images include system images and custom images. System images cannot be deleted.
+     * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+     *  *
      * @param DeleteImagesRequest $request DeleteImagesRequest
      *
      * @return DeleteImagesResponse DeleteImagesResponse
@@ -3993,9 +4214,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
-     *   * ><warning>If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.></warning>.
-     *   *
+     * @summary Deletes NAS file systems.
+     *  *
+     * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+     *  *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4030,9 +4253,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
-     *   * ><warning>If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.></warning>.
-     *   *
+     * @summary Deletes NAS file systems.
+     *  *
+     * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+     *  *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
      *
      * @return DeleteNASFileSystemsResponse DeleteNASFileSystemsResponse
@@ -4045,10 +4270,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkPackagesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes one or more premium bandwidth plans.
+     *  *
+     * @param DeleteNetworkPackagesRequest $request DeleteNetworkPackagesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkPackagesResponse
+     * @return DeleteNetworkPackagesResponse DeleteNetworkPackagesResponse
      */
     public function deleteNetworkPackagesWithOptions($request, $runtime)
     {
@@ -4079,9 +4306,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkPackagesRequest $request
+     * @summary Deletes one or more premium bandwidth plans.
+     *  *
+     * @param DeleteNetworkPackagesRequest $request DeleteNetworkPackagesRequest
      *
-     * @return DeleteNetworkPackagesResponse
+     * @return DeleteNetworkPackagesResponse DeleteNetworkPackagesResponse
      */
     public function deleteNetworkPackages($request)
     {
@@ -4091,11 +4320,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete an office network, make sure that the following operations are complete:
-     *   * *   All cloud computers in the office network are released.
-     *   * *   The data that you want to retain is backed up.
-     *   * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
-     *   *
+     * @summary Deletes office networks (formerly workspaces).
+     *  *
+     * @description Before you delete an office network, make sure that the following operations are complete:
+     * *   All cloud computers in the office network are released.
+     * *   The data that you want to retain is backed up.
+     * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+     *  *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4130,11 +4361,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete an office network, make sure that the following operations are complete:
-     *   * *   All cloud computers in the office network are released.
-     *   * *   The data that you want to retain is backed up.
-     *   * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
-     *   *
+     * @summary Deletes office networks (formerly workspaces).
+     *  *
+     * @description Before you delete an office network, make sure that the following operations are complete:
+     * *   All cloud computers in the office network are released.
+     * *   The data that you want to retain is backed up.
+     * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+     *  *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
      *
      * @return DeleteOfficeSitesResponse DeleteOfficeSitesResponse
@@ -4147,10 +4380,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyGroupsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes one or more custom policies.
+     *  *
+     * @param DeletePolicyGroupsRequest $request DeletePolicyGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyGroupsResponse
+     * @return DeletePolicyGroupsResponse DeletePolicyGroupsResponse
      */
     public function deletePolicyGroupsWithOptions($request, $runtime)
     {
@@ -4181,9 +4416,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyGroupsRequest $request
+     * @summary Deletes one or more custom policies.
+     *  *
+     * @param DeletePolicyGroupsRequest $request DeletePolicyGroupsRequest
      *
-     * @return DeletePolicyGroupsResponse
+     * @return DeletePolicyGroupsResponse DeletePolicyGroupsResponse
      */
     public function deletePolicyGroups($request)
     {
@@ -4193,8 +4430,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If the IDs of the snapshots that you specify do not exist, requests are ignored.
-     *   *
+     * @summary Deletes one or more snapshots.
+     *  *
+     * @description If the IDs of the snapshots that you specify do not exist, requests are ignored.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -4229,8 +4468,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If the IDs of the snapshots that you specify do not exist, requests are ignored.
-     *   *
+     * @summary Deletes one or more snapshots.
+     *  *
+     * @description If the IDs of the snapshots that you specify do not exist, requests are ignored.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
      * @return DeleteSnapshotResponse DeleteSnapshotResponse
@@ -4243,8 +4484,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
-     *   *
+     * @summary Delete virtual multi-factor authentication (MFA) devices.
+     *  *
+     * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
+     *  *
      * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4279,8 +4522,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
-     *   *
+     * @summary Delete virtual multi-factor authentication (MFA) devices.
+     *  *
+     * @description If an MFA device is deleted, the device is unbound, reset, and disabled. When an Active Directory (AD) user wants to connect to the cloud desktop that is bound to the MFA device, the AD user must bind a new MFA device.
+     *  *
      * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      *
      * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
@@ -4293,10 +4538,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeAclEntriesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of an access control list (ACL) of an office network or a cloud computer.
+     *  *
+     * @param DescribeAclEntriesRequest $request DescribeAclEntriesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAclEntriesResponse
+     * @return DescribeAclEntriesResponse DescribeAclEntriesResponse
      */
     public function describeAclEntriesWithOptions($request, $runtime)
     {
@@ -4336,9 +4583,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeAclEntriesRequest $request
+     * @summary Queries the details of an access control list (ACL) of an office network or a cloud computer.
+     *  *
+     * @param DescribeAclEntriesRequest $request DescribeAclEntriesRequest
      *
-     * @return DescribeAclEntriesResponse
+     * @return DescribeAclEntriesResponse DescribeAclEntriesResponse
      */
     public function describeAclEntries($request)
     {
@@ -4348,8 +4597,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
-     *   *
+     * @summary Queries the automatic snapshot policy.
+     *  *
+     * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+     *  *
      * @param DescribeAutoSnapshotPolicyRequest $request DescribeAutoSnapshotPolicyRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4393,8 +4644,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
-     *   *
+     * @summary Queries the automatic snapshot policy.
+     *  *
+     * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+     *  *
      * @param DescribeAutoSnapshotPolicyRequest $request DescribeAutoSnapshotPolicyRequest
      *
      * @return DescribeAutoSnapshotPolicyResponse DescribeAutoSnapshotPolicyResponse
@@ -4407,10 +4660,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeBundlesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the details of cloud computer templates.
+     *  *
+     * @param DescribeBundlesRequest $request DescribeBundlesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBundlesResponse
+     * @return DescribeBundlesResponse DescribeBundlesResponse
      */
     public function describeBundlesWithOptions($request, $runtime)
     {
@@ -4495,9 +4750,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeBundlesRequest $request
+     * @summary Queries the details of cloud computer templates.
+     *  *
+     * @param DescribeBundlesRequest $request DescribeBundlesRequest
      *
-     * @return DescribeBundlesResponse
+     * @return DescribeBundlesResponse DescribeBundlesResponse
      */
     public function describeBundles($request)
     {
@@ -4507,10 +4764,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCdsFileShareLinksRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries file sharing links of a cloud disk in Cloud Drive Service.
+     *  *
+     * @param DescribeCdsFileShareLinksRequest $request DescribeCdsFileShareLinksRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCdsFileShareLinksResponse
+     * @return DescribeCdsFileShareLinksResponse DescribeCdsFileShareLinksResponse
      */
     public function describeCdsFileShareLinksWithOptions($request, $runtime)
     {
@@ -4556,9 +4815,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCdsFileShareLinksRequest $request
+     * @summary Queries file sharing links of a cloud disk in Cloud Drive Service.
+     *  *
+     * @param DescribeCdsFileShareLinksRequest $request DescribeCdsFileShareLinksRequest
      *
-     * @return DescribeCdsFileShareLinksResponse
+     * @return DescribeCdsFileShareLinksResponse DescribeCdsFileShareLinksResponse
      */
     public function describeCdsFileShareLinks($request)
     {
@@ -4568,10 +4829,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCensRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+     *  *
+     * @param DescribeCensRequest $request DescribeCensRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCensResponse
+     * @return DescribeCensResponse DescribeCensResponse
      */
     public function describeCensWithOptions($request, $runtime)
     {
@@ -4605,9 +4868,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCensRequest $request
+     * @summary Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+     *  *
+     * @param DescribeCensRequest $request DescribeCensRequest
      *
-     * @return DescribeCensResponse
+     * @return DescribeCensResponse DescribeCensResponse
      */
     public function describeCens($request)
     {
@@ -4617,8 +4882,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
-     *   *
+     * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
+     *  *
+     * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+     *  *
      * @param DescribeClientEventsRequest $request DescribeClientEventsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4689,8 +4956,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
-     *   *
+     * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
+     *  *
+     * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+     *  *
      * @param DescribeClientEventsRequest $request DescribeClientEventsRequest
      *
      * @return DescribeClientEventsResponse DescribeClientEventsResponse
@@ -4703,10 +4972,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDriveGroupsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries a list of authorized team spaces.
+     *  *
+     * @param DescribeCloudDriveGroupsRequest $request DescribeCloudDriveGroupsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudDriveGroupsResponse
+     * @return DescribeCloudDriveGroupsResponse DescribeCloudDriveGroupsResponse
      */
     public function describeCloudDriveGroupsWithOptions($request, $runtime)
     {
@@ -4767,9 +5038,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDriveGroupsRequest $request
+     * @summary Queries a list of authorized team spaces.
+     *  *
+     * @param DescribeCloudDriveGroupsRequest $request DescribeCloudDriveGroupsRequest
      *
-     * @return DescribeCloudDriveGroupsResponse
+     * @return DescribeCloudDriveGroupsResponse DescribeCloudDriveGroupsResponse
      */
     public function describeCloudDriveGroups($request)
     {
@@ -4779,10 +5052,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDrivePermissionsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询pds用户权限
+     *  *
+     * @param DescribeCloudDrivePermissionsRequest $request DescribeCloudDrivePermissionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudDrivePermissionsResponse
+     * @return DescribeCloudDrivePermissionsResponse DescribeCloudDrivePermissionsResponse
      */
     public function describeCloudDrivePermissionsWithOptions($request, $runtime)
     {
@@ -4813,9 +5088,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDrivePermissionsRequest $request
+     * @summary 查询pds用户权限
+     *  *
+     * @param DescribeCloudDrivePermissionsRequest $request DescribeCloudDrivePermissionsRequest
      *
-     * @return DescribeCloudDrivePermissionsResponse
+     * @return DescribeCloudDrivePermissionsResponse DescribeCloudDrivePermissionsResponse
      */
     public function describeCloudDrivePermissions($request)
     {
@@ -4825,10 +5102,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDriveUsersRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询所有无影网盘终端用户的信息
+     *  *
+     * @param DescribeCloudDriveUsersRequest $request DescribeCloudDriveUsersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudDriveUsersResponse
+     * @return DescribeCloudDriveUsersResponse DescribeCloudDriveUsersResponse
      */
     public function describeCloudDriveUsersWithOptions($request, $runtime)
     {
@@ -4868,9 +5147,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDriveUsersRequest $request
+     * @summary 查询所有无影网盘终端用户的信息
+     *  *
+     * @param DescribeCloudDriveUsersRequest $request DescribeCloudDriveUsersRequest
      *
-     * @return DescribeCloudDriveUsersResponse
+     * @return DescribeCloudDriveUsersResponse DescribeCloudDriveUsersResponse
      */
     public function describeCloudDriveUsers($request)
     {
@@ -4880,10 +5161,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizedListHeadersRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeCustomizedListHeadersRequest $request DescribeCustomizedListHeadersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomizedListHeadersResponse
+     * @return DescribeCustomizedListHeadersResponse DescribeCustomizedListHeadersResponse
      */
     public function describeCustomizedListHeadersWithOptions($request, $runtime)
     {
@@ -4917,9 +5198,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomizedListHeadersRequest $request
+     * @param DescribeCustomizedListHeadersRequest $request DescribeCustomizedListHeadersRequest
      *
-     * @return DescribeCustomizedListHeadersResponse
+     * @return DescribeCustomizedListHeadersResponse DescribeCustomizedListHeadersResponse
      */
     public function describeCustomizedListHeaders($request)
     {
@@ -4929,10 +5210,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopGroupSessionsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries sessions in a desktop group.
+     *  *
+     * @param DescribeDesktopGroupSessionsRequest $request DescribeDesktopGroupSessionsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopGroupSessionsResponse
+     * @return DescribeDesktopGroupSessionsResponse DescribeDesktopGroupSessionsResponse
      */
     public function describeDesktopGroupSessionsWithOptions($request, $runtime)
     {
@@ -4981,9 +5264,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopGroupSessionsRequest $request
+     * @summary Queries sessions in a desktop group.
+     *  *
+     * @param DescribeDesktopGroupSessionsRequest $request DescribeDesktopGroupSessionsRequest
      *
-     * @return DescribeDesktopGroupSessionsResponse
+     * @return DescribeDesktopGroupSessionsResponse DescribeDesktopGroupSessionsResponse
      */
     public function describeDesktopGroupSessions($request)
     {
@@ -4993,10 +5278,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of desktop groups.
+     *  *
+     * @param DescribeDesktopGroupsRequest $request DescribeDesktopGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopGroupsResponse
+     * @return DescribeDesktopGroupsResponse DescribeDesktopGroupsResponse
      */
     public function describeDesktopGroupsWithOptions($request, $runtime)
     {
@@ -5050,6 +5337,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5069,9 +5359,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopGroupsRequest $request
+     * @summary Queries a list of desktop groups.
+     *  *
+     * @param DescribeDesktopGroupsRequest $request DescribeDesktopGroupsRequest
      *
-     * @return DescribeDesktopGroupsResponse
+     * @return DescribeDesktopGroupsResponse DescribeDesktopGroupsResponse
      */
     public function describeDesktopGroups($request)
     {
@@ -5081,10 +5373,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the basic information about cloud computers.
+     *  *
+     * @param DescribeDesktopInfoRequest $request DescribeDesktopInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopInfoResponse
+     * @return DescribeDesktopInfoResponse DescribeDesktopInfoResponse
      */
     public function describeDesktopInfoWithOptions($request, $runtime)
     {
@@ -5115,9 +5409,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopInfoRequest $request
+     * @summary Queries the basic information about cloud computers.
+     *  *
+     * @param DescribeDesktopInfoRequest $request DescribeDesktopInfoRequest
      *
-     * @return DescribeDesktopInfoResponse
+     * @return DescribeDesktopInfoResponse DescribeDesktopInfoResponse
      */
     public function describeDesktopInfo($request)
     {
@@ -5127,10 +5423,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 查询超卖组
+     *  *
+     * @param DescribeDesktopOversoldGroupRequest $request DescribeDesktopOversoldGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopOversoldGroupResponse
+     * @return DescribeDesktopOversoldGroupResponse DescribeDesktopOversoldGroupResponse
      */
     public function describeDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -5164,9 +5462,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldGroupRequest $request
+     * @summary 查询超卖组
+     *  *
+     * @param DescribeDesktopOversoldGroupRequest $request DescribeDesktopOversoldGroupRequest
      *
-     * @return DescribeDesktopOversoldGroupResponse
+     * @return DescribeDesktopOversoldGroupResponse DescribeDesktopOversoldGroupResponse
      */
     public function describeDesktopOversoldGroup($request)
     {
@@ -5176,10 +5476,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldUserRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询超卖组用户
+     *  *
+     * @param DescribeDesktopOversoldUserRequest $request DescribeDesktopOversoldUserRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopOversoldUserResponse
+     * @return DescribeDesktopOversoldUserResponse DescribeDesktopOversoldUserResponse
      */
     public function describeDesktopOversoldUserWithOptions($request, $runtime)
     {
@@ -5225,9 +5527,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldUserRequest $request
+     * @summary 查询超卖组用户
+     *  *
+     * @param DescribeDesktopOversoldUserRequest $request DescribeDesktopOversoldUserRequest
      *
-     * @return DescribeDesktopOversoldUserResponse
+     * @return DescribeDesktopOversoldUserResponse DescribeDesktopOversoldUserResponse
      */
     public function describeDesktopOversoldUser($request)
     {
@@ -5237,10 +5541,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldUserGroupRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 查询超卖用户组
+     *  *
+     * @param DescribeDesktopOversoldUserGroupRequest $request DescribeDesktopOversoldUserGroupRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopOversoldUserGroupResponse
+     * @return DescribeDesktopOversoldUserGroupResponse DescribeDesktopOversoldUserGroupResponse
      */
     public function describeDesktopOversoldUserGroupWithOptions($request, $runtime)
     {
@@ -5277,9 +5583,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopOversoldUserGroupRequest $request
+     * @summary 查询超卖用户组
+     *  *
+     * @param DescribeDesktopOversoldUserGroupRequest $request DescribeDesktopOversoldUserGroupRequest
      *
-     * @return DescribeDesktopOversoldUserGroupResponse
+     * @return DescribeDesktopOversoldUserGroupResponse DescribeDesktopOversoldUserGroupResponse
      */
     public function describeDesktopOversoldUserGroup($request)
     {
@@ -5289,8 +5597,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can query data within the last 30 days.
-     *   *
+     * @summary Queries the detailed session information of a cloud computer.
+     *  *
+     * @description You can only query data within the last 30 days.
+     *  *
      * @param DescribeDesktopSessionsRequest $request DescribeDesktopSessionsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5300,6 +5610,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->checkOsSession)) {
+            $query['CheckOsSession'] = $request->checkOsSession;
+        }
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
         }
@@ -5330,6 +5643,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->subPayType)) {
+            $query['SubPayType'] = $request->subPayType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5349,8 +5665,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can query data within the last 30 days.
-     *   *
+     * @summary Queries the detailed session information of a cloud computer.
+     *  *
+     * @description You can only query data within the last 30 days.
+     *  *
      * @param DescribeDesktopSessionsRequest $request DescribeDesktopSessionsRequest
      *
      * @return DescribeDesktopSessionsResponse DescribeDesktopSessionsResponse
@@ -5363,8 +5681,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
-     *   *
+     * @summary Queries the instance types of cloud computers.
+     *  *
+     * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+     *  *
      * @param DescribeDesktopTypesRequest $request DescribeDesktopTypesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5423,8 +5743,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
-     *   *
+     * @summary Queries the instance types of cloud computers.
+     *  *
+     * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+     *  *
      * @param DescribeDesktopTypesRequest $request DescribeDesktopTypesRequest
      *
      * @return DescribeDesktopTypesResponse DescribeDesktopTypesResponse
@@ -5437,10 +5759,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Query the details of the cloud desktop.
+     *  *
+     * @param DescribeDesktopsRequest $request DescribeDesktopsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopsResponse
+     * @return DescribeDesktopsResponse DescribeDesktopsResponse
      */
     public function describeDesktopsWithOptions($request, $runtime)
     {
@@ -5479,8 +5803,14 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->expiredTime)) {
             $query['ExpiredTime'] = $request->expiredTime;
         }
+        if (!Utils::isUnset($request->fillResourceGroup)) {
+            $query['FillResourceGroup'] = $request->fillResourceGroup;
+        }
         if (!Utils::isUnset($request->filterDesktopGroup)) {
             $query['FilterDesktopGroup'] = $request->filterDesktopGroup;
+        }
+        if (!Utils::isUnset($request->gpuInstanceGroupId)) {
+            $query['GpuInstanceGroupId'] = $request->gpuInstanceGroupId;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
@@ -5515,14 +5845,23 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->protocolType)) {
             $query['ProtocolType'] = $request->protocolType;
         }
+        if (!Utils::isUnset($request->qosRuleId)) {
+            $query['QosRuleId'] = $request->qosRuleId;
+        }
         if (!Utils::isUnset($request->queryFotaUpdate)) {
             $query['QueryFotaUpdate'] = $request->queryFotaUpdate;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->snapshotPolicyId)) {
             $query['SnapshotPolicyId'] = $request->snapshotPolicyId;
+        }
+        if (!Utils::isUnset($request->subPayType)) {
+            $query['SubPayType'] = $request->subPayType;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -5549,9 +5888,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopsRequest $request
+     * @summary Query the details of the cloud desktop.
+     *  *
+     * @param DescribeDesktopsRequest $request DescribeDesktopsRequest
      *
-     * @return DescribeDesktopsResponse
+     * @return DescribeDesktopsResponse DescribeDesktopsResponse
      */
     public function describeDesktops($request)
     {
@@ -5561,10 +5902,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopsInGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the cloud computers in a cloud computer pool by billing method.
+     *  *
+     * @param DescribeDesktopsInGroupRequest $request DescribeDesktopsInGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDesktopsInGroupResponse
+     * @return DescribeDesktopsInGroupResponse DescribeDesktopsInGroupResponse
      */
     public function describeDesktopsInGroupWithOptions($request, $runtime)
     {
@@ -5607,9 +5950,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopsInGroupRequest $request
+     * @summary Queries the cloud computers in a cloud computer pool by billing method.
+     *  *
+     * @param DescribeDesktopsInGroupRequest $request DescribeDesktopsInGroupRequest
      *
-     * @return DescribeDesktopsInGroupResponse
+     * @return DescribeDesktopsInGroupResponse DescribeDesktopsInGroupResponse
      */
     public function describeDesktopsInGroup($request)
     {
@@ -5619,10 +5964,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDevicesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the list of trusted devices.
+     *  *
+     * @param DescribeDevicesRequest $request DescribeDevicesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDevicesResponse
+     * @return DescribeDevicesResponse DescribeDevicesResponse
      */
     public function describeDevicesWithOptions($request, $runtime)
     {
@@ -5674,9 +6021,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDevicesRequest $request
+     * @summary Queries the list of trusted devices.
+     *  *
+     * @param DescribeDevicesRequest $request DescribeDevicesRequest
      *
-     * @return DescribeDevicesResponse
+     * @return DescribeDevicesResponse DescribeDevicesResponse
      */
     public function describeDevices($request)
     {
@@ -5686,10 +6035,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details of directories.
+     *  *
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectoriesWithOptions($request, $runtime)
     {
@@ -5735,9 +6086,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDirectoriesRequest $request
+     * @summary Queries the details of directories.
+     *  *
+     * @param DescribeDirectoriesRequest $request DescribeDirectoriesRequest
      *
-     * @return DescribeDirectoriesResponse
+     * @return DescribeDirectoriesResponse DescribeDirectoriesResponse
      */
     public function describeDirectories($request)
     {
@@ -5747,10 +6100,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowMetricRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeFlowMetricRequest $request DescribeFlowMetricRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFlowMetricResponse
+     * @return DescribeFlowMetricResponse DescribeFlowMetricResponse
      */
     public function describeFlowMetricWithOptions($request, $runtime)
     {
@@ -5796,9 +6149,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowMetricRequest $request
+     * @param DescribeFlowMetricRequest $request DescribeFlowMetricRequest
      *
-     * @return DescribeFlowMetricResponse
+     * @return DescribeFlowMetricResponse DescribeFlowMetricResponse
      */
     public function describeFlowMetric($request)
     {
@@ -5808,8 +6161,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * > You can query only the traffic data in the last 90 days.
-     *   *
+     * @summary Queries cloud computer-level traffic statistics of a single office network.
+     *  *
+     * @description > You can query only the traffic data in the last 90 days.
+     *  *
      * @param DescribeFlowStatisticRequest $request DescribeFlowStatisticRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5856,8 +6211,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * > You can query only the traffic data in the last 90 days.
-     *   *
+     * @summary Queries cloud computer-level traffic statistics of a single office network.
+     *  *
+     * @description > You can query only the traffic data in the last 90 days.
+     *  *
      * @param DescribeFlowStatisticRequest $request DescribeFlowStatisticRequest
      *
      * @return DescribeFlowStatisticResponse DescribeFlowStatisticResponse
@@ -5870,10 +6227,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFotaPendingDesktopsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
+     *  *
+     * @param DescribeFotaPendingDesktopsRequest $request DescribeFotaPendingDesktopsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFotaPendingDesktopsResponse
+     * @return DescribeFotaPendingDesktopsResponse DescribeFotaPendingDesktopsResponse
      */
     public function describeFotaPendingDesktopsWithOptions($request, $runtime)
     {
@@ -5898,9 +6257,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFotaPendingDesktopsRequest $request
+     * @summary Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
+     *  *
+     * @param DescribeFotaPendingDesktopsRequest $request DescribeFotaPendingDesktopsRequest
      *
-     * @return DescribeFotaPendingDesktopsResponse
+     * @return DescribeFotaPendingDesktopsResponse DescribeFotaPendingDesktopsResponse
      */
     public function describeFotaPendingDesktops($request)
     {
@@ -5910,10 +6271,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFotaTasksRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a list of update tasks.
+     *  *
+     * @param DescribeFotaTasksRequest $request DescribeFotaTasksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFotaTasksResponse
+     * @return DescribeFotaTasksResponse DescribeFotaTasksResponse
      */
     public function describeFotaTasksWithOptions($request, $runtime)
     {
@@ -5959,9 +6322,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeFotaTasksRequest $request
+     * @summary Queries a list of update tasks.
+     *  *
+     * @param DescribeFotaTasksRequest $request DescribeFotaTasksRequest
      *
-     * @return DescribeFotaTasksResponse
+     * @return DescribeFotaTasksResponse DescribeFotaTasksResponse
      */
     public function describeFotaTasks($request)
     {
@@ -5971,10 +6336,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeGuestApplicationsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the applications and their processes of an end user.
+     *  *
+     * @param DescribeGuestApplicationsRequest $request DescribeGuestApplicationsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGuestApplicationsResponse
+     * @return DescribeGuestApplicationsResponse DescribeGuestApplicationsResponse
      */
     public function describeGuestApplicationsWithOptions($request, $runtime)
     {
@@ -6008,9 +6375,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeGuestApplicationsRequest $request
+     * @summary Queries the applications and their processes of an end user.
+     *  *
+     * @param DescribeGuestApplicationsRequest $request DescribeGuestApplicationsRequest
      *
-     * @return DescribeGuestApplicationsResponse
+     * @return DescribeGuestApplicationsResponse DescribeGuestApplicationsResponse
      */
     public function describeGuestApplications($request)
     {
@@ -6020,10 +6389,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageModifiedRecordsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the image modification records of cloud computers.
+     *  *
+     * @param DescribeImageModifiedRecordsRequest $request DescribeImageModifiedRecordsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageModifiedRecordsResponse
+     * @return DescribeImageModifiedRecordsResponse DescribeImageModifiedRecordsResponse
      */
     public function describeImageModifiedRecordsWithOptions($request, $runtime)
     {
@@ -6060,9 +6431,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageModifiedRecordsRequest $request
+     * @summary Queries the image modification records of cloud computers.
+     *  *
+     * @param DescribeImageModifiedRecordsRequest $request DescribeImageModifiedRecordsRequest
      *
-     * @return DescribeImageModifiedRecordsResponse
+     * @return DescribeImageModifiedRecordsResponse DescribeImageModifiedRecordsResponse
      */
     public function describeImageModifiedRecords($request)
     {
@@ -6072,8 +6445,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the [ModifyImagePermission](~~436982~~) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
-     *   *
+     * @summary Queries the recipient Alibaba Cloud accounts with which an image is shared.
+     *  *
+     * @description You can call the [ModifyImagePermission](https://help.aliyun.com/document_detail/436982.html) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
+     *  *
      * @param DescribeImagePermissionRequest $request DescribeImagePermissionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6108,8 +6483,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the [ModifyImagePermission](~~436982~~) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
-     *   *
+     * @summary Queries the recipient Alibaba Cloud accounts with which an image is shared.
+     *  *
+     * @description You can call the [ModifyImagePermission](https://help.aliyun.com/document_detail/436982.html) operation to share an image with another cloud computer user or unshare an image. You can call the DescribeImagePermission operation to obtain the Alibaba Cloud accounts with which the current image is shared.
+     *  *
      * @param DescribeImagePermissionRequest $request DescribeImagePermissionRequest
      *
      * @return DescribeImagePermissionResponse DescribeImagePermissionResponse
@@ -6122,10 +6499,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about images.
+     *  *
+     * @param DescribeImagesRequest $request DescribeImagesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImagesResponse
+     * @return DescribeImagesResponse DescribeImagesResponse
      */
     public function describeImagesWithOptions($request, $runtime)
     {
@@ -6195,9 +6574,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagesRequest $request
+     * @summary Queries the information about images.
+     *  *
+     * @param DescribeImagesRequest $request DescribeImagesRequest
      *
-     * @return DescribeImagesResponse
+     * @return DescribeImagesResponse DescribeImagesResponse
      */
     public function describeImages($request)
     {
@@ -6207,9 +6588,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
-     *   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
-     *   *
+     * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+     * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+     *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6271,9 +6652,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
-     *   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
-     *   *
+     * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+     * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+     *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
      * @return DescribeInvocationsResponse DescribeInvocationsResponse
@@ -6286,10 +6667,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsKeysRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
+     *  *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeysWithOptions($request, $runtime)
     {
@@ -6317,9 +6700,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsKeysRequest $request
+     * @summary Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
+     *  *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
      *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeys($request)
     {
@@ -6329,10 +6714,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeNASFileSystemsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+     *  *
+     * @param DescribeNASFileSystemsRequest $request DescribeNASFileSystemsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNASFileSystemsResponse
+     * @return DescribeNASFileSystemsResponse DescribeNASFileSystemsResponse
      */
     public function describeNASFileSystemsWithOptions($request, $runtime)
     {
@@ -6375,9 +6762,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeNASFileSystemsRequest $request
+     * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+     *  *
+     * @param DescribeNASFileSystemsRequest $request DescribeNASFileSystemsRequest
      *
-     * @return DescribeNASFileSystemsResponse
+     * @return DescribeNASFileSystemsResponse DescribeNASFileSystemsResponse
      */
     public function describeNASFileSystems($request)
     {
@@ -6387,10 +6776,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkPackagesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of one or more premium bandwidth plans.
+     *  *
+     * @param DescribeNetworkPackagesRequest $request DescribeNetworkPackagesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkPackagesResponse
+     * @return DescribeNetworkPackagesResponse DescribeNetworkPackagesResponse
      */
     public function describeNetworkPackagesWithOptions($request, $runtime)
     {
@@ -6430,9 +6821,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkPackagesRequest $request
+     * @summary Queries the details of one or more premium bandwidth plans.
+     *  *
+     * @param DescribeNetworkPackagesRequest $request DescribeNetworkPackagesRequest
      *
-     * @return DescribeNetworkPackagesResponse
+     * @return DescribeNetworkPackagesResponse DescribeNetworkPackagesResponse
      */
     public function describeNetworkPackages($request)
     {
@@ -6442,10 +6835,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries office network properties, including office network ID, name, status, and creation time.
+     *  *
+     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOfficeSitesResponse
+     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
      */
     public function describeOfficeSitesWithOptions($request, $runtime)
     {
@@ -6488,9 +6883,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeOfficeSitesRequest $request
+     * @summary Queries office network properties, including office network ID, name, status, and creation time.
+     *  *
+     * @param DescribeOfficeSitesRequest $request DescribeOfficeSitesRequest
      *
-     * @return DescribeOfficeSitesResponse
+     * @return DescribeOfficeSitesResponse DescribeOfficeSitesResponse
      */
     public function describeOfficeSites($request)
     {
@@ -6500,10 +6897,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about one or more policies.
+     *  *
+     * @param DescribePolicyGroupsRequest $request DescribePolicyGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyGroupsResponse
+     * @return DescribePolicyGroupsResponse DescribePolicyGroupsResponse
      */
     public function describePolicyGroupsWithOptions($request, $runtime)
     {
@@ -6543,9 +6942,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyGroupsRequest $request
+     * @summary Queries the information about one or more policies.
+     *  *
+     * @param DescribePolicyGroupsRequest $request DescribePolicyGroupsRequest
      *
-     * @return DescribePolicyGroupsResponse
+     * @return DescribePolicyGroupsResponse DescribePolicyGroupsResponse
      */
     public function describePolicyGroups($request)
     {
@@ -6555,13 +6956,15 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
-     *   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
-     *   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
-     *   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
-     *   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
-     *   *
+     * @summary Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+     *  *
+     * @description ## Usage notes
+     * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+     * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+     * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+     * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+     * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+     *  *
      * @param DescribePriceRequest $request DescribePriceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -6686,13 +7089,15 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
-     *   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
-     *   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
-     *   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
-     *   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
-     *   *
+     * @summary Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+     *  *
+     * @description ## Usage notes
+     * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+     * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+     * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+     * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+     * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+     *  *
      * @param DescribePriceRequest $request DescribePriceRequest
      *
      * @return DescribePriceResponse DescribePriceResponse
@@ -6705,10 +7110,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @summary 查询价格用于创建超卖组
+     *  *
+     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request DescribePriceForCreateDesktopOversoldGroupRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceForCreateDesktopOversoldGroupResponse
+     * @return DescribePriceForCreateDesktopOversoldGroupResponse DescribePriceForCreateDesktopOversoldGroupResponse
      */
     public function describePriceForCreateDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -6754,9 +7161,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request
+     * @summary 查询价格用于创建超卖组
+     *  *
+     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request DescribePriceForCreateDesktopOversoldGroupRequest
      *
-     * @return DescribePriceForCreateDesktopOversoldGroupResponse
+     * @return DescribePriceForCreateDesktopOversoldGroupResponse DescribePriceForCreateDesktopOversoldGroupResponse
      */
     public function describePriceForCreateDesktopOversoldGroup($request)
     {
@@ -6766,10 +7175,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request
-     * @param RuntimeOptions                                        $runtime
+     * @summary 查询价格用于变配超卖组
+     *  *
+     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request DescribePriceForModifyDesktopOversoldGroupSaleRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse DescribePriceForModifyDesktopOversoldGroupSaleResponse
      */
     public function describePriceForModifyDesktopOversoldGroupSaleWithOptions($request, $runtime)
     {
@@ -6803,9 +7214,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request
+     * @summary 查询价格用于变配超卖组
+     *  *
+     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request DescribePriceForModifyDesktopOversoldGroupSaleRequest
      *
-     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse DescribePriceForModifyDesktopOversoldGroupSaleResponse
      */
     public function describePriceForModifyDesktopOversoldGroupSale($request)
     {
@@ -6815,10 +7228,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @summary 查询价格用于续费超卖组
+     *  *
+     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request DescribePriceForRenewDesktopOversoldGroupRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceForRenewDesktopOversoldGroupResponse
+     * @return DescribePriceForRenewDesktopOversoldGroupResponse DescribePriceForRenewDesktopOversoldGroupResponse
      */
     public function describePriceForRenewDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -6852,9 +7267,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request
+     * @summary 查询价格用于续费超卖组
+     *  *
+     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request DescribePriceForRenewDesktopOversoldGroupRequest
      *
-     * @return DescribePriceForRenewDesktopOversoldGroupResponse
+     * @return DescribePriceForRenewDesktopOversoldGroupResponse DescribePriceForRenewDesktopOversoldGroupResponse
      */
     public function describePriceForRenewDesktopOversoldGroup($request)
     {
@@ -6864,10 +7281,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeRecordingsRequest $request DescribeRecordingsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordingsResponse
+     * @return DescribeRecordingsResponse DescribeRecordingsResponse
      */
     public function describeRecordingsWithOptions($request, $runtime)
     {
@@ -6919,9 +7336,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingsRequest $request
+     * @param DescribeRecordingsRequest $request DescribeRecordingsRequest
      *
-     * @return DescribeRecordingsResponse
+     * @return DescribeRecordingsResponse DescribeRecordingsResponse
      */
     public function describeRecordings($request)
     {
@@ -6931,10 +7348,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -6965,9 +7384,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -6977,9 +7398,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
-     *   * *   You can query session statistics for the past hour.
-     *   *
+     * @summary Queries the session statistics of a region.
+     *  *
+     * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+     * *   You can query session statistics for the past hour.
+     *  *
      * @param DescribeSessionStatisticRequest $request DescribeSessionStatisticRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7026,9 +7449,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
-     *   * *   You can query session statistics for the past hour.
-     *   *
+     * @summary Queries the session statistics of a region.
+     *  *
+     * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+     * *   You can query session statistics for the past hour.
+     *  *
      * @param DescribeSessionStatisticRequest $request DescribeSessionStatisticRequest
      *
      * @return DescribeSessionStatisticResponse DescribeSessionStatisticResponse
@@ -7041,10 +7466,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
@@ -7105,9 +7532,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
+     * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -7117,10 +7546,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserConnectTimeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询超卖组中用户连接数据
+     *  *
+     * @param DescribeUserConnectTimeRequest $request DescribeUserConnectTimeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserConnectTimeResponse
+     * @return DescribeUserConnectTimeResponse DescribeUserConnectTimeResponse
      */
     public function describeUserConnectTimeWithOptions($request, $runtime)
     {
@@ -7169,9 +7600,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserConnectTimeRequest $request
+     * @summary 查询超卖组中用户连接数据
+     *  *
+     * @param DescribeUserConnectTimeRequest $request DescribeUserConnectTimeRequest
      *
-     * @return DescribeUserConnectTimeResponse
+     * @return DescribeUserConnectTimeResponse DescribeUserConnectTimeResponse
      */
     public function describeUserConnectTime($request)
     {
@@ -7181,10 +7614,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserConnectionRecordsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+     *  *
+     * @param DescribeUserConnectionRecordsRequest $request DescribeUserConnectionRecordsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserConnectionRecordsResponse
+     * @return DescribeUserConnectionRecordsResponse DescribeUserConnectionRecordsResponse
      */
     public function describeUserConnectionRecordsWithOptions($request, $runtime)
     {
@@ -7248,9 +7683,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserConnectionRecordsRequest $request
+     * @summary Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+     *  *
+     * @param DescribeUserConnectionRecordsRequest $request DescribeUserConnectionRecordsRequest
      *
-     * @return DescribeUserConnectionRecordsResponse
+     * @return DescribeUserConnectionRecordsResponse DescribeUserConnectionRecordsResponse
      */
     public function describeUserConnectionRecords($request)
     {
@@ -7260,10 +7697,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserProfilePathRulesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
+     *  *
+     * @param DescribeUserProfilePathRulesRequest $request DescribeUserProfilePathRulesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserProfilePathRulesResponse
+     * @return DescribeUserProfilePathRulesResponse DescribeUserProfilePathRulesResponse
      */
     public function describeUserProfilePathRulesWithOptions($request, $runtime)
     {
@@ -7297,9 +7736,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserProfilePathRulesRequest $request
+     * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
+     *  *
+     * @param DescribeUserProfilePathRulesRequest $request DescribeUserProfilePathRulesRequest
      *
-     * @return DescribeUserProfilePathRulesResponse
+     * @return DescribeUserProfilePathRulesResponse DescribeUserProfilePathRulesResponse
      */
     public function describeUserProfilePathRules($request)
     {
@@ -7309,10 +7750,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersInGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+     *  *
+     * @param DescribeUsersInGroupRequest $request DescribeUsersInGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsersInGroupResponse
+     * @return DescribeUsersInGroupResponse DescribeUsersInGroupResponse
      */
     public function describeUsersInGroupWithOptions($request, $runtime)
     {
@@ -7367,9 +7810,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersInGroupRequest $request
+     * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+     *  *
+     * @param DescribeUsersInGroupRequest $request DescribeUsersInGroupRequest
      *
-     * @return DescribeUsersInGroupResponse
+     * @return DescribeUsersInGroupResponse DescribeUsersInGroupResponse
      */
     public function describeUsersInGroup($request)
     {
@@ -7379,10 +7824,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersPasswordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the passwords of authorized users of a cloud computer.
+     *  *
+     * @param DescribeUsersPasswordRequest $request DescribeUsersPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsersPasswordResponse
+     * @return DescribeUsersPasswordResponse DescribeUsersPasswordResponse
      */
     public function describeUsersPasswordWithOptions($request, $runtime)
     {
@@ -7413,9 +7860,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersPasswordRequest $request
+     * @summary Queries the passwords of authorized users of a cloud computer.
+     *  *
+     * @param DescribeUsersPasswordRequest $request DescribeUsersPasswordRequest
      *
-     * @return DescribeUsersPasswordResponse
+     * @return DescribeUsersPasswordResponse DescribeUsersPasswordResponse
      */
     public function describeUsersPassword($request)
     {
@@ -7425,10 +7874,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualMFADevicesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+     *  *
+     * @param DescribeVirtualMFADevicesRequest $request DescribeVirtualMFADevicesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVirtualMFADevicesResponse
+     * @return DescribeVirtualMFADevicesResponse DescribeVirtualMFADevicesResponse
      */
     public function describeVirtualMFADevicesWithOptions($request, $runtime)
     {
@@ -7468,9 +7919,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeVirtualMFADevicesRequest $request
+     * @summary Queries multi-factor authentication (MFA) devices that are bound to an Active Directory (AD) account.
+     *  *
+     * @param DescribeVirtualMFADevicesRequest $request DescribeVirtualMFADevicesRequest
      *
-     * @return DescribeVirtualMFADevicesResponse
+     * @return DescribeVirtualMFADevicesResponse DescribeVirtualMFADevicesResponse
      */
     public function describeVirtualMFADevices($request)
     {
@@ -7480,10 +7933,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -7514,9 +7969,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -7526,10 +7983,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DetachCenRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Unbinds an advanced office network from a CEN instance.
+     *  *
+     * @param DetachCenRequest $request DetachCenRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachCenResponse
+     * @return DetachCenResponse DetachCenResponse
      */
     public function detachCenWithOptions($request, $runtime)
     {
@@ -7560,9 +8019,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DetachCenRequest $request
+     * @summary Unbinds an advanced office network from a CEN instance.
+     *  *
+     * @param DetachCenRequest $request DetachCenRequest
      *
-     * @return DetachCenResponse
+     * @return DetachCenResponse DetachCenResponse
      */
     public function detachCen($request)
     {
@@ -7572,10 +8033,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DetachEndUserRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Unbinds a hardware client from a user.
+     *  *
+     * @param DetachEndUserRequest $request DetachEndUserRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachEndUserResponse
+     * @return DetachEndUserResponse DetachEndUserResponse
      */
     public function detachEndUserWithOptions($request, $runtime)
     {
@@ -7618,9 +8081,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DetachEndUserRequest $request
+     * @summary Unbinds a hardware client from a user.
+     *  *
+     * @param DetachEndUserRequest $request DetachEndUserRequest
      *
-     * @return DetachEndUserResponse
+     * @return DetachEndUserResponse DetachEndUserResponse
      */
     public function detachEndUser($request)
     {
@@ -7630,10 +8095,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DisableDesktopsInGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Disables cloud desktops in a desktop group.
+     *  *
+     * @param DisableDesktopsInGroupRequest $request DisableDesktopsInGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableDesktopsInGroupResponse
+     * @return DisableDesktopsInGroupResponse DisableDesktopsInGroupResponse
      */
     public function disableDesktopsInGroupWithOptions($request, $runtime)
     {
@@ -7667,9 +8134,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DisableDesktopsInGroupRequest $request
+     * @summary Disables cloud desktops in a desktop group.
+     *  *
+     * @param DisableDesktopsInGroupRequest $request DisableDesktopsInGroupRequest
      *
-     * @return DisableDesktopsInGroupResponse
+     * @return DisableDesktopsInGroupResponse DisableDesktopsInGroupResponse
      */
     public function disableDesktopsInGroup($request)
     {
@@ -7679,10 +8148,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DisconnectDesktopSessionsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Disconnects from desktop sessions.
+     *  *
+     * @param DisconnectDesktopSessionsRequest $request DisconnectDesktopSessionsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisconnectDesktopSessionsResponse
+     * @return DisconnectDesktopSessionsResponse DisconnectDesktopSessionsResponse
      */
     public function disconnectDesktopSessionsWithOptions($request, $runtime)
     {
@@ -7716,9 +8187,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DisconnectDesktopSessionsRequest $request
+     * @summary Disconnects from desktop sessions.
+     *  *
+     * @param DisconnectDesktopSessionsRequest $request DisconnectDesktopSessionsRequest
      *
-     * @return DisconnectDesktopSessionsResponse
+     * @return DisconnectDesktopSessionsResponse DisconnectDesktopSessionsResponse
      */
     public function disconnectDesktopSessions($request)
     {
@@ -7728,10 +8201,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DissociateNetworkPackageRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Unbinds a premium bandwidth plan from an office network.
+     *  *
+     * @param DissociateNetworkPackageRequest $request DissociateNetworkPackageRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateNetworkPackageResponse
+     * @return DissociateNetworkPackageResponse DissociateNetworkPackageResponse
      */
     public function dissociateNetworkPackageWithOptions($request, $runtime)
     {
@@ -7762,9 +8237,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DissociateNetworkPackageRequest $request
+     * @summary Unbinds a premium bandwidth plan from an office network.
+     *  *
+     * @param DissociateNetworkPackageRequest $request DissociateNetworkPackageRequest
      *
-     * @return DissociateNetworkPackageResponse
+     * @return DissociateNetworkPackageResponse DissociateNetworkPackageResponse
      */
     public function dissociateNetworkPackage($request)
     {
@@ -7774,10 +8251,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ExportClientEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Exports events that occur on a cloud desktop from an Alibaba Cloud Workspace client.
+     *  *
+     * @param ExportClientEventsRequest $request ExportClientEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportClientEventsResponse
+     * @return ExportClientEventsResponse ExportClientEventsResponse
      */
     public function exportClientEventsWithOptions($request, $runtime)
     {
@@ -7838,9 +8317,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ExportClientEventsRequest $request
+     * @summary Exports events that occur on a cloud desktop from an Alibaba Cloud Workspace client.
+     *  *
+     * @param ExportClientEventsRequest $request ExportClientEventsRequest
      *
-     * @return ExportClientEventsResponse
+     * @return ExportClientEventsResponse ExportClientEventsResponse
      */
     public function exportClientEvents($request)
     {
@@ -7850,10 +8331,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ExportDesktopGroupInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+     *  *
+     * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportDesktopGroupInfoResponse
+     * @return ExportDesktopGroupInfoResponse ExportDesktopGroupInfoResponse
      */
     public function exportDesktopGroupInfoWithOptions($request, $runtime)
     {
@@ -7892,6 +8375,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7911,9 +8397,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ExportDesktopGroupInfoRequest $request
+     * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+     *  *
+     * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
      *
-     * @return ExportDesktopGroupInfoResponse
+     * @return ExportDesktopGroupInfoResponse ExportDesktopGroupInfoResponse
      */
     public function exportDesktopGroupInfo($request)
     {
@@ -7923,23 +8411,25 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-     *   * *   Cloud computer ID and name
-     *   * *   Office network ID and name
-     *   * *   The instance type, OS and protocol of the cloud computer
-     *   * *   System disk and data disk of the cloud computer
-     *   * *   The status
-     *   * *   Purchase method
-     *   * *   The time when the cloud computer expires
-     *   * *   Remaining duration and total duration
-     *   * *   Number of assigned users and number of current users
-     *   * *   Office network type
-     *   * *   The time when the cloud computer was created
-     *   * *   Tags
-     *   * *   Encryption status
-     *   * *   IP
-     *   * *   The hostname.
-     *   *
+     * @summary Exports a cloud computer list as a CSV file.
+     *  *
+     * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
+     * *   Cloud computer ID and name
+     * *   Office network ID and name
+     * *   The instance type, OS and protocol of the cloud computer
+     * *   System disk and data disk of the cloud computer
+     * *   The status
+     * *   Purchase method
+     * *   The time when the cloud computer expires
+     * *   Remaining duration and total duration
+     * *   Number of assigned users and number of current users
+     * *   Office network type
+     * *   The time when the cloud computer was created
+     * *   Tags
+     * *   Encryption status
+     * *   IP
+     * *   The hostname
+     *  *
      * @param ExportDesktopListInfoRequest $request ExportDesktopListInfoRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8013,23 +8503,25 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-     *   * *   Cloud computer ID and name
-     *   * *   Office network ID and name
-     *   * *   The instance type, OS and protocol of the cloud computer
-     *   * *   System disk and data disk of the cloud computer
-     *   * *   The status
-     *   * *   Purchase method
-     *   * *   The time when the cloud computer expires
-     *   * *   Remaining duration and total duration
-     *   * *   Number of assigned users and number of current users
-     *   * *   Office network type
-     *   * *   The time when the cloud computer was created
-     *   * *   Tags
-     *   * *   Encryption status
-     *   * *   IP
-     *   * *   The hostname.
-     *   *
+     * @summary Exports a cloud computer list as a CSV file.
+     *  *
+     * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
+     * *   Cloud computer ID and name
+     * *   Office network ID and name
+     * *   The instance type, OS and protocol of the cloud computer
+     * *   System disk and data disk of the cloud computer
+     * *   The status
+     * *   Purchase method
+     * *   The time when the cloud computer expires
+     * *   Remaining duration and total duration
+     * *   Number of assigned users and number of current users
+     * *   Office network type
+     * *   The time when the cloud computer was created
+     * *   Tags
+     * *   Encryption status
+     * *   IP
+     * *   The hostname
+     *  *
      * @param ExportDesktopListInfoRequest $request ExportDesktopListInfoRequest
      *
      * @return ExportDesktopListInfoResponse ExportDesktopListInfoResponse
@@ -8042,10 +8534,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+     *  *
+     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTaskWithOptions($request, $runtime)
     {
@@ -8076,9 +8570,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskRequest $request
+     * @summary Obtains the information about an asynchronous task based on the value of the AsyncTaskId parameter that you obtain by calling the CopyCdsFile operation.
+     *  *
+     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
      *
-     * @return GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse GetAsyncTaskResponse
      */
     public function getAsyncTask($request)
     {
@@ -8088,8 +8584,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer must be in the Running state.
-     *   *
+     * @summary Obtains the credential that is used to connect to a cloud desktop.
+     *  *
+     * @description The cloud computer must be in the Running state.
+     *  *
      * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8148,8 +8646,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computer must be in the Running state.
-     *   *
+     * @summary Obtains the credential that is used to connect to a cloud desktop.
+     *  *
+     * @description The cloud computer must be in the Running state.
+     *  *
      * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      *
      * @return GetConnectionTicketResponse GetConnectionTicketResponse
@@ -8162,10 +8662,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetCoordinateTicketRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Obtains the credentials of the stream collaboration
+     *  *
+     * @param GetCoordinateTicketRequest $request GetCoordinateTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCoordinateTicketResponse
+     * @return GetCoordinateTicketResponse GetCoordinateTicketResponse
      */
     public function getCoordinateTicketWithOptions($request, $runtime)
     {
@@ -8205,9 +8707,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetCoordinateTicketRequest $request
+     * @summary Obtains the credentials of the stream collaboration
+     *  *
+     * @param GetCoordinateTicketRequest $request GetCoordinateTicketRequest
      *
-     * @return GetCoordinateTicketResponse
+     * @return GetCoordinateTicketResponse GetCoordinateTicketResponse
      */
     public function getCoordinateTicket($request)
     {
@@ -8217,10 +8721,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetDesktopGroupDetailRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about a cloud computer pool.
+     *  *
+     * @param GetDesktopGroupDetailRequest $request GetDesktopGroupDetailRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDesktopGroupDetailResponse
+     * @return GetDesktopGroupDetailResponse GetDesktopGroupDetailResponse
      */
     public function getDesktopGroupDetailWithOptions($request, $runtime)
     {
@@ -8251,9 +8757,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetDesktopGroupDetailRequest $request
+     * @summary Queries the information about a cloud computer pool.
+     *  *
+     * @param GetDesktopGroupDetailRequest $request GetDesktopGroupDetailRequest
      *
-     * @return GetDesktopGroupDetailResponse
+     * @return GetDesktopGroupDetailResponse GetDesktopGroupDetailResponse
      */
     public function getDesktopGroupDetail($request)
     {
@@ -8263,10 +8771,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetOfficeSiteSsoStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+     *  *
+     * @param GetOfficeSiteSsoStatusRequest $request GetOfficeSiteSsoStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOfficeSiteSsoStatusResponse
+     * @return GetOfficeSiteSsoStatusResponse GetOfficeSiteSsoStatusResponse
      */
     public function getOfficeSiteSsoStatusWithOptions($request, $runtime)
     {
@@ -8297,9 +8807,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param GetOfficeSiteSsoStatusRequest $request
+     * @summary Queries whether single sign-on (SSO) is enabled for a workspace.
+     *  *
+     * @param GetOfficeSiteSsoStatusRequest $request GetOfficeSiteSsoStatusRequest
      *
-     * @return GetOfficeSiteSsoStatusResponse
+     * @return GetOfficeSiteSsoStatusResponse GetOfficeSiteSsoStatusResponse
      */
     public function getOfficeSiteSsoStatus($request)
     {
@@ -8309,8 +8821,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-     *   *
+     * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
+     *  *
+     * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+     *  *
      * @param GetSpMetadataRequest $request GetSpMetadataRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -8348,8 +8862,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-     *   *
+     * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
+     *  *
+     * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+     *  *
      * @param GetSpMetadataRequest $request GetSpMetadataRequest
      *
      * @return GetSpMetadataResponse GetSpMetadataResponse
@@ -8362,8 +8878,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
-     *   *
+     * @summary Hibernates cloud desktops.
+     *  *
+     * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+     *  *
      * @param HibernateDesktopsRequest $request HibernateDesktopsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -8398,8 +8916,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
-     *   *
+     * @summary Hibernates cloud desktops.
+     *  *
+     * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+     *  *
      * @param HibernateDesktopsRequest $request HibernateDesktopsRequest
      *
      * @return HibernateDesktopsResponse HibernateDesktopsResponse
@@ -8412,10 +8932,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListCdsFilesRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the files in a cloud disk.
+     *  *
+     * @param ListCdsFilesRequest $tmpReq  ListCdsFilesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCdsFilesResponse
+     * @return ListCdsFilesResponse ListCdsFilesResponse
      */
     public function listCdsFilesWithOptions($tmpReq, $runtime)
     {
@@ -8475,9 +8997,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListCdsFilesRequest $request
+     * @summary Queries the files in a cloud disk.
+     *  *
+     * @param ListCdsFilesRequest $request ListCdsFilesRequest
      *
-     * @return ListCdsFilesResponse
+     * @return ListCdsFilesResponse ListCdsFilesResponse
      */
     public function listCdsFiles($request)
     {
@@ -8487,8 +9011,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
-     *   *
+     * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
+     *  *
+     * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+     *  *
      * @param ListDirectoryUsersRequest $request ListDirectoryUsersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -8535,8 +9061,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
-     *   *
+     * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
+     *  *
+     * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+     *  *
      * @param ListDirectoryUsersRequest $request ListDirectoryUsersRequest
      *
      * @return ListDirectoryUsersResponse ListDirectoryUsersResponse
@@ -8549,10 +9077,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListFilePermissionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about shared files of cloud disks.
+     *  *
+     * @param ListFilePermissionRequest $request ListFilePermissionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFilePermissionResponse
+     * @return ListFilePermissionResponse ListFilePermissionResponse
      */
     public function listFilePermissionWithOptions($request, $runtime)
     {
@@ -8592,9 +9122,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListFilePermissionRequest $request
+     * @summary Queries the information about shared files of cloud disks.
+     *  *
+     * @param ListFilePermissionRequest $request ListFilePermissionRequest
      *
-     * @return ListFilePermissionResponse
+     * @return ListFilePermissionResponse ListFilePermissionResponse
      */
     public function listFilePermission($request)
     {
@@ -8604,10 +9136,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListOfficeSiteOverviewRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about an office network, including its status, cloud computer quantity, virtual private cloud (VPC) type, and more.
+     *  *
+     * @param ListOfficeSiteOverviewRequest $request ListOfficeSiteOverviewRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOfficeSiteOverviewResponse
+     * @return ListOfficeSiteOverviewResponse ListOfficeSiteOverviewResponse
      */
     public function listOfficeSiteOverviewWithOptions($request, $runtime)
     {
@@ -8650,9 +9184,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListOfficeSiteOverviewRequest $request
+     * @summary Queries information about an office network, including its status, cloud computer quantity, virtual private cloud (VPC) type, and more.
+     *  *
+     * @param ListOfficeSiteOverviewRequest $request ListOfficeSiteOverviewRequest
      *
-     * @return ListOfficeSiteOverviewResponse
+     * @return ListOfficeSiteOverviewResponse ListOfficeSiteOverviewResponse
      */
     public function listOfficeSiteOverview($request)
     {
@@ -8662,10 +9198,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListOfficeSiteUsersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries information about Active Directory (AD) users after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+     *  *
+     * @param ListOfficeSiteUsersRequest $request ListOfficeSiteUsersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOfficeSiteUsersResponse
+     * @return ListOfficeSiteUsersResponse ListOfficeSiteUsersResponse
      */
     public function listOfficeSiteUsersWithOptions($request, $runtime)
     {
@@ -8708,9 +9246,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListOfficeSiteUsersRequest $request
+     * @summary Queries information about Active Directory (AD) users after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+     *  *
+     * @param ListOfficeSiteUsersRequest $request ListOfficeSiteUsersRequest
      *
-     * @return ListOfficeSiteUsersResponse
+     * @return ListOfficeSiteUsersResponse ListOfficeSiteUsersResponse
      */
     public function listOfficeSiteUsers($request)
     {
@@ -8720,8 +9260,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
-     *   *
+     * @summary Queries the tags of cloud computers.
+     *  *
+     * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -8768,8 +9310,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
-     *   *
+     * @summary Queries the tags of cloud computers.
+     *  *
+     * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -8782,10 +9326,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListUserAdOrganizationUnitsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Obtains the organizational units (OUs) of an Active Directory (AD) domain that is connected to an enterprise AD office network (formerly workspace).
+     *  *
+     * @param ListUserAdOrganizationUnitsRequest $request ListUserAdOrganizationUnitsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserAdOrganizationUnitsResponse
+     * @return ListUserAdOrganizationUnitsResponse ListUserAdOrganizationUnitsResponse
      */
     public function listUserAdOrganizationUnitsWithOptions($request, $runtime)
     {
@@ -8825,9 +9371,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListUserAdOrganizationUnitsRequest $request
+     * @summary Obtains the organizational units (OUs) of an Active Directory (AD) domain that is connected to an enterprise AD office network (formerly workspace).
+     *  *
+     * @param ListUserAdOrganizationUnitsRequest $request ListUserAdOrganizationUnitsRequest
      *
-     * @return ListUserAdOrganizationUnitsResponse
+     * @return ListUserAdOrganizationUnitsResponse ListUserAdOrganizationUnitsResponse
      */
     public function listUserAdOrganizationUnits($request)
     {
@@ -8837,8 +9385,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
-     *   *
+     * @summary Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+     *  *
+     * @description After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+     *  *
      * @param LockVirtualMFADeviceRequest $request LockVirtualMFADeviceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -8873,8 +9423,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
-     *   *
+     * @summary Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+     *  *
+     * @description After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+     *  *
      * @param LockVirtualMFADeviceRequest $request LockVirtualMFADeviceRequest
      *
      * @return LockVirtualMFADeviceResponse LockVirtualMFADeviceResponse
@@ -8887,10 +9439,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MigrateDesktopsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+     *  *
+     * @param MigrateDesktopsRequest $request MigrateDesktopsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateDesktopsResponse
+     * @return MigrateDesktopsResponse MigrateDesktopsResponse
      */
     public function migrateDesktopsWithOptions($request, $runtime)
     {
@@ -8924,9 +9478,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MigrateDesktopsRequest $request
+     * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+     *  *
+     * @param MigrateDesktopsRequest $request MigrateDesktopsRequest
      *
-     * @return MigrateDesktopsResponse
+     * @return MigrateDesktopsResponse MigrateDesktopsResponse
      */
     public function migrateDesktops($request)
     {
@@ -8936,10 +9492,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MigrateImageProtocolRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Update the protocols of images to Adaptive Streaming Protocol (ASP).
+     *  *
+     * @param MigrateImageProtocolRequest $request MigrateImageProtocolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateImageProtocolResponse
+     * @return MigrateImageProtocolResponse MigrateImageProtocolResponse
      */
     public function migrateImageProtocolWithOptions($request, $runtime)
     {
@@ -8973,9 +9531,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MigrateImageProtocolRequest $request
+     * @summary Update the protocols of images to Adaptive Streaming Protocol (ASP).
+     *  *
+     * @param MigrateImageProtocolRequest $request MigrateImageProtocolRequest
      *
-     * @return MigrateImageProtocolResponse
+     * @return MigrateImageProtocolResponse MigrateImageProtocolResponse
      */
     public function migrateImageProtocol($request)
     {
@@ -8985,8 +9545,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
-     *   *
+     * @summary Modifies an Active Directory (AD) directory.
+     *  *
+     * @description You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+     *  *
      * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -9051,8 +9613,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
-     *   *
+     * @summary Modifies an Active Directory (AD) directory.
+     *  *
+     * @description You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+     *  *
      * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
      *
      * @return ModifyADConnectorDirectoryResponse ModifyADConnectorDirectoryResponse
@@ -9065,8 +9629,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
-     *   *
+     * @summary Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+     *  *
+     * @description You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+     *  *
      * @param ModifyADConnectorOfficeSiteRequest $request ModifyADConnectorOfficeSiteRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -9078,6 +9644,12 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->adHostname)) {
             $query['AdHostname'] = $request->adHostname;
+        }
+        if (!Utils::isUnset($request->backupDCHostname)) {
+            $query['BackupDCHostname'] = $request->backupDCHostname;
+        }
+        if (!Utils::isUnset($request->backupDns)) {
+            $query['BackupDns'] = $request->backupDns;
         }
         if (!Utils::isUnset($request->dnsAddress)) {
             $query['DnsAddress'] = $request->dnsAddress;
@@ -9131,8 +9703,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
-     *   *
+     * @summary Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+     *  *
+     * @description You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+     *  *
      * @param ModifyADConnectorOfficeSiteRequest $request ModifyADConnectorOfficeSiteRequest
      *
      * @return ModifyADConnectorOfficeSiteResponse ModifyADConnectorOfficeSiteResponse
@@ -9145,8 +9719,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
-     *   *
+     * @summary Modify the Internet access control policy on the office network or cloud computer granularity.
+     *  *
+     * @description You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+     *  *
      * @param ModifyAclEntriesRequest $request ModifyAclEntriesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -9187,8 +9763,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
-     *   *
+     * @summary Modify the Internet access control policy on the office network or cloud computer granularity.
+     *  *
+     * @description You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+     *  *
      * @param ModifyAclEntriesRequest $request ModifyAclEntriesRequest
      *
      * @return ModifyAclEntriesResponse ModifyAclEntriesResponse
@@ -9201,10 +9779,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoSnapshotPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+     *  *
+     * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAutoSnapshotPolicyResponse
+     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicyWithOptions($request, $runtime)
     {
@@ -9244,9 +9824,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoSnapshotPolicyRequest $request
+     * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+     *  *
+     * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
      *
-     * @return ModifyAutoSnapshotPolicyResponse
+     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicy($request)
     {
@@ -9256,8 +9838,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Only custom desktop templates can be modified.
-     *   *
+     * @summary Modifies a custom cloud computer template.
+     *  *
+     * @description Only custom desktop templates can be modified.
+     *  *
      * @param ModifyBundleRequest $request ModifyBundleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -9304,8 +9888,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Only custom desktop templates can be modified.
-     *   *
+     * @summary Modifies a custom cloud computer template.
+     *  *
+     * @description Only custom desktop templates can be modified.
+     *  *
      * @param ModifyBundleRequest $request ModifyBundleRequest
      *
      * @return ModifyBundleResponse ModifyBundleResponse
@@ -9318,10 +9904,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdsFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Modifies the files in a cloud disk.
+     *  *
+     * @param ModifyCdsFileRequest $request ModifyCdsFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCdsFileResponse
+     * @return ModifyCdsFileResponse ModifyCdsFileResponse
      */
     public function modifyCdsFileWithOptions($request, $runtime)
     {
@@ -9367,9 +9955,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdsFileRequest $request
+     * @summary Modifies the files in a cloud disk.
+     *  *
+     * @param ModifyCdsFileRequest $request ModifyCdsFileRequest
      *
-     * @return ModifyCdsFileResponse
+     * @return ModifyCdsFileResponse ModifyCdsFileResponse
      */
     public function modifyCdsFile($request)
     {
@@ -9379,10 +9969,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdsFileShareLinkRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the link for file sharing.
+     *  *
+     * @param ModifyCdsFileShareLinkRequest $request ModifyCdsFileShareLinkRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCdsFileShareLinkResponse
+     * @return ModifyCdsFileShareLinkResponse ModifyCdsFileShareLinkResponse
      */
     public function modifyCdsFileShareLinkWithOptions($request, $runtime)
     {
@@ -9461,9 +10053,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdsFileShareLinkRequest $request
+     * @summary Modifies the link for file sharing.
+     *  *
+     * @param ModifyCdsFileShareLinkRequest $request ModifyCdsFileShareLinkRequest
      *
-     * @return ModifyCdsFileShareLinkResponse
+     * @return ModifyCdsFileShareLinkResponse ModifyCdsFileShareLinkResponse
      */
     public function modifyCdsFileShareLink($request)
     {
@@ -9473,10 +10067,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDriveGroupsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies team spaces.
+     *  *
+     * @param ModifyCloudDriveGroupsRequest $request ModifyCloudDriveGroupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCloudDriveGroupsResponse
+     * @return ModifyCloudDriveGroupsResponse ModifyCloudDriveGroupsResponse
      */
     public function modifyCloudDriveGroupsWithOptions($request, $runtime)
     {
@@ -9516,9 +10112,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDriveGroupsRequest $request
+     * @summary Modifies team spaces.
+     *  *
+     * @param ModifyCloudDriveGroupsRequest $request ModifyCloudDriveGroupsRequest
      *
-     * @return ModifyCloudDriveGroupsResponse
+     * @return ModifyCloudDriveGroupsResponse ModifyCloudDriveGroupsResponse
      */
     public function modifyCloudDriveGroups($request)
     {
@@ -9528,10 +10126,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDrivePermissionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+     *  *
+     * @param ModifyCloudDrivePermissionRequest $request ModifyCloudDrivePermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCloudDrivePermissionResponse
+     * @return ModifyCloudDrivePermissionResponse ModifyCloudDrivePermissionResponse
      */
     public function modifyCloudDrivePermissionWithOptions($request, $runtime)
     {
@@ -9568,9 +10168,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDrivePermissionRequest $request
+     * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+     *  *
+     * @param ModifyCloudDrivePermissionRequest $request ModifyCloudDrivePermissionRequest
      *
-     * @return ModifyCloudDrivePermissionResponse
+     * @return ModifyCloudDrivePermissionResponse ModifyCloudDrivePermissionResponse
      */
     public function modifyCloudDrivePermission($request)
     {
@@ -9580,10 +10182,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDriveUsersRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 修改无影网盘终端用户的属性
+     *  *
+     * @param ModifyCloudDriveUsersRequest $request ModifyCloudDriveUsersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCloudDriveUsersResponse
+     * @return ModifyCloudDriveUsersResponse ModifyCloudDriveUsersResponse
      */
     public function modifyCloudDriveUsersWithOptions($request, $runtime)
     {
@@ -9623,9 +10227,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCloudDriveUsersRequest $request
+     * @summary 修改无影网盘终端用户的属性
+     *  *
+     * @param ModifyCloudDriveUsersRequest $request ModifyCloudDriveUsersRequest
      *
-     * @return ModifyCloudDriveUsersResponse
+     * @return ModifyCloudDriveUsersResponse ModifyCloudDriveUsersResponse
      */
     public function modifyCloudDriveUsers($request)
     {
@@ -9635,10 +10241,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustomizedListHeadersRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the layouts of cloud computer list headers, such as the required fields and the display and hide settings.
+     *  *
+     * @param ModifyCustomizedListHeadersRequest $request ModifyCustomizedListHeadersRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCustomizedListHeadersResponse
+     * @return ModifyCustomizedListHeadersResponse ModifyCustomizedListHeadersResponse
      */
     public function modifyCustomizedListHeadersWithOptions($request, $runtime)
     {
@@ -9672,9 +10280,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustomizedListHeadersRequest $request
+     * @summary Modifies the layouts of cloud computer list headers, such as the required fields and the display and hide settings.
+     *  *
+     * @param ModifyCustomizedListHeadersRequest $request ModifyCustomizedListHeadersRequest
      *
-     * @return ModifyCustomizedListHeadersResponse
+     * @return ModifyCustomizedListHeadersResponse ModifyCustomizedListHeadersResponse
      */
     public function modifyCustomizedListHeaders($request)
     {
@@ -9684,10 +10294,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](~~188395~~).
-     *   * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
-     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
-     *   *
+     * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+     *  *
+     * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
+     * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+     *  *
      * @param ModifyDesktopChargeTypeRequest $request ModifyDesktopChargeTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -9740,10 +10352,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](~~188395~~).
-     *   * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
-     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
-     *   *
+     * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+     *  *
+     * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
+     * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+     *  *
      * @param ModifyDesktopChargeTypeRequest $request ModifyDesktopChargeTypeRequest
      *
      * @return ModifyDesktopChargeTypeResponse ModifyDesktopChargeTypeResponse
@@ -9756,8 +10370,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
-     *   *
+     * @summary Modifies the configurations of a cloud computer pool.
+     *  *
+     * @description After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+     *  *
      * @param ModifyDesktopGroupRequest $request ModifyDesktopGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -9864,8 +10480,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
-     *   *
+     * @summary Modifies the configurations of a cloud computer pool.
+     *  *
+     * @description After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+     *  *
      * @param ModifyDesktopGroupRequest $request ModifyDesktopGroupRequest
      *
      * @return ModifyDesktopGroupResponse ModifyDesktopGroupResponse
@@ -9878,8 +10496,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
-     *   *
+     * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+     *  *
+     * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+     *  *
      * @param ModifyDesktopHostNameRequest $request ModifyDesktopHostNameRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -9917,8 +10537,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
-     *   *
+     * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+     *  *
+     * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+     *  *
      * @param ModifyDesktopHostNameRequest $request ModifyDesktopHostNameRequest
      *
      * @return ModifyDesktopHostNameResponse ModifyDesktopHostNameResponse
@@ -9931,10 +10553,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopNameRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Changes the name of a cloud computer to a new name.
+     *  *
+     * @param ModifyDesktopNameRequest $request ModifyDesktopNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDesktopNameResponse
+     * @return ModifyDesktopNameResponse ModifyDesktopNameResponse
      */
     public function modifyDesktopNameWithOptions($request, $runtime)
     {
@@ -9968,9 +10592,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopNameRequest $request
+     * @summary Changes the name of a cloud computer to a new name.
+     *  *
+     * @param ModifyDesktopNameRequest $request ModifyDesktopNameRequest
      *
-     * @return ModifyDesktopNameResponse
+     * @return ModifyDesktopNameResponse ModifyDesktopNameResponse
      */
     public function modifyDesktopName($request)
     {
@@ -9980,10 +10606,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 修改桌面超卖组
+     *  *
+     * @param ModifyDesktopOversoldGroupRequest $request ModifyDesktopOversoldGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDesktopOversoldGroupResponse
+     * @return ModifyDesktopOversoldGroupResponse ModifyDesktopOversoldGroupResponse
      */
     public function modifyDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -10041,9 +10669,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldGroupRequest $request
+     * @summary 修改桌面超卖组
+     *  *
+     * @param ModifyDesktopOversoldGroupRequest $request ModifyDesktopOversoldGroupRequest
      *
-     * @return ModifyDesktopOversoldGroupResponse
+     * @return ModifyDesktopOversoldGroupResponse ModifyDesktopOversoldGroupResponse
      */
     public function modifyDesktopOversoldGroup($request)
     {
@@ -10053,10 +10683,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldGroupSaleRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 修改桌面超卖组售卖数据
+     *  *
+     * @param ModifyDesktopOversoldGroupSaleRequest $request ModifyDesktopOversoldGroupSaleRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDesktopOversoldGroupSaleResponse
+     * @return ModifyDesktopOversoldGroupSaleResponse ModifyDesktopOversoldGroupSaleResponse
      */
     public function modifyDesktopOversoldGroupSaleWithOptions($request, $runtime)
     {
@@ -10090,9 +10722,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldGroupSaleRequest $request
+     * @summary 修改桌面超卖组售卖数据
+     *  *
+     * @param ModifyDesktopOversoldGroupSaleRequest $request ModifyDesktopOversoldGroupSaleRequest
      *
-     * @return ModifyDesktopOversoldGroupSaleResponse
+     * @return ModifyDesktopOversoldGroupSaleResponse ModifyDesktopOversoldGroupSaleResponse
      */
     public function modifyDesktopOversoldGroupSale($request)
     {
@@ -10102,10 +10736,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldUserGroupRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 修改桌面超卖用户组
+     *  *
+     * @param ModifyDesktopOversoldUserGroupRequest $request ModifyDesktopOversoldUserGroupRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDesktopOversoldUserGroupResponse
+     * @return ModifyDesktopOversoldUserGroupResponse ModifyDesktopOversoldUserGroupResponse
      */
     public function modifyDesktopOversoldUserGroupWithOptions($request, $runtime)
     {
@@ -10145,9 +10781,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopOversoldUserGroupRequest $request
+     * @summary 修改桌面超卖用户组
+     *  *
+     * @param ModifyDesktopOversoldUserGroupRequest $request ModifyDesktopOversoldUserGroupRequest
      *
-     * @return ModifyDesktopOversoldUserGroupResponse
+     * @return ModifyDesktopOversoldUserGroupResponse ModifyDesktopOversoldUserGroupResponse
      */
     public function modifyDesktopOversoldUserGroup($request)
     {
@@ -10157,17 +10795,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
-     *   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](~~188609~~). You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
-     *   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
-     *   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
-     *   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
-     *   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
-     *   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
-     *   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
-     *   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
-     *   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
-     *   *
+     * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+     *  *
+     * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+     * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+     * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+     *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+     *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+     *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+     *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+     *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+     *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+     * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+     *  *
      * @param ModifyDesktopSpecRequest $request ModifyDesktopSpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10191,6 +10831,12 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceSpecs)) {
+            $query['ResourceSpecs'] = $request->resourceSpecs;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->rootDiskSizeGib)) {
             $query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
@@ -10220,17 +10866,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
-     *   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](~~188609~~). You can call the [DescribeDesktopTypes](~~188882~~) operation to query the instance types supported by cloud computers.
-     *   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
-     *   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
-     *   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
-     *   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
-     *   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
-     *   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
-     *   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
-     *   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
-     *   *
+     * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+     *  *
+     * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+     * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+     * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+     *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+     *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+     *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+     *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+     *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+     *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+     * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+     *  *
      * @param ModifyDesktopSpecRequest $request ModifyDesktopSpecRequest
      *
      * @return ModifyDesktopSpecResponse ModifyDesktopSpecResponse
@@ -10243,10 +10891,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopTimerRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates or modifies scheduled tasks on cloud computers, such as starting, stopping, restarting, and resetting cloud computers on schedule.
+     *  *
+     * @param ModifyDesktopTimerRequest $request ModifyDesktopTimerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDesktopTimerResponse
+     * @return ModifyDesktopTimerResponse ModifyDesktopTimerResponse
      */
     public function modifyDesktopTimerWithOptions($request, $runtime)
     {
@@ -10283,9 +10933,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyDesktopTimerRequest $request
+     * @summary Creates or modifies scheduled tasks on cloud computers, such as starting, stopping, restarting, and resetting cloud computers on schedule.
+     *  *
+     * @param ModifyDesktopTimerRequest $request ModifyDesktopTimerRequest
      *
-     * @return ModifyDesktopTimerResponse
+     * @return ModifyDesktopTimerResponse ModifyDesktopTimerResponse
      */
     public function modifyDesktopTimer($request)
     {
@@ -10295,8 +10947,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops that you want to restart by calling this operation must be in the Running state.
-     *   *
+     * @summary Modifies the policies that are configured for a cloud desktop.
+     *  *
+     * @description The cloud desktops that you want to restart by calling this operation must be in the Running state.
+     *  *
      * @param ModifyDesktopsPolicyGroupRequest $request ModifyDesktopsPolicyGroupRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -10337,8 +10991,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops that you want to restart by calling this operation must be in the Running state.
-     *   *
+     * @summary Modifies the policies that are configured for a cloud desktop.
+     *  *
+     * @description The cloud desktops that you want to restart by calling this operation must be in the Running state.
+     *  *
      * @param ModifyDesktopsPolicyGroupRequest $request ModifyDesktopsPolicyGroupRequest
      *
      * @return ModifyDesktopsPolicyGroupResponse ModifyDesktopsPolicyGroupResponse
@@ -10351,17 +11007,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-     *   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-     *   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-     *   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-     *   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-     *   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-     *   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-     *   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-     *   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-     *   * *   The changes do not affect your personal data on the cloud desktop.
-     *   *
+     * @summary Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+     *  *
+     * @description You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
+     * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
+     * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
+     * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
+     * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
+     * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
+     * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
+     * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
+     * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
+     * *   The changes do not affect your personal data on the cloud desktop.
+     *  *
      * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -10408,17 +11066,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-     *   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-     *   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-     *   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-     *   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-     *   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-     *   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-     *   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-     *   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-     *   * *   The changes do not affect your personal data on the cloud desktop.
-     *   *
+     * @summary Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+     *  *
+     * @description You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
+     * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
+     * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
+     * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
+     * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
+     * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
+     * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
+     * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
+     * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
+     * *   The changes do not affect your personal data on the cloud desktop.
+     *  *
      * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
      *
      * @return ModifyDiskSpecResponse ModifyDiskSpecResponse
@@ -10431,10 +11091,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   The cloud computer must be in the Running state.
-     *   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](~~436815~~) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
-     *   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
-     *   *
+     * @summary Assigns a cloud computer to end users and removes all original end users of the cloud computer.
+     *  *
+     * @description *   The cloud computer must be in the Running state.
+     * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+     * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+     *  *
      * @param ModifyEntitlementRequest $request ModifyEntitlementRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10472,10 +11134,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   The cloud computer must be in the Running state.
-     *   * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](~~436815~~) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
-     *   * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
-     *   *
+     * @summary Assigns a cloud computer to end users and removes all original end users of the cloud computer.
+     *  *
+     * @description *   The cloud computer must be in the Running state.
+     * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+     * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+     *  *
      * @param ModifyEntitlementRequest $request ModifyEntitlementRequest
      *
      * @return ModifyEntitlementResponse ModifyEntitlementResponse
@@ -10488,8 +11152,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the attributes of only custom images that are in the Available state.
-     *   *
+     * @summary Modifies the attributes of an image, including the name and description of the image.
+     *  *
+     * @description You can call this operation to modify the attributes of only custom images that are in the Available state.
+     *  *
      * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -10530,8 +11196,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the attributes of only custom images that are in the Available state.
-     *   *
+     * @summary Modifies the attributes of an image, including the name and description of the image.
+     *  *
+     * @description You can call this operation to modify the attributes of only custom images that are in the Available state.
+     *  *
      * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
      *
      * @return ModifyImageAttributeResponse ModifyImageAttributeResponse
@@ -10544,20 +11212,22 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ### [](#)Security of shared images
-     *   * WUYING Workspace cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
-     *   * ### [](#)Quota and billing
-     *   * *   A shared image does not count against the image quotas of principals to which the image is shared.
-     *   * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
-     *   * *   You are not charged for shared images.
-     *   * ### [](#)Supported sharing behaviors
-     *   * *   You can share custom images with other Alibaba Cloud accounts.
-     *   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-     *   * ### [](#)Unsupported sharing behaviors
-     *   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-     *   * *   You cannot share encrypted images.
-     *   * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](~~436978~~).
-     *   *
+     * @summary Shares an image with other Alibaba Cloud accounts, or unshares an image from the recipient Alibaba Cloud accounts.
+     *  *
+     * @description ### [](#)Security of shared images
+     * Elastic Desktop Service cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
+     * ### [](#)Quota and billing
+     * *   A shared image does not count against the image quotas of principals to which the image is shared.
+     * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
+     * *   You are not charged for shared images.
+     * ### [](#)Supported sharing behaviors
+     * *   You can share custom images with other Alibaba Cloud accounts.
+     * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
+     * ### [](#)Unsupported sharing behaviors
+     * *   You cannot share images that are shared by other Alibaba Cloud accounts.
+     * *   You cannot share encrypted images.
+     * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](https://help.aliyun.com/document_detail/436978.html).
+     *  *
      * @param ModifyImagePermissionRequest $request ModifyImagePermissionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -10598,20 +11268,22 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ### [](#)Security of shared images
-     *   * WUYING Workspace cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
-     *   * ### [](#)Quota and billing
-     *   * *   A shared image does not count against the image quotas of principals to which the image is shared.
-     *   * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
-     *   * *   You are not charged for shared images.
-     *   * ### [](#)Supported sharing behaviors
-     *   * *   You can share custom images with other Alibaba Cloud accounts.
-     *   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-     *   * ### [](#)Unsupported sharing behaviors
-     *   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-     *   * *   You cannot share encrypted images.
-     *   * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](~~436978~~).
-     *   *
+     * @summary Shares an image with other Alibaba Cloud accounts, or unshares an image from the recipient Alibaba Cloud accounts.
+     *  *
+     * @description ### [](#)Security of shared images
+     * Elastic Desktop Service cannot guarantee the integrity and security of shared images. When you use a shared image, you must make sure that the image comes from a trusted sharer or account, and you are legally responsible for using the shared image.
+     * ### [](#)Quota and billing
+     * *   A shared image does not count against the image quotas of principals to which the image is shared.
+     * *   After a principal uses a shared image to create a cloud computer, the sharer is not charged for the shared image.
+     * *   You are not charged for shared images.
+     * ### [](#)Supported sharing behaviors
+     * *   You can share custom images with other Alibaba Cloud accounts.
+     * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
+     * ### [](#)Unsupported sharing behaviors
+     * *   You cannot share images that are shared by other Alibaba Cloud accounts.
+     * *   You cannot share encrypted images.
+     * *   You cannot share images across regions. If you want to share an image across regions, you must copy the image to the destination region and then share the image. For more information, see [CopyImage](https://help.aliyun.com/document_detail/436978.html).
+     *  *
      * @param ModifyImagePermissionRequest $request ModifyImagePermissionRequest
      *
      * @return ModifyImagePermissionResponse ModifyImagePermissionResponse
@@ -10624,8 +11296,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
-     *   *
+     * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+     *  *
+     * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+     *  *
      * @param ModifyNASDefaultMountTargetRequest $request ModifyNASDefaultMountTargetRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -10663,8 +11337,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
-     *   *
+     * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+     *  *
+     * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+     *  *
      * @param ModifyNASDefaultMountTargetRequest $request ModifyNASDefaultMountTargetRequest
      *
      * @return ModifyNASDefaultMountTargetResponse ModifyNASDefaultMountTargetResponse
@@ -10677,10 +11353,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkPackageBandwidthRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the bandwidth of a premium bandwidth plan.
+     *  *
+     * @param ModifyNetworkPackageBandwidthRequest $request ModifyNetworkPackageBandwidthRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNetworkPackageBandwidthResponse
+     * @return ModifyNetworkPackageBandwidthResponse ModifyNetworkPackageBandwidthResponse
      */
     public function modifyNetworkPackageBandwidthWithOptions($request, $runtime)
     {
@@ -10720,9 +11398,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkPackageBandwidthRequest $request
+     * @summary Modifies the bandwidth of a premium bandwidth plan.
+     *  *
+     * @param ModifyNetworkPackageBandwidthRequest $request ModifyNetworkPackageBandwidthRequest
      *
-     * @return ModifyNetworkPackageBandwidthResponse
+     * @return ModifyNetworkPackageBandwidthResponse ModifyNetworkPackageBandwidthResponse
      */
     public function modifyNetworkPackageBandwidth($request)
     {
@@ -10732,8 +11412,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
-     *   *
+     * @summary Restores or disables a premium bandwidth plan.
+     *  *
+     * @description If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
+     *  *
      * @param ModifyNetworkPackageEnabledRequest $request ModifyNetworkPackageEnabledRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -10771,8 +11453,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
-     *   *
+     * @summary Restores or disables a premium bandwidth plan.
+     *  *
+     * @description If you want to temporarily disable the Internet access of your cloud computer after the Internet access is enabled for your cloud computer, you can disable the premium bandwidth plan and restore it as needed.
+     *  *
      * @param ModifyNetworkPackageEnabledRequest $request ModifyNetworkPackageEnabledRequest
      *
      * @return ModifyNetworkPackageEnabledResponse ModifyNetworkPackageEnabledResponse
@@ -10785,10 +11469,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+     *  *
+     * @param ModifyOfficeSiteAttributeRequest $request ModifyOfficeSiteAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyOfficeSiteAttributeResponse
+     * @return ModifyOfficeSiteAttributeResponse ModifyOfficeSiteAttributeResponse
      */
     public function modifyOfficeSiteAttributeWithOptions($request, $runtime)
     {
@@ -10834,9 +11520,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteAttributeRequest $request
+     * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+     *  *
+     * @param ModifyOfficeSiteAttributeRequest $request ModifyOfficeSiteAttributeRequest
      *
-     * @return ModifyOfficeSiteAttributeResponse
+     * @return ModifyOfficeSiteAttributeResponse ModifyOfficeSiteAttributeResponse
      */
     public function modifyOfficeSiteAttribute($request)
     {
@@ -10846,10 +11534,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteCrossDesktopAccessRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Enables or disables the communication between cloud computers in an office network (formerly workspace). If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
+     *  *
+     * @param ModifyOfficeSiteCrossDesktopAccessRequest $request ModifyOfficeSiteCrossDesktopAccessRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyOfficeSiteCrossDesktopAccessResponse
+     * @return ModifyOfficeSiteCrossDesktopAccessResponse ModifyOfficeSiteCrossDesktopAccessResponse
      */
     public function modifyOfficeSiteCrossDesktopAccessWithOptions($request, $runtime)
     {
@@ -10883,9 +11573,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteCrossDesktopAccessRequest $request
+     * @summary Enables or disables the communication between cloud computers in an office network (formerly workspace). If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
+     *  *
+     * @param ModifyOfficeSiteCrossDesktopAccessRequest $request ModifyOfficeSiteCrossDesktopAccessRequest
      *
-     * @return ModifyOfficeSiteCrossDesktopAccessResponse
+     * @return ModifyOfficeSiteCrossDesktopAccessResponse ModifyOfficeSiteCrossDesktopAccessResponse
      */
     public function modifyOfficeSiteCrossDesktopAccess($request)
     {
@@ -10895,10 +11587,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteMfaEnabledRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
+     *  *
+     * @param ModifyOfficeSiteMfaEnabledRequest $request ModifyOfficeSiteMfaEnabledRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyOfficeSiteMfaEnabledResponse
+     * @return ModifyOfficeSiteMfaEnabledResponse ModifyOfficeSiteMfaEnabledResponse
      */
     public function modifyOfficeSiteMfaEnabledWithOptions($request, $runtime)
     {
@@ -10932,9 +11626,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOfficeSiteMfaEnabledRequest $request
+     * @summary Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
+     *  *
+     * @param ModifyOfficeSiteMfaEnabledRequest $request ModifyOfficeSiteMfaEnabledRequest
      *
-     * @return ModifyOfficeSiteMfaEnabledResponse
+     * @return ModifyOfficeSiteMfaEnabledResponse ModifyOfficeSiteMfaEnabledResponse
      */
     public function modifyOfficeSiteMfaEnabled($request)
     {
@@ -10944,10 +11640,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies a policy.
+     *  *
+     * @param ModifyPolicyGroupRequest $request ModifyPolicyGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolicyGroupResponse
+     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroupWithOptions($request, $runtime)
     {
@@ -11003,6 +11701,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->localDrive)) {
             $query['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->maxReconnectTime)) {
+            $query['MaxReconnectTime'] = $request->maxReconnectTime;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -11140,9 +11841,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyGroupRequest $request
+     * @summary Modifies a policy.
+     *  *
+     * @param ModifyPolicyGroupRequest $request ModifyPolicyGroupRequest
      *
-     * @return ModifyPolicyGroupResponse
+     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroup($request)
     {
@@ -11152,8 +11855,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify end users only for cloud computers that are in the Running state.
-     *   *
+     * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+     *  *
+     * @description You can modify end users only for cloud computers that are in the Running state.
+     *  *
      * @param ModifyUserEntitlementRequest $request ModifyUserEntitlementRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -11194,8 +11899,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify end users only for cloud computers that are in the Running state.
-     *   *
+     * @summary Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+     *  *
+     * @description You can modify end users only for cloud computers that are in the Running state.
+     *  *
      * @param ModifyUserEntitlementRequest $request ModifyUserEntitlementRequest
      *
      * @return ModifyUserEntitlementResponse ModifyUserEntitlementResponse
@@ -11208,10 +11915,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserToDesktopGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Changes the end users of a cloud computer pool into new end users.
+     *  *
+     * @param ModifyUserToDesktopGroupRequest $request ModifyUserToDesktopGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserToDesktopGroupResponse
+     * @return ModifyUserToDesktopGroupResponse ModifyUserToDesktopGroupResponse
      */
     public function modifyUserToDesktopGroupWithOptions($request, $runtime)
     {
@@ -11248,9 +11957,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserToDesktopGroupRequest $request
+     * @summary Changes the end users of a cloud computer pool into new end users.
+     *  *
+     * @param ModifyUserToDesktopGroupRequest $request ModifyUserToDesktopGroupRequest
      *
-     * @return ModifyUserToDesktopGroupResponse
+     * @return ModifyUserToDesktopGroupResponse ModifyUserToDesktopGroupResponse
      */
     public function modifyUserToDesktopGroup($request)
     {
@@ -11260,10 +11971,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MoveCdsFileRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Move files or folders.
+     *  *
+     * @param MoveCdsFileRequest $request MoveCdsFileRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveCdsFileResponse
+     * @return MoveCdsFileResponse MoveCdsFileResponse
      */
     public function moveCdsFileWithOptions($request, $runtime)
     {
@@ -11309,9 +12022,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param MoveCdsFileRequest $request
+     * @summary Move files or folders.
+     *  *
+     * @param MoveCdsFileRequest $request MoveCdsFileRequest
      *
-     * @return MoveCdsFileResponse
+     * @return MoveCdsFileResponse MoveCdsFileResponse
      */
     public function moveCdsFile($request)
     {
@@ -11321,8 +12036,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to restart must be in the Running state.
-     *   *
+     * @summary Restart cloud computers.
+     *  *
+     * @description The cloud computers that you want to restart must be in the Running state.
+     *  *
      * @param RebootDesktopsRequest $request RebootDesktopsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -11357,8 +12074,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to restart must be in the Running state.
-     *   *
+     * @summary Restart cloud computers.
+     *  *
+     * @description The cloud computers that you want to restart must be in the Running state.
+     *  *
      * @param RebootDesktopsRequest $request RebootDesktopsRequest
      *
      * @return RebootDesktopsResponse RebootDesktopsResponse
@@ -11371,13 +12090,15 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you change the image of a cloud computer, take note of the following limits:
-     *   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-     *   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-     *   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-     *   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-     *   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
-     *   *
+     * @summary Recreates cloud computers.
+     *  *
+     * @description Before you change the image of a cloud computer, take note of the following limits:
+     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
+     * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
+     * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
+     * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+     *  *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -11392,6 +12113,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
         if (!Utils::isUnset($request->operateType)) {
             $query['OperateType'] = $request->operateType;
@@ -11418,13 +12142,15 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you change the image of a cloud computer, take note of the following limits:
-     *   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-     *   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-     *   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-     *   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-     *   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
-     *   *
+     * @summary Recreates cloud computers.
+     *  *
+     * @description Before you change the image of a cloud computer, take note of the following limits:
+     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
+     * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
+     * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
+     * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+     *  *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      *
      * @return RebuildDesktopsResponse RebuildDesktopsResponse
@@ -11437,10 +12163,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveFilePermissionRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Removes the file sharing feature of a folder in a cloud disk.
+     *  *
+     * @param RemoveFilePermissionRequest $tmpReq  RemoveFilePermissionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveFilePermissionResponse
+     * @return RemoveFilePermissionResponse RemoveFilePermissionResponse
      */
     public function removeFilePermissionWithOptions($tmpReq, $runtime)
     {
@@ -11488,9 +12216,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveFilePermissionRequest $request
+     * @summary Removes the file sharing feature of a folder in a cloud disk.
+     *  *
+     * @param RemoveFilePermissionRequest $request RemoveFilePermissionRequest
      *
-     * @return RemoveFilePermissionResponse
+     * @return RemoveFilePermissionResponse RemoveFilePermissionResponse
      */
     public function removeFilePermission($request)
     {
@@ -11500,10 +12230,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromDesktopGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+     *  *
+     * @param RemoveUserFromDesktopGroupRequest $request RemoveUserFromDesktopGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromDesktopGroupResponse
+     * @return RemoveUserFromDesktopGroupResponse RemoveUserFromDesktopGroupResponse
      */
     public function removeUserFromDesktopGroupWithOptions($request, $runtime)
     {
@@ -11540,9 +12272,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromDesktopGroupRequest $request
+     * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+     *  *
+     * @param RemoveUserFromDesktopGroupRequest $request RemoveUserFromDesktopGroupRequest
      *
-     * @return RemoveUserFromDesktopGroupResponse
+     * @return RemoveUserFromDesktopGroupResponse RemoveUserFromDesktopGroupResponse
      */
     public function removeUserFromDesktopGroup($request)
     {
@@ -11552,10 +12286,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 移除超卖用户组用户
+     *  *
+     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request RemoveUserFromDesktopOversoldUserGroupRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromDesktopOversoldUserGroupResponse
+     * @return RemoveUserFromDesktopOversoldUserGroupResponse RemoveUserFromDesktopOversoldUserGroupResponse
      */
     public function removeUserFromDesktopOversoldUserGroupWithOptions($request, $runtime)
     {
@@ -11592,9 +12328,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request
+     * @summary 移除超卖用户组用户
+     *  *
+     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request RemoveUserFromDesktopOversoldUserGroupRequest
      *
-     * @return RemoveUserFromDesktopOversoldUserGroupResponse
+     * @return RemoveUserFromDesktopOversoldUserGroupResponse RemoveUserFromDesktopOversoldUserGroupResponse
      */
     public function removeUserFromDesktopOversoldUserGroup($request)
     {
@@ -11604,10 +12342,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewDesktopOversoldGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 续费桌面超卖组
+     *  *
+     * @param RenewDesktopOversoldGroupRequest $request RenewDesktopOversoldGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewDesktopOversoldGroupResponse
+     * @return RenewDesktopOversoldGroupResponse RenewDesktopOversoldGroupResponse
      */
     public function renewDesktopOversoldGroupWithOptions($request, $runtime)
     {
@@ -11641,9 +12381,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewDesktopOversoldGroupRequest $request
+     * @summary 续费桌面超卖组
+     *  *
+     * @param RenewDesktopOversoldGroupRequest $request RenewDesktopOversoldGroupRequest
      *
-     * @return RenewDesktopOversoldGroupResponse
+     * @return RenewDesktopOversoldGroupResponse RenewDesktopOversoldGroupResponse
      */
     public function renewDesktopOversoldGroup($request)
     {
@@ -11653,10 +12395,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewDesktopsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Renew subscription cloud computers.
+     *  *
+     * @param RenewDesktopsRequest $request RenewDesktopsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewDesktopsResponse
+     * @return RenewDesktopsResponse RenewDesktopsResponse
      */
     public function renewDesktopsWithOptions($request, $runtime)
     {
@@ -11664,6 +12408,9 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
@@ -11702,9 +12449,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewDesktopsRequest $request
+     * @summary Renew subscription cloud computers.
+     *  *
+     * @param RenewDesktopsRequest $request RenewDesktopsRequest
      *
-     * @return RenewDesktopsResponse
+     * @return RenewDesktopsResponse RenewDesktopsResponse
      */
     public function renewDesktops($request)
     {
@@ -11714,10 +12463,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewNetworkPackagesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Renews premium bandwidth plans.
+     *  *
+     * @param RenewNetworkPackagesRequest $request RenewNetworkPackagesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewNetworkPackagesResponse
+     * @return RenewNetworkPackagesResponse RenewNetworkPackagesResponse
      */
     public function renewNetworkPackagesWithOptions($request, $runtime)
     {
@@ -11760,9 +12511,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewNetworkPackagesRequest $request
+     * @summary Renews premium bandwidth plans.
+     *  *
+     * @param RenewNetworkPackagesRequest $request RenewNetworkPackagesRequest
      *
-     * @return RenewNetworkPackagesResponse
+     * @return RenewNetworkPackagesResponse RenewNetworkPackagesResponse
      */
     public function renewNetworkPackages($request)
     {
@@ -11772,8 +12525,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * > You can call this operation to reset only cloud computers in a cloud computer pool.
-     *   *
+     * @summary Resets cloud computers.
+     *  *
+     * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+     *  *
      * @param ResetDesktopsRequest $request ResetDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -11826,8 +12581,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * > You can call this operation to reset only cloud computers in a cloud computer pool.
-     *   *
+     * @summary Resets cloud computers.
+     *  *
+     * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+     *  *
      * @param ResetDesktopsRequest $request ResetDesktopsRequest
      *
      * @return ResetDesktopsResponse ResetDesktopsResponse
@@ -11840,8 +12597,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
-     *   *
+     * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+     *  *
+     * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     *  *
      * @param ResetNASDefaultMountTargetRequest $request ResetNASDefaultMountTargetRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -11876,8 +12635,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
-     *   *
+     * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+     *  *
+     * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     *  *
      * @param ResetNASDefaultMountTargetRequest $request ResetNASDefaultMountTargetRequest
      *
      * @return ResetNASDefaultMountTargetResponse ResetNASDefaultMountTargetResponse
@@ -11890,11 +12651,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following operations are performed:
-     *   * *   The data that you want to retain is backed up.
-     *   *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
-     *   * *   The cloud computer to which the disk belongs is stopped.
-     *   *
+     * @summary Restores the data of a disk from a snapshot.
+     *  *
+     * @description Before you call this operation, make sure that the following operations are performed:
+     * *   The data that you want to retain is backed up.
+     *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
+     * *   The cloud computer to which the disk belongs is stopped.
+     *  *
      * @param ResetSnapshotRequest $request ResetSnapshotRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -11929,11 +12692,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following operations are performed:
-     *   * *   The data that you want to retain is backed up.
-     *   *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
-     *   * *   The cloud computer to which the disk belongs is stopped.
-     *   *
+     * @summary Restores the data of a disk from a snapshot.
+     *  *
+     * @description Before you call this operation, make sure that the following operations are performed:
+     * *   The data that you want to retain is backed up.
+     *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
+     * *   The cloud computer to which the disk belongs is stopped.
+     *  *
      * @param ResetSnapshotRequest $request ResetSnapshotRequest
      *
      * @return ResetSnapshotResponse ResetSnapshotResponse
@@ -11946,10 +12711,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RevokeCoordinatePrivilegeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Revokes the coordinate permissions.
+     *  *
+     * @param RevokeCoordinatePrivilegeRequest $request RevokeCoordinatePrivilegeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeCoordinatePrivilegeResponse
+     * @return RevokeCoordinatePrivilegeResponse RevokeCoordinatePrivilegeResponse
      */
     public function revokeCoordinatePrivilegeWithOptions($request, $runtime)
     {
@@ -11989,9 +12756,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RevokeCoordinatePrivilegeRequest $request
+     * @summary Revokes the coordinate permissions.
+     *  *
+     * @param RevokeCoordinatePrivilegeRequest $request RevokeCoordinatePrivilegeRequest
      *
-     * @return RevokeCoordinatePrivilegeResponse
+     * @return RevokeCoordinatePrivilegeResponse RevokeCoordinatePrivilegeResponse
      */
     public function revokeCoordinatePrivilege($request)
     {
@@ -12001,8 +12770,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
-     *   *
+     * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+     *  *
+     * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+     *  *
      * @param RunCommandRequest $request RunCommandRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -12052,8 +12823,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
-     *   *
+     * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
+     *  *
+     * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+     *  *
      * @param RunCommandRequest $request RunCommandRequest
      *
      * @return RunCommandResponse RunCommandResponse
@@ -12066,8 +12839,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
-     *   *
+     * @summary Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+     *  *
+     * @description You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+     *  *
      * @param SendVerifyCodeRequest $request SendVerifyCodeRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -12105,8 +12880,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
-     *   *
+     * @summary Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+     *  *
+     * @description You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+     *  *
      * @param SendVerifyCodeRequest $request SendVerifyCodeRequest
      *
      * @return SendVerifyCodeResponse SendVerifyCodeResponse
@@ -12119,10 +12896,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupScaleTimerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+     *  *
+     * @param SetDesktopGroupScaleTimerRequest $request SetDesktopGroupScaleTimerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDesktopGroupScaleTimerResponse
+     * @return SetDesktopGroupScaleTimerResponse SetDesktopGroupScaleTimerResponse
      */
     public function setDesktopGroupScaleTimerWithOptions($request, $runtime)
     {
@@ -12156,9 +12935,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupScaleTimerRequest $request
+     * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+     *  *
+     * @param SetDesktopGroupScaleTimerRequest $request SetDesktopGroupScaleTimerRequest
      *
-     * @return SetDesktopGroupScaleTimerResponse
+     * @return SetDesktopGroupScaleTimerResponse SetDesktopGroupScaleTimerResponse
      */
     public function setDesktopGroupScaleTimer($request)
     {
@@ -12168,10 +12949,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupTimerRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+     *  *
+     * @param SetDesktopGroupTimerRequest $request SetDesktopGroupTimerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDesktopGroupTimerResponse
+     * @return SetDesktopGroupTimerResponse SetDesktopGroupTimerResponse
      */
     public function setDesktopGroupTimerWithOptions($request, $runtime)
     {
@@ -12214,9 +12997,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupTimerRequest $request
+     * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+     *  *
+     * @param SetDesktopGroupTimerRequest $request SetDesktopGroupTimerRequest
      *
-     * @return SetDesktopGroupTimerResponse
+     * @return SetDesktopGroupTimerResponse SetDesktopGroupTimerResponse
      */
     public function setDesktopGroupTimer($request)
     {
@@ -12226,10 +13011,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupTimerStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+     *  *
+     * @param SetDesktopGroupTimerStatusRequest $request SetDesktopGroupTimerStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDesktopGroupTimerStatusResponse
+     * @return SetDesktopGroupTimerStatusResponse SetDesktopGroupTimerStatusResponse
      */
     public function setDesktopGroupTimerStatusWithOptions($request, $runtime)
     {
@@ -12266,9 +13053,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDesktopGroupTimerStatusRequest $request
+     * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+     *  *
+     * @param SetDesktopGroupTimerStatusRequest $request SetDesktopGroupTimerStatusRequest
      *
-     * @return SetDesktopGroupTimerStatusResponse
+     * @return SetDesktopGroupTimerStatusResponse SetDesktopGroupTimerStatusResponse
      */
     public function setDesktopGroupTimerStatus($request)
     {
@@ -12278,8 +13067,63 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation is supported only for AD directories, not for RAM directories.
-     *   *
+     * @summary 设置桌面维护模式
+     *  *
+     * @param SetDesktopMaintenanceRequest $request SetDesktopMaintenanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetDesktopMaintenanceResponse SetDesktopMaintenanceResponse
+     */
+    public function setDesktopMaintenanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopIds)) {
+            $query['DesktopIds'] = $request->desktopIds;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDesktopMaintenance',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDesktopMaintenanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置桌面维护模式
+     *  *
+     * @param SetDesktopMaintenanceRequest $request SetDesktopMaintenanceRequest
+     *
+     * @return SetDesktopMaintenanceResponse SetDesktopMaintenanceResponse
+     */
+    public function setDesktopMaintenance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDesktopMaintenanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+     *  *
+     * @description This operation is supported only for AD directories, not for RAM directories.
+     *  *
      * @param SetDirectorySsoStatusRequest $request SetDirectorySsoStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -12317,8 +13161,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation is supported only for AD directories, not for RAM directories.
-     *   *
+     * @summary Configures the single sign-on (SSO) status of an Active Directory (AD) directory.
+     *  *
+     * @description This operation is supported only for AD directories, not for RAM directories.
+     *  *
      * @param SetDirectorySsoStatusRequest $request SetDirectorySsoStatusRequest
      *
      * @return SetDirectorySsoStatusResponse SetDirectorySsoStatusResponse
@@ -12331,8 +13177,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-     *   *
+     * @summary Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
+     *  *
+     * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+     *  *
      * @param SetIdpMetadataRequest $request SetIdpMetadataRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -12373,8 +13221,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
-     *   *
+     * @summary Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
+     *  *
+     * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+     *  *
      * @param SetIdpMetadataRequest $request SetIdpMetadataRequest
      *
      * @return SetIdpMetadataResponse SetIdpMetadataResponse
@@ -12387,10 +13237,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetOfficeSiteSsoStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Enables or disables single sign-on (SSO) for a workspace.
+     *  *
+     * @param SetOfficeSiteSsoStatusRequest $request SetOfficeSiteSsoStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetOfficeSiteSsoStatusResponse
+     * @return SetOfficeSiteSsoStatusResponse SetOfficeSiteSsoStatusResponse
      */
     public function setOfficeSiteSsoStatusWithOptions($request, $runtime)
     {
@@ -12424,9 +13276,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetOfficeSiteSsoStatusRequest $request
+     * @summary Enables or disables single sign-on (SSO) for a workspace.
+     *  *
+     * @param SetOfficeSiteSsoStatusRequest $request SetOfficeSiteSsoStatusRequest
      *
-     * @return SetOfficeSiteSsoStatusResponse
+     * @return SetOfficeSiteSsoStatusResponse SetOfficeSiteSsoStatusResponse
      */
     public function setOfficeSiteSsoStatus($request)
     {
@@ -12436,10 +13290,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetUserProfilePathRulesRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+     *  *
+     * @param SetUserProfilePathRulesRequest $tmpReq  SetUserProfilePathRulesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetUserProfilePathRulesResponse
+     * @return SetUserProfilePathRulesResponse SetUserProfilePathRulesResponse
      */
     public function setUserProfilePathRulesWithOptions($tmpReq, $runtime)
     {
@@ -12481,9 +13337,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetUserProfilePathRulesRequest $request
+     * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+     *  *
+     * @param SetUserProfilePathRulesRequest $request SetUserProfilePathRulesRequest
      *
-     * @return SetUserProfilePathRulesResponse
+     * @return SetUserProfilePathRulesResponse SetUserProfilePathRulesResponse
      */
     public function setUserProfilePathRules($request)
     {
@@ -12493,8 +13351,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to start must be in the Stopped state.
-     *   *
+     * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+     *  *
+     * @description The cloud computers that you want to start must be in the Stopped state.
+     *  *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -12529,8 +13389,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to start must be in the Stopped state.
-     *   *
+     * @summary Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+     *  *
+     * @description The cloud computers that you want to start must be in the Stopped state.
+     *  *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      *
      * @return StartDesktopsResponse StartDesktopsResponse
@@ -12543,8 +13405,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to stop must be in the Running state.
-     *   *
+     * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+     *  *
+     * @description The cloud computers that you want to stop must be in the Running state.
+     *  *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -12582,8 +13446,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud computers that you want to stop must be in the Running state.
-     *   *
+     * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+     *  *
+     * @description The cloud computers that you want to stop must be in the Running state.
+     *  *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      *
      * @return StopDesktopsResponse StopDesktopsResponse
@@ -12596,8 +13462,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
-     *   *
+     * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+     *  *
+     * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+     *  *
      * @param StopInvocationRequest $request StopInvocationRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -12635,8 +13503,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
-     *   *
+     * @summary Stops a Cloud Assistant command that is running on one or more cloud desktops.
+     *  *
+     * @description When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+     *  *
      * @param StopInvocationRequest $request StopInvocationRequest
      *
      * @return StopInvocationResponse StopInvocationResponse
@@ -12649,8 +13519,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If TagKey is specified, the new TagValue value overrides the original TagValue value.
-     *   *
+     * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+     *  *
+     * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -12691,8 +13563,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If TagKey is specified, the new TagValue value overrides the original TagValue value.
-     *   *
+     * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+     *  *
+     * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -12705,10 +13579,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnbindUserDesktopRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 解绑用户桌面
+     *  *
+     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindUserDesktopResponse
+     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
      */
     public function unbindUserDesktopWithOptions($request, $runtime)
     {
@@ -12751,9 +13627,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnbindUserDesktopRequest $request
+     * @summary 解绑用户桌面
+     *  *
+     * @param UnbindUserDesktopRequest $request UnbindUserDesktopRequest
      *
-     * @return UnbindUserDesktopResponse
+     * @return UnbindUserDesktopResponse UnbindUserDesktopResponse
      */
     public function unbindUserDesktop($request)
     {
@@ -12763,10 +13641,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnlockVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is in the LOCKED state.
+     *  *
+     * @param UnlockVirtualMFADeviceRequest $request UnlockVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockVirtualMFADeviceResponse
+     * @return UnlockVirtualMFADeviceResponse UnlockVirtualMFADeviceResponse
      */
     public function unlockVirtualMFADeviceWithOptions($request, $runtime)
     {
@@ -12797,9 +13677,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UnlockVirtualMFADeviceRequest $request
+     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is in the LOCKED state.
+     *  *
+     * @param UnlockVirtualMFADeviceRequest $request UnlockVirtualMFADeviceRequest
      *
-     * @return UnlockVirtualMFADeviceResponse
+     * @return UnlockVirtualMFADeviceResponse UnlockVirtualMFADeviceResponse
      */
     public function unlockVirtualMFADevice($request)
     {
@@ -12809,10 +13691,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -12852,9 +13736,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -12864,8 +13750,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
-     *   *
+     * @summary Enables or disables the auto-push feature for an image update task.
+     *  *
+     * @description You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the Elastic Desktop Service console and choose **Operations > Image Updates** in the left-side navigation pane.
+     *  *
      * @param UpdateFotaTaskRequest $request UpdateFotaTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -12903,8 +13791,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
-     *   *
+     * @summary Enables or disables the auto-push feature for an image update task.
+     *  *
+     * @description You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the Elastic Desktop Service console and choose **Operations > Image Updates** in the left-side navigation pane.
+     *  *
      * @param UpdateFotaTaskRequest $request UpdateFotaTaskRequest
      *
      * @return UpdateFotaTaskResponse UpdateFotaTaskResponse
@@ -12917,8 +13807,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * >  You can upload only Windows images.
-     *   *
+     * @summary Uploads your custom Windows image.
+     *  *
+     * @description >  You can upload only Windows images.
+     *  *
      * @param UploadImageRequest $request UploadImageRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -12980,8 +13872,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * >  You can upload only Windows images.
-     *   *
+     * @summary Uploads your custom Windows image.
+     *  *
+     * @description >  You can upload only Windows images.
+     *  *
      * @param UploadImageRequest $request UploadImageRequest
      *
      * @return UploadImageResponse UploadImageResponse
@@ -12994,10 +13888,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param VerifyCenRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+     *  *
+     * @param VerifyCenRequest $request VerifyCenRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyCenResponse
+     * @return VerifyCenResponse VerifyCenResponse
      */
     public function verifyCenWithOptions($request, $runtime)
     {
@@ -13037,9 +13933,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param VerifyCenRequest $request
+     * @summary Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+     *  *
+     * @param VerifyCenRequest $request VerifyCenRequest
      *
-     * @return VerifyCenResponse
+     * @return VerifyCenResponse VerifyCenResponse
      */
     public function verifyCen($request)
     {
@@ -13049,10 +13947,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param WakeupDesktopsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param WakeupDesktopsRequest $request WakeupDesktopsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return WakeupDesktopsResponse
+     * @return WakeupDesktopsResponse WakeupDesktopsResponse
      */
     public function wakeupDesktopsWithOptions($request, $runtime)
     {
@@ -13083,9 +13981,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param WakeupDesktopsRequest $request
+     * @param WakeupDesktopsRequest $request WakeupDesktopsRequest
      *
-     * @return WakeupDesktopsResponse
+     * @return WakeupDesktopsResponse WakeupDesktopsResponse
      */
     public function wakeupDesktops($request)
     {

@@ -88,8 +88,8 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description The domain blacklist or whitelist. Wildcard domains are supported. Separate domain names with commas (,). Valid values:
      *
-     *   \[black:],example1.com,example2.com: the domain name blacklist.
-     *   \[white:],example1.com,example2.com: the domain name whitelist.
+     *   [black:],example1.com,example2.com: the domain name blacklist.
+     *   [white:],example1.com,example2.com: the domain name whitelist.
      *
      * @example [black:],example1.com,example2.com
      *
@@ -202,6 +202,11 @@ class ModifyPolicyGroupRequest extends Model
     public $localDrive;
 
     /**
+     * @var int
+     */
+    public $maxReconnectTime;
+
+    /**
      * @description The name of the policy.
      *
      * @example testPolicyGroupName
@@ -226,6 +231,7 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -379,6 +385,7 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description The ID of the region where the cloud desktop resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -610,6 +617,7 @@ class ModifyPolicyGroupRequest extends Model
         'html5FileTransfer'             => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'localDrive'                    => 'LocalDrive',
+        'maxReconnectTime'              => 'MaxReconnectTime',
         'name'                          => 'Name',
         'netRedirect'                   => 'NetRedirect',
         'policyGroupId'                 => 'PolicyGroupId',
@@ -732,6 +740,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->maxReconnectTime) {
+            $res['MaxReconnectTime'] = $this->maxReconnectTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -954,6 +965,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['MaxReconnectTime'])) {
+            $model->maxReconnectTime = $map['MaxReconnectTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

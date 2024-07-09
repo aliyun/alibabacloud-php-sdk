@@ -11,6 +11,7 @@ class DeleteDesktopGroupRequest extends Model
     /**
      * @description The ID of the desktop group.
      *
+     * This parameter is required.
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteDesktopGroupRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

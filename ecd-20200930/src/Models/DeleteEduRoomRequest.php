@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteEduRoomRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $eduRoomId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

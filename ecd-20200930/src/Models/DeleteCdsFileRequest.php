@@ -11,6 +11,7 @@ class DeleteCdsFileRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -29,6 +30,7 @@ class DeleteCdsFileRequest extends Model
     /**
      * @description The ID of the file. The ID is a unique identifier for the file.
      *
+     * This parameter is required.
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -43,8 +45,9 @@ class DeleteCdsFileRequest extends Model
     public $groupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

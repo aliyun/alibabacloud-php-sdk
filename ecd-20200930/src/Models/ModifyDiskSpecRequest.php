@@ -24,6 +24,7 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The ID of the cloud desktop.
      *
+     * This parameter is required.
      * @example ecd-2yjhqxo1monxxxxxx
      *
      * @var string
@@ -42,6 +43,7 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

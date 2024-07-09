@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoSnapshotPolicies extends Model
 {
     /**
-     * @description The time when the automatic snapshot policy was created. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+     * @description The time when the automatic snapshot policy was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
      *
      * @example 2023-01-11T09:14:00Z
      *
@@ -18,7 +18,7 @@ class autoSnapshotPolicies extends Model
     public $creationTime;
 
     /**
-     * @description The cron expression that specifies when WUYING Workspace creates snapshots on the cloud computers.
+     * @description The cron expression that specifies when Elastic Desktop Service creates snapshots on the cloud computers.
      *
      * @example 0 0 5,7 ? * 2/2
      *

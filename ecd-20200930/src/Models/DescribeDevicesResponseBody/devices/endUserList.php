@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endUserList extends Model
 {
     /**
-     * @description The address of the AD workspace.
+     * @description The address of the AD office network.
      *
      * @example xn--0zw****
      *
@@ -18,7 +18,7 @@ class endUserList extends Model
     public $adDomain;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the convenient office network.
      *
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
@@ -36,7 +36,12 @@ class endUserList extends Model
     public $endUserId;
 
     /**
-     * @description The type of the account.
+     * @description The account type of the user.
+     *
+     * Valid values:
+     *
+     *   AD: enterprise AD account.
+     *   SIMPLE: convenience account
      *
      * @example SIMPLE
      *

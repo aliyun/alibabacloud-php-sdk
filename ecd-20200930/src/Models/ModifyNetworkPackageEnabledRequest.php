@@ -29,6 +29,7 @@ class ModifyNetworkPackageEnabledRequest extends Model
     /**
      * @description The ID of the premium bandwidth plan.
      *
+     * This parameter is required.
      * @example np-cfedn7r2pe48g****
      *
      * @var string
@@ -36,8 +37,9 @@ class ModifyNetworkPackageEnabledRequest extends Model
     public $networkPackageId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

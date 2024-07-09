@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FilePermissionMember extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
@@ -25,6 +27,8 @@ class FilePermissionMember extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $roleId;

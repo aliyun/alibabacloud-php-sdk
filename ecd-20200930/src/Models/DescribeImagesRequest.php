@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesRequest extends Model
 {
     /**
-     * @description The instance type of the cloud computer. You can call the [DescribeDesktopTypes](~~436816~~) operation to obtain the parameter value.
+     * @description The instance type of the cloud computer. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/436816.html) operation to obtain the parameter value.
      *
      * @example ecd.graphics.xlarge
      *
@@ -152,8 +152,9 @@ class DescribeImagesRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

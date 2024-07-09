@@ -11,6 +11,7 @@ class ModifyCloudDrivePermissionRequest extends Model
     /**
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-60911*****
      *
      * @var string
@@ -34,6 +35,7 @@ class ModifyCloudDrivePermissionRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

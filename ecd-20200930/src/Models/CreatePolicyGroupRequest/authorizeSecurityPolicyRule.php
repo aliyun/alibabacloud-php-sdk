@@ -82,7 +82,7 @@ class authorizeSecurityPolicyRule extends Model
      *   If you set the IpProtocol parameter to GRE, the start port number and the end port number are -1/-1.
      *   If you set the IpProtocol parameter to ALL, the start port number and the end port number are -1/-1.
      *
-     * For more information about the common ports of applications, see [Common ports](~~40724~~).
+     * For more information about the common ports of applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
      * @example 22/22
      *
      * @var string
@@ -90,7 +90,7 @@ class authorizeSecurityPolicyRule extends Model
     public $portRange;
 
     /**
-     * @description The priority of the security group rule. A smaller value specifies a higher priority.\
+     * @description The priority of the security group rule. A smaller value specifies a higher priority.\\
      * Default value: 1.
      * @example 1
      *

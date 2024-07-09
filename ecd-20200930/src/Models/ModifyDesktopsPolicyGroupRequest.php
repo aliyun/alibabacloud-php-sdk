@@ -11,6 +11,7 @@ class ModifyDesktopsPolicyGroupRequest extends Model
     /**
      * @description The ID of the cloud desktop. You can specify one or more desktop IDs. The value is a JSON array.
      *
+     * This parameter is required.
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -36,6 +37,7 @@ class ModifyDesktopsPolicyGroupRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

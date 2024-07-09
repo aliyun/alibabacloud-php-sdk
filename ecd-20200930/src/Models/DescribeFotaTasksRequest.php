@@ -53,8 +53,9 @@ class DescribeFotaTasksRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the regions supported by WUYING Workspace.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

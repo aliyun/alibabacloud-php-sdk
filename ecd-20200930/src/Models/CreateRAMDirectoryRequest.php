@@ -31,8 +31,9 @@ class CreateRAMDirectoryRequest extends Model
     public $desktopAccessType;
 
     /**
-     * @description The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example testDirectoryName
      *
      * @var string
@@ -76,8 +77,9 @@ class CreateRAMDirectoryRequest extends Model
     public $enableInternetAccess;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -87,6 +89,7 @@ class CreateRAMDirectoryRequest extends Model
     /**
      * @description The vSwitch IDs. You can configure only one vSwitch.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $vSwitchId;

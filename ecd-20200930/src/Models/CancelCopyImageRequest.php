@@ -11,6 +11,7 @@ class CancelCopyImageRequest extends Model
     /**
      * @description The ID of the new image in the destination region.
      *
+     * This parameter is required.
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -20,6 +21,7 @@ class CancelCopyImageRequest extends Model
     /**
      * @description The ID of the region to which the image is copied.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

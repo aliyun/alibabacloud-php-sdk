@@ -11,6 +11,7 @@ class ApplyCoordinatePrivilegeRequest extends Model
     /**
      * @description The ID of the application for the coordinate permissions.
      *
+     * This parameter is required.
      * @example co-fqsm6e8ee75w61fp9
      *
      * @var string
@@ -27,8 +28,9 @@ class ApplyCoordinatePrivilegeRequest extends Model
     public $endUserId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,7 +40,7 @@ class ApplyCoordinatePrivilegeRequest extends Model
     /**
      * @description The type of user who requires the coordinate permissions.
      *
-     * Valid value: TENANT_ADMIN.
+     * This parameter is required.
      * @example TENANT_ADMIN
      *
      * @var string

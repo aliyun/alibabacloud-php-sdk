@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddUserToDesktopGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -36,6 +36,7 @@ class AddUserToDesktopGroupRequest extends Model
     /**
      * @description The regular users to whom you want to assign the desktop group.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $endUserIds;
@@ -43,6 +44,7 @@ class AddUserToDesktopGroupRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

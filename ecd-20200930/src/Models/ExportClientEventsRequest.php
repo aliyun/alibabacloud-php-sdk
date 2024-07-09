@@ -27,7 +27,7 @@ class ExportClientEventsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
      * If you do not specify a value for this parameter, the current time is used.
      * @example 2022-03-23T07:11:01Z
@@ -116,6 +116,7 @@ class ExportClientEventsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -123,7 +124,7 @@ class ExportClientEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
      * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
      * @example 2022-03-23T04:10:21Z

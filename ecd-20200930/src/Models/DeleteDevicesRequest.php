@@ -9,11 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteDevicesRequest extends Model
 {
     /**
-     * @description The type of the device.
+     * @description The type of the client.
      *
-     *   1: the hardware client device
-     *   2: the software client device
+     * Valid values:
      *
+     *   1: hardware client.
+     *   2: software client.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -21,18 +24,22 @@ class DeleteDevicesRequest extends Model
     public $clientType;
 
     /**
-     * @description The list of universally unique identifiers (UUIDs) of devices.
+     * @description The IDs of the devices. You can specify up to 200 IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $deviceIds;
 
     /**
-     * @description Specifies whether to forcefully delete the device.
+     * @description Specifies whether to forcefully delete the device if the device is bound to a user.
      *
-     *   1: forcefully deletes the device.
-     *   0: does not forcefully delete the device. (You cannot delete a device to which a user is bound.)
+     * Valid values:
      *
+     *   0: do not forcefully delete the device.
+     *   1: forcefully delete the device.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -40,7 +47,7 @@ class DeleteDevicesRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *

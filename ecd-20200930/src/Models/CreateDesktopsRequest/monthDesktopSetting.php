@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class monthDesktopSetting extends Model
 {
     /**
+     * @description > This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var int
      */
     public $buyerId;
 
     /**
+     * @description > This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $desktopId;
 
     /**
+     * @description > This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var int
      */
     public $useDuration;

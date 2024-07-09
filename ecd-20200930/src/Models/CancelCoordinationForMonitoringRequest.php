@@ -11,6 +11,7 @@ class CancelCoordinationForMonitoringRequest extends Model
     /**
      * @description The IDs of stream collaboration tasks.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $coIds;
@@ -25,8 +26,9 @@ class CancelCoordinationForMonitoringRequest extends Model
     public $endUserId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

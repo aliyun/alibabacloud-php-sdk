@@ -11,6 +11,7 @@ class SetDirectorySsoStatusRequest extends Model
     /**
      * @description The AD directory ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-h95efs1mbukd9****
      *
      * @var string
@@ -23,6 +24,7 @@ class SetDirectorySsoStatusRequest extends Model
      *   true: enables SSO.
      *   false: disables SSO.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -32,6 +34,7 @@ class SetDirectorySsoStatusRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

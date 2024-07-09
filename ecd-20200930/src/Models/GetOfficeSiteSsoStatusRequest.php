@@ -11,6 +11,7 @@ class GetOfficeSiteSsoStatusRequest extends Model
     /**
      * @description The workspace ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetOfficeSiteSsoStatusRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

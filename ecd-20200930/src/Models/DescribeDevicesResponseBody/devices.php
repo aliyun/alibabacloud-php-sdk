@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class devices extends Model
 {
     /**
-     * @description The ID of the device.
+     * @description The ID of the device. The serial number (SN) of the hardware client or the UUID of the software client.
      *
      * @example 5F52817BE267A43C608D245070D2****
      *

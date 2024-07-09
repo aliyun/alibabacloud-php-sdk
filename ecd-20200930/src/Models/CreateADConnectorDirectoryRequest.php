@@ -31,8 +31,9 @@ class CreateADConnectorDirectoryRequest extends Model
     public $desktopAccessType;
 
     /**
-     * @description The directory name. The name must be 2 to 255 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The directory name. The name must be 2 to 255 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example testDirectoryName
      *
      * @var string
@@ -42,7 +43,8 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description The IP address of the DNS server corresponding to the enterprise AD. You can specify only one IP address. Make sure that the specified IP address is accessible in the network of the selected vSwitch.
      *
-     * @example 127.0.**.**
+     * This parameter is required.
+     * @example 127.0.\*\*.**
      *
      * @var string[]
      */
@@ -51,6 +53,7 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description The fully qualified domain name (FQDN) of the enterprise AD system. The value must contain the hostname and the domain name. You can register each FQDN only once.
      *
+     * This parameter is required.
      * @example corp.example.com
      *
      * @var string
@@ -60,6 +63,7 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description The password of the domain administrator. The password can be up to 64 characters in length.
      *
+     * This parameter is required.
      * @example testPassword
      *
      * @var string
@@ -69,6 +73,7 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description The username of the domain administrator. The username can be up to 64 characters in length.
      *
+     * This parameter is required.
      * @example sAMAccountName
      *
      * @var string
@@ -112,8 +117,9 @@ class CreateADConnectorDirectoryRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -131,9 +137,9 @@ class CreateADConnectorDirectoryRequest extends Model
     public $specification;
 
     /**
-     * @description The DNS address of the existing AD subdomain.\
+     * @description The DNS address of the existing AD subdomain.\\
      * If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
-     * @example 127.0.**.**
+     * @example 127.0.\*\*.**
      *
      * @var string[]
      */
@@ -151,6 +157,7 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description Details of the vSwitch IDs. You can specify only one vSwitch ID.
      *
+     * This parameter is required.
      * @example vsw-bp19ocz3erfx15uon****
      *
      * @var string[]

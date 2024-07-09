@@ -11,6 +11,7 @@ class HibernateDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud desktops. You can specify 1 to 20 cloud desktop IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
@@ -18,6 +19,7 @@ class HibernateDesktopsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

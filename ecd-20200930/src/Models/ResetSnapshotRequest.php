@@ -11,6 +11,7 @@ class ResetSnapshotRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hzngahou
      *
      * @var string
@@ -20,6 +21,7 @@ class ResetSnapshotRequest extends Model
     /**
      * @description The ID of the snapshot.
      *
+     * This parameter is required.
      * @example s-2zeipxmnhej803x7****
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyEntitlementRequest extends Model
     /**
      * @description The ID of the cloud computer.
      *
+     * This parameter is required.
      * @example ecd-7w78ozhjcwa3u****
      *
      * @var string
@@ -27,8 +28,9 @@ class ModifyEntitlementRequest extends Model
     public $endUserId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

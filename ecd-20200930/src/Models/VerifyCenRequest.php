@@ -11,6 +11,7 @@ class VerifyCenRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-3gwy16dojz1m65****
      *
      * @var string
@@ -32,6 +33,7 @@ class VerifyCenRequest extends Model
     /**
      * @description The IPv4 CIDR block of the associated office network.
      *
+     * This parameter is required.
      * @example 47.100.XX.XX
      *
      * @var string
@@ -39,8 +41,9 @@ class VerifyCenRequest extends Model
     public $cidrBlock;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -48,7 +51,7 @@ class VerifyCenRequest extends Model
     public $regionId;
 
     /**
-     * @description The verification code. If you do not own the CEN instance, you must call the [SendVerifyCode](~~436847~~) operation to obtain a verification code.
+     * @description The verification code. If you do not own the CEN instance, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain a verification code.
      *
      * @example 12****
      *

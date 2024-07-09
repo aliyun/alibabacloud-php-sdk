@@ -11,6 +11,7 @@ class ListCdsFilesShrinkRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-hangzhou+cds-320357****
      *
      * @var string
@@ -108,7 +109,7 @@ class ListCdsFilesShrinkRequest extends Model
     public $parentFileId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

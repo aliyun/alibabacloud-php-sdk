@@ -73,7 +73,7 @@ class usbSupplyRedirectRule extends Model
     public $usbRuleType;
 
     /**
-     * @description The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf\_1.pdf).
+     * @description The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
      *
      * @example 04**
      *

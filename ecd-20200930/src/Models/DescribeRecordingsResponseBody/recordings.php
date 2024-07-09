@@ -63,8 +63,6 @@ class recordings extends Model
     public $recordingType;
 
     /**
-     * @example https://eds-recording-bucket-cn-hangzhou-137187566615****.oss-cn-hangzhou.aliyuncs.com/pg-28l5tdjd33txz****\/ecd-e0so9m9u6chf1****_gftest001_alltime_s0_****.mp4?Expires=171256****&OSSAccessKeyId=STS.NSwQo6S****&Signature=****4WyAA
-     *
      * @var string
      */
     public $signedUrl;

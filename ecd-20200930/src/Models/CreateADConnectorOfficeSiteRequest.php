@@ -18,7 +18,17 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $adHostname;
 
     /**
-     * @description The maximum public bandwidth of the Internet access package. Valid values: 0 to 200.\
+     * @var string
+     */
+    public $backupDCHostname;
+
+    /**
+     * @var string
+     */
+    public $backupDns;
+
+    /**
+     * @description The maximum public bandwidth of the Internet access package. Valid values: 0 to 200.\\
      * If you do not specify this parameter or you set this parameter to 0, Internet access is disabled.
      * @example 1
      *
@@ -29,6 +39,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-3gwy16dojz1m65****
      *
      * @var string
@@ -54,6 +65,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
      *   `172.16.0.0/12` (subnet mask range: 12 to 24 bits)
      *   `192.168.0.0/16` (subnet mask range: 16 to 24 bits)
      *
+     * This parameter is required.
      * @example 47.100.XX.XX
      *
      * @var string
@@ -61,7 +73,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $cidrBlock;
 
     /**
-     * @description The method to connect to cloud computers from WUYING clients.
+     * @description The method to connect to cloud computers from Alibaba Cloud Workspace clients.
      *
      * - Any: connects clients to cloud desktops over the Internet or a VPC. You can select a connection method based on your business requirements when you connect to your cloud desktop from a client.
      * @example Internet
@@ -73,6 +85,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @description The IP address of the DNS server of the enterprise AD system. You can specify only one IP address.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string[]
@@ -82,6 +95,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @description The domain name of the enterprise AD system. You can register each domain name only once.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -144,7 +158,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\
+     * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\\
      * This parameter is empty by default.
      * @example test
      *
@@ -167,8 +181,9 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -212,7 +227,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $subDomainName;
 
     /**
-     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](~~436847~~) operation to obtain the verification code.
+     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain the verification code.
      *
      * @example 12****
      *
@@ -221,6 +236,8 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $verifyCode;
     protected $_name = [
         'adHostname'           => 'AdHostname',
+        'backupDCHostname'     => 'BackupDCHostname',
+        'backupDns'            => 'BackupDns',
         'bandwidth'            => 'Bandwidth',
         'cenId'                => 'CenId',
         'cenOwnerId'           => 'CenOwnerId',
@@ -251,6 +268,12 @@ class CreateADConnectorOfficeSiteRequest extends Model
         $res = [];
         if (null !== $this->adHostname) {
             $res['AdHostname'] = $this->adHostname;
+        }
+        if (null !== $this->backupDCHostname) {
+            $res['BackupDCHostname'] = $this->backupDCHostname;
+        }
+        if (null !== $this->backupDns) {
+            $res['BackupDns'] = $this->backupDns;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
@@ -323,6 +346,12 @@ class CreateADConnectorOfficeSiteRequest extends Model
         $model = new self();
         if (isset($map['AdHostname'])) {
             $model->adHostname = $map['AdHostname'];
+        }
+        if (isset($map['BackupDCHostname'])) {
+            $model->backupDCHostname = $map['BackupDCHostname'];
+        }
+        if (isset($map['BackupDns'])) {
+            $model->backupDns = $map['BackupDns'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];

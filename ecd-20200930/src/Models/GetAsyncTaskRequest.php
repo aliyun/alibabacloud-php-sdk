@@ -11,6 +11,7 @@ class GetAsyncTaskRequest extends Model
     /**
      * @description The asynchronous task ID. This parameter is not returned if you copy files. This parameter is returned if you copy folders in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and information about an asynchronous task.
      *
+     * This parameter is required.
      * @example 81a8a07a-aec4-4dd5-80da-ae69e482****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetAsyncTaskRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example cn-shanghai+cds-135515****
      *
      * @var string

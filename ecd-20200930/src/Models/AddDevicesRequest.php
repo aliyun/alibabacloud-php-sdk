@@ -9,11 +9,14 @@ use AlibabaCloud\Tea\Model;
 class AddDevicesRequest extends Model
 {
     /**
-     * @description The type of the Alibaba Cloud Workspace client that runs on the device.
+     * @description The type of the client.
      *
-     *   1: the hardware client
-     *   2: the software client
+     * Valid values:
      *
+     *   1: hardware client.
+     *   2: software client.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -21,14 +24,15 @@ class AddDevicesRequest extends Model
     public $clientType;
 
     /**
-     * @description The list of devices.
+     * @description The IDs of the devices. You can specify up to 200 IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $deviceIds;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-hangzhou
      *

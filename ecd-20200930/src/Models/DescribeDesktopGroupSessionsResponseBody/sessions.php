@@ -20,7 +20,7 @@ class sessions extends Model
     /**
      * @description The OS that the client runs.
      *
-     * @example windows_\"Windows10Enterprise\"10.0(Build22000)
+     * @example windows_\\"Windows10Enterprise\\"10.0(Build22000)
      *
      * @var string
      */

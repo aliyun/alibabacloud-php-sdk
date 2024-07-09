@@ -36,7 +36,7 @@ class DescribeSnapshotsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2020-11-31T06:32:31Z
      *
@@ -66,8 +66,9 @@ class DescribeSnapshotsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,7 +85,7 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (\_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @description The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      *
      * @example test_data_disk
      *
@@ -133,7 +134,7 @@ class DescribeSnapshotsRequest extends Model
     public $sourceDiskType;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example 2020-11-30T06:32:31Z
      *

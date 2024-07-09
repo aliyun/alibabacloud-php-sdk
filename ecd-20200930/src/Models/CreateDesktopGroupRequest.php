@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDesktopGroupRequest extends Model
@@ -74,6 +75,7 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The ID of the desktop template.
      *
+     * This parameter is required.
      * @example b-je9hani001wfn****
      *
      * @var string
@@ -92,6 +94,7 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The billing method of the cloud desktops in the desktop group.
      *
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -108,7 +111,7 @@ class CreateDesktopGroupRequest extends Model
     public $classify;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -234,6 +237,7 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example cn-hangzhou+os-c5cy7q578s8jc****
      *
      * @var string
@@ -285,6 +289,7 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example pg-9c2d6t2dwflqr****
      *
      * @var string
@@ -312,6 +317,7 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -347,6 +353,13 @@ class CreateDesktopGroupRequest extends Model
     public $stopDuration;
 
     /**
+     * @description The tags that you want to attach to the cloud computer pool. You can specify 1 to 20 tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description Specifies whether to enable disk encryption.
      *
      * @example false
@@ -356,7 +369,7 @@ class CreateDesktopGroupRequest extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that you want to use when disk encryption is enabled. You can call the [ListKeys](~~28951~~) operation to obtain a list of KMS keys.
+     * @description The ID of the Key Management Service (KMS) key that you want to use when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain a list of KMS keys.
      *
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
      *
@@ -408,6 +421,7 @@ class CreateDesktopGroupRequest extends Model
         'resetType'               => 'ResetType',
         'scaleStrategyId'         => 'ScaleStrategyId',
         'stopDuration'            => 'StopDuration',
+        'tag'                     => 'Tag',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
         'vpcId'                   => 'VpcId',
@@ -524,6 +538,15 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->stopDuration) {
             $res['StopDuration'] = $this->stopDuration;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
@@ -652,6 +675,15 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['StopDuration'])) {
             $model->stopDuration = $map['StopDuration'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

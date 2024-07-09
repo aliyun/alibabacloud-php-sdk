@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class officeSites extends Model
 {
     /**
-     * @description The details of AD connectors.
+     * @description Details of AD connectors.
      *
      * @var ADConnectors[]
      */
     public $ADConnectors;
 
     /**
-     * @description The hostname of the domain controller. The hostname must comply with Windows hostname naming convention.
+     * @description The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
      *
      * @example beijing-ad01
      *
@@ -27,17 +27,25 @@ class officeSites extends Model
     public $adHostname;
 
     /**
+     * @description The hostname of the secondary domain controller.
+     *
+     * @example beijing-ad02
+     *
      * @var string
      */
     public $backupDCHostname;
 
     /**
+     * @description The DNS address of the secondary domain controller.
+     *
+     * @example 172.24.XX.XX
+     *
      * @var string
      */
     public $backupDns;
 
     /**
-     * @description The maximum public bandwidth value. Valid values: 0 to 1000.\
+     * @description The maximum public bandwidth value. Valid values: 0 to 1000.\\
      * If you leave this parameter empty or set this parameter to 0, Internet access is not enabled.
      * @example 10
      *
@@ -78,12 +86,8 @@ class officeSites extends Model
      * Valid values:
      *
      *   true
-     *
-     * <!-- -->
-     *
      *   false
      *
-     * <!-- -->
      * @example true
      *
      * @var bool
@@ -100,7 +104,7 @@ class officeSites extends Model
     public $creationTime;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group.
      *
      * @example sg-bp1ce64o4g9mdf5u****
      *
@@ -109,13 +113,13 @@ class officeSites extends Model
     public $customSecurityGroupId;
 
     /**
-     * @description The method that is used to connect cloud computers that reside in the office network from WUYING clients.
+     * @description The method that is used to connect cloud computers that reside in the office network from Alibaba Cloud Workspace clients.
      *
      * Valid values:
      *
-     *   INTERNET (default): Cloud computers are connected from WUYING clients over the Internet.
-     *   VPC: Cloud computers are connected from WUYING clients over the VPC.
-     *   ANY: Cloud computers are connected from WUYING clients over the Internet or the VPC. When you use can choose a method to connect cloud computers over the Internet or VPC from WUYING clients based on their business requirements.
+     *   INTERNET (default): Cloud computers are connected from Alibaba Cloud Workspace clients over the Internet.
+     *   VPC: Cloud computers are connected from Alibaba Cloud Workspace clients over the VPC.
+     *   ANY: Cloud computers are connected from Alibaba Cloud Workspace clients over the Internet or the VPC. When end users connect to cloud computers from Alibaba Cloud Workspace clients, you can choose a connection method based on your business requirements.
      *
      * @example INTERNET
      *
@@ -133,7 +137,7 @@ class officeSites extends Model
     public $desktopCount;
 
     /**
-     * @description The endpoint that is used by the VPC, over which cloud computers are connected.
+     * @description The endpoint that is used to connect to cloud computers in the directory over a VPC.
      *
      * @example http://ep-bp1s2vmbj55r5rzc****.epsrv-bp1pcfhpwvlpny01****.cn-hangzhou.privatelink.aliyuncs.com
      *
@@ -189,8 +193,8 @@ class officeSites extends Model
      *
      * Valid values:
      *
-     * true (default)
-     * false
+     *   true (default)
+     *   false
      *
      * @example true
      *
@@ -217,6 +221,10 @@ class officeSites extends Model
     public $enableInternetAccess;
 
     /**
+     * @description Indicates whether route access control is enabled for cloud services.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableServiceRoute;
@@ -245,7 +253,7 @@ class officeSites extends Model
     public $mfaEnabled;
 
     /**
-     * @description The office network name. The name is unique in a region.
+     * @description The name of the office network. The name is unique in a region.
      *
      * @example test
      *
@@ -254,7 +262,7 @@ class officeSites extends Model
     public $name;
 
     /**
-     * @description Indicates whether two-factor verification is enabled when an end user logs on to a WUYING client. This parameter is required only for convenience office networks. If two-factor verification is enabled, the system checks whether security risks exist within the logon account when the end user uses a convenience user to log on to the client. If risks are detected, the system sends a verification code to the email address that is associated with the account of the convenience user. Then, the end user can log on to the client only when the verification code is correct.
+     * @description Indicates whether two-factor verification is enabled when an end user logs on to an Alibaba Cloud Workspace client. This parameter is required only for convenience office networks. If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to the client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
      *
      * @example false
      *
@@ -268,12 +276,8 @@ class officeSites extends Model
      * Valid values:
      *
      *   true
-     *
-     * <!-- -->
-     *
      *   false
      *
-     * <!-- -->
      * @example true
      *
      * @var bool
@@ -290,7 +294,7 @@ class officeSites extends Model
     public $networkPackageId;
 
     /**
-     * @description The office network ID.
+     * @description The IDs of the office networks.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -303,13 +307,9 @@ class officeSites extends Model
      *
      * Valid values:
      *
-     *   SIMPLE: convenience account
+     *   SIMPLE: the convenience account
+     *   AD_CONNECTOR: the enterprise AD account
      *
-     * <!-- -->
-     *
-     *   AD_CONNECTOR: enterprise AD account
-     *
-     * <!-- -->
      * @example AD_CONNECTOR
      *
      * @var string
@@ -330,13 +330,9 @@ class officeSites extends Model
      *
      * Valid values:
      *
-     *   High-definition Experience (HDX)
+     *   HDX
+     *   ASP
      *
-     * <!-- -->
-     *
-     *   Adaptive Streaming Protocol (ASP)
-     *
-     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -380,7 +376,11 @@ class officeSites extends Model
     public $ssoEnabled;
 
     /**
-     * @description >  This parameter is unavailable.
+     * @description The SSO type.
+     *
+     * Valid values:
+     *
+     *   SAML.
      *
      * @example null
      *
@@ -394,40 +394,15 @@ class officeSites extends Model
      * Valid values:
      *
      *   REGISTERING: The office network is being registered.
-     *
-     * <!-- -->
-     *
      *   DEREGISTERING: The office network is being deregistered.
-     *
-     * <!-- -->
-     *
      *   REGISTERED: The office network is registered.
-     *
-     * <!-- -->
-     *
      *   NEEDCONFIGTRUST: A trust relationship is required for the office network.
-     *
-     * <!-- -->
-     *
      *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the office network.
-     *
-     * <!-- -->
-     *
      *   DEREGISTERED: The office network is deregistered.
-     *
-     * <!-- -->
-     *
      *   ERROR: One or more configurations of the office network are invalid.
-     *
-     * <!-- -->
-     *
      *   CONFIGTRUSTING: A trust relationship is being configured for the office network.
-     *
-     * <!-- -->
-     *
      *   NEEDCONFIGUSER: Users are required for the office network.
      *
-     * <!-- -->
      * @example REGISTERED
      *
      * @var string
@@ -451,6 +426,11 @@ class officeSites extends Model
     public $subDomainName;
 
     /**
+     * @var string
+     */
+    public $subnetMode;
+
+    /**
      * @description The total number of cloud computers.
      *
      * @example 0
@@ -460,7 +440,7 @@ class officeSites extends Model
     public $totalEdsCount;
 
     /**
-     * @description The total number of cloud computers in the cloud computer pool (formerly desktop group).
+     * @description The number of pooled cloud computers in the cloud computer pool.
      *
      * @example 0
      *
@@ -499,16 +479,9 @@ class officeSites extends Model
      * Valid values:
      *
      *   Basic
-     *
-     * <!-- -->
-     *
      *   Customized
-     *
-     * <!-- -->
-     *
      *   Standard
      *
-     * <!-- -->
      * @example Basic
      *
      * @var string
@@ -557,6 +530,7 @@ class officeSites extends Model
         'status'                   => 'Status',
         'subDnsAddress'            => 'SubDnsAddress',
         'subDomainName'            => 'SubDomainName',
+        'subnetMode'               => 'SubnetMode',
         'totalEdsCount'            => 'TotalEdsCount',
         'totalEdsCountForGroup'    => 'TotalEdsCountForGroup',
         'trustPassword'            => 'TrustPassword',
@@ -709,6 +683,9 @@ class officeSites extends Model
         }
         if (null !== $this->subDomainName) {
             $res['SubDomainName'] = $this->subDomainName;
+        }
+        if (null !== $this->subnetMode) {
+            $res['SubnetMode'] = $this->subnetMode;
         }
         if (null !== $this->totalEdsCount) {
             $res['TotalEdsCount'] = $this->totalEdsCount;
@@ -883,6 +860,9 @@ class officeSites extends Model
         }
         if (isset($map['SubDomainName'])) {
             $model->subDomainName = $map['SubDomainName'];
+        }
+        if (isset($map['SubnetMode'])) {
+            $model->subnetMode = $map['SubnetMode'];
         }
         if (isset($map['TotalEdsCount'])) {
             $model->totalEdsCount = $map['TotalEdsCount'];

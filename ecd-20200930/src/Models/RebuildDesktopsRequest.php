@@ -11,6 +11,7 @@ class RebuildDesktopsRequest extends Model
     /**
      * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
+     * This parameter is required.
      * @example ecd-gx2x1dhsmucyy****
      *
      * @var string[]
@@ -27,11 +28,16 @@ class RebuildDesktopsRequest extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @description The operation type on the data disk.
      *
      * >  This parameter is empty by default regardless of whether data disks are attached to the cloud computer.
      *
-     *   No data disks are attached to the cloud computer:\
+     *   No data disks are attached to the cloud computer:\\
      * No operation is performed on the data disks of the cloud computer regardless of the value of this parameter.
      *
      *   Data disks are attached to the cloud computer:
@@ -53,8 +59,9 @@ class RebuildDesktopsRequest extends Model
     public $operateType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +70,7 @@ class RebuildDesktopsRequest extends Model
     protected $_name = [
         'desktopId'   => 'DesktopId',
         'imageId'     => 'ImageId',
+        'language'    => 'Language',
         'operateType' => 'OperateType',
         'regionId'    => 'RegionId',
     ];
@@ -79,6 +87,9 @@ class RebuildDesktopsRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
@@ -105,6 +116,9 @@ class RebuildDesktopsRequest extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];

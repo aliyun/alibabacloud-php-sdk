@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunCommandRequest extends Model
 {
     /**
-     * @description The content of the command. The command content can be plaintext or Base64-encoded.\
-     * > If the command content is Base64-encoded, you must set the ContentEncoding parameter to Base64.
+     * @description The content of the command. The command content can be plaintext or Base64-encoded.\\
+     * This parameter is required.
      * @example ipconfig
      *
      * @var string
@@ -31,14 +31,14 @@ class RunCommandRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The ID of cloud desktop N. Valid values of N: 1 to 50.\
-     * If multiple cloud desktops are specified and the command execution succeeds on at least one of the cloud desktops, the operation is considered successful. If multiple cloud desktops are specified and the command execution fails on all the cloud desktops, verify the value of the parameter and try again.
+     * @description The ID of cloud desktop N. Valid values of N: 1 to 50.\\
+     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The ID of the end user. If you specify a value, you run the command as the end user that is granted specific permissions. Note: The end user has sessions on a cloud computer. That is, when the cloud computer is started, the end user logs on to a WUYING client and connects to the cloud computer, and the cloud computer is not preempted by another end user during the connection. This parameter is not available for Linux cloud computers.
+     * @description The ID of the end user. If you specify a value, you run the command as the end user that is granted specific permissions. Note: The end user has sessions on a cloud computer. That is, when the cloud computer is started, the end user logs on to an Alibaba Cloud Workspace client and connects to the cloud computer, and the cloud computer is not preempted by another end user during the connection. This parameter is not available for Linux cloud computers.
      *
      * @example User1
      *
@@ -49,6 +49,7 @@ class RunCommandRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,7 +57,7 @@ class RunCommandRequest extends Model
     public $regionId;
 
     /**
-     * @description The timeout period for the command to run. Unit: seconds. Default value: 60.\
+     * @description The timeout period for the command to run. Unit: seconds. Default value: 60.\\
      * A timeout error occurs if the command cannot be run because the process slows down or because a specific module or the Cloud Assistant client does not exist. When a timeout error occurs, the command process is forcibly terminated.
      * @example 3600
      *
@@ -65,11 +66,12 @@ class RunCommandRequest extends Model
     public $timeout;
 
     /**
-     * @description The language of the O\&M command. Valid values:
+     * @description The language of the O\\&M command. Valid values:
      *
      *   RunBatScript
      *   RunPowerShellScript
      *
+     * This parameter is required.
      * @example RunPowerShellScript
      *
      * @var string

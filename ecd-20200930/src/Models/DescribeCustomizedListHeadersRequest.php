@@ -23,6 +23,8 @@ class DescribeCustomizedListHeadersRequest extends Model
     public $listType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

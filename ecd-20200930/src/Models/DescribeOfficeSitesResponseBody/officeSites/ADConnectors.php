@@ -23,24 +23,11 @@ class ADConnectors extends Model
      * Valid values:
      *
      *   CONNECT_ERROR
-     *
-     * <!-- -->
-     *
      *   RUNNING
-     *
-     * <!-- -->
-     *
-     *   CONNECTING
-     *
-     * <!-- -->
-     *
+     *   CONNECTING (You must configure the AD domain in which the AD connector is used.)
      *   EXPIRED
-     *
-     * <!-- -->
-     *
      *   CREATING
      *
-     * <!-- -->
      * @example RUNNING
      *
      * @var string
@@ -62,12 +49,8 @@ class ADConnectors extends Model
      * Valid values:
      *
      *   1: General
-     *
-     * <!-- -->
-     *
      *   2: Advanced
      *
-     * <!-- -->
      * @example 1
      *
      * @var string

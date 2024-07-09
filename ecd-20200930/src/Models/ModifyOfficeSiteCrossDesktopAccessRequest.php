@@ -11,6 +11,7 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     /**
      * @description Specifies whether to enable the communication between cloud computers in an office network. If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -20,6 +21,7 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     /**
      * @description The office network ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-068266****
      *
      * @var string
@@ -27,8 +29,9 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

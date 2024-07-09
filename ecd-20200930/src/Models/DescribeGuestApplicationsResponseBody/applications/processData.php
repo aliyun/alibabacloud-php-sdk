@@ -74,7 +74,7 @@ class processData extends Model
     /**
      * @description The path to the process.
      *
-     * @example C:\\Program Files\\Google\\Chrome\\Application\\ch****.exe
+     * @example C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\ch****.exe
      *
      * @var string
      */

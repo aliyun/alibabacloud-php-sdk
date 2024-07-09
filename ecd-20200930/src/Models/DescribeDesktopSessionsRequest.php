@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopSessionsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud computers.
+     * @var bool
+     */
+    public $checkOsSession;
+
+    /**
+     * @description The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
      *
      * @var string[]
      */
@@ -43,7 +48,7 @@ class DescribeDesktopSessionsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The workspace ID.
+     * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -70,8 +75,9 @@ class DescribeDesktopSessionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -79,7 +85,9 @@ class DescribeDesktopSessionsRequest extends Model
     public $regionId;
 
     /**
-     * @description The session status. Valid values:
+     * @description The state of the session.
+     *
+     * Valid values:
      *
      *   Connected
      *   Disconnected
@@ -98,17 +106,24 @@ class DescribeDesktopSessionsRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $subPayType;
     protected $_name = [
-        'desktopId'     => 'DesktopId',
-        'desktopName'   => 'DesktopName',
-        'endTime'       => 'EndTime',
-        'endUserId'     => 'EndUserId',
-        'officeSiteId'  => 'OfficeSiteId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
-        'sessionStatus' => 'SessionStatus',
-        'startTime'     => 'StartTime',
+        'checkOsSession' => 'CheckOsSession',
+        'desktopId'      => 'DesktopId',
+        'desktopName'    => 'DesktopName',
+        'endTime'        => 'EndTime',
+        'endUserId'      => 'EndUserId',
+        'officeSiteId'   => 'OfficeSiteId',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
+        'sessionStatus'  => 'SessionStatus',
+        'startTime'      => 'StartTime',
+        'subPayType'     => 'SubPayType',
     ];
 
     public function validate()
@@ -118,6 +133,9 @@ class DescribeDesktopSessionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkOsSession) {
+            $res['CheckOsSession'] = $this->checkOsSession;
+        }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -148,6 +166,9 @@ class DescribeDesktopSessionsRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
+        }
 
         return $res;
     }
@@ -160,6 +181,9 @@ class DescribeDesktopSessionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckOsSession'])) {
+            $model->checkOsSession = $map['CheckOsSession'];
+        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
@@ -191,6 +215,9 @@ class DescribeDesktopSessionsRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         return $model;

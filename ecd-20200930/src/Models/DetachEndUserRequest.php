@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachEndUserRequest extends Model
 {
     /**
-     * @description The address of the Active Directory (AD) workspace.
+     * @description The address of the Active Directory (AD) office network.
      *
      * @example xn--0zw****
      *
@@ -18,8 +18,13 @@ class DetachEndUserRequest extends Model
     public $adDomain;
 
     /**
-     * @description The type of the Alibaba Cloud Workspace client. 1: the hardware client 2: the software client
+     * @description The type of the client.
      *
+     * Valid values:
+     *
+     *   1: hardware client.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -27,8 +32,9 @@ class DetachEndUserRequest extends Model
     public $clientType;
 
     /**
-     * @description The ID of the device.
+     * @description The serial number (SN) of the hardware client.
      *
+     * This parameter is required.
      * @example F9E52EDCCB2B****
      *
      * @var string
@@ -36,7 +42,7 @@ class DetachEndUserRequest extends Model
     public $deviceId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the convenient office network.
      *
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
@@ -45,8 +51,9 @@ class DetachEndUserRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the user that is bound to the client.
+     * @description The ID of the user that you want to unbind from the hardware client.
      *
+     * This parameter is required.
      * @example moli
      *
      * @var string
@@ -54,7 +61,7 @@ class DetachEndUserRequest extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * @example cn-shanghai
      *

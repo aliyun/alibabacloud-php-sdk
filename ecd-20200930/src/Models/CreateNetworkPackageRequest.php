@@ -51,6 +51,7 @@ class CreateNetworkPackageRequest extends Model
      *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by data transfer (PayByTraffic): 2 to 200.
      *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by fixed bandwidth (PayByBandwidth): 2 to 1000.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -78,6 +79,7 @@ class CreateNetworkPackageRequest extends Model
     /**
      * @description The office network ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -144,8 +146,9 @@ class CreateNetworkPackageRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,15 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopInfoRequest extends Model
 {
     /**
-     * @description The cloud desktop ID. You can specify 1 to 100 cloud desktop IDs.
+     * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
      *
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

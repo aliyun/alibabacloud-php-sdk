@@ -108,6 +108,11 @@ class DescribeDesktopsRequest extends Model
     public $expiredTime;
 
     /**
+     * @var bool
+     */
+    public $fillResourceGroup;
+
+    /**
      * @description Specifies whether to filter cloud desktops in the desktop group.
      *
      * @example false
@@ -115,6 +120,11 @@ class DescribeDesktopsRequest extends Model
      * @var bool
      */
     public $filterDesktopGroup;
+
+    /**
+     * @var string
+     */
+    public $gpuInstanceGroupId;
 
     /**
      * @description The ID of the desktop group.
@@ -216,6 +226,11 @@ class DescribeDesktopsRequest extends Model
     public $protocolType;
 
     /**
+     * @var string
+     */
+    public $qosRuleId;
+
+    /**
      * @description Specifies whether to query the information about image update of the cloud desktop.
      *
      * @example false
@@ -227,11 +242,17 @@ class DescribeDesktopsRequest extends Model
     /**
      * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The ID of the snapshot policy.
@@ -243,7 +264,12 @@ class DescribeDesktopsRequest extends Model
     public $snapshotPolicyId;
 
     /**
-     * @description The tags. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](~~203781~~).
+     * @var string
+     */
+    public $subPayType;
+
+    /**
+     * @description The tags. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
      *
      * @var tag[]
      */
@@ -269,7 +295,9 @@ class DescribeDesktopsRequest extends Model
         'endUserId'          => 'EndUserId',
         'excludedEndUserId'  => 'ExcludedEndUserId',
         'expiredTime'        => 'ExpiredTime',
+        'fillResourceGroup'  => 'FillResourceGroup',
         'filterDesktopGroup' => 'FilterDesktopGroup',
+        'gpuInstanceGroupId' => 'GpuInstanceGroupId',
         'groupId'            => 'GroupId',
         'imageId'            => 'ImageId',
         'managementFlag'     => 'ManagementFlag',
@@ -281,9 +309,12 @@ class DescribeDesktopsRequest extends Model
         'osTypes'            => 'OsTypes',
         'policyGroupId'      => 'PolicyGroupId',
         'protocolType'       => 'ProtocolType',
+        'qosRuleId'          => 'QosRuleId',
         'queryFotaUpdate'    => 'QueryFotaUpdate',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'snapshotPolicyId'   => 'SnapshotPolicyId',
+        'subPayType'         => 'SubPayType',
         'tag'                => 'Tag',
         'userName'           => 'UserName',
     ];
@@ -328,8 +359,14 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
+        if (null !== $this->fillResourceGroup) {
+            $res['FillResourceGroup'] = $this->fillResourceGroup;
+        }
         if (null !== $this->filterDesktopGroup) {
             $res['FilterDesktopGroup'] = $this->filterDesktopGroup;
+        }
+        if (null !== $this->gpuInstanceGroupId) {
+            $res['GpuInstanceGroupId'] = $this->gpuInstanceGroupId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -364,14 +401,23 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+        if (null !== $this->qosRuleId) {
+            $res['QosRuleId'] = $this->qosRuleId;
+        }
         if (null !== $this->queryFotaUpdate) {
             $res['QueryFotaUpdate'] = $this->queryFotaUpdate;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->snapshotPolicyId) {
             $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
+        }
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -438,8 +484,14 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
+        if (isset($map['FillResourceGroup'])) {
+            $model->fillResourceGroup = $map['FillResourceGroup'];
+        }
         if (isset($map['FilterDesktopGroup'])) {
             $model->filterDesktopGroup = $map['FilterDesktopGroup'];
+        }
+        if (isset($map['GpuInstanceGroupId'])) {
+            $model->gpuInstanceGroupId = $map['GpuInstanceGroupId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -478,14 +530,23 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+        if (isset($map['QosRuleId'])) {
+            $model->qosRuleId = $map['QosRuleId'];
+        }
         if (isset($map['QueryFotaUpdate'])) {
             $model->queryFotaUpdate = $map['QueryFotaUpdate'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SnapshotPolicyId'])) {
             $model->snapshotPolicyId = $map['SnapshotPolicyId'];
+        }
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

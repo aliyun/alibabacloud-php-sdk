@@ -30,6 +30,8 @@ class CreateNASFileSystemRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateNASFileSystemRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

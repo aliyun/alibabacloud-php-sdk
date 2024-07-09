@@ -22,10 +22,34 @@ class bundleModels extends Model
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $osType;
+
+    /**
+     * @var string
+     */
+    public $rootDiskId;
+
+    /**
+     * @var string
+     */
+    public $userDiskId;
     protected $_name = [
-        'amount'   => 'Amount',
-        'bundleId' => 'BundleId',
-        'duration' => 'Duration',
+        'amount'       => 'Amount',
+        'bundleId'     => 'BundleId',
+        'duration'     => 'Duration',
+        'instanceType' => 'InstanceType',
+        'osType'       => 'OsType',
+        'rootDiskId'   => 'RootDiskId',
+        'userDiskId'   => 'UserDiskId',
     ];
 
     public function validate()
@@ -43,6 +67,18 @@ class bundleModels extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->rootDiskId) {
+            $res['RootDiskId'] = $this->rootDiskId;
+        }
+        if (null !== $this->userDiskId) {
+            $res['UserDiskId'] = $this->userDiskId;
         }
 
         return $res;
@@ -64,6 +100,18 @@ class bundleModels extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
+        }
+        if (isset($map['RootDiskId'])) {
+            $model->rootDiskId = $map['RootDiskId'];
+        }
+        if (isset($map['UserDiskId'])) {
+            $model->userDiskId = $map['UserDiskId'];
         }
 
         return $model;

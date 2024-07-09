@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody\desktopGroups\countPerStatus;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody\desktopGroups\tags;
 use AlibabaCloud\Tea\Model;
 
 class desktopGroups extends Model
@@ -132,7 +133,7 @@ class desktopGroups extends Model
     public $desktopGroupName;
 
     /**
-     * @description The cloud computer type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of the cloud computer types supported by WUYING Workspace.
+     * @description The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the cloud computer types supported by WUYING Workspace.
      *
      * @example eds.enterprise_office.4c4g
      *
@@ -472,6 +473,13 @@ class desktopGroups extends Model
     public $systemDiskSize;
 
     /**
+     * @description The tags attached to the cloud computer pool.
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The version number of the cloud computer pool.
      *
      * @example 2
@@ -542,6 +550,7 @@ class desktopGroups extends Model
         'subnetId'                => 'SubnetId',
         'systemDiskCategory'      => 'SystemDiskCategory',
         'systemDiskSize'          => 'SystemDiskSize',
+        'tags'                    => 'Tags',
         'version'                 => 'Version',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
@@ -691,6 +700,15 @@ class desktopGroups extends Model
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -850,6 +868,15 @@ class desktopGroups extends Model
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

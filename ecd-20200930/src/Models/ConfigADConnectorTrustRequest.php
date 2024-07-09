@@ -11,6 +11,7 @@ class ConfigADConnectorTrustRequest extends Model
     /**
      * @description The ID of the enterprise AD office network.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-778418****
      *
      * @var string
@@ -33,8 +34,9 @@ class ConfigADConnectorTrustRequest extends Model
     public $rdsLicenseDomain;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +46,7 @@ class ConfigADConnectorTrustRequest extends Model
     /**
      * @description The trust password. You can specify the password when you configure a trust relationship between the AD domain and the ecd.acs domain.
      *
+     * This parameter is required.
      * @example password123***
      *
      * @var string

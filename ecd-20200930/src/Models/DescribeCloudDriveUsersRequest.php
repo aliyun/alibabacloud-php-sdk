@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudDriveUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -37,6 +39,8 @@ class DescribeCloudDriveUsersRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
