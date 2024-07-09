@@ -28,9 +28,21 @@ class productInstances extends Model
     public $resourceInstanceId;
 
     /**
+     * @var string
+     */
+    public $resourceInstanceIp;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceName;
+
+    /**
      * @description The public IP address of the instance.
      *
      * @example 1.X.X.1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -40,6 +52,8 @@ class productInstances extends Model
      * @description The name of the instance.
      *
      * @example ecs-test
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -85,13 +99,15 @@ class productInstances extends Model
      */
     public $resourceRegionId;
     protected $_name = [
-        'ownerUserId'        => 'OwnerUserId',
-        'resourceInstanceId' => 'ResourceInstanceId',
-        'resourceIp'         => 'ResourceIp',
-        'resourceName'       => 'ResourceName',
-        'resourcePorts'      => 'ResourcePorts',
-        'resourceProduct'    => 'ResourceProduct',
-        'resourceRegionId'   => 'ResourceRegionId',
+        'ownerUserId'          => 'OwnerUserId',
+        'resourceInstanceId'   => 'ResourceInstanceId',
+        'resourceInstanceIp'   => 'ResourceInstanceIp',
+        'resourceInstanceName' => 'ResourceInstanceName',
+        'resourceIp'           => 'ResourceIp',
+        'resourceName'         => 'ResourceName',
+        'resourcePorts'        => 'ResourcePorts',
+        'resourceProduct'      => 'ResourceProduct',
+        'resourceRegionId'     => 'ResourceRegionId',
     ];
 
     public function validate()
@@ -106,6 +122,12 @@ class productInstances extends Model
         }
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
+        if (null !== $this->resourceInstanceIp) {
+            $res['ResourceInstanceIp'] = $this->resourceInstanceIp;
+        }
+        if (null !== $this->resourceInstanceName) {
+            $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
         if (null !== $this->resourceIp) {
             $res['ResourceIp'] = $this->resourceIp;
@@ -145,6 +167,12 @@ class productInstances extends Model
         }
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
+        if (isset($map['ResourceInstanceIp'])) {
+            $model->resourceInstanceIp = $map['ResourceInstanceIp'];
+        }
+        if (isset($map['ResourceInstanceName'])) {
+            $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
         if (isset($map['ResourceIp'])) {
             $model->resourceIp = $map['ResourceIp'];

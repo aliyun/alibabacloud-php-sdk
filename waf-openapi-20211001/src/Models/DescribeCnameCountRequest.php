@@ -6,25 +6,16 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReleaseInstanceRequest extends Model
+class DescribeCnameCountRequest extends Model
 {
     /**
-     * @description The ID of the Web Application Firewall (WAF) instance.
-     *
-     * This parameter is required.
-     * @example waf_v2_public_cn-***
+     * @example waf_v3prepaid_public_cn-***
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: the Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
-     *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,8 +23,6 @@ class ReleaseInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
-     *
      * @example rg-acfm***q
      *
      * @var string
@@ -68,7 +57,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ReleaseInstanceRequest
+     * @return DescribeCnameCountRequest
      */
     public static function fromMap($map = [])
     {

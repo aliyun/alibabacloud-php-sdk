@@ -67,9 +67,21 @@ class DescribeProductInstancesRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @var string
+     */
+    public $resourceInstanceIp;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceName;
+
+    /**
      * @description The public IP address of the instance.
      *
      * @example 1.X.X.1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -88,6 +100,8 @@ class DescribeProductInstancesRequest extends Model
      * @description The name of the instance.
      *
      * @example exampleResourceName
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -132,6 +146,8 @@ class DescribeProductInstancesRequest extends Model
         'pageSize'                       => 'PageSize',
         'regionId'                       => 'RegionId',
         'resourceInstanceId'             => 'ResourceInstanceId',
+        'resourceInstanceIp'             => 'ResourceInstanceIp',
+        'resourceInstanceName'           => 'ResourceInstanceName',
         'resourceIp'                     => 'ResourceIp',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceName'                   => 'ResourceName',
@@ -163,6 +179,12 @@ class DescribeProductInstancesRequest extends Model
         }
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
+        if (null !== $this->resourceInstanceIp) {
+            $res['ResourceInstanceIp'] = $this->resourceInstanceIp;
+        }
+        if (null !== $this->resourceInstanceName) {
+            $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
         if (null !== $this->resourceIp) {
             $res['ResourceIp'] = $this->resourceIp;
@@ -208,6 +230,12 @@ class DescribeProductInstancesRequest extends Model
         }
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
+        if (isset($map['ResourceInstanceIp'])) {
+            $model->resourceInstanceIp = $map['ResourceInstanceIp'];
+        }
+        if (isset($map['ResourceInstanceName'])) {
+            $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
         if (isset($map['ResourceIp'])) {
             $model->resourceIp = $map['ResourceIp'];

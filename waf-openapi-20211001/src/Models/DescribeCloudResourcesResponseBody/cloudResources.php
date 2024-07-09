@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class cloudResources extends Model
 {
     /**
+     * @var int
+     */
+    public $httpPortCount;
+
+    /**
+     * @var int
+     */
+    public $httpsPortCount;
+
+    /**
      * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 11769793******
@@ -40,14 +50,33 @@ class cloudResources extends Model
      *
      * @example alb-ffff****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $resourceInstance;
 
     /**
+     * @var string
+     */
+    public $resourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceIp;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceName;
+
+    /**
      * @description The name of the resource.
      *
      * @example test-resource-name
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -94,15 +123,20 @@ class cloudResources extends Model
      */
     public $resourceService;
     protected $_name = [
-        'ownerUserId'       => 'OwnerUserId',
-        'resourceDomain'    => 'ResourceDomain',
-        'resourceFunction'  => 'ResourceFunction',
-        'resourceInstance'  => 'ResourceInstance',
-        'resourceName'      => 'ResourceName',
-        'resourceProduct'   => 'ResourceProduct',
-        'resourceRegionId'  => 'ResourceRegionId',
-        'resourceRouteName' => 'ResourceRouteName',
-        'resourceService'   => 'ResourceService',
+        'httpPortCount'        => 'HttpPortCount',
+        'httpsPortCount'       => 'HttpsPortCount',
+        'ownerUserId'          => 'OwnerUserId',
+        'resourceDomain'       => 'ResourceDomain',
+        'resourceFunction'     => 'ResourceFunction',
+        'resourceInstance'     => 'ResourceInstance',
+        'resourceInstanceId'   => 'ResourceInstanceId',
+        'resourceInstanceIp'   => 'ResourceInstanceIp',
+        'resourceInstanceName' => 'ResourceInstanceName',
+        'resourceName'         => 'ResourceName',
+        'resourceProduct'      => 'ResourceProduct',
+        'resourceRegionId'     => 'ResourceRegionId',
+        'resourceRouteName'    => 'ResourceRouteName',
+        'resourceService'      => 'ResourceService',
     ];
 
     public function validate()
@@ -112,6 +146,12 @@ class cloudResources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->httpPortCount) {
+            $res['HttpPortCount'] = $this->httpPortCount;
+        }
+        if (null !== $this->httpsPortCount) {
+            $res['HttpsPortCount'] = $this->httpsPortCount;
+        }
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
         }
@@ -123,6 +163,15 @@ class cloudResources extends Model
         }
         if (null !== $this->resourceInstance) {
             $res['ResourceInstance'] = $this->resourceInstance;
+        }
+        if (null !== $this->resourceInstanceId) {
+            $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
+        if (null !== $this->resourceInstanceIp) {
+            $res['ResourceInstanceIp'] = $this->resourceInstanceIp;
+        }
+        if (null !== $this->resourceInstanceName) {
+            $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
@@ -151,6 +200,12 @@ class cloudResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpPortCount'])) {
+            $model->httpPortCount = $map['HttpPortCount'];
+        }
+        if (isset($map['HttpsPortCount'])) {
+            $model->httpsPortCount = $map['HttpsPortCount'];
+        }
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
         }
@@ -162,6 +217,15 @@ class cloudResources extends Model
         }
         if (isset($map['ResourceInstance'])) {
             $model->resourceInstance = $map['ResourceInstance'];
+        }
+        if (isset($map['ResourceInstanceId'])) {
+            $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
+        if (isset($map['ResourceInstanceIp'])) {
+            $model->resourceInstanceIp = $map['ResourceInstanceIp'];
+        }
+        if (isset($map['ResourceInstanceName'])) {
+            $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];

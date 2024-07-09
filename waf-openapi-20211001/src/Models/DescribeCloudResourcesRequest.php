@@ -85,6 +85,11 @@ class DescribeCloudResourcesRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @var string
+     */
+    public $resourceInstanceName;
+
+    /**
      * @description The ID of the Alibaba Cloud resource group.
      *
      * @example rg-acfm4gh****wela
@@ -97,6 +102,8 @@ class DescribeCloudResourcesRequest extends Model
      * @description The name of the resource.
      *
      * @example alb-name
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -144,6 +151,7 @@ class DescribeCloudResourcesRequest extends Model
         'resourceDomain'                 => 'ResourceDomain',
         'resourceFunction'               => 'ResourceFunction',
         'resourceInstanceId'             => 'ResourceInstanceId',
+        'resourceInstanceName'           => 'ResourceInstanceName',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceName'                   => 'ResourceName',
         'resourceProduct'                => 'ResourceProduct',
@@ -181,6 +189,9 @@ class DescribeCloudResourcesRequest extends Model
         }
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
+        }
+        if (null !== $this->resourceInstanceName) {
+            $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
@@ -232,6 +243,9 @@ class DescribeCloudResourcesRequest extends Model
         }
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
+        }
+        if (isset($map['ResourceInstanceName'])) {
+            $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];

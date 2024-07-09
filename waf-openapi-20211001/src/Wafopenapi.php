@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesRequest;
@@ -2058,6 +2060,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceInstanceId)) {
             $query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
+        if (!Utils::isUnset($request->resourceInstanceName)) {
+            $query['ResourceInstanceName'] = $request->resourceInstanceName;
+        }
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
@@ -2103,6 +2108,59 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询Cname接入的数量
+     *  *
+     * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCnameCountResponse DescribeCnameCountResponse
+     */
+    public function describeCnameCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCnameCount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Cname接入的数量
+     *  *
+     * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
+     *
+     * @return DescribeCnameCountResponse DescribeCnameCountResponse
+     */
+    public function describeCnameCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCnameCountWithOptions($request, $runtime);
     }
 
     /**
@@ -3796,6 +3854,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceInstanceId)) {
             $query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceInstanceIp)) {
+            $query['ResourceInstanceIp'] = $request->resourceInstanceIp;
+        }
+        if (!Utils::isUnset($request->resourceInstanceName)) {
+            $query['ResourceInstanceName'] = $request->resourceInstanceName;
         }
         if (!Utils::isUnset($request->resourceIp)) {
             $query['ResourceIp'] = $request->resourceIp;
@@ -6476,7 +6540,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 释放实例
+     * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
      *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -6515,7 +6579,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 释放实例
+     * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
      *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
