@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticSummaryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A73F3BD0-B1A8-42A9-A9B6-689BBABC4891
      *
      * @var string
@@ -18,6 +20,8 @@ class DescribeStatisticSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2254
      *
      * @var int
@@ -25,11 +29,15 @@ class DescribeStatisticSummaryResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The top 3 virtual private clouds (VPCs) that initiate the largest number of DNS requests.
+     *
      * @var vpcRequestTops
      */
     public $vpcRequestTops;
 
     /**
+     * @description The top 3 zones with the largest number of DNS requests.
+     *
      * @var zoneRequestTops
      */
     public $zoneRequestTops;

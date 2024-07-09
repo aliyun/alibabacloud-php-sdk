@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @description The time when the DNS record was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-03-14T03:47Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1672740294000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @description The resolution line.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The priority of the mail exchanger (MX) record.
+     *
      * @example 60
      *
      * @var int
@@ -31,6 +45,8 @@ class record extends Model
     public $priority;
 
     /**
+     * @description The ID of the DNS record.
+     *
      * @example 5809
      *
      * @var int
@@ -38,6 +54,8 @@ class record extends Model
     public $recordId;
 
     /**
+     * @description The description of the DNS record.
+     *
      * @example xxx
      *
      * @var string
@@ -45,6 +63,8 @@ class record extends Model
     public $remark;
 
     /**
+     * @description The hostname.
+     *
      * @example www
      *
      * @var string
@@ -52,6 +72,11 @@ class record extends Model
     public $rr;
 
     /**
+     * @description The state of the DNS record. Valid values:
+     *
+     *   ENABLE: The DNS record is enabled.
+     *   DISABLE: The DNS record is disabled.
+     *
      * @example ENABLE
      *
      * @var string
@@ -59,6 +84,8 @@ class record extends Model
     public $status;
 
     /**
+     * @description The time-to-live (TTL) of the DNS record.
+     *
      * @example 60
      *
      * @var int
@@ -66,6 +93,8 @@ class record extends Model
     public $ttl;
 
     /**
+     * @description The type of the DNS record.
+     *
      * @example A
      *
      * @var string
@@ -73,28 +102,46 @@ class record extends Model
     public $type;
 
     /**
+     * @description The time when the DNS record was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2023-05-08T02:31Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1654777678000
+     *
      * @var int
      */
     public $updateTimestamp;
 
     /**
-     * @example 1.1.1.1
+     * @description The record value.
+     *
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
+     * @description The weight of the address.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $weight;
 
     /**
+     * @description The zone ID.
+     *
+     * @example a49f55537f3b0b1e6e43add0bf5f0033
+     *
      * @var string
      */
     public $zoneId;

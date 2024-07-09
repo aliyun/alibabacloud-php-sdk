@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zoneRequestTop extends Model
 {
     /**
+     * @description The number of DNS requests.
+     *
      * @example 103
      *
      * @var int
@@ -16,6 +18,8 @@ class zoneRequestTop extends Model
     public $requestCount;
 
     /**
+     * @description The statistical time. The value is a string. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-10-21T10:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class zoneRequestTop extends Model
     public $time;
 
     /**
+     * @description The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1571652000000
      *
      * @var int

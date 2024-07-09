@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateResolverEndpointRequest extends Model
 {
     /**
+     * @description The endpoint ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string
@@ -17,11 +20,15 @@ class UpdateResolverEndpointRequest extends Model
     public $endpointId;
 
     /**
+     * @description The source IP addresses of outbound traffic. You must add two to six source IP addresses to ensure high availability.
+     *
      * @var ipConfig[]
      */
     public $ipConfig;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -29,6 +36,8 @@ class UpdateResolverEndpointRequest extends Model
     public $lang;
 
     /**
+     * @description The endpoint name.
+     *
      * @example endpoint-test-name
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverEndpointsResponseBody extends Model
 {
     /**
+     * @description The information about endpoints.
+     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeResolverEndpointsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 2
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeResolverEndpointsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 83D1682B-B69A-4060-9FA8-2907C2A35600
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeResolverEndpointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeResolverEndpointsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AddZoneRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 21079fa016944979537637959d09bc
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
+     *
+     *   Normal zone: regular module
+     *   Fast Zone: acceleration module
+     *
+     * @example FAST_ZONE
+     *
      * @var string
      */
     public $dnsGroup;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -26,6 +39,9 @@ class AddZoneRequest extends Model
     public $lang;
 
     /**
+     * @description *   Specifies whether to enable the recursive resolution proxy feature for the zone. Valid values: **ZONE**: disables the recursive resolution proxy feature for the zone.
+     *   **RECORD**: enables the recursive resolution proxy feature for the zone.
+     *
      * @example ZONE
      *
      * @var string
@@ -33,6 +49,8 @@ class AddZoneRequest extends Model
     public $proxyPattern;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-resourcegroupid1
      *
      * @var string
@@ -40,6 +58,8 @@ class AddZoneRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The name of the zone.
+     *
      * @example example.com
      *
      * @var string
@@ -47,6 +67,8 @@ class AddZoneRequest extends Model
     public $zoneName;
 
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
      * @example BLINK
      *
      * @var string
@@ -54,6 +76,8 @@ class AddZoneRequest extends Model
     public $zoneTag;
 
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
      * @example CLOUD_PRODUCT_ZONE
      *
      * @var string

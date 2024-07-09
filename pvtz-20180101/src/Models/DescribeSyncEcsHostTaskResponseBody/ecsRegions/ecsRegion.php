@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ecsRegion extends Model
 {
     /**
+     * @description The region IDs.
+     *
      * @var regionIds
      */
     public $regionIds;
 
     /**
+     * @description The Alibaba Cloud account to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+     *
      * @example 1234567890
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetZoneRecordStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the DNS record.
+     *
      * @example 5809
      *
      * @var int
@@ -16,6 +18,8 @@ class SetZoneRecordStatusResponseBody extends Model
     public $recordId;
 
     /**
+     * @description The request ID.
+     *
      * @example 39CB16E5-4180-49F2-A060-23C0ECEB80D9
      *
      * @var string
@@ -23,6 +27,8 @@ class SetZoneRecordStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the DNS record.
+     *
      * @example DISABLE
      *
      * @var string

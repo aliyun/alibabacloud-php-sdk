@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateResolverRuleRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endpointId;
+
+    /**
+     * @description The destination IP address and port number.
+     *
      * @var forwardIp[]
      */
     public $forwardIp;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -22,21 +31,29 @@ class UpdateResolverRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * @example forward rule-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The forwarding rule ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string
      */
     public $ruleId;
     protected $_name = [
-        'forwardIp' => 'ForwardIp',
-        'lang'      => 'Lang',
-        'name'      => 'Name',
-        'ruleId'    => 'RuleId',
+        'endpointId' => 'EndpointId',
+        'forwardIp'  => 'ForwardIp',
+        'lang'       => 'Lang',
+        'name'       => 'Name',
+        'ruleId'     => 'RuleId',
     ];
 
     public function validate()
@@ -46,6 +63,9 @@ class UpdateResolverRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
+        }
         if (null !== $this->forwardIp) {
             $res['ForwardIp'] = [];
             if (null !== $this->forwardIp && \is_array($this->forwardIp)) {
@@ -76,6 +96,9 @@ class UpdateResolverRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
+        }
         if (isset($map['ForwardIp'])) {
             if (!empty($map['ForwardIp'])) {
                 $model->forwardIp = [];

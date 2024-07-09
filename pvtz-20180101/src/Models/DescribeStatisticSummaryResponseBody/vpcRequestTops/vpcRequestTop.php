@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpcRequestTop extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -16,11 +18,17 @@ class vpcRequestTop extends Model
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
+     * @example China (Beijing)
+     *
      * @var string
      */
     public $regionName;
 
     /**
+     * @description The number of DNS requests.
+     *
      * @example 2254
      *
      * @var int
@@ -28,6 +36,8 @@ class vpcRequestTop extends Model
     public $requestCount;
 
     /**
+     * @description The tunnel ID.
+     *
      * @example 46574
      *
      * @var string
@@ -35,7 +45,7 @@ class vpcRequestTop extends Model
     public $tunnelId;
 
     /**
-     * @description VPC ID
+     * @description The VPC ID.
      *
      * @example vpc-2zeisd8c0j6wk1451jr6o
      *
@@ -44,6 +54,13 @@ class vpcRequestTop extends Model
     public $vpcId;
 
     /**
+     * @description The type of the VPC. Valid values:
+     *
+     *   STANDARD: standard VPC
+     *   EDS: Elastic Desktop Service (EDS) workspace VPC
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $vpcType;

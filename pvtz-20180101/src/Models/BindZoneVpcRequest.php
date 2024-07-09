@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class BindZoneVpcRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6447728c8578e66aacf062d2df4446dc
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -22,6 +28,8 @@ class BindZoneVpcRequest extends Model
     public $lang;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -29,11 +37,16 @@ class BindZoneVpcRequest extends Model
     public $userClientIp;
 
     /**
+     * @description The information about VPCs.
+     *
      * @var vpcs[]
      */
     public $vpcs;
 
     /**
+     * @description The global ID of the zone.
+     *
+     * This parameter is required.
      * @example AgIDE0OQ_149
      *
      * @var string

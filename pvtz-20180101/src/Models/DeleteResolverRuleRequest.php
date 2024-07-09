@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteResolverRuleRequest extends Model
 {
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -16,6 +18,9 @@ class DeleteResolverRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The forwarding rule ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string

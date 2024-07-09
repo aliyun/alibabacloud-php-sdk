@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateZoneRecordRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6447728c8578e66aacf062d2df4446dc
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -21,11 +27,18 @@ class UpdateZoneRecordRequest extends Model
     public $lang;
 
     /**
+     * @description The resolution line.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The priority of the mail exchanger (MX) record. Valid values: **1 to 99**.
+     *
+     * This parameter is required if the type of the DNS record is MX.
      * @example 60
      *
      * @var int
@@ -33,6 +46,9 @@ class UpdateZoneRecordRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the DNS record.
+     *
+     * This parameter is required.
      * @example 5809
      *
      * @var int
@@ -40,6 +56,9 @@ class UpdateZoneRecordRequest extends Model
     public $recordId;
 
     /**
+     * @description The hostname.
+     *
+     * This parameter is required.
      * @example www
      *
      * @var string
@@ -47,6 +66,8 @@ class UpdateZoneRecordRequest extends Model
     public $rr;
 
     /**
+     * @description The time-to-live (TTL) of the DNS record.
+     *
      * @example 60
      *
      * @var int
@@ -54,6 +75,9 @@ class UpdateZoneRecordRequest extends Model
     public $ttl;
 
     /**
+     * @description The type of the DNS record. Valid values: **A**, **AAAA**, **CNAME**, **TXT**, **MX**, **PTR**, and **SRV**.
+     *
+     * This parameter is required.
      * @example A
      *
      * @var string
@@ -61,20 +85,29 @@ class UpdateZoneRecordRequest extends Model
     public $type;
 
     /**
-     * @example 2.2.2.2
+     * @description The IP address of the client.
+     *
+     * @example 2.2.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @example 1.1.1.1
+     * @description The record value.
+     *
+     * This parameter is required.
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
+     * @description The weight of the address. Valid values: **1 to 100**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $weight;

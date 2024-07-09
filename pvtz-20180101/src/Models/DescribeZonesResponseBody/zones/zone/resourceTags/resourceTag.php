@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceTag extends Model
 {
     /**
+     * @description The key of tag N added to the zone.
+     *
      * @example env
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceTag extends Model
     public $key;
 
     /**
+     * @description The value of tag N added to the zone.
+     *
      * @example daily
      *
      * @var string

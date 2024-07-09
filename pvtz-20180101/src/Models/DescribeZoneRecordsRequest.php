@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordsRequest extends Model
 {
     /**
+     * @description The hostname keyword based on which the system queries the DNS records.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeZoneRecordsRequest extends Model
     public $keyword;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeZoneRecordsRequest extends Model
     public $lang;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeZoneRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100. Default value: 20.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +45,11 @@ class DescribeZoneRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search mode. Valid values:
+     *
+     *   **LIKE**: fuzzy search
+     *   **EXACT (default)**: exact search
+     *
      * @example LIKE
      *
      * @var string
@@ -44,6 +57,11 @@ class DescribeZoneRecordsRequest extends Model
     public $searchMode;
 
     /**
+     * @description The tags added to the DNS record.
+     *
+     *   This parameter is left empty by default. In this case, the DNS records of the zone are queried.
+     *   If you set Tag to ecs, the DNS records added to the hostnames of Elastic Compute Service (ECS) instances in the zone are queried.
+     *
      * @example tag
      *
      * @var string
@@ -51,15 +69,18 @@ class DescribeZoneRecordsRequest extends Model
     public $tag;
 
     /**
-     * @example 1.1.1.1
+     * @description The IP address of the client.
+     *
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description Zone ID。
+     * @description The zone ID.
      *
+     * This parameter is required.
      * @example CAgICA1OA_58
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverEndpointResponseBody extends Model
 {
     /**
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:45:56
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the endpoint was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594608356000
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @description The endpoint ID.
+     *
      * @example hra0**
      *
      * @var string
@@ -31,16 +37,22 @@ class DescribeResolverEndpointResponseBody extends Model
     public $id;
 
     /**
+     * @description The source IP address of outbound traffic.
+     *
      * @var ipConfigs[]
      */
     public $ipConfigs;
 
     /**
+     * @description The endpoint name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example 45020ED9-6319-4CA7-9475-6E8D6446E84F
      *
      * @var string
@@ -48,6 +60,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security group ID.
+     *
      * @example sg-8vb3sigz86xc-group-test
      *
      * @var string
@@ -55,6 +69,15 @@ class DescribeResolverEndpointResponseBody extends Model
     public $securityGroupId;
 
     /**
+     * @description The state of the endpoint. Valid values:
+     *
+     *   SUCCESS: The endpoint works as expected.
+     *   INIT: The endpoint is being created.
+     *   FAILED: The endpoint fails to be created.
+     *   CHANGE_INIT: The endpoint is being modified.
+     *   CHANGE_FAILED: The endpoint fails to be modified.
+     *   EXCEPTION: The endpoint encounters an exception.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -62,6 +85,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the endpoint was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:48:39
      *
      * @var string
@@ -69,6 +94,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description The time when the endpoint was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594608519000
      *
      * @var int
@@ -76,6 +103,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $updateTimestamp;
 
     /**
+     * @description The outbound VPC ID.
+     *
      * @example vpc-8vbl8mpum-vpc-id
      *
      * @var string
@@ -83,6 +112,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $vpcId;
 
     /**
+     * @description The outbound VPC name.
+     *
      * @example vpc-name-test
      *
      * @var string
@@ -90,6 +121,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $vpcName;
 
     /**
+     * @description The ID of the region where the outbound VPC resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +130,8 @@ class DescribeResolverEndpointResponseBody extends Model
     public $vpcRegionId;
 
     /**
+     * @description The name of the region where the outbound virtual private cloud (VPC) resides.
+     *
      * @var string
      */
     public $vpcRegionName;

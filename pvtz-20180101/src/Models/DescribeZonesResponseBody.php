@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeZonesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeZonesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 3
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeZonesResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 3
      *
      * @var int
@@ -45,6 +55,8 @@ class DescribeZonesResponseBody extends Model
     public $totalPages;
 
     /**
+     * @description The zones.
+     *
      * @var zones
      */
     public $zones;

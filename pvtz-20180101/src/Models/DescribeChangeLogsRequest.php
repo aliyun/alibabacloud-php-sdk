@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeChangeLogsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516779348000
      *
      * @var int
@@ -16,6 +18,12 @@ class DescribeChangeLogsRequest extends Model
     public $endTimestamp;
 
     /**
+     * @description The type of operation logs. Valid values:
+     *
+     *   **PV_ZONE**: the logs that record the operations on zones
+     *   **PV_RECORD**: the logs that record the operations on DNS records
+     *
+     * If you set this parameter to other values, all types of operation logs are queried.
      * @example PV_ZONE
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeChangeLogsRequest extends Model
     public $entityType;
 
     /**
+     * @description The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeChangeLogsRequest extends Model
     public $keyword;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeChangeLogsRequest extends Model
     public $lang;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +58,8 @@ class DescribeChangeLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: **100**. Default value: **20**.
+     *
      * @example 100
      *
      * @var int
@@ -51,6 +67,8 @@ class DescribeChangeLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516779348000
      *
      * @var int
@@ -58,13 +76,17 @@ class DescribeChangeLogsRequest extends Model
     public $startTimestamp;
 
     /**
-     * @example 1.1.1.1
+     * @description The IP address of the client.
+     *
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The global ID of the zone.\\
+     * If you leave this parameter empty, the logs that record the operations on all zones that belong to the current Alibaba Cloud account and the DNS records of these zones are queried.
      * @example 6726
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The authorization scope. Valid value:
+     *
+     *   NORMAL: general authorization.
+     *
      * @example NORMAL
      *
      * @var string
@@ -16,6 +20,8 @@ class users extends Model
     public $authType;
 
     /**
+     * @description The name of the Alibaba Cloud account.
+     *
      * @example alidns***@test.com
      *
      * @var string
@@ -23,6 +29,8 @@ class users extends Model
     public $authorizedAliyunId;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 111222333
      *
      * @var int
@@ -30,11 +38,19 @@ class users extends Model
     public $authorizedUserId;
 
     /**
+     * @description The time when the authorization was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2023-05-08T02:31Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the authorization was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1672740294000
+     *
      * @var int
      */
     public $createTimestamp;

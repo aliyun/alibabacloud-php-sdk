@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteResolverEndpointRequest extends Model
 {
     /**
+     * @description The endpoint ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteResolverEndpointRequest extends Model
     public $endpointId;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string

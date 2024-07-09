@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @description The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-09-18T08:20Z
      *
      * @var string
@@ -17,6 +19,8 @@ class zone extends Model
     public $createTime;
 
     /**
+     * @description The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1568794812000
      *
      * @var int
@@ -24,26 +28,53 @@ class zone extends Model
     public $createTimestamp;
 
     /**
+     * @description The creator of the zone.
+     *
+     * @example 5463564356
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The operator type.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $creatorType;
 
     /**
+     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
+     *
+     *   NORMAL_ZONE: regular module
+     *   FAST_ZONE: acceleration module
+     *
+     * @example NORMAL_ZONE
+     *
      * @var string
      */
     public $dnsGroup;
 
     /**
+     * @description Indicates whether the zone is being removed to another logical location. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dnsGroupChanging;
 
     /**
+     * @description Indicates whether the zone is a reverse lookup zone. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +82,8 @@ class zone extends Model
     public $isPtr;
 
     /**
+     * @description The number of Domain Name System (DNS) records.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +91,8 @@ class zone extends Model
     public $recordCount;
 
     /**
+     * @description The description of the zone.
+     *
      * @example demo
      *
      * @var string
@@ -65,6 +100,8 @@ class zone extends Model
     public $remark;
 
     /**
+     * @description The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-09-18T08:20Z
      *
      * @var string
@@ -72,6 +109,8 @@ class zone extends Model
     public $updateTime;
 
     /**
+     * @description The time when the zone was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1568794834000
      *
      * @var int
@@ -79,12 +118,14 @@ class zone extends Model
     public $updateTimestamp;
 
     /**
+     * @description The VPCs bound to the zones.
+     *
      * @var vpcs
      */
     public $vpcs;
 
     /**
-     * @description Zone id
+     * @description The global ID of the zone.
      *
      * @example 6d83e3b31aa60ca4aaa7161f1b6baa95
      *
@@ -93,6 +134,8 @@ class zone extends Model
     public $zoneId;
 
     /**
+     * @description The name of the zone.
+     *
      * @example localzone.demo
      *
      * @var string
@@ -100,11 +143,25 @@ class zone extends Model
     public $zoneName;
 
     /**
+     * @description The type of the cloud service.
+     *
+     *   If the value of the ZoneType parameter is AUTH_ZONE, no value is returned for this parameter.
+     *   If the value of the ZoneType parameter is CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
+     *
+     * @example BLINK
+     *
      * @var string
      */
     public $zoneTag;
 
     /**
+     * @description The type of the zone. Valid values:
+     *
+     *   AUTH_ZONE: authoritative zone
+     *   CLOUD_PRODUCT_ZONE: authoritative zone for cloud services
+     *
+     * @example AUTH_ZONE
+     *
      * @var string
      */
     public $zoneType;

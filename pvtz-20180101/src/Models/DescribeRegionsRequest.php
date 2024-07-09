@@ -9,18 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @example zh-CN
+     * @description The supported language. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *   ja: Japanese
+     *
+     * @example en-US
      *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+     *
+     * @example 111222333
+     *
      * @var int
      */
     public $authorizedUserId;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -28,18 +40,35 @@ class DescribeRegionsRequest extends Model
     public $lang;
 
     /**
+     * @description The scenario. Valid values:
+     *
+     *   AUTH: the built-in authoritative module
+     *   FWD: the forward module
+     *   RA: the traffic analysis module
+     *
+     * @example AUTH
+     *
      * @var string
      */
     public $scene;
 
     /**
-     * @example 1.1.1.1
+     * @description The IP address of the client.
+     *
+     * @example 192.168.1.1
      *
      * @var string
      */
     public $userClientIp;
 
     /**
+     * @description The type of the virtual private cloud (VPC). Valid values:
+     *
+     *   STANDARD: standard VPC
+     *   EDS: Elastic Desktop Service (EDS) workspace VPC
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $vpcType;

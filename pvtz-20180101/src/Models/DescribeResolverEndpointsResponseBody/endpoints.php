@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:36:26
      *
      * @var string
@@ -17,6 +19,8 @@ class endpoints extends Model
     public $createTime;
 
     /**
+     * @description The time when the endpoint was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594607786000
      *
      * @var int
@@ -24,6 +28,8 @@ class endpoints extends Model
     public $createTimestamp;
 
     /**
+     * @description The endpoint ID.
+     *
      * @example hra0**
      *
      * @var string
@@ -31,16 +37,24 @@ class endpoints extends Model
     public $id;
 
     /**
+     * @description The source IP addresses of outbound traffic.
+     *
      * @var ipConfigs[]
      */
     public $ipConfigs;
 
     /**
+     * @description The endpoint name.
+     *
+     * @example endpoint-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The security group ID.
+     *
      * @example sg-8vb3sigz86xc-test-group
      *
      * @var string
@@ -48,6 +62,15 @@ class endpoints extends Model
     public $securityGroupId;
 
     /**
+     * @description The state of the endpoint. Valid values:
+     *
+     *   SUCCESS: The endpoint works as expected.
+     *   INIT: The endpoint is being created.
+     *   FAILED: The endpoint fails to be created.
+     *   CHANGE_INIT: The endpoint is being modified.
+     *   CHANGE_FAILED: The endpoint fails to be modified.
+     *   EXCEPTION: The endpoint encounters an exception.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -55,6 +78,8 @@ class endpoints extends Model
     public $status;
 
     /**
+     * @description The time when the endpoint was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:38:24
      *
      * @var string
@@ -62,6 +87,8 @@ class endpoints extends Model
     public $updateTime;
 
     /**
+     * @description The time when the endpoint was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594607904000
      *
      * @var int
@@ -69,6 +96,8 @@ class endpoints extends Model
     public $updateTimestamp;
 
     /**
+     * @description The ID of the outbound virtual private cloud (VPC).
+     *
      * @example vpc-8vbl8mpum-test-vpc-id
      *
      * @var string
@@ -76,6 +105,8 @@ class endpoints extends Model
     public $vpcId;
 
     /**
+     * @description The VPC name.
+     *
      * @example vpc-test-name
      *
      * @var string
@@ -83,6 +114,8 @@ class endpoints extends Model
     public $vpcName;
 
     /**
+     * @description The region ID of the outbound VPC.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -90,6 +123,10 @@ class endpoints extends Model
     public $vpcRegionId;
 
     /**
+     * @description The name of the region where the outbound VPC resides.
+     *
+     * @example China East 1 (Hangzhou)
+     *
      * @var string
      */
     public $vpcRegionName;

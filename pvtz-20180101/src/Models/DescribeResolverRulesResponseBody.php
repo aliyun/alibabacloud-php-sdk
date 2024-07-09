@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverRulesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeResolverRulesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeResolverRulesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example A10E03D7-808C-422D-9144-F8586C2E2297
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeResolverRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The forwarding rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeResolverRulesResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

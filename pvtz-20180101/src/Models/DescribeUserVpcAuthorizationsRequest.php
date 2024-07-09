@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVpcAuthorizationsRequest extends Model
 {
     /**
+     * @description The authorization scope. Valid values:
+     *
+     *   NORMAL: general authorization.
+     *   CLOUD_PRODUCT: cloud service-related authorization
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 111222333
      *
      * @var int
@@ -21,6 +30,8 @@ class DescribeUserVpcAuthorizationsRequest extends Model
     public $authorizedUserId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +39,8 @@ class DescribeUserVpcAuthorizationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int

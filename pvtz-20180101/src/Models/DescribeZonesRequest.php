@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @description The keyword of the zone name. The search is performed in the %KeyWord % mode and is not case-sensitive.
+     *
      * @example test
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeZonesRequest extends Model
     public $keyword;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeZonesRequest extends Model
     public $lang;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeZonesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100. Default value: 20.
+     *
      * @example 100
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeZonesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,7 +55,7 @@ class DescribeZonesRequest extends Model
     public $queryRegionId;
 
     /**
-     * @description VPC ID。
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-xxxxx
      *
@@ -54,6 +64,8 @@ class DescribeZonesRequest extends Model
     public $queryVpcId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-xxxxx
      *
      * @var string
@@ -61,11 +73,18 @@ class DescribeZonesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tag added to the resource.
+     *
      * @var resourceTag[]
      */
     public $resourceTag;
 
     /**
+     * @description The search mode. Valid values:
+     *
+     *   **LIKE (default)**: fuzzy search
+     *   **EXACT**: exact search
+     *
      * @example LIKE
      *
      * @var string
@@ -73,6 +92,8 @@ class DescribeZonesRequest extends Model
     public $searchMode;
 
     /**
+     * @description The type of the cloud service.
+     *
      * @example BLINK
      *
      * @var string[]
@@ -80,6 +101,13 @@ class DescribeZonesRequest extends Model
     public $zoneTag;
 
     /**
+     * @description The type of zones to query. Default value: AUTH_ZONE.
+     *
+     * Valid values:
+     *
+     *   **AUTH_ZONE**: authoritative zone
+     *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
+     *
      * @example CLOUD_PRODUCT_ZONE
      *
      * @var string

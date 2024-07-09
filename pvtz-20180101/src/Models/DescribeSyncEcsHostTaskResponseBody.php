@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncEcsHostTaskResponseBody extends Model
 {
     /**
+     * @description The information about regions.
+     *
      * @var ecsRegions
      */
     public $ecsRegions;
 
     /**
+     * @description The information about the regions within the current account.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The request ID.
+     *
      * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
      *
      * @var string
@@ -28,6 +34,11 @@ class DescribeSyncEcsHostTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the task. Valid values:
+     *
+     *   ON
+     *   OFF
+     *
      * @example ON
      *
      * @var string
@@ -35,6 +46,11 @@ class DescribeSyncEcsHostTaskResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the task was successful. Valid values:
+     *
+     *   True
+     *   False
+     *
      * @example True
      *
      * @var bool
@@ -42,6 +58,8 @@ class DescribeSyncEcsHostTaskResponseBody extends Model
     public $success;
 
     /**
+     * @description The zone ID.
+     *
      * @example pvtz-test-id-2989149d628c56f00e
      *
      * @var string

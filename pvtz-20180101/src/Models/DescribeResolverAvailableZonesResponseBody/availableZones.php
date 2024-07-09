@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class availableZones extends Model
 {
     /**
+     * @description The zone ID.
+     *
      * @example cn-zhangjiakou-a
      *
      * @var string
@@ -16,6 +18,11 @@ class availableZones extends Model
     public $azId;
 
     /**
+     * @description The state of resources in the zone. Valid values:
+     *
+     *   NORMAL: The resources are in the normal state.
+     *   SOLD_OUT: The resources are sold out.
+     *
      * @example NORMAL
      *
      * @var string

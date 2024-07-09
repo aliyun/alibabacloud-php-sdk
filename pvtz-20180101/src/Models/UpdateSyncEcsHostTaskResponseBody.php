@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSyncEcsHostTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example test-FC9A-4595-8D96-089D73D7A63D
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateSyncEcsHostTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the task was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

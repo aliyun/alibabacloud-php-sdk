@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The VPCs associated with the forwarding rule.
+     *
      * @var bindVpcs[]
      */
     public $bindVpcs;
 
     /**
+     * @description The time when the forwarding was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:51:44
      *
      * @var string
@@ -23,6 +27,8 @@ class rules extends Model
     public $createTime;
 
     /**
+     * @description The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594608704000
      *
      * @var int
@@ -30,6 +36,8 @@ class rules extends Model
     public $createTimestamp;
 
     /**
+     * @description The endpoint ID.
+     *
      * @example hra0**
      *
      * @var string
@@ -37,16 +45,24 @@ class rules extends Model
     public $endpointId;
 
     /**
+     * @description The endpoint name.
+     *
+     * @example endpoint-test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @description The destination IP addresses.
+     *
      * @var forwardIps[]
      */
     public $forwardIps;
 
     /**
+     * @description The ID of the forwarding rule.
+     *
      * @example hra1**
      *
      * @var string
@@ -54,11 +70,19 @@ class rules extends Model
     public $id;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * @example forward rule-test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the forwarding rule. Valid value:
+     *
+     *   OUTBOUND: Domain Name System (DNS) requests are forwarded to one or more IP addresses.
+     *
      * @example OUTBOUND
      *
      * @var string
@@ -66,6 +90,8 @@ class rules extends Model
     public $type;
 
     /**
+     * @description The time when the forwarding rule was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2020-07-13 10:51:44
      *
      * @var string
@@ -73,6 +99,8 @@ class rules extends Model
     public $updateTime;
 
     /**
+     * @description The timestamp when the forwarding rule was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1594608704000
      *
      * @var int
@@ -80,6 +108,8 @@ class rules extends Model
     public $updateTimestamp;
 
     /**
+     * @description The name of the forward zone.
+     *
      * @example example.com
      *
      * @var string

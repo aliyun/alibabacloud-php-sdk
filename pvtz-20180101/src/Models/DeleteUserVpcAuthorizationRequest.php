@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserVpcAuthorizationRequest extends Model
 {
     /**
+     * @description The authorization scope. Valid values:
+     *
+     *   NORMAL: general authorization
+     *   NORMAL: cloud service-related authorization
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * This parameter is required.
      * @example 11111111
      *
      * @var int

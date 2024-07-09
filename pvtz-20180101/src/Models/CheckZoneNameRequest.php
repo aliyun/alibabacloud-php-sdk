@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckZoneNameRequest extends Model
 {
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckZoneNameRequest extends Model
     public $lang;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 192.0.2.0
      *
      * @var string
@@ -23,6 +27,8 @@ class CheckZoneNameRequest extends Model
     public $userClientIp;
 
     /**
+     * @description The name of the zone. This parameter is required.
+     *
      * @example example.com
      *
      * @var string

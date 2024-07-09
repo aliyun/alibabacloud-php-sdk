@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddResolverRuleRequest extends Model
 {
     /**
+     * @description The endpoint ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string
@@ -17,11 +20,16 @@ class AddResolverRuleRequest extends Model
     public $endpointId;
 
     /**
+     * @description The destination IP address and port number.
+     *
+     * This parameter is required.
      * @var forwardIp[]
      */
     public $forwardIp;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -29,11 +37,20 @@ class AddResolverRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the forwarding rule.
+     *
+     * This parameter is required.
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the forwarding rule. Valid value:
+     *
+     *   OUTBOUND: forwards Domain Name System (DNS) requests to one or more external IP addresses.
+     *
      * @example OUTBOUND
      *
      * @var string
@@ -41,6 +58,9 @@ class AddResolverRuleRequest extends Model
     public $type;
 
     /**
+     * @description The name of the forward zone.
+     *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

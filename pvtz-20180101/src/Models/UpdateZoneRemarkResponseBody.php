@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateZoneRemarkResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
      *
      * @var string
@@ -16,7 +18,7 @@ class UpdateZoneRemarkResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Zone ID。
+     * @description The zone ID.
      *
      * @example AgIDE1MA_149
      *

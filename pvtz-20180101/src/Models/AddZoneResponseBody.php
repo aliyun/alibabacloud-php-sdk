@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddZoneResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
      *
      * @var string
@@ -16,6 +18,8 @@ class AddZoneResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool
@@ -23,7 +27,7 @@ class AddZoneResponseBody extends Model
     public $success;
 
     /**
-     * @description zone ID。
+     * @description The global ID of the zone.
      *
      * @example AgIDE1MQ_151
      *
@@ -32,6 +36,8 @@ class AddZoneResponseBody extends Model
     public $zoneId;
 
     /**
+     * @description The name of the zone.
+     *
      * @example example.com
      *
      * @var string

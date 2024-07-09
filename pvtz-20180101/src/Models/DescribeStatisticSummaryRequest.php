@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticSummaryRequest extends Model
 {
     /**
-     * @example zh
+     * @description The language.
+     *
+     * @example en
      *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.0.0.1
      *
      * @var string

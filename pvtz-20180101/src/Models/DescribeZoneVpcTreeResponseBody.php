@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneVpcTreeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7B07FBC3-3A53-4939-A3C6-2BDFE407BAB2
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeZoneVpcTreeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The zones.
+     *
      * @var zones
      */
     public $zones;

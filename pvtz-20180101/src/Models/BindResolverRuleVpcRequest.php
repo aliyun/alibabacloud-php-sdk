@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BindResolverRuleVpcRequest extends Model
 {
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -17,6 +19,9 @@ class BindResolverRuleVpcRequest extends Model
     public $lang;
 
     /**
+     * @description The forwarding rule ID.
+     *
+     * This parameter is required.
      * @example hra0**
      *
      * @var string
@@ -24,6 +29,8 @@ class BindResolverRuleVpcRequest extends Model
     public $ruleId;
 
     /**
+     * @description The VPCs.
+     *
      * @var vpc[]
      */
     public $vpc;

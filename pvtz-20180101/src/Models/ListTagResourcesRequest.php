@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The language of the values for specific response parameters. Valid values: en, zh, and ja.
+     *
      * @example en
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTagResourcesRequest extends Model
     public $lang;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example 234235354
      *
      * @var string
@@ -24,6 +28,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+     *
      * @example 97fe9321a476d0861f624d3f738dcc38
      *
      * @var string[]
@@ -31,6 +37,9 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The resource type. Valid value: ZONE.
+     *
+     * This parameter is required.
      * @example ZONE
      *
      * @var string
@@ -38,6 +47,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The number of entries per page. Valid values: `1 to 200`. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -45,6 +56,8 @@ class ListTagResourcesRequest extends Model
     public $size;
 
     /**
+     * @description The tags added to the resources.
+     *
      * @var tag[]
      */
     public $tag;

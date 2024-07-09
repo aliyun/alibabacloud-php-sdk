@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class zoneRequestTop extends Model
 {
     /**
+     * @description The business type. Valid values:
+     *
+     *   AUTH_ZONE: authoritative zone
+     *   RESOLVER_RULE: forwarding rule
+     *
+     * @example AUTH_ZONE
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The number of DNS requests.
+     *
      * @example 2251
      *
      * @var int
@@ -21,6 +30,8 @@ class zoneRequestTop extends Model
     public $requestCount;
 
     /**
+     * @description The name of the zone.
+     *
      * @example host.local
      *
      * @var string

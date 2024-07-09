@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverAvailableZonesRequest extends Model
 {
     /**
+     * @description The zone ID.
+     *
      * @example cn-zhangjiakou-a
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeResolverAvailableZonesRequest extends Model
     public $azId;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeResolverAvailableZonesRequest extends Model
     public $lang;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
      * @example cn-zhangjiakou
      *
      * @var string

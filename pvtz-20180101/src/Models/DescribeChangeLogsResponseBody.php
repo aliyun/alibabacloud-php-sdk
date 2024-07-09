@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeChangeLogsResponseBody extends Model
 {
     /**
+     * @description The operation logs.
+     *
      * @var changeLogs
      */
     public $changeLogs;
 
     /**
+     * @description The page number.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeChangeLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeChangeLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example F0FCB52A-D512-41A0-8595-40234EDCFD8B
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeChangeLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeChangeLogsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 100
      *
      * @var int

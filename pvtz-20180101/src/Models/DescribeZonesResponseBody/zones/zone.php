@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @description The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-12-28T13:08Z
      *
      * @var string
@@ -17,6 +19,8 @@ class zone extends Model
     public $createTime;
 
     /**
+     * @description The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1514466483000
      *
      * @var int
@@ -24,26 +28,58 @@ class zone extends Model
     public $createTimestamp;
 
     /**
+     * @description The creator of the zone.
+     *
+     * @example 5463564356
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The type of the user account.
+     *
+     *   **CUSTOMER**: Alibaba Cloud account
+     *   **SUB**: RAM user
+     *   **STS**: assumed role that obtains the Security Token Service (STS) token of a RAM role
+     *   **OTHER**: other types
+     *
+     * @example SUB
+     *
      * @var string
      */
     public $creatorSubType;
 
     /**
+     * @description The logical location type of the built-in authoritative module in which the zone is added. Valid values:
+     *
+     *   **NORMAL_ZONE**: regular module
+     *   **FAST_ZONE**: acceleration module
+     *
+     * @example NORMAL_ZONE
+     *
      * @var string
      */
     public $dnsGroup;
 
     /**
+     * @description Indicates whether the zone is being removed to another logical location. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dnsGroupChanging;
 
     /**
+     * @description Indicates whether the zone is a reverse lookup zone. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +87,11 @@ class zone extends Model
     public $isPtr;
 
     /**
+     * @description Indicates whether the recursive resolution proxy feature is enabled for the zone. Valid values:
+     *
+     *   **ZONE**: The recursive resolution proxy feature is disabled for the zone.
+     *   **RECORD**: The recursive resolution proxy feature is enabled for the zone.
+     *
      * @example ZONE
      *
      * @var string
@@ -58,6 +99,8 @@ class zone extends Model
     public $proxyPattern;
 
     /**
+     * @description The number of Domain Name System (DNS) records.
+     *
      * @example 2
      *
      * @var int
@@ -65,6 +108,8 @@ class zone extends Model
     public $recordCount;
 
     /**
+     * @description The description of the zone.
+     *
      * @example test
      *
      * @var string
@@ -72,6 +117,8 @@ class zone extends Model
     public $remark;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-xxxxx
      *
      * @var string
@@ -79,11 +126,15 @@ class zone extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags added to the resources.
+     *
      * @var resourceTags
      */
     public $resourceTags;
 
     /**
+     * @description The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-03T08:57Z
      *
      * @var string
@@ -91,6 +142,8 @@ class zone extends Model
     public $updateTime;
 
     /**
+     * @description The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+     *
      * @example 1514969843000
      *
      * @var int
@@ -98,15 +151,17 @@ class zone extends Model
     public $updateTimestamp;
 
     /**
-     * @description zone ID。
+     * @description The zone ID.
      *
-     * @example ICAgICAgI_24
+     * @example 6d83e3b31aa60ca4aaa7161f1b6b**95
      *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The name of the zone.
+     *
      * @example test.com
      *
      * @var string
@@ -114,6 +169,11 @@ class zone extends Model
     public $zoneName;
 
     /**
+     * @description The type of the cloud service. Valid values:
+     *
+     *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
+     *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
+     *
      * @example BLINK
      *
      * @var string
@@ -121,6 +181,11 @@ class zone extends Model
     public $zoneTag;
 
     /**
+     * @description The type of zones. Valid values:
+     *
+     *   **AUTH_ZONE**: authoritative zone
+     *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
+     *
      * @example CLOUD_PRODUCT_ZONE
      *
      * @var string

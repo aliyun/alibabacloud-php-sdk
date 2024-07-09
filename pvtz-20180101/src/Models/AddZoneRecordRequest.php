@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AddZoneRecordRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6447728c8578e66aacf062d2df4446dc
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -21,11 +27,17 @@ class AddZoneRecordRequest extends Model
     public $lang;
 
     /**
+     * @description The resolution line. Default value: **default**.
+     *
+     * @example default
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The priority of the mail exchanger (MX) record. Valid values: **1 to 99**.
+     *
      * @example 5
      *
      * @var int
@@ -33,11 +45,18 @@ class AddZoneRecordRequest extends Model
     public $priority;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The hostname.
+     *
+     * This parameter is required.
      * @example www
      *
      * @var string
@@ -45,6 +64,8 @@ class AddZoneRecordRequest extends Model
     public $rr;
 
     /**
+     * @description The time to live (TTL) of the DNS record. Default value: **60**.
+     *
      * @example 60
      *
      * @var int
@@ -52,6 +73,9 @@ class AddZoneRecordRequest extends Model
     public $ttl;
 
     /**
+     * @description The type of the DNS record. Valid values: **A**, **AAAA**, **CNAME**, **TXT**, **MX**, **PTR**, and **SRV**.
+     *
+     * This parameter is required.
      * @example A
      *
      * @var string
@@ -59,27 +83,37 @@ class AddZoneRecordRequest extends Model
     public $type;
 
     /**
-     * @example 2.2.2.2
+     * @description The IP address of the client.
+     *
+     * @example 2.2.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @example 1.1.1.1
+     * @description The record value.
+     *
+     * This parameter is required.
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
+     * @description The weight of the address. Valid values: **0 to 100**. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $weight;
 
     /**
-     * @description Zone ID。
+     * @description The global ID of the zone.
      *
+     * This parameter is required.
      * @example CAgICA1OA_58
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeZoneRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 100
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeZoneRecordsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The returned DNS records.
+     *
      * @var records
      */
     public $records;
 
     /**
+     * @description The request ID.
+     *
      * @example 7B07FBC3-3A53-4939-A3C6-2BDFE407BAB2
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeZoneRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeZoneRecordsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 100
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class changeLog extends Model
 {
     /**
+     * @description The details of the operation.
+     *
      * @example add test-api.com
      *
      * @var string
@@ -16,21 +18,40 @@ class changeLog extends Model
     public $content;
 
     /**
+     * @description The operator ID.
+     *
+     * @example 13270376
+     *
      * @var string
      */
     public $creatorId;
 
     /**
+     * @description The subtype of the operator. Valid values:
+     *
+     *   CUSTOMER: Alibaba Cloud account
+     *   SUB: RAM user
+     *   STS: assumed role that obtains the Security Token Service (STS) token of a RAM role
+     *   OTHER: other types
+     *
+     * @example SUB
+     *
      * @var string
      */
     public $creatorSubType;
 
     /**
+     * @description The operator type. No value or **USER** is returned for this parameter.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $creatorType;
 
     /**
+     * @description The ID of the object on which the operation was performed.
+     *
      * @example CAgICA1OA_58
      *
      * @var string
@@ -38,6 +59,8 @@ class changeLog extends Model
     public $entityId;
 
     /**
+     * @description The name of the object on which the operation was performed.
+     *
      * @example test-api.com
      *
      * @var string
@@ -45,6 +68,8 @@ class changeLog extends Model
     public $entityName;
 
     /**
+     * @description The log ID.
+     *
      * @example 6726
      *
      * @var int
@@ -52,6 +77,8 @@ class changeLog extends Model
     public $id;
 
     /**
+     * @description The operation type.
+     *
      * @example add
      *
      * @var string
@@ -59,6 +86,8 @@ class changeLog extends Model
     public $operAction;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -66,6 +95,8 @@ class changeLog extends Model
     public $operIp;
 
     /**
+     * @description The type of the object on which the operation is performed.
+     *
      * @example PV_ZONE
      *
      * @var string
@@ -73,6 +104,8 @@ class changeLog extends Model
     public $operObject;
 
     /**
+     * @description The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-24T07:35Z
      *
      * @var string
@@ -80,6 +113,8 @@ class changeLog extends Model
     public $operTime;
 
     /**
+     * @description The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516779348000
      *
      * @var int

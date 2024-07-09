@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipConfig extends Model
 {
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-a
      *
      * @var string
@@ -16,6 +18,8 @@ class ipConfig extends Model
     public $azId;
 
     /**
+     * @description The IPv4 CIDR block of the vSwitch.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -23,6 +27,8 @@ class ipConfig extends Model
     public $cidrBlock;
 
     /**
+     * @description The IP address.
+     *
      * @example 172.16.xx.xx
      *
      * @var string
@@ -30,6 +36,8 @@ class ipConfig extends Model
     public $ip;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example sjqkql
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResolverEndpointResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EC0BDA3A-A92A-4AC8-B351-322A9C79D5C5
      *
      * @var string

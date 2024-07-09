@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRequestGraphResponseBody extends Model
 {
     /**
+     * @description The information about the DNS requests.
+     *
      * @var requestDetails
      */
     public $requestDetails;
 
     /**
+     * @description The request ID.
+     *
      * @example EB71815-A421-4E51-8E8D-667F44ABE633
      *
      * @var string

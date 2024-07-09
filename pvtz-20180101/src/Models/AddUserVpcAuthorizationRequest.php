@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AddUserVpcAuthorizationRequest extends Model
 {
     /**
+     * @description The authorization method. Valid values:
+     *
+     *   AUTH_CODE: An authorization code is used to associate VPCs across accounts. The system checks whether the value of AuthCode is valid.
+     *   RESOURCE_DIRECTORY: A resource directory is used to associate VPCs across accounts. The system checks whether the value of AuthorizedUserId and the current account are in the same resource directory.
+     *   If this parameter is empty, an authorization code is used to associate VPCs across accounts.
+     *
      * @example AUTH_CODE
      *
      * @var string
@@ -16,6 +22,9 @@ class AddUserVpcAuthorizationRequest extends Model
     public $authChannel;
 
     /**
+     * @description The verification code.
+     *
+     * This parameter is required when AuthType is set to NORMAL or is left empty and AuthChannel is set to AUTH_CODE or is left empty.
      * @example 123456
      *
      * @var string
@@ -23,11 +32,21 @@ class AddUserVpcAuthorizationRequest extends Model
     public $authCode;
 
     /**
+     * @description The authorization scope. Valid values:
+     *
+     *   NORMAL: general authorization.
+     *   CLOUD_PRODUCT: cloud service-related authorization
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $authType;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * This parameter is required.
      * @example 111222333
      *
      * @var int

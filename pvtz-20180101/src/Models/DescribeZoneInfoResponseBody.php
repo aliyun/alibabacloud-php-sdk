@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneInfoResponseBody extends Model
 {
     /**
+     * @description The virtual private clouds (VPCs) bound to the zone.
+     *
      * @var bindVpcs
      */
     public $bindVpcs;
 
     /**
+     * @description The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-23T03:15Z
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int
@@ -29,26 +35,51 @@ class DescribeZoneInfoResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @description The creator of the zone.
+     *
+     * @example 2312234523451342
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The type of the operator.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $creatorType;
 
     /**
+     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
+     *
+     *   NORMAL_ZONE: regular module
+     *   FAST_ZONE: acceleration module
+     *
+     * @example FAST_ZONE
+     *
      * @var string
      */
     public $dnsGroup;
 
     /**
+     * @description Indicates whether the zone is being removed to another logical location. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dnsGroupChanging;
 
     /**
+     * @description *   Indicates whether the zone is a reverse lookup zone. Valid values: true and false. The value true indicates that the zone is a reverse lookup zone.
+     *   The value false indicates that the zone is not a reverse lookup zone.
+     *
      * @example false
      *
      * @var bool
@@ -56,6 +87,9 @@ class DescribeZoneInfoResponseBody extends Model
     public $isPtr;
 
     /**
+     * @description *   Indicates whether the recursive resolution proxy feature is enabled for the zone. Valid values: **ZONE**: The recursive resolution proxy feature is disabled for the zone.
+     *   **RECORD**: The recursive resolution proxy feature is enabled for the zone.
+     *
      * @example ZONE
      *
      * @var string
@@ -63,6 +97,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $proxyPattern;
 
     /**
+     * @description The total number of DNS records.
+     *
      * @example 2
      *
      * @var int
@@ -70,6 +106,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $recordCount;
 
     /**
+     * @description The description of the zone.
+     *
      * @example specialZone
      *
      * @var string
@@ -77,6 +115,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $remark;
 
     /**
+     * @description The request ID.
+     *
      * @example F73F41A3-B6DD-42CA-A793-FFF93277835D
      *
      * @var string
@@ -84,6 +124,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-xxxxxxxx
      *
      * @var string
@@ -91,6 +133,11 @@ class DescribeZoneInfoResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the secondary Domain Name System (DNS) feature is enabled for the zone. Valid values:
+     *
+     *   **true**: The secondary DNS feature is enabled.
+     *   **false**: The secondary DNS feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -98,6 +145,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $slaveDns;
 
     /**
+     * @description The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-24T06:35Z
      *
      * @var string
@@ -105,6 +154,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description The time when the zone was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int
@@ -112,7 +163,7 @@ class DescribeZoneInfoResponseBody extends Model
     public $updateTimestamp;
 
     /**
-     * @description Zone ID。
+     * @description The global ID of the zone.
      *
      * @example AgIDE0OQ_149<
      *
@@ -121,6 +172,8 @@ class DescribeZoneInfoResponseBody extends Model
     public $zoneId;
 
     /**
+     * @description The zone name.
+     *
      * @example test.com
      *
      * @var string
@@ -128,6 +181,9 @@ class DescribeZoneInfoResponseBody extends Model
     public $zoneName;
 
     /**
+     * @description *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
+     *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
+     *
      * @example pvtz
      *
      * @var string
@@ -135,6 +191,11 @@ class DescribeZoneInfoResponseBody extends Model
     public $zoneTag;
 
     /**
+     * @description The type of the zone. Valid values:
+     *
+     *   AUTH_ZONE: authoritative zone
+     *   CLOUD_PRODUCT_ZONE: authoritative zone for cloud services
+     *
      * @example CLOUD_PRODUCT_ZONE
      *
      * @var string

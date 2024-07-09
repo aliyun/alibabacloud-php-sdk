@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DeleteZoneRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 21079fa016944979537637959d09bc
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -21,15 +28,18 @@ class DeleteZoneRequest extends Model
     public $lang;
 
     /**
-     * @example 1.1.1.1
+     * @description The IP address of the client.
+     *
+     * @example 1.1.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description zone ID
+     * @description The global ID of the zone.
      *
+     * This parameter is required.
      * @example AgIDE1MA_150
      *
      * @var string

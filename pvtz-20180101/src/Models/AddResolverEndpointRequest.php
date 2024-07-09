@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class AddResolverEndpointRequest extends Model
 {
     /**
+     * @description The source IP addresses of outbound traffic. You must add two to six source IP addresses to ensure high availability.
+     *
+     * This parameter is required.
      * @var ipConfig[]
      */
     public $ipConfig;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -22,6 +27,9 @@ class AddResolverEndpointRequest extends Model
     public $lang;
 
     /**
+     * @description The endpoint name. The name can be up to 20 characters in length. If the upper limit is exceeded, an error message is returned.
+     *
+     * This parameter is required.
      * @example endpoint-test-name
      *
      * @var string
@@ -29,6 +37,9 @@ class AddResolverEndpointRequest extends Model
     public $name;
 
     /**
+     * @description The security group ID.
+     *
+     * This parameter is required.
      * @example kqlqlqjqqkq
      *
      * @var string
@@ -36,6 +47,9 @@ class AddResolverEndpointRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The outbound VPC ID.
+     *
+     * This parameter is required.
      * @example vpc-129343jslslsks
      *
      * @var string
@@ -43,6 +57,9 @@ class AddResolverEndpointRequest extends Model
     public $vpcId;
 
     /**
+     * @description The region ID of the outbound virtual private cloud (VPC).
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class forwardIp extends Model
 {
     /**
+     * @description The destination IP address.
+     *
+     * This parameter is required.
      * @example 172.16.xx.xx
      *
      * @var string
@@ -16,6 +19,9 @@ class forwardIp extends Model
     public $ip;
 
     /**
+     * @description The port number.
+     *
+     * This parameter is required.
      * @example 8080
      *
      * @var int

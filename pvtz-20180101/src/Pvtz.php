@@ -128,10 +128,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddResolverEndpointRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates an endpoint.
+     *  *
+     * @param AddResolverEndpointRequest $request AddResolverEndpointRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddResolverEndpointResponse
+     * @return AddResolverEndpointResponse AddResolverEndpointResponse
      */
     public function addResolverEndpointWithOptions($request, $runtime)
     {
@@ -174,9 +176,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddResolverEndpointRequest $request
+     * @summary Creates an endpoint.
+     *  *
+     * @param AddResolverEndpointRequest $request AddResolverEndpointRequest
      *
-     * @return AddResolverEndpointResponse
+     * @return AddResolverEndpointResponse AddResolverEndpointResponse
      */
     public function addResolverEndpoint($request)
     {
@@ -186,10 +190,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddResolverRuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a forwarding rule.
+     *  *
+     * @param AddResolverRuleRequest $request AddResolverRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddResolverRuleResponse
+     * @return AddResolverRuleResponse AddResolverRuleResponse
      */
     public function addResolverRuleWithOptions($request, $runtime)
     {
@@ -232,9 +238,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddResolverRuleRequest $request
+     * @summary Creates a forwarding rule.
+     *  *
+     * @param AddResolverRuleRequest $request AddResolverRuleRequest
      *
-     * @return AddResolverRuleResponse
+     * @return AddResolverRuleResponse AddResolverRuleResponse
      */
     public function addResolverRule($request)
     {
@@ -244,10 +252,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddUserVpcAuthorizationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+     *  *
+     * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserVpcAuthorizationResponse
+     * @return AddUserVpcAuthorizationResponse AddUserVpcAuthorizationResponse
      */
     public function addUserVpcAuthorizationWithOptions($request, $runtime)
     {
@@ -284,9 +294,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddUserVpcAuthorizationRequest $request
+     * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+     *  *
+     * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
      *
-     * @return AddUserVpcAuthorizationResponse
+     * @return AddUserVpcAuthorizationResponse AddUserVpcAuthorizationResponse
      */
     public function addUserVpcAuthorization($request)
     {
@@ -296,10 +308,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddZoneRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Creates a zone.
+     *  *
+     * @param AddZoneRequest $request AddZoneRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddZoneResponse
+     * @return AddZoneResponse AddZoneResponse
      */
     public function addZoneWithOptions($request, $runtime)
     {
@@ -348,9 +362,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddZoneRequest $request
+     * @summary Creates a zone.
+     *  *
+     * @param AddZoneRequest $request AddZoneRequest
      *
-     * @return AddZoneResponse
+     * @return AddZoneResponse AddZoneResponse
      */
     public function addZone($request)
     {
@@ -360,10 +376,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddZoneRecordRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a Domain Name System (DNS) record for a zone.
+     *  *
+     * @param AddZoneRecordRequest $request AddZoneRecordRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddZoneRecordResponse
+     * @return AddZoneRecordResponse AddZoneRecordResponse
      */
     public function addZoneRecordWithOptions($request, $runtime)
     {
@@ -424,9 +442,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param AddZoneRecordRequest $request
+     * @summary Adds a Domain Name System (DNS) record for a zone.
+     *  *
+     * @param AddZoneRecordRequest $request AddZoneRecordRequest
      *
-     * @return AddZoneRecordResponse
+     * @return AddZoneRecordResponse AddZoneRecordResponse
      */
     public function addZoneRecord($request)
     {
@@ -436,10 +456,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param BindResolverRuleVpcRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Associates a forwarding rule with virtual private clouds (VPCs).
+     *  *
+     * @param BindResolverRuleVpcRequest $request BindResolverRuleVpcRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindResolverRuleVpcResponse
+     * @return BindResolverRuleVpcResponse BindResolverRuleVpcResponse
      */
     public function bindResolverRuleVpcWithOptions($request, $runtime)
     {
@@ -473,9 +495,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param BindResolverRuleVpcRequest $request
+     * @summary Associates a forwarding rule with virtual private clouds (VPCs).
+     *  *
+     * @param BindResolverRuleVpcRequest $request BindResolverRuleVpcRequest
      *
-     * @return BindResolverRuleVpcResponse
+     * @return BindResolverRuleVpcResponse BindResolverRuleVpcResponse
      */
     public function bindResolverRuleVpc($request)
     {
@@ -485,10 +509,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param BindZoneVpcRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+     *  *
+     * @param BindZoneVpcRequest $request BindZoneVpcRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindZoneVpcResponse
+     * @return BindZoneVpcResponse BindZoneVpcResponse
      */
     public function bindZoneVpcWithOptions($request, $runtime)
     {
@@ -528,9 +554,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param BindZoneVpcRequest $request
+     * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+     *  *
+     * @param BindZoneVpcRequest $request BindZoneVpcRequest
      *
-     * @return BindZoneVpcResponse
+     * @return BindZoneVpcResponse BindZoneVpcResponse
      */
     public function bindZoneVpc($request)
     {
@@ -540,10 +568,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param CheckZoneNameRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Checks whether the name of a zone is valid based on specific rules.
+     *  *
+     * @param CheckZoneNameRequest $request CheckZoneNameRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckZoneNameResponse
+     * @return CheckZoneNameResponse CheckZoneNameResponse
      */
     public function checkZoneNameWithOptions($request, $runtime)
     {
@@ -577,9 +607,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param CheckZoneNameRequest $request
+     * @summary Checks whether the name of a zone is valid based on specific rules.
+     *  *
+     * @param CheckZoneNameRequest $request CheckZoneNameRequest
      *
-     * @return CheckZoneNameResponse
+     * @return CheckZoneNameResponse CheckZoneNameResponse
      */
     public function checkZoneName($request)
     {
@@ -589,10 +621,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteResolverEndpointRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes an endpoint.
+     *  *
+     * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteResolverEndpointResponse
+     * @return DeleteResolverEndpointResponse DeleteResolverEndpointResponse
      */
     public function deleteResolverEndpointWithOptions($request, $runtime)
     {
@@ -623,9 +657,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteResolverEndpointRequest $request
+     * @summary Deletes an endpoint.
+     *  *
+     * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
      *
-     * @return DeleteResolverEndpointResponse
+     * @return DeleteResolverEndpointResponse DeleteResolverEndpointResponse
      */
     public function deleteResolverEndpoint($request)
     {
@@ -635,10 +671,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteResolverRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a forwarding rule.
+     *  *
+     * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteResolverRuleResponse
+     * @return DeleteResolverRuleResponse DeleteResolverRuleResponse
      */
     public function deleteResolverRuleWithOptions($request, $runtime)
     {
@@ -669,9 +707,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteResolverRuleRequest $request
+     * @summary Deletes a forwarding rule.
+     *  *
+     * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
      *
-     * @return DeleteResolverRuleResponse
+     * @return DeleteResolverRuleResponse DeleteResolverRuleResponse
      */
     public function deleteResolverRule($request)
     {
@@ -681,10 +721,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserVpcAuthorizationRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+     *  *
+     * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserVpcAuthorizationResponse
+     * @return DeleteUserVpcAuthorizationResponse DeleteUserVpcAuthorizationResponse
      */
     public function deleteUserVpcAuthorizationWithOptions($request, $runtime)
     {
@@ -715,9 +757,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserVpcAuthorizationRequest $request
+     * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+     *  *
+     * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
      *
-     * @return DeleteUserVpcAuthorizationResponse
+     * @return DeleteUserVpcAuthorizationResponse DeleteUserVpcAuthorizationResponse
      */
     public function deleteUserVpcAuthorization($request)
     {
@@ -727,10 +771,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteZoneRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes a zone.
+     *  *
+     * @param DeleteZoneRequest $request DeleteZoneRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteZoneResponse
+     * @return DeleteZoneResponse DeleteZoneResponse
      */
     public function deleteZoneWithOptions($request, $runtime)
     {
@@ -767,9 +813,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteZoneRequest $request
+     * @summary Deletes a zone.
+     *  *
+     * @param DeleteZoneRequest $request DeleteZoneRequest
      *
-     * @return DeleteZoneResponse
+     * @return DeleteZoneResponse DeleteZoneResponse
      */
     public function deleteZone($request)
     {
@@ -779,10 +827,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteZoneRecordRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a Domain Name System (DNS) record of a zone.
+     *  *
+     * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteZoneRecordResponse
+     * @return DeleteZoneRecordResponse DeleteZoneRecordResponse
      */
     public function deleteZoneRecordWithOptions($request, $runtime)
     {
@@ -819,9 +869,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DeleteZoneRecordRequest $request
+     * @summary Deletes a Domain Name System (DNS) record of a zone.
+     *  *
+     * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
      *
-     * @return DeleteZoneRecordResponse
+     * @return DeleteZoneRecordResponse DeleteZoneRecordResponse
      */
     public function deleteZoneRecord($request)
     {
@@ -831,10 +883,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeChangeLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of operation logs.
+     *  *
+     * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChangeLogsResponse
+     * @return DescribeChangeLogsResponse DescribeChangeLogsResponse
      */
     public function describeChangeLogsWithOptions($request, $runtime)
     {
@@ -886,9 +940,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeChangeLogsRequest $request
+     * @summary Queries a list of operation logs.
+     *  *
+     * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
      *
-     * @return DescribeChangeLogsResponse
+     * @return DescribeChangeLogsResponse DescribeChangeLogsResponse
      */
     public function describeChangeLogs($request)
     {
@@ -898,10 +954,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -944,9 +1002,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries a list of available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -956,10 +1016,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeRequestGraphRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about Domain Name System (DNS) requests.
+     *  *
+     * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRequestGraphResponse
+     * @return DescribeRequestGraphResponse DescribeRequestGraphResponse
      */
     public function describeRequestGraphWithOptions($request, $runtime)
     {
@@ -1008,9 +1070,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeRequestGraphRequest $request
+     * @summary Queries the information about Domain Name System (DNS) requests.
+     *  *
+     * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
      *
-     * @return DescribeRequestGraphResponse
+     * @return DescribeRequestGraphResponse DescribeRequestGraphResponse
      */
     public function describeRequestGraph($request)
     {
@@ -1020,10 +1084,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverAvailableZonesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries a list of available zones.
+     *  *
+     * @param DescribeResolverAvailableZonesRequest $request DescribeResolverAvailableZonesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResolverAvailableZonesResponse
+     * @return DescribeResolverAvailableZonesResponse DescribeResolverAvailableZonesResponse
      */
     public function describeResolverAvailableZonesWithOptions($request, $runtime)
     {
@@ -1057,9 +1123,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverAvailableZonesRequest $request
+     * @summary Queries a list of available zones.
+     *  *
+     * @param DescribeResolverAvailableZonesRequest $request DescribeResolverAvailableZonesRequest
      *
-     * @return DescribeResolverAvailableZonesResponse
+     * @return DescribeResolverAvailableZonesResponse DescribeResolverAvailableZonesResponse
      */
     public function describeResolverAvailableZones($request)
     {
@@ -1069,10 +1137,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverEndpointRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about an endpoint.
+     *  *
+     * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResolverEndpointResponse
+     * @return DescribeResolverEndpointResponse DescribeResolverEndpointResponse
      */
     public function describeResolverEndpointWithOptions($request, $runtime)
     {
@@ -1103,9 +1173,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverEndpointRequest $request
+     * @summary Queries the information about an endpoint.
+     *  *
+     * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
      *
-     * @return DescribeResolverEndpointResponse
+     * @return DescribeResolverEndpointResponse DescribeResolverEndpointResponse
      */
     public function describeResolverEndpoint($request)
     {
@@ -1115,10 +1187,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverEndpointsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries a list of endpoints.
+     *  *
+     * @param DescribeResolverEndpointsRequest $request DescribeResolverEndpointsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResolverEndpointsResponse
+     * @return DescribeResolverEndpointsResponse DescribeResolverEndpointsResponse
      */
     public function describeResolverEndpointsWithOptions($request, $runtime)
     {
@@ -1139,6 +1213,9 @@ class Pvtz extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->vpcRegionId)) {
+            $query['VpcRegionId'] = $request->vpcRegionId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1158,9 +1235,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverEndpointsRequest $request
+     * @summary Queries a list of endpoints.
+     *  *
+     * @param DescribeResolverEndpointsRequest $request DescribeResolverEndpointsRequest
      *
-     * @return DescribeResolverEndpointsResponse
+     * @return DescribeResolverEndpointsResponse DescribeResolverEndpointsResponse
      */
     public function describeResolverEndpoints($request)
     {
@@ -1170,10 +1249,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about a forwarding rule.
+     *  *
+     * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResolverRuleResponse
+     * @return DescribeResolverRuleResponse DescribeResolverRuleResponse
      */
     public function describeResolverRuleWithOptions($request, $runtime)
     {
@@ -1204,9 +1285,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverRuleRequest $request
+     * @summary Queries the information about a forwarding rule.
+     *  *
+     * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
      *
-     * @return DescribeResolverRuleResponse
+     * @return DescribeResolverRuleResponse DescribeResolverRuleResponse
      */
     public function describeResolverRule($request)
     {
@@ -1216,10 +1299,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverRulesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of forwarding rules.
+     *  *
+     * @param DescribeResolverRulesRequest $request DescribeResolverRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResolverRulesResponse
+     * @return DescribeResolverRulesResponse DescribeResolverRulesResponse
      */
     public function describeResolverRulesWithOptions($request, $runtime)
     {
@@ -1262,9 +1347,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeResolverRulesRequest $request
+     * @summary Queries a list of forwarding rules.
+     *  *
+     * @param DescribeResolverRulesRequest $request DescribeResolverRulesRequest
      *
-     * @return DescribeResolverRulesResponse
+     * @return DescribeResolverRulesResponse DescribeResolverRulesResponse
      */
     public function describeResolverRules($request)
     {
@@ -1274,10 +1361,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeStatisticSummaryRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+     *  *
+     * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStatisticSummaryResponse
+     * @return DescribeStatisticSummaryResponse DescribeStatisticSummaryResponse
      */
     public function describeStatisticSummaryWithOptions($request, $runtime)
     {
@@ -1308,9 +1397,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeStatisticSummaryRequest $request
+     * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+     *  *
+     * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
      *
-     * @return DescribeStatisticSummaryResponse
+     * @return DescribeStatisticSummaryResponse DescribeStatisticSummaryResponse
      */
     public function describeStatisticSummary($request)
     {
@@ -1320,10 +1411,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeSyncEcsHostTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a hostname synchronization task.
+     *  *
+     * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSyncEcsHostTaskResponse
+     * @return DescribeSyncEcsHostTaskResponse DescribeSyncEcsHostTaskResponse
      */
     public function describeSyncEcsHostTaskWithOptions($request, $runtime)
     {
@@ -1354,9 +1447,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeSyncEcsHostTaskRequest $request
+     * @summary Queries the information about a hostname synchronization task.
+     *  *
+     * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
      *
-     * @return DescribeSyncEcsHostTaskResponse
+     * @return DescribeSyncEcsHostTaskResponse DescribeSyncEcsHostTaskResponse
      */
     public function describeSyncEcsHostTask($request)
     {
@@ -1366,10 +1461,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -1406,9 +1503,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * @summary Queries a list of existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -1418,10 +1517,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserVpcAuthorizationsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+     *  *
+     * @param DescribeUserVpcAuthorizationsRequest $request DescribeUserVpcAuthorizationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserVpcAuthorizationsResponse
+     * @return DescribeUserVpcAuthorizationsResponse DescribeUserVpcAuthorizationsResponse
      */
     public function describeUserVpcAuthorizationsWithOptions($request, $runtime)
     {
@@ -1458,9 +1559,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserVpcAuthorizationsRequest $request
+     * @summary Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+     *  *
+     * @param DescribeUserVpcAuthorizationsRequest $request DescribeUserVpcAuthorizationsRequest
      *
-     * @return DescribeUserVpcAuthorizationsResponse
+     * @return DescribeUserVpcAuthorizationsResponse DescribeUserVpcAuthorizationsResponse
      */
     public function describeUserVpcAuthorizations($request)
     {
@@ -1470,10 +1573,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about a zone.
+     *  *
+     * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZoneInfoResponse
+     * @return DescribeZoneInfoResponse DescribeZoneInfoResponse
      */
     public function describeZoneInfoWithOptions($request, $runtime)
     {
@@ -1504,9 +1609,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneInfoRequest $request
+     * @summary Queries the information about a zone.
+     *  *
+     * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
      *
-     * @return DescribeZoneInfoResponse
+     * @return DescribeZoneInfoResponse DescribeZoneInfoResponse
      */
     public function describeZoneInfo($request)
     {
@@ -1516,10 +1623,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneRecordsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of Domain Name System (DNS) records for a zone.
+     *  *
+     * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZoneRecordsResponse
+     * @return DescribeZoneRecordsResponse DescribeZoneRecordsResponse
      */
     public function describeZoneRecordsWithOptions($request, $runtime)
     {
@@ -1568,9 +1677,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneRecordsRequest $request
+     * @summary Queries a list of Domain Name System (DNS) records for a zone.
+     *  *
+     * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
      *
-     * @return DescribeZoneRecordsResponse
+     * @return DescribeZoneRecordsResponse DescribeZoneRecordsResponse
      */
     public function describeZoneRecords($request)
     {
@@ -1580,10 +1691,14 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneVpcTreeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+     *  *
+     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+     *  *
+     * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZoneVpcTreeResponse
+     * @return DescribeZoneVpcTreeResponse DescribeZoneVpcTreeResponse
      */
     public function describeZoneVpcTreeWithOptions($request, $runtime)
     {
@@ -1614,9 +1729,13 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZoneVpcTreeRequest $request
+     * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+     *  *
+     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+     *  *
+     * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
      *
-     * @return DescribeZoneVpcTreeResponse
+     * @return DescribeZoneVpcTreeResponse DescribeZoneVpcTreeResponse
      */
     public function describeZoneVpcTree($request)
     {
@@ -1626,10 +1745,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries a list of zones for a user.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -1687,9 +1808,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries a list of zones for a user.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -1699,10 +1822,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of tags added to one or more resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1745,9 +1870,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries a list of tags added to one or more resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1757,10 +1884,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Moves a zone to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -1797,9 +1926,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @summary Moves a zone to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -1809,10 +1940,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param SetProxyPatternRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Configures the recursive resolution proxy feature.
+     *  *
+     * @param SetProxyPatternRequest $request SetProxyPatternRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetProxyPatternResponse
+     * @return SetProxyPatternResponse SetProxyPatternResponse
      */
     public function setProxyPatternWithOptions($request, $runtime)
     {
@@ -1852,9 +1985,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param SetProxyPatternRequest $request
+     * @summary Configures the recursive resolution proxy feature.
+     *  *
+     * @param SetProxyPatternRequest $request SetProxyPatternRequest
      *
-     * @return SetProxyPatternResponse
+     * @return SetProxyPatternResponse SetProxyPatternResponse
      */
     public function setProxyPattern($request)
     {
@@ -1864,10 +1999,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param SetZoneRecordStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+     *  *
+     * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetZoneRecordStatusResponse
+     * @return SetZoneRecordStatusResponse SetZoneRecordStatusResponse
      */
     public function setZoneRecordStatusWithOptions($request, $runtime)
     {
@@ -1907,9 +2044,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param SetZoneRecordStatusRequest $request
+     * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+     *  *
+     * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
      *
-     * @return SetZoneRecordStatusResponse
+     * @return SetZoneRecordStatusResponse SetZoneRecordStatusResponse
      */
     public function setZoneRecordStatus($request)
     {
@@ -1919,10 +2058,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -1962,9 +2103,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1974,10 +2117,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -2017,9 +2162,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2029,10 +2176,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordRemarkRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+     *  *
+     * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRecordRemarkResponse
+     * @return UpdateRecordRemarkResponse UpdateRecordRemarkResponse
      */
     public function updateRecordRemarkWithOptions($request, $runtime)
     {
@@ -2069,9 +2218,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordRemarkRequest $request
+     * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+     *  *
+     * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
      *
-     * @return UpdateRecordRemarkResponse
+     * @return UpdateRecordRemarkResponse UpdateRecordRemarkResponse
      */
     public function updateRecordRemark($request)
     {
@@ -2081,10 +2232,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateResolverEndpointRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies an endpoint.
+     *  *
+     * @param UpdateResolverEndpointRequest $request UpdateResolverEndpointRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateResolverEndpointResponse
+     * @return UpdateResolverEndpointResponse UpdateResolverEndpointResponse
      */
     public function updateResolverEndpointWithOptions($request, $runtime)
     {
@@ -2121,9 +2274,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateResolverEndpointRequest $request
+     * @summary Modifies an endpoint.
+     *  *
+     * @param UpdateResolverEndpointRequest $request UpdateResolverEndpointRequest
      *
-     * @return UpdateResolverEndpointResponse
+     * @return UpdateResolverEndpointResponse UpdateResolverEndpointResponse
      */
     public function updateResolverEndpoint($request)
     {
@@ -2133,15 +2288,20 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateResolverRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a forwarding rule.
+     *  *
+     * @param UpdateResolverRuleRequest $request UpdateResolverRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateResolverRuleResponse
+     * @return UpdateResolverRuleResponse UpdateResolverRuleResponse
      */
     public function updateResolverRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
         if (!Utils::isUnset($request->forwardIp)) {
             $query['ForwardIp'] = $request->forwardIp;
         }
@@ -2173,9 +2333,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateResolverRuleRequest $request
+     * @summary Modifies a forwarding rule.
+     *  *
+     * @param UpdateResolverRuleRequest $request UpdateResolverRuleRequest
      *
-     * @return UpdateResolverRuleResponse
+     * @return UpdateResolverRuleResponse UpdateResolverRuleResponse
      */
     public function updateResolverRule($request)
     {
@@ -2185,10 +2347,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncEcsHostTaskRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates and updates a hostname synchronize task.
+     *  *
+     * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSyncEcsHostTaskResponse
+     * @return UpdateSyncEcsHostTaskResponse UpdateSyncEcsHostTaskResponse
      */
     public function updateSyncEcsHostTaskWithOptions($request, $runtime)
     {
@@ -2225,9 +2389,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncEcsHostTaskRequest $request
+     * @summary Creates and updates a hostname synchronize task.
+     *  *
+     * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
      *
-     * @return UpdateSyncEcsHostTaskResponse
+     * @return UpdateSyncEcsHostTaskResponse UpdateSyncEcsHostTaskResponse
      */
     public function updateSyncEcsHostTask($request)
     {
@@ -2237,10 +2403,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateZoneRecordRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies a Domain Name System (DNS) record of a zone.
+     *  *
+     * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateZoneRecordResponse
+     * @return UpdateZoneRecordResponse UpdateZoneRecordResponse
      */
     public function updateZoneRecordWithOptions($request, $runtime)
     {
@@ -2298,9 +2466,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateZoneRecordRequest $request
+     * @summary Modifies a Domain Name System (DNS) record of a zone.
+     *  *
+     * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
      *
-     * @return UpdateZoneRecordResponse
+     * @return UpdateZoneRecordResponse UpdateZoneRecordResponse
      */
     public function updateZoneRecord($request)
     {
@@ -2310,10 +2480,12 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateZoneRemarkRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies the description of a zone.
+     *  *
+     * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateZoneRemarkResponse
+     * @return UpdateZoneRemarkResponse UpdateZoneRemarkResponse
      */
     public function updateZoneRemarkWithOptions($request, $runtime)
     {
@@ -2353,9 +2525,11 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @param UpdateZoneRemarkRequest $request
+     * @summary Modifies the description of a zone.
+     *  *
+     * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
      *
-     * @return UpdateZoneRemarkResponse
+     * @return UpdateZoneRemarkResponse UpdateZoneRemarkResponse
      */
     public function updateZoneRemark($request)
     {

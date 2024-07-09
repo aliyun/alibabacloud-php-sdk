@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteZoneResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E246E023-F2EB-4034-83F7-B13FCF31459C
      *
      * @var string
@@ -16,7 +18,7 @@ class DeleteZoneResponseBody extends Model
     public $requestId;
 
     /**
-     * @description zone ID
+     * @description The global ID of the zone.
      *
      * @example AgIDE1MA_150
      *

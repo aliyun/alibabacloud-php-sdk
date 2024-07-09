@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -16,6 +18,8 @@ class region extends Model
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud account to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+     *
      * @example 1234567890
      *
      * @var int

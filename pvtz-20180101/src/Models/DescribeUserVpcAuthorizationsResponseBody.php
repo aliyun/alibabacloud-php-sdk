@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVpcAuthorizationsResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeUserVpcAuthorizationsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeUserVpcAuthorizationsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeUserVpcAuthorizationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeUserVpcAuthorizationsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 5
      *
      * @var int
@@ -45,6 +55,8 @@ class DescribeUserVpcAuthorizationsResponseBody extends Model
     public $totalPages;
 
     /**
+     * @description The information about the Alibaba Cloud accounts.
+     *
      * @var users[]
      */
     public $users;

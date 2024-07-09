@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckZoneNameResponseBody extends Model
 {
     /**
+     * @description Indicates whether the zone name is valid. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckZoneNameResponseBody extends Model
     public $check;
 
     /**
+     * @description The request ID.
+     *
      * @example CA29B88F-A571-4123-80D5-768AC2F7F806
      *
      * @var string
@@ -23,6 +30,8 @@ class CheckZoneNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

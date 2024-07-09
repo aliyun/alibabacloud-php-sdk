@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddResolverRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 725B8BED-901F-480C-BBAC-FA59A18580C1
      *
      * @var string
@@ -16,6 +18,8 @@ class AddResolverRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The forwarding rule ID.
+     *
      * @example hra0**
      *
      * @var string

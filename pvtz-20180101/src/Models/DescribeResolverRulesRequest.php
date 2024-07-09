@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverRulesRequest extends Model
 {
     /**
+     * @description The ID of the outbound endpoint.
+     *
      * @example hra2**
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeResolverRulesRequest extends Model
     public $endpointId;
 
     /**
+     * @description The keyword used to filter forwarding rules in %keyword% mode.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeResolverRulesRequest extends Model
     public $keyword;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -30,6 +36,11 @@ class DescribeResolverRulesRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether to return additional information. Default value: false.
+     *
+     *   If you set this parameter to true, additional information, such as the virtual private clouds (VPCs) that are associated with the queried forwarding rule, is returned.
+     *   If you set this parameter to false, no additional information is returned.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class DescribeResolverRulesRequest extends Model
     public $needDetailAttributes;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeResolverRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
