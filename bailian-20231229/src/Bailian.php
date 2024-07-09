@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -475,6 +478,75 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->retrieveWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 知识索引
+     *  *
+     * @param string                            $WorkspaceId
+     * @param SubmitIndexAddDocumentsJobRequest $tmpReq      SubmitIndexAddDocumentsJobRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return SubmitIndexAddDocumentsJobResponse SubmitIndexAddDocumentsJobResponse
+     */
+    public function submitIndexAddDocumentsJobWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitIndexAddDocumentsJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categoryIds)) {
+            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->documentIds)) {
+            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->categoryIdsShrink)) {
+            $query['CategoryIds'] = $request->categoryIdsShrink;
+        }
+        if (!Utils::isUnset($request->documentIdsShrink)) {
+            $query['DocumentIds'] = $request->documentIdsShrink;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitIndexAddDocumentsJob',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/add_documents_to_index',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 知识索引
+     *  *
+     * @param string                            $WorkspaceId
+     * @param SubmitIndexAddDocumentsJobRequest $request     SubmitIndexAddDocumentsJobRequest
+     *
+     * @return SubmitIndexAddDocumentsJobResponse SubmitIndexAddDocumentsJobResponse
+     */
+    public function submitIndexAddDocumentsJob($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitIndexAddDocumentsJobWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
