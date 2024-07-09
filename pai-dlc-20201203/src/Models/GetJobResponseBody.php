@@ -24,6 +24,11 @@ class GetJobResponseBody extends Model
     public $codeSource;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var dataSources[]
      */
     public $dataSources;
@@ -259,6 +264,7 @@ class GetJobResponseBody extends Model
     protected $_name = [
         'clusterId'        => 'ClusterId',
         'codeSource'       => 'CodeSource',
+        'credentialConfig' => 'CredentialConfig',
         'dataSources'      => 'DataSources',
         'displayName'      => 'DisplayName',
         'duration'         => 'Duration',
@@ -309,6 +315,9 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->codeSource) {
             $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toMap() : null;
+        }
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
         if (null !== $this->dataSources) {
             $res['DataSources'] = [];
@@ -459,6 +468,9 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['CodeSource'])) {
             $model->codeSource = codeSource::fromMap($map['CodeSource']);
+        }
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
