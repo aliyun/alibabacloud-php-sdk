@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetCenInterRegionBandwidthLimitRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The maximum bandwidth value of the inter-region connection. Unit: Mbit/s.
      *
+     * This parameter is required.
      * @example 8
      *
      * @var int
@@ -18,6 +19,10 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The bandwidth allocation method. Valid values:
+     *
+     **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+     *
      * @example BandwidthPackage
      *
      * @var string
@@ -25,8 +30,9 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $bandwidthType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmx****
      *
      * @var string
@@ -34,8 +40,9 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $cenId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the local region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,8 +50,9 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $localRegionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the peer region.
      *
+     * This parameter is required.
      * @example us-west-1
      *
      * @var string

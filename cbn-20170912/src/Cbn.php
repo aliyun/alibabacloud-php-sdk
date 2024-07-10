@@ -5455,7 +5455,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum bandwidth of inter-region connections.
+     * @summary Queries the bandwidth of connections between regions.
      *  *
      * @param DescribeCenInterRegionBandwidthLimitsRequest $request DescribeCenInterRegionBandwidthLimitsRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -5509,7 +5509,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum bandwidth of inter-region connections.
+     * @summary Queries the bandwidth of connections between regions.
      *  *
      * @param DescribeCenInterRegionBandwidthLimitsRequest $request DescribeCenInterRegionBandwidthLimitsRequest
      *
@@ -11020,6 +11020,14 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * @summary Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
+     *  *
+     * @description ### Prerequisites
+     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
+     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
+     * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
+     * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+     *  *
      * @param SetCenInterRegionBandwidthLimitRequest $request SetCenInterRegionBandwidthLimitRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -11075,6 +11083,14 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * @summary Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
+     *  *
+     * @description ### Prerequisites
+     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
+     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
+     * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
+     * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+     *  *
      * @param SetCenInterRegionBandwidthLimitRequest $request SetCenInterRegionBandwidthLimitRequest
      *
      * @return SetCenInterRegionBandwidthLimitResponse SetCenInterRegionBandwidthLimitResponse

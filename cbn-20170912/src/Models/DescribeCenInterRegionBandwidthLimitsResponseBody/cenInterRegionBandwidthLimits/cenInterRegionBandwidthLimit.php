@@ -27,6 +27,13 @@ class cenInterRegionBandwidthLimit extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The bandwidth allocation method. Valid values:
+     *
+     *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+     *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
+     *
+     * @example BandwidthPackage
+     *
      * @var string
      */
     public $bandwidthType;
