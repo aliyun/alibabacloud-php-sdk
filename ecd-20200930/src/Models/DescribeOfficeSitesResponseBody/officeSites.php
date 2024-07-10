@@ -367,6 +367,11 @@ class officeSites extends Model
     public $rdsLicenseStatus;
 
     /**
+     * @var string
+     */
+    public $securityProtection;
+
+    /**
      * @description Indicates whether single sign-on (SSO) is enabled.
      *
      * @example false
@@ -525,6 +530,7 @@ class officeSites extends Model
         'rdsLicenseAddress'        => 'RdsLicenseAddress',
         'rdsLicenseDomainName'     => 'RdsLicenseDomainName',
         'rdsLicenseStatus'         => 'RdsLicenseStatus',
+        'securityProtection'       => 'SecurityProtection',
         'ssoEnabled'               => 'SsoEnabled',
         'ssoType'                  => 'SsoType',
         'status'                   => 'Status',
@@ -668,6 +674,9 @@ class officeSites extends Model
         }
         if (null !== $this->rdsLicenseStatus) {
             $res['RdsLicenseStatus'] = $this->rdsLicenseStatus;
+        }
+        if (null !== $this->securityProtection) {
+            $res['SecurityProtection'] = $this->securityProtection;
         }
         if (null !== $this->ssoEnabled) {
             $res['SsoEnabled'] = $this->ssoEnabled;
@@ -843,6 +852,9 @@ class officeSites extends Model
         }
         if (isset($map['RdsLicenseStatus'])) {
             $model->rdsLicenseStatus = $map['RdsLicenseStatus'];
+        }
+        if (isset($map['SecurityProtection'])) {
+            $model->securityProtection = $map['SecurityProtection'];
         }
         if (isset($map['SsoEnabled'])) {
             $model->ssoEnabled = $map['SsoEnabled'];

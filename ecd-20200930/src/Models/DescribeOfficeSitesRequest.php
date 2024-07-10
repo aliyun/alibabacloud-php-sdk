@@ -67,6 +67,11 @@ class DescribeOfficeSitesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $securityProtection;
+
+    /**
      * @description The office network status.
      *
      * Valid values:
@@ -112,12 +117,13 @@ class DescribeOfficeSitesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'officeSiteId'   => 'OfficeSiteId',
-        'officeSiteType' => 'OfficeSiteType',
-        'regionId'       => 'RegionId',
-        'status'         => 'Status',
+        'maxResults'         => 'MaxResults',
+        'nextToken'          => 'NextToken',
+        'officeSiteId'       => 'OfficeSiteId',
+        'officeSiteType'     => 'OfficeSiteType',
+        'regionId'           => 'RegionId',
+        'securityProtection' => 'SecurityProtection',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -141,6 +147,9 @@ class DescribeOfficeSitesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityProtection) {
+            $res['SecurityProtection'] = $this->securityProtection;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -173,6 +182,9 @@ class DescribeOfficeSitesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityProtection'])) {
+            $model->securityProtection = $map['SecurityProtection'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

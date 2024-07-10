@@ -6861,6 +6861,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->securityProtection)) {
+            $query['SecurityProtection'] = $request->securityProtection;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
