@@ -73,6 +73,9 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeFoodProduceLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeFoodProduceLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureShrinkRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHealthCodeRequest;
@@ -1974,6 +1977,63 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeGeneralWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary DocMaster
+     *  *
+     * @param RecognizeGeneralStructureRequest $tmpReq  RecognizeGeneralStructureRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RecognizeGeneralStructureResponse RecognizeGeneralStructureResponse
+     */
+    public function recognizeGeneralStructureWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RecognizeGeneralStructureShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->keys)) {
+            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->keysShrink)) {
+            $query['Keys'] = $request->keysShrink;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $tmpReq->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeGeneralStructure',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeGeneralStructureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DocMaster
+     *  *
+     * @param RecognizeGeneralStructureRequest $request RecognizeGeneralStructureRequest
+     *
+     * @return RecognizeGeneralStructureResponse RecognizeGeneralStructureResponse
+     */
+    public function recognizeGeneralStructure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeGeneralStructureWithOptions($request, $runtime);
     }
 
     /**
