@@ -9,6 +9,12 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileAdvanceRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationShrinkRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationShrinkRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationResponse;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationShrinkRequest;
@@ -199,6 +205,132 @@ class FaRui extends OpenApiClient
         }
 
         return $this->createTextFileWithOptions($WorkspaceId, $createTextFileReq, $headers, $runtime);
+    }
+
+    /**
+     * @summary 生成合同审查结果
+     *  *
+     * @param string                             $workspaceId
+     * @param RunContractResultGenerationRequest $tmpReq      RunContractResultGenerationRequest
+     * @param string[]                           $headers     map
+     * @param RuntimeOptions                     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunContractResultGenerationResponse RunContractResultGenerationResponse
+     */
+    public function runContractResultGenerationWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunContractResultGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assistant)) {
+            $request->assistantShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assistant, 'assistant', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['appId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->assistantShrink)) {
+            $body['assistant'] = $request->assistantShrink;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunContractResultGeneration',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/farui/contract/result/genarate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunContractResultGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成合同审查结果
+     *  *
+     * @param string                             $workspaceId
+     * @param RunContractResultGenerationRequest $request     RunContractResultGenerationRequest
+     *
+     * @return RunContractResultGenerationResponse RunContractResultGenerationResponse
+     */
+    public function runContractResultGeneration($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runContractResultGenerationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 生成合同审查规则
+     *  *
+     * @param string                           $workspaceId
+     * @param RunContractRuleGenerationRequest $tmpReq      RunContractRuleGenerationRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunContractRuleGenerationResponse RunContractRuleGenerationResponse
+     */
+    public function runContractRuleGenerationWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunContractRuleGenerationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assistant)) {
+            $request->assistantShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assistant, 'assistant', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['appId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->assistantShrink)) {
+            $body['assistant'] = $request->assistantShrink;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunContractRuleGeneration',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/farui/contract/rule/genarate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunContractRuleGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成合同审查规则
+     *  *
+     * @param string                           $workspaceId
+     * @param RunContractRuleGenerationRequest $request     RunContractRuleGenerationRequest
+     *
+     * @return RunContractRuleGenerationResponse RunContractRuleGenerationResponse
+     */
+    public function runContractRuleGeneration($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runContractRuleGenerationWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
