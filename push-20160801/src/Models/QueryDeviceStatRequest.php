@@ -18,8 +18,6 @@ class QueryDeviceStatRequest extends Model
     public $appKey;
 
     /**
-     * @description This parameter is required.
-     *
      * @example iOS
      *
      * @var string
