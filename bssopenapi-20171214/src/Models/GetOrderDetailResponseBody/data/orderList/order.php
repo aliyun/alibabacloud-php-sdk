@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList;
 
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\originalModuleConfig;
 use AlibabaCloud\Tea\Model;
 
 class order extends Model
@@ -16,6 +18,11 @@ class order extends Model
      * @var string
      */
     public $afterTaxAmount;
+
+    /**
+     * @var billModuleConfig
+     */
+    public $billModuleConfig;
 
     /**
      * @description The service code.
@@ -124,6 +131,11 @@ class order extends Model
      * @var string
      */
     public $originalConfig;
+
+    /**
+     * @var originalModuleConfig
+     */
+    public $originalModuleConfig;
 
     /**
      * @description The currency of payment.
@@ -276,34 +288,36 @@ class order extends Model
      */
     public $usageStartTime;
     protected $_name = [
-        'afterTaxAmount'    => 'AfterTaxAmount',
-        'commodityCode'     => 'CommodityCode',
-        'config'            => 'Config',
-        'createTime'        => 'CreateTime',
-        'currency'          => 'Currency',
-        'extendInfos'       => 'ExtendInfos',
-        'instanceIDs'       => 'InstanceIDs',
-        'operator'          => 'Operator',
-        'orderId'           => 'OrderId',
-        'orderSubType'      => 'OrderSubType',
-        'orderType'         => 'OrderType',
-        'originalConfig'    => 'OriginalConfig',
-        'paymentCurrency'   => 'PaymentCurrency',
-        'paymentStatus'     => 'PaymentStatus',
-        'paymentTime'       => 'PaymentTime',
-        'pretaxAmount'      => 'PretaxAmount',
-        'pretaxAmountLocal' => 'PretaxAmountLocal',
-        'pretaxGrossAmount' => 'PretaxGrossAmount',
-        'productCode'       => 'ProductCode',
-        'productType'       => 'ProductType',
-        'quantity'          => 'Quantity',
-        'region'            => 'Region',
-        'relatedOrderId'    => 'RelatedOrderId',
-        'subOrderId'        => 'SubOrderId',
-        'subscriptionType'  => 'SubscriptionType',
-        'tax'               => 'Tax',
-        'usageEndTime'      => 'UsageEndTime',
-        'usageStartTime'    => 'UsageStartTime',
+        'afterTaxAmount'       => 'AfterTaxAmount',
+        'billModuleConfig'     => 'BillModuleConfig',
+        'commodityCode'        => 'CommodityCode',
+        'config'               => 'Config',
+        'createTime'           => 'CreateTime',
+        'currency'             => 'Currency',
+        'extendInfos'          => 'ExtendInfos',
+        'instanceIDs'          => 'InstanceIDs',
+        'operator'             => 'Operator',
+        'orderId'              => 'OrderId',
+        'orderSubType'         => 'OrderSubType',
+        'orderType'            => 'OrderType',
+        'originalConfig'       => 'OriginalConfig',
+        'originalModuleConfig' => 'OriginalModuleConfig',
+        'paymentCurrency'      => 'PaymentCurrency',
+        'paymentStatus'        => 'PaymentStatus',
+        'paymentTime'          => 'PaymentTime',
+        'pretaxAmount'         => 'PretaxAmount',
+        'pretaxAmountLocal'    => 'PretaxAmountLocal',
+        'pretaxGrossAmount'    => 'PretaxGrossAmount',
+        'productCode'          => 'ProductCode',
+        'productType'          => 'ProductType',
+        'quantity'             => 'Quantity',
+        'region'               => 'Region',
+        'relatedOrderId'       => 'RelatedOrderId',
+        'subOrderId'           => 'SubOrderId',
+        'subscriptionType'     => 'SubscriptionType',
+        'tax'                  => 'Tax',
+        'usageEndTime'         => 'UsageEndTime',
+        'usageStartTime'       => 'UsageStartTime',
     ];
 
     public function validate()
@@ -315,6 +329,9 @@ class order extends Model
         $res = [];
         if (null !== $this->afterTaxAmount) {
             $res['AfterTaxAmount'] = $this->afterTaxAmount;
+        }
+        if (null !== $this->billModuleConfig) {
+            $res['BillModuleConfig'] = null !== $this->billModuleConfig ? $this->billModuleConfig->toMap() : null;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
@@ -348,6 +365,9 @@ class order extends Model
         }
         if (null !== $this->originalConfig) {
             $res['OriginalConfig'] = $this->originalConfig;
+        }
+        if (null !== $this->originalModuleConfig) {
+            $res['OriginalModuleConfig'] = null !== $this->originalModuleConfig ? $this->originalModuleConfig->toMap() : null;
         }
         if (null !== $this->paymentCurrency) {
             $res['PaymentCurrency'] = $this->paymentCurrency;
@@ -412,6 +432,9 @@ class order extends Model
         if (isset($map['AfterTaxAmount'])) {
             $model->afterTaxAmount = $map['AfterTaxAmount'];
         }
+        if (isset($map['BillModuleConfig'])) {
+            $model->billModuleConfig = billModuleConfig::fromMap($map['BillModuleConfig']);
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -444,6 +467,9 @@ class order extends Model
         }
         if (isset($map['OriginalConfig'])) {
             $model->originalConfig = $map['OriginalConfig'];
+        }
+        if (isset($map['OriginalModuleConfig'])) {
+            $model->originalModuleConfig = originalModuleConfig::fromMap($map['OriginalModuleConfig']);
         }
         if (isset($map['PaymentCurrency'])) {
             $model->paymentCurrency = $map['PaymentCurrency'];
