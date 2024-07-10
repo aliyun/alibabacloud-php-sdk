@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The application ID.
      *
      * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $appId;
 
     /**
-     * @description Indicates whether an auto scaling policy is enabled. The following limits are imposed on the ID:
+     * @description Indicates whether an auto scaling policy is enabled. Valid values:
      *
      *   **1**: An auto scaling policy is enabled.
      *   **0**: No auto scaling policy is enabled.
@@ -48,7 +48,7 @@ class data extends Model
     public $instances;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example test
      *
@@ -57,7 +57,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The ID of the namespace.
+     * @description The namespace ID.
      *
      * @example cn-hangzhou
      *

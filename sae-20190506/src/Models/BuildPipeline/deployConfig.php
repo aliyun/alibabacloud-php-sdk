@@ -27,11 +27,17 @@ class deployConfig extends Model
      * @var string
      */
     public $updateApplicationInput;
+
+    /**
+     * @var bool
+     */
+    public $updateTraffic;
     protected $_name = [
         'alwaysAllocateCPU'      => 'AlwaysAllocateCPU',
         'maximumInstanceCount'   => 'MaximumInstanceCount',
         'minimumInstanceCount'   => 'MinimumInstanceCount',
         'updateApplicationInput' => 'UpdateApplicationInput',
+        'updateTraffic'          => 'UpdateTraffic',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class deployConfig extends Model
         }
         if (null !== $this->updateApplicationInput) {
             $res['UpdateApplicationInput'] = $this->updateApplicationInput;
+        }
+        if (null !== $this->updateTraffic) {
+            $res['UpdateTraffic'] = $this->updateTraffic;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class deployConfig extends Model
         }
         if (isset($map['UpdateApplicationInput'])) {
             $model->updateApplicationInput = $map['UpdateApplicationInput'];
+        }
+        if (isset($map['UpdateTraffic'])) {
+            $model->updateTraffic = $map['UpdateTraffic'];
         }
 
         return $model;

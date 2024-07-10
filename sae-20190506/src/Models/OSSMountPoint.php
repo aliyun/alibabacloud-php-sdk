@@ -21,11 +21,6 @@ class OSSMountPoint extends Model
     /**
      * @var string
      */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
     public $mountDir;
 
     /**
@@ -35,7 +30,6 @@ class OSSMountPoint extends Model
     protected $_name = [
         'bucketName' => 'bucketName',
         'bucketPath' => 'bucketPath',
-        'endpoint'   => 'endpoint',
         'mountDir'   => 'mountDir',
         'readOnly'   => 'readOnly',
     ];
@@ -52,9 +46,6 @@ class OSSMountPoint extends Model
         }
         if (null !== $this->bucketPath) {
             $res['bucketPath'] = $this->bucketPath;
-        }
-        if (null !== $this->endpoint) {
-            $res['endpoint'] = $this->endpoint;
         }
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
@@ -79,9 +70,6 @@ class OSSMountPoint extends Model
         }
         if (isset($map['bucketPath'])) {
             $model->bucketPath = $map['bucketPath'];
-        }
-        if (isset($map['endpoint'])) {
-            $model->endpoint = $map['endpoint'];
         }
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];

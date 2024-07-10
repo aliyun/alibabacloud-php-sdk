@@ -342,8 +342,6 @@ class data extends Model
     /**
      * @description The URL of the deployment package. This parameter is returned only if **PackageType** is set to **FatJar** or **War**.
      *
-     * @example https://edas-bj.oss-cn-beijing.aliyuncs.com/apps/K8s_APP_ID/d4c97c37-aba3-403e-ae1e-6f7d8742****\/hello-sae.war
-     *
      * @var string
      */
     public $packageUrl;
@@ -573,8 +571,6 @@ class data extends Model
     public $tomcatConfig;
 
     /**
-     * @example {"type":"time","config":"0 1 *\/1 * ?","timezone":"GMT+8:00"}
-     *
      * @var string
      */
     public $triggerConfig;

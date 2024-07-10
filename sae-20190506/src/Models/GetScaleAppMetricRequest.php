@@ -9,23 +9,45 @@ use AlibabaCloud\Tea\Model;
 class GetScaleAppMetricRequest extends Model
 {
     /**
+     * @description The SAE application type. Valid values:
+     *
+     *   **micro_service**
+     *   **web**
+     *   **job**
+     *
+     * @example micro_service
+     *
      * @var string
      */
     public $appSource;
 
     /**
+     * @description The CPU allocation policy. Valid values:
+     *
+     *   **request**: CPU cores are allocated only when a request is initiated.
+     *   **always**: Fixed CPU cores are always allocated.
+     *
+     * @example always
+     *
      * @var string
      */
     public $cpuStrategy;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries to return. Valid values: 0 to 100.
+     *
+     * This parameter is required.
+     * @example 10
      *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

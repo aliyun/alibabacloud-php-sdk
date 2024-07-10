@@ -43,7 +43,7 @@ class GetScaleAppMetricResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
      *

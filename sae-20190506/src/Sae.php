@@ -35,6 +35,10 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretShrinkRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateWebApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateWebCustomDomainRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateWebCustomDomainResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationScalingRuleRequest;
@@ -53,6 +57,12 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationRevisionRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationRevisionResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebCustomDomainRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebCustomDomainResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeployApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeployApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRequest;
@@ -108,6 +118,20 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationRevisionRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationRevisionResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationScalingConfigRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationScalingConfigResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationTrafficConfigRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationTrafficConfigResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebCustomDomainRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebCustomDomainResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
@@ -154,7 +178,18 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationInstancesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationInstancesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationInstancesShrinkRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationRevisionsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationRevisionsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebCustomDomainsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebCustomDomainsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\OpenSaeServiceResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\PublishWebApplicationRevisionRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\PublishWebApplicationRevisionResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ReduceApplicationCapacityByInstanceIdsRequest;
@@ -171,8 +206,12 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\RollbackApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RollbackApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\StartWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\StartWebApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StopApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StopApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\StopWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\StopWebApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TagResourcesRequest;
@@ -204,6 +243,14 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretShrinkRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationScalingConfigRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationScalingConfigResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationTrafficConfigRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationTrafficConfigResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebCustomDomainRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebCustomDomainResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1412,6 +1459,108 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary 创建应用
+     *  *
+     * @param CreateWebApplicationRequest $request CreateWebApplicationRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWebApplicationResponse CreateWebApplicationResponse
+     */
+    public function createWebApplicationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建应用
+     *  *
+     * @param CreateWebApplicationRequest $request CreateWebApplicationRequest
+     *
+     * @return CreateWebApplicationResponse CreateWebApplicationResponse
+     */
+    public function createWebApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWebApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 新建自定义域名
+     *  *
+     * @param CreateWebCustomDomainRequest $request CreateWebCustomDomainRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateWebCustomDomainResponse CreateWebCustomDomainResponse
+     */
+    public function createWebCustomDomainWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWebCustomDomain',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/custom-domains',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWebCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建自定义域名
+     *  *
+     * @param CreateWebCustomDomainRequest $request CreateWebCustomDomainRequest
+     *
+     * @return CreateWebCustomDomainResponse CreateWebCustomDomainResponse
+     */
+    public function createWebCustomDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWebCustomDomainWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param DeleteApplicationRequest $request DeleteApplicationRequest
      * @param string[]                 $headers map
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1855,6 +2004,164 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->deleteSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除应用
+     *  *
+     * @param string                      $ApplicationId
+     * @param DeleteWebApplicationRequest $request       DeleteWebApplicationRequest
+     * @param string[]                    $headers       map
+     * @param RuntimeOptions              $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DeleteWebApplicationResponse DeleteWebApplicationResponse
+     */
+    public function deleteWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除应用
+     *  *
+     * @param string                      $ApplicationId
+     * @param DeleteWebApplicationRequest $request       DeleteWebApplicationRequest
+     *
+     * @return DeleteWebApplicationResponse DeleteWebApplicationResponse
+     */
+    public function deleteWebApplication($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除应用版本
+     *  *
+     * @param string                              $ApplicationId
+     * @param string                              $RevisionId
+     * @param DeleteWebApplicationRevisionRequest $request       DeleteWebApplicationRevisionRequest
+     * @param string[]                            $headers       map
+     * @param RuntimeOptions                      $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DeleteWebApplicationRevisionResponse DeleteWebApplicationRevisionResponse
+     */
+    public function deleteWebApplicationRevisionWithOptions($ApplicationId, $RevisionId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebApplicationRevision',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-revisions/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/revisions/' . OpenApiUtilClient::getEncodeParam($RevisionId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebApplicationRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除应用版本
+     *  *
+     * @param string                              $ApplicationId
+     * @param string                              $RevisionId
+     * @param DeleteWebApplicationRevisionRequest $request       DeleteWebApplicationRevisionRequest
+     *
+     * @return DeleteWebApplicationRevisionResponse DeleteWebApplicationRevisionResponse
+     */
+    public function deleteWebApplicationRevision($ApplicationId, $RevisionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWebApplicationRevisionWithOptions($ApplicationId, $RevisionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除自定义域名
+     *  *
+     * @param string                       $DomainName
+     * @param DeleteWebCustomDomainRequest $request    DeleteWebCustomDomainRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteWebCustomDomainResponse DeleteWebCustomDomainResponse
+     */
+    public function deleteWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebCustomDomain',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/custom-domains/' . OpenApiUtilClient::getEncodeParam($DomainName) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除自定义域名
+     *  *
+     * @param string                       $DomainName
+     * @param DeleteWebCustomDomainRequest $request    DeleteWebCustomDomainRequest
+     *
+     * @return DeleteWebCustomDomainResponse DeleteWebCustomDomainResponse
+     */
+    public function deleteWebCustomDomain($DomainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime);
     }
 
     /**
@@ -3488,6 +3795,383 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary 获取应用信息
+     *  *
+     * @param string                        $ApplicationId
+     * @param DescribeWebApplicationRequest $request       DescribeWebApplicationRequest
+     * @param string[]                      $headers       map
+     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebApplicationResponse DescribeWebApplicationResponse
+     */
+    public function describeWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取应用信息
+     *  *
+     * @param string                        $ApplicationId
+     * @param DescribeWebApplicationRequest $request       DescribeWebApplicationRequest
+     *
+     * @return DescribeWebApplicationResponse DescribeWebApplicationResponse
+     */
+    public function describeWebApplication($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 应用资源用量统计
+     *  *
+     * @param string                                       $ApplicationId
+     * @param DescribeWebApplicationResourceStaticsRequest $request       DescribeWebApplicationResourceStaticsRequest
+     * @param string[]                                     $headers       map
+     * @param RuntimeOptions                               $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebApplicationResourceStaticsResponse DescribeWebApplicationResourceStaticsResponse
+     */
+    public function describeWebApplicationResourceStaticsWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebApplicationResourceStatics',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications-observability/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/resource',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebApplicationResourceStaticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用资源用量统计
+     *  *
+     * @param string                                       $ApplicationId
+     * @param DescribeWebApplicationResourceStaticsRequest $request       DescribeWebApplicationResourceStaticsRequest
+     *
+     * @return DescribeWebApplicationResourceStaticsResponse DescribeWebApplicationResourceStaticsResponse
+     */
+    public function describeWebApplicationResourceStatics($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebApplicationResourceStaticsWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取应用版本
+     *  *
+     * @param string                                $ApplicationId
+     * @param string                                $RevisionId
+     * @param DescribeWebApplicationRevisionRequest $request       DescribeWebApplicationRevisionRequest
+     * @param string[]                              $headers       map
+     * @param RuntimeOptions                        $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebApplicationRevisionResponse DescribeWebApplicationRevisionResponse
+     */
+    public function describeWebApplicationRevisionWithOptions($ApplicationId, $RevisionId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebApplicationRevision',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-revisions/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/revisions/' . OpenApiUtilClient::getEncodeParam($RevisionId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebApplicationRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取应用版本
+     *  *
+     * @param string                                $ApplicationId
+     * @param string                                $RevisionId
+     * @param DescribeWebApplicationRevisionRequest $request       DescribeWebApplicationRevisionRequest
+     *
+     * @return DescribeWebApplicationRevisionResponse DescribeWebApplicationRevisionResponse
+     */
+    public function describeWebApplicationRevision($ApplicationId, $RevisionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebApplicationRevisionWithOptions($ApplicationId, $RevisionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 弹性配置详情
+     *  *
+     * @param string                                     $ApplicationId
+     * @param DescribeWebApplicationScalingConfigRequest $request       DescribeWebApplicationScalingConfigRequest
+     * @param string[]                                   $headers       map
+     * @param RuntimeOptions                             $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebApplicationScalingConfigResponse DescribeWebApplicationScalingConfigResponse
+     */
+    public function describeWebApplicationScalingConfigWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebApplicationScalingConfig',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-scaling/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebApplicationScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 弹性配置详情
+     *  *
+     * @param string                                     $ApplicationId
+     * @param DescribeWebApplicationScalingConfigRequest $request       DescribeWebApplicationScalingConfigRequest
+     *
+     * @return DescribeWebApplicationScalingConfigResponse DescribeWebApplicationScalingConfigResponse
+     */
+    public function describeWebApplicationScalingConfig($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebApplicationScalingConfigWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 流量配置详情
+     *  *
+     * @param string                                     $ApplicationId
+     * @param DescribeWebApplicationTrafficConfigRequest $request       DescribeWebApplicationTrafficConfigRequest
+     * @param string[]                                   $headers       map
+     * @param RuntimeOptions                             $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebApplicationTrafficConfigResponse DescribeWebApplicationTrafficConfigResponse
+     */
+    public function describeWebApplicationTrafficConfigWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebApplicationTrafficConfig',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-traffic/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebApplicationTrafficConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 流量配置详情
+     *  *
+     * @param string                                     $ApplicationId
+     * @param DescribeWebApplicationTrafficConfigRequest $request       DescribeWebApplicationTrafficConfigRequest
+     *
+     * @return DescribeWebApplicationTrafficConfigResponse DescribeWebApplicationTrafficConfigResponse
+     */
+    public function describeWebApplicationTrafficConfig($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebApplicationTrafficConfigWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取域名.
+     *  *
+     * @param string                         $DomainName
+     * @param DescribeWebCustomDomainRequest $request    DescribeWebCustomDomainRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebCustomDomainResponse DescribeWebCustomDomainResponse
+     */
+    public function describeWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebCustomDomain',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/custom-domains/' . OpenApiUtilClient::getEncodeParam($DomainName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取域名.
+     *  *
+     * @param string                         $DomainName
+     * @param DescribeWebCustomDomainRequest $request    DescribeWebCustomDomainRequest
+     *
+     * @return DescribeWebCustomDomainResponse DescribeWebCustomDomainResponse
+     */
+    public function describeWebCustomDomain($DomainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 应用实例日志
+     *  *
+     * @param string                         $ApplicationId
+     * @param string                         $InstanceId
+     * @param DescribeWebInstanceLogsRequest $request       DescribeWebInstanceLogsRequest
+     * @param string[]                       $headers       map
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DescribeWebInstanceLogsResponse DescribeWebInstanceLogsResponse
+     */
+    public function describeWebInstanceLogsWithOptions($ApplicationId, $InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebInstanceLogs',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications-observability/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/logs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebInstanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用实例日志
+     *  *
+     * @param string                         $ApplicationId
+     * @param string                         $InstanceId
+     * @param DescribeWebInstanceLogsRequest $request       DescribeWebInstanceLogsRequest
+     *
+     * @return DescribeWebInstanceLogsResponse DescribeWebInstanceLogsResponse
+     */
+    public function describeWebInstanceLogs($ApplicationId, $InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWebInstanceLogsWithOptions($ApplicationId, $InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param DisableApplicationScalingRuleRequest $request DisableApplicationScalingRuleRequest
      * @param string[]                             $headers map
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -4864,6 +5548,266 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary 应用实例列表
+     *  *
+     * @param string                             $ApplicationId
+     * @param ListWebApplicationInstancesRequest $tmpReq        ListWebApplicationInstancesRequest
+     * @param string[]                           $headers       map
+     * @param RuntimeOptions                     $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListWebApplicationInstancesResponse ListWebApplicationInstancesResponse
+     */
+    public function listWebApplicationInstancesWithOptions($ApplicationId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListWebApplicationInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->statuses)) {
+            $request->statusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->versionIds)) {
+            $request->versionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->versionIds, 'VersionIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statusesShrink)) {
+            $query['Statuses'] = $request->statusesShrink;
+        }
+        if (!Utils::isUnset($request->versionIdsShrink)) {
+            $query['VersionIds'] = $request->versionIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebApplicationInstances',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications-observability/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebApplicationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用实例列表
+     *  *
+     * @param string                             $ApplicationId
+     * @param ListWebApplicationInstancesRequest $request       ListWebApplicationInstancesRequest
+     *
+     * @return ListWebApplicationInstancesResponse ListWebApplicationInstancesResponse
+     */
+    public function listWebApplicationInstances($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWebApplicationInstancesWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 版本列表
+     *  *
+     * @param string                             $ApplicationId
+     * @param ListWebApplicationRevisionsRequest $request       ListWebApplicationRevisionsRequest
+     * @param string[]                           $headers       map
+     * @param RuntimeOptions                     $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListWebApplicationRevisionsResponse ListWebApplicationRevisionsResponse
+     */
+    public function listWebApplicationRevisionsWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebApplicationRevisions',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-revisions/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/revisions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebApplicationRevisionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 版本列表
+     *  *
+     * @param string                             $ApplicationId
+     * @param ListWebApplicationRevisionsRequest $request       ListWebApplicationRevisionsRequest
+     *
+     * @return ListWebApplicationRevisionsResponse ListWebApplicationRevisionsResponse
+     */
+    public function listWebApplicationRevisions($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWebApplicationRevisionsWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 应用列表
+     *  *
+     * @param ListWebApplicationsRequest $request ListWebApplicationsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWebApplicationsResponse ListWebApplicationsResponse
+     */
+    public function listWebApplicationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebApplications',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用列表
+     *  *
+     * @param ListWebApplicationsRequest $request ListWebApplicationsRequest
+     *
+     * @return ListWebApplicationsResponse ListWebApplicationsResponse
+     */
+    public function listWebApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWebApplicationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 自定义域名列表.
+     *  *
+     * @param ListWebCustomDomainsRequest $request ListWebCustomDomainsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWebCustomDomainsResponse ListWebCustomDomainsResponse
+     */
+    public function listWebCustomDomainsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebCustomDomains',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/custom-domains',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自定义域名列表.
+     *  *
+     * @param ListWebCustomDomainsRequest $request ListWebCustomDomainsRequest
+     *
+     * @return ListWebCustomDomainsResponse ListWebCustomDomainsResponse
+     */
+    public function listWebCustomDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWebCustomDomainsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Activates the Serverless App Engine (SAE) service for free.
      *  *
      * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
@@ -4906,6 +5850,59 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->openSaeServiceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 新建版本
+     *  *
+     * @param string                               $ApplicationId
+     * @param PublishWebApplicationRevisionRequest $request       PublishWebApplicationRevisionRequest
+     * @param string[]                             $headers       map
+     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return PublishWebApplicationRevisionResponse PublishWebApplicationRevisionResponse
+     */
+    public function publishWebApplicationRevisionWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishWebApplicationRevision',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-revisions/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/revisions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishWebApplicationRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建版本
+     *  *
+     * @param string                               $ApplicationId
+     * @param PublishWebApplicationRevisionRequest $request       PublishWebApplicationRevisionRequest
+     *
+     * @return PublishWebApplicationRevisionResponse PublishWebApplicationRevisionResponse
+     */
+    public function publishWebApplicationRevision($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->publishWebApplicationRevisionWithOptions($ApplicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -5360,6 +6357,58 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary 启动应用
+     *  *
+     * @param string                     $ApplicationId
+     * @param StartWebApplicationRequest $request       StartWebApplicationRequest
+     * @param string[]                   $headers       map
+     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return StartWebApplicationResponse StartWebApplicationResponse
+     */
+    public function startWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-ops/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动应用
+     *  *
+     * @param string                     $ApplicationId
+     * @param StartWebApplicationRequest $request       StartWebApplicationRequest
+     *
+     * @return StartWebApplicationResponse StartWebApplicationResponse
+     */
+    public function startWebApplication($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
      *  *
      * @param StopApplicationRequest $request StopApplicationRequest
@@ -5407,6 +6456,58 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->stopApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止应用
+     *  *
+     * @param string                    $ApplicationId
+     * @param StopWebApplicationRequest $request       StopWebApplicationRequest
+     * @param string[]                  $headers       map
+     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return StopWebApplicationResponse StopWebApplicationResponse
+     */
+    public function stopWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-ops/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止应用
+     *  *
+     * @param string                    $ApplicationId
+     * @param StopWebApplicationRequest $request       StopWebApplicationRequest
+     *
+     * @return StopWebApplicationResponse StopWebApplicationResponse
+     */
+    public function stopWebApplication($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -6422,5 +7523,217 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->updateSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新应用
+     *  *
+     * @param string                      $ApplicationId
+     * @param UpdateWebApplicationRequest $request       UpdateWebApplicationRequest
+     * @param string[]                    $headers       map
+     * @param RuntimeOptions              $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWebApplicationResponse UpdateWebApplicationResponse
+     */
+    public function updateWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWebApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/applications/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWebApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新应用
+     *  *
+     * @param string                      $ApplicationId
+     * @param UpdateWebApplicationRequest $request       UpdateWebApplicationRequest
+     *
+     * @return UpdateWebApplicationResponse UpdateWebApplicationResponse
+     */
+    public function updateWebApplication($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWebApplicationWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新弹性配置
+     *  *
+     * @param string                                   $ApplicationId
+     * @param UpdateWebApplicationScalingConfigRequest $request       UpdateWebApplicationScalingConfigRequest
+     * @param string[]                                 $headers       map
+     * @param RuntimeOptions                           $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWebApplicationScalingConfigResponse UpdateWebApplicationScalingConfigResponse
+     */
+    public function updateWebApplicationScalingConfigWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWebApplicationScalingConfig',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-scaling/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWebApplicationScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新弹性配置
+     *  *
+     * @param string                                   $ApplicationId
+     * @param UpdateWebApplicationScalingConfigRequest $request       UpdateWebApplicationScalingConfigRequest
+     *
+     * @return UpdateWebApplicationScalingConfigResponse UpdateWebApplicationScalingConfigResponse
+     */
+    public function updateWebApplicationScalingConfig($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWebApplicationScalingConfigWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新流量配置
+     *  *
+     * @param string                                   $ApplicationId
+     * @param UpdateWebApplicationTrafficConfigRequest $request       UpdateWebApplicationTrafficConfigRequest
+     * @param string[]                                 $headers       map
+     * @param RuntimeOptions                           $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWebApplicationTrafficConfigResponse UpdateWebApplicationTrafficConfigResponse
+     */
+    public function updateWebApplicationTrafficConfigWithOptions($ApplicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWebApplicationTrafficConfig',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/application-traffic/' . OpenApiUtilClient::getEncodeParam($ApplicationId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWebApplicationTrafficConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新流量配置
+     *  *
+     * @param string                                   $ApplicationId
+     * @param UpdateWebApplicationTrafficConfigRequest $request       UpdateWebApplicationTrafficConfigRequest
+     *
+     * @return UpdateWebApplicationTrafficConfigResponse UpdateWebApplicationTrafficConfigResponse
+     */
+    public function updateWebApplicationTrafficConfig($ApplicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWebApplicationTrafficConfigWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新自定义域名.
+     *  *
+     * @param string                       $DomainName
+     * @param UpdateWebCustomDomainRequest $request    UpdateWebCustomDomainRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWebCustomDomainResponse UpdateWebCustomDomainResponse
+     */
+    public function updateWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWebCustomDomain',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v2/api/web/custom-domains/' . OpenApiUtilClient::getEncodeParam($DomainName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWebCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新自定义域名.
+     *  *
+     * @param string                       $DomainName
+     * @param UpdateWebCustomDomainRequest $request    UpdateWebCustomDomainRequest
+     *
+     * @return UpdateWebCustomDomainResponse UpdateWebCustomDomainResponse
+     */
+    public function updateWebCustomDomain($DomainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime);
     }
 }

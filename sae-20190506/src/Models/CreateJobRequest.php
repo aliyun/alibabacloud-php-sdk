@@ -536,8 +536,6 @@ class CreateJobRequest extends Model
     public $tomcatConfig;
 
     /**
-     * @example {"type":"time","config":"0 1 *\/1 * ?","timezone":"GMT+8:00"}
-     *
      * @var string
      */
     public $triggerConfig;

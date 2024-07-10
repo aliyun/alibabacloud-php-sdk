@@ -12,8 +12,6 @@ class data extends Model
      * @description *   The address of the image. This parameter is returned when the **Type** parameter is set to **image**.
      *   The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **upload**.
      *
-     * @example https://edas-hz.oss-cn-hangzhou.aliyuncs.com/apps/K8s_APP_ID/1d0e7884-60f0-41d2-89dd-ec1f3c69****\/hello-sae.war
-     *
      * @var string
      */
     public $buildPackageUrl;
@@ -50,8 +48,6 @@ class data extends Model
 
     /**
      * @description The ID of the version.
-     *
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/****\/1362469756373809_shared_repo:42646692-66e7-4a21-b629-897752975cdf_159012464****
      *
      * @var string
      */

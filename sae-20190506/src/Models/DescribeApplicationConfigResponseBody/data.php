@@ -257,8 +257,6 @@ class data extends Model
      *
      *   **region**: the region where the Message Queue for Apache Kafka instance resides.
      *
-     * @example [{"createTime":1646304855512,"kafkaTopic":"test","logDir":"/tmp/a.log","logType":"file_log"},{"createTime":1646304855512,"kafkaTopic":"test2","logDir":"/sae-stdlog/kafka-jar*\/*","logType":"stdout"}],"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","region":"cn-beijing"}]
-     *
      * @var string
      */
     public $kafkaConfigs;
@@ -452,8 +450,6 @@ class data extends Model
 
     /**
      * @description The URL of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar** or **War**.
-     *
-     * @example https://edas-bj.oss-cn-beijing.aliyuncs.com/apps/K8s_APP_ID/d4c97c37-aba3-403e-ae1e-6f7d8742****\/hello-sae.war
      *
      * @var string
      */

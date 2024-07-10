@@ -43,7 +43,7 @@ class GetAvailabilityMetricResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3A92C4EA-4C53-5A1C-8AEB-F2DB11982D5F
      *
