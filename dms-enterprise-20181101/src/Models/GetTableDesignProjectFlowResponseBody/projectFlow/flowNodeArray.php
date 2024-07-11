@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class flowNodeArray extends Model
 {
     /**
+     * @description Indicates whether the ticket can be returned to the schema design node. Valid values:
+     *
+     *   **1**: The ticket can be returned to the schema design node.
+     *   **0**: The ticket cannot be returned to the schema design node. This value can be returned only for the PUBLISH node.
+     *
      * @example 1
      *
      * @var bool
@@ -16,6 +21,11 @@ class flowNodeArray extends Model
     public $backToDesign;
 
     /**
+     * @description Indicates whether the current node can be skipped. Valid values:
+     *
+     *   **1**: The current node can be skipped.
+     *   **0**: The current node cannot be skipped. This value can be returned only for the PUBLISH node.
+     *
      * @example 0
      *
      * @var bool
@@ -23,6 +33,13 @@ class flowNodeArray extends Model
     public $canSkip;
 
     /**
+     * @description The role of the node in the process.
+     *
+     *   START: The ticket was created.
+     *   DESIGN: The schema is being created.
+     *   PUBLISH: The schema is published.
+     *   END: The ticket is complete.
+     *
      * @example DESIGN
      *
      * @var string
@@ -30,11 +47,15 @@ class flowNodeArray extends Model
     public $nodeRole;
 
     /**
+     * @description The title of the node.
+     *
      * @var string
      */
     public $nodeTitle;
 
     /**
+     * @description The position of the node in the process. The value starts from 1.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +63,8 @@ class flowNodeArray extends Model
     public $position;
 
     /**
+     * @description Indicates whether the node is the anchor node. A schema design process has only one anchor node, on which the schema is published. After the schema is published on the anchor node, a post-publish image is generated and the DDL metadata lock is released.
+     *
      * @example false
      *
      * @var bool
@@ -49,6 +72,8 @@ class flowNodeArray extends Model
     public $publishAnchor;
 
     /**
+     * @description The available publishing strategies.
+     *
      * @var string[]
      */
     public $publishStrategies;

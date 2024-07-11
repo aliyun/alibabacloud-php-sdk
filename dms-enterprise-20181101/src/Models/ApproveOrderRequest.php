@@ -78,6 +78,11 @@ class ApproveOrderRequest extends Model
     public $oldApprover;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example -1
@@ -103,6 +108,7 @@ class ApproveOrderRequest extends Model
         'newApprover'        => 'NewApprover',
         'newApproverList'    => 'NewApproverList',
         'oldApprover'        => 'OldApprover',
+        'realLoginUserUid'   => 'RealLoginUserUid',
         'tid'                => 'Tid',
         'workflowInstanceId' => 'WorkflowInstanceId',
     ];
@@ -134,6 +140,9 @@ class ApproveOrderRequest extends Model
         }
         if (null !== $this->oldApprover) {
             $res['OldApprover'] = $this->oldApprover;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -173,6 +182,9 @@ class ApproveOrderRequest extends Model
         }
         if (isset($map['OldApprover'])) {
             $model->oldApprover = $map['OldApprover'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTableDesignProjectInfoResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetTableDesignProjectInfoResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class GetTableDesignProjectInfoResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The information about the schema design project.
+     *
      * @var projectInfo
      */
     public $projectInfo;
 
     /**
+     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
+     *
      * @example 48778434-5796-571A-8455-A59146588401
      *
      * @var string
@@ -36,6 +44,11 @@ class GetTableDesignProjectInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTableDesignProjectInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the schema design ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/465867.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 95****
      *
      * @var int
@@ -18,6 +19,9 @@ class GetTableDesignProjectInfoRequest extends Model
     public $orderId;
 
     /**
+     * @description The tenant ID.
+     *
+     * >  To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic
      * @example 3***
      *
      * @var int

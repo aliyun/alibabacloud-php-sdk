@@ -45,6 +45,11 @@ class CreateDataExportOrderShrinkRequest extends Model
     public $pluginParamShrink;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The stakeholders involved in this operation.
      *
      * @var string
@@ -65,6 +70,7 @@ class CreateDataExportOrderShrinkRequest extends Model
         'comment'               => 'Comment',
         'parentId'              => 'ParentId',
         'pluginParamShrink'     => 'PluginParam',
+        'realLoginUserUid'      => 'RealLoginUserUid',
         'relatedUserListShrink' => 'RelatedUserList',
         'tid'                   => 'Tid',
     ];
@@ -87,6 +93,9 @@ class CreateDataExportOrderShrinkRequest extends Model
         }
         if (null !== $this->pluginParamShrink) {
             $res['PluginParam'] = $this->pluginParamShrink;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->relatedUserListShrink) {
             $res['RelatedUserList'] = $this->relatedUserListShrink;
@@ -117,6 +126,9 @@ class CreateDataExportOrderShrinkRequest extends Model
         }
         if (isset($map['PluginParam'])) {
             $model->pluginParamShrink = $map['PluginParam'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['RelatedUserList'])) {
             $model->relatedUserListShrink = $map['RelatedUserList'];

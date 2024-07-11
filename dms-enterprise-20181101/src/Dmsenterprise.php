@@ -1013,6 +1013,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->oldApprover)) {
             $query['OldApprover'] = $request->oldApprover;
         }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
@@ -1498,7 +1501,9 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates data archiving tickets.
+     * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
+     *  *
+     * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
      *  *
      * @param CreateDataArchiveOrderRequest $tmpReq  CreateDataArchiveOrderRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1554,7 +1559,9 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates data archiving tickets.
+     * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
+     *  *
+     * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
      *  *
      * @param CreateDataArchiveOrderRequest $request CreateDataArchiveOrderRequest
      *
@@ -1597,6 +1604,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->paramShrink)) {
             $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->relatedUserListShrink)) {
             $query['RelatedUserList'] = $request->relatedUserListShrink;
@@ -1742,6 +1752,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->pluginParamShrink)) {
             $query['PluginParam'] = $request->pluginParamShrink;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->relatedUserListShrink)) {
             $query['RelatedUserList'] = $request->relatedUserListShrink;
@@ -4059,6 +4072,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
@@ -4116,6 +4132,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
@@ -5064,6 +5083,9 @@ class Dmsenterprise extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
@@ -6886,7 +6908,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取结构设计项目的流程信息
+     * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
      *  *
      * @param GetTableDesignProjectFlowRequest $request GetTableDesignProjectFlowRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6922,7 +6944,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取结构设计项目的流程信息
+     * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
      *  *
      * @param GetTableDesignProjectFlowRequest $request GetTableDesignProjectFlowRequest
      *
@@ -6936,7 +6958,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取结构设计项目的详细信息
+     * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
      *  *
      * @param GetTableDesignProjectInfoRequest $request GetTableDesignProjectInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6972,7 +6994,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取结构设计项目的详细信息
+     * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
      *  *
      * @param GetTableDesignProjectInfoRequest $request GetTableDesignProjectInfoRequest
      *
@@ -12256,6 +12278,9 @@ class Dmsenterprise extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;

@@ -28,7 +28,7 @@ class GetDataArchiveOrderDetailResponseBody extends Model
     /**
      * @description The error message that is returned if the request failed.
      *
-     * @example User [199295823****] not exist
+     * @example User [19929582****] not exist
      *
      * @var string
      */

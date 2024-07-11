@@ -29,6 +29,11 @@ class ExecuteDataExportRequest extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The ID of the tenant.
      *
      * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
@@ -38,9 +43,10 @@ class ExecuteDataExportRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'actionDetail' => 'ActionDetail',
-        'orderId'      => 'OrderId',
-        'tid'          => 'Tid',
+        'actionDetail'     => 'ActionDetail',
+        'orderId'          => 'OrderId',
+        'realLoginUserUid' => 'RealLoginUserUid',
+        'tid'              => 'Tid',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ExecuteDataExportRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -76,6 +85,9 @@ class ExecuteDataExportRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

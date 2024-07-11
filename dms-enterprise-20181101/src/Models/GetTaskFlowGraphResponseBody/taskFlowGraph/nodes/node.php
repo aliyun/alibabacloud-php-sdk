@@ -29,8 +29,6 @@ class node extends Model
     /**
      * @description The advanced configuration of the node.
      *
-     * @example {\\"dbId\\":39****,\\"dbType\\":\\"mysql\\",\\"locale\\":\\"zh\\",\\"sql\\":\\"/*XXXXX*\/\\\\n\\\\nCREATE TABLE IF NOT EXISTS `momo_weekGather` (\\\\n\\\\t`id` bigint AUTO_INCREMENT DEFAULT \\"0\\",\\\\n\\\\t`age` bit NULL,\\\\n\\\\t`action` varchar(150) NULL,\\\\n\\\\t`elapse_time` datetime NULL,\\\\n\\\\tPRIMARY KEY (`id`)\\\\n) ENGINE=InnoDB\\\\nDEFAULT CHARACTER SET=utf8;\\"}
-     *
      * @var string
      */
     public $nodeConfig;

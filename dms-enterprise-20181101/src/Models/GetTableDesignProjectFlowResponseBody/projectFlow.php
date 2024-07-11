@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class projectFlow extends Model
 {
     /**
+     * @description The position of the current node in the process.
+     *
      * @example 2
      *
      * @var int
@@ -17,16 +19,24 @@ class projectFlow extends Model
     public $currentPosition;
 
     /**
+     * @description The nodes in the process.
+     *
      * @var flowNodeArray[]
      */
     public $flowNodeArray;
 
     /**
+     * @description The description of the security rule set that is applied to the schema design ticket.
+     *
+     * @example mysq_test
+     *
      * @var string
      */
     public $ruleComment;
 
     /**
+     * @description The name of the security rule set that is applied to the schema design ticket.
+     *
      * @example mysql default
      *
      * @var string

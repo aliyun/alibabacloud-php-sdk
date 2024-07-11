@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class projectInfo extends Model
 {
     /**
+     * @description The information about the change base database of the schema design ticket.
+     *
      * @var baseDatabase
      */
     public $baseDatabase;
 
     /**
+     * @description The ID of the user who created the ticket.
+     *
      * @example 71****
      *
      * @var int
@@ -22,11 +26,17 @@ class projectInfo extends Model
     public $creatorId;
 
     /**
+     * @description The description of the schema design project.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the ticket was created.
+     *
      * @example 2024-04-23 02:57:01
      *
      * @var string
@@ -34,6 +44,8 @@ class projectInfo extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the ticket was last modified.
+     *
      * @example 2024-04-23 02:57:01
      *
      * @var string
@@ -41,6 +53,8 @@ class projectInfo extends Model
     public $gmtModified;
 
     /**
+     * @description The ticket ID.
+     *
      * @example 95****
      *
      * @var int
@@ -48,6 +62,8 @@ class projectInfo extends Model
     public $orderId;
 
     /**
+     * @description The project ID.
+     *
      * @example 12****
      *
      * @var int
@@ -55,6 +71,12 @@ class projectInfo extends Model
     public $projectId;
 
     /**
+     * @description The state of the schema design project. Valid values:
+     *
+     *   **DESIGN**: The schema is being designed.
+     *   **PUBLISHED**: The schema is published.
+     *   **CLOSE**: The ticket is closed.
+     *
      * @example DESIGN
      *
      * @var string
@@ -62,6 +84,10 @@ class projectInfo extends Model
     public $status;
 
     /**
+     * @description The name of the schema design project.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;

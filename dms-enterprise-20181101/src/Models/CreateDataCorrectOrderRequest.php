@@ -37,6 +37,11 @@ class CreateDataCorrectOrderRequest extends Model
     public $param;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
      * @var int[]
@@ -52,11 +57,12 @@ class CreateDataCorrectOrderRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'attachmentKey'   => 'AttachmentKey',
-        'comment'         => 'Comment',
-        'param'           => 'Param',
-        'relatedUserList' => 'RelatedUserList',
-        'tid'             => 'Tid',
+        'attachmentKey'    => 'AttachmentKey',
+        'comment'          => 'Comment',
+        'param'            => 'Param',
+        'realLoginUserUid' => 'RealLoginUserUid',
+        'relatedUserList'  => 'RelatedUserList',
+        'tid'              => 'Tid',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class CreateDataCorrectOrderRequest extends Model
         }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->relatedUserList) {
             $res['RelatedUserList'] = $this->relatedUserList;
@@ -101,6 +110,9 @@ class CreateDataCorrectOrderRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['RelatedUserList'])) {
             if (!empty($map['RelatedUserList'])) {

@@ -46,6 +46,11 @@ class CreateDataExportOrderRequest extends Model
     public $pluginParam;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The stakeholders involved in this operation.
      *
      * @var int[]
@@ -62,12 +67,13 @@ class CreateDataExportOrderRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'attachmentKey'   => 'AttachmentKey',
-        'comment'         => 'Comment',
-        'parentId'        => 'ParentId',
-        'pluginParam'     => 'PluginParam',
-        'relatedUserList' => 'RelatedUserList',
-        'tid'             => 'Tid',
+        'attachmentKey'    => 'AttachmentKey',
+        'comment'          => 'Comment',
+        'parentId'         => 'ParentId',
+        'pluginParam'      => 'PluginParam',
+        'realLoginUserUid' => 'RealLoginUserUid',
+        'relatedUserList'  => 'RelatedUserList',
+        'tid'              => 'Tid',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class CreateDataExportOrderRequest extends Model
         }
         if (null !== $this->pluginParam) {
             $res['PluginParam'] = null !== $this->pluginParam ? $this->pluginParam->toMap() : null;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->relatedUserList) {
             $res['RelatedUserList'] = $this->relatedUserList;
@@ -118,6 +127,9 @@ class CreateDataExportOrderRequest extends Model
         }
         if (isset($map['PluginParam'])) {
             $model->pluginParam = pluginParam::fromMap($map['PluginParam']);
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['RelatedUserList'])) {
             if (!empty($map['RelatedUserList'])) {

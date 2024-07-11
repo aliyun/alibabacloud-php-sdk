@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class baseDatabase extends Model
 {
     /**
+     * @description The alias of the database instance.
+     *
+     * @example poc_test
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The database ID.
+     *
      * @example 11****
      *
      * @var int
@@ -21,6 +27,8 @@ class baseDatabase extends Model
     public $dbId;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
+     *
      * @example POLARDB
      *
      * @var string
@@ -28,6 +36,17 @@ class baseDatabase extends Model
     public $dbType;
 
     /**
+     * @description The type of the environment in which the database instance is deployed. Valid values:
+     *
+     *   **product**: production environment.
+     *   **dev**: development environment.
+     *   **pre**: pre-release environment.
+     *   **test**: test environment.
+     *   **sit**: system integration testing (SIT) environment.
+     *   **uat**: user acceptance testing (UAT) environment.
+     *   **pet**: stress testing environment.
+     *   **stag**: staging environment.
+     *
      * @example dev
      *
      * @var string
@@ -35,6 +54,11 @@ class baseDatabase extends Model
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +66,8 @@ class baseDatabase extends Model
     public $logic;
 
     /**
+     * @description The database name.
+     *
      * @example bk_atc020
      *
      * @var string
@@ -49,6 +75,8 @@ class baseDatabase extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example schema_name@127.0.XX.XX
      *
      * @var string

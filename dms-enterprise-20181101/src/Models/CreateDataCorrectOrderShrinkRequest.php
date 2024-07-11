@@ -36,6 +36,11 @@ class CreateDataCorrectOrderShrinkRequest extends Model
     public $paramShrink;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
      * @var string
@@ -54,6 +59,7 @@ class CreateDataCorrectOrderShrinkRequest extends Model
         'attachmentKey'         => 'AttachmentKey',
         'comment'               => 'Comment',
         'paramShrink'           => 'Param',
+        'realLoginUserUid'      => 'RealLoginUserUid',
         'relatedUserListShrink' => 'RelatedUserList',
         'tid'                   => 'Tid',
     ];
@@ -73,6 +79,9 @@ class CreateDataCorrectOrderShrinkRequest extends Model
         }
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->relatedUserListShrink) {
             $res['RelatedUserList'] = $this->relatedUserListShrink;
@@ -100,6 +109,9 @@ class CreateDataCorrectOrderShrinkRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['RelatedUserList'])) {
             $model->relatedUserListShrink = $map['RelatedUserList'];
