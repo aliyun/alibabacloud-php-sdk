@@ -52,12 +52,18 @@ class DescribeDBClusterPerformanceRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime'     => 'EndTime',
         'interval'    => 'Interval',
         'key'         => 'Key',
         'startTime'   => 'StartTime',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

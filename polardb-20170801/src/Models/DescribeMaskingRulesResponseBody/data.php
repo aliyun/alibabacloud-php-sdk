@@ -16,6 +16,10 @@ class data extends Model
     public $ruleList;
 
     /**
+     * @description The version of the masking rule. Valid values: v1 and v2. Default value: v1
+     *
+     * @example v1
+     *
      * @var string
      */
     public $ruleVersion;

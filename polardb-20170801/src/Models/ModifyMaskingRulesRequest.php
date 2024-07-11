@@ -71,6 +71,13 @@ class ModifyMaskingRulesRequest extends Model
     public $ruleNameList;
 
     /**
+     * @description The version of the masking rule. Default value: v1. Valid values:
+     *
+     *   v1
+     *   v2
+     *
+     * @example v2
+     *
      * @var string
      */
     public $ruleVersion;
