@@ -58,6 +58,21 @@ class Tensorboard extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $quotaId;
+
+    /**
+     * @var string
+     */
+    public $quotaName;
+
+    /**
      * @example Delete by user
      *
      * @var string
@@ -137,6 +152,9 @@ class Tensorboard extends Model
         'gmtFinishTime'          => 'GmtFinishTime',
         'gmtModifyTime'          => 'GmtModifyTime',
         'jobId'                  => 'JobId',
+        'priority'               => 'Priority',
+        'quotaId'                => 'QuotaId',
+        'quotaName'              => 'QuotaName',
         'reasonCode'             => 'ReasonCode',
         'reasonMessage'          => 'ReasonMessage',
         'requestId'              => 'RequestId',
@@ -177,6 +195,15 @@ class Tensorboard extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
+        }
+        if (null !== $this->quotaName) {
+            $res['QuotaName'] = $this->quotaName;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -249,6 +276,15 @@ class Tensorboard extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
+        }
+        if (isset($map['QuotaName'])) {
+            $model->quotaName = $map['QuotaName'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];

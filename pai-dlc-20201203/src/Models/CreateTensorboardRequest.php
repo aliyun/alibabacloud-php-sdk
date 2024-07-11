@@ -68,6 +68,16 @@ class CreateTensorboardRequest extends Model
     public $options;
 
     /**
+     * @var string
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $quotaId;
+
+    /**
      * @example dlc-xxxxxx
      *
      * @var string
@@ -128,6 +138,8 @@ class CreateTensorboardRequest extends Model
         'maxRunningTimeMinutes'  => 'MaxRunningTimeMinutes',
         'memory'                 => 'Memory',
         'options'                => 'Options',
+        'priority'               => 'Priority',
+        'quotaId'                => 'QuotaId',
         'sourceId'               => 'SourceId',
         'sourceType'             => 'SourceType',
         'summaryPath'            => 'SummaryPath',
@@ -177,6 +189,12 @@ class CreateTensorboardRequest extends Model
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
@@ -252,6 +270,12 @@ class CreateTensorboardRequest extends Model
         }
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];

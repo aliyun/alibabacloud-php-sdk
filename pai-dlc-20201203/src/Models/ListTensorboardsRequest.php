@@ -56,6 +56,11 @@ class ListTensorboardsRequest extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $quotaId;
+
+    /**
      * @var bool
      */
     public $showOwn;
@@ -133,6 +138,7 @@ class ListTensorboardsRequest extends Model
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'paymentType'   => 'PaymentType',
+        'quotaId'       => 'QuotaId',
         'showOwn'       => 'ShowOwn',
         'sortBy'        => 'SortBy',
         'sourceId'      => 'SourceId',
@@ -173,6 +179,9 @@ class ListTensorboardsRequest extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
         }
         if (null !== $this->showOwn) {
             $res['ShowOwn'] = $this->showOwn;
@@ -239,6 +248,9 @@ class ListTensorboardsRequest extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
         }
         if (isset($map['ShowOwn'])) {
             $model->showOwn = $map['ShowOwn'];

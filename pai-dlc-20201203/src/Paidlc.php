@@ -289,6 +289,12 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->options)) {
             $body['Options'] = $request->options;
         }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->quotaId)) {
+            $body['QuotaId'] = $request->quotaId;
+        }
         if (!Utils::isUnset($request->sourceId)) {
             $body['SourceId'] = $request->sourceId;
         }
@@ -1295,6 +1301,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->paymentType)) {
             $query['PaymentType'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->quotaId)) {
+            $query['QuotaId'] = $request->quotaId;
         }
         if (!Utils::isUnset($request->showOwn)) {
             $query['ShowOwn'] = $request->showOwn;
