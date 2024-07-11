@@ -11,6 +11,7 @@ class DeleteQueueRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1880770869023***
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteQueueRequest extends Model
     /**
      * @description The queue name.
      *
+     * This parameter is required.
      * @example DemoQueue
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteQueueRequest extends Model
     /**
      * @description The vhost name.
      *
+     * This parameter is required.
      * @example Test
      *
      * @var string

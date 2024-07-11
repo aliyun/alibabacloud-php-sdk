@@ -11,6 +11,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The maximum number of entries to return. Valid values: 1 to 100.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

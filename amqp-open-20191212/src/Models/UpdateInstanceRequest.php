@@ -16,6 +16,8 @@ class UpdateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example amqp-cn-jtexxxxx
      *
      * @var string
@@ -51,6 +53,8 @@ class UpdateInstanceRequest extends Model
     public $maxPrivateTps;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UPGRADE
      *
      * @var string

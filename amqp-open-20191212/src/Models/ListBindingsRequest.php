@@ -11,6 +11,7 @@ class ListBindingsRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
+     * This parameter is required.
      * @example 1880770869023***
      *
      * @var string
@@ -22,6 +23,7 @@ class ListBindingsRequest extends Model
      *
      **1 to 100**
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -40,6 +42,7 @@ class ListBindingsRequest extends Model
     /**
      * @description The vhost name.
      *
+     * This parameter is required.
      * @example Test
      *
      * @var string

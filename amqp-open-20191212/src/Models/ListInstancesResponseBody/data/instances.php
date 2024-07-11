@@ -159,7 +159,7 @@ class instances extends Model
     /**
      * @description The disk size. Unit: GB.
      *
-     * >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \*\*-1\*\* is returned.
+     * >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \\*\\*-1\\*\\* is returned.
      * @example 200
      *
      * @var int

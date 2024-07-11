@@ -11,6 +11,7 @@ class DeleteBindingRequest extends Model
     /**
      * @description The binding key.
      *
+     * This parameter is required.
      * @example .test.
      *
      * @var string
@@ -23,6 +24,7 @@ class DeleteBindingRequest extends Model
      *   **QUEUE**
      *   **EXCHANGE**
      *
+     * This parameter is required.
      * @example QUEUE
      *
      * @var string
@@ -32,6 +34,7 @@ class DeleteBindingRequest extends Model
     /**
      * @description The name of the object that you want to unbind from the source exchange.
      *
+     * This parameter is required.
      * @example DemoQueue
      *
      * @var string
@@ -41,6 +44,7 @@ class DeleteBindingRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -50,6 +54,7 @@ class DeleteBindingRequest extends Model
     /**
      * @description The name of the source exchange.
      *
+     * This parameter is required.
      * @example NormalEX
      *
      * @var string
@@ -59,6 +64,7 @@ class DeleteBindingRequest extends Model
     /**
      * @description The vhost name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

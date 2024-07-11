@@ -11,6 +11,7 @@ class ListQueueConsumersRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
+     * This parameter is required.
      * @example 188077086902***
      *
      * @var string
@@ -39,6 +40,7 @@ class ListQueueConsumersRequest extends Model
     /**
      * @description The name of the queue for which you want to query online consumers.
      *
+     * This parameter is required.
      * @example queue-rabbit-springboot-advance5
      *
      * @var string
@@ -48,6 +50,7 @@ class ListQueueConsumersRequest extends Model
     /**
      * @description The virtual host (vhost) name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

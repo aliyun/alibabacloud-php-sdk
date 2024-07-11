@@ -11,7 +11,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The timestamp that indicates when the pair of static username and password that you want to delete was created. Unit: milliseconds.
      *
-     * You can call the [ListAccounts](~~472730~~) operation to view the timestamp.
+     * This parameter is required.
      * @example 1671175303522
      *
      * @var int
@@ -21,6 +21,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The pair of username and password that you want to delete.
      *
+     * This parameter is required.
      * @example MjphbXFwLWNuLXVxbTJ5cjc3djAwMzpMVEFJNXQ4YmVNbVZNMWVSWnRFSjZ2Zm1=
      *
      * @var string

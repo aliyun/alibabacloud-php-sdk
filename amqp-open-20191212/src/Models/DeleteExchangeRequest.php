@@ -11,6 +11,7 @@ class DeleteExchangeRequest extends Model
     /**
      * @description The name of the exchange that you want to delete.
      *
+     * This parameter is required.
      * @example DemoExchange
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteExchangeRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance whose exchange you want to delete.
      *
+     * This parameter is required.
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteExchangeRequest extends Model
     /**
      * @description The vhost to which the exchange that you want to delete belongs.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

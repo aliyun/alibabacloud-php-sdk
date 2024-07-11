@@ -94,7 +94,8 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * *
+     * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -141,7 +142,8 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * *
+     * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
      * @return CreateAccountResponse CreateAccountResponse
@@ -154,10 +156,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateBindingRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBindingWithOptions($request, $runtime)
     {
@@ -203,9 +207,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateBindingRequest $request
+     * @summary Creates a binding. In ApsaraMQ for RabbitMQ, after a producer sends a message to an exchange, the exchange routes the message to a queue or another exchange based on the binding relationship and the routing rule.
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
      *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBinding($request)
     {
@@ -215,10 +221,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateExchangeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     *  *
+     * @param CreateExchangeRequest $request CreateExchangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExchangeResponse
+     * @return CreateExchangeResponse CreateExchangeResponse
      */
     public function createExchangeWithOptions($request, $runtime)
     {
@@ -245,6 +253,9 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->virtualHost)) {
             $body['VirtualHost'] = $request->virtualHost;
         }
+        if (!Utils::isUnset($request->XDelayedType)) {
+            $body['XDelayedType'] = $request->XDelayedType;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -264,9 +275,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateExchangeRequest $request
+     * @summary Creates an exchange. In ApsaraMQ for RabbitMQ, an exchange is used to route a message that is received from a producer to one or more queues or to discard the message. An exchange routes a message to queues by using the routing key and binding keys.
+     *  *
+     * @param CreateExchangeRequest $request CreateExchangeRequest
      *
-     * @return CreateExchangeResponse
+     * @return CreateExchangeResponse CreateExchangeResponse
      */
     public function createExchange($request)
     {
@@ -276,10 +289,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
@@ -361,9 +376,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -373,10 +390,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateQueueRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueueWithOptions($request, $runtime)
     {
@@ -434,9 +453,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateQueueRequest $request
+     * @summary Creates a queue. In ApsaraMQ for RabbitMQ, a queue is a message queue. All messages in ApsaraMQ for RabbitMQ are sent to a specific exchange and then routed to a bound queue by the exchange.
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
      *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueue($request)
     {
@@ -446,10 +467,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualHostRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     *  *
+     * @param CreateVirtualHostRequest $request CreateVirtualHostRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVirtualHostResponse
+     * @return CreateVirtualHostResponse CreateVirtualHostResponse
      */
     public function createVirtualHostWithOptions($request, $runtime)
     {
@@ -480,9 +503,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualHostRequest $request
+     * @summary Creates a vhost. A vhost is used to logically isolate resources. Each vhost manages its own exchanges, queues, and bindings. Applications can run on independent vhosts in a secure manner. This way, the business of an application is not affected by other applications. Before you connect producers and consumers to an ApsaraMQ for RabbitMQ instance, you must specify vhosts for the producers and consumers.
+     *  *
+     * @param CreateVirtualHostRequest $request CreateVirtualHostRequest
      *
-     * @return CreateVirtualHostResponse
+     * @return CreateVirtualHostResponse CreateVirtualHostResponse
      */
     public function createVirtualHost($request)
     {
@@ -492,10 +517,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a pair of username and password.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -526,9 +553,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * @summary Deletes a pair of username and password.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -538,10 +567,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindingRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBindingWithOptions($request, $runtime)
     {
@@ -584,9 +615,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindingRequest $request
+     * @summary Deletes a binding to unbind a queue or an exchange from a source exchange.
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
      *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBinding($request)
     {
@@ -596,10 +629,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-     *   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
-     *   *
+     * @summary Deletes an exchange.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+     * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *  *
      * @param DeleteExchangeRequest $request DeleteExchangeRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -637,10 +672,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * ## [](#)Usage notes
-     *   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
-     *   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
-     *   *
+     * @summary Deletes an exchange.
+     *  *
+     * @description ## [](#)Usage notes
+     * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+     * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *  *
      * @param DeleteExchangeRequest $request DeleteExchangeRequest
      *
      * @return DeleteExchangeResponse DeleteExchangeResponse
@@ -653,10 +690,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteQueueRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a queue.
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueueWithOptions($request, $runtime)
     {
@@ -690,9 +729,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteQueueRequest $request
+     * @summary Deletes a queue.
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
      *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueue($request)
     {
@@ -702,8 +743,10 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-     *   *
+     * @summary Deletes a virtual host (vhost).
+     *  *
+     * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *  *
      * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -738,8 +781,10 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
-     *   *
+     * @summary Deletes a virtual host (vhost).
+     *  *
+     * @description Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *  *
      * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
      *
      * @return DeleteVirtualHostResponse DeleteVirtualHostResponse
@@ -752,10 +797,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param GetMetadataAmountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param GetMetadataAmountRequest $request GetMetadataAmountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetadataAmountResponse
+     * @return GetMetadataAmountResponse GetMetadataAmountResponse
      */
     public function getMetadataAmountWithOptions($request, $runtime)
     {
@@ -780,9 +827,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param GetMetadataAmountRequest $request
+     * @summary Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param GetMetadataAmountRequest $request GetMetadataAmountRequest
      *
-     * @return GetMetadataAmountResponse
+     * @return GetMetadataAmountResponse GetMetadataAmountResponse
      */
     public function getMetadataAmount($request)
     {
@@ -792,10 +841,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
@@ -823,9 +874,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
+     * @summary Queries the static username and password of an ApsaraMQ for RabbitMQ.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -835,10 +888,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListBindingsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindingsWithOptions($request, $runtime)
     {
@@ -863,9 +918,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListBindingsRequest $request
+     * @summary Queries all bindings of a virtual host (vhost) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
      *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindings($request)
     {
@@ -875,10 +932,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListDownStreamBindingsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries all exchanges or queues to which an exchange is bound.
+     *  *
+     * @param ListDownStreamBindingsRequest $request ListDownStreamBindingsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDownStreamBindingsResponse
+     * @return ListDownStreamBindingsResponse ListDownStreamBindingsResponse
      */
     public function listDownStreamBindingsWithOptions($request, $runtime)
     {
@@ -903,9 +962,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListDownStreamBindingsRequest $request
+     * @summary Queries all exchanges or queues to which an exchange is bound.
+     *  *
+     * @param ListDownStreamBindingsRequest $request ListDownStreamBindingsRequest
      *
-     * @return ListDownStreamBindingsResponse
+     * @return ListDownStreamBindingsResponse ListDownStreamBindingsResponse
      */
     public function listDownStreamBindings($request)
     {
@@ -915,10 +976,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListExchangeUpStreamBindingsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries all queues or exchanges that are bound to an exchange.
+     *  *
+     * @param ListExchangeUpStreamBindingsRequest $request ListExchangeUpStreamBindingsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExchangeUpStreamBindingsResponse
+     * @return ListExchangeUpStreamBindingsResponse ListExchangeUpStreamBindingsResponse
      */
     public function listExchangeUpStreamBindingsWithOptions($request, $runtime)
     {
@@ -943,9 +1006,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListExchangeUpStreamBindingsRequest $request
+     * @summary Queries all queues or exchanges that are bound to an exchange.
+     *  *
+     * @param ListExchangeUpStreamBindingsRequest $request ListExchangeUpStreamBindingsRequest
      *
-     * @return ListExchangeUpStreamBindingsResponse
+     * @return ListExchangeUpStreamBindingsResponse ListExchangeUpStreamBindingsResponse
      */
     public function listExchangeUpStreamBindings($request)
     {
@@ -955,10 +1020,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListExchangesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all exchanges that are created in a virtual host (vhost).
+     *  *
+     * @param ListExchangesRequest $request ListExchangesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExchangesResponse
+     * @return ListExchangesResponse ListExchangesResponse
      */
     public function listExchangesWithOptions($request, $runtime)
     {
@@ -983,9 +1050,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListExchangesRequest $request
+     * @summary Queries all exchanges that are created in a virtual host (vhost).
+     *  *
+     * @param ListExchangesRequest $request ListExchangesRequest
      *
-     * @return ListExchangesResponse
+     * @return ListExchangesResponse ListExchangesResponse
      */
     public function listExchanges($request)
     {
@@ -995,10 +1064,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
@@ -1023,9 +1094,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1035,8 +1108,10 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-     *   *
+     * @summary Queries the online consumers of a queue.
+     *  *
+     * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *  *
      * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1065,8 +1140,10 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
-     *   *
+     * @summary Queries the online consumers of a queue.
+     *  *
+     * @description ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *  *
      * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
      *
      * @return ListQueueConsumersResponse ListQueueConsumersResponse
@@ -1079,10 +1156,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueUpStreamBindingsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the exchanges that are bound to a queue.
+     *  *
+     * @param ListQueueUpStreamBindingsRequest $request ListQueueUpStreamBindingsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueueUpStreamBindingsResponse
+     * @return ListQueueUpStreamBindingsResponse ListQueueUpStreamBindingsResponse
      */
     public function listQueueUpStreamBindingsWithOptions($request, $runtime)
     {
@@ -1107,9 +1186,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueUpStreamBindingsRequest $request
+     * @summary Queries the exchanges that are bound to a queue.
+     *  *
+     * @param ListQueueUpStreamBindingsRequest $request ListQueueUpStreamBindingsRequest
      *
-     * @return ListQueueUpStreamBindingsResponse
+     * @return ListQueueUpStreamBindingsResponse ListQueueUpStreamBindingsResponse
      */
     public function listQueueUpStreamBindings($request)
     {
@@ -1119,10 +1200,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueuesRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListQueuesRequest $request ListQueuesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueuesResponse
+     * @return ListQueuesResponse ListQueuesResponse
      */
     public function listQueuesWithOptions($request, $runtime)
     {
@@ -1147,9 +1230,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueuesRequest $request
+     * @summary Queries all queues in a vhost of an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListQueuesRequest $request ListQueuesRequest
      *
-     * @return ListQueuesResponse
+     * @return ListQueuesResponse ListQueuesResponse
      */
     public function listQueues($request)
     {
@@ -1159,10 +1244,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualHostsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListVirtualHostsRequest $request ListVirtualHostsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirtualHostsResponse
+     * @return ListVirtualHostsResponse ListVirtualHostsResponse
      */
     public function listVirtualHostsWithOptions($request, $runtime)
     {
@@ -1187,9 +1274,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualHostsRequest $request
+     * @summary Queries all virtual hosts (vhosts) on an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @param ListVirtualHostsRequest $request ListVirtualHostsRequest
      *
-     * @return ListVirtualHostsResponse
+     * @return ListVirtualHostsResponse ListVirtualHostsResponse
      */
     public function listVirtualHosts($request)
     {
@@ -1199,10 +1288,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 变更实例，升降配
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
@@ -1266,9 +1357,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
+     * @summary 变更实例，升降配
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -1278,10 +1371,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceNameWithOptions($request, $runtime)
     {
@@ -1312,9 +1407,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceNameRequest $request
+     * @summary Updates the name of an ApsaraMQ for RabbitMQ instance. After an ApsaraMQ for RabbitMQ instance is created, the ID of the instance is used as its name by default. You can specify a custom name for an instance to facilitate instance identification.
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
      *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceName($request)
     {

@@ -11,6 +11,7 @@ class ListQueuesRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
+     * This parameter is required.
      * @example 1880770869023***
      *
      * @var string
@@ -20,6 +21,7 @@ class ListQueuesRequest extends Model
     /**
      * @description The maximum number of entries to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +40,7 @@ class ListQueuesRequest extends Model
     /**
      * @description The virtual host (vhost) name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

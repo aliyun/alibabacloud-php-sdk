@@ -63,6 +63,8 @@ class CreateInstanceRequest extends Model
     public $maxPrivateTps;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Subscription
      *
      * @var string

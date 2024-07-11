@@ -11,6 +11,7 @@ class ListVirtualHostsRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
+     * This parameter is required.
      * @example 1880770869023***
      *
      * @var string
@@ -20,6 +21,7 @@ class ListVirtualHostsRequest extends Model
     /**
      * @description The maximum number of entries to return. Valid values: **1 to 100**
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

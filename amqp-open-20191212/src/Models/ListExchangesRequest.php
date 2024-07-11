@@ -11,6 +11,7 @@ class ListExchangesRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
+     * This parameter is required.
      * @example amqp-cn-7pp2mwbc****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListExchangesRequest extends Model
     /**
      * @description The maximum number of entries to return. Valid values: **1 to 100**
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,6 +43,7 @@ class ListExchangesRequest extends Model
     /**
      * @description The vhost name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

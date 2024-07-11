@@ -41,7 +41,7 @@ class CreateQueueRequest extends Model
     public $deadLetterExchange;
 
     /**
-     * @description The dead-letter routing key. The key must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (\_), periods (.), number signs (#), forward slashes (/), and at signs (@).
+     * @description The dead-letter routing key. The key must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (_), periods (.), number signs (#), forward slashes (/), and at signs (@).
      *
      * @example test.dl
      *
@@ -64,6 +64,7 @@ class CreateQueueRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RabbitMQ instance on which you want to create a queue.
      *
+     * This parameter is required.
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -104,9 +105,10 @@ class CreateQueueRequest extends Model
     /**
      * @description The name of the queue that you want to create.
      *
-     *   The name must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (\_), periods (.), number signs (#), forward slashes (/), and at signs (@).
+     *   The name must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (_), periods (.), number signs (#), forward slashes (/), and at signs (@).
      *   After the queue is created, you cannot change the name of the queue. If you want to change the name of the queue, delete the queue and create another queue.
      *
+     * This parameter is required.
      * @example DemoQueue
      *
      * @var string
@@ -114,8 +116,9 @@ class CreateQueueRequest extends Model
     public $queueName;
 
     /**
-     * @description The name of the vhost to which the queue that you want to create belongs. The name must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (\_), periods (.), number signs (#), forward slashes (/), and at signs (@).
+     * @description The name of the vhost to which the queue that you want to create belongs. The name must be 1 to 255 characters in length, and can contain only letters, digits, hyphens (-), underscores (_), periods (.), number signs (#), forward slashes (/), and at signs (@).
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
