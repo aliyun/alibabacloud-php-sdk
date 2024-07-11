@@ -23,6 +23,8 @@ class EnableHBaseueBackupRequest extends Model
     public $coldStorageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-m5eznlga4k5bcxxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class EnableHBaseueBackupRequest extends Model
     public $hbaseueClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

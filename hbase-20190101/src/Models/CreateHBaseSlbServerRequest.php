@@ -16,6 +16,8 @@ class CreateHBaseSlbServerRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateHBaseSlbServerRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thrift
      *
      * @var string

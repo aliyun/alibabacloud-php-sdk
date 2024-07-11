@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMultiZoneClusterNodeTypeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-dj45g7d6rbrd****
      *
      * @var string

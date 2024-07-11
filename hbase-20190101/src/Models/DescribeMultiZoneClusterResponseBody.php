@@ -355,6 +355,16 @@ class DescribeMultiZoneClusterResponseBody extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $taskProgress;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
+
+    /**
      * @example vpc-t4nx81tmlixcq5****
      *
      * @var string
@@ -411,6 +421,8 @@ class DescribeMultiZoneClusterResponseBody extends Model
         'standbyZoneId'           => 'StandbyZoneId',
         'status'                  => 'Status',
         'tags'                    => 'Tags',
+        'taskProgress'            => 'TaskProgress',
+        'taskStatus'              => 'TaskStatus',
         'vpcId'                   => 'VpcId',
     ];
 
@@ -570,6 +582,12 @@ class DescribeMultiZoneClusterResponseBody extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->taskProgress) {
+            $res['TaskProgress'] = $this->taskProgress;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -735,6 +753,12 @@ class DescribeMultiZoneClusterResponseBody extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TaskProgress'])) {
+            $model->taskProgress = $map['TaskProgress'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

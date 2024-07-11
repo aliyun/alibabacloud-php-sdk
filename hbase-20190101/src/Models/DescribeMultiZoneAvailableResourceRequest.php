@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiZoneAvailableResourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Prepaid
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeMultiZoneAvailableResourceRequest extends Model
     public $chargeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

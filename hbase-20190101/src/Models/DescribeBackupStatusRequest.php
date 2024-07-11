@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-m5eznlga4k5bcxxxx
      *
      * @var string

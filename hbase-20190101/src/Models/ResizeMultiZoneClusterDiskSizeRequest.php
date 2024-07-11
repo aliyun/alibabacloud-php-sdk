@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeMultiZoneClusterDiskSizeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-f5d6vc2r8d6****
      *
      * @var string

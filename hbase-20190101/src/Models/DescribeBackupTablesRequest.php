@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTablesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020110302xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeBackupTablesRequest extends Model
     public $backupRecordId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-m5eznlga4k5bcxxxx
      *
      * @var string

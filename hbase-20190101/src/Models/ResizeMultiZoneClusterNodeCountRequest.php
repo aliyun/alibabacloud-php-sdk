@@ -16,6 +16,8 @@ class ResizeMultiZoneClusterNodeCountRequest extends Model
     public $arbiterVSwitchId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-f5d8d6s4s2a1****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckComponentsVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckComponentsVersionRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HBASE,HADOOP
      *
      * @var string

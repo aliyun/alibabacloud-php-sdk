@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupPlanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-wz94lbcqc****4x93
      *
      * @var string

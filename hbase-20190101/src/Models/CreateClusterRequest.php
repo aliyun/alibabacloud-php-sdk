@@ -37,6 +37,8 @@ class CreateClusterRequest extends Model
     public $coldStorageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase.sn1.medium
      *
      * @var string
@@ -65,6 +67,8 @@ class CreateClusterRequest extends Model
     public $encryptionKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase
      *
      * @var string
@@ -72,6 +76,8 @@ class CreateClusterRequest extends Model
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.0
      *
      * @var string
@@ -86,6 +92,8 @@ class CreateClusterRequest extends Model
     public $masterInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -93,6 +101,8 @@ class CreateClusterRequest extends Model
     public $nodeCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Prepaid
      *
      * @var string
@@ -114,6 +124,8 @@ class CreateClusterRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -149,6 +161,8 @@ class CreateClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-f
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRestorePlanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRestorePlanRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class CreateRestorePlanRequest extends Model
     public $restoreAllTable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class CreateRestorePlanRequest extends Model
     public $restoreByCopy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-11-05T05:49:42Z
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateRestorePlanRequest extends Model
     public $tables;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp169l540vc6c****
      *
      * @var string

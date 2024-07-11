@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp1u0639js2h7****
      *
      * @var string
@@ -16,6 +18,8 @@ class RenewInstanceRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class RenewInstanceRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example month
      *
      * @var string

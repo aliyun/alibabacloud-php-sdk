@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateHbaseHaSlbRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bds-t4n3496whj23****
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateHbaseHaSlbRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ha-v21tmnxjwh2yu****
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateHbaseHaSlbRequest extends Model
     public $haId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thrift
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateHbaseHaSlbRequest extends Model
     public $haTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Active
      *
      * @var string

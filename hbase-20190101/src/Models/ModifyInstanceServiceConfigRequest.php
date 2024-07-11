@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceServiceConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyInstanceServiceConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyInstanceServiceConfigRequest extends Model
     public $configureName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10485770
      *
      * @var string

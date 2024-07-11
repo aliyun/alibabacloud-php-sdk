@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string

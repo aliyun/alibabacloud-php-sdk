@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpWhitelistRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp1uoihlf82e8****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyIpWhitelistRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example group_01
      *
      * @var string
@@ -30,6 +34,8 @@ class ModifyIpWhitelistRequest extends Model
     public $ipList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string

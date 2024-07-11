@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RelateDbForHBaseHaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bds-t4nj9v2x85******
      *
      * @var string
@@ -16,6 +18,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp1w6krp539******
      *
      * @var string
@@ -30,6 +34,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $haActiveClusterKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase
      *
      * @var string
@@ -72,6 +78,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $haActiveVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CLUSTER
      *
      * @var string
@@ -79,6 +87,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $haMigrateType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp1bl7iqzka******
      *
      * @var string
@@ -93,6 +103,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $haStandbyClusterKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase
      *
      * @var string
@@ -142,6 +154,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $haTables;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -149,6 +163,8 @@ class RelateDbForHBaseHaRequest extends Model
     public $isActiveStandard;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

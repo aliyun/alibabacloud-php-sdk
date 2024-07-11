@@ -16,6 +16,8 @@ class CreateGlobalResourceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateGlobalResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PubPhoenixSLBQueryServerVip
      *
      * @var string
@@ -35,6 +39,8 @@ class CreateGlobalResourceRequest extends Model
     public $resourceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example GLOBAL_VIP
      *
      * @var string

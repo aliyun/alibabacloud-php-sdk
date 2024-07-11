@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMultiZoneClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-***************
      *
      * @var string
@@ -16,6 +18,8 @@ class UpgradeMultiZoneClusterRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LINDORM
      *
      * @var string

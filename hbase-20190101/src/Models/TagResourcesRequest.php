@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -17,6 +19,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bds-bp15e022622fk0w1
      *
      * @var string[]
@@ -24,6 +28,8 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;

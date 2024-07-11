@@ -16,6 +16,8 @@ class ModifyInstanceNameRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyInstanceNameRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testhbaseone
      *
      * @var string
@@ -30,6 +34,8 @@ class ModifyInstanceNameRequest extends Model
     public $clusterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

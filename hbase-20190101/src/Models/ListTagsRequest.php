@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string

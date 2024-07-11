@@ -16,6 +16,8 @@ class UnTagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class UnTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bds-bp15e022622fk0w1
      *
      * @var string[]

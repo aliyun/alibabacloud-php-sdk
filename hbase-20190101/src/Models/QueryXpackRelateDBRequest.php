@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryXpackRelateDBRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ap-bp1qtz9rcbbt3p6ng
      *
      * @var string
@@ -23,6 +25,8 @@ class QueryXpackRelateDBRequest extends Model
     public $hasSingleNode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupEndTimeUTC;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Thursday
      *
      * @var string
@@ -37,6 +41,8 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupStartTimeUTC;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 01:00-02:00
      *
      * @var string

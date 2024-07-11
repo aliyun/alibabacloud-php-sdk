@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchServiceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-uf6r2hn2zrxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class SwitchServiceRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example open
      *
      * @var string
@@ -23,6 +27,8 @@ class SwitchServiceRequest extends Model
     public $operate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HBaseProxy
      *
      * @var string

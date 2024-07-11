@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test01
      *
      * @var string
@@ -16,6 +18,8 @@ class GrantRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example READ,WRITE
      *
      * @var string
@@ -23,6 +27,8 @@ class GrantRequest extends Model
     public $aclActions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string
@@ -30,6 +36,8 @@ class GrantRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -37,6 +45,8 @@ class GrantRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example table
      *
      * @var string

@@ -37,7 +37,7 @@ class restoreIncrDetail extends Model
     public $restoreStartTs;
 
     /**
-     * @example \"\"
+     * @example \\"\\"
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHBaseHaDBRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bds-bp14112fd7g52s1****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteHBaseHaDBRequest extends Model
     public $bdsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ha-sw2o0l01s4r76****
      *
      * @var string

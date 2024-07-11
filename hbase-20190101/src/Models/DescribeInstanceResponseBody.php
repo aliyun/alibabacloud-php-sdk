@@ -123,6 +123,8 @@ class DescribeInstanceResponseBody extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -357,6 +359,11 @@ class DescribeInstanceResponseBody extends Model
     public $taskProgress;
 
     /**
+     * @var string
+     */
+    public $taskStatus;
+
+    /**
      * @example vpc-bp15s22y1a7sff5gj****
      *
      * @var string
@@ -427,6 +434,7 @@ class DescribeInstanceResponseBody extends Model
         'status'               => 'Status',
         'tags'                 => 'Tags',
         'taskProgress'         => 'TaskProgress',
+        'taskStatus'           => 'TaskStatus',
         'vpcId'                => 'VpcId',
         'vswitchId'            => 'VswitchId',
         'zoneId'               => 'ZoneId',
@@ -588,6 +596,9 @@ class DescribeInstanceResponseBody extends Model
         }
         if (null !== $this->taskProgress) {
             $res['TaskProgress'] = $this->taskProgress;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -759,6 +770,9 @@ class DescribeInstanceResponseBody extends Model
         }
         if (isset($map['TaskProgress'])) {
             $model->taskProgress = $map['TaskProgress'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

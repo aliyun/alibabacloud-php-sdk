@@ -16,6 +16,8 @@ class AllocatePublicNetworkAddressRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn******
      *
      * @var string

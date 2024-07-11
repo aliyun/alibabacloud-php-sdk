@@ -30,6 +30,8 @@ class EnableHBaseueModuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase.sn1.large
      *
      * @var string
@@ -51,6 +53,8 @@ class EnableHBaseueModuleRequest extends Model
     public $diskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string
@@ -72,6 +76,8 @@ class EnableHBaseueModuleRequest extends Model
     public $moduleClusterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example solr
      *
      * @var string
@@ -79,6 +85,8 @@ class EnableHBaseueModuleRequest extends Model
     public $moduleTypeName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -86,6 +94,8 @@ class EnableHBaseueModuleRequest extends Model
     public $nodeCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Prepaid
      *
      * @var string
@@ -107,6 +117,8 @@ class EnableHBaseueModuleRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -114,6 +126,8 @@ class EnableHBaseueModuleRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp120k6ixs4eog*****
      *
      * @var string
@@ -121,6 +135,8 @@ class EnableHBaseueModuleRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-bp191ipotqj1ssyl*****
      *
      * @var string
@@ -128,6 +144,8 @@ class EnableHBaseueModuleRequest extends Model
     public $vswitchId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen-e
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Prepaid
      *
      * @var string
@@ -44,6 +46,8 @@ class DescribeAvailableResourceRequest extends Model
     public $engineVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

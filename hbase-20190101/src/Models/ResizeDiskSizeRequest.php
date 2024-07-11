@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeDiskSizeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp16o0pd52e3y****
      *
      * @var string
@@ -16,6 +18,8 @@ class ResizeDiskSizeRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 120
      *
      * @var int

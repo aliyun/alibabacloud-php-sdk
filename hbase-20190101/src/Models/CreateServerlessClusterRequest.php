@@ -58,6 +58,8 @@ class CreateServerlessClusterRequest extends Model
     public $engineVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Prepaid
      *
      * @var string
@@ -79,6 +81,8 @@ class CreateServerlessClusterRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -128,6 +132,8 @@ class CreateServerlessClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-f
      *
      * @var string

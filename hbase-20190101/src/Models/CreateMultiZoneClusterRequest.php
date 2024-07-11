@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMultiZoneClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-hangxzhouxb*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $arbiterVSwitchId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $arbiterZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.0
      *
      * @var string
@@ -51,6 +57,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $clusterName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 400
      *
      * @var int
@@ -58,6 +66,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $coreDiskSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -65,6 +75,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $coreDiskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase.sn1.medium
      *
      * @var string
@@ -72,6 +84,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $coreInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var int
@@ -79,6 +93,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $coreNodeCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbaseue
      *
      * @var string
@@ -86,6 +102,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.0
      *
      * @var string
@@ -93,6 +111,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $engineVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 400
      *
      * @var int
@@ -100,6 +120,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $logDiskSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -107,6 +129,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $logDiskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase.sn1.medium
      *
      * @var string
@@ -114,6 +138,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $logInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var int
@@ -121,6 +147,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $logNodeCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hbase.sn1.medium
      *
      * @var string
@@ -128,6 +156,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $masterInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-bef-aliyun-com
      *
      * @var string
@@ -135,6 +165,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $multiZoneCombination;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Postpaid
      *
      * @var string
@@ -156,6 +188,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $periodUnit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-hangxzhouxe****
      *
      * @var string
@@ -163,6 +197,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $primaryVSwitchId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-e
      *
      * @var string
@@ -170,6 +206,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $primaryZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -191,6 +229,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $securityIPList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-hangxzhouxf****
      *
      * @var string
@@ -198,6 +238,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $standbyVSwitchId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-f
      *
      * @var string
@@ -205,6 +247,8 @@ class CreateMultiZoneClusterRequest extends Model
     public $standbyZoneId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp120k6ixs4eog****
      *
      * @var string

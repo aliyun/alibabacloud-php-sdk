@@ -16,6 +16,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string

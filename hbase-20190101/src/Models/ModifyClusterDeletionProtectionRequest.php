@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterDeletionProtectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-****************
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyClusterDeletionProtectionRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

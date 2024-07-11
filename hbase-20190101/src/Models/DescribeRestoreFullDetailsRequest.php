@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreFullDetailsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-m5eznlga4k5bcxxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class DescribeRestoreFullDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020110514xxxx
      *
      * @var string

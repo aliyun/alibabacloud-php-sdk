@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp169l540vc6c****
      *
      * @var string
@@ -16,6 +18,8 @@ class MoveResourceGroupRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rg-aekzrk6zzsy****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMultiZoneClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example d-t4nn71xa0yn56****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test01
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAccountPasswordRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp150tns0sjxs****
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyAccountPasswordRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example **********
      *
      * @var string

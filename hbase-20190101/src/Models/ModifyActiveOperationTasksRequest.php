@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1111,2222
      *
      * @var string
@@ -48,6 +50,8 @@ class ModifyActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-02-17T18:50:00Z
      *
      * @var string

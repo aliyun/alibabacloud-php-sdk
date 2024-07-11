@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryHBaseHaDBRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example bds-t4n3496whj23ia4k
      *
      * @var string

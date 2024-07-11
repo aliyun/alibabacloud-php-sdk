@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceUsageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp1u0639js2h7****
      *
      * @var string

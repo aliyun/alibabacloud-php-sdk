@@ -266,10 +266,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserHdfsInfoResponse
+     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfoWithOptions($request, $runtime)
     {
@@ -303,9 +303,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request
+     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
      *
-     * @return AddUserHdfsInfoResponse
+     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfo($request)
     {
@@ -315,10 +315,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -349,9 +349,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddress($request)
     {
@@ -361,10 +361,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -407,9 +407,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -419,10 +419,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CheckComponentsVersionRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CheckComponentsVersionRequest $request CheckComponentsVersionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckComponentsVersionResponse
+     * @return CheckComponentsVersionResponse CheckComponentsVersionResponse
      */
     public function checkComponentsVersionWithOptions($request, $runtime)
     {
@@ -453,9 +453,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CheckComponentsVersionRequest $request
+     * @param CheckComponentsVersionRequest $request CheckComponentsVersionRequest
      *
-     * @return CheckComponentsVersionResponse
+     * @return CheckComponentsVersionResponse CheckComponentsVersionResponse
      */
     public function checkComponentsVersion($request)
     {
@@ -465,10 +465,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CloseBackupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CloseBackupRequest $request CloseBackupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseBackupResponse
+     * @return CloseBackupResponse CloseBackupResponse
      */
     public function closeBackupWithOptions($request, $runtime)
     {
@@ -496,9 +496,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CloseBackupRequest $request
+     * @param CloseBackupRequest $request CloseBackupRequest
      *
-     * @return CloseBackupResponse
+     * @return CloseBackupResponse CloseBackupResponse
      */
     public function closeBackup($request)
     {
@@ -508,10 +508,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ConvertInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ConvertInstanceRequest $request ConvertInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConvertInstanceResponse
+     * @return ConvertInstanceResponse ConvertInstanceResponse
      */
     public function convertInstanceWithOptions($request, $runtime)
     {
@@ -548,9 +548,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ConvertInstanceRequest $request
+     * @param ConvertInstanceRequest $request ConvertInstanceRequest
      *
-     * @return ConvertInstanceResponse
+     * @return ConvertInstanceResponse ConvertInstanceResponse
      */
     public function convertInstance($request)
     {
@@ -560,10 +560,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 新建账户
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -597,9 +599,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * @summary 新建账户
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -609,10 +613,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPlanRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupPlanResponse
+     * @return CreateBackupPlanResponse CreateBackupPlanResponse
      */
     public function createBackupPlanWithOptions($request, $runtime)
     {
@@ -640,9 +644,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPlanRequest $request
+     * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
      *
-     * @return CreateBackupPlanResponse
+     * @return CreateBackupPlanResponse CreateBackupPlanResponse
      */
     public function createBackupPlan($request)
     {
@@ -652,10 +656,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -743,9 +747,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -755,10 +759,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalResourceResponse
+     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
      */
     public function createGlobalResourceWithOptions($request, $runtime)
     {
@@ -798,9 +802,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request
+     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
      *
-     * @return CreateGlobalResourceResponse
+     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
      */
     public function createGlobalResource($request)
     {
@@ -810,10 +814,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHBaseSlbServerRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateHBaseSlbServerRequest $request CreateHBaseSlbServerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHBaseSlbServerResponse
+     * @return CreateHBaseSlbServerResponse CreateHBaseSlbServerResponse
      */
     public function createHBaseSlbServerWithOptions($request, $runtime)
     {
@@ -847,9 +851,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHBaseSlbServerRequest $request
+     * @param CreateHBaseSlbServerRequest $request CreateHBaseSlbServerRequest
      *
-     * @return CreateHBaseSlbServerResponse
+     * @return CreateHBaseSlbServerResponse CreateHBaseSlbServerResponse
      */
     public function createHBaseSlbServer($request)
     {
@@ -859,10 +863,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHbaseHaSlbRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateHbaseHaSlbRequest $request CreateHbaseHaSlbRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHbaseHaSlbResponse
+     * @return CreateHbaseHaSlbResponse CreateHbaseHaSlbResponse
      */
     public function createHbaseHaSlbWithOptions($request, $runtime)
     {
@@ -902,9 +906,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHbaseHaSlbRequest $request
+     * @param CreateHbaseHaSlbRequest $request CreateHbaseHaSlbRequest
      *
-     * @return CreateHbaseHaSlbResponse
+     * @return CreateHbaseHaSlbResponse CreateHbaseHaSlbResponse
      */
     public function createHbaseHaSlb($request)
     {
@@ -914,10 +918,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateMultiZoneClusterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateMultiZoneClusterRequest $request CreateMultiZoneClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMultiZoneClusterResponse
+     * @return CreateMultiZoneClusterResponse CreateMultiZoneClusterResponse
      */
     public function createMultiZoneClusterWithOptions($request, $runtime)
     {
@@ -1029,9 +1033,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateMultiZoneClusterRequest $request
+     * @param CreateMultiZoneClusterRequest $request CreateMultiZoneClusterRequest
      *
-     * @return CreateMultiZoneClusterResponse
+     * @return CreateMultiZoneClusterResponse CreateMultiZoneClusterResponse
      */
     public function createMultiZoneCluster($request)
     {
@@ -1041,10 +1045,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateRestorePlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateRestorePlanRequest $request CreateRestorePlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRestorePlanResponse
+     * @return CreateRestorePlanResponse CreateRestorePlanResponse
      */
     public function createRestorePlanWithOptions($request, $runtime)
     {
@@ -1087,9 +1091,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateRestorePlanRequest $request
+     * @param CreateRestorePlanRequest $request CreateRestorePlanRequest
      *
-     * @return CreateRestorePlanResponse
+     * @return CreateRestorePlanResponse CreateRestorePlanResponse
      */
     public function createRestorePlan($request)
     {
@@ -1099,10 +1103,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateServerlessClusterRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServerlessClusterRequest $request CreateServerlessClusterRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServerlessClusterResponse
+     * @return CreateServerlessClusterResponse CreateServerlessClusterResponse
      */
     public function createServerlessClusterWithOptions($request, $runtime)
     {
@@ -1181,9 +1185,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateServerlessClusterRequest $request
+     * @param CreateServerlessClusterRequest $request CreateServerlessClusterRequest
      *
-     * @return CreateServerlessClusterResponse
+     * @return CreateServerlessClusterResponse CreateServerlessClusterResponse
      */
     public function createServerlessCluster($request)
     {
@@ -1193,10 +1197,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除账户
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -1227,9 +1233,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * @summary 删除账户
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1239,10 +1247,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalResourceResponse
+     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
      */
     public function deleteGlobalResourceWithOptions($request, $runtime)
     {
@@ -1279,9 +1287,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request
+     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
      *
-     * @return DeleteGlobalResourceResponse
+     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
      */
     public function deleteGlobalResource($request)
     {
@@ -1291,10 +1299,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseHaDBRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DeleteHBaseHaDBRequest $request DeleteHBaseHaDBRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHBaseHaDBResponse
+     * @return DeleteHBaseHaDBResponse DeleteHBaseHaDBResponse
      */
     public function deleteHBaseHaDBWithOptions($request, $runtime)
     {
@@ -1325,9 +1333,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseHaDBRequest $request
+     * @param DeleteHBaseHaDBRequest $request DeleteHBaseHaDBRequest
      *
-     * @return DeleteHBaseHaDBResponse
+     * @return DeleteHBaseHaDBResponse DeleteHBaseHaDBResponse
      */
     public function deleteHBaseHaDB($request)
     {
@@ -1337,10 +1345,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseSlbServerRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteHBaseSlbServerRequest $request DeleteHBaseSlbServerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHBaseSlbServerResponse
+     * @return DeleteHBaseSlbServerResponse DeleteHBaseSlbServerResponse
      */
     public function deleteHBaseSlbServerWithOptions($request, $runtime)
     {
@@ -1371,9 +1379,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseSlbServerRequest $request
+     * @param DeleteHBaseSlbServerRequest $request DeleteHBaseSlbServerRequest
      *
-     * @return DeleteHBaseSlbServerResponse
+     * @return DeleteHBaseSlbServerResponse DeleteHBaseSlbServerResponse
      */
     public function deleteHBaseSlbServer($request)
     {
@@ -1383,10 +1391,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHbaseHaSlbRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteHbaseHaSlbRequest $request DeleteHbaseHaSlbRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHbaseHaSlbResponse
+     * @return DeleteHbaseHaSlbResponse DeleteHbaseHaSlbResponse
      */
     public function deleteHbaseHaSlbWithOptions($request, $runtime)
     {
@@ -1420,9 +1428,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHbaseHaSlbRequest $request
+     * @param DeleteHbaseHaSlbRequest $request DeleteHbaseHaSlbRequest
      *
-     * @return DeleteHbaseHaSlbResponse
+     * @return DeleteHbaseHaSlbResponse DeleteHbaseHaSlbResponse
      */
     public function deleteHbaseHaSlb($request)
     {
@@ -1432,10 +1440,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -1466,9 +1474,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1478,10 +1486,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteMultiZoneClusterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteMultiZoneClusterRequest $request DeleteMultiZoneClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMultiZoneClusterResponse
+     * @return DeleteMultiZoneClusterResponse DeleteMultiZoneClusterResponse
      */
     public function deleteMultiZoneClusterWithOptions($request, $runtime)
     {
@@ -1512,9 +1520,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteMultiZoneClusterRequest $request
+     * @param DeleteMultiZoneClusterRequest $request DeleteMultiZoneClusterRequest
      *
-     * @return DeleteMultiZoneClusterResponse
+     * @return DeleteMultiZoneClusterResponse DeleteMultiZoneClusterResponse
      */
     public function deleteMultiZoneCluster($request)
     {
@@ -1524,10 +1532,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerlessClusterRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteServerlessClusterRequest $request DeleteServerlessClusterRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerlessClusterResponse
+     * @return DeleteServerlessClusterResponse DeleteServerlessClusterResponse
      */
     public function deleteServerlessClusterWithOptions($request, $runtime)
     {
@@ -1561,9 +1569,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerlessClusterRequest $request
+     * @param DeleteServerlessClusterRequest $request DeleteServerlessClusterRequest
      *
-     * @return DeleteServerlessClusterResponse
+     * @return DeleteServerlessClusterResponse DeleteServerlessClusterResponse
      */
     public function deleteServerlessCluster($request)
     {
@@ -1573,10 +1581,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserHdfsInfoResponse
+     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfoWithOptions($request, $runtime)
     {
@@ -1607,9 +1615,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request
+     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
      *
-     * @return DeleteUserHdfsInfoResponse
+     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfo($request)
     {
@@ -1619,10 +1627,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询账户列表
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1650,9 +1660,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * @summary 查询账户列表
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1662,10 +1674,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskTypeRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTaskTypeResponse
+     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskTypeWithOptions($request, $runtime)
     {
@@ -1708,9 +1720,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskTypeRequest $request
+     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
      *
-     * @return DescribeActiveOperationTaskTypeResponse
+     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskType($request)
     {
@@ -1720,10 +1732,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -1796,9 +1808,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -1808,10 +1820,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
@@ -1857,9 +1869,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -1869,10 +1881,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPlanConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeBackupPlanConfigRequest $request DescribeBackupPlanConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPlanConfigResponse
+     * @return DescribeBackupPlanConfigResponse DescribeBackupPlanConfigResponse
      */
     public function describeBackupPlanConfigWithOptions($request, $runtime)
     {
@@ -1900,9 +1912,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPlanConfigRequest $request
+     * @param DescribeBackupPlanConfigRequest $request DescribeBackupPlanConfigRequest
      *
-     * @return DescribeBackupPlanConfigResponse
+     * @return DescribeBackupPlanConfigResponse DescribeBackupPlanConfigResponse
      */
     public function describeBackupPlanConfig($request)
     {
@@ -1912,10 +1924,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -1943,9 +1955,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1955,10 +1967,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupStatusRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupStatusRequest $request DescribeBackupStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupStatusResponse
+     * @return DescribeBackupStatusResponse DescribeBackupStatusResponse
      */
     public function describeBackupStatusWithOptions($request, $runtime)
     {
@@ -1986,9 +1998,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupStatusRequest $request
+     * @param DescribeBackupStatusRequest $request DescribeBackupStatusRequest
      *
-     * @return DescribeBackupStatusResponse
+     * @return DescribeBackupStatusResponse DescribeBackupStatusResponse
      */
     public function describeBackupStatus($request)
     {
@@ -1998,10 +2010,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSummaryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeBackupSummaryRequest $request DescribeBackupSummaryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSummaryResponse
+     * @return DescribeBackupSummaryResponse DescribeBackupSummaryResponse
      */
     public function describeBackupSummaryWithOptions($request, $runtime)
     {
@@ -2035,9 +2047,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSummaryRequest $request
+     * @param DescribeBackupSummaryRequest $request DescribeBackupSummaryRequest
      *
-     * @return DescribeBackupSummaryResponse
+     * @return DescribeBackupSummaryResponse DescribeBackupSummaryResponse
      */
     public function describeBackupSummary($request)
     {
@@ -2047,10 +2059,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTablesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupTablesRequest $request DescribeBackupTablesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTablesResponse
+     * @return DescribeBackupTablesResponse DescribeBackupTablesResponse
      */
     public function describeBackupTablesWithOptions($request, $runtime)
     {
@@ -2087,9 +2099,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTablesRequest $request
+     * @param DescribeBackupTablesRequest $request DescribeBackupTablesRequest
      *
-     * @return DescribeBackupTablesResponse
+     * @return DescribeBackupTablesResponse DescribeBackupTablesResponse
      */
     public function describeBackupTables($request)
     {
@@ -2099,10 +2111,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2151,9 +2163,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2163,10 +2175,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterConnectionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeClusterConnectionRequest $request DescribeClusterConnectionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterConnectionResponse
+     * @return DescribeClusterConnectionResponse DescribeClusterConnectionResponse
      */
     public function describeClusterConnectionWithOptions($request, $runtime)
     {
@@ -2197,9 +2209,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterConnectionRequest $request
+     * @param DescribeClusterConnectionRequest $request DescribeClusterConnectionRequest
      *
-     * @return DescribeClusterConnectionResponse
+     * @return DescribeClusterConnectionResponse DescribeClusterConnectionResponse
      */
     public function describeClusterConnection($request)
     {
@@ -2209,10 +2221,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdStorageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColdStorageResponse
+     * @return DescribeColdStorageResponse DescribeColdStorageResponse
      */
     public function describeColdStorageWithOptions($request, $runtime)
     {
@@ -2240,9 +2252,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdStorageRequest $request
+     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
      *
-     * @return DescribeColdStorageResponse
+     * @return DescribeColdStorageResponse DescribeColdStorageResponse
      */
     public function describeColdStorage($request)
     {
@@ -2252,10 +2264,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceUsageRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeDBInstanceUsageRequest $request DescribeDBInstanceUsageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceUsageResponse
+     * @return DescribeDBInstanceUsageResponse DescribeDBInstanceUsageResponse
      */
     public function describeDBInstanceUsageWithOptions($request, $runtime)
     {
@@ -2283,9 +2295,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceUsageRequest $request
+     * @param DescribeDBInstanceUsageRequest $request DescribeDBInstanceUsageRequest
      *
-     * @return DescribeDBInstanceUsageResponse
+     * @return DescribeDBInstanceUsageResponse DescribeDBInstanceUsageResponse
      */
     public function describeDBInstanceUsage($request)
     {
@@ -2295,10 +2307,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeletedInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeDeletedInstancesRequest $request DescribeDeletedInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeletedInstancesResponse
+     * @return DescribeDeletedInstancesResponse DescribeDeletedInstancesResponse
      */
     public function describeDeletedInstancesWithOptions($request, $runtime)
     {
@@ -2332,9 +2344,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeletedInstancesRequest $request
+     * @param DescribeDeletedInstancesRequest $request DescribeDeletedInstancesRequest
      *
-     * @return DescribeDeletedInstancesResponse
+     * @return DescribeDeletedInstancesResponse DescribeDeletedInstancesResponse
      */
     public function describeDeletedInstances($request)
     {
@@ -2344,10 +2356,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiskWarningLineRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeDiskWarningLineRequest $request DescribeDiskWarningLineRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiskWarningLineResponse
+     * @return DescribeDiskWarningLineResponse DescribeDiskWarningLineResponse
      */
     public function describeDiskWarningLineWithOptions($request, $runtime)
     {
@@ -2375,9 +2387,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiskWarningLineRequest $request
+     * @param DescribeDiskWarningLineRequest $request DescribeDiskWarningLineRequest
      *
-     * @return DescribeDiskWarningLineResponse
+     * @return DescribeDiskWarningLineResponse DescribeDiskWarningLineResponse
      */
     public function describeDiskWarningLine($request)
     {
@@ -2387,10 +2399,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndpointsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeEndpointsRequest $request DescribeEndpointsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEndpointsResponse
+     * @return DescribeEndpointsResponse DescribeEndpointsResponse
      */
     public function describeEndpointsWithOptions($request, $runtime)
     {
@@ -2418,9 +2430,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndpointsRequest $request
+     * @param DescribeEndpointsRequest $request DescribeEndpointsRequest
      *
-     * @return DescribeEndpointsResponse
+     * @return DescribeEndpointsResponse DescribeEndpointsResponse
      */
     public function describeEndpoints($request)
     {
@@ -2430,10 +2442,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -2461,9 +2473,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2473,10 +2485,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTypeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeInstanceTypeRequest $request DescribeInstanceTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTypeResponse
+     * @return DescribeInstanceTypeResponse DescribeInstanceTypeResponse
      */
     public function describeInstanceTypeWithOptions($request, $runtime)
     {
@@ -2504,9 +2516,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTypeRequest $request
+     * @param DescribeInstanceTypeRequest $request DescribeInstanceTypeRequest
      *
-     * @return DescribeInstanceTypeResponse
+     * @return DescribeInstanceTypeResponse DescribeInstanceTypeResponse
      */
     public function describeInstanceType($request)
     {
@@ -2516,10 +2528,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -2568,9 +2580,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2580,10 +2592,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpWhitelistRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeIpWhitelistRequest $request DescribeIpWhitelistRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpWhitelistResponse
+     * @return DescribeIpWhitelistResponse DescribeIpWhitelistResponse
      */
     public function describeIpWhitelistWithOptions($request, $runtime)
     {
@@ -2611,9 +2623,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpWhitelistRequest $request
+     * @param DescribeIpWhitelistRequest $request DescribeIpWhitelistRequest
      *
-     * @return DescribeIpWhitelistResponse
+     * @return DescribeIpWhitelistResponse DescribeIpWhitelistResponse
      */
     public function describeIpWhitelist($request)
     {
@@ -2623,10 +2635,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableRegionsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeMultiZoneAvailableRegionsRequest $request DescribeMultiZoneAvailableRegionsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneAvailableRegionsResponse
+     * @return DescribeMultiZoneAvailableRegionsResponse DescribeMultiZoneAvailableRegionsResponse
      */
     public function describeMultiZoneAvailableRegionsWithOptions($request, $runtime)
     {
@@ -2654,9 +2666,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableRegionsRequest $request
+     * @param DescribeMultiZoneAvailableRegionsRequest $request DescribeMultiZoneAvailableRegionsRequest
      *
-     * @return DescribeMultiZoneAvailableRegionsResponse
+     * @return DescribeMultiZoneAvailableRegionsResponse DescribeMultiZoneAvailableRegionsResponse
      */
     public function describeMultiZoneAvailableRegions($request)
     {
@@ -2666,10 +2678,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableResourceRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeMultiZoneAvailableResourceRequest $request DescribeMultiZoneAvailableResourceRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneAvailableResourceResponse
+     * @return DescribeMultiZoneAvailableResourceResponse DescribeMultiZoneAvailableResourceResponse
      */
     public function describeMultiZoneAvailableResourceWithOptions($request, $runtime)
     {
@@ -2703,9 +2715,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableResourceRequest $request
+     * @param DescribeMultiZoneAvailableResourceRequest $request DescribeMultiZoneAvailableResourceRequest
      *
-     * @return DescribeMultiZoneAvailableResourceResponse
+     * @return DescribeMultiZoneAvailableResourceResponse DescribeMultiZoneAvailableResourceResponse
      */
     public function describeMultiZoneAvailableResource($request)
     {
@@ -2715,10 +2727,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneClusterRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeMultiZoneClusterRequest $request DescribeMultiZoneClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneClusterResponse
+     * @return DescribeMultiZoneClusterResponse DescribeMultiZoneClusterResponse
      */
     public function describeMultiZoneClusterWithOptions($request, $runtime)
     {
@@ -2746,9 +2758,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneClusterRequest $request
+     * @param DescribeMultiZoneClusterRequest $request DescribeMultiZoneClusterRequest
      *
-     * @return DescribeMultiZoneClusterResponse
+     * @return DescribeMultiZoneClusterResponse DescribeMultiZoneClusterResponse
      */
     public function describeMultiZoneCluster($request)
     {
@@ -2758,10 +2770,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecoverableTimeRangeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeRecoverableTimeRangeRequest $request DescribeRecoverableTimeRangeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecoverableTimeRangeResponse
+     * @return DescribeRecoverableTimeRangeResponse DescribeRecoverableTimeRangeResponse
      */
     public function describeRecoverableTimeRangeWithOptions($request, $runtime)
     {
@@ -2789,9 +2801,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecoverableTimeRangeRequest $request
+     * @param DescribeRecoverableTimeRangeRequest $request DescribeRecoverableTimeRangeRequest
      *
-     * @return DescribeRecoverableTimeRangeResponse
+     * @return DescribeRecoverableTimeRangeResponse DescribeRecoverableTimeRangeResponse
      */
     public function describeRecoverableTimeRange($request)
     {
@@ -2801,10 +2813,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -2835,9 +2847,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2847,10 +2859,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreFullDetailsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeRestoreFullDetailsRequest $request DescribeRestoreFullDetailsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreFullDetailsResponse
+     * @return DescribeRestoreFullDetailsResponse DescribeRestoreFullDetailsResponse
      */
     public function describeRestoreFullDetailsWithOptions($request, $runtime)
     {
@@ -2887,9 +2899,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreFullDetailsRequest $request
+     * @param DescribeRestoreFullDetailsRequest $request DescribeRestoreFullDetailsRequest
      *
-     * @return DescribeRestoreFullDetailsResponse
+     * @return DescribeRestoreFullDetailsResponse DescribeRestoreFullDetailsResponse
      */
     public function describeRestoreFullDetails($request)
     {
@@ -2899,10 +2911,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreIncrDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeRestoreIncrDetailRequest $request DescribeRestoreIncrDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreIncrDetailResponse
+     * @return DescribeRestoreIncrDetailResponse DescribeRestoreIncrDetailResponse
      */
     public function describeRestoreIncrDetailWithOptions($request, $runtime)
     {
@@ -2933,9 +2945,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreIncrDetailRequest $request
+     * @param DescribeRestoreIncrDetailRequest $request DescribeRestoreIncrDetailRequest
      *
-     * @return DescribeRestoreIncrDetailResponse
+     * @return DescribeRestoreIncrDetailResponse DescribeRestoreIncrDetailResponse
      */
     public function describeRestoreIncrDetail($request)
     {
@@ -2945,10 +2957,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSchemaDetailsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeRestoreSchemaDetailsRequest $request DescribeRestoreSchemaDetailsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreSchemaDetailsResponse
+     * @return DescribeRestoreSchemaDetailsResponse DescribeRestoreSchemaDetailsResponse
      */
     public function describeRestoreSchemaDetailsWithOptions($request, $runtime)
     {
@@ -2985,9 +2997,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSchemaDetailsRequest $request
+     * @param DescribeRestoreSchemaDetailsRequest $request DescribeRestoreSchemaDetailsRequest
      *
-     * @return DescribeRestoreSchemaDetailsResponse
+     * @return DescribeRestoreSchemaDetailsResponse DescribeRestoreSchemaDetailsResponse
      */
     public function describeRestoreSchemaDetails($request)
     {
@@ -2997,10 +3009,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSummaryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeRestoreSummaryRequest $request DescribeRestoreSummaryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreSummaryResponse
+     * @return DescribeRestoreSummaryResponse DescribeRestoreSummaryResponse
      */
     public function describeRestoreSummaryWithOptions($request, $runtime)
     {
@@ -3034,9 +3046,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSummaryRequest $request
+     * @param DescribeRestoreSummaryRequest $request DescribeRestoreSummaryRequest
      *
-     * @return DescribeRestoreSummaryResponse
+     * @return DescribeRestoreSummaryResponse DescribeRestoreSummaryResponse
      */
     public function describeRestoreSummary($request)
     {
@@ -3046,10 +3058,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreTablesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeRestoreTablesRequest $request DescribeRestoreTablesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreTablesResponse
+     * @return DescribeRestoreTablesResponse DescribeRestoreTablesResponse
      */
     public function describeRestoreTablesWithOptions($request, $runtime)
     {
@@ -3080,9 +3092,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreTablesRequest $request
+     * @param DescribeRestoreTablesRequest $request DescribeRestoreTablesRequest
      *
-     * @return DescribeRestoreTablesResponse
+     * @return DescribeRestoreTablesResponse DescribeRestoreTablesResponse
      */
     public function describeRestoreTables($request)
     {
@@ -3092,10 +3104,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupsResponse
+     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroupsWithOptions($request, $runtime)
     {
@@ -3123,9 +3135,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request
+     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
      *
-     * @return DescribeSecurityGroupsResponse
+     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroups($request)
     {
@@ -3135,10 +3147,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerlessClusterRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeServerlessClusterRequest $request DescribeServerlessClusterRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServerlessClusterResponse
+     * @return DescribeServerlessClusterResponse DescribeServerlessClusterResponse
      */
     public function describeServerlessClusterWithOptions($request, $runtime)
     {
@@ -3169,9 +3181,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerlessClusterRequest $request
+     * @param DescribeServerlessClusterRequest $request DescribeServerlessClusterRequest
      *
-     * @return DescribeServerlessClusterResponse
+     * @return DescribeServerlessClusterResponse DescribeServerlessClusterResponse
      */
     public function describeServerlessCluster($request)
     {
@@ -3181,10 +3193,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubDomainRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeSubDomainRequest $request DescribeSubDomainRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubDomainResponse
+     * @return DescribeSubDomainResponse DescribeSubDomainResponse
      */
     public function describeSubDomainWithOptions($request, $runtime)
     {
@@ -3215,9 +3227,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubDomainRequest $request
+     * @param DescribeSubDomainRequest $request DescribeSubDomainRequest
      *
-     * @return DescribeSubDomainResponse
+     * @return DescribeSubDomainResponse DescribeSubDomainResponse
      */
     public function describeSubDomain($request)
     {
@@ -3227,10 +3239,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueBackupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param EnableHBaseueBackupRequest $request EnableHBaseueBackupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableHBaseueBackupResponse
+     * @return EnableHBaseueBackupResponse EnableHBaseueBackupResponse
      */
     public function enableHBaseueBackupWithOptions($request, $runtime)
     {
@@ -3267,9 +3279,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueBackupRequest $request
+     * @param EnableHBaseueBackupRequest $request EnableHBaseueBackupRequest
      *
-     * @return EnableHBaseueBackupResponse
+     * @return EnableHBaseueBackupResponse EnableHBaseueBackupResponse
      */
     public function enableHBaseueBackup($request)
     {
@@ -3279,10 +3291,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueModuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param EnableHBaseueModuleRequest $request EnableHBaseueModuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableHBaseueModuleResponse
+     * @return EnableHBaseueModuleResponse EnableHBaseueModuleResponse
      */
     public function enableHBaseueModuleWithOptions($request, $runtime)
     {
@@ -3361,9 +3373,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueModuleRequest $request
+     * @param EnableHBaseueModuleRequest $request EnableHBaseueModuleRequest
      *
-     * @return EnableHBaseueModuleResponse
+     * @return EnableHBaseueModuleResponse EnableHBaseueModuleResponse
      */
     public function enableHBaseueModule($request)
     {
@@ -3373,10 +3385,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EvaluateMultiZoneResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param EvaluateMultiZoneResourceRequest $request EvaluateMultiZoneResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EvaluateMultiZoneResourceResponse
+     * @return EvaluateMultiZoneResourceResponse EvaluateMultiZoneResourceResponse
      */
     public function evaluateMultiZoneResourceWithOptions($request, $runtime)
     {
@@ -3485,9 +3497,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EvaluateMultiZoneResourceRequest $request
+     * @param EvaluateMultiZoneResourceRequest $request EvaluateMultiZoneResourceRequest
      *
-     * @return EvaluateMultiZoneResourceResponse
+     * @return EvaluateMultiZoneResourceResponse EvaluateMultiZoneResourceResponse
      */
     public function evaluateMultiZoneResource($request)
     {
@@ -3497,10 +3509,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMultimodeCmsUrlResponse
+     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrlWithOptions($request, $runtime)
     {
@@ -3531,9 +3543,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request
+     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
      *
-     * @return GetMultimodeCmsUrlResponse
+     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrl($request)
     {
@@ -3543,10 +3555,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GrantRequest   $request
-     * @param RuntimeOptions $runtime
+     * @summary 授权账户权限
+     *  *
+     * @param GrantRequest   $request GrantRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantResponse
+     * @return GrantResponse GrantResponse
      */
     public function grantWithOptions($request, $runtime)
     {
@@ -3586,9 +3600,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GrantRequest $request
+     * @summary 授权账户权限
+     *  *
+     * @param GrantRequest $request GrantRequest
      *
-     * @return GrantResponse
+     * @return GrantResponse GrantResponse
      */
     public function grant($request)
     {
@@ -3598,10 +3614,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListHBaseInstancesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListHBaseInstancesRequest $request ListHBaseInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHBaseInstancesResponse
+     * @return ListHBaseInstancesResponse ListHBaseInstancesResponse
      */
     public function listHBaseInstancesWithOptions($request, $runtime)
     {
@@ -3629,9 +3645,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListHBaseInstancesRequest $request
+     * @param ListHBaseInstancesRequest $request ListHBaseInstancesRequest
      *
-     * @return ListHBaseInstancesResponse
+     * @return ListHBaseInstancesResponse ListHBaseInstancesResponse
      */
     public function listHBaseInstances($request)
     {
@@ -3641,10 +3657,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigHistoriesRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param ListInstanceServiceConfigHistoriesRequest $request ListInstanceServiceConfigHistoriesRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceServiceConfigHistoriesResponse
+     * @return ListInstanceServiceConfigHistoriesResponse ListInstanceServiceConfigHistoriesResponse
      */
     public function listInstanceServiceConfigHistoriesWithOptions($request, $runtime)
     {
@@ -3678,9 +3694,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigHistoriesRequest $request
+     * @param ListInstanceServiceConfigHistoriesRequest $request ListInstanceServiceConfigHistoriesRequest
      *
-     * @return ListInstanceServiceConfigHistoriesResponse
+     * @return ListInstanceServiceConfigHistoriesResponse ListInstanceServiceConfigHistoriesResponse
      */
     public function listInstanceServiceConfigHistories($request)
     {
@@ -3690,10 +3706,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigurationsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param ListInstanceServiceConfigurationsRequest $request ListInstanceServiceConfigurationsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceServiceConfigurationsResponse
+     * @return ListInstanceServiceConfigurationsResponse ListInstanceServiceConfigurationsResponse
      */
     public function listInstanceServiceConfigurationsWithOptions($request, $runtime)
     {
@@ -3727,9 +3743,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigurationsRequest $request
+     * @param ListInstanceServiceConfigurationsRequest $request ListInstanceServiceConfigurationsRequest
      *
-     * @return ListInstanceServiceConfigurationsResponse
+     * @return ListInstanceServiceConfigurationsResponse ListInstanceServiceConfigurationsResponse
      */
     public function listInstanceServiceConfigurations($request)
     {
@@ -3739,10 +3755,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -3779,9 +3795,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3791,10 +3807,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param ListTagsRequest $request ListTagsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTagsWithOptions($request, $runtime)
     {
@@ -3822,9 +3838,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request
+     * @param ListTagsRequest $request ListTagsRequest
      *
-     * @return ListTagsResponse
+     * @return ListTagsResponse ListTagsResponse
      */
     public function listTags($request)
     {
@@ -3834,10 +3850,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更改账户密码
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
@@ -3871,9 +3889,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
+     * @summary 更改账户密码
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -3883,10 +3903,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
@@ -3935,9 +3955,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -3947,10 +3967,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPlanConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyBackupPlanConfigRequest $request ModifyBackupPlanConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPlanConfigResponse
+     * @return ModifyBackupPlanConfigResponse ModifyBackupPlanConfigResponse
      */
     public function modifyBackupPlanConfigWithOptions($request, $runtime)
     {
@@ -3990,9 +4010,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPlanConfigRequest $request
+     * @param ModifyBackupPlanConfigRequest $request ModifyBackupPlanConfigRequest
      *
-     * @return ModifyBackupPlanConfigResponse
+     * @return ModifyBackupPlanConfigResponse ModifyBackupPlanConfigResponse
      */
     public function modifyBackupPlanConfig($request)
     {
@@ -4002,10 +4022,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -4045,9 +4065,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -4057,10 +4077,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterDeletionProtectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ModifyClusterDeletionProtectionRequest $request ModifyClusterDeletionProtectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterDeletionProtectionResponse
+     * @return ModifyClusterDeletionProtectionResponse ModifyClusterDeletionProtectionResponse
      */
     public function modifyClusterDeletionProtectionWithOptions($request, $runtime)
     {
@@ -4091,9 +4111,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterDeletionProtectionRequest $request
+     * @param ModifyClusterDeletionProtectionRequest $request ModifyClusterDeletionProtectionRequest
      *
-     * @return ModifyClusterDeletionProtectionResponse
+     * @return ModifyClusterDeletionProtectionResponse ModifyClusterDeletionProtectionResponse
      */
     public function modifyClusterDeletionProtection($request)
     {
@@ -4103,10 +4123,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyDiskWarningLineRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ModifyDiskWarningLineRequest $request ModifyDiskWarningLineRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDiskWarningLineResponse
+     * @return ModifyDiskWarningLineResponse ModifyDiskWarningLineResponse
      */
     public function modifyDiskWarningLineWithOptions($request, $runtime)
     {
@@ -4137,9 +4157,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyDiskWarningLineRequest $request
+     * @param ModifyDiskWarningLineRequest $request ModifyDiskWarningLineRequest
      *
-     * @return ModifyDiskWarningLineResponse
+     * @return ModifyDiskWarningLineResponse ModifyDiskWarningLineResponse
      */
     public function modifyDiskWarningLine($request)
     {
@@ -4149,10 +4169,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
@@ -4186,9 +4206,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTime($request)
     {
@@ -4198,10 +4218,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
@@ -4241,9 +4261,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceName($request)
     {
@@ -4253,10 +4273,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceServiceConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ModifyInstanceServiceConfigRequest $request ModifyInstanceServiceConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceServiceConfigResponse
+     * @return ModifyInstanceServiceConfigResponse ModifyInstanceServiceConfigResponse
      */
     public function modifyInstanceServiceConfigWithOptions($request, $runtime)
     {
@@ -4296,9 +4316,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceServiceConfigRequest $request
+     * @param ModifyInstanceServiceConfigRequest $request ModifyInstanceServiceConfigRequest
      *
-     * @return ModifyInstanceServiceConfigResponse
+     * @return ModifyInstanceServiceConfigResponse ModifyInstanceServiceConfigResponse
      */
     public function modifyInstanceServiceConfig($request)
     {
@@ -4308,10 +4328,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTypeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyInstanceTypeRequest $request ModifyInstanceTypeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTypeResponse
+     * @return ModifyInstanceTypeResponse ModifyInstanceTypeResponse
      */
     public function modifyInstanceTypeWithOptions($request, $runtime)
     {
@@ -4345,9 +4365,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTypeRequest $request
+     * @param ModifyInstanceTypeRequest $request ModifyInstanceTypeRequest
      *
-     * @return ModifyInstanceTypeResponse
+     * @return ModifyInstanceTypeResponse ModifyInstanceTypeResponse
      */
     public function modifyInstanceType($request)
     {
@@ -4357,10 +4377,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpWhitelistRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ModifyIpWhitelistRequest $request ModifyIpWhitelistRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIpWhitelistResponse
+     * @return ModifyIpWhitelistResponse ModifyIpWhitelistResponse
      */
     public function modifyIpWhitelistWithOptions($request, $runtime)
     {
@@ -4397,9 +4417,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpWhitelistRequest $request
+     * @param ModifyIpWhitelistRequest $request ModifyIpWhitelistRequest
      *
-     * @return ModifyIpWhitelistResponse
+     * @return ModifyIpWhitelistResponse ModifyIpWhitelistResponse
      */
     public function modifyIpWhitelist($request)
     {
@@ -4409,10 +4429,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyMultiZoneClusterNodeTypeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param ModifyMultiZoneClusterNodeTypeRequest $request ModifyMultiZoneClusterNodeTypeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMultiZoneClusterNodeTypeResponse
+     * @return ModifyMultiZoneClusterNodeTypeResponse ModifyMultiZoneClusterNodeTypeResponse
      */
     public function modifyMultiZoneClusterNodeTypeWithOptions($request, $runtime)
     {
@@ -4449,9 +4469,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyMultiZoneClusterNodeTypeRequest $request
+     * @param ModifyMultiZoneClusterNodeTypeRequest $request ModifyMultiZoneClusterNodeTypeRequest
      *
-     * @return ModifyMultiZoneClusterNodeTypeResponse
+     * @return ModifyMultiZoneClusterNodeTypeResponse ModifyMultiZoneClusterNodeTypeResponse
      */
     public function modifyMultiZoneClusterNodeType($request)
     {
@@ -4461,10 +4481,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifySecurityGroupsRequest $request ModifySecurityGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityGroupsResponse
+     * @return ModifySecurityGroupsResponse ModifySecurityGroupsResponse
      */
     public function modifySecurityGroupsWithOptions($request, $runtime)
     {
@@ -4495,9 +4515,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityGroupsRequest $request
+     * @param ModifySecurityGroupsRequest $request ModifySecurityGroupsRequest
      *
-     * @return ModifySecurityGroupsResponse
+     * @return ModifySecurityGroupsResponse ModifySecurityGroupsResponse
      */
     public function modifySecurityGroups($request)
     {
@@ -4507,10 +4527,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyUIAccountPasswordRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param ModifyUIAccountPasswordRequest $request ModifyUIAccountPasswordRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUIAccountPasswordResponse
+     * @return ModifyUIAccountPasswordResponse ModifyUIAccountPasswordResponse
      */
     public function modifyUIAccountPasswordWithOptions($request, $runtime)
     {
@@ -4544,9 +4564,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyUIAccountPasswordRequest $request
+     * @param ModifyUIAccountPasswordRequest $request ModifyUIAccountPasswordRequest
      *
-     * @return ModifyUIAccountPasswordResponse
+     * @return ModifyUIAccountPasswordResponse ModifyUIAccountPasswordResponse
      */
     public function modifyUIAccountPassword($request)
     {
@@ -4556,10 +4576,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -4590,9 +4610,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -4602,10 +4622,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param OpenBackupRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param OpenBackupRequest $request OpenBackupRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenBackupResponse
+     * @return OpenBackupResponse OpenBackupResponse
      */
     public function openBackupWithOptions($request, $runtime)
     {
@@ -4633,9 +4653,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param OpenBackupRequest $request
+     * @param OpenBackupRequest $request OpenBackupRequest
      *
-     * @return OpenBackupResponse
+     * @return OpenBackupResponse OpenBackupResponse
      */
     public function openBackup($request)
     {
@@ -4645,10 +4665,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param PurgeInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param PurgeInstanceRequest $request PurgeInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return PurgeInstanceResponse
+     * @return PurgeInstanceResponse PurgeInstanceResponse
      */
     public function purgeInstanceWithOptions($request, $runtime)
     {
@@ -4676,9 +4696,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param PurgeInstanceRequest $request
+     * @param PurgeInstanceRequest $request PurgeInstanceRequest
      *
-     * @return PurgeInstanceResponse
+     * @return PurgeInstanceResponse PurgeInstanceResponse
      */
     public function purgeInstance($request)
     {
@@ -4688,10 +4708,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryHBaseHaDBResponse
+     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDBWithOptions($request, $runtime)
     {
@@ -4719,9 +4739,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request
+     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
      *
-     * @return QueryHBaseHaDBResponse
+     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDB($request)
     {
@@ -4731,10 +4751,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryXpackRelateDBRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryXpackRelateDBRequest $request QueryXpackRelateDBRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryXpackRelateDBResponse
+     * @return QueryXpackRelateDBResponse QueryXpackRelateDBResponse
      */
     public function queryXpackRelateDBWithOptions($request, $runtime)
     {
@@ -4768,9 +4788,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryXpackRelateDBRequest $request
+     * @param QueryXpackRelateDBRequest $request QueryXpackRelateDBRequest
      *
-     * @return QueryXpackRelateDBResponse
+     * @return QueryXpackRelateDBResponse QueryXpackRelateDBResponse
      */
     public function queryXpackRelateDB($request)
     {
@@ -4780,10 +4800,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RelateDbForHBaseHaResponse
+     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHaWithOptions($request, $runtime)
     {
@@ -4871,9 +4891,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request
+     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
      *
-     * @return RelateDbForHBaseHaResponse
+     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHa($request)
     {
@@ -4883,10 +4903,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -4914,9 +4934,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddress($request)
     {
@@ -4926,10 +4946,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
@@ -4963,9 +4983,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -4975,10 +4995,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeColdStorageSizeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ResizeColdStorageSizeRequest $request ResizeColdStorageSizeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeColdStorageSizeResponse
+     * @return ResizeColdStorageSizeResponse ResizeColdStorageSizeResponse
      */
     public function resizeColdStorageSizeWithOptions($request, $runtime)
     {
@@ -5009,9 +5029,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeColdStorageSizeRequest $request
+     * @param ResizeColdStorageSizeRequest $request ResizeColdStorageSizeRequest
      *
-     * @return ResizeColdStorageSizeResponse
+     * @return ResizeColdStorageSizeResponse ResizeColdStorageSizeResponse
      */
     public function resizeColdStorageSize($request)
     {
@@ -5021,10 +5041,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeDiskSizeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ResizeDiskSizeRequest $request ResizeDiskSizeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeDiskSizeResponse
+     * @return ResizeDiskSizeResponse ResizeDiskSizeResponse
      */
     public function resizeDiskSizeWithOptions($request, $runtime)
     {
@@ -5055,9 +5075,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeDiskSizeRequest $request
+     * @param ResizeDiskSizeRequest $request ResizeDiskSizeRequest
      *
-     * @return ResizeDiskSizeResponse
+     * @return ResizeDiskSizeResponse ResizeDiskSizeResponse
      */
     public function resizeDiskSize($request)
     {
@@ -5067,10 +5087,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterDiskSizeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param ResizeMultiZoneClusterDiskSizeRequest $request ResizeMultiZoneClusterDiskSizeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeMultiZoneClusterDiskSizeResponse
+     * @return ResizeMultiZoneClusterDiskSizeResponse ResizeMultiZoneClusterDiskSizeResponse
      */
     public function resizeMultiZoneClusterDiskSizeWithOptions($request, $runtime)
     {
@@ -5104,9 +5124,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterDiskSizeRequest $request
+     * @param ResizeMultiZoneClusterDiskSizeRequest $request ResizeMultiZoneClusterDiskSizeRequest
      *
-     * @return ResizeMultiZoneClusterDiskSizeResponse
+     * @return ResizeMultiZoneClusterDiskSizeResponse ResizeMultiZoneClusterDiskSizeResponse
      */
     public function resizeMultiZoneClusterDiskSize($request)
     {
@@ -5116,10 +5136,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterNodeCountRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ResizeMultiZoneClusterNodeCountRequest $request ResizeMultiZoneClusterNodeCountRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeMultiZoneClusterNodeCountResponse
+     * @return ResizeMultiZoneClusterNodeCountResponse ResizeMultiZoneClusterNodeCountResponse
      */
     public function resizeMultiZoneClusterNodeCountWithOptions($request, $runtime)
     {
@@ -5168,9 +5188,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterNodeCountRequest $request
+     * @param ResizeMultiZoneClusterNodeCountRequest $request ResizeMultiZoneClusterNodeCountRequest
      *
-     * @return ResizeMultiZoneClusterNodeCountResponse
+     * @return ResizeMultiZoneClusterNodeCountResponse ResizeMultiZoneClusterNodeCountResponse
      */
     public function resizeMultiZoneClusterNodeCount($request)
     {
@@ -5180,10 +5200,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeNodeCountRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ResizeNodeCountRequest $request ResizeNodeCountRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeNodeCountResponse
+     * @return ResizeNodeCountResponse ResizeNodeCountResponse
      */
     public function resizeNodeCountWithOptions($request, $runtime)
     {
@@ -5220,9 +5240,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeNodeCountRequest $request
+     * @param ResizeNodeCountRequest $request ResizeNodeCountRequest
      *
-     * @return ResizeNodeCountResponse
+     * @return ResizeNodeCountResponse ResizeNodeCountResponse
      */
     public function resizeNodeCount($request)
     {
@@ -5232,10 +5252,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
@@ -5266,9 +5286,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
+     * @param RestartInstanceRequest $request RestartInstanceRequest
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -5278,10 +5298,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RevokeRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 回收账户权限
+     *  *
+     * @param RevokeRequest  $request RevokeRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeResponse
+     * @return RevokeResponse RevokeResponse
      */
     public function revokeWithOptions($request, $runtime)
     {
@@ -5321,9 +5343,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RevokeRequest $request
+     * @summary 回收账户权限
+     *  *
+     * @param RevokeRequest $request RevokeRequest
      *
-     * @return RevokeResponse
+     * @return RevokeResponse RevokeResponse
      */
     public function revoke($request)
     {
@@ -5333,10 +5357,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SwitchHbaseHaSlbRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SwitchHbaseHaSlbRequest $request SwitchHbaseHaSlbRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchHbaseHaSlbResponse
+     * @return SwitchHbaseHaSlbResponse SwitchHbaseHaSlbResponse
      */
     public function switchHbaseHaSlbWithOptions($request, $runtime)
     {
@@ -5373,9 +5397,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SwitchHbaseHaSlbRequest $request
+     * @param SwitchHbaseHaSlbRequest $request SwitchHbaseHaSlbRequest
      *
-     * @return SwitchHbaseHaSlbResponse
+     * @return SwitchHbaseHaSlbResponse SwitchHbaseHaSlbResponse
      */
     public function switchHbaseHaSlb($request)
     {
@@ -5385,10 +5409,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SwitchServiceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 开通/关闭 扩展服务
+     *  *
+     * @param SwitchServiceRequest $request SwitchServiceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchServiceResponse
+     * @return SwitchServiceResponse SwitchServiceResponse
      */
     public function switchServiceWithOptions($request, $runtime)
     {
@@ -5422,9 +5448,11 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SwitchServiceRequest $request
+     * @summary 开通/关闭 扩展服务
+     *  *
+     * @param SwitchServiceRequest $request SwitchServiceRequest
      *
-     * @return SwitchServiceResponse
+     * @return SwitchServiceResponse SwitchServiceResponse
      */
     public function switchService($request)
     {
@@ -5434,10 +5462,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -5471,9 +5499,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5483,10 +5511,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
@@ -5523,9 +5551,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
      *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -5535,10 +5563,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeMinorVersionResponse
+     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersionWithOptions($request, $runtime)
     {
@@ -5569,9 +5597,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request
+     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
      *
-     * @return UpgradeMinorVersionResponse
+     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersion($request)
     {
@@ -5581,10 +5609,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMultiZoneClusterRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param UpgradeMultiZoneClusterRequest $request UpgradeMultiZoneClusterRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeMultiZoneClusterResponse
+     * @return UpgradeMultiZoneClusterResponse UpgradeMultiZoneClusterResponse
      */
     public function upgradeMultiZoneClusterWithOptions($request, $runtime)
     {
@@ -5627,9 +5655,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMultiZoneClusterRequest $request
+     * @param UpgradeMultiZoneClusterRequest $request UpgradeMultiZoneClusterRequest
      *
-     * @return UpgradeMultiZoneClusterResponse
+     * @return UpgradeMultiZoneClusterResponse UpgradeMultiZoneClusterResponse
      */
     public function upgradeMultiZoneCluster($request)
     {
@@ -5639,10 +5667,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param XpackRelateDBRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param XpackRelateDBRequest $request XpackRelateDBRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return XpackRelateDBResponse
+     * @return XpackRelateDBResponse XpackRelateDBResponse
      */
     public function xpackRelateDBWithOptions($request, $runtime)
     {
@@ -5676,9 +5704,9 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param XpackRelateDBRequest $request
+     * @param XpackRelateDBRequest $request XpackRelateDBRequest
      *
-     * @return XpackRelateDBResponse
+     * @return XpackRelateDBResponse XpackRelateDBResponse
      */
     public function xpackRelateDB($request)
     {

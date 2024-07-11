@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPlanConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-m5eznlga4k5bcxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyBackupPlanConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyBackupPlanConfigRequest extends Model
     public $fullBackupCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyBackupPlanConfigRequest extends Model
     public $minHFileBackupCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-11-09T18:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyBackupPlanConfigRequest extends Model
     public $nextFullBackupDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example *
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMinorVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string

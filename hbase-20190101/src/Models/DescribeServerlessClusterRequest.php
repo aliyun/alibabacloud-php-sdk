@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerlessClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-bp16f1441y6p2****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeServerlessClusterRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sdh0b7f4k5f****
      *
      * @var string

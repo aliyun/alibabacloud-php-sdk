@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHBaseSlbServerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example hb-t4naqsay5gn****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteHBaseSlbServerRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example thrift
      *
      * @var string
