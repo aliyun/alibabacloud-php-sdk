@@ -152,6 +152,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpFileDeleteJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpFileDeleteJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpShotJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpShotJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageCopyrightRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageCopyrightResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitIProductionJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitIProductionJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsRequest;
@@ -5522,6 +5524,59 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitIProductionJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交图片版权水印任务
+     *  *
+     * @param SubmitImageCopyrightRequest $request SubmitImageCopyrightRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitImageCopyrightResponse SubmitImageCopyrightResponse
+     */
+    public function submitImageCopyrightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $query['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitImageCopyright',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitImageCopyrightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交图片版权水印任务
+     *  *
+     * @param SubmitImageCopyrightRequest $request SubmitImageCopyrightRequest
+     *
+     * @return SubmitImageCopyrightResponse SubmitImageCopyrightResponse
+     */
+    public function submitImageCopyright($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitImageCopyrightWithOptions($request, $runtime);
     }
 
     /**
