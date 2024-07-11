@@ -20,6 +20,7 @@ class ListParameterVersionsRequest extends Model
     /**
      * @description The name of the common parameter.
      *
+     * This parameter is required.
      * @example MyParameter
      *
      * @var string

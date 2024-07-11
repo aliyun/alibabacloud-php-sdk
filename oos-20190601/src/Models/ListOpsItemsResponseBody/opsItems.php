@@ -18,7 +18,7 @@ class opsItems extends Model
     public $category;
 
     /**
-     * @description The time when the O\&M item was created.
+     * @description The time when the O\\&M item was created.
      *
      * @example 2023-07-09T10:01Z
      *
@@ -27,7 +27,7 @@ class opsItems extends Model
     public $createDate;
 
     /**
-     * @description The ID of the O\&M item.
+     * @description The ID of the O\\&M item.
      *
      * @example oi-d52b08695e2b46ae8413
      *
@@ -70,7 +70,7 @@ class opsItems extends Model
     public $source;
 
     /**
-     * @description The status of the O\&M item.
+     * @description The status of the O\\&M item.
      *
      * @example Open
      *
@@ -88,7 +88,7 @@ class opsItems extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
      * @example Test
      *
@@ -97,7 +97,7 @@ class opsItems extends Model
     public $title;
 
     /**
-     * @description The time when the O\&M item was updated.
+     * @description The time when the O\\&M item was updated.
      *
      * @example 2023-07-09T10:01Z
      *

@@ -28,7 +28,7 @@ class ListOpsItemsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The list of O\&M items.
+     * @description The list of O\\&M items.
      *
      * @var opsItems[]
      */

@@ -19,6 +19,7 @@ class ListInventoryEntriesRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1cpoxxxwxxxxxxxxxx
      *
      * @var string
@@ -64,6 +65,7 @@ class ListInventoryEntriesRequest extends Model
      *   ACS:WindowsRegistry
      *   ACS:WindowsUpdate
      *
+     * This parameter is required.
      * @example ACS:InstanceInformation
      *
      * @var string

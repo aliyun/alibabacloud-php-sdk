@@ -29,6 +29,7 @@ class GetParametersByPathRequest extends Model
     /**
      * @description The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
      *
+     * This parameter is required.
      * @example /parameter
      *
      * @var string

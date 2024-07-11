@@ -11,6 +11,7 @@ class CreatePatchBaselineShrinkRequest extends Model
     /**
      * @description The rules of scanning and installing patches for the specified operating system.
      *
+     * This parameter is required.
      * @example {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
      *
      * @var string
@@ -54,6 +55,7 @@ class CreatePatchBaselineShrinkRequest extends Model
     /**
      * @description The name of the patch baseline.
      *
+     * This parameter is required.
      * @example MyPatchBaseline
      *
      * @var string
@@ -72,6 +74,7 @@ class CreatePatchBaselineShrinkRequest extends Model
      *   Anolis
      *   AlmaLinux
      *
+     * This parameter is required.
      * @example Windows
      *
      * @var string

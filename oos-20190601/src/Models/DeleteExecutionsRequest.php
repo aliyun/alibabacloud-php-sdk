@@ -11,7 +11,7 @@ class DeleteExecutionsRequest extends Model
     /**
      * @description The execution IDs.
      *
-     * You can specify multiple execution IDs in a JSON array in the format of `["xxxxxxxxx", "yyyyyyyyy", ... "zzzzzzzzz"]`. You can specify up to 100 execution IDs at a time. Separate multiple IDs with commas (,).
+     * This parameter is required.
      * @example ["exec-xxx"]
      *
      * @var string

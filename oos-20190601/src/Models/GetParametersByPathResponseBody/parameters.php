@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The constraints of the common parameter.
      *
-     * @example {\"MaxLength\": 2}
+     * @example {\\"MaxLength\\": 2}
      *
      * @var string
      */

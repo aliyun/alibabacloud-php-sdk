@@ -11,7 +11,7 @@ class parameter extends Model
     /**
      * @description The constraints of the encryption parameter.
      *
-     * @example \"{\"\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\"
+     * @example \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\\"
      *
      * @var string
      */
@@ -36,6 +36,10 @@ class parameter extends Model
     public $createdDate;
 
     /**
+     * @description The instance ID of the KMS instance.
+     *
+     * @example kst-hzz****
+     *
      * @var string
      */
     public $DKMSInstanceId;

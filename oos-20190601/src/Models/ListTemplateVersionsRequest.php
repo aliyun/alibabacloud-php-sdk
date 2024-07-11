@@ -47,6 +47,7 @@ class ListTemplateVersionsRequest extends Model
     /**
      * @description The name of the template.
      *
+     * This parameter is required.
      * @example describeinstances
      *
      * @var string

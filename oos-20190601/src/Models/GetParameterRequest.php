@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetParameterRequest extends Model
 {
     /**
-     * @description The name of the common parameter. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the common parameter. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
+     * This parameter is required.
      * @example MyParameter
      *
      * @var string

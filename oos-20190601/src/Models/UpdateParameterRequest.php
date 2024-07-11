@@ -18,8 +18,9 @@ class UpdateParameterRequest extends Model
     public $description;
 
     /**
-     * @description The name of the common parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+     * @description The name of the common parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
      *
+     * This parameter is required.
      * @example MyParameter
      *
      * @var string
@@ -56,6 +57,7 @@ class UpdateParameterRequest extends Model
     /**
      * @description The value of the common parameter. The value must be 1 to 4,096 characters in length.
      *
+     * This parameter is required.
      * @example update
      *
      * @var string

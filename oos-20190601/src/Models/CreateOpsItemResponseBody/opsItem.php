@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
-     * @description The attributes of the O\&M item.
+     * @description The attributes of the O\\&M item.
      *
-     * @example {\"regionId\":\"cn-zhangjiakou\",\"appId\":\"992BKO1X75GRQ4E8\",\"instanceId\":\"i-8vbcymxagqsyyyjppbr4\",\"instance_name\":\"cdae\"}
+     * @example {\\"regionId\\":\\"cn-zhangjiakou\\",\\"appId\\":\\"992BKO1X75GRQ4E8\\",\\"instanceId\\":\\"i-8vbcymxagqsyyyjppbr4\\",\\"instance_name\\":\\"cdae\\"}
      *
      * @var string
      */
     public $attributes;
 
     /**
-     * @description The category of the O\&M item.
+     * @description The category of the O\\&M item.
      *
      * @example Security
      *
@@ -27,7 +27,7 @@ class opsItem extends Model
     public $category;
 
     /**
-     * @description The time when the O\&M item was created.
+     * @description The time when the O\\&M item was created.
      *
      * @example 2023-03-24T03:55Z
      *
@@ -36,7 +36,7 @@ class opsItem extends Model
     public $createDate;
 
     /**
-     * @description The user who created the O\&M item.
+     * @description The user who created the O\\&M item.
      *
      * @example root(130900000)
      *
@@ -45,7 +45,7 @@ class opsItem extends Model
     public $createdBy;
 
     /**
-     * @description The description of the O\&M item.
+     * @description The description of the O\\&M item.
      *
      * @example OpsItem
      *
@@ -54,7 +54,7 @@ class opsItem extends Model
     public $description;
 
     /**
-     * @description The user who last modified the O\&M item.
+     * @description The user who last modified the O\\&M item.
      *
      * @example root(130900000)
      *
@@ -63,7 +63,7 @@ class opsItem extends Model
     public $lastModifiedBy;
 
     /**
-     * @description The ID of the O\&M item.
+     * @description The ID of the O\\&M item.
      *
      * @example oi-dba9c6eec9254a4d87c1
      *
@@ -72,7 +72,7 @@ class opsItem extends Model
     public $opsItemId;
 
     /**
-     * @description The priority of the O\&M item.
+     * @description The priority of the O\\&M item.
      *
      * @example 2
      *
@@ -92,14 +92,14 @@ class opsItem extends Model
     /**
      * @description The ARNs of the associated resources.
      *
-     * @example [\"acs:oos:cn-hangzhou:1563457855438522:application/dingTest/applicationgroup/fltest\"]
+     * @example [\\"acs:oos:cn-hangzhou:1563457855438522:application/dingTest/applicationgroup/fltest\\"]
      *
      * @var string
      */
     public $resources;
 
     /**
-     * @description The severity level of the O\&M item.
+     * @description The severity level of the O\\&M item.
      *
      * @example Medium
      *
@@ -110,14 +110,14 @@ class opsItem extends Model
     /**
      * @description The solutions.
      *
-     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"url\\",\n \\"url\\":\\"https://example..com\\",\n \\"description\\":\\"Specify a cross-zone high availability cluster. \\"\n}]
+     * @example [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"url\\\\",\\n \\\\"url\\\\":\\\\"https://example..com\\\\",\\n \\\\"description\\\\":\\\\"Specify a cross-zone high availability cluster. \\\\"\\n}]
      *
      * @var string
      */
     public $solutions;
 
     /**
-     * @description The source business of the O\&M item.
+     * @description The source business of the O\\&M item.
      *
      * @example /aliyun/ecs
      *
@@ -126,7 +126,7 @@ class opsItem extends Model
     public $source;
 
     /**
-     * @description The state of the O\&M item.
+     * @description The state of the O\\&M item.
      *
      * @example Running
      *
@@ -135,7 +135,7 @@ class opsItem extends Model
     public $status;
 
     /**
-     * @description The tags of the O\&M item.
+     * @description The tags of the O\\&M item.
      *
      * @example {"k1": "v1"}
      *
@@ -144,7 +144,7 @@ class opsItem extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
      * @example ECS reboot is scheduled
      *
@@ -153,7 +153,7 @@ class opsItem extends Model
     public $title;
 
     /**
-     * @description The time when the O\&M item was updated.
+     * @description The time when the O\\&M item was updated.
      *
      * @example 2023-03-24T03:55Z
      *

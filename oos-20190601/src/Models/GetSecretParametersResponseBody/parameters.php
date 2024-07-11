@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The constraints of the encryption parameter.
      *
-     * @example {\"AllowedValues\": [\"test\"]}
+     * @example {\\"AllowedValues\\": [\\"test\\"]}
      *
      * @var string
      */

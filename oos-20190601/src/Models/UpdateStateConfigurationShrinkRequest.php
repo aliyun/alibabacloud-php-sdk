@@ -83,6 +83,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     /**
      * @description The ID of the desired-state configuration.
      *
+     * This parameter is required.
      * @example sc-asfgdhj12345
      *
      * @var string

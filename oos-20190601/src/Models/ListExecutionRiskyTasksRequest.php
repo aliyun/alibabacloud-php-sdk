@@ -20,6 +20,7 @@ class ListExecutionRiskyTasksRequest extends Model
     /**
      * @description The name of the template.
      *
+     * This parameter is required.
      * @example myTemplate
      *
      * @var string

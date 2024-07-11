@@ -19,6 +19,8 @@ class ListGitRepositoriesRequest extends Model
     public $orgName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $owner;
@@ -34,9 +36,16 @@ class ListGitRepositoriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $platform;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'orgName'     => 'OrgName',
@@ -44,6 +53,7 @@ class ListGitRepositoriesRequest extends Model
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'platform'    => 'Platform',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -70,6 +80,9 @@ class ListGitRepositoriesRequest extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -100,6 +113,9 @@ class ListGitRepositoriesRequest extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,6 +11,7 @@ class NotifyExecutionRequest extends Model
     /**
      * @description The ID of the execution.
      *
+     * This parameter is required.
      * @example exec-xxx
      *
      * @var string
@@ -55,6 +56,7 @@ class NotifyExecutionRequest extends Model
      *   **RetryTask**: retries a failed task whose execution mode is Suspend upon Failure.
      *   **SkipTask**: skips a failed task whose execution mode is Suspend upon Failure.
      *
+     * This parameter is required.
      * @example Approve
      *
      * @var string

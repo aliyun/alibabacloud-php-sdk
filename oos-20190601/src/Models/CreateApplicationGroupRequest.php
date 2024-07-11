@@ -11,6 +11,7 @@ class CreateApplicationGroupRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example MyApplication
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateApplicationGroupRequest extends Model
     /**
      * @description The ID of the region in which the related sources reside.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +76,7 @@ class CreateApplicationGroupRequest extends Model
     /**
      * @description The name of the application group.
      *
+     * This parameter is required.
      * @example MyApplicationGroup
      *
      * @var string

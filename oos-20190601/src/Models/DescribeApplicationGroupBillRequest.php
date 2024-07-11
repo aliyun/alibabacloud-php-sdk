@@ -11,6 +11,7 @@ class DescribeApplicationGroupBillRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example test_application
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeApplicationGroupBillRequest extends Model
     /**
      * @description The billing cycle, in the YYYY-MM format.
      *
+     * This parameter is required.
      * @example 2023-06
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeApplicationGroupBillRequest extends Model
     /**
      * @description The application group name.
      *
+     * This parameter is required.
      * @example test_application_group
      *
      * @var string
@@ -65,6 +68,7 @@ class DescribeApplicationGroupBillRequest extends Model
     /**
      * @description The type of the cloud resource.
      *
+     * This parameter is required.
      * @example ALIYUN::ECS::INSTANCE
      *
      * @var string

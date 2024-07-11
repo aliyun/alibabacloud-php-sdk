@@ -31,7 +31,7 @@ class CreateOpsItemRequest extends Model
      *
      *   Recovery
      *
-     * <!-- -->
+     * This parameter is required.
      * @example Security
      *
      * @var string
@@ -95,7 +95,7 @@ class CreateOpsItemRequest extends Model
     /**
      * @description The Alibaba Cloud Resource Names (ARNs) of the associated resources.
      *
-     * @example [\"acs:oos:cn-hangzhou:1563457855438522:application/test-33333/applicationgroup/default-cn-hangzhou-1\"]
+     * @example [\\"acs:oos:cn-hangzhou:1563457855438522:application/test-33333/applicationgroup/default-cn-hangzhou-1\\"]
      *
      * @var string
      */
@@ -120,7 +120,7 @@ class CreateOpsItemRequest extends Model
      *
      *   Critical
      *
-     * <!-- -->
+     * This parameter is required.
      * @example Medium
      *
      * @var string
@@ -130,7 +130,7 @@ class CreateOpsItemRequest extends Model
     /**
      * @description The solutions.
      *
-     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"SingleAZEcs\\",\n \\"url\\":\\"http://ecs.consle.aliyuncs.com\\",\n \\"description\\":\\"Create Elastic Compute Service (ECS) instances in different zones and import them to an application group.\\"\n}]
+     * @example [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"SingleAZEcs\\\\",\\n \\\\"url\\\\":\\\\"http://ecs.consle.aliyuncs.com\\\\",\\n \\\\"description\\\\":\\\\"Create Elastic Compute Service (ECS) instances in different zones and import them to an application group.\\\\"\\n}]
      *
      * @var string
      */
@@ -139,6 +139,7 @@ class CreateOpsItemRequest extends Model
     /**
      * @description The source business.
      *
+     * This parameter is required.
      * @example /aliyun/ecs
      *
      * @var string
@@ -155,8 +156,9 @@ class CreateOpsItemRequest extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
+     * This parameter is required.
      * @example ECS reboot is scheduled
      *
      * @var string

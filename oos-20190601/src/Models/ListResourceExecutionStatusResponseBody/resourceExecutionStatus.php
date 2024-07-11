@@ -29,7 +29,7 @@ class resourceExecutionStatus extends Model
     /**
      * @description The output of the template.
      *
-     * @example { 				"commandOutput": "hello\n" 			}
+     * @example { 				"commandOutput": "hello\\n" 			}
      *
      * @var string
      */

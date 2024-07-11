@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the cloud resource is to be moved. You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+     * @description The ID of the resource group to which the cloud resource is to be moved. You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      *
+     * This parameter is required.
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -35,6 +36,7 @@ class ChangeResourceGroupRequest extends Model
      *   If the ResourceType parameter is set to stateconfiguration, set the ResourceId parameter to the ID of the desired-state configuration.
      *   If the ResourceType parameter is set to application, set the ResourceId parameter to the name of the application.
      *
+     * This parameter is required.
      * @example TemplateName
      *
      * @var string
@@ -50,6 +52,7 @@ class ChangeResourceGroupRequest extends Model
      *   stateconfiguration: desired-state configuration
      *   application: application
      *
+     * This parameter is required.
      * @example template
      *
      * @var string

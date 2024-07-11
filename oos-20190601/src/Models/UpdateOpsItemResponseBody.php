@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpsItemResponseBody extends Model
 {
     /**
-     * @description The information about the O\&M item.
+     * @description The information about the O\\&M item.
      *
      * @var opsItem
      */

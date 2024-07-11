@@ -29,6 +29,7 @@ class DeleteStateConfigurationsRequest extends Model
     /**
      * @description The IDs of desired-state configurations.
      *
+     * This parameter is required.
      * @example ["sc-asfgdhj12345"]
      *
      * @var string

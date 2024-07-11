@@ -65,6 +65,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     /**
      * @description The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
      *
+     * This parameter is required.
      * @example The ID of the resource group.
      *
      * @var string
@@ -74,6 +75,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     /**
      * @description The schedule type. Set the value to rate.
      *
+     * This parameter is required.
      * @example rate
      *
      * @var string
@@ -92,6 +94,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     /**
      * @description The resources to be queried.
      *
+     * This parameter is required.
      * @example {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
      *
      * @var string
@@ -99,8 +102,9 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $targets;
 
     /**
-     * @description The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
+     * This parameter is required.
      * @example ACS-ECS-InventoryDataCollection
      *
      * @var string

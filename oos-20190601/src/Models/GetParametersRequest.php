@@ -11,6 +11,7 @@ class GetParametersRequest extends Model
     /**
      * @description The names of the common parameters.
      *
+     * This parameter is required.
      * @example ["parameter1","parameter2"]
      *
      * @var string

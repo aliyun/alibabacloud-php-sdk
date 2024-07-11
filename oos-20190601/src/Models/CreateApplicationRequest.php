@@ -37,6 +37,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example MyApplication
      *
      * @var string

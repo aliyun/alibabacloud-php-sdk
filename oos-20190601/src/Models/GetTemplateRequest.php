@@ -18,8 +18,9 @@ class GetTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+     * @description The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
      *
+     * This parameter is required.
      * @example MyTemplate
      *
      * @var string

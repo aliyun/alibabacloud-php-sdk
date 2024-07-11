@@ -29,7 +29,7 @@ class template extends Model
     /**
      * @description The description of the template.
      *
-     * @example "{\"en\": \"Creates an ECS image\", \"zh-cn\": \"创建一个ECS镜像\", \"name-en\": \"Create Image\", \"name-zh-cn\": \"创建镜像\", \"categories\": [\"image_manage\", \"application_manage\"]}"
+     * @example "{\\"en\\": \\"Creates an ECS image\\", \\"zh-cn\\": \\"创建一个ECS镜像\\", \\"name-en\\": \\"Create Image\\", \\"name-zh-cn\\": \\"创建镜像\\", \\"categories\\": [\\"image_manage\\", \\"application_manage\\"]}"
      *
      * @var string
      */

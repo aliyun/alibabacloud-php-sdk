@@ -29,6 +29,7 @@ class DeleteTemplatesRequest extends Model
     /**
      * @description The names of the templates to be deleted.
      *
+     * This parameter is required.
      * @example ["t1","t2"]
      *
      * @var string

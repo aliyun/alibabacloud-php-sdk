@@ -11,7 +11,7 @@ class parameter extends Model
     /**
      * @description The constraints of the common parameter.
      *
-     * @example "{\"AllowedValues\":[\"parameter\"],\"AllowedPattern\":\"parameter\",\"MinLength\":0,\"MaxLength\":20}"
+     * @example "{\\"AllowedValues\\":[\\"parameter\\"],\\"AllowedPattern\\":\\"parameter\\",\\"MinLength\\":0,\\"MaxLength\\":20}"
      *
      * @var string
      */

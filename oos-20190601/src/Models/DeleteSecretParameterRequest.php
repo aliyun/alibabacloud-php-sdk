@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecretParameterRequest extends Model
 {
     /**
-     * @description The name of the encryption parameter. The name must be 1 to 180 characters in length and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+     * @description The name of the encryption parameter. The name must be 1 to 180 characters in length and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
      *
+     * This parameter is required.
      * @example MySecretParameter
      *
      * @var string

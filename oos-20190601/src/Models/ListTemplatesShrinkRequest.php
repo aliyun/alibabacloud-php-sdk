@@ -59,6 +59,11 @@ class ListTemplatesShrinkRequest extends Model
     public $hasTrigger;
 
     /**
+     * @var bool
+     */
+    public $isExample;
+
+    /**
      * @description The template is favorite or not.
      *
      * @example true
@@ -190,6 +195,7 @@ class ListTemplatesShrinkRequest extends Model
         'createdDateAfter'  => 'CreatedDateAfter',
         'createdDateBefore' => 'CreatedDateBefore',
         'hasTrigger'        => 'HasTrigger',
+        'isExample'         => 'IsExample',
         'isFavorite'        => 'IsFavorite',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
@@ -225,6 +231,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (null !== $this->hasTrigger) {
             $res['HasTrigger'] = $this->hasTrigger;
+        }
+        if (null !== $this->isExample) {
+            $res['IsExample'] = $this->isExample;
         }
         if (null !== $this->isFavorite) {
             $res['IsFavorite'] = $this->isFavorite;
@@ -288,6 +297,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (isset($map['HasTrigger'])) {
             $model->hasTrigger = $map['HasTrigger'];
+        }
+        if (isset($map['IsExample'])) {
+            $model->isExample = $map['IsExample'];
         }
         if (isset($map['IsFavorite'])) {
             $model->isFavorite = $map['IsFavorite'];

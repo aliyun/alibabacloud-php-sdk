@@ -11,7 +11,7 @@ class parameter extends Model
     /**
      * @description The constraints of the parameter.
      *
-     * @example \"{\"\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\"
+     * @example \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\\"
      *
      * @var string
      */

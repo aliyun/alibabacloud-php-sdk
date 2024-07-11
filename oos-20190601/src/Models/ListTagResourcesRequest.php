@@ -20,6 +20,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Valid values: template execution
      *
+     * This parameter is required.
      * @example template
      *
      * @var string

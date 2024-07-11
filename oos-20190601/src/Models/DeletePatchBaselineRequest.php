@@ -11,6 +11,7 @@ class DeletePatchBaselineRequest extends Model
     /**
      * @description The name of the patch baseline.
      *
+     * This parameter is required.
      * @example MyPatchBaseline
      *
      * @var string

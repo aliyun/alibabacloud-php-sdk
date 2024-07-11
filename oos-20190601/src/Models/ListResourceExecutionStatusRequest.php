@@ -11,6 +11,7 @@ class ListResourceExecutionStatusRequest extends Model
     /**
      * @description The ID of the execution.
      *
+     * This parameter is required.
      * @example exec-xxxxxxxxxxxx
      *
      * @var string

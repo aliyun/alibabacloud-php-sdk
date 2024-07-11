@@ -36,7 +36,7 @@ class UpdateOpsItemRequest extends Model
     public $dedupString;
 
     /**
-     * @description The description of the O\&M item.
+     * @description The description of the O\\&M item.
      *
      * @example test-update
      *
@@ -45,7 +45,7 @@ class UpdateOpsItemRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the O\&M item.
+     * @description The ID of the O\\&M item.
      *
      * @example oi-e2264dcf040c472598e9
      *
@@ -83,7 +83,7 @@ class UpdateOpsItemRequest extends Model
     /**
      * @description The Alibaba Resource Names (ARNs) of the associated resources.
      *
-     * @example [\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\"]
+     * @example [\\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\\"]
      *
      * @var string
      */
@@ -101,7 +101,7 @@ class UpdateOpsItemRequest extends Model
     /**
      * @description The solutions.
      *
-     * @example \[{\n \\"priority\\":3,\n \\"type\\":\\"url\\",\n \\"url\\":\\"https://example.com\\",\n \\"description\\":\\"Specify a cross-zone high availability cluster. \\"\n}]
+     * @example [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"url\\\\",\\n \\\\"url\\\\":\\\\"https://example.com\\\\",\\n \\\\"description\\\\":\\\\"Specify a cross-zone high availability cluster. \\\\"\\n}]
      *
      * @var string
      */
@@ -135,7 +135,7 @@ class UpdateOpsItemRequest extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
      * @example Test
      *

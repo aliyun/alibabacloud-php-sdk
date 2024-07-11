@@ -11,6 +11,7 @@ class CancelExecutionRequest extends Model
     /**
      * @description The ID of the execution.
      *
+     * This parameter is required.
      * @example exec-xxx
      *
      * @var string

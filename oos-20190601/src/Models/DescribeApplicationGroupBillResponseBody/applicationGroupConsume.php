@@ -83,7 +83,7 @@ class applicationGroupConsume extends Model
     /**
      * @description The performance of the data synchronization instance.
      *
-     * @example "{\"mem\":\"6.82\",\"cpu\":\"0.55\"}"
+     * @example "{\\"mem\\":\\"6.82\\",\\"cpu\\":\\"0.55\\"}"
      *
      * @var string
      */

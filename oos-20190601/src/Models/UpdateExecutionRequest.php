@@ -29,6 +29,7 @@ class UpdateExecutionRequest extends Model
     /**
      * @description The ID of the execution.
      *
+     * This parameter is required.
      * @example exec-c223xxxxxxxxxxxxxxxx
      *
      * @var string

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
-     * @description The attributes of the O\&M item.
+     * @description The attributes of the O\\&M item.
      *
-     * @example [{\"Attribute\": {\"Weight\": 100}, \"RealServer\": \"uaejc8hnqzqz5valyh8dibolpvza48ik.yundunwaf5.com\"}]
+     * @example [{\\"Attribute\\": {\\"Weight\\": 100}, \\"RealServer\\": \\"uaejc8hnqzqz5valyh8dibolpvza48ik.yundunwaf5.com\\"}]
      *
      * @var string
      */
@@ -27,7 +27,7 @@ class opsItem extends Model
     public $category;
 
     /**
-     * @description The time when the O\&M item was created.
+     * @description The time when the O\\&M item was created.
      *
      * @example 2023-03-16T07:04Z
      *
@@ -54,7 +54,7 @@ class opsItem extends Model
     public $description;
 
     /**
-     * @description The user who modified the O\&M item.
+     * @description The user who modified the O\\&M item.
      *
      * @example root(130900000)
      *
@@ -63,7 +63,7 @@ class opsItem extends Model
     public $lastModifiedBy;
 
     /**
-     * @description The ID of the O\&M item.
+     * @description The ID of the O\\&M item.
      *
      * @example oi-e2264dcf040c472598e9
      *
@@ -140,7 +140,7 @@ class opsItem extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
      * @example Test
      *
@@ -149,7 +149,7 @@ class opsItem extends Model
     public $title;
 
     /**
-     * @description The time when the O\&M item was updated.
+     * @description The time when the O\\&M item was updated.
      *
      * @example 2023-03-16T08:04Z
      *

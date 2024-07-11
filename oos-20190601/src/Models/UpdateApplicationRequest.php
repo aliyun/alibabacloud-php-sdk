@@ -37,6 +37,7 @@ class UpdateApplicationRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example My-Application
      *
      * @var string

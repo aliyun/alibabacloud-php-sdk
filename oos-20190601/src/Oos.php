@@ -231,10 +231,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CancelExecutionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Cancels an execution.
+     *  *
+     * @param CancelExecutionRequest $request CancelExecutionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelExecutionResponse
+     * @return CancelExecutionResponse CancelExecutionResponse
      */
     public function cancelExecutionWithOptions($request, $runtime)
     {
@@ -265,9 +267,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CancelExecutionRequest $request
+     * @summary Cancels an execution.
+     *  *
+     * @param CancelExecutionRequest $request CancelExecutionRequest
      *
-     * @return CancelExecutionResponse
+     * @return CancelExecutionResponse CancelExecutionResponse
      */
     public function cancelExecution($request)
     {
@@ -277,10 +281,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the resource group to which a cloud resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -317,9 +323,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Modifies the resource group to which a cloud resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -329,10 +337,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ContinueDeployApplicationGroupRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ContinueDeployApplicationGroupRequest $request ContinueDeployApplicationGroupRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContinueDeployApplicationGroupResponse
+     * @return ContinueDeployApplicationGroupResponse ContinueDeployApplicationGroupResponse
      */
     public function continueDeployApplicationGroupWithOptions($request, $runtime)
     {
@@ -369,9 +379,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ContinueDeployApplicationGroupRequest $request
+     * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ContinueDeployApplicationGroupRequest $request ContinueDeployApplicationGroupRequest
      *
-     * @return ContinueDeployApplicationGroupResponse
+     * @return ContinueDeployApplicationGroupResponse ContinueDeployApplicationGroupResponse
      */
     public function continueDeployApplicationGroup($request)
     {
@@ -381,10 +393,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param CreateApplicationRequest $tmpReq  CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($tmpReq, $runtime)
     {
@@ -441,9 +455,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -453,10 +469,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param CreateApplicationGroupRequest $request CreateApplicationGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationGroupResponse
+     * @return CreateApplicationGroupResponse CreateApplicationGroupResponse
      */
     public function createApplicationGroupWithOptions($request, $runtime)
     {
@@ -508,9 +526,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationGroupRequest $request
+     * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param CreateApplicationGroupRequest $request CreateApplicationGroupRequest
      *
-     * @return CreateApplicationGroupResponse
+     * @return CreateApplicationGroupResponse CreateApplicationGroupResponse
      */
     public function createApplicationGroup($request)
     {
@@ -520,10 +540,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateOpsItemRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Creates an O\\\\\\\\\\\\&M Item.
+     *  *
+     * @param CreateOpsItemRequest $tmpReq  CreateOpsItemRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOpsItemResponse
+     * @return CreateOpsItemResponse CreateOpsItemResponse
      */
     public function createOpsItemWithOptions($tmpReq, $runtime)
     {
@@ -592,9 +614,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateOpsItemRequest $request
+     * @summary Creates an O\\\\\\\\\\\\&M Item.
+     *  *
+     * @param CreateOpsItemRequest $request CreateOpsItemRequest
      *
-     * @return CreateOpsItemResponse
+     * @return CreateOpsItemResponse CreateOpsItemResponse
      */
     public function createOpsItem($request)
     {
@@ -604,10 +628,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateParameterRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a common parameter.
+     *  *
+     * @param CreateParameterRequest $tmpReq  CreateParameterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateParameterResponse
+     * @return CreateParameterResponse CreateParameterResponse
      */
     public function createParameterWithOptions($tmpReq, $runtime)
     {
@@ -664,9 +690,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateParameterRequest $request
+     * @summary Creates a common parameter.
+     *  *
+     * @param CreateParameterRequest $request CreateParameterRequest
      *
-     * @return CreateParameterResponse
+     * @return CreateParameterResponse CreateParameterResponse
      */
     public function createParameter($request)
     {
@@ -676,10 +704,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreatePatchBaselineRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a patch baseline.
+     *  *
+     * @param CreatePatchBaselineRequest $tmpReq  CreatePatchBaselineRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePatchBaselineResponse
+     * @return CreatePatchBaselineResponse CreatePatchBaselineResponse
      */
     public function createPatchBaselineWithOptions($tmpReq, $runtime)
     {
@@ -757,9 +787,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreatePatchBaselineRequest $request
+     * @summary Creates a patch baseline.
+     *  *
+     * @param CreatePatchBaselineRequest $request CreatePatchBaselineRequest
      *
-     * @return CreatePatchBaselineResponse
+     * @return CreatePatchBaselineResponse CreatePatchBaselineResponse
      */
     public function createPatchBaseline($request)
     {
@@ -769,10 +801,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateSecretParameterRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+     *  *
+     * @param CreateSecretParameterRequest $tmpReq  CreateSecretParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecretParameterResponse
+     * @return CreateSecretParameterResponse CreateSecretParameterResponse
      */
     public function createSecretParameterWithOptions($tmpReq, $runtime)
     {
@@ -835,9 +869,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateSecretParameterRequest $request
+     * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+     *  *
+     * @param CreateSecretParameterRequest $request CreateSecretParameterRequest
      *
-     * @return CreateSecretParameterResponse
+     * @return CreateSecretParameterResponse CreateSecretParameterResponse
      */
     public function createSecretParameter($request)
     {
@@ -847,10 +883,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateStateConfigurationRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a desired-state configuration.
+     *  *
+     * @param CreateStateConfigurationRequest $tmpReq  CreateStateConfigurationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStateConfigurationResponse
+     * @return CreateStateConfigurationResponse CreateStateConfigurationResponse
      */
     public function createStateConfigurationWithOptions($tmpReq, $runtime)
     {
@@ -916,9 +954,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateStateConfigurationRequest $request
+     * @summary Creates a desired-state configuration.
+     *  *
+     * @param CreateStateConfigurationRequest $request CreateStateConfigurationRequest
      *
-     * @return CreateStateConfigurationResponse
+     * @return CreateStateConfigurationResponse CreateStateConfigurationResponse
      */
     public function createStateConfiguration($request)
     {
@@ -928,10 +968,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a template.
+     *  *
+     * @param CreateTemplateRequest $tmpReq  CreateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($tmpReq, $runtime)
     {
@@ -979,9 +1021,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
+     * @summary Creates a template.
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -991,10 +1035,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
@@ -1031,9 +1077,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -1043,10 +1091,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeleteApplicationGroupRequest $request DeleteApplicationGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationGroupResponse
+     * @return DeleteApplicationGroupResponse DeleteApplicationGroupResponse
      */
     public function deleteApplicationGroupWithOptions($request, $runtime)
     {
@@ -1083,9 +1133,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationGroupRequest $request
+     * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeleteApplicationGroupRequest $request DeleteApplicationGroupRequest
      *
-     * @return DeleteApplicationGroupResponse
+     * @return DeleteApplicationGroupResponse DeleteApplicationGroupResponse
      */
     public function deleteApplicationGroup($request)
     {
@@ -1095,10 +1147,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteExecutionsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes multiple executions.
+     *  *
+     * @param DeleteExecutionsRequest $request DeleteExecutionsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExecutionsResponse
+     * @return DeleteExecutionsResponse DeleteExecutionsResponse
      */
     public function deleteExecutionsWithOptions($request, $runtime)
     {
@@ -1129,9 +1183,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteExecutionsRequest $request
+     * @summary Deletes multiple executions.
+     *  *
+     * @param DeleteExecutionsRequest $request DeleteExecutionsRequest
      *
-     * @return DeleteExecutionsResponse
+     * @return DeleteExecutionsResponse DeleteExecutionsResponse
      */
     public function deleteExecutions($request)
     {
@@ -1141,10 +1197,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteParameterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a common parameter.
+     *  *
+     * @param DeleteParameterRequest $request DeleteParameterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteParameterResponse
+     * @return DeleteParameterResponse DeleteParameterResponse
      */
     public function deleteParameterWithOptions($request, $runtime)
     {
@@ -1175,9 +1233,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteParameterRequest $request
+     * @summary Deletes a common parameter.
+     *  *
+     * @param DeleteParameterRequest $request DeleteParameterRequest
      *
-     * @return DeleteParameterResponse
+     * @return DeleteParameterResponse DeleteParameterResponse
      */
     public function deleteParameter($request)
     {
@@ -1187,10 +1247,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeletePatchBaselineRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a patch baseline.
+     *  *
+     * @param DeletePatchBaselineRequest $request DeletePatchBaselineRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePatchBaselineResponse
+     * @return DeletePatchBaselineResponse DeletePatchBaselineResponse
      */
     public function deletePatchBaselineWithOptions($request, $runtime)
     {
@@ -1221,9 +1283,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeletePatchBaselineRequest $request
+     * @summary Deletes a patch baseline.
+     *  *
+     * @param DeletePatchBaselineRequest $request DeletePatchBaselineRequest
      *
-     * @return DeletePatchBaselineResponse
+     * @return DeletePatchBaselineResponse DeletePatchBaselineResponse
      */
     public function deletePatchBaseline($request)
     {
@@ -1233,10 +1297,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretParameterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+     *  *
+     * @param DeleteSecretParameterRequest $request DeleteSecretParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecretParameterResponse
+     * @return DeleteSecretParameterResponse DeleteSecretParameterResponse
      */
     public function deleteSecretParameterWithOptions($request, $runtime)
     {
@@ -1267,9 +1333,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretParameterRequest $request
+     * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+     *  *
+     * @param DeleteSecretParameterRequest $request DeleteSecretParameterRequest
      *
-     * @return DeleteSecretParameterResponse
+     * @return DeleteSecretParameterResponse DeleteSecretParameterResponse
      */
     public function deleteSecretParameter($request)
     {
@@ -1279,10 +1347,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteStateConfigurationsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes multiple desired-state configurations at a time.
+     *  *
+     * @param DeleteStateConfigurationsRequest $request DeleteStateConfigurationsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStateConfigurationsResponse
+     * @return DeleteStateConfigurationsResponse DeleteStateConfigurationsResponse
      */
     public function deleteStateConfigurationsWithOptions($request, $runtime)
     {
@@ -1316,9 +1386,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteStateConfigurationsRequest $request
+     * @summary Deletes multiple desired-state configurations at a time.
+     *  *
+     * @param DeleteStateConfigurationsRequest $request DeleteStateConfigurationsRequest
      *
-     * @return DeleteStateConfigurationsResponse
+     * @return DeleteStateConfigurationsResponse DeleteStateConfigurationsResponse
      */
     public function deleteStateConfigurations($request)
     {
@@ -1328,10 +1400,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a template.
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
@@ -1365,9 +1439,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
+     * @summary Deletes a template.
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -1377,10 +1453,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplatesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes multiple templates.
+     *  *
+     * @param DeleteTemplatesRequest $request DeleteTemplatesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplatesResponse
+     * @return DeleteTemplatesResponse DeleteTemplatesResponse
      */
     public function deleteTemplatesWithOptions($request, $runtime)
     {
@@ -1414,9 +1492,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplatesRequest $request
+     * @summary Deletes multiple templates.
+     *  *
+     * @param DeleteTemplatesRequest $request DeleteTemplatesRequest
      *
-     * @return DeleteTemplatesResponse
+     * @return DeleteTemplatesResponse DeleteTemplatesResponse
      */
     public function deleteTemplates($request)
     {
@@ -1426,10 +1506,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeployApplicationGroupRequest $request DeployApplicationGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployApplicationGroupResponse
+     * @return DeployApplicationGroupResponse DeployApplicationGroupResponse
      */
     public function deployApplicationGroupWithOptions($request, $runtime)
     {
@@ -1466,9 +1548,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationGroupRequest $request
+     * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param DeployApplicationGroupRequest $request DeployApplicationGroupRequest
      *
-     * @return DeployApplicationGroupResponse
+     * @return DeployApplicationGroupResponse DeployApplicationGroupResponse
      */
     public function deployApplicationGroup($request)
     {
@@ -1478,10 +1562,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationGroupBillRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 查询应用分组资源成本
+     *  *
+     * @param DescribeApplicationGroupBillRequest $request DescribeApplicationGroupBillRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationGroupBillResponse
+     * @return DescribeApplicationGroupBillResponse DescribeApplicationGroupBillResponse
      */
     public function describeApplicationGroupBillWithOptions($request, $runtime)
     {
@@ -1527,9 +1613,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationGroupBillRequest $request
+     * @summary 查询应用分组资源成本
+     *  *
+     * @param DescribeApplicationGroupBillRequest $request DescribeApplicationGroupBillRequest
      *
-     * @return DescribeApplicationGroupBillResponse
+     * @return DescribeApplicationGroupBillResponse DescribeApplicationGroupBillResponse
      */
     public function describeApplicationGroupBill($request)
     {
@@ -1539,10 +1627,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -1573,9 +1663,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1585,10 +1677,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GenerateExecutionPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the Resource Access Management (RAM) policy required for template execution.
+     *  *
+     * @param GenerateExecutionPolicyRequest $request GenerateExecutionPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateExecutionPolicyResponse
+     * @return GenerateExecutionPolicyResponse GenerateExecutionPolicyResponse
      */
     public function generateExecutionPolicyWithOptions($request, $runtime)
     {
@@ -1628,9 +1722,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GenerateExecutionPolicyRequest $request
+     * @summary Queries the Resource Access Management (RAM) policy required for template execution.
+     *  *
+     * @param GenerateExecutionPolicyRequest $request GenerateExecutionPolicyRequest
      *
-     * @return GenerateExecutionPolicyResponse
+     * @return GenerateExecutionPolicyResponse GenerateExecutionPolicyResponse
      */
     public function generateExecutionPolicy($request)
     {
@@ -1640,10 +1736,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
@@ -1674,9 +1772,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
+     * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -1686,10 +1786,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param GetApplicationGroupRequest $request GetApplicationGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationGroupResponse
+     * @return GetApplicationGroupResponse GetApplicationGroupResponse
      */
     public function getApplicationGroupWithOptions($request, $runtime)
     {
@@ -1723,9 +1825,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationGroupRequest $request
+     * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param GetApplicationGroupRequest $request GetApplicationGroupRequest
      *
-     * @return GetApplicationGroupResponse
+     * @return GetApplicationGroupResponse GetApplicationGroupResponse
      */
     public function getApplicationGroup($request)
     {
@@ -1735,10 +1839,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetExecutionTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about the template of an execution, including the content of the template.
+     *  *
+     * @param GetExecutionTemplateRequest $request GetExecutionTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExecutionTemplateResponse
+     * @return GetExecutionTemplateResponse GetExecutionTemplateResponse
      */
     public function getExecutionTemplateWithOptions($request, $runtime)
     {
@@ -1769,9 +1875,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetExecutionTemplateRequest $request
+     * @summary Queries the information about the template of an execution, including the content of the template.
+     *  *
+     * @param GetExecutionTemplateRequest $request GetExecutionTemplateRequest
      *
-     * @return GetExecutionTemplateResponse
+     * @return GetExecutionTemplateResponse GetExecutionTemplateResponse
      */
     public function getExecutionTemplate($request)
     {
@@ -1781,10 +1889,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetInventorySchemaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the properties of a configuration list.
+     *  *
+     * @param GetInventorySchemaRequest $request GetInventorySchemaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInventorySchemaResponse
+     * @return GetInventorySchemaResponse GetInventorySchemaResponse
      */
     public function getInventorySchemaWithOptions($request, $runtime)
     {
@@ -1824,9 +1934,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetInventorySchemaRequest $request
+     * @summary Queries the properties of a configuration list.
+     *  *
+     * @param GetInventorySchemaRequest $request GetInventorySchemaRequest
      *
-     * @return GetInventorySchemaResponse
+     * @return GetInventorySchemaResponse GetInventorySchemaResponse
      */
     public function getInventorySchema($request)
     {
@@ -1836,10 +1948,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetOpsItemRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+     *  *
+     * @param GetOpsItemRequest $request GetOpsItemRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpsItemResponse
+     * @return GetOpsItemResponse GetOpsItemResponse
      */
     public function getOpsItemWithOptions($request, $runtime)
     {
@@ -1870,9 +1984,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetOpsItemRequest $request
+     * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+     *  *
+     * @param GetOpsItemRequest $request GetOpsItemRequest
      *
-     * @return GetOpsItemResponse
+     * @return GetOpsItemResponse GetOpsItemResponse
      */
     public function getOpsItem($request)
     {
@@ -1882,10 +1998,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParameterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a common parameter and its value.
+     *  *
+     * @param GetParameterRequest $request GetParameterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetParameterResponse
+     * @return GetParameterResponse GetParameterResponse
      */
     public function getParameterWithOptions($request, $runtime)
     {
@@ -1922,9 +2040,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParameterRequest $request
+     * @summary Queries a common parameter and its value.
+     *  *
+     * @param GetParameterRequest $request GetParameterRequest
      *
-     * @return GetParameterResponse
+     * @return GetParameterResponse GetParameterResponse
      */
     public function getParameter($request)
     {
@@ -1934,10 +2054,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParametersRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the information about one or more parameters.
+     *  *
+     * @param GetParametersRequest $request GetParametersRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetParametersResponse
+     * @return GetParametersResponse GetParametersResponse
      */
     public function getParametersWithOptions($request, $runtime)
     {
@@ -1968,9 +2090,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParametersRequest $request
+     * @summary Queries the information about one or more parameters.
+     *  *
+     * @param GetParametersRequest $request GetParametersRequest
      *
-     * @return GetParametersResponse
+     * @return GetParametersResponse GetParametersResponse
      */
     public function getParameters($request)
     {
@@ -1980,10 +2104,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParametersByPathRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries one or more parameters by path.
+     *  *
+     * @param GetParametersByPathRequest $request GetParametersByPathRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetParametersByPathResponse
+     * @return GetParametersByPathResponse GetParametersByPathResponse
      */
     public function getParametersByPathWithOptions($request, $runtime)
     {
@@ -2023,9 +2149,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetParametersByPathRequest $request
+     * @summary Queries one or more parameters by path.
+     *  *
+     * @param GetParametersByPathRequest $request GetParametersByPathRequest
      *
-     * @return GetParametersByPathResponse
+     * @return GetParametersByPathResponse GetParametersByPathResponse
      */
     public function getParametersByPath($request)
     {
@@ -2035,10 +2163,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetPatchBaselineRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information of a patch baseline.
+     *  *
+     * @param GetPatchBaselineRequest $request GetPatchBaselineRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPatchBaselineResponse
+     * @return GetPatchBaselineResponse GetPatchBaselineResponse
      */
     public function getPatchBaselineWithOptions($request, $runtime)
     {
@@ -2069,9 +2199,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetPatchBaselineRequest $request
+     * @summary Queries the information of a patch baseline.
+     *  *
+     * @param GetPatchBaselineRequest $request GetPatchBaselineRequest
      *
-     * @return GetPatchBaselineResponse
+     * @return GetPatchBaselineResponse GetPatchBaselineResponse
      */
     public function getPatchBaseline($request)
     {
@@ -2081,10 +2213,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParameterRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParameterRequest $request GetSecretParameterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecretParameterResponse
+     * @return GetSecretParameterResponse GetSecretParameterResponse
      */
     public function getSecretParameterWithOptions($request, $runtime)
     {
@@ -2121,9 +2255,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParameterRequest $request
+     * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParameterRequest $request GetSecretParameterRequest
      *
-     * @return GetSecretParameterResponse
+     * @return GetSecretParameterResponse GetSecretParameterResponse
      */
     public function getSecretParameter($request)
     {
@@ -2133,10 +2269,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParametersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParametersRequest $request GetSecretParametersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecretParametersResponse
+     * @return GetSecretParametersResponse GetSecretParametersResponse
      */
     public function getSecretParametersWithOptions($request, $runtime)
     {
@@ -2170,9 +2308,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParametersRequest $request
+     * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParametersRequest $request GetSecretParametersRequest
      *
-     * @return GetSecretParametersResponse
+     * @return GetSecretParametersResponse GetSecretParametersResponse
      */
     public function getSecretParameters($request)
     {
@@ -2182,10 +2322,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParametersByPathRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParametersByPathRequest $request GetSecretParametersByPathRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecretParametersByPathResponse
+     * @return GetSecretParametersByPathResponse GetSecretParametersByPathResponse
      */
     public function getSecretParametersByPathWithOptions($request, $runtime)
     {
@@ -2228,9 +2370,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetSecretParametersByPathRequest $request
+     * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     *  *
+     * @param GetSecretParametersByPathRequest $request GetSecretParametersByPathRequest
      *
-     * @return GetSecretParametersByPathResponse
+     * @return GetSecretParametersByPathResponse GetSecretParametersByPathResponse
      */
     public function getSecretParametersByPath($request)
     {
@@ -2240,10 +2384,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetServiceSettingsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the settings of the delivery feature.
+     *  *
+     * @param GetServiceSettingsRequest $request GetServiceSettingsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceSettingsResponse
+     * @return GetServiceSettingsResponse GetServiceSettingsResponse
      */
     public function getServiceSettingsWithOptions($request, $runtime)
     {
@@ -2271,9 +2417,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetServiceSettingsRequest $request
+     * @summary Queries the settings of the delivery feature.
+     *  *
+     * @param GetServiceSettingsRequest $request GetServiceSettingsRequest
      *
-     * @return GetServiceSettingsResponse
+     * @return GetServiceSettingsResponse GetServiceSettingsResponse
      */
     public function getServiceSettings($request)
     {
@@ -2283,10 +2431,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the information about a template, including the content of the template.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
@@ -2320,9 +2470,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
+     * @summary Queries the information about a template, including the content of the template.
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -2332,10 +2484,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListActionsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the available actions, including atomic actions and cloud product actions.
+     *  *
+     * @param ListActionsRequest $request ListActionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListActionsResponse
+     * @return ListActionsResponse ListActionsResponse
      */
     public function listActionsWithOptions($request, $runtime)
     {
@@ -2372,9 +2526,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListActionsRequest $request
+     * @summary Queries the available actions, including atomic actions and cloud product actions.
+     *  *
+     * @param ListActionsRequest $request ListActionsRequest
      *
-     * @return ListActionsResponse
+     * @return ListActionsResponse ListActionsResponse
      */
     public function listActions($request)
     {
@@ -2384,10 +2540,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ListApplicationGroupsRequest $request ListApplicationGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationGroupsResponse
+     * @return ListApplicationGroupsResponse ListApplicationGroupsResponse
      */
     public function listApplicationGroupsWithOptions($request, $runtime)
     {
@@ -2436,9 +2594,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationGroupsRequest $request
+     * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ListApplicationGroupsRequest $request ListApplicationGroupsRequest
      *
-     * @return ListApplicationGroupsResponse
+     * @return ListApplicationGroupsResponse ListApplicationGroupsResponse
      */
     public function listApplicationGroups($request)
     {
@@ -2448,10 +2608,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ListApplicationsRequest $tmpReq  ListApplicationsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($tmpReq, $runtime)
     {
@@ -2502,9 +2664,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -2514,8 +2678,10 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries the logs of an execution.
+     *  *
+     * @description ****
+     *  *
      * @param ListExecutionLogsRequest $request ListExecutionLogsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2562,8 +2728,10 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries the logs of an execution.
+     *  *
+     * @description ****
+     *  *
      * @param ListExecutionLogsRequest $request ListExecutionLogsRequest
      *
      * @return ListExecutionLogsResponse ListExecutionLogsResponse
@@ -2576,10 +2744,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionRiskyTasksRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries high-risk tasks in the execution of a template.
+     *  *
+     * @param ListExecutionRiskyTasksRequest $request ListExecutionRiskyTasksRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExecutionRiskyTasksResponse
+     * @return ListExecutionRiskyTasksResponse ListExecutionRiskyTasksResponse
      */
     public function listExecutionRiskyTasksWithOptions($request, $runtime)
     {
@@ -2610,9 +2780,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionRiskyTasksRequest $request
+     * @summary Queries high-risk tasks in the execution of a template.
+     *  *
+     * @param ListExecutionRiskyTasksRequest $request ListExecutionRiskyTasksRequest
      *
-     * @return ListExecutionRiskyTasksResponse
+     * @return ListExecutionRiskyTasksResponse ListExecutionRiskyTasksResponse
      */
     public function listExecutionRiskyTasks($request)
     {
@@ -2622,10 +2794,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionsRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Queries executions. Multiple methods are supported to filter executions.
+     *  *
+     * @param ListExecutionsRequest $tmpReq  ListExecutionsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExecutionsResponse
+     * @return ListExecutionsResponse ListExecutionsResponse
      */
     public function listExecutionsWithOptions($tmpReq, $runtime)
     {
@@ -2730,9 +2904,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionsRequest $request
+     * @summary Queries executions. Multiple methods are supported to filter executions.
+     *  *
+     * @param ListExecutionsRequest $request ListExecutionsRequest
      *
-     * @return ListExecutionsResponse
+     * @return ListExecutionsResponse ListExecutionsResponse
      */
     public function listExecutions($request)
     {
@@ -2742,10 +2918,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListGitRepositoriesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取仓库信息
+     *  *
+     * @param ListGitRepositoriesRequest $request ListGitRepositoriesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGitRepositoriesResponse
+     * @return ListGitRepositoriesResponse ListGitRepositoriesResponse
      */
     public function listGitRepositoriesWithOptions($request, $runtime)
     {
@@ -2769,6 +2947,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->platform)) {
             $query['Platform'] = $request->platform;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2788,9 +2969,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListGitRepositoriesRequest $request
+     * @summary 获取仓库信息
+     *  *
+     * @param ListGitRepositoriesRequest $request ListGitRepositoriesRequest
      *
-     * @return ListGitRepositoriesResponse
+     * @return ListGitRepositoriesResponse ListGitRepositoriesResponse
      */
     public function listGitRepositories($request)
     {
@@ -2800,10 +2983,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstancePatchStatesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about the patches of an instance.
+     *  *
+     * @param ListInstancePatchStatesRequest $request ListInstancePatchStatesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancePatchStatesResponse
+     * @return ListInstancePatchStatesResponse ListInstancePatchStatesResponse
      */
     public function listInstancePatchStatesWithOptions($request, $runtime)
     {
@@ -2840,9 +3025,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstancePatchStatesRequest $request
+     * @summary Queries the information about the patches of an instance.
+     *  *
+     * @param ListInstancePatchStatesRequest $request ListInstancePatchStatesRequest
      *
-     * @return ListInstancePatchStatesResponse
+     * @return ListInstancePatchStatesResponse ListInstancePatchStatesResponse
      */
     public function listInstancePatchStates($request)
     {
@@ -2852,10 +3039,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstancePatchesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about the patches of an instance.
+     *  *
+     * @param ListInstancePatchesRequest $request ListInstancePatchesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancePatchesResponse
+     * @return ListInstancePatchesResponse ListInstancePatchesResponse
      */
     public function listInstancePatchesWithOptions($request, $runtime)
     {
@@ -2895,9 +3084,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstancePatchesRequest $request
+     * @summary Queries the information about the patches of an instance.
+     *  *
+     * @param ListInstancePatchesRequest $request ListInstancePatchesRequest
      *
-     * @return ListInstancePatchesResponse
+     * @return ListInstancePatchesResponse ListInstancePatchesResponse
      */
     public function listInstancePatches($request)
     {
@@ -2907,10 +3098,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInventoryEntriesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param ListInventoryEntriesRequest $request ListInventoryEntriesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInventoryEntriesResponse
+     * @return ListInventoryEntriesResponse ListInventoryEntriesResponse
      */
     public function listInventoryEntriesWithOptions($request, $runtime)
     {
@@ -2953,9 +3146,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInventoryEntriesRequest $request
+     * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param ListInventoryEntriesRequest $request ListInventoryEntriesRequest
      *
-     * @return ListInventoryEntriesResponse
+     * @return ListInventoryEntriesResponse ListInventoryEntriesResponse
      */
     public function listInventoryEntries($request)
     {
@@ -2965,10 +3160,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListOpsItemsRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Queries O\\&M items.
+     *  *
+     * @param ListOpsItemsRequest $tmpReq  ListOpsItemsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOpsItemsResponse
+     * @return ListOpsItemsResponse ListOpsItemsResponse
      */
     public function listOpsItemsWithOptions($tmpReq, $runtime)
     {
@@ -3019,9 +3216,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListOpsItemsRequest $request
+     * @summary Queries O\\&M items.
+     *  *
+     * @param ListOpsItemsRequest $request ListOpsItemsRequest
      *
-     * @return ListOpsItemsResponse
+     * @return ListOpsItemsResponse ListOpsItemsResponse
      */
     public function listOpsItems($request)
     {
@@ -3031,10 +3230,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParameterVersionsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the versions of a common parameter.
+     *  *
+     * @param ListParameterVersionsRequest $request ListParameterVersionsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListParameterVersionsResponse
+     * @return ListParameterVersionsResponse ListParameterVersionsResponse
      */
     public function listParameterVersionsWithOptions($request, $runtime)
     {
@@ -3074,9 +3275,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParameterVersionsRequest $request
+     * @summary Queries the versions of a common parameter.
+     *  *
+     * @param ListParameterVersionsRequest $request ListParameterVersionsRequest
      *
-     * @return ListParameterVersionsResponse
+     * @return ListParameterVersionsResponse ListParameterVersionsResponse
      */
     public function listParameterVersions($request)
     {
@@ -3086,10 +3289,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParametersRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
+     *  *
+     * @param ListParametersRequest $tmpReq  ListParametersRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListParametersResponse
+     * @return ListParametersResponse ListParametersResponse
      */
     public function listParametersWithOptions($tmpReq, $runtime)
     {
@@ -3155,9 +3360,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParametersRequest $request
+     * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
+     *  *
+     * @param ListParametersRequest $request ListParametersRequest
      *
-     * @return ListParametersResponse
+     * @return ListParametersResponse ListParametersResponse
      */
     public function listParameters($request)
     {
@@ -3167,10 +3374,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListPatchBaselinesRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of patch baselines.
+     *  *
+     * @param ListPatchBaselinesRequest $tmpReq  ListPatchBaselinesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPatchBaselinesResponse
+     * @return ListPatchBaselinesResponse ListPatchBaselinesResponse
      */
     public function listPatchBaselinesWithOptions($tmpReq, $runtime)
     {
@@ -3239,9 +3448,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListPatchBaselinesRequest $request
+     * @summary Queries a list of patch baselines.
+     *  *
+     * @param ListPatchBaselinesRequest $request ListPatchBaselinesRequest
      *
-     * @return ListPatchBaselinesResponse
+     * @return ListPatchBaselinesResponse ListPatchBaselinesResponse
      */
     public function listPatchBaselines($request)
     {
@@ -3251,10 +3462,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListResourceExecutionStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+     *  *
+     * @param ListResourceExecutionStatusRequest $request ListResourceExecutionStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceExecutionStatusResponse
+     * @return ListResourceExecutionStatusResponse ListResourceExecutionStatusResponse
      */
     public function listResourceExecutionStatusWithOptions($request, $runtime)
     {
@@ -3291,9 +3504,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListResourceExecutionStatusRequest $request
+     * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+     *  *
+     * @param ListResourceExecutionStatusRequest $request ListResourceExecutionStatusRequest
      *
-     * @return ListResourceExecutionStatusResponse
+     * @return ListResourceExecutionStatusResponse ListResourceExecutionStatusResponse
      */
     public function listResourceExecutionStatus($request)
     {
@@ -3303,10 +3518,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListSecretParameterVersionsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries versions of an encryption parameter.
+     *  *
+     * @param ListSecretParameterVersionsRequest $request ListSecretParameterVersionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecretParameterVersionsResponse
+     * @return ListSecretParameterVersionsResponse ListSecretParameterVersionsResponse
      */
     public function listSecretParameterVersionsWithOptions($request, $runtime)
     {
@@ -3349,9 +3566,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListSecretParameterVersionsRequest $request
+     * @summary Queries versions of an encryption parameter.
+     *  *
+     * @param ListSecretParameterVersionsRequest $request ListSecretParameterVersionsRequest
      *
-     * @return ListSecretParameterVersionsResponse
+     * @return ListSecretParameterVersionsResponse ListSecretParameterVersionsResponse
      */
     public function listSecretParameterVersions($request)
     {
@@ -3361,8 +3580,10 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-     *   *
+     * @summary Queries common parameters. Multiple types of queries are supported.
+     *  *
+     * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+     *  *
      * @param ListSecretParametersRequest $tmpReq  ListSecretParametersRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3426,8 +3647,10 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-     *   *
+     * @summary Queries common parameters. Multiple types of queries are supported.
+     *  *
+     * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+     *  *
      * @param ListSecretParametersRequest $request ListSecretParametersRequest
      *
      * @return ListSecretParametersResponse ListSecretParametersResponse
@@ -3440,10 +3663,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListStateConfigurationsRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries desired-state configurations.
+     *  *
+     * @param ListStateConfigurationsRequest $tmpReq  ListStateConfigurationsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStateConfigurationsResponse
+     * @return ListStateConfigurationsResponse ListStateConfigurationsResponse
      */
     public function listStateConfigurationsWithOptions($tmpReq, $runtime)
     {
@@ -3497,9 +3722,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListStateConfigurationsRequest $request
+     * @summary Queries desired-state configurations.
+     *  *
+     * @param ListStateConfigurationsRequest $request ListStateConfigurationsRequest
      *
-     * @return ListStateConfigurationsResponse
+     * @return ListStateConfigurationsResponse ListStateConfigurationsResponse
      */
     public function listStateConfigurations($request)
     {
@@ -3509,10 +3736,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the tags.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -3549,9 +3778,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * @summary Queries the tags.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3561,10 +3792,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are added to one or more resources.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $runtime)
     {
@@ -3612,9 +3845,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are added to one or more resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3624,10 +3859,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the values of created tags.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -3667,9 +3904,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * @summary Queries the values of created tags.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -3679,10 +3918,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTaskExecutionsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries task executions. Multiple methods are supported to filter task executions.
+     *  *
+     * @param ListTaskExecutionsRequest $request ListTaskExecutionsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTaskExecutionsResponse
+     * @return ListTaskExecutionsResponse ListTaskExecutionsResponse
      */
     public function listTaskExecutionsWithOptions($request, $runtime)
     {
@@ -3755,9 +3996,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTaskExecutionsRequest $request
+     * @summary Queries task executions. Multiple methods are supported to filter task executions.
+     *  *
+     * @param ListTaskExecutionsRequest $request ListTaskExecutionsRequest
      *
-     * @return ListTaskExecutionsResponse
+     * @return ListTaskExecutionsResponse ListTaskExecutionsResponse
      */
     public function listTaskExecutions($request)
     {
@@ -3767,10 +4010,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateVersionsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of versions of a template.
+     *  *
+     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplateVersionsResponse
+     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
      */
     public function listTemplateVersionsWithOptions($request, $runtime)
     {
@@ -3810,9 +4055,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateVersionsRequest $request
+     * @summary Queries a list of versions of a template.
+     *  *
+     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
      *
-     * @return ListTemplateVersionsResponse
+     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
      */
     public function listTemplateVersions($request)
     {
@@ -3822,10 +4069,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Queries templates. Multiple methods are supported to filter templates.
+     *  *
+     * @param ListTemplatesRequest $tmpReq  ListTemplatesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($tmpReq, $runtime)
     {
@@ -3850,6 +4099,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->hasTrigger)) {
             $query['HasTrigger'] = $request->hasTrigger;
+        }
+        if (!Utils::isUnset($request->isExample)) {
+            $query['IsExample'] = $request->isExample;
         }
         if (!Utils::isUnset($request->isFavorite)) {
             $query['IsFavorite'] = $request->isFavorite;
@@ -3906,9 +4158,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
+     * @summary Queries templates. Multiple methods are supported to filter templates.
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -3918,11 +4172,13 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * You can call this operation to notify an execution in the following scenarios:
-     *   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
-     *   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
-     *   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-     *   *
+     * @summary Notifies an execution in the Waiting state of the subsequent operations.
+     *  *
+     * @description You can call this operation to notify an execution in the following scenarios:
+     * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+     * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+     * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+     *  *
      * @param NotifyExecutionRequest $request NotifyExecutionRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -3981,11 +4237,13 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * You can call this operation to notify an execution in the following scenarios:
-     *   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
-     *   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
-     *   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-     *   *
+     * @summary Notifies an execution in the Waiting state of the subsequent operations.
+     *  *
+     * @description You can call this operation to notify an execution in the following scenarios:
+     * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+     * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+     * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+     *  *
      * @param NotifyExecutionRequest $request NotifyExecutionRequest
      *
      * @return NotifyExecutionResponse NotifyExecutionResponse
@@ -3998,10 +4256,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param RegisterDefaultPatchBaselineRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Registers the default patch baseline.
+     *  *
+     * @param RegisterDefaultPatchBaselineRequest $request RegisterDefaultPatchBaselineRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterDefaultPatchBaselineResponse
+     * @return RegisterDefaultPatchBaselineResponse RegisterDefaultPatchBaselineResponse
      */
     public function registerDefaultPatchBaselineWithOptions($request, $runtime)
     {
@@ -4032,9 +4292,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param RegisterDefaultPatchBaselineRequest $request
+     * @summary Registers the default patch baseline.
+     *  *
+     * @param RegisterDefaultPatchBaselineRequest $request RegisterDefaultPatchBaselineRequest
      *
-     * @return RegisterDefaultPatchBaselineResponse
+     * @return RegisterDefaultPatchBaselineResponse RegisterDefaultPatchBaselineResponse
      */
     public function registerDefaultPatchBaseline($request)
     {
@@ -4044,10 +4306,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param SearchInventoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the details or aggregate information of a configuration inventory.
+     *  *
+     * @param SearchInventoryRequest $request SearchInventoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchInventoryResponse
+     * @return SearchInventoryResponse SearchInventoryResponse
      */
     public function searchInventoryWithOptions($request, $runtime)
     {
@@ -4087,9 +4351,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param SearchInventoryRequest $request
+     * @summary Queries the details or aggregate information of a configuration inventory.
+     *  *
+     * @param SearchInventoryRequest $request SearchInventoryRequest
      *
-     * @return SearchInventoryResponse
+     * @return SearchInventoryResponse SearchInventoryResponse
      */
     public function searchInventory($request)
     {
@@ -4099,10 +4365,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param SetServiceSettingsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+     *  *
+     * @param SetServiceSettingsRequest $request SetServiceSettingsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetServiceSettingsResponse
+     * @return SetServiceSettingsResponse SetServiceSettingsResponse
      */
     public function setServiceSettingsWithOptions($request, $runtime)
     {
@@ -4148,9 +4416,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param SetServiceSettingsRequest $request
+     * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+     *  *
+     * @param SetServiceSettingsRequest $request SetServiceSettingsRequest
      *
-     * @return SetServiceSettingsResponse
+     * @return SetServiceSettingsResponse SetServiceSettingsResponse
      */
     public function setServiceSettings($request)
     {
@@ -4160,10 +4430,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param StartExecutionRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Starts an execution.
+     *  *
+     * @param StartExecutionRequest $tmpReq  StartExecutionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartExecutionResponse
+     * @return StartExecutionResponse StartExecutionResponse
      */
     public function startExecutionWithOptions($tmpReq, $runtime)
     {
@@ -4235,9 +4507,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param StartExecutionRequest $request
+     * @summary Starts an execution.
+     *  *
+     * @param StartExecutionRequest $request StartExecutionRequest
      *
-     * @return StartExecutionResponse
+     * @return StartExecutionResponse StartExecutionResponse
      */
     public function startExecution($request)
     {
@@ -4247,10 +4521,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to one or more resources.
+     *  *
+     * @param TagResourcesRequest $tmpReq  TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($tmpReq, $runtime)
     {
@@ -4295,9 +4571,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to one or more resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4307,10 +4585,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param TriggerExecutionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+     *  *
+     * @param TriggerExecutionRequest $request TriggerExecutionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TriggerExecutionResponse
+     * @return TriggerExecutionResponse TriggerExecutionResponse
      */
     public function triggerExecutionWithOptions($request, $runtime)
     {
@@ -4350,9 +4630,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param TriggerExecutionRequest $request
+     * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+     *  *
+     * @param TriggerExecutionRequest $request TriggerExecutionRequest
      *
-     * @return TriggerExecutionResponse
+     * @return TriggerExecutionResponse TriggerExecutionResponse
      */
     public function triggerExecution($request)
     {
@@ -4362,10 +4644,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from one or more resources.
+     *  *
+     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $runtime)
     {
@@ -4413,9 +4697,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from one or more resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4425,10 +4711,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param UpdateApplicationRequest $tmpReq  UpdateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplicationWithOptions($tmpReq, $runtime)
     {
@@ -4479,9 +4767,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationRequest $request
+     * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplication($request)
     {
@@ -4491,10 +4781,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param UpdateApplicationGroupRequest $request UpdateApplicationGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationGroupResponse
+     * @return UpdateApplicationGroupResponse UpdateApplicationGroupResponse
      */
     public function updateApplicationGroupWithOptions($request, $runtime)
     {
@@ -4531,9 +4823,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationGroupRequest $request
+     * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+     *  *
+     * @param UpdateApplicationGroupRequest $request UpdateApplicationGroupRequest
      *
-     * @return UpdateApplicationGroupResponse
+     * @return UpdateApplicationGroupResponse UpdateApplicationGroupResponse
      */
     public function updateApplicationGroup($request)
     {
@@ -4543,10 +4837,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateExecutionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Updates an execution.
+     *  *
+     * @param UpdateExecutionRequest $request UpdateExecutionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateExecutionResponse
+     * @return UpdateExecutionResponse UpdateExecutionResponse
      */
     public function updateExecutionWithOptions($request, $runtime)
     {
@@ -4592,9 +4888,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateExecutionRequest $request
+     * @summary Updates an execution.
+     *  *
+     * @param UpdateExecutionRequest $request UpdateExecutionRequest
      *
-     * @return UpdateExecutionResponse
+     * @return UpdateExecutionResponse UpdateExecutionResponse
      */
     public function updateExecution($request)
     {
@@ -4604,10 +4902,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateOpsItemRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Modifies an O\\\\\\\\\\\\&M item.
+     *  *
+     * @param UpdateOpsItemRequest $tmpReq  UpdateOpsItemRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOpsItemResponse
+     * @return UpdateOpsItemResponse UpdateOpsItemResponse
      */
     public function updateOpsItemWithOptions($tmpReq, $runtime)
     {
@@ -4682,9 +4982,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateOpsItemRequest $request
+     * @summary Modifies an O\\\\\\\\\\\\&M item.
+     *  *
+     * @param UpdateOpsItemRequest $request UpdateOpsItemRequest
      *
-     * @return UpdateOpsItemResponse
+     * @return UpdateOpsItemResponse UpdateOpsItemResponse
      */
     public function updateOpsItem($request)
     {
@@ -4694,10 +4996,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateParameterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Updates a common parameter.
+     *  *
+     * @param UpdateParameterRequest $request UpdateParameterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateParameterResponse
+     * @return UpdateParameterResponse UpdateParameterResponse
      */
     public function updateParameterWithOptions($request, $runtime)
     {
@@ -4740,9 +5044,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateParameterRequest $request
+     * @summary Updates a common parameter.
+     *  *
+     * @param UpdateParameterRequest $request UpdateParameterRequest
      *
-     * @return UpdateParameterResponse
+     * @return UpdateParameterResponse UpdateParameterResponse
      */
     public function updateParameter($request)
     {
@@ -4752,10 +5058,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdatePatchBaselineRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Updates a patch baseline.
+     *  *
+     * @param UpdatePatchBaselineRequest $tmpReq  UpdatePatchBaselineRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePatchBaselineResponse
+     * @return UpdatePatchBaselineResponse UpdatePatchBaselineResponse
      */
     public function updatePatchBaselineWithOptions($tmpReq, $runtime)
     {
@@ -4830,9 +5138,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdatePatchBaselineRequest $request
+     * @summary Updates a patch baseline.
+     *  *
+     * @param UpdatePatchBaselineRequest $request UpdatePatchBaselineRequest
      *
-     * @return UpdatePatchBaselineResponse
+     * @return UpdatePatchBaselineResponse UpdatePatchBaselineResponse
      */
     public function updatePatchBaseline($request)
     {
@@ -4842,10 +5152,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecretParameterRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Updates an encryption parameter.
+     *  *
+     * @param UpdateSecretParameterRequest $tmpReq  UpdateSecretParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSecretParameterResponse
+     * @return UpdateSecretParameterResponse UpdateSecretParameterResponse
      */
     public function updateSecretParameterWithOptions($tmpReq, $runtime)
     {
@@ -4893,9 +5205,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecretParameterRequest $request
+     * @summary Updates an encryption parameter.
+     *  *
+     * @param UpdateSecretParameterRequest $request UpdateSecretParameterRequest
      *
-     * @return UpdateSecretParameterResponse
+     * @return UpdateSecretParameterResponse UpdateSecretParameterResponse
      */
     public function updateSecretParameter($request)
     {
@@ -4905,10 +5219,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateStateConfigurationRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates a desired-state configuration.
+     *  *
+     * @param UpdateStateConfigurationRequest $tmpReq  UpdateStateConfigurationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateStateConfigurationResponse
+     * @return UpdateStateConfigurationResponse UpdateStateConfigurationResponse
      */
     public function updateStateConfigurationWithOptions($tmpReq, $runtime)
     {
@@ -4974,9 +5290,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateStateConfigurationRequest $request
+     * @summary Updates a desired-state configuration.
+     *  *
+     * @param UpdateStateConfigurationRequest $request UpdateStateConfigurationRequest
      *
-     * @return UpdateStateConfigurationResponse
+     * @return UpdateStateConfigurationResponse UpdateStateConfigurationResponse
      */
     public function updateStateConfiguration($request)
     {
@@ -4986,10 +5304,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Updates the information about an existing template.
+     *  *
+     * @param UpdateTemplateRequest $tmpReq  UpdateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($tmpReq, $runtime)
     {
@@ -5037,9 +5357,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
+     * @summary Updates the information about an existing template.
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -5049,10 +5371,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ValidateTemplateContentRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Check whether a template is valid.
+     *  *
+     * @param ValidateTemplateContentRequest $request ValidateTemplateContentRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateTemplateContentResponse
+     * @return ValidateTemplateContentResponse ValidateTemplateContentResponse
      */
     public function validateTemplateContentWithOptions($request, $runtime)
     {
@@ -5086,9 +5410,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ValidateTemplateContentRequest $request
+     * @summary Check whether a template is valid.
+     *  *
+     * @param ValidateTemplateContentRequest $request ValidateTemplateContentRequest
      *
-     * @return ValidateTemplateContentResponse
+     * @return ValidateTemplateContentResponse ValidateTemplateContentResponse
      */
     public function validateTemplateContent($request)
     {

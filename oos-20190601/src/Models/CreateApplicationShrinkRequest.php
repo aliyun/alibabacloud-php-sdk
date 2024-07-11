@@ -36,6 +36,7 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example MyApplication
      *
      * @var string

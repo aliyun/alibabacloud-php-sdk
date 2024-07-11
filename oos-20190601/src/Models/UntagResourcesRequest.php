@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +30,13 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
      *
-     *   If you set ResourceType to template, specify ResourceIds in the \["TemplateName1","TemplateName2"] format.
-     *   If you set ResourceType to parameter, specify ResourceIds in the \["Name1","Name2"] format.
-     *   If you set ResourceType to secretparameter, specify ResourceIds in the \["Name1","Name2"] format.
-     *   If you set ResourceType to stateconfiguration, specify ResourceIds in the \["StateConfigurationId 1","StateConfigurationId 2"] format.
-     *   If you set ResourceType to application, specify ResourceIds in the \["Name1","Name2"] format.
+     *   If you set ResourceType to template, specify ResourceIds in the ["TemplateName1","TemplateName2"] format.
+     *   If you set ResourceType to parameter, specify ResourceIds in the ["Name1","Name2"] format.
+     *   If you set ResourceType to secretparameter, specify ResourceIds in the ["Name1","Name2"] format.
+     *   If you set ResourceType to stateconfiguration, specify ResourceIds in the ["StateConfigurationId 1","StateConfigurationId 2"] format.
+     *   If you set ResourceType to application, specify ResourceIds in the ["Name1","Name2"] format.
      *
+     * This parameter is required.
      * @example ["templateName1","templateName2"]
      *
      * @var mixed[]
@@ -50,6 +52,7 @@ class UntagResourcesRequest extends Model
      *   stateconfiguration: desired-state configuration.
      *   application: application.
      *
+     * This parameter is required.
      * @example template
      *
      * @var string

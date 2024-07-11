@@ -20,6 +20,7 @@ class ListSecretParameterVersionsRequest extends Model
     /**
      * @description The name of the encryption parameter.
      *
+     * This parameter is required.
      * @example MySecretParameter
      *
      * @var string

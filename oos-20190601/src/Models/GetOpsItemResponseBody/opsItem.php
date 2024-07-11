@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class opsItem extends Model
 {
     /**
-     * @description The information about the attributes of the O\&M item.
+     * @description The information about the attributes of the O\\&M item.
      *
      * @var mixed[]
      */
     public $attributes;
 
     /**
-     * @description The category of the O\&M item.
+     * @description The category of the O\\&M item.
      *
      * @example Security
      *
@@ -25,7 +25,7 @@ class opsItem extends Model
     public $category;
 
     /**
-     * @description The user who created the O\&M item.
+     * @description The user who created the O\\&M item.
      *
      * @example root(130900000)
      *
@@ -34,7 +34,7 @@ class opsItem extends Model
     public $createBy;
 
     /**
-     * @description The time when the O\&M item was created.
+     * @description The time when the O\\&M item was created.
      *
      * @example 2023-04-10T06:15Z
      *
@@ -52,7 +52,7 @@ class opsItem extends Model
     public $description;
 
     /**
-     * @description The user who last modified the O\&M item.
+     * @description The user who last modified the O\\&M item.
      *
      * @example modifiedBy
      *
@@ -61,7 +61,7 @@ class opsItem extends Model
     public $lastModifiedBy;
 
     /**
-     * @description The O\&M item ID.
+     * @description The O\\&M item ID.
      *
      * @example oi-d52b08695e2b46ae8413
      *
@@ -70,7 +70,7 @@ class opsItem extends Model
     public $opsItemId;
 
     /**
-     * @description The priority of the O\&M item.
+     * @description The priority of the O\\&M item.
      *
      * @example 1
      *
@@ -95,7 +95,7 @@ class opsItem extends Model
     public $resources;
 
     /**
-     * @description The severity level of the O\&M item.
+     * @description The severity level of the O\\&M item.
      *
      * @example Medium
      *
@@ -104,14 +104,14 @@ class opsItem extends Model
     public $severity;
 
     /**
-     * @description The solutions to the O\&M item.
+     * @description The solutions to the O\\&M item.
      *
      * @var mixed[][]
      */
     public $solutions;
 
     /**
-     * @description The source business of the O\&M item.
+     * @description The source business of the O\\&M item.
      *
      * @example /aliyun/appManager
      *
@@ -120,7 +120,7 @@ class opsItem extends Model
     public $source;
 
     /**
-     * @description The status of the O\&M item.
+     * @description The status of the O\\&M item.
      *
      * @example Open
      *
@@ -129,7 +129,7 @@ class opsItem extends Model
     public $status;
 
     /**
-     * @description The tags attached to the O\&M item.
+     * @description The tags attached to the O\\&M item.
      *
      * @example {"K1":"V1"}
      *
@@ -138,7 +138,7 @@ class opsItem extends Model
     public $tags;
 
     /**
-     * @description The title of the O\&M item.
+     * @description The title of the O\\&M item.
      *
      * @example test
      *
@@ -147,7 +147,7 @@ class opsItem extends Model
     public $title;
 
     /**
-     * @description The time when the O\&M item was updated.
+     * @description The time when the O\\&M item was updated.
      *
      * @example 2023-04-10T06:15Z
      *

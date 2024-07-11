@@ -11,7 +11,7 @@ class GenerateExecutionPolicyResponseBody extends Model
     /**
      * @description The policies that are missing.
      *
-     * @example [{\"Action\": [\"ecs:DescribeInvocationResults\", \"ecs:DescribeInstances\", \"ecs:RunCommand\", \"ecs:DescribeInvocations\"], \"ServiceName\": \"ecs\", \"Resources\": \"*\"}]
+     * @example [{\\"Action\\": [\\"ecs:DescribeInvocationResults\\", \\"ecs:DescribeInstances\\", \\"ecs:RunCommand\\", \\"ecs:DescribeInvocations\\"], \\"ServiceName\\": \\"ecs\\", \\"Resources\\": \\"*\\"}]
      *
      * @var string
      */

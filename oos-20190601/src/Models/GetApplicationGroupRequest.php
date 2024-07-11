@@ -11,6 +11,7 @@ class GetApplicationGroupRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example MyApplication
      *
      * @var string
@@ -20,6 +21,7 @@ class GetApplicationGroupRequest extends Model
     /**
      * @description The name of the application group.
      *
+     * This parameter is required.
      * @example MyApplicationGroup
      *
      * @var string

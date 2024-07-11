@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpsItemRequest extends Model
 {
     /**
-     * @description The O\&M item ID.
+     * @description The O\\&M item ID.
      *
+     * This parameter is required.
      * @example oi-d52b08695e2b46ae8413
      *
      * @var string

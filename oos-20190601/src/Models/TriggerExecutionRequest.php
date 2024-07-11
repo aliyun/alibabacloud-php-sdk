@@ -29,6 +29,7 @@ class TriggerExecutionRequest extends Model
     /**
      * @description The ID of the event-, alert-, or timer-triggered execution.
      *
+     * This parameter is required.
      * @example exec-sadw3f23rsad
      *
      * @var string
@@ -38,6 +39,7 @@ class TriggerExecutionRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +53,7 @@ class TriggerExecutionRequest extends Model
      *   Alarm
      *   Timer
      *
+     * This parameter is required.
      * @example Event
      *
      * @var string

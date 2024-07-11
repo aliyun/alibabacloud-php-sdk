@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterShrinkRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). For more information, see "How to ensure idempotence".
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see "How to ensure idempotence".
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -41,8 +41,9 @@ class CreateParameterShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The name of the parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+     * @description The name of the parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
      *
+     * This parameter is required.
      * @example MyParameter
      *
      * @var string
@@ -79,6 +80,7 @@ class CreateParameterShrinkRequest extends Model
     /**
      * @description The data type of the parameter. Valid values: String and StringList.
      *
+     * This parameter is required.
      * @example String
      *
      * @var string
@@ -88,6 +90,7 @@ class CreateParameterShrinkRequest extends Model
     /**
      * @description The value of the common parameter. The value must be 1 to 4096 characters in length.
      *
+     * This parameter is required.
      * @example parameter
      *
      * @var string

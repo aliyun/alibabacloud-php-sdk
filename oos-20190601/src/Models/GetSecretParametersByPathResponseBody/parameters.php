@@ -11,7 +11,7 @@ class parameters extends Model
     /**
      * @description The constraints of the encryption parameter.
      *
-     * @example {\"AllowedPattern\": \"^[a-g]*$\"}
+     * @example {\\"AllowedPattern\\": \\"^[a-g]*$\\"}
      *
      * @var string
      */
