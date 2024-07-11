@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCCRulesV2ResponseBody extends Model
 {
     /**
+     * @description The domain name of the website.
+     *
      * @example www.aliyun.com
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeWebCCRulesV2ResponseBody extends Model
     public $domain;
 
     /**
+     * @description The request ID.
+     *
      * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeWebCCRulesV2ResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned custom frequency control rules.
+     *
      * @example 12
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeWebCCRulesV2ResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The custom frequency control rules.
+     *
      * @var webCCRules[]
      */
     public $webCCRules;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class elasticQpsList extends Model
 {
     /**
+     * @description The timestamp. Unit: milliseconds.
+     *
      * @example 1688140799999
      *
      * @var int
@@ -16,6 +18,8 @@ class elasticQpsList extends Model
     public $date;
 
     /**
+     * @description The ID of the Anti-DDoS Proxy instance.
+     *
      * @example ddoscoo-cn-7e225i41****
      *
      * @var string
@@ -23,6 +27,8 @@ class elasticQpsList extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the Anti-DDoS Proxy instance.
+     *
      * @example 203.***.***.199
      *
      * @var string
@@ -30,6 +36,8 @@ class elasticQpsList extends Model
     public $ip;
 
     /**
+     * @description The burstable QPS value. A value of 0 indicates that the burstable QPS feature is not enabled.
+     *
      * @example 300000
      *
      * @var int
@@ -37,6 +45,8 @@ class elasticQpsList extends Model
     public $opsElasticQps;
 
     /**
+     * @description The service QPS (active).
+     *
      * @example 1345
      *
      * @var int
@@ -44,6 +54,8 @@ class elasticQpsList extends Model
     public $opsQps;
 
     /**
+     * @description The service QPS (purchased).
+     *
      * @example 1345
      *
      * @var int
@@ -51,6 +63,8 @@ class elasticQpsList extends Model
     public $originQps;
 
     /**
+     * @description The daily peak 95th percentile QPS.
+     *
      * @example 4367
      *
      * @var int
@@ -58,6 +72,8 @@ class elasticQpsList extends Model
     public $qps;
 
     /**
+     * @description The daily peak traffic.
+     *
      * @example 122
      *
      * @var int
@@ -65,6 +81,12 @@ class elasticQpsList extends Model
     public $qpsPeak;
 
     /**
+     * @description Indicates whether the instance has expired or is released. Valid values:
+     *
+     *   **1**: The instance runs as expected.
+     *   **2**: The instance has expired.
+     *   **4**: The instance is released.
+     *
      * @example 1
      *
      * @var int

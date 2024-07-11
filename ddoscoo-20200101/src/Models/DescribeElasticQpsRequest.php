@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticQpsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1684339200
      *
      * @var int
@@ -18,6 +19,8 @@ class DescribeElasticQpsRequest extends Model
     public $endTime;
 
     /**
+     * @description The sampling interval. Unit: seconds. The value must be a multiple of 60. Default value: 60. Unit: seconds. The query result varies depending on the sampling interval.
+     *
      * @example 60
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeElasticQpsRequest extends Model
     public $interval;
 
     /**
+     * @description The IP address of the Anti-DDoS Proxy instance to query.
+     *
      * @example 203.107.XX.XX
      *
      * @var string
@@ -32,8 +37,12 @@ class DescribeElasticQpsRequest extends Model
     public $ip;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the service. Valid values:
      *
+     *   **cn**: Anti-DDoS Proxy (Chinese Mainland)
+     *   **cn-hongkong**: Anti-DDoS Proxy (Outside Chinese Mainland)
+     *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -41,8 +50,9 @@ class DescribeElasticQpsRequest extends Model
     public $region;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1684252800
      *
      * @var int

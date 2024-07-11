@@ -46,12 +46,13 @@ class CreateSchedulerRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The type of the custom defense rule. Valid values:
+     * @description The type of the rule. Valid values:
      *
      *   **2**: tiered protection
      *   **3**: network acceleration
-     *   **5**: CDN interaction
+     *   **5**: Alibaba Cloud CDN (CDN) interaction
      *   **6**: cloud service interaction
+     *   **8**: secure acceleration
      *
      * This parameter is required.
      * @example 2

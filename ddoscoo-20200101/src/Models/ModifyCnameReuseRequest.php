@@ -30,8 +30,8 @@ class ModifyCnameReuseRequest extends Model
     /**
      * @description Specifies whether to enable CNAME reuse. Valid values:
      *
-     *   **1**: enables CNAME reuse.
-     *   **2**: disables CNAME reuse.
+     *   **0:** disabled
+     *   **1:** enabled
      *
      * This parameter is required.
      * @example 1

@@ -21,7 +21,7 @@ class instanceExtSpecs extends Model
     public $functionVersion;
 
     /**
-     * @description The instance ID
+     * @description The ID of the instance.
      *
      * @example ddoscoo-cn-i7m25564****
      *
@@ -39,13 +39,13 @@ class instanceExtSpecs extends Model
     public $normalBandwidth;
 
     /**
-     * @description The type of the instance. Valid value:
+     * @description The type of the instance. Valid values:
      *
-     *   **0**: Anti-DDoS Premium instance of the Insurance mitigation plan
-     *   **1**: Anti-DDoS Premium instance of the Unlimited mitigation plan
-     *   **2**: Anti-DDoS Premium instance of the CMA mitigation plan
-     *   **3**: Anti-DDoS Premium instance of the Secure Chinese Mainland Acceleration (Sec-CMA) plan
-     *   **9**: Anti-DDoS Pro instance of the Profession mitigation plan
+     *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+     *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+     *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+     *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
+     *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class instanceExtSpecs extends Model
     public $productPlan;
 
     /**
-     * @description The Internet service provider (ISP) line resource of the Anti-DDoS Pro instance.
+     * @description The Internet service provider (ISP) line of the Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * @example coop-line-001
      *

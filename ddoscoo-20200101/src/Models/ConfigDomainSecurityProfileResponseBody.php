@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfigDomainSecurityProfileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9728769F-9466-534E-BE12-CAB29A675828
      *
      * @var string

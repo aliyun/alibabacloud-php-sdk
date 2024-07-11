@@ -38,8 +38,8 @@ class networkRules extends Model
     /**
      * @description Indicates whether the port forwarding rule is automatically created. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -60,13 +60,17 @@ class networkRules extends Model
     public $protocol;
 
     /**
-     * @description An array that consists of IP addresses of origin servers.
+     * @description The IP addresses of origin servers.
      *
      * @var string[]
      */
     public $realServers;
 
     /**
+     * @description The remarks of the port forwarding rule.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $remark;

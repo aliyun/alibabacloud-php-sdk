@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigNetworkRegionBlockResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
      *

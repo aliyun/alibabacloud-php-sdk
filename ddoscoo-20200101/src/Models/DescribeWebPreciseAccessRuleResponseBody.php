@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebPreciseAccessRuleResponseBody extends Model
 {
     /**
-     * @description An array consisting of the configuration of the accurate access control rule that is created for the website.
+     * @description The configuration of the accurate access control rule that is created for the website.
      *
      * @var preciseAccessConfigList[]
      */

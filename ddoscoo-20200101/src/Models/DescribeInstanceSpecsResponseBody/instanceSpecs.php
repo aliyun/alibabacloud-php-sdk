@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceSpecs extends Model
 {
     /**
-     * @description The clean bandwidth of normal services. Unit: Mbit/s.
+     * @description The clean bandwidth. Unit: Mbit/s.
      *
      * @example 100
      *
@@ -45,9 +45,9 @@ class instanceSpecs extends Model
     public $cpsLimit;
 
     /**
-     * @description The number of available advanced mitigation sessions for this month. If **-1** is returned, advanced mitigation capabilities are unlimited.
+     * @description The number of available advanced mitigation sessions for this month. **-1**: unlimited
      *
-     * > This parameter is returned only when **RegionId** is set to **ap-southeast-1**. If RegionId is set to ap-southeast-1, the specifications of Anti-DDoS Premium instances are queried.
+     * >  This parameter is returned only when the request parameter **RegionId** is set to **ap-southeast-1**. If RegionId is set to ap-southeast-1, the specifications of Anti-DDoS Proxy (Outside Chinese Mainland) instances are queried.
      * @example 2
      *
      * @var int
@@ -94,11 +94,22 @@ class instanceSpecs extends Model
     public $elasticBwModel;
 
     /**
+     * @description The burstable QPS. Unit: QPS
+     *
+     * @example 10
+     *
      * @var int
      */
     public $elasticQps;
 
     /**
+     * @description The metering method of the burstable QPS. Valid values:
+     *
+     *   **day**: the metering method of daily 95th percentile
+     *   **month**: the metering method of monthly 95th percentile
+     *
+     * @example day
+     *
      * @var string
      */
     public $elasticQpsMode;
@@ -109,8 +120,8 @@ class instanceSpecs extends Model
      *   **default**: Standard
      *   **enhance**: Enhanced
      *   **cnhk**: Chinese Mainland Acceleration (CMA)
-     *   **cnhk_default**: Secure Chinese Mainland Acceleration (Sec-CMA) standard function plan
-     *   **cnhk_enhance**: Sec-CMA enhanced function plan
+     *   **cnhk_default**: Secure Chinese Mainland Acceleration (Sec-CMA) standard
+     *   **cnhk_enhance**: Sec-CMA enhanced
      *
      * @example default
      *
@@ -137,7 +148,7 @@ class instanceSpecs extends Model
     public $portLimit;
 
     /**
-     * @description The clean queries per second (QPS) of normal services.
+     * @description The clean QPS.
      *
      * @example 3000
      *
@@ -146,7 +157,7 @@ class instanceSpecs extends Model
     public $qpsLimit;
 
     /**
-     * @description 实例业务带宽限速值。取值：0～15360，0表示不限速。单位：mbps。
+     * @description The threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
      *
      * @example 0
      *

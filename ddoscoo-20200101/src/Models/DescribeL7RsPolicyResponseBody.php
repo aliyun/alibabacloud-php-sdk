@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeL7RsPolicyResponseBody extends Model
 {
     /**
-     * @description The details of the parameters for back-to-origin.
+     * @description The details about the parameters for back-to-origin processing.
      *
      * @var attributes[]
      */
@@ -39,6 +39,13 @@ class DescribeL7RsPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The back-to-origin retry switch. Valid values:
+     *
+     *   **1**: on
+     *   **0**: off
+     *
+     * @example 1
+     *
      * @var int
      */
     public $upstreamRetry;

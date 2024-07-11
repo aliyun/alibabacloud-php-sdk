@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N that is added to the instance to query. The maximum value of N is 200. You can specify up to 200 tags. When you specify tags, take note of the following rules:
+     * @description The key of the tag that is added to the instance to query. You can specify up to 200 tag keys. When you specify tags, take note of the following rules:
      *
-     *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated by a comma (,).
+     *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
      *   Separate multiple tags with commas (,).
      *
      * >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.
@@ -22,9 +22,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N that is added to the instance to query. The maximum value of N is 200. You can specify up to 200 tags. When you specify tags, take note of the following rules:
+     * @description The value of the tag that is added to the instance to query. You can specify up to 200 tag values. When you specify tags, take note of the following rules:
      *
-     *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated by a comma (,).
+     *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
      *   Separate multiple tags with commas (,).
      *
      * >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.

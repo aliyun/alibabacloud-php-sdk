@@ -11,7 +11,7 @@ class instanceStatistics extends Model
     /**
      * @description The number of advanced mitigation sessions that are used in this month.
      *
-     * > This parameter is returned only if Anti-DDoS Premium instances are queried.
+     * >  This parameter is returned only if Anti-DDoS Proxy (Outside Chinese Mainland) instances are queried.
      * @example 1
      *
      * @var int

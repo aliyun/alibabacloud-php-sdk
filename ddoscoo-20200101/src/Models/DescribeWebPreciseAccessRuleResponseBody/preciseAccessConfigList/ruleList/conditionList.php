@@ -32,9 +32,9 @@ class conditionList extends Model
     public $field;
 
     /**
-     * @description The custom HTTP header.
+     * @description The custom HTTP request header.
      *
-     * > This parameter takes effect only when **Field** is set to **header**.
+     * >  This parameter takes effect only when **Field** is set to **header**.
      * @example null
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyQpsModeResponseBody extends Model
 {
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example 48859E14-A9FB-4100-99FF-AAB75CA46776
      *
      * @var string

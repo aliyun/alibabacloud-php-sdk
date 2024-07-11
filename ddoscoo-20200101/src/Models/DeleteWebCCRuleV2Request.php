@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebCCRuleV2Request extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The domain name of the website.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string
@@ -18,6 +19,11 @@ class DeleteWebCCRuleV2Request extends Model
     public $domain;
 
     /**
+     * @description The source of the rule. Valid values:
+     *
+     *   **manual** (default): manually created.
+     *   **clover**: automatically created. Specify this value when you want to delete intelligent protection rules.
+     *
      * @example manual
      *
      * @var string
@@ -25,6 +31,8 @@ class DeleteWebCCRuleV2Request extends Model
     public $owner;
 
     /**
+     * @description The names of the rules that you want to delete.
+     *
      * @example [\\"trdsss\\"]
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyElasticBizQpsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the Anti-DDoS Proxy instance.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string
@@ -18,8 +19,12 @@ class ModifyElasticBizQpsRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The metering method for the burstable QPS. Valid values:
      *
+     *   **month**: monthly 95th percentile
+     *   **day**: daily 95th percentile QPS
+     *
+     * This parameter is required.
      * @example month
      *
      * @var string
@@ -27,6 +32,9 @@ class ModifyElasticBizQpsRequest extends Model
     public $mode;
 
     /**
+     * @description The burstable QPS value.
+     *
+     * >  The default value is 300,000 for the Chinese mainland and 150,000 for regions outside the Chinese mainland.
      * @example 300000
      *
      * @var int

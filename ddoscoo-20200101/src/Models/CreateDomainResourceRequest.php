@@ -48,7 +48,7 @@ class CreateDomainResourceRequest extends Model
     public $instanceIds;
 
     /**
-     * @description An array that consists of the details of the protocol type and port number.
+     * @description The details about the protocol type and port number.
      *
      * This parameter is required.
      * @var proxyTypes[]

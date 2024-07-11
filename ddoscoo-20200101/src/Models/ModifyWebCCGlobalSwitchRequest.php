@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCCGlobalSwitchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Specifies whether the HTTP flood mitigation feature is enabled. Valid values:
      *
+     *   **open**
+     *   **close**
+     *
+     * This parameter is required.
      * @example open
      *
      * @var string
@@ -18,8 +22,9 @@ class ModifyWebCCGlobalSwitchRequest extends Model
     public $ccGlobalSwitch;
 
     /**
-     * @description This parameter is required.
+     * @description The domain name of the website.
      *
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string

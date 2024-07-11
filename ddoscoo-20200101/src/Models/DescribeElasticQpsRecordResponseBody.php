@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticQpsRecordResponseBody extends Model
 {
     /**
+     * @description The QPS information about the instance.
+     *
      * @var elasticQpsList[]
      */
     public $elasticQpsList;
 
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example F68B34E2-570C-508D-95FD-DFB6611D518F
      *
      * @var string

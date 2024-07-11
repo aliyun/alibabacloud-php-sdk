@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticQpsRecordRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. The value is a timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1688140799999
      *
      * @var int
@@ -18,8 +19,9 @@ class DescribeElasticQpsRecordRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The IP address of the Anti-DDoS Proxy instance to query.
      *
+     * This parameter is required.
      * @example 203.107.XX.XX
      *
      * @var string
@@ -27,8 +29,9 @@ class DescribeElasticQpsRecordRequest extends Model
     public $ip;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The value is a timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1684252800000
      *
      * @var int

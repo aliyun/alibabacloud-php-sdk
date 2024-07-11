@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCCGlobalSwitchResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5AE2FC86-C840-41AE-9F1A-3A2747C7C1DF
      *
      * @var string

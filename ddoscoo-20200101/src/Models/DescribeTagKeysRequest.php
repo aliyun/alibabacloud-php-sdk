@@ -27,7 +27,7 @@ class DescribeTagKeysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
+     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

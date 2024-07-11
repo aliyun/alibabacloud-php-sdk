@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCcProtectSwitchResponseBody extends Model
 {
     /**
-     * @description The status of each protection policy for a website.
+     * @description The status of each mitigation policy for the website.
      *
      * @var protectSwitchList[]
      */

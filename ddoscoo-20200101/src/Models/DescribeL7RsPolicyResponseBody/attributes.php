@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class attributes extends Model
 {
     /**
-     * @description The parameter for back-to-origin.
+     * @description The parameter for back-to-origin processing.
      *
      * @var attribute
      */

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class rsKeepalive extends Model
 {
     /**
+     * @description Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class rsKeepalive extends Model
     public $enabled;
 
     /**
+     * @description The number of requests that reuse persistent connections.
+     *
      * @example 1000
      *
      * @var int
@@ -23,6 +30,8 @@ class rsKeepalive extends Model
     public $keepaliveRequests;
 
     /**
+     * @description The timeout period of idle persistent connections.
+     *
      * @example 30
      *
      * @var int

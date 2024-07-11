@@ -18,7 +18,7 @@ class connsList extends Model
     public $actConns;
 
     /**
-     * @description The number of concurrent connections.
+     * @description >  This parameter is in internal preview. Do not use this parameter.
      *
      * @example 8
      *
@@ -27,7 +27,7 @@ class connsList extends Model
     public $conns;
 
     /**
-     * @description The new connection creation rate.
+     * @description The number of new connections.
      *
      * @example 0
      *

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class protectSwitchList extends Model
 {
     /**
-     * @description The mode of the Intelligent Protection policy. Valid values:
+     * @description The mode of Intelligent Protection. Valid values:
      *
-     *   **watch**: the Warning mode
-     *   **defense**: the Defense mode
+     *   **watch**: Warning
+     *   **defense**: Defense
      *
      * @example defense
      *
@@ -21,10 +21,10 @@ class protectSwitchList extends Model
     public $aiMode;
 
     /**
-     * @description The status of the Intelligent Protection policy. Valid values:
+     * @description The status of Intelligent Protection. Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 1
      *
@@ -33,11 +33,11 @@ class protectSwitchList extends Model
     public $aiRuleEnable;
 
     /**
-     * @description The level of the Intelligent Protection policy. Valid values:
+     * @description The level of Intelligent Protection. Valid values:
      *
-     *   **level30**: the Low level
-     *   **level60**: the Normal level
-     *   **level90**: the Strict level
+     *   **level30**: Loose
+     *   **level60**: Normal
+     *   **level90**: Strict
      *
      * @example level60
      *
@@ -46,10 +46,10 @@ class protectSwitchList extends Model
     public $aiTemplate;
 
     /**
-     * @description The status of the Black Lists and White Lists (Domain Names) policy. Valid values:
+     * @description The status of Blacklist/Whitelist (Domain Names). Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 1
      *
@@ -58,10 +58,10 @@ class protectSwitchList extends Model
     public $blackWhiteListEnable;
 
     /**
-     * @description The status of the Custom Rule switch for the Frequency Control policy. Valid values:
+     * @description The status of the Custom Rules switch for Frequency Control. Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 0
      *
@@ -70,10 +70,10 @@ class protectSwitchList extends Model
     public $ccCustomRuleEnable;
 
     /**
-     * @description The status of the Frequency Control policy. Valid values:
+     * @description The status of Frequency Control. Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 1
      *
@@ -87,7 +87,7 @@ class protectSwitchList extends Model
     public $ccGlobalSwitch;
 
     /**
-     * @description The mode of the Frequency Control policy. Valid values:
+     * @description The mode of Frequency Control. Valid values:
      *
      *   **default**: Normal
      *   **gf_under_attack**: Emergency
@@ -110,10 +110,10 @@ class protectSwitchList extends Model
     public $domain;
 
     /**
-     * @description The status of the Accurate Access Control policy. Valid values:
+     * @description The status of Accurate Access Control. Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 0
      *
@@ -122,10 +122,10 @@ class protectSwitchList extends Model
     public $preciseRuleEnable;
 
     /**
-     * @description The status of the Location Blacklist (Domain Names) policy. Valid values:
+     * @description The status of Location Blacklist (Domain Names). Valid values:
      *
-     *   **0**: disabled
-     *   **1**: enabled
+     *   **0**: turned off
+     *   **1:** turned on
      *
      * @example 0
      *

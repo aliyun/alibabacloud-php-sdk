@@ -37,7 +37,7 @@ class DescribeTagKeysResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the details of the tag key.
+     * @description The details about the tag keys.
      *
      * @var tagKeys[]
      */

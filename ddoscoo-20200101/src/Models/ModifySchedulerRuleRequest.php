@@ -46,12 +46,13 @@ class ModifySchedulerRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The type of the rule. Valid values:
+     * @description The type of the scheduling rule. Valid values:
      *
      *   **2**: tiered protection
      *   **3**: network acceleration
-     *   **5**: Alibaba Cloud CDN (CDN) interaction
+     *   **5**: CDN interaction
      *   **6**: cloud service interaction
+     *   **8**: secure acceleration
      *
      * This parameter is required.
      * @example 2
@@ -61,7 +62,7 @@ class ModifySchedulerRuleRequest extends Model
     public $ruleType;
 
     /**
-     * @description The details of the scheduling rule. This parameter is a JSON string. The string contains the following fields:
+     * @description The details of the scheduling rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
      *
      *   **Type**: the address type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type. Valid values:
      *
@@ -79,6 +80,7 @@ class ModifySchedulerRuleRequest extends Model
      *   **3**: the IP address that is used to accelerate access in the network acceleration scenario
      *   **5**: the domain name that is configured in Alibaba Cloud CDN (CDN) in the CDN interaction scenario
      *   **6** the IP address of the interaction resource in the cloud service interaction scenario
+     *   **8**: the IP address of the Secure Chinese Mainland Acceleration (Sec-CMA) instance in the secure acceleration scenario
      *
      *   **RegionId**: the region where the interaction resource is deployed. This parameter must be specified when **ValueType** is set to **2**. The value must be of the string type.
      *

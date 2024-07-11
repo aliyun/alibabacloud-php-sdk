@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyQpsModeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The region ID of the Anti-DDoS Pro instance.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-7e225i41****
      *
      * @var string
@@ -18,8 +19,12 @@ class ModifyQpsModeRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The metering method of QPS. Valid values:
      *
+     *   **month**: monthly 95th percentile QPS.
+     *   **day**: daily 95th percentile QPS.
+     *
+     * This parameter is required.
      * @example month
      *
      * @var string

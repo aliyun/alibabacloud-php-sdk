@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The statistical method. Valid values:
+     *
+     *   **ip**
+     *   **header**
+     *   **uri**
+     *
      * @example uri
      *
      * @var string
@@ -16,6 +22,8 @@ class statistics extends Model
     public $field;
 
     /**
+     * @description The name of the header. This parameter is required only when the Field parameter is set to header.
+     *
      * @example hello
      *
      * @var string
@@ -23,6 +31,11 @@ class statistics extends Model
     public $headerName;
 
     /**
+     * @description Indicates whether the system collects statistics after deduplication. Valid values:
+     *
+     *   **count**: The system collects statistics before deduplication.
+     *   **distinct**: The system collects statistics after deduplication.
+     *
      * @example count
      *
      * @var string

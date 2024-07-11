@@ -13,6 +13,13 @@ use AlibabaCloud\Tea\Model;
 class ruleDetail extends Model
 {
     /**
+     * @description The action triggered if the rule is matched. Valid values:
+     *
+     *   **accept**: The requests that match the rule are allowed.
+     *   **block**: The requests that match the rule are blocked.
+     *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
+     *   **watch**: The requests that match the rule are recorded in logs and allowed.
+     *
      * @example block
      *
      * @var string
@@ -20,16 +27,22 @@ class ruleDetail extends Model
     public $action;
 
     /**
+     * @description The match conditions.
+     *
      * @var condition[]
      */
     public $condition;
 
     /**
+     * @description The parameter is deprecated.
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The parameter is deprecated.
+     *
      * @example 60
      *
      * @var int
@@ -37,11 +50,15 @@ class ruleDetail extends Model
     public $interval;
 
     /**
+     * @description The parameter is deprecated.
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The name of the rule.
+     *
      * @example ccauto14
      *
      * @var string
@@ -49,21 +66,29 @@ class ruleDetail extends Model
     public $name;
 
     /**
+     * @description The frequency statistics.
+     *
      * @var rateLimit
      */
     public $rateLimit;
 
     /**
+     * @description The statistics after deduplication. By default, the system collects statistics before deduplication.
+     *
      * @var statistics
      */
     public $statistics;
 
     /**
+     * @description The status codes.
+     *
      * @var statusCode
      */
     public $statusCode;
 
     /**
+     * @description The parameter is deprecated.
+     *
      * @example 300
      *
      * @var int
@@ -71,6 +96,8 @@ class ruleDetail extends Model
     public $ttl;
 
     /**
+     * @description The parameter is deprecated.
+     *
      * @example /p3shijihao
      *
      * @var string

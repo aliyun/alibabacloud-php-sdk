@@ -48,10 +48,10 @@ class ConfigUdpReflectRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the instance. Valid values:
+     * @description The region ID of the Anti-DDoS Proxy instance. Valid values:
      *
-     *   **cn-hangzhou**: Chinese mainland, which indicates Anti-DDoS Pro instances. This is the default value.
-     *   **ap-southeast-1**: outside the Chinese mainland, which indicates Anti-DDoS Premium instances.
+     *   **cn-hangzhou**: indicates an Anti-DDoS Proxy (Chinese Mainland) instance. This is the default value.
+     *   **ap-southeast-1**: indicates an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
      *
      * @example cn-hangzhou
      *

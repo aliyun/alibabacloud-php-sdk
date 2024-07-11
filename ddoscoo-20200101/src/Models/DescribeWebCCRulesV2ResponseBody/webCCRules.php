@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class webCCRules extends Model
 {
     /**
+     * @description The validity period of the rule. Unit: seconds. If the Action parameter is set to block, the system blocks the requests that match the rule within the validity period of the rule. The value 0 indicates that the rule is permanently valid.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,8 @@ class webCCRules extends Model
     public $expires;
 
     /**
+     * @description The name of the rule.
+     *
      * @example wq
      *
      * @var string
@@ -24,6 +28,11 @@ class webCCRules extends Model
     public $name;
 
     /**
+     * @description The method used to create the rule. Valid values:
+     *
+     *   **manual** (default): manually created.
+     *   **clover**: automatically created.
+     *
      * @example manual
      *
      * @var string
@@ -31,6 +40,8 @@ class webCCRules extends Model
     public $owner;
 
     /**
+     * @description The details of the rule.
+     *
      * @var ruleDetail
      */
     public $ruleDetail;

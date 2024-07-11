@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePortCcAttackTopIPResponseBody extends Model
 {
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example 24F36D81-5E2D-52E5-9DB6-A3ED23CF271A
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribePortCcAttackTopIPResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the source IP address of the attack.
+     *
      * @var topIp[]
      */
     public $topIp;

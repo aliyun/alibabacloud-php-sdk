@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class certs extends Model
 {
     /**
+     * @description The global certificate ID, which is in the certificate ID-cn-hangzhou format. If the ID of the certificate is 123, CertIdentifier is 123-cn-hangzhou.
+     *
+     * @example 126345-ap-southeast-1
+     *
      * @var string
      */
     public $certIdentifier;
@@ -25,8 +29,8 @@ class certs extends Model
     /**
      * @description Indicates whether the certificate is associated with the domain name. Valid values:
      *
-     *   **true**: The certificate is associated with the domain name.
-     *   **false**: The certificate is not associated with the domain name.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -35,7 +39,7 @@ class certs extends Model
     public $domainRelated;
 
     /**
-     * @description The expiration date of the certificate. string
+     * @description The expiration date of the certificate. The value is a string.
      *
      * @example 2021-09-12
      *
@@ -44,7 +48,7 @@ class certs extends Model
     public $endDate;
 
     /**
-     * @description The ID of the certificate.
+     * @description The certificate ID.
      *
      * @example 81
      *
@@ -71,7 +75,7 @@ class certs extends Model
     public $name;
 
     /**
-     * @description The issuance date of the certificate. string
+     * @description The issuance date of the certificate. The value is a string.
      *
      * @example 2019-09-12
      *

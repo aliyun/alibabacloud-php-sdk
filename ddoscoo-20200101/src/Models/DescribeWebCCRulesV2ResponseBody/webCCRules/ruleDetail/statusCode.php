@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class statusCode extends Model
 {
     /**
+     * @description The status code. Valid values: **100** to **599**.
+     *
+     *   **200**: The request was successful.
+     *   Other codes: The request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +21,8 @@ class statusCode extends Model
     public $code;
 
     /**
+     * @description If a ratio is not used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **CountThreshold**. Valid values: **2** to **50000**.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +30,11 @@ class statusCode extends Model
     public $countThreshold;
 
     /**
+     * @description Indicates whether the status code is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +42,8 @@ class statusCode extends Model
     public $enabled;
 
     /**
+     * @description If a ratio is used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **RatioThreshold**. Valid values: **1** to **100**.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +51,11 @@ class statusCode extends Model
     public $ratioThreshold;
 
     /**
+     * @description Indicates whether to use a ratio.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

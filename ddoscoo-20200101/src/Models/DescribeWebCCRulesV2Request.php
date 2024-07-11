@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebCCRulesV2Request extends Model
 {
     /**
+     * @description The domain name of the website that you want to add to the Anti-DDoS Proxy instance for protection.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeWebCCRulesV2Request extends Model
     public $domain;
 
     /**
+     * @description The number of entries that you want the system to skip before the system returns entries. Default value: **0**.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeWebCCRulesV2Request extends Model
     public $offset;
 
     /**
+     * @description The method used to create the rule. Valid values:
+     *
+     *   **manual** (default): manually created.
+     *   **clover**: automatically created.
+     *
      * @example manual
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeWebCCRulesV2Request extends Model
     public $owner;
 
     /**
+     * @description The number of entries per page. Maximum value: **20**. Default value: **20**.
+     *
      * @example 20
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The time when the instance is created. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1637751953000
      *
@@ -29,10 +29,10 @@ class instances extends Model
     /**
      * @description The mitigation plan of the instance. Valid values:
      *
-     *   **0**: Anti-DDoS Premium instance of the Insurance mitigation plan
-     *   **1**: Anti-DDoS Premium instance of the Unlimited mitigation plan
-     *   **2**: Anti-DDoS Premium instance of the MCA mitigation plan
-     *   **9**: Anti-DDoS Pro instance of the Profession mitigation plan
+     *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+     *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+     *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+     *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
      *
      * @example 9
      *
@@ -41,7 +41,7 @@ class instances extends Model
     public $edition;
 
     /**
-     * @description The forwarding status of the instance. Valid values:
+     * @description The traffic forwarding status of the instance. Valid values:
      *
      *   **0**: The instance no longer forwards service traffic.
      *   **1**: The instance forwards service traffic as expected.
@@ -53,7 +53,7 @@ class instances extends Model
     public $enabled;
 
     /**
-     * @description The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1640361600000
      *
@@ -94,8 +94,8 @@ class instances extends Model
     /**
      * @description The IP version of the instance. Valid values:
      *
-     *   **Ipv4**: IPv4
-     *   **Ipv6**: IPv6
+     *   **Ipv4**
+     *   **Ipv6**
      *
      * @example Ipv4
      *
@@ -104,10 +104,10 @@ class instances extends Model
     public $ipVersion;
 
     /**
-     * @description Indicates whether the 95th percentile metering method has been enabled for the instance. Valid values:
+     * @description Indicates whether the metering method of the 95th percentile burstable clean bandwidth is enabled for the instance. Valid values:
      *
-     *   0: The 95th percentile metering method has not been enabled for the instance.
-     *   1: The 95th percentile metering method has been enabled for the instance.
+     *   0: no
+     *   1: yes
      *
      * @example 0
      *
@@ -118,7 +118,9 @@ class instances extends Model
     /**
      * @description Indicates whether the metering method of the 95th percentile burstable QPS is enabled for the instance. Valid values:
      *
-     * - 1: yes
+     *   0: no
+     *   1: yes
+     *
      * @example 0
      *
      * @var int

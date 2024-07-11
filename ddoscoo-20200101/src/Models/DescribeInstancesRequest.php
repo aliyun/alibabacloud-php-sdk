@@ -12,10 +12,10 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The mitigation plan of the instance to query. Valid values:
      *
-     *   **0**: Anti-DDoS Premium instance of the Insurance mitigation plan
-     *   **1**: Anti-DDoS Premium instance of the Unlimited mitigation plan
-     *   **2**: Anti-DDoS Premium instance of the Mainland China Acceleration (MCA) mitigation plan
-     *   **9**: Anti-DDoS Pro instance of the Profession mitigation plan
+     *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+     *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+     *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+     *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
      *
      * @example 9
      *
@@ -54,6 +54,8 @@ class DescribeInstancesRequest extends Model
     public $expireStartTime;
 
     /**
+     * @description The IDs of the instances to query. You can specify up to 200 instance IDs.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -107,11 +109,15 @@ class DescribeInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The states of the instances to query. You can specify up to two states.
+     *
      * @var int[]
      */
     public $status;
 
     /**
+     * @description The tags that are added to the instances to query.
+     *
      * @var tag[]
      */
     public $tag;

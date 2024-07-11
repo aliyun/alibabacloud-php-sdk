@@ -12,9 +12,9 @@ class ruleList extends Model
     /**
      * @description The action triggered if the rule is matched. Valid values:
      *
-     *   **accept**: allows the requests that match the rule.
-     *   **block**: blocks the requests that match the rule.
-     *   **challenge**: implements Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule.
+     *   **accept**: The requests that match the rule are allowed.
+     *   **block**: The requests that match the rule are blocked.
+     *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
      *
      * @example accept
      *
@@ -30,7 +30,7 @@ class ruleList extends Model
     public $conditionList;
 
     /**
-     * @description The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. **0** indicates that the rule takes effect all the time.
+     * @description The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. The value **0** indicates that the whitelist takes effect all the time.
      *
      * @example 0
      *
@@ -39,7 +39,7 @@ class ruleList extends Model
     public $expires;
 
     /**
-     * @description The name of the rule.
+     * @description The name of the scheduling rule.
      *
      * @example testrule
      *
@@ -50,7 +50,7 @@ class ruleList extends Model
     /**
      * @description The source of the rule. Valid values:
      *
-     *   **manual**: manually created. This is the default value.
+     *   **manual** (default): manually created.
      *   **auto**: automatically generated.
      *
      * @example manual

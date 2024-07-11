@@ -19,7 +19,7 @@ class preciseAccessConfigList extends Model
     public $domain;
 
     /**
-     * @description An array that consists of the rules.
+     * @description The scheduling rules.
      *
      * @var ruleList[]
      */

@@ -70,15 +70,19 @@ class ModifyWebCCRuleRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The blocking duration. Valid values: **60** to **86400**. Unit: seconds.
+     *
+     * This parameter is required.
+     * @example 60
      *
      * @var int
      */
     public $ttl;
 
     /**
-     * @description This parameter is required.
+     * @description The check path.
      *
+     * This parameter is required.
      * @example /abc
      *
      * @var string

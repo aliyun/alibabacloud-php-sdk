@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusRequest extends Model
 {
     /**
-     * @description The ID of the instance to query.
+     * @description The ID of the Anti-DDoS Proxy instance to query.
      *
      * This parameter is required.
      * @example ddoscoo-cn-6ja1y6p5****
@@ -19,10 +19,10 @@ class DescribeInstanceStatusRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the instance to query. Valid values:
+     * @description The type of the Anti-DDoS Proxy instance to query. Valid values:
      *
-     *   **1**: an Anti-DDoS Pro instance
-     *   **2**: an Anti-DDoS Premium instance
+     *   **1**: an Anti-DDoS Proxy (Chinese Mainland) instance
+     *   **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance
      *
      * This parameter is required.
      * @example 1

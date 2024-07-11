@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceExtResponseBody extends Model
 {
     /**
-     * @description The information about the instance.
+     * @description The extended information about the Anti-DDoS Proxy instance.
      *
      * @var instanceExtSpecs[]
      */

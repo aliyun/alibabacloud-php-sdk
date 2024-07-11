@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePortConnsListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the connections established over the port.
+     * @description Details about the connections established over the port.
      *
      * @var connsList[]
      */

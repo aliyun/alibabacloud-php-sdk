@@ -28,7 +28,7 @@ class DescribeTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of the details of the tags that are added to the Anti-DDoS Pro instance.
+     * @description The tags that are added to the Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * @var tagResources
      */

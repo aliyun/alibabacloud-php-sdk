@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeL7UsKeepaliveResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeL7UsKeepaliveResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The value of the Back-to-origin Persistent Connections parameter.
+     *
      * @var rsKeepalive
      */
     public $rsKeepalive;

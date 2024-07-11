@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class elasticQps extends Model
 {
     /**
+     * @description The index number of the returned data.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class elasticQps extends Model
     public $index;
 
     /**
+     * @description The peak QPS of the normal service.
+     *
      * @example 23
      *
      * @var int
@@ -23,6 +27,8 @@ class elasticQps extends Model
     public $maxNormalQps;
 
     /**
+     * @description The peak inbound QPS.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class elasticQps extends Model
     public $maxQps;
 
     /**
+     * @description The total number of requests during the step size period.
+     *
      * @example 15104
      *
      * @var int
@@ -37,6 +45,8 @@ class elasticQps extends Model
     public $pv;
 
     /**
+     * @description The total number of HTTP 2xx status codes during the step size period.
+     *
      * @example 455
      *
      * @var int
@@ -44,6 +54,8 @@ class elasticQps extends Model
     public $status2;
 
     /**
+     * @description The total number of HTTP 3xx status codes during the step size period.
+     *
      * @example 100
      *
      * @var int
@@ -51,6 +63,8 @@ class elasticQps extends Model
     public $status3;
 
     /**
+     * @description The total number of HTTP 4xx status codes during the step size period.
+     *
      * @example 34
      *
      * @var int
@@ -58,6 +72,8 @@ class elasticQps extends Model
     public $status4;
 
     /**
+     * @description The total number of HTTP 5xx status codes during the step size period.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class elasticQps extends Model
     public $status5;
 
     /**
+     * @description The total number of origin requests during the step size period.
+     *
      * @example 1223
      *
      * @var int

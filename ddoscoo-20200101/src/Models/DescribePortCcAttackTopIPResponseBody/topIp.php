@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class topIp extends Model
 {
     /**
+     * @description The code of the location from which the attack is initiated. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,8 @@ class topIp extends Model
     public $areaId;
 
     /**
+     * @description The number of attacks from the IP address.
+     *
      * @example 33971
      *
      * @var int
@@ -23,6 +27,8 @@ class topIp extends Model
     public $pv;
 
     /**
+     * @description The source IP address of the attack.
+     *
      * @example 172.18.XX.XX
      *
      * @var string

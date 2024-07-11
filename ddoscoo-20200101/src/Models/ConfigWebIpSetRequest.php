@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigWebIpSetRequest extends Model
 {
     /**
-     * @description IP address N or CIDR block N that you want to add to the blacklist. The maximum value of N is 200. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
+     * @description The IP addresses and CIDR blocks in the blacklist. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
      *
      * @example 1.1.1.1
      *
@@ -37,7 +37,7 @@ class ConfigWebIpSetRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description IP address N or CIDR block N that you want to add to the whitelist. The maximum value of N is 200. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
+     * @description The IP addresses and CIDR blocks in the whitelist. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
      *
      * @example 2.2.2.2/24
      *

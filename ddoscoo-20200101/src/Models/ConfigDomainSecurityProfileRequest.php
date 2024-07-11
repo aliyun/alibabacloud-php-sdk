@@ -9,13 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ConfigDomainSecurityProfileRequest extends Model
 {
     /**
+     * @description This parameter is unavailable.
+     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @description This parameter is required.
+     * @description The configurations for the global mitigation policy feature. The configurations include the following fields:
      *
+     *   **global_rule_mode**: optional. The mode for the global mitigation policy feature. Data type: string. Valid values:
+     *
+     *   **weak**: loose.
+     *   **default**: normal.
+     *   **hard**: strict.
+     *
+     *   **global_rule_enable**: optional. Specifies whether to enable the global mitigation policy feature. Data type: string. Valid values:
+     *
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *
+     * This parameter is required.
      * @example {\\"global_rule_mode\\":\\"hard\\"}
      *
      * @var string
@@ -23,8 +37,9 @@ class ConfigDomainSecurityProfileRequest extends Model
     public $config;
 
     /**
-     * @description This parameter is required.
+     * @description The domain name of the website.
      *
+     * This parameter is required.
      * @example live.abcde.com
      *
      * @var string

@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateWebCCRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The action on the requests that trigger the custom frequency control rule. Valid values:
      *
+     *   **close**: blocks the requests.
+     *   **captcha**: triggers Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests.
+     *
+     * This parameter is required.
      * @example close
      *
      * @var string
@@ -27,8 +31,9 @@ class CreateWebCCRuleRequest extends Model
     public $count;
 
     /**
-     * @description This parameter is required.
+     * @description The domain name of the website.
      *
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -45,8 +50,14 @@ class CreateWebCCRuleRequest extends Model
     public $interval;
 
     /**
-     * @description This parameter is required.
+     * @description The matching mode. Valid values:
      *
+     *   **prefix**: prefix match.
+     *   **match**: exact match.
+     *
+     * >  If the **URI** of the check path contains parameters, you must set this parameter to **prefix**.
+     *
+     * This parameter is required.
      * @example prefix
      *
      * @var string
@@ -54,8 +65,9 @@ class CreateWebCCRuleRequest extends Model
     public $mode;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the rule. The name can be up to 128 characters in length and contain letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example testrule
      *
      * @var string
@@ -63,20 +75,29 @@ class CreateWebCCRuleRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     *
+     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The blocking duration. Valid values: **60** to **86400**. Unit: seconds.
+     *
+     * This parameter is required.
+     * @example 60
      *
      * @var int
      */
     public $ttl;
 
     /**
-     * @description This parameter is required.
+     * @description The check path.
      *
+     * This parameter is required.
      * @example /abc/a.php
      *
      * @var string

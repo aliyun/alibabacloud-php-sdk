@@ -20,7 +20,7 @@ class DescribeTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
+     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -40,7 +40,7 @@ class DescribeTagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description An array consisting of IDs of the Anti-DDoS Pro instances that you want to query.
+     * @description The IDs of the Anti-DDoS Proxy (Chinese Mainland) instances that you want to query.
      *
      * @example ddoscoo-cn-mp91j1ao****
      *

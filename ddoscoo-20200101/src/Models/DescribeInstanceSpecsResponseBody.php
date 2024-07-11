@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the specifications of instances.
+     * @description The details of the specifications of the instance.
      *
      * @var instanceSpecs[]
      */

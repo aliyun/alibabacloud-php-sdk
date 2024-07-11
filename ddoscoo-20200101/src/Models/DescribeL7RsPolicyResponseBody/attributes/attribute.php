@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class attribute extends Model
 {
     /**
+     * @description The timeout period for a new connection. Valid values: **1** to **10**. Unit: seconds. Default value: **5**.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $connectTimeout;
 
     /**
+     * @description The expiration time of a connection, in seconds. If the number of failures at the origin server exceeds the **MaxFails** value, the address of the origin server is set to down and the expiration time is **FailTimeout**. The final value is the maximum value of **ConnectTimeout** and **FailTimeout**. Valid values: **1** to **3600**. Unit: seconds. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $failTimeout;
 
     /**
+     * @description The maximum number of failures. This parameter is related to health check. Valid values: **1** to **10**. Unit: seconds. Default value: **3**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxFails;
 
     /**
+     * @description The primary/secondary flag. Valid values:
+     *
+     *   **active**: primary
+     *   **backup**: secondary
+     *
+     * @example active
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The timeout period for a read connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+     *
+     * @example 120
+     *
      * @var int
      */
     public $readTimeout;
 
     /**
+     * @description The timeout period for a write connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+     *
+     * @example 120
+     *
      * @var int
      */
     public $sendTimeout;

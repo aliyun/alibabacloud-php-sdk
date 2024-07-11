@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rateLimit extends Model
 {
     /**
+     * @description The statistical period. Unit: seconds.
+     *
      * @example 60
      *
      * @var int
@@ -16,6 +18,8 @@ class rateLimit extends Model
     public $interval;
 
     /**
+     * @description The name of the field. This parameter is required only when the Target parameter is set to header.
+     *
      * @example action
      *
      * @var string
@@ -23,6 +27,11 @@ class rateLimit extends Model
     public $subKey;
 
     /**
+     * @description The statistical method. Valid values:
+     *
+     *   **ip**
+     *   **header**
+     *
      * @example ip
      *
      * @var string
@@ -30,6 +39,8 @@ class rateLimit extends Model
     public $target;
 
     /**
+     * @description The trigger threshold.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,8 @@ class rateLimit extends Model
     public $threshold;
 
     /**
+     * @description The blocking duration. Unit: seconds.
+     *
      * @example 15
      *
      * @var int

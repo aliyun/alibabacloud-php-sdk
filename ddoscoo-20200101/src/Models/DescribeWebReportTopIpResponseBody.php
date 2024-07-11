@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebReportTopIpResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The request ID.
+     *
      * @example D21BE0C4-8E83-5E32-86C6-AA6BE9B1B5BD
      *
      * @var string

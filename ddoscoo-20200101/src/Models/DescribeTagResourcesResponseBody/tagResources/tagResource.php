@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Pro instance.
+     * @description The ID of the Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * @example ddoscoo-cn-zz121ogz****
      *
@@ -18,7 +18,7 @@ class tagResource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. The value is fixed as **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+     * @description The resource type. The value is fixed as **INSTANCE**, which indicates an Anti-DDoS Proxy instance.
      *
      * @example INSTANCE
      *
@@ -27,7 +27,7 @@ class tagResource extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag that is added to the Anti-DDoS Pro instance.
+     * @description The key of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * @example testvalue
      *
@@ -36,7 +36,7 @@ class tagResource extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag that is added to the Anti-DDoS Pro instance.
+     * @description The value of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
      *
      * @example testkey
      *

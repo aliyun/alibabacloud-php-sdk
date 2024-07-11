@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceIdsResponseBody extends Model
 {
     /**
+     * @description The ID, type, description, and IP version of the instance.
+     *
      * @var instanceIds[]
      */
     public $instanceIds;

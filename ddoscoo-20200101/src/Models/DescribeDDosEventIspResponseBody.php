@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDosEventIspResponseBody extends Model
 {
     /**
-     * @description An array that consists of the ISPs for the volumetric attack.
+     * @description The ISPs for the volumetric attack.
      *
      * @var isps[]
      */

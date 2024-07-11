@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsResponseBody extends Model
 {
     /**
-     * @description The statistics on the instances.
+     * @description The statistics on the instance.
      *
      * @var instanceStatistics[]
      */

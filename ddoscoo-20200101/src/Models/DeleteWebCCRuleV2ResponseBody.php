@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebCCRuleV2ResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
      *
      * @var string

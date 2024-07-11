@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class condition extends Model
 {
     /**
+     * @description The match content.
+     *
      * @example 192.0.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class condition extends Model
     public $content;
 
     /**
+     * @description The match field.
+     *
      * @example ip
      *
      * @var string
@@ -23,6 +27,9 @@ class condition extends Model
     public $field;
 
     /**
+     * @description The custom HTTP request header.
+     *
+     * >  This parameter takes effect only when **Field** is set to **header**.
      * @example null
      *
      * @var string
@@ -30,6 +37,8 @@ class condition extends Model
     public $headerName;
 
     /**
+     * @description The match method.
+     *
      * @example belong
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class proxyTypes extends Model
 {
     /**
-     * @description An array that consists of port numbers.
+     * @description The port numbers.
      *
      * This parameter is required.
      * @var int[]

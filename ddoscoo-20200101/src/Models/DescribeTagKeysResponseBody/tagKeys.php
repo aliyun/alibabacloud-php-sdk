@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagKeys extends Model
 {
     /**
-     * @description The number of Anti-DDoS Pro instances to which the tag key is added.
+     * @description The number of Anti-DDoS Proxy (Chinese Mainland) instances to which the tag key is added.
      *
      * @example 2
      *
