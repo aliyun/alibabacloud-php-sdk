@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\DeleteAppVersionResponse;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DescribeInstanceStatsInfoRequest;
+use AlibabaCloud\SDK\CGCS\V20211111\Models\DescribeInstanceStatsInfoResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationRequest;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAdaptationResponse;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppCcuRequest;
@@ -812,6 +814,46 @@ class CGCS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceStatsInfoRequest $request DescribeInstanceStatsInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceStatsInfoResponse DescribeInstanceStatsInfoResponse
+     */
+    public function describeInstanceStatsInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceStatsInfo',
+            'version'     => '2021-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceStatsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceStatsInfoRequest $request DescribeInstanceStatsInfoRequest
+     *
+     * @return DescribeInstanceStatsInfoResponse DescribeInstanceStatsInfoResponse
+     */
+    public function describeInstanceStatsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceStatsInfoWithOptions($request, $runtime);
     }
 
     /**

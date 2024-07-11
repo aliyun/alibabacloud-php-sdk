@@ -1,3 +1,7 @@
+2024-07-11 Version: 2.3.0
+- Support API DescribeInstanceStatsInfo.
+
+
 2024-05-20 Version: 2.2.3
 - Update API CreateAppSession: update response param.
 - Update API CreateAppSessionBatch: update response param.
