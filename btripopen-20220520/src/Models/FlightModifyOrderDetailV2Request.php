@@ -35,11 +35,23 @@ class FlightModifyOrderDetailV2Request extends Model
      * @var string
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $outModifyApplyId;
+
+    /**
+     * @var string
+     */
+    public $outOrderId;
     protected $_name = [
         'isvName'             => 'isv_name',
         'modifyApplyId'       => 'modify_apply_id',
         'needQueryServiceFee' => 'need_query_service_fee',
         'orderId'             => 'order_id',
+        'outModifyApplyId'    => 'out_modify_apply_id',
+        'outOrderId'          => 'out_order_id',
     ];
 
     public function validate()
@@ -60,6 +72,12 @@ class FlightModifyOrderDetailV2Request extends Model
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
+        }
+        if (null !== $this->outModifyApplyId) {
+            $res['out_modify_apply_id'] = $this->outModifyApplyId;
+        }
+        if (null !== $this->outOrderId) {
+            $res['out_order_id'] = $this->outOrderId;
         }
 
         return $res;
@@ -84,6 +102,12 @@ class FlightModifyOrderDetailV2Request extends Model
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
+        }
+        if (isset($map['out_modify_apply_id'])) {
+            $model->outModifyApplyId = $map['out_modify_apply_id'];
+        }
+        if (isset($map['out_order_id'])) {
+            $model->outOrderId = $map['out_order_id'];
         }
 
         return $model;

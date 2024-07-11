@@ -87,6 +87,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarSceneQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarSceneQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ChannelCorpCreateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ChannelCorpCreateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ChannelCorpCreateResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponse;
@@ -309,6 +312,13 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelIndexInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCancelResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeDetailResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateResponse;
@@ -2689,6 +2699,81 @@ class BtripOpen extends OpenApiClient
         $headers = new CarSceneQueryHeaders([]);
 
         return $this->carSceneQueryWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 渠道商创建企业
+     *  *
+     * @param ChannelCorpCreateRequest $request ChannelCorpCreateRequest
+     * @param ChannelCorpCreateHeaders $headers ChannelCorpCreateHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChannelCorpCreateResponse ChannelCorpCreateResponse
+     */
+    public function channelCorpCreateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->administratorName)) {
+            $body['administrator_name'] = $request->administratorName;
+        }
+        if (!Utils::isUnset($request->administratorPhone)) {
+            $body['administrator_phone'] = $request->administratorPhone;
+        }
+        if (!Utils::isUnset($request->city)) {
+            $body['city'] = $request->city;
+        }
+        if (!Utils::isUnset($request->corpName)) {
+            $body['corp_name'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->province)) {
+            $body['province'] = $request->province;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->thirdCorpId)) {
+            $body['third_corp_id'] = $request->thirdCorpId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChannelCorpCreate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/corp/v1/channelCorps',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChannelCorpCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 渠道商创建企业
+     *  *
+     * @param ChannelCorpCreateRequest $request ChannelCorpCreateRequest
+     *
+     * @return ChannelCorpCreateResponse ChannelCorpCreateResponse
+     */
+    public function channelCorpCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ChannelCorpCreateHeaders([]);
+
+        return $this->channelCorpCreateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5382,6 +5467,12 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['order_id'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->outModifyApplyId)) {
+            $query['out_modify_apply_id'] = $request->outModifyApplyId;
+        }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -6510,6 +6601,12 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['order_id'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->outOrderId)) {
+            $query['out_order_id'] = $request->outOrderId;
+        }
+        if (!Utils::isUnset($request->outRefundApplyId)) {
+            $query['out_refund_apply_id'] = $request->outRefundApplyId;
+        }
         if (!Utils::isUnset($request->refundApplyId)) {
             $query['refund_apply_id'] = $request->refundApplyId;
         }
@@ -7528,6 +7625,146 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelOrderCancelHeaders([]);
 
         return $this->hotelOrderCancelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 酒店订单修改申请
+     *  *
+     * @param HotelOrderChangeApplyRequest $tmpReq  HotelOrderChangeApplyRequest
+     * @param HotelOrderChangeApplyHeaders $headers HotelOrderChangeApplyHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return HotelOrderChangeApplyResponse HotelOrderChangeApplyResponse
+     */
+    public function hotelOrderChangeApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelOrderChangeApplyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roomInfoList)) {
+            $request->roomInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomInfoList, 'room_info_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $body['reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->roomInfoListShrink)) {
+            $body['room_info_list'] = $request->roomInfoListShrink;
+        }
+        if (!Utils::isUnset($request->saleOrderId)) {
+            $body['sale_order_id'] = $request->saleOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderChangeApply',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/change/apply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderChangeApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 酒店订单修改申请
+     *  *
+     * @param HotelOrderChangeApplyRequest $request HotelOrderChangeApplyRequest
+     *
+     * @return HotelOrderChangeApplyResponse HotelOrderChangeApplyResponse
+     */
+    public function hotelOrderChangeApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderChangeApplyHeaders([]);
+
+        return $this->hotelOrderChangeApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 酒店订单修改详情
+     *  *
+     * @param HotelOrderChangeDetailRequest $request HotelOrderChangeDetailRequest
+     * @param HotelOrderChangeDetailHeaders $headers HotelOrderChangeDetailHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return HotelOrderChangeDetailResponse HotelOrderChangeDetailResponse
+     */
+    public function hotelOrderChangeDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->btripUserId)) {
+            $body['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->changeOrderId)) {
+            $body['change_order_id'] = $request->changeOrderId;
+        }
+        if (!Utils::isUnset($request->disOrderId)) {
+            $body['dis_order_id'] = $request->disOrderId;
+        }
+        if (!Utils::isUnset($request->saleOrderId)) {
+            $body['sale_order_id'] = $request->saleOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderChangeDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/orders/action/change/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderChangeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 酒店订单修改详情
+     *  *
+     * @param HotelOrderChangeDetailRequest $request HotelOrderChangeDetailRequest
+     *
+     * @return HotelOrderChangeDetailResponse HotelOrderChangeDetailResponse
+     */
+    public function hotelOrderChangeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderChangeDetailHeaders([]);
+
+        return $this->hotelOrderChangeDetailWithOptions($request, $headers, $runtime);
     }
 
     /**

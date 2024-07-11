@@ -23,15 +23,27 @@ class FlightRefundDetailV2Request extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $outOrderId;
+
+    /**
+     * @var string
+     */
+    public $outRefundApplyId;
+
+    /**
      * @example 1002039195025156700
      *
      * @var string
      */
     public $refundApplyId;
     protected $_name = [
-        'isvName'       => 'isv_name',
-        'orderId'       => 'order_id',
-        'refundApplyId' => 'refund_apply_id',
+        'isvName'          => 'isv_name',
+        'orderId'          => 'order_id',
+        'outOrderId'       => 'out_order_id',
+        'outRefundApplyId' => 'out_refund_apply_id',
+        'refundApplyId'    => 'refund_apply_id',
     ];
 
     public function validate()
@@ -46,6 +58,12 @@ class FlightRefundDetailV2Request extends Model
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
+        }
+        if (null !== $this->outOrderId) {
+            $res['out_order_id'] = $this->outOrderId;
+        }
+        if (null !== $this->outRefundApplyId) {
+            $res['out_refund_apply_id'] = $this->outRefundApplyId;
         }
         if (null !== $this->refundApplyId) {
             $res['refund_apply_id'] = $this->refundApplyId;
@@ -67,6 +85,12 @@ class FlightRefundDetailV2Request extends Model
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
+        }
+        if (isset($map['out_order_id'])) {
+            $model->outOrderId = $map['out_order_id'];
+        }
+        if (isset($map['out_refund_apply_id'])) {
+            $model->outRefundApplyId = $map['out_refund_apply_id'];
         }
         if (isset($map['refund_apply_id'])) {
             $model->refundApplyId = $map['refund_apply_id'];

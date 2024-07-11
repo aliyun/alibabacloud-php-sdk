@@ -124,6 +124,11 @@ class invoiceTaskList extends Model
     public $telephone;
 
     /**
+     * @var string
+     */
+    public $trainAccelerationPackageInvoiceFee;
+
+    /**
      * @example 0
      *
      * @var string
@@ -137,27 +142,28 @@ class invoiceTaskList extends Model
      */
     public $vehicleInvoiceFee;
     protected $_name = [
-        'contact'                       => 'contact',
-        'email'                         => 'email',
-        'flightInvoiceFee'              => 'flight_invoice_fee',
-        'fuPointInvoiceFee'             => 'fu_point_invoice_fee',
-        'hotelNormalInvoiceFee'         => 'hotel_normal_invoice_fee',
-        'hotelSpecialInvoiceFee'        => 'hotel_special_invoice_fee',
-        'internationalFlightInvoiceFee' => 'international_flight_invoice_fee',
-        'internationalHotelInvoiceFee'  => 'international_hotel_invoice_fee',
-        'invoiceThirdPartId'            => 'invoice_third_part_id',
-        'invoiceType'                   => 'invoice_type',
-        'mailAddress'                   => 'mail_address',
-        'mailCity'                      => 'mail_city',
-        'mailFullAddress'               => 'mail_full_address',
-        'mailProvince'                  => 'mail_province',
-        'mealNormalInvoiceFee'          => 'meal_normal_invoice_fee',
-        'penaltyFee'                    => 'penalty_fee',
-        'remark'                        => 'remark',
-        'serviceFee'                    => 'service_fee',
-        'telephone'                     => 'telephone',
-        'trainInvoiceFee'               => 'train_invoice_fee',
-        'vehicleInvoiceFee'             => 'vehicle_invoice_fee',
+        'contact'                            => 'contact',
+        'email'                              => 'email',
+        'flightInvoiceFee'                   => 'flight_invoice_fee',
+        'fuPointInvoiceFee'                  => 'fu_point_invoice_fee',
+        'hotelNormalInvoiceFee'              => 'hotel_normal_invoice_fee',
+        'hotelSpecialInvoiceFee'             => 'hotel_special_invoice_fee',
+        'internationalFlightInvoiceFee'      => 'international_flight_invoice_fee',
+        'internationalHotelInvoiceFee'       => 'international_hotel_invoice_fee',
+        'invoiceThirdPartId'                 => 'invoice_third_part_id',
+        'invoiceType'                        => 'invoice_type',
+        'mailAddress'                        => 'mail_address',
+        'mailCity'                           => 'mail_city',
+        'mailFullAddress'                    => 'mail_full_address',
+        'mailProvince'                       => 'mail_province',
+        'mealNormalInvoiceFee'               => 'meal_normal_invoice_fee',
+        'penaltyFee'                         => 'penalty_fee',
+        'remark'                             => 'remark',
+        'serviceFee'                         => 'service_fee',
+        'telephone'                          => 'telephone',
+        'trainAccelerationPackageInvoiceFee' => 'train_acceleration_package_invoice_fee',
+        'trainInvoiceFee'                    => 'train_invoice_fee',
+        'vehicleInvoiceFee'                  => 'vehicle_invoice_fee',
     ];
 
     public function validate()
@@ -223,6 +229,9 @@ class invoiceTaskList extends Model
         }
         if (null !== $this->telephone) {
             $res['telephone'] = $this->telephone;
+        }
+        if (null !== $this->trainAccelerationPackageInvoiceFee) {
+            $res['train_acceleration_package_invoice_fee'] = $this->trainAccelerationPackageInvoiceFee;
         }
         if (null !== $this->trainInvoiceFee) {
             $res['train_invoice_fee'] = $this->trainInvoiceFee;
@@ -298,6 +307,9 @@ class invoiceTaskList extends Model
         }
         if (isset($map['telephone'])) {
             $model->telephone = $map['telephone'];
+        }
+        if (isset($map['train_acceleration_package_invoice_fee'])) {
+            $model->trainAccelerationPackageInvoiceFee = $map['train_acceleration_package_invoice_fee'];
         }
         if (isset($map['train_invoice_fee'])) {
             $model->trainInvoiceFee = $map['train_invoice_fee'];
