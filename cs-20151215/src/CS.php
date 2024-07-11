@@ -208,6 +208,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateClusterAuditLogConfigRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateClusterAuditLogConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogResponse;
@@ -7409,6 +7411,61 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新集群审计日志配置
+     *  *
+     * @param string                             $clusterid
+     * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return UpdateClusterAuditLogConfigResponse UpdateClusterAuditLogConfigResponse
+     */
+    public function updateClusterAuditLogConfigWithOptions($clusterid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->disable)) {
+            $body['disable'] = $request->disable;
+        }
+        if (!Utils::isUnset($request->slsProjectName)) {
+            $body['sls_project_name'] = $request->slsProjectName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClusterAuditLogConfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/audit_log',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClusterAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新集群审计日志配置
+     *  *
+     * @param string                             $clusterid
+     * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
+     *
+     * @return UpdateClusterAuditLogConfigResponse UpdateClusterAuditLogConfigResponse
+     */
+    public function updateClusterAuditLogConfig($clusterid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateClusterAuditLogConfigWithOptions($clusterid, $request, $headers, $runtime);
     }
 
     /**
