@@ -1,3 +1,6 @@
+2024-07-11 Version: 1.0.4
+- Generated php 2018-12-21 for Baas.
+
 2024-06-20 Version: 1.0.3
 - Generated php 2018-12-21 for Baas.
 
