@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetQuotaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $quotaName;
@@ -19,11 +21,15 @@ class SetQuotaRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

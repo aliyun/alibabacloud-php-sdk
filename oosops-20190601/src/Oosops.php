@@ -131,10 +131,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param AuditPublicTemplateRegistrationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param AuditPublicTemplateRegistrationRequest $request AuditPublicTemplateRegistrationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuditPublicTemplateRegistrationResponse
+     * @return AuditPublicTemplateRegistrationResponse AuditPublicTemplateRegistrationResponse
      */
     public function auditPublicTemplateRegistrationWithOptions($request, $runtime)
     {
@@ -171,9 +171,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param AuditPublicTemplateRegistrationRequest $request
+     * @param AuditPublicTemplateRegistrationRequest $request AuditPublicTemplateRegistrationRequest
      *
-     * @return AuditPublicTemplateRegistrationResponse
+     * @return AuditPublicTemplateRegistrationResponse AuditPublicTemplateRegistrationResponse
      */
     public function auditPublicTemplateRegistration($request)
     {
@@ -183,10 +183,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreateActionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateActionRequest $request CreateActionRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateActionResponse
+     * @return CreateActionResponse CreateActionResponse
      */
     public function createActionWithOptions($request, $runtime)
     {
@@ -226,9 +226,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreateActionRequest $request
+     * @param CreateActionRequest $request CreateActionRequest
      *
-     * @return CreateActionResponse
+     * @return CreateActionResponse CreateActionResponse
      */
     public function createAction($request)
     {
@@ -238,10 +238,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicParameterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 创建一个公共参数。
+     *  *
+     * @param CreatePublicParameterRequest $request CreatePublicParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePublicParameterResponse
+     * @return CreatePublicParameterResponse CreatePublicParameterResponse
      */
     public function createPublicParameterWithOptions($request, $runtime)
     {
@@ -287,9 +289,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicParameterRequest $request
+     * @summary 创建一个公共参数。
+     *  *
+     * @param CreatePublicParameterRequest $request CreatePublicParameterRequest
      *
-     * @return CreatePublicParameterResponse
+     * @return CreatePublicParameterResponse CreatePublicParameterResponse
      */
     public function createPublicParameter($request)
     {
@@ -299,10 +303,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicPatchBaselineRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreatePublicPatchBaselineRequest $request CreatePublicPatchBaselineRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePublicPatchBaselineResponse
+     * @return CreatePublicPatchBaselineResponse CreatePublicPatchBaselineResponse
      */
     public function createPublicPatchBaselineWithOptions($request, $runtime)
     {
@@ -345,9 +349,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicPatchBaselineRequest $request
+     * @param CreatePublicPatchBaselineRequest $request CreatePublicPatchBaselineRequest
      *
-     * @return CreatePublicPatchBaselineResponse
+     * @return CreatePublicPatchBaselineResponse CreatePublicPatchBaselineResponse
      */
     public function createPublicPatchBaseline($request)
     {
@@ -357,10 +361,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreatePublicTemplateRequest $request CreatePublicTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePublicTemplateResponse
+     * @return CreatePublicTemplateResponse CreatePublicTemplateResponse
      */
     public function createPublicTemplateWithOptions($request, $runtime)
     {
@@ -371,6 +375,9 @@ class Oosops extends OpenApiClient
         }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->isExample)) {
+            $query['IsExample'] = $request->isExample;
         }
         if (!Utils::isUnset($request->popularity)) {
             $query['Popularity'] = $request->popularity;
@@ -403,9 +410,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicTemplateRequest $request
+     * @param CreatePublicTemplateRequest $request CreatePublicTemplateRequest
      *
-     * @return CreatePublicTemplateResponse
+     * @return CreatePublicTemplateResponse CreatePublicTemplateResponse
      */
     public function createPublicTemplate($request)
     {
@@ -415,10 +422,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailureMsgRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteFailureMsgRequest $request DeleteFailureMsgRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFailureMsgResponse
+     * @return DeleteFailureMsgResponse DeleteFailureMsgResponse
      */
     public function deleteFailureMsgWithOptions($request, $runtime)
     {
@@ -449,9 +456,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailureMsgRequest $request
+     * @param DeleteFailureMsgRequest $request DeleteFailureMsgRequest
      *
-     * @return DeleteFailureMsgResponse
+     * @return DeleteFailureMsgResponse DeleteFailureMsgResponse
      */
     public function deleteFailureMsg($request)
     {
@@ -461,10 +468,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicParameterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除公共参数。
+     *  *
+     * @param DeletePublicParameterRequest $request DeletePublicParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePublicParameterResponse
+     * @return DeletePublicParameterResponse DeletePublicParameterResponse
      */
     public function deletePublicParameterWithOptions($request, $runtime)
     {
@@ -495,9 +504,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicParameterRequest $request
+     * @summary 删除公共参数。
+     *  *
+     * @param DeletePublicParameterRequest $request DeletePublicParameterRequest
      *
-     * @return DeletePublicParameterResponse
+     * @return DeletePublicParameterResponse DeletePublicParameterResponse
      */
     public function deletePublicParameter($request)
     {
@@ -507,10 +518,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicPatchBaselineRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DeletePublicPatchBaselineRequest $request DeletePublicPatchBaselineRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePublicPatchBaselineResponse
+     * @return DeletePublicPatchBaselineResponse DeletePublicPatchBaselineResponse
      */
     public function deletePublicPatchBaselineWithOptions($request, $runtime)
     {
@@ -538,9 +549,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicPatchBaselineRequest $request
+     * @param DeletePublicPatchBaselineRequest $request DeletePublicPatchBaselineRequest
      *
-     * @return DeletePublicPatchBaselineResponse
+     * @return DeletePublicPatchBaselineResponse DeletePublicPatchBaselineResponse
      */
     public function deletePublicPatchBaseline($request)
     {
@@ -550,10 +561,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeletePublicTemplateRequest $request DeletePublicTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePublicTemplateResponse
+     * @return DeletePublicTemplateResponse DeletePublicTemplateResponse
      */
     public function deletePublicTemplateWithOptions($request, $runtime)
     {
@@ -584,9 +595,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicTemplateRequest $request
+     * @param DeletePublicTemplateRequest $request DeletePublicTemplateRequest
      *
-     * @return DeletePublicTemplateResponse
+     * @return DeletePublicTemplateResponse DeletePublicTemplateResponse
      */
     public function deletePublicTemplate($request)
     {
@@ -596,10 +607,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DoCheckResourceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DoCheckResourceRequest $request DoCheckResourceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DoCheckResourceResponse
+     * @return DoCheckResourceResponse DoCheckResourceResponse
      */
     public function doCheckResourceWithOptions($request, $runtime)
     {
@@ -666,9 +677,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DoCheckResourceRequest $request
+     * @param DoCheckResourceRequest $request DoCheckResourceRequest
      *
-     * @return DoCheckResourceResponse
+     * @return DoCheckResourceResponse DoCheckResourceResponse
      */
     public function doCheckResource($request)
     {
@@ -678,10 +689,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetActionRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 获取action的详细信息
+     *  *
+     * @param GetActionRequest $request GetActionRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetActionResponse
+     * @return GetActionResponse GetActionResponse
      */
     public function getActionWithOptions($request, $runtime)
     {
@@ -712,9 +725,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetActionRequest $request
+     * @summary 获取action的详细信息
+     *  *
+     * @param GetActionRequest $request GetActionRequest
      *
-     * @return GetActionResponse
+     * @return GetActionResponse GetActionResponse
      */
     public function getAction($request)
     {
@@ -724,10 +739,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetFlowControlRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetFlowControlRequest $request GetFlowControlRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFlowControlResponse
+     * @return GetFlowControlResponse GetFlowControlResponse
      */
     public function getFlowControlWithOptions($request, $runtime)
     {
@@ -764,9 +779,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetFlowControlRequest $request
+     * @param GetFlowControlRequest $request GetFlowControlRequest
      *
-     * @return GetFlowControlResponse
+     * @return GetFlowControlResponse GetFlowControlResponse
      */
     public function getFlowControl($request)
     {
@@ -776,10 +791,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicParameterRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取一个公共参数，包括参数值。
+     *  *
+     * @param GetPublicParameterRequest $request GetPublicParameterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicParameterResponse
+     * @return GetPublicParameterResponse GetPublicParameterResponse
      */
     public function getPublicParameterWithOptions($request, $runtime)
     {
@@ -813,9 +830,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicParameterRequest $request
+     * @summary 获取一个公共参数，包括参数值。
+     *  *
+     * @param GetPublicParameterRequest $request GetPublicParameterRequest
      *
-     * @return GetPublicParameterResponse
+     * @return GetPublicParameterResponse GetPublicParameterResponse
      */
     public function getPublicParameter($request)
     {
@@ -825,10 +844,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicPatchBaselineRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetPublicPatchBaselineRequest $request GetPublicPatchBaselineRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicPatchBaselineResponse
+     * @return GetPublicPatchBaselineResponse GetPublicPatchBaselineResponse
      */
     public function getPublicPatchBaselineWithOptions($request, $runtime)
     {
@@ -859,9 +878,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicPatchBaselineRequest $request
+     * @param GetPublicPatchBaselineRequest $request GetPublicPatchBaselineRequest
      *
-     * @return GetPublicPatchBaselineResponse
+     * @return GetPublicPatchBaselineResponse GetPublicPatchBaselineResponse
      */
     public function getPublicPatchBaseline($request)
     {
@@ -871,10 +890,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetPublicTemplateRequest $request GetPublicTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicTemplateResponse
+     * @return GetPublicTemplateResponse GetPublicTemplateResponse
      */
     public function getPublicTemplateWithOptions($request, $runtime)
     {
@@ -908,9 +927,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicTemplateRequest $request
+     * @param GetPublicTemplateRequest $request GetPublicTemplateRequest
      *
-     * @return GetPublicTemplateResponse
+     * @return GetPublicTemplateResponse GetPublicTemplateResponse
      */
     public function getPublicTemplate($request)
     {
@@ -920,10 +939,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param GetQuotaRequest $request GetQuotaRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuotaWithOptions($request, $runtime)
     {
@@ -957,9 +976,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaRequest $request
+     * @param GetQuotaRequest $request GetQuotaRequest
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuota($request)
     {
@@ -969,10 +988,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserExecutionTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param GetUserExecutionTemplateRequest $request GetUserExecutionTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserExecutionTemplateResponse
+     * @return GetUserExecutionTemplateResponse GetUserExecutionTemplateResponse
      */
     public function getUserExecutionTemplateWithOptions($request, $runtime)
     {
@@ -1006,9 +1025,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserExecutionTemplateRequest $request
+     * @param GetUserExecutionTemplateRequest $request GetUserExecutionTemplateRequest
      *
-     * @return GetUserExecutionTemplateResponse
+     * @return GetUserExecutionTemplateResponse GetUserExecutionTemplateResponse
      */
     public function getUserExecutionTemplate($request)
     {
@@ -1018,10 +1037,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserTemplateRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetUserTemplateRequest $request GetUserTemplateRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserTemplateResponse
+     * @return GetUserTemplateResponse GetUserTemplateResponse
      */
     public function getUserTemplateWithOptions($request, $runtime)
     {
@@ -1058,9 +1077,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserTemplateRequest $request
+     * @param GetUserTemplateRequest $request GetUserTemplateRequest
      *
-     * @return GetUserTemplateResponse
+     * @return GetUserTemplateResponse GetUserTemplateResponse
      */
     public function getUserTemplate($request)
     {
@@ -1070,10 +1089,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListActionsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListActionsRequest $request ListActionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListActionsResponse
+     * @return ListActionsResponse ListActionsResponse
      */
     public function listActionsWithOptions($request, $runtime)
     {
@@ -1110,9 +1129,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListActionsRequest $request
+     * @param ListActionsRequest $request ListActionsRequest
      *
-     * @return ListActionsResponse
+     * @return ListActionsResponse ListActionsResponse
      */
     public function listActions($request)
     {
@@ -1122,9 +1141,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDefaultQuotaResponse
+     * @return ListDefaultQuotaResponse ListDefaultQuotaResponse
      */
     public function listDefaultQuotaWithOptions($runtime)
     {
@@ -1145,7 +1164,7 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @return ListDefaultQuotaResponse
+     * @return ListDefaultQuotaResponse ListDefaultQuotaResponse
      */
     public function listDefaultQuota()
     {
@@ -1155,10 +1174,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListFailureMsgsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ListFailureMsgsRequest $request ListFailureMsgsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFailureMsgsResponse
+     * @return ListFailureMsgsResponse ListFailureMsgsResponse
      */
     public function listFailureMsgsWithOptions($request, $runtime)
     {
@@ -1192,9 +1211,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListFailureMsgsRequest $request
+     * @param ListFailureMsgsRequest $request ListFailureMsgsRequest
      *
-     * @return ListFailureMsgsResponse
+     * @return ListFailureMsgsResponse ListFailureMsgsResponse
      */
     public function listFailureMsgs($request)
     {
@@ -1204,10 +1223,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListOOSLogsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListOOSLogsRequest $request ListOOSLogsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOOSLogsResponse
+     * @return ListOOSLogsResponse ListOOSLogsResponse
      */
     public function listOOSLogsWithOptions($request, $runtime)
     {
@@ -1253,9 +1272,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListOOSLogsRequest $request
+     * @param ListOOSLogsRequest $request ListOOSLogsRequest
      *
-     * @return ListOOSLogsResponse
+     * @return ListOOSLogsResponse ListOOSLogsResponse
      */
     public function listOOSLogs($request)
     {
@@ -1265,10 +1284,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicParametersRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询公共参数。支持多种查询
+     *  *
+     * @param ListPublicParametersRequest $request ListPublicParametersRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicParametersResponse
+     * @return ListPublicParametersResponse ListPublicParametersResponse
      */
     public function listPublicParametersWithOptions($request, $runtime)
     {
@@ -1320,9 +1341,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicParametersRequest $request
+     * @summary 查询公共参数。支持多种查询
+     *  *
+     * @param ListPublicParametersRequest $request ListPublicParametersRequest
      *
-     * @return ListPublicParametersResponse
+     * @return ListPublicParametersResponse ListPublicParametersResponse
      */
     public function listPublicParameters($request)
     {
@@ -1332,10 +1355,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicPatchBaselinesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListPublicPatchBaselinesRequest $request ListPublicPatchBaselinesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicPatchBaselinesResponse
+     * @return ListPublicPatchBaselinesResponse ListPublicPatchBaselinesResponse
      */
     public function listPublicPatchBaselinesWithOptions($request, $runtime)
     {
@@ -1378,9 +1401,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicPatchBaselinesRequest $request
+     * @param ListPublicPatchBaselinesRequest $request ListPublicPatchBaselinesRequest
      *
-     * @return ListPublicPatchBaselinesResponse
+     * @return ListPublicPatchBaselinesResponse ListPublicPatchBaselinesResponse
      */
     public function listPublicPatchBaselines($request)
     {
@@ -1390,10 +1413,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplateRegistrationsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ListPublicTemplateRegistrationsRequest $request ListPublicTemplateRegistrationsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicTemplateRegistrationsResponse
+     * @return ListPublicTemplateRegistrationsResponse ListPublicTemplateRegistrationsResponse
      */
     public function listPublicTemplateRegistrationsWithOptions($request, $runtime)
     {
@@ -1436,9 +1459,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplateRegistrationsRequest $request
+     * @param ListPublicTemplateRegistrationsRequest $request ListPublicTemplateRegistrationsRequest
      *
-     * @return ListPublicTemplateRegistrationsResponse
+     * @return ListPublicTemplateRegistrationsResponse ListPublicTemplateRegistrationsResponse
      */
     public function listPublicTemplateRegistrations($request)
     {
@@ -1448,10 +1471,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplatesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListPublicTemplatesRequest $request ListPublicTemplatesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicTemplatesResponse
+     * @return ListPublicTemplatesResponse ListPublicTemplatesResponse
      */
     public function listPublicTemplatesWithOptions($request, $runtime)
     {
@@ -1465,6 +1488,9 @@ class Oosops extends OpenApiClient
         }
         if (!Utils::isUnset($request->createdDateBefore)) {
             $query['CreatedDateBefore'] = $request->createdDateBefore;
+        }
+        if (!Utils::isUnset($request->isExample)) {
+            $query['IsExample'] = $request->isExample;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -1512,9 +1538,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplatesRequest $request
+     * @param ListPublicTemplatesRequest $request ListPublicTemplatesRequest
      *
-     * @return ListPublicTemplatesResponse
+     * @return ListPublicTemplatesResponse ListPublicTemplatesResponse
      */
     public function listPublicTemplates($request)
     {
@@ -1524,10 +1550,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionLogsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListUserExecutionLogsRequest $request ListUserExecutionLogsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserExecutionLogsResponse
+     * @return ListUserExecutionLogsResponse ListUserExecutionLogsResponse
      */
     public function listUserExecutionLogsWithOptions($request, $runtime)
     {
@@ -1573,9 +1599,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionLogsRequest $request
+     * @param ListUserExecutionLogsRequest $request ListUserExecutionLogsRequest
      *
-     * @return ListUserExecutionLogsResponse
+     * @return ListUserExecutionLogsResponse ListUserExecutionLogsResponse
      */
     public function listUserExecutionLogs($request)
     {
@@ -1585,10 +1611,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListUserExecutionsRequest $request ListUserExecutionsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserExecutionsResponse
+     * @return ListUserExecutionsResponse ListUserExecutionsResponse
      */
     public function listUserExecutionsWithOptions($request, $runtime)
     {
@@ -1667,9 +1693,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionsRequest $request
+     * @param ListUserExecutionsRequest $request ListUserExecutionsRequest
      *
-     * @return ListUserExecutionsResponse
+     * @return ListUserExecutionsResponse ListUserExecutionsResponse
      */
     public function listUserExecutions($request)
     {
@@ -1679,10 +1705,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchStatesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ListUserInstancePatchStatesRequest $request ListUserInstancePatchStatesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserInstancePatchStatesResponse
+     * @return ListUserInstancePatchStatesResponse ListUserInstancePatchStatesResponse
      */
     public function listUserInstancePatchStatesWithOptions($request, $runtime)
     {
@@ -1722,9 +1748,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchStatesRequest $request
+     * @param ListUserInstancePatchStatesRequest $request ListUserInstancePatchStatesRequest
      *
-     * @return ListUserInstancePatchStatesResponse
+     * @return ListUserInstancePatchStatesResponse ListUserInstancePatchStatesResponse
      */
     public function listUserInstancePatchStates($request)
     {
@@ -1734,10 +1760,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param ListUserInstancePatchesRequest $request ListUserInstancePatchesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserInstancePatchesResponse
+     * @return ListUserInstancePatchesResponse ListUserInstancePatchesResponse
      */
     public function listUserInstancePatchesWithOptions($request, $runtime)
     {
@@ -1777,9 +1803,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchesRequest $request
+     * @param ListUserInstancePatchesRequest $request ListUserInstancePatchesRequest
      *
-     * @return ListUserInstancePatchesResponse
+     * @return ListUserInstancePatchesResponse ListUserInstancePatchesResponse
      */
     public function listUserInstancePatches($request)
     {
@@ -1789,10 +1815,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInventoryEntriesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListUserInventoryEntriesRequest $request ListUserInventoryEntriesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserInventoryEntriesResponse
+     * @return ListUserInventoryEntriesResponse ListUserInventoryEntriesResponse
      */
     public function listUserInventoryEntriesWithOptions($request, $runtime)
     {
@@ -1838,9 +1864,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInventoryEntriesRequest $request
+     * @param ListUserInventoryEntriesRequest $request ListUserInventoryEntriesRequest
      *
-     * @return ListUserInventoryEntriesResponse
+     * @return ListUserInventoryEntriesResponse ListUserInventoryEntriesResponse
      */
     public function listUserInventoryEntries($request)
     {
@@ -1850,10 +1876,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTaskExecutionsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ListUserTaskExecutionsRequest $request ListUserTaskExecutionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserTaskExecutionsResponse
+     * @return ListUserTaskExecutionsResponse ListUserTaskExecutionsResponse
      */
     public function listUserTaskExecutionsWithOptions($request, $runtime)
     {
@@ -1929,9 +1955,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTaskExecutionsRequest $request
+     * @param ListUserTaskExecutionsRequest $request ListUserTaskExecutionsRequest
      *
-     * @return ListUserTaskExecutionsResponse
+     * @return ListUserTaskExecutionsResponse ListUserTaskExecutionsResponse
      */
     public function listUserTaskExecutions($request)
     {
@@ -1941,10 +1967,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTemplatesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListUserTemplatesRequest $request ListUserTemplatesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserTemplatesResponse
+     * @return ListUserTemplatesResponse ListUserTemplatesResponse
      */
     public function listUserTemplatesWithOptions($request, $runtime)
     {
@@ -2014,9 +2040,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTemplatesRequest $request
+     * @param ListUserTemplatesRequest $request ListUserTemplatesRequest
      *
-     * @return ListUserTemplatesResponse
+     * @return ListUserTemplatesResponse ListUserTemplatesResponse
      */
     public function listUserTemplates($request)
     {
@@ -2026,10 +2052,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetTimerTriggerExecutionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ResetTimerTriggerExecutionRequest $request ResetTimerTriggerExecutionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetTimerTriggerExecutionResponse
+     * @return ResetTimerTriggerExecutionResponse ResetTimerTriggerExecutionResponse
      */
     public function resetTimerTriggerExecutionWithOptions($request, $runtime)
     {
@@ -2063,9 +2089,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetTimerTriggerExecutionRequest $request
+     * @param ResetTimerTriggerExecutionRequest $request ResetTimerTriggerExecutionRequest
      *
-     * @return ResetTimerTriggerExecutionResponse
+     * @return ResetTimerTriggerExecutionResponse ResetTimerTriggerExecutionResponse
      */
     public function resetTimerTriggerExecution($request)
     {
@@ -2075,10 +2101,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetUserExecutionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ResetUserExecutionRequest $request ResetUserExecutionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetUserExecutionResponse
+     * @return ResetUserExecutionResponse ResetUserExecutionResponse
      */
     public function resetUserExecutionWithOptions($request, $runtime)
     {
@@ -2115,9 +2141,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetUserExecutionRequest $request
+     * @param ResetUserExecutionRequest $request ResetUserExecutionRequest
      *
-     * @return ResetUserExecutionResponse
+     * @return ResetUserExecutionResponse ResetUserExecutionResponse
      */
     public function resetUserExecution($request)
     {
@@ -2127,10 +2153,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetFlowControlRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param SetFlowControlRequest $request SetFlowControlRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetFlowControlResponse
+     * @return SetFlowControlResponse SetFlowControlResponse
      */
     public function setFlowControlWithOptions($request, $runtime)
     {
@@ -2170,9 +2196,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetFlowControlRequest $request
+     * @param SetFlowControlRequest $request SetFlowControlRequest
      *
-     * @return SetFlowControlResponse
+     * @return SetFlowControlResponse SetFlowControlResponse
      */
     public function setFlowControl($request)
     {
@@ -2182,10 +2208,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetQuotaRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param SetQuotaRequest $request SetQuotaRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetQuotaResponse
+     * @return SetQuotaResponse SetQuotaResponse
      */
     public function setQuotaWithOptions($request, $runtime)
     {
@@ -2222,9 +2248,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetQuotaRequest $request
+     * @param SetQuotaRequest $request SetQuotaRequest
      *
-     * @return SetQuotaResponse
+     * @return SetQuotaResponse SetQuotaResponse
      */
     public function setQuota($request)
     {
@@ -2234,10 +2260,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param TerminateUserExecutionRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param TerminateUserExecutionRequest $request TerminateUserExecutionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return TerminateUserExecutionResponse
+     * @return TerminateUserExecutionResponse TerminateUserExecutionResponse
      */
     public function terminateUserExecutionWithOptions($request, $runtime)
     {
@@ -2271,9 +2297,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param TerminateUserExecutionRequest $request
+     * @param TerminateUserExecutionRequest $request TerminateUserExecutionRequest
      *
-     * @return TerminateUserExecutionResponse
+     * @return TerminateUserExecutionResponse TerminateUserExecutionResponse
      */
     public function terminateUserExecution($request)
     {
@@ -2283,10 +2309,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdateActionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param UpdateActionRequest $request UpdateActionRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateActionResponse
+     * @return UpdateActionResponse UpdateActionResponse
      */
     public function updateActionWithOptions($request, $runtime)
     {
@@ -2326,9 +2352,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdateActionRequest $request
+     * @param UpdateActionRequest $request UpdateActionRequest
      *
-     * @return UpdateActionResponse
+     * @return UpdateActionResponse UpdateActionResponse
      */
     public function updateAction($request)
     {
@@ -2338,10 +2364,12 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicParameterRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更新一个已存在的公共参数。
+     *  *
+     * @param UpdatePublicParameterRequest $request UpdatePublicParameterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePublicParameterResponse
+     * @return UpdatePublicParameterResponse UpdatePublicParameterResponse
      */
     public function updatePublicParameterWithOptions($request, $runtime)
     {
@@ -2378,9 +2406,11 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicParameterRequest $request
+     * @summary 更新一个已存在的公共参数。
+     *  *
+     * @param UpdatePublicParameterRequest $request UpdatePublicParameterRequest
      *
-     * @return UpdatePublicParameterResponse
+     * @return UpdatePublicParameterResponse UpdatePublicParameterResponse
      */
     public function updatePublicParameter($request)
     {
@@ -2390,10 +2420,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicPatchBaselineRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param UpdatePublicPatchBaselineRequest $request UpdatePublicPatchBaselineRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePublicPatchBaselineResponse
+     * @return UpdatePublicPatchBaselineResponse UpdatePublicPatchBaselineResponse
      */
     public function updatePublicPatchBaselineWithOptions($request, $runtime)
     {
@@ -2433,9 +2463,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicPatchBaselineRequest $request
+     * @param UpdatePublicPatchBaselineRequest $request UpdatePublicPatchBaselineRequest
      *
-     * @return UpdatePublicPatchBaselineResponse
+     * @return UpdatePublicPatchBaselineResponse UpdatePublicPatchBaselineResponse
      */
     public function updatePublicPatchBaseline($request)
     {
@@ -2445,10 +2475,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdatePublicTemplateRequest $request UpdatePublicTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePublicTemplateResponse
+     * @return UpdatePublicTemplateResponse UpdatePublicTemplateResponse
      */
     public function updatePublicTemplateWithOptions($request, $runtime)
     {
@@ -2491,9 +2521,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicTemplateRequest $request
+     * @param UpdatePublicTemplateRequest $request UpdatePublicTemplateRequest
      *
-     * @return UpdatePublicTemplateResponse
+     * @return UpdatePublicTemplateResponse UpdatePublicTemplateResponse
      */
     public function updatePublicTemplate($request)
     {
@@ -2503,10 +2533,10 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ValidatePublicTemplateContentRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param ValidatePublicTemplateContentRequest $request ValidatePublicTemplateContentRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidatePublicTemplateContentResponse
+     * @return ValidatePublicTemplateContentResponse ValidatePublicTemplateContentResponse
      */
     public function validatePublicTemplateContentWithOptions($request, $runtime)
     {
@@ -2543,9 +2573,9 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ValidatePublicTemplateContentRequest $request
+     * @param ValidatePublicTemplateContentRequest $request ValidatePublicTemplateContentRequest
      *
-     * @return ValidatePublicTemplateContentResponse
+     * @return ValidatePublicTemplateContentResponse ValidatePublicTemplateContentResponse
      */
     public function validatePublicTemplateContent($request)
     {

@@ -14,6 +14,8 @@ class UpdatePublicTemplateRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -34,6 +36,8 @@ class UpdatePublicTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOOSLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
@@ -39,6 +41,8 @@ class ListOOSLogsRequest extends Model
     public $requestFingerprint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startTime;

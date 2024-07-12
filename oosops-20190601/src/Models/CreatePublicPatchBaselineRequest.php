@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicPatchBaselineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $approvalRules;
@@ -24,11 +26,15 @@ class CreatePublicPatchBaselineRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $operationSystem;

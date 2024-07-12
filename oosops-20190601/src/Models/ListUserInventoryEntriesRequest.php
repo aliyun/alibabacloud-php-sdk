@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserInventoryEntriesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $aliUid;
@@ -20,6 +22,8 @@ class ListUserInventoryEntriesRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -40,6 +44,8 @@ class ListUserInventoryEntriesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $typeName;

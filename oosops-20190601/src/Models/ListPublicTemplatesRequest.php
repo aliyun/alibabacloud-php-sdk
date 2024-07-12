@@ -24,6 +24,11 @@ class ListPublicTemplatesRequest extends Model
     public $createdDateBefore;
 
     /**
+     * @var bool
+     */
+    public $isExample;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -71,6 +76,7 @@ class ListPublicTemplatesRequest extends Model
         'createdBy'         => 'CreatedBy',
         'createdDateAfter'  => 'CreatedDateAfter',
         'createdDateBefore' => 'CreatedDateBefore',
+        'isExample'         => 'IsExample',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
         'popularity'        => 'Popularity',
@@ -97,6 +103,9 @@ class ListPublicTemplatesRequest extends Model
         }
         if (null !== $this->createdDateBefore) {
             $res['CreatedDateBefore'] = $this->createdDateBefore;
+        }
+        if (null !== $this->isExample) {
+            $res['IsExample'] = $this->isExample;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -145,6 +154,9 @@ class ListPublicTemplatesRequest extends Model
         }
         if (isset($map['CreatedDateBefore'])) {
             $model->createdDateBefore = $map['CreatedDateBefore'];
+        }
+        if (isset($map['IsExample'])) {
+            $model->isExample = $map['IsExample'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

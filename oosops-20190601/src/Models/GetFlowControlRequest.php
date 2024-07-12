@@ -19,6 +19,8 @@ class GetFlowControlRequest extends Model
     public $service;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $type;

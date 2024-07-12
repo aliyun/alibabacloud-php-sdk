@@ -14,6 +14,8 @@ class DeletePublicTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;

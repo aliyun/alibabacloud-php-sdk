@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteFailureMsgRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $operation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $requestFingerprint;

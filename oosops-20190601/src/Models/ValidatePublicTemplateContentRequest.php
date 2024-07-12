@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ValidatePublicTemplateContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -24,6 +26,8 @@ class ValidatePublicTemplateContentRequest extends Model
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

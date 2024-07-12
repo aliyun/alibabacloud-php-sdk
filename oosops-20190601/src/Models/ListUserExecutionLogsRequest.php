@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListUserExecutionLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $executionId;

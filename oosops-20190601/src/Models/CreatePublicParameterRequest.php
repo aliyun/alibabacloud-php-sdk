@@ -24,11 +24,15 @@ class CreatePublicParameterRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $parameterType;
@@ -39,6 +43,8 @@ class CreatePublicParameterRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

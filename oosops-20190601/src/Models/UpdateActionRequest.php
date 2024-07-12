@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateActionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $actionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;

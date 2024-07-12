@@ -14,9 +14,16 @@ class CreatePublicTemplateRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
+
+    /**
+     * @var bool
+     */
+    public $isExample;
 
     /**
      * @var int
@@ -34,12 +41,15 @@ class CreatePublicTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
     protected $_name = [
         'category'     => 'Category',
         'content'      => 'Content',
+        'isExample'    => 'IsExample',
         'popularity'   => 'Popularity',
         'publisher'    => 'Publisher',
         'regionId'     => 'RegionId',
@@ -58,6 +68,9 @@ class CreatePublicTemplateRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->isExample) {
+            $res['IsExample'] = $this->isExample;
         }
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
@@ -88,6 +101,9 @@ class CreatePublicTemplateRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['IsExample'])) {
+            $model->isExample = $map['IsExample'];
         }
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
