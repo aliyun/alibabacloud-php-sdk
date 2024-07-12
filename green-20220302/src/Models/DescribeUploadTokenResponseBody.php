@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUploadTokenResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class DescribeUploadTokenResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;

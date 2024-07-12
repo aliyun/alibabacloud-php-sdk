@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example STS.NUEUjvDqMuvH6oQA1TXxxH4wVR
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $accessKeySecret;
 
     /**
+     * @example oss-cip-shanghai
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example 1720577200
+     *
      * @var int
      */
     public $expiration;
 
     /**
+     * @example upload/1xxb89/
+     *
      * @var string
      */
     public $fileNamePrefix;
 
     /**
+     * @example https://oss-cn-shanghai-internal.aliyuncs.com
+     *
      * @var string
      */
     public $ossInternalEndPoint;
 
     /**
+     * @example https://oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $ossInternetEndPoint;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $securityToken;

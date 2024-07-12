@@ -1,3 +1,6 @@
+2024-07-12 Version: 2.2.8
+- Generated php 2022-03-02 for Green.
+
 2024-07-03 Version: 2.2.7
 - Update API DescribeImageModerationResult: update response param.
 - Update API ImageModeration: update response param.
