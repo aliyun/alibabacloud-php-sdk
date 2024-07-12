@@ -21,13 +21,19 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
     public $labelInputConfig;
 
     /**
+     * @var int
+     */
+    public $realTimeIterateInterval;
+
+    /**
      * @var trainingSetConfig
      */
     public $trainingSetConfig;
     protected $_name = [
-        'featureViewConfig' => 'FeatureViewConfig',
-        'labelInputConfig'  => 'LabelInputConfig',
-        'trainingSetConfig' => 'TrainingSetConfig',
+        'featureViewConfig'       => 'FeatureViewConfig',
+        'labelInputConfig'        => 'LabelInputConfig',
+        'realTimeIterateInterval' => 'RealTimeIterateInterval',
+        'trainingSetConfig'       => 'TrainingSetConfig',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
         }
         if (null !== $this->labelInputConfig) {
             $res['LabelInputConfig'] = null !== $this->labelInputConfig ? $this->labelInputConfig->toMap() : null;
+        }
+        if (null !== $this->realTimeIterateInterval) {
+            $res['RealTimeIterateInterval'] = $this->realTimeIterateInterval;
         }
         if (null !== $this->trainingSetConfig) {
             $res['TrainingSetConfig'] = null !== $this->trainingSetConfig ? $this->trainingSetConfig->toMap() : null;
@@ -68,6 +77,9 @@ class ExportModelFeatureTrainingSetTableRequest extends Model
         }
         if (isset($map['LabelInputConfig'])) {
             $model->labelInputConfig = labelInputConfig::fromMap($map['LabelInputConfig']);
+        }
+        if (isset($map['RealTimeIterateInterval'])) {
+            $model->realTimeIterateInterval = $map['RealTimeIterateInterval'];
         }
         if (isset($map['TrainingSetConfig'])) {
             $model->trainingSetConfig = trainingSetConfig::fromMap($map['TrainingSetConfig']);

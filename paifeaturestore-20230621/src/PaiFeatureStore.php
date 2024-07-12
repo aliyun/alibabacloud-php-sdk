@@ -1159,6 +1159,9 @@ class PaiFeatureStore extends OpenApiClient
         if (!Utils::isUnset($request->labelInputConfig)) {
             $body['LabelInputConfig'] = $request->labelInputConfig;
         }
+        if (!Utils::isUnset($request->realTimeIterateInterval)) {
+            $body['RealTimeIterateInterval'] = $request->realTimeIterateInterval;
+        }
         if (!Utils::isUnset($request->trainingSetConfig)) {
             $body['TrainingSetConfig'] = $request->trainingSetConfig;
         }
