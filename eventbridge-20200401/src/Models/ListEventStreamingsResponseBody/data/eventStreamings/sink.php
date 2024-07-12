@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRespo
 
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkCustomizedKafkaConnectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkCustomizedKafkaParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDashVectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDataHubParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkFcParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkFnfParameters;
@@ -27,6 +28,11 @@ class sink extends Model
      * @var sinkCustomizedKafkaParameters
      */
     public $sinkCustomizedKafkaParameters;
+
+    /**
+     * @var sinkDashVectorParameters
+     */
+    public $sinkDashVectorParameters;
 
     /**
      * @var sinkDataHubParameters
@@ -84,6 +90,7 @@ class sink extends Model
     protected $_name = [
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
         'sinkCustomizedKafkaParameters'          => 'SinkCustomizedKafkaParameters',
+        'sinkDashVectorParameters'               => 'SinkDashVectorParameters',
         'sinkDataHubParameters'                  => 'SinkDataHubParameters',
         'sinkFcParameters'                       => 'SinkFcParameters',
         'sinkFnfParameters'                      => 'SinkFnfParameters',
@@ -106,6 +113,9 @@ class sink extends Model
         }
         if (null !== $this->sinkCustomizedKafkaParameters) {
             $res['SinkCustomizedKafkaParameters'] = null !== $this->sinkCustomizedKafkaParameters ? $this->sinkCustomizedKafkaParameters->toMap() : null;
+        }
+        if (null !== $this->sinkDashVectorParameters) {
+            $res['SinkDashVectorParameters'] = null !== $this->sinkDashVectorParameters ? $this->sinkDashVectorParameters->toMap() : null;
         }
         if (null !== $this->sinkDataHubParameters) {
             $res['SinkDataHubParameters'] = null !== $this->sinkDataHubParameters ? $this->sinkDataHubParameters->toMap() : null;
@@ -148,6 +158,9 @@ class sink extends Model
         }
         if (isset($map['SinkCustomizedKafkaParameters'])) {
             $model->sinkCustomizedKafkaParameters = sinkCustomizedKafkaParameters::fromMap($map['SinkCustomizedKafkaParameters']);
+        }
+        if (isset($map['SinkDashVectorParameters'])) {
+            $model->sinkDashVectorParameters = sinkDashVectorParameters::fromMap($map['SinkDashVectorParameters']);
         }
         if (isset($map['SinkDataHubParameters'])) {
             $model->sinkDataHubParameters = sinkDataHubParameters::fromMap($map['SinkDataHubParameters']);
