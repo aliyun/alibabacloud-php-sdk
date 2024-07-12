@@ -451,6 +451,9 @@ class Milvus extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cidr)) {
+            $query['Cidr'] = $request->cidr;
+        }
         if (!Utils::isUnset($request->componentType)) {
             $query['ComponentType'] = $request->componentType;
         }

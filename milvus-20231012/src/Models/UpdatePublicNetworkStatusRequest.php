@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublicNetworkStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cidr;
+
+    /**
      * @description This parameter is required.
      *
      * @example Proxy
@@ -33,6 +38,7 @@ class UpdatePublicNetworkStatusRequest extends Model
      */
     public $publicNetworkEnabled;
     protected $_name = [
+        'cidr'                 => 'Cidr',
         'componentType'        => 'ComponentType',
         'instanceId'           => 'InstanceId',
         'publicNetworkEnabled' => 'PublicNetworkEnabled',
@@ -45,6 +51,9 @@ class UpdatePublicNetworkStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cidr) {
+            $res['Cidr'] = $this->cidr;
+        }
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
         }
@@ -66,6 +75,9 @@ class UpdatePublicNetworkStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cidr'])) {
+            $model->cidr = $map['Cidr'];
+        }
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
         }
