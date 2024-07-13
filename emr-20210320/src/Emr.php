@@ -139,6 +139,7 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -427,6 +428,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param CreateScriptRequest $request CreateScriptRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -467,6 +470,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param CreateScriptRequest $request CreateScriptRequest
      *
      * @return CreateScriptResponse CreateScriptResponse
@@ -640,6 +645,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param DeleteScriptRequest $request DeleteScriptRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -680,6 +687,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param DeleteScriptRequest $request DeleteScriptRequest
      *
      * @return DeleteScriptResponse DeleteScriptResponse
@@ -4251,9 +4260,6 @@ class Emr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->applicationConfigs)) {
-            $query['ApplicationConfigs'] = $request->applicationConfigs;
-        }
         if (!Utils::isUnset($request->applicationName)) {
             $query['ApplicationName'] = $request->applicationName;
         }
@@ -4281,8 +4287,15 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        $req = new OpenApiRequest([
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationConfigs)) {
+            $bodyFlat['ApplicationConfigs'] = $request->applicationConfigs;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateApplicationConfigs',
@@ -4312,6 +4325,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param UpdateScriptRequest $tmpReq  UpdateScriptRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4360,6 +4375,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     *  *
      * @param UpdateScriptRequest $request UpdateScriptRequest
      *
      * @return UpdateScriptResponse UpdateScriptResponse

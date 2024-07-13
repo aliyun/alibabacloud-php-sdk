@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationConfigsRequest extends Model
 {
     /**
-     * @description The application configurations.
+     * @description 应用配置列表。
      *
      * This parameter is required.
-     * @example CLUSTER
-     *
      * @var UpdateApplicationConfig[]
      */
     public $applicationConfigs;

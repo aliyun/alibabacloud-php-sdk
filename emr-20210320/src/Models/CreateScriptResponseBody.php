@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateScriptResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -18,6 +18,8 @@ class CreateScriptResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The script ID.
+     *
      * @example cs-d6d6bc841c0d415fb81808bc6d09****
      *
      * @var string

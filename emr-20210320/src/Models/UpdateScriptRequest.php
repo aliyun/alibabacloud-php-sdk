@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateScriptRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * This parameter is required.
      * @example c-b933c5aac8fe****
@@ -19,7 +19,7 @@ class UpdateScriptRequest extends Model
     public $clusterId;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -29,7 +29,7 @@ class UpdateScriptRequest extends Model
     public $regionId;
 
     /**
-     * @description 集群脚本。
+     * @description The script.
      *
      * This parameter is required.
      * @var Script
@@ -37,7 +37,7 @@ class UpdateScriptRequest extends Model
     public $script;
 
     /**
-     * @description 脚本ID。
+     * @description The script ID.
      *
      * This parameter is required.
      * @example cs-da7476a7679a4d4c9cede62ebe09****
@@ -47,7 +47,10 @@ class UpdateScriptRequest extends Model
     public $scriptId;
 
     /**
-     * @description 集群脚本类型。
+     * @description The type of the script. Valid values:
+     *
+     *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
+     *   NORMAL: indicates a common script.
      *
      * This parameter is required.
      * @example BOOTSTRAP
