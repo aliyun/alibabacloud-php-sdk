@@ -16,6 +16,13 @@ class ProvisionConfig extends Model
     public $alwaysAllocateCPU;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $alwaysAllocateGPU;
+
+    /**
      * @example 1
      *
      * @var int
@@ -54,6 +61,7 @@ class ProvisionConfig extends Model
     public $targetTrackingPolicies;
     protected $_name = [
         'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
+        'alwaysAllocateGPU'      => 'alwaysAllocateGPU',
         'current'                => 'current',
         'currentError'           => 'currentError',
         'functionArn'            => 'functionArn',
@@ -71,6 +79,9 @@ class ProvisionConfig extends Model
         $res = [];
         if (null !== $this->alwaysAllocateCPU) {
             $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
+        }
+        if (null !== $this->alwaysAllocateGPU) {
+            $res['alwaysAllocateGPU'] = $this->alwaysAllocateGPU;
         }
         if (null !== $this->current) {
             $res['current'] = $this->current;
@@ -116,6 +127,9 @@ class ProvisionConfig extends Model
         $model = new self();
         if (isset($map['alwaysAllocateCPU'])) {
             $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
+        }
+        if (isset($map['alwaysAllocateGPU'])) {
+            $model->alwaysAllocateGPU = $map['alwaysAllocateGPU'];
         }
         if (isset($map['current'])) {
             $model->current = $map['current'];

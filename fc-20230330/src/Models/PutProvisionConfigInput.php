@@ -16,6 +16,13 @@ class PutProvisionConfigInput extends Model
     public $alwaysAllocateCPU;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $alwaysAllocateGPU;
+
+    /**
      * @var ScheduledAction[]
      */
     public $scheduledActions;
@@ -35,6 +42,7 @@ class PutProvisionConfigInput extends Model
     public $targetTrackingPolicies;
     protected $_name = [
         'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
+        'alwaysAllocateGPU'      => 'alwaysAllocateGPU',
         'scheduledActions'       => 'scheduledActions',
         'target'                 => 'target',
         'targetTrackingPolicies' => 'targetTrackingPolicies',
@@ -49,6 +57,9 @@ class PutProvisionConfigInput extends Model
         $res = [];
         if (null !== $this->alwaysAllocateCPU) {
             $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
+        }
+        if (null !== $this->alwaysAllocateGPU) {
+            $res['alwaysAllocateGPU'] = $this->alwaysAllocateGPU;
         }
         if (null !== $this->scheduledActions) {
             $res['scheduledActions'] = [];
@@ -85,6 +96,9 @@ class PutProvisionConfigInput extends Model
         $model = new self();
         if (isset($map['alwaysAllocateCPU'])) {
             $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
+        }
+        if (isset($map['alwaysAllocateGPU'])) {
+            $model->alwaysAllocateGPU = $map['alwaysAllocateGPU'];
         }
         if (isset($map['scheduledActions'])) {
             if (!empty($map['scheduledActions'])) {
