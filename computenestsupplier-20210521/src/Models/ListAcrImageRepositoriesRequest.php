@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListAcrImageRepositoriesRequest extends Model
 {
     /**
+     * @description The type of the artifact. Default value: AcrImage. Valid values:
+     *
+     *   HelmChart: Helm chart image.
+     *   AcrImage: container image.
+     *
      * @example AcrImage
      *
      * @var string
@@ -16,6 +21,8 @@ class ListAcrImageRepositoriesRequest extends Model
     public $artifactType;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +30,8 @@ class ListAcrImageRepositoriesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAWns8w4MmhzeptXVRG0PUEU=
      *
      * @var string
@@ -30,6 +39,8 @@ class ListAcrImageRepositoriesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example wordpress
      *
      * @var string

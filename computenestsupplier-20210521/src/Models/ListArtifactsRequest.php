@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactsRequest extends Model
 {
     /**
+     * @description The filter.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListArtifactsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
      *
      * @var string
@@ -30,11 +36,17 @@ class ListArtifactsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek25yfxxxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

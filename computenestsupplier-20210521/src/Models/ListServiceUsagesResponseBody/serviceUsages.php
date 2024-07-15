@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class serviceUsages extends Model
 {
     /**
+     * @description The comment on the approval.
+     *
+     * @example Reject
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The time when the application was created.
+     *
      * @example 2022-05-25T02:02:02Z
      *
      * @var string
@@ -21,6 +27,8 @@ class serviceUsages extends Model
     public $createTime;
 
     /**
+     * @description The service ID.
+     *
      * @example service-c9f36ec6d19b4exxxxxx
      *
      * @var string
@@ -28,11 +36,22 @@ class serviceUsages extends Model
     public $serviceId;
 
     /**
+     * @description The service name.
+     *
+     * @example ServiceTest
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The status of the service application. Valid values:
+     *
+     *   Submitted: The application is submitted or is to be approved.
+     *   Approved: The application is approved.
+     *   Rejected: The application is rejected.
+     *   Canceled: The application is canceled.
+     *
      * @example Submitted
      *
      * @var string
@@ -40,11 +59,17 @@ class serviceUsages extends Model
     public $status;
 
     /**
+     * @description The name of the service provider.
+     *
+     * @example SupplierAAA
+     *
      * @var string
      */
     public $supplierName;
 
     /**
+     * @description The time when the application was updated.
+     *
      * @example 2022-05-25T02:02:02Z
      *
      * @var string
@@ -52,6 +77,8 @@ class serviceUsages extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 127383705958xxxx
      *
      * @var int
@@ -59,6 +86,8 @@ class serviceUsages extends Model
     public $userAliUid;
 
     /**
+     * @description The user information.
+     *
      * @var string[]
      */
     public $userInformation;

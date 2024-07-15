@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityExtraInfos extends Model
 {
     /**
+     * @description The ID of the billable item.
+     *
+     * @example cmgjxxxxxxxx-NetworkOut-2
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The metric name.
+     *
+     * @example NetworkLantency
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The custom prometheus statement.
+     *
+     * @example avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
+     *
      * @var string
      */
     public $promql;
 
     /**
+     * @description The metric.
+     *
+     * @example AvgPod
+     *
      * @var string
      */
     public $type;

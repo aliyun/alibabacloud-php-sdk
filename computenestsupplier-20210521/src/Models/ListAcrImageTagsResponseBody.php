@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAcrImageTagsResponseBody extends Model
 {
     /**
+     * @description The list of images.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -22,6 +26,8 @@ class ListAcrImageTagsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example ey14..
      *
      * @var string
@@ -29,6 +35,8 @@ class ListAcrImageTagsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example FEF343B9-1A15-5789-BE88-7B36190F5BF6
      *
      * @var string
@@ -36,6 +44,8 @@ class ListAcrImageTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

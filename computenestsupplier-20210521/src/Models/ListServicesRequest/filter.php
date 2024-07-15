@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+     *
+     *   ServiceId: the ID of the service.
+     *   Name: the name of the service.
+     *   Status: the state of the service.
+     *   SupplierName: the name of the service provider.
+     *
      * @example Status
      *
      * @var string
@@ -16,6 +23,8 @@ class filter extends Model
     public $name;
 
     /**
+     * @description The parameter values of the filter.
+     *
      * @var string[]
      */
     public $value;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reversePrivateVpcConnections extends Model
 {
     /**
+     * @description The ID of the endpoint for the reverse private connection.
+     *
      * @example ep-m5ei42370541816b****
      *
      * @var string
@@ -16,6 +18,8 @@ class reversePrivateVpcConnections extends Model
     public $endpointId;
 
     /**
+     * @description The ID of the endpoint service for the reverse private connection.
+     *
      * @example epsrv-5ei07324541816bxxxx
      *
      * @var string

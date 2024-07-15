@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateArtifactRequest extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -18,13 +20,21 @@ class CreateArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @description The properties of the deployment object.
+     *
      * @var artifactProperty
      */
     public $artifactProperty;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the deployment package. Valid values:
      *
+     *   EcsImage: Elastic Compute Service (ECS) image.
+     *   AcrImage: container image.
+     *   File: Object Storage Service (OSS) object.
+     *   Script: script.
+     *
+     * This parameter is required.
      * @example EcsImage
      *
      * @var string
@@ -32,35 +42,51 @@ class CreateArtifactRequest extends Model
     public $artifactType;
 
     /**
+     * @description The description of the deployment package.
+     *
+     * @example Test artifact
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the deployment package.
+     *
+     * This parameter is required.
+     * @example Name
      *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzkt5buxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The supported regions.
+     *
      * @var string[]
      */
     public $supportRegionIds;
 
     /**
+     * @description The custom tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description This parameter is required.
+     * @description The version name of the deployment package.
      *
+     * This parameter is required.
      * @example v1
      *
      * @var string

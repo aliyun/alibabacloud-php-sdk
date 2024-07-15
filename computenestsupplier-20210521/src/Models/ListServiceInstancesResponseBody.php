@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstancesResponseBody extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class ListServiceInstancesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -24,6 +28,8 @@ class ListServiceInstancesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example E50287CB-AABF-4877-92C0-289B339A1546
      *
      * @var string
@@ -31,11 +37,15 @@ class ListServiceInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about service instances.
+     *
      * @var serviceInstances[]
      */
     public $serviceInstances;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

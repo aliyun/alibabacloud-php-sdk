@@ -13,46 +13,78 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description The billing method of the service. Valid values:
+     *
+     *   **PREPAY** (default): subscription.
+     *   **POSTPAY**: pay-as-you-go.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The commodity code of the service in Alibaba Cloud Marketplace.
+     *
+     * @example cmjj00xxxx
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The commodity modules.
+     *
      * @var string[]
      */
     public $components;
 
     /**
+     * @description The configuration metadata related to Lingxiao.
+     *
      * @var cssMetadata
      */
     public $cssMetadata;
 
     /**
+     * @description The metadata of Alibaba Cloud Marketplace.
+     *
      * @var marketplaceMetadata
      */
     public $marketplaceMetadata;
 
     /**
+     * @description The information about the billable item.
+     *
      * @var meteringEntities[]
      */
     public $meteringEntities;
 
     /**
+     * @description The configuration metadata related to Saas Boost.
+     *
+     * @example { "Enabled":false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+     *
      * @var string
      */
     public $saasBoostMetadata;
 
     /**
+     * @description The specification details of the service in Alibaba Cloud Marketplace.
+     *
      * @var specifications[]
      */
     public $specifications;
 
     /**
+     * @description The service type. Valid values:
+     *
+     *   marketplace: Alibaba Cloud Marketplace.
+     *   Css: Lingxiao.
+     *
+     * @example Marketplace
+     *
      * @var string
      */
     public $type;

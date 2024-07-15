@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceInfos extends Model
 {
     /**
+     * @description The URL of the service icon.
+     *
      * @example http://img.tidb.oss.url
      *
      * @var string
@@ -16,6 +18,11 @@ class serviceInfos extends Model
     public $image;
 
     /**
+     * @description The language of the service. Valid values:
+     *
+     *   zh-CN: Chinese.
+     *   en-US: English.
+     *
      * @example zh-CN
      *
      * @var string
@@ -23,11 +30,19 @@ class serviceInfos extends Model
     public $locale;
 
     /**
+     * @description The name of the service.
+     *
+     * @example SpringBoot-ECS容器版
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description of the service.
+     *
+     * @example B是A公司自主设计并研发的开源分布式的关系型数据库
+     *
      * @var string
      */
     public $shortDescription;

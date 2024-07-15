@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The tag key of the deployment package.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value of the deployment package.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;

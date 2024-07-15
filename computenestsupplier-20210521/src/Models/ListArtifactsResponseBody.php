@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactsResponseBody extends Model
 {
     /**
+     * @description The information about deployment packages.
+     *
      * @var artifacts[]
      */
     public $artifacts;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -22,6 +26,8 @@ class ListArtifactsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
      *
      * @var string
@@ -29,6 +35,8 @@ class ListArtifactsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 46577928-3162-15A6-9084-69820EB9xxxx
      *
      * @var string
@@ -36,6 +44,8 @@ class ListArtifactsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

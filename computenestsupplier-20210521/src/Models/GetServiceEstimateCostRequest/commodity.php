@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description The subscription duration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $payPeriod;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   Year
+     *   Month
+     *   Day
+     *
+     * @example Month
+     *
      * @var string
      */
     public $payPeriodUnit;

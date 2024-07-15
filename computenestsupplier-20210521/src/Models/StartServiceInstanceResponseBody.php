@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2E91D771-0183-52CE-86CB-882D99B2CB77
      *
      * @var string

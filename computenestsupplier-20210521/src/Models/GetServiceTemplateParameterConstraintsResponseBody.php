@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetServiceTemplateParameterConstraintsResponseBody extends Model
 {
     /**
+     * @description The constraint families.
+     *
      * @var string[]
      */
     public $familyConstraints;
 
     /**
+     * @description The parameters in the template.
+     *
      * @var parameterConstraints[]
      */
     public $parameterConstraints;
 
     /**
+     * @description The request ID.
+     *
      * @example C81C0732-DEBC-559C-B563-7EB2BEB21088
      *
      * @var string

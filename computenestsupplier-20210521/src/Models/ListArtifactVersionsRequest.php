@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactVersionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the deployment package.
      *
+     * This parameter is required.
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -18,11 +19,17 @@ class ListArtifactVersionsRequest extends Model
     public $artifactId;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
      *
      * @var string

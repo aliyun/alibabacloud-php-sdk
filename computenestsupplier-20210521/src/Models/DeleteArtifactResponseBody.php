@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteArtifactResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B1A0198B-F316-1B72-B8DD-28B6F6D6XXXX
      *
      * @var string

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class meteringEntities extends Model
 {
     /**
+     * @description The ID of the billable item.
+     *
+     * @example cmgjxxxxxxxx-NetworkOut
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The name of the billable item.
+     *
+     * @example spring-boot-demo
+     *
      * @var string
      */
     public $name;

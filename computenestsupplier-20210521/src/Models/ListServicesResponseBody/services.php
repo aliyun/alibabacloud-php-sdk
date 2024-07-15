@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The approval type for applications for using the service. Valid values:
+     *
+     *   Manual: The applications are manual reviewed.
+     *   AutoPass: The applications are automatically approved.
+     *
      * @example AutoPass
      *
      * @var string
@@ -19,6 +24,8 @@ class services extends Model
     public $approvalType;
 
     /**
+     * @description The ID of the artifact.
+     *
      * @example artifact-21ca53ac16a643xxxxxx
      *
      * @var string
@@ -26,6 +33,8 @@ class services extends Model
     public $artifactId;
 
     /**
+     * @description The version of the artifact.
+     *
      * @example draft
      *
      * @var string
@@ -33,21 +42,33 @@ class services extends Model
     public $artifactVersion;
 
     /**
+     * @description The informathon for build service.
+     *
+     * @example { "RepoUrl": "https://github.com/user/repo.git", "Brancn": "main"}
+     *
      * @var string
      */
     public $buildInfo;
 
     /**
+     * @description The category of the service.
+     *
+     * @example OpenSource
+     *
      * @var string
      */
     public $categories;
 
     /**
+     * @description The commodity details.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
+     * @description The commodity code of the service in Alibaba Cloud Marketplace.
+     *
      * @example cmjj00xxxx
      *
      * @var string
@@ -55,6 +76,8 @@ class services extends Model
     public $commodityCode;
 
     /**
+     * @description The time when the service was created.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -62,6 +85,11 @@ class services extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   false
+     *   true
+     *
      * @example true
      *
      * @var bool
@@ -69,6 +97,14 @@ class services extends Model
     public $defaultVersion;
 
     /**
+     * @description The deployment type of the service. Valid values:
+     *
+     *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+     *   terraform: The service is deployed by using Terraform.
+     *   spi: The service is deployed by calling the Service Provider Interface (SPI).
+     *   operation: The service is deployed by using a hosted O\\&M service.
+     *   container: The service is deployed by using a container.
+     *
      * @example ros
      *
      * @var string
@@ -76,21 +112,41 @@ class services extends Model
     public $deployType;
 
     /**
+     * @description Indicates whether the service has a beta version. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasBeta;
 
     /**
+     * @description Indicates whether the service has a draft version. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasDraft;
 
     /**
+     * @description The latest version of the distribution source service.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $latestResellSourceServiceVersion;
 
     /**
+     * @description The time when the service was published.
+     *
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -98,6 +154,11 @@ class services extends Model
     public $publishTime;
 
     /**
+     * @description The purpose of the artifact. Valid values:
+     *
+     *   ServiceDeployment: The artifact is used to create service instances.
+     *   ServiceUpgrade: The artifact is used to upgrade service instances.
+     *
      * @example ServiceDeployment
      *
      * @var string
@@ -105,26 +166,51 @@ class services extends Model
     public $relationType;
 
     /**
+     * @description The state of distribution authorization of the service. Valid values:
+     *
+     *   CanApply: Distributors can apply for distribution permissions.
+     *   Applied: The application for distribution permissions is submitted.
+     *   Approved: The application for distribution permissions is approved.
+     *
+     * @example CanApply
+     *
      * @var string
      */
     public $resellApplyStatus;
 
     /**
+     * @description The ID of the distribution service.
+     *
+     * @example service-70a3b15bb62643xxxxxx
+     *
      * @var string
      */
     public $resellServiceId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekz5b555xxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the service is visible. Valid values:
+     *
+     *   INVISIBLE
+     *   DISCOVERABLE
+     *
+     * @example INVISIBLE
+     *
      * @var string
      */
     public $serviceDiscoverable;
 
     /**
+     * @description The service ID.
+     *
      * @example service-70a3b15bb62643xxxxxx
      *
      * @var string
@@ -132,11 +218,19 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description The information about the service.
+     *
      * @var serviceInfos[]
      */
     public $serviceInfos;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   private: The service is a private service and is deployed within the account of a customer.
+     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+     *   operation: The service is a hosted O\\&M service.
+     *
      * @example private
      *
      * @var string
@@ -144,6 +238,14 @@ class services extends Model
     public $serviceType;
 
     /**
+     * @description The permission type of the deployment URL. Valid values:
+     *
+     *   Public: All users can go to the URL to create a formal service instance or a trial service instance.
+     *   Restricted: Only users in the whitelist can go to the URL to create a formal service instance or a trial service instance.
+     *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a formal service instance.
+     *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+     *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+     *
      * @example Public
      *
      * @var string
@@ -151,6 +253,8 @@ class services extends Model
     public $shareType;
 
     /**
+     * @description The source image.
+     *
      * @example centos_7
      *
      * @var string
@@ -158,21 +262,42 @@ class services extends Model
     public $sourceImage;
 
     /**
+     * @description The ID of the distribution source service.
+     *
+     * @example service-70a3b15bb62643xxxxxx
+     *
      * @var string
      */
     public $sourceServiceId;
 
     /**
+     * @description The version of the distribution source service.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sourceServiceVersion;
 
     /**
+     * @description The name of the distribution source service provider.
+     *
+     * @example SourceSupplier
+     *
      * @var string
      */
     public $sourceSupplierName;
 
     /**
+     * @description The state of the service. Valid values:
+     *
+     *   Draft: The service is a draft.
+     *   Submitted: The service is submitted for review. You cannot modify services in this state.
+     *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
+     *   Launching: The service is being published.
+     *   Online: The service is published.
+     *   Offline: The service is unpublished.
+     *
      * @example Online
      *
      * @var string
@@ -180,11 +305,17 @@ class services extends Model
     public $status;
 
     /**
+     * @description The name of the service provider.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $supplierName;
 
     /**
+     * @description The URL of the service provider.
+     *
      * @example http://example.com
      *
      * @var string
@@ -192,11 +323,18 @@ class services extends Model
     public $supplierUrl;
 
     /**
+     * @description The service tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The tenant type of the managed service. Valid values:
+     *
+     *   SingleTenant
+     *   MultiTenant
+     *
      * @example SingleTenant
      *
      * @var string
@@ -204,6 +342,11 @@ class services extends Model
     public $tenantType;
 
     /**
+     * @description The trial policy. Valid values:
+     *
+     *   Trial: Trials are supported.
+     *   NotTrial: Trials are not supported.
+     *
      * @example Trial
      *
      * @var string
@@ -211,6 +354,8 @@ class services extends Model
     public $trialType;
 
     /**
+     * @description The time when the service was modified.
+     *
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -218,6 +363,8 @@ class services extends Model
     public $updateTime;
 
     /**
+     * @description The version of the service.
+     *
      * @example 1.0
      *
      * @var string
@@ -225,6 +372,8 @@ class services extends Model
     public $version;
 
     /**
+     * @description The custom version name defined by the service provider.
+     *
      * @example v2.0.0
      *
      * @var string
@@ -232,6 +381,13 @@ class services extends Model
     public $versionName;
 
     /**
+     * @description Indicates whether the service is a virtual Internet service. Valid values:
+     *
+     *   false
+     *   true
+     *
+     * @example false
+     *
      * @var string
      */
     public $virtualInternetService;

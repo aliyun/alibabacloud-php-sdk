@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
+     * @description Protocol document information about the service.
+     *
      * @var agreements[]
      */
     public $agreements;
 
     /**
+     * @description The URL of the service icon.
+     *
      * @example http://img.tidb.oss.url
      *
      * @var string
@@ -22,8 +26,12 @@ class serviceInfo extends Model
     public $image;
 
     /**
-     * @description This parameter is required.
+     * @description The language of the service. Valid values:
      *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
+     * This parameter is required.
      * @example zh-CN
      *
      * @var string
@@ -31,13 +39,18 @@ class serviceInfo extends Model
     public $locale;
 
     /**
+     * @description The URL of the detailed description of the service.
+     *
+     * @example http://description.tidb.oss.url
+     *
      * @var string
      */
     public $longDescriptionUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The service name.
      *
+     * This parameter is required.
      * @example TiDB Database
      *
      * @var string
@@ -45,6 +58,10 @@ class serviceInfo extends Model
     public $name;
 
     /**
+     * @description The description of the service.
+     *
+     * @example TiDB是A公司自主设计、研发的开源分布式关系型数据库。
+     *
      * @var string
      */
     public $shortDescription;

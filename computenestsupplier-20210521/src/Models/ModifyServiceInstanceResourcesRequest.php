@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyServiceInstanceResourcesRequest extends Model
 {
     /**
+     * @description The imported resources.
+     *
      * @example {
      * }
      * @var string
@@ -16,8 +18,9 @@ class ModifyServiceInstanceResourcesRequest extends Model
     public $resources;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the service instance.
      *
+     * This parameter is required.
      * @example si-d8a0cc2a1ee04dce****
      *
      * @var string
@@ -25,6 +28,11 @@ class ModifyServiceInstanceResourcesRequest extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The type of operation performed on the service instance resource. Valid values:
+     *
+     *   Import: The resource is imported.
+     *   UnImport: The resource import is canceled.
+     *
      * @example Import
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class updateOption extends Model
 {
     /**
+     * @description The options for update the service. Valid values:
+     * - PARAMETERS
+     * @example PARAMETERS
+     *
      * @var string
      */
     public $updateFrom;

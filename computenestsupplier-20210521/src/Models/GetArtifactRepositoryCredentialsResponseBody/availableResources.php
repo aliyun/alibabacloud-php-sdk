@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class availableResources extends Model
 {
     /**
+     * @description The path.
+     *
      * @example "/xxx/"
      *
      * @var string
@@ -16,6 +18,8 @@ class availableResources extends Model
     public $path;
 
     /**
+     * @description The region ID.
+     *
      * @example oss-cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class availableResources extends Model
     public $regionId;
 
     /**
+     * @description The repository name.
+     *
      * @example computenest-artifacts-draft-cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactRequest extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class GetArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @description The name of the deployment package.
+     *
      * @example gpu-test
      *
      * @var string
@@ -23,6 +27,8 @@ class GetArtifactRequest extends Model
     public $artifactName;
 
     /**
+     * @description The version of the deployment package.
+     *
      * @example 1
      *
      * @var string

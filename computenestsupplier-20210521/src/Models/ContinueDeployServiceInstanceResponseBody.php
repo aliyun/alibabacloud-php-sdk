@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ContinueDeployServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The dry run result.
+     *
      * @var dryRunResult
      */
     public $dryRunResult;
 
     /**
+     * @description The request ID.
+     *
      * @example 82DF27ED-E538-5AC0-A11C-39334A873189
      *
      * @var string
@@ -22,6 +26,8 @@ class ContinueDeployServiceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string

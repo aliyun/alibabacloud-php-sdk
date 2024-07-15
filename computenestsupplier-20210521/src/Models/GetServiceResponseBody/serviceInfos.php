@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class serviceInfos extends Model
 {
     /**
+     * @description The agreement information about the service.
+     *
      * @var agreements[]
      */
     public $agreements;
 
     /**
+     * @description The URL of the service icon.
+     *
      * @example https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
      *
      * @var string
@@ -22,6 +26,11 @@ class serviceInfos extends Model
     public $image;
 
     /**
+     * @description The language of the service. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -29,16 +38,28 @@ class serviceInfos extends Model
     public $locale;
 
     /**
+     * @description The URL of the detailed description of the service.
+     *
+     * @example https://example.com
+     *
      * @var string
      */
     public $longDescriptionUrl;
 
     /**
+     * @description The service name.
+     *
+     * @example WordPress
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description of the service.
+     *
+     * @example B是A公司自主设计并研发的开源分布式的关系型数据库
+     *
      * @var string
      */
     public $shortDescription;

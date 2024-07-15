@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityMappings extends Model
 {
     /**
+     * @description The ID of the entity.
+     *
+     * @example cmgj0015****-Frequency-1
+     *
      * @var string
      */
     public $entityIds;
 
     /**
+     * @description The package name.
+     *
+     * @example 按量付费套餐
+     *
      * @var string
      */
     public $specificationName;
 
     /**
+     * @description The template name.
+     *
+     * @example 模板1
+     *
      * @var string
      */
     public $templateName;

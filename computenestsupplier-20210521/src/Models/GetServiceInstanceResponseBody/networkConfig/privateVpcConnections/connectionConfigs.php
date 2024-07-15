@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class connectionConfigs extends Model
 {
     /**
+     * @description The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
+     *
+     * @example 1536Mbps
+     *
      * @var int
      */
     public $connectBandwidth;
 
     /**
+     * @description The domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The IP addresses of the endpoints for private connections.
+     *
      * @var string[]
      */
     public $endpointIps;
 
     /**
+     * @description The status of the Ingress endpoint. Valid values:
+     *
+     *   Ready: The Ingress endpoint is connected.
+     *   Pending: The Ingress endpoint is being connected.
+     *   Failed: The Ingress endpoint fails to be connected.
+     *   Deleted: The Ingress endpoint is deleted.
+     *   Deleting: The Ingress endpoint is being deleted.
+     *
      * @example Ready
      *
      * @var string
@@ -31,6 +49,14 @@ class connectionConfigs extends Model
     public $ingressEndpointStatus;
 
     /**
+     * @description The status of the network service. Valid values:
+     *
+     *   Ready: The network service is connected.
+     *   Pending: The network service is being connected.
+     *   Failed: The network service fails to be connected.
+     *   Deleted: The network service is deleted.
+     *   Deleting: The network service is being deleted.
+     *
      * @example Ready
      *
      * @var string
@@ -38,16 +64,22 @@ class connectionConfigs extends Model
     public $networkServiceStatus;
 
     /**
+     * @description The names of the security groups.
+     *
      * @var string[]
      */
     public $securityGroups;
 
     /**
+     * @description The names of the vSwitches.
+     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
      * @example vpc-bp1vwnn14rqpyiczj****
      *
      * @var string

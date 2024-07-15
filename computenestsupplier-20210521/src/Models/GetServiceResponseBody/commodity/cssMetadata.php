@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class cssMetadata extends Model
 {
     /**
+     * @description The mapping information about the billing items.
+     *
      * @var componentsMappings[]
      */
     public $componentsMappings;
 
     /**
+     * @description Metering item configuration information.
+     *
      * @var meteringEntityExtraInfos[]
      */
     public $meteringEntityExtraInfos;
 
     /**
+     * @description The binding relationship between package and measurement dimension.
+     *
      * @var meteringEntityMappings[]
      */
     public $meteringEntityMappings;

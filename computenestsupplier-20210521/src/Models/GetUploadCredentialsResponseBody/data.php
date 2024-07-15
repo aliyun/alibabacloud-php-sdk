@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
      * @example STS.NUCe19W1FKaHAYAhe********
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret.
+     *
      * @example 8LQGp59mY23pcXeTdcvSA1cUQZBeD92sFrXi********
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $accessKeySecret;
 
     /**
+     * @description The bucket name.
+     *
      * @example service-info-private
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $bucketName;
 
     /**
+     * @description The time when the AccessKey pair expires.
+     *
      * @example 2023-05-18T12:27:59Z
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $expireDate;
 
     /**
+     * @description The name of the key.
+     *
      * @example 221514575922756034/cn-hangzhou/d57c62fbd508xxxxxxxx.json
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $key;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The security token.
+     *
      * @example CAISzQN1q6Ft5B2yfSjIr5b2LouNuu5n/KOjQ3/wjGUHYdlagYGdmzz2IH1Le3NrBO8esfgymGFU6v8dlo1dYLQeHhadQI5cs80HtFqLSNaE65LswPlZ2M2ISETPJzfV9pCK
      *
      * @var string

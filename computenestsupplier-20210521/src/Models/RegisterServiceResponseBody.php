@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterServiceResponseBody extends Model
 {
     /**
+     * @description The registration ID.
+     *
      * @example sr-72dd5071e90c40xxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class RegisterServiceResponseBody extends Model
     public $registrationId;
 
     /**
+     * @description The request ID.
+     *
      * @example A361BA9E-2713-52C8-AFFC-C26E5180456E
      *
      * @var string

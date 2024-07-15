@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The parameter name of the filter. You can specify one or more filters. Valid values:
+     *
+     *   *Name*: The name of the deployment package. Fuzzy match is used.
+     *   ArtifactId: The ID of the deployment package.
+     *   ArtifactType: The type of the deployment package.
+     *
      * @example ArtifactType
      *
      * @var string
@@ -16,6 +22,8 @@ class filter extends Model
     public $name;
 
     /**
+     * @description The parameter values of the filter.
+     *
      * @var string[]
      */
     public $values;

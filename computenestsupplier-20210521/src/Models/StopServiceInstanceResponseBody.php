@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 49A369EF-A302-5006-B0CE-94CED47C38CF
      *
      * @var string

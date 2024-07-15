@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUploadCredentialsResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetUploadCredentialsResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetUploadCredentialsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
      * @example Success.
      *
      * @var string
@@ -36,6 +44,8 @@ class GetUploadCredentialsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example FCC3321E-D518-1BC4-861E-588E9D4DAFB7
      *
      * @var string
@@ -43,6 +53,8 @@ class GetUploadCredentialsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. A value of true indicates the request was successful. A value of false indicates the request failed.
+     *
      * @example true
      *
      * @var bool

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListServiceUsagesRequest extends Model
 {
     /**
+     * @description The filter.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -22,6 +26,8 @@ class ListServiceUsagesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example AAAAAWns8w4MmhzeptXVRG0PUEU=
      *
      * @var string
@@ -29,6 +35,10 @@ class ListServiceUsagesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The role of the service provider.
+     *
+     * @example Supplier
+     *
      * @var string
      */
     public $supplierRole;

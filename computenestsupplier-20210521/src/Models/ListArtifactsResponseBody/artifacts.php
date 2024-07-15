@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class artifacts extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class artifacts extends Model
     public $artifactId;
 
     /**
+     * @description The type of the deployment package.
+     *
      * @example EcsImage
      *
      * @var string
@@ -24,11 +28,17 @@ class artifacts extends Model
     public $artifactType;
 
     /**
+     * @description The description of the deployment package.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the deployment package was modified.
+     *
      * @example 2022-10-20T02:19:55Z
      *
      * @var string
@@ -36,6 +46,8 @@ class artifacts extends Model
     public $gmtModified;
 
     /**
+     * @description The latest version of the deployment package.
+     *
      * @example 2
      *
      * @var string
@@ -43,16 +55,33 @@ class artifacts extends Model
     public $maxVersion;
 
     /**
+     * @description The name of the deployment package.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aek25rexxxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the deployment package. Valid values:
+     *
+     *   Created: The deployment package is created.
+     *   Scanning: The deployment package is being scanned.
+     *   ScanFailed: The deployment package failed to be scanned.
+     *   Delivering: The deployment package is being distributed.
+     *   Available: The deployment package is available.
+     *   Deleted: The deployment package is deleted.
+     *
      * @example Created
      *
      * @var string
@@ -60,6 +89,8 @@ class artifacts extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetServiceEstimateCostResponseBody extends Model
 {
     /**
+     * @description The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
+     *
+     * @example {\\"PayPeriodUnit\\":Month,\\"PayPeriod\\":1}
+     *
      * @var mixed[]
      */
     public $commodity;
 
     /**
+     * @description The request ID.
+     *
      * @example E73F09DC-6C13-5CB1-A10F-7A4E125ABD2C
      *
      * @var string
@@ -21,6 +27,8 @@ class GetServiceEstimateCostResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of resources.
+     *
      * @example {
      * }
      * @var mixed[]

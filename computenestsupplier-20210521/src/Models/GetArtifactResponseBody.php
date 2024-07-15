@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactResponseBody extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class GetArtifactResponseBody extends Model
     public $artifactId;
 
     /**
+     * @description The properties of the deployment package.
+     *
      * @example {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
      *
      * @var string
@@ -24,6 +28,8 @@ class GetArtifactResponseBody extends Model
     public $artifactProperty;
 
     /**
+     * @description The type of the deployment package.
+     *
      * @example EcsImage
      *
      * @var string
@@ -31,6 +37,8 @@ class GetArtifactResponseBody extends Model
     public $artifactType;
 
     /**
+     * @description The version of the deployment package.
+     *
      * @example 2
      *
      * @var string
@@ -38,11 +46,17 @@ class GetArtifactResponseBody extends Model
     public $artifactVersion;
 
     /**
+     * @description The description of the deployment package.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the deployment package was modified.
+     *
      * @example 2022-10-20T02:19:55Z
      *
      * @var string
@@ -50,6 +64,8 @@ class GetArtifactResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description The latest version of the deployment package.
+     *
      * @example 2
      *
      * @var int
@@ -57,11 +73,17 @@ class GetArtifactResponseBody extends Model
     public $maxVersion;
 
     /**
+     * @description The name of the deployment package.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The distribution progress of the deployment package.
+     *
      * @example 100
      *
      * @var string
@@ -69,6 +91,8 @@ class GetArtifactResponseBody extends Model
     public $progress;
 
     /**
+     * @description The request ID.
+     *
      * @example B1A0198B-F316-1B72-B8DD-28B6F6D6XXXX
      *
      * @var string
@@ -76,11 +100,17 @@ class GetArtifactResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzkt5buxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the deployment package. Valid values:
+     *
      * @example Available
      *
      * @var string
@@ -88,6 +118,8 @@ class GetArtifactResponseBody extends Model
     public $status;
 
     /**
+     * @description The ID of the region that supports the deployment package.
+     *
      * @example ["cn-hangzhou","cn-beijing"]
      *
      * @var string
@@ -95,11 +127,15 @@ class GetArtifactResponseBody extends Model
     public $supportRegionIds;
 
     /**
+     * @description The tags of the deployment package.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The version name of the deployment package.
+     *
      * @example v1
      *
      * @var string

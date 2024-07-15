@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class credentials extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
      * @example STS.xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class credentials extends Model
     public $accessKeyId;
 
     /**
+     * @description The AccessKey secret.
+     *
      * @example xxx
      *
      * @var string
@@ -23,6 +27,8 @@ class credentials extends Model
     public $accessKeySecret;
 
     /**
+     * @description The password.
+     *
      * @example eyJ0aW1lIjoiMTUyNjU0OTc5:0705733****
      *
      * @var string
@@ -30,6 +36,8 @@ class credentials extends Model
     public $password;
 
     /**
+     * @description The Security Token Service (STS) token.
+     *
      * @example xxx
      *
      * @var string
@@ -37,6 +45,8 @@ class credentials extends Model
     public $securityToken;
 
     /**
+     * @description The username.
+     *
      * @example xxx
      *
      * @var string

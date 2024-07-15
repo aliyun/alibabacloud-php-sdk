@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class privateVpcConnections extends Model
 {
     /**
+     * @description The network configurations, which are mainly used for the private connection.
+     *
      * @var connectionConfigs[]
      */
     public $connectionConfigs;
 
     /**
+     * @description The ID of the endpoint for the private connection.
+     *
      * @example ep-m5ei37240541816b****
      *
      * @var string
@@ -22,6 +26,8 @@ class privateVpcConnections extends Model
     public $endpointId;
 
     /**
+     * @description The ID of the endpoint service for the private connection.
+     *
      * @example epsrv-5ei07324541816bxxxx
      *
      * @var string
@@ -29,6 +35,8 @@ class privateVpcConnections extends Model
     public $endpointServiceId;
 
     /**
+     * @description The custom domain name.
+     *
      * @example test.computenest.aliyuncs.com
      *
      * @var string

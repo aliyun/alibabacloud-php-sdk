@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetServiceRequest extends Model
 {
     /**
+     * @description Specifies whether to filter information based on Alibaba Cloud account IDs.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $filterAliUid;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,8 +27,9 @@ class GetServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-4ee86df83fd948******
      *
      * @var string
@@ -30,6 +37,8 @@ class GetServiceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The service version.
+     *
      * @example 1
      *
      * @var string
@@ -37,11 +46,20 @@ class GetServiceRequest extends Model
     public $serviceVersion;
 
     /**
+     * @description The share type of the service. Default value: SharedAccount. Valid values:
+     *
+     *   SharedAccount: The service is shared by multiple accounts.
+     *   Resell: The service is distributed.
+     *
+     * @example SharedAccount
+     *
      * @var string
      */
     public $sharedAccountType;
 
     /**
+     * @description The information that you want to query.
+     *
      * @var string[]
      */
     public $showDetail;

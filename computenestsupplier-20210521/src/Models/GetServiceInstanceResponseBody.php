@@ -12,11 +12,22 @@ use AlibabaCloud\Tea\Model;
 class GetServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The business status of the service instance. Valid values:
+     *
+     *   Normal: The service instance is normal.
+     *   Renewing: The service instance is being renewed.
+     *   RenewFailed: The service instance failed to be renewed.
+     *   Expired: The service instance expired.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $bizStatus;
 
     /**
+     * @description The time when the service instance was created.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -24,6 +35,11 @@ class GetServiceInstanceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +47,8 @@ class GetServiceInstanceResponseBody extends Model
     public $enableInstanceOps;
 
     /**
+     * @description Indicates whether the Prometheus monitoring feature is enabled on the user side.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +56,8 @@ class GetServiceInstanceResponseBody extends Model
     public $enableUserPrometheus;
 
     /**
+     * @description The time when the service instance expires.
+     *
      * @example 2022-01-01T12:00:00
      *
      * @var string
@@ -45,11 +65,20 @@ class GetServiceInstanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The URL of the Grafana dashboard.
+     *
+     * @example https://g.xxxxxx.aliyun.com/d/xxxxxxxx-cn-mariadb/mysql-xxxxxxxx-quickstart-and-dashboard?orgId=355401&refresh=10s
+     *
      * @var string
      */
     public $grafanaDashBoardUrl;
 
     /**
+     * @description Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +86,8 @@ class GetServiceInstanceResponseBody extends Model
     public $isOperated;
 
     /**
+     * @description The license metadata.
+     *
      * @example {"renewType":"MONTHLY"}
      *
      * @var string
@@ -64,6 +95,8 @@ class GetServiceInstanceResponseBody extends Model
     public $licenseMetadata;
 
     /**
+     * @description The name of the service instance.
+     *
      * @example TestName
      *
      * @var string
@@ -71,11 +104,16 @@ class GetServiceInstanceResponseBody extends Model
     public $name;
 
     /**
+     * @description The network configurations.
+     *
+     * >  This parameter is discontinued.
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
+     * @description The ID of the service instance that is used to implement hosted O\\&M.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -83,6 +121,8 @@ class GetServiceInstanceResponseBody extends Model
     public $operatedServiceInstanceId;
 
     /**
+     * @description The end of the time range during which hosted O\\&M is implemented.
+     *
      * @example 2022-01-28T06:48:56Z
      *
      * @var string
@@ -90,6 +130,8 @@ class GetServiceInstanceResponseBody extends Model
     public $operationEndTime;
 
     /**
+     * @description The beginning of the time range during which hosted O\\&M is implemented.
+     *
      * @example 2021-12-29T06:48:56Z
      *
      * @var string
@@ -97,6 +139,11 @@ class GetServiceInstanceResponseBody extends Model
     public $operationStartTime;
 
     /**
+     * @description The outputs returned from creating the service instance.
+     *
+     *   If the service is deployed by using a ROS template, all output fields of the template are returned.
+     *   If the service is deployed by calling an SPI operation, the output fields of the service provider and for the Compute Nest additional features are returned.
+     *
      * @example {
      * "InstanceIds": [
      * "i-hp38ofxl0dsyfi7z****"
@@ -106,6 +153,8 @@ class GetServiceInstanceResponseBody extends Model
     public $outputs;
 
     /**
+     * @description The parameters that are specified to deploy the service instance.
+     *
      * @example {
      * }
      * @var string
@@ -113,6 +162,13 @@ class GetServiceInstanceResponseBody extends Model
     public $parameters;
 
     /**
+     * @description The billing method of the service. Valid values:
+     *
+     *   Permanent: Once you purchase the service, you can use it permanently.
+     *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
+     *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
+     *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
+     *
      * @example Subscription
      *
      * @var string
@@ -120,11 +176,17 @@ class GetServiceInstanceResponseBody extends Model
     public $payType;
 
     /**
+     * @description The package name.
+     *
+     * @example Package 1
+     *
      * @var string
      */
     public $predefinedParameterName;
 
     /**
+     * @description The deployment progress of the service instance. Unit: percentage.
+     *
      * @example 90
      *
      * @var int
@@ -132,11 +194,17 @@ class GetServiceInstanceResponseBody extends Model
     public $progress;
 
     /**
+     * @description The logon URL for the accounts in the resource directory corresponding to the service instance.
+     *
+     * @example https://signin.aliyun.com/switchRole.htm?parentAlias=1307782318217247.onaliyun.com&roleName=ResourceDirectoryAccountAccessRole
+     *
      * @var string
      */
     public $rdAccountLoginUrl;
 
     /**
+     * @description The request ID.
+     *
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
      *
      * @var string
@@ -144,11 +212,17 @@ class GetServiceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzkt5buxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The list of resources.
+     *
      * @example [
      * ]
      * @var string
@@ -156,11 +230,15 @@ class GetServiceInstanceResponseBody extends Model
     public $resources;
 
     /**
+     * @description The information about the service to which the service instance belongs.
+     *
      * @var service
      */
     public $service;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -168,6 +246,13 @@ class GetServiceInstanceResponseBody extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   private: The service is a private service and is deployed within the account of a customer.
+     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+     *   operation: The service is a hosted O\\&M service.
+     *   poc: The service is a trial service.
+     *
      * @example private
      *
      * @var string
@@ -175,6 +260,12 @@ class GetServiceInstanceResponseBody extends Model
     public $serviceType;
 
     /**
+     * @description The source of the service instance. Valid values:
+     *
+     *   User: Compute Nest customer
+     *   Market: Alibaba Cloud Marketplace
+     *   Supplier: Compute Nest service provider
+     *
      * @example User
      *
      * @var string
@@ -182,6 +273,17 @@ class GetServiceInstanceResponseBody extends Model
     public $source;
 
     /**
+     * @description The deployment state of the service instance. Valid values:
+     *
+     *   Created
+     *   Deploying
+     *   DeployedFailed
+     *   Deployed
+     *   Upgrading
+     *   Deleting
+     *   Deleted
+     *   DeletedFailed
+     *
      * @example Deployed
      *
      * @var string
@@ -189,6 +291,8 @@ class GetServiceInstanceResponseBody extends Model
     public $status;
 
     /**
+     * @description The description of the deployment state of the service instance.
+     *
      * @example deploy successfully
      *
      * @var string
@@ -196,6 +300,8 @@ class GetServiceInstanceResponseBody extends Model
     public $statusDetail;
 
     /**
+     * @description The Alibaba Cloud account ID of the service provider.
+     *
      * @example 1964460391538545
      *
      * @var int
@@ -203,16 +309,24 @@ class GetServiceInstanceResponseBody extends Model
     public $supplierUid;
 
     /**
+     * @description The custom tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The template name.
+     *
+     * @example 模板1
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The time when the service instance was updated.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -220,6 +334,8 @@ class GetServiceInstanceResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description The Alibaba Cloud account ID of the user.
+     *
      * @example 1234567
      *
      * @var int

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class marketplaceMetadata extends Model
 {
     /**
+     * @description The configurations of the billable items.
+     *
      * @var meteringEntityExtraInfos[]
      */
     public $meteringEntityExtraInfos;
 
     /**
+     * @description The billable items that are associated with the package.
+     *
      * @var meteringEntityMappings[]
      */
     public $meteringEntityMappings;
 
     /**
+     * @description The mappings between the service specifications and the template or package.
+     *
      * @var specificationMappings[]
      */
     public $specificationMappings;

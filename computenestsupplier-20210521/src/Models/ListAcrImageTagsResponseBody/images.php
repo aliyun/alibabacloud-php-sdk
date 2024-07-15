@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The time when the image was created.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class images extends Model
     public $createTime;
 
     /**
+     * @description The image size. Unit: bytes.
+     *
      * @example 188394616
      *
      * @var string
@@ -23,6 +27,8 @@ class images extends Model
     public $imageSize;
 
     /**
+     * @description The time when the image was modified.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class images extends Model
     public $modifiedTime;
 
     /**
+     * @description The image version.
+     *
      * @example 5.7.2
      *
      * @var string

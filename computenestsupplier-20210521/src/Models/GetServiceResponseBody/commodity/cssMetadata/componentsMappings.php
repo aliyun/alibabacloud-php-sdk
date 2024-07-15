@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class componentsMappings extends Model
 {
     /**
+     * @description The mappings.
+     *
      * @var string[]
      */
     public $mappings;
 
     /**
+     * @description The template name.
+     *
+     * @example Template 1
+     *
      * @var string
      */
     public $templateName;

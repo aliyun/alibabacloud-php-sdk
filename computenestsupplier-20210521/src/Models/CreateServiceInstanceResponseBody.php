@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateServiceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -23,6 +27,17 @@ class CreateServiceInstanceResponseBody extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The status of the service instance. Valid values:
+     *
+     *   Created
+     *   Deploying
+     *   DeployedFailed
+     *   Deployed
+     *   Upgrading
+     *   Deleting
+     *   Deleted
+     *   DeletedFailed
+     *
      * @example Created
      *
      * @var string

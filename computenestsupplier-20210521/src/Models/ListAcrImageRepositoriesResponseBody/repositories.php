@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class repositories extends Model
 {
     /**
+     * @description The time when the image was created.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class repositories extends Model
     public $createTime;
 
     /**
+     * @description The time when the image was modified.
+     *
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class repositories extends Model
     public $modifiedTime;
 
     /**
+     * @description The image repo ID.
+     *
      * @example crr-3gqhkza0wbxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class repositories extends Model
     public $repoId;
 
     /**
+     * @description The image repo name.
+     *
      * @example wordpress
      *
      * @var string

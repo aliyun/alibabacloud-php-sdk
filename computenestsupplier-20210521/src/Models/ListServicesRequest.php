@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
+     * @description Specifies whether to return all versions of a service. Default value: false, which specifies that only the default version of a service is returned.
+     *
      * @example false
      *
      * @var bool
@@ -18,11 +20,15 @@ class ListServicesRequest extends Model
     public $allVersions;
 
     /**
+     * @description The filters.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListServicesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -37,8 +45,9 @@ class ListServicesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,11 +55,17 @@ class ListServicesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekzkt5buxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The custom tags.
+     *
      * @var tag[]
      */
     public $tag;

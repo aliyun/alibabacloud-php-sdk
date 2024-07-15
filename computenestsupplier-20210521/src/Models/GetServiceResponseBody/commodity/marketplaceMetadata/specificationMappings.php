@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class specificationMappings extends Model
 {
     /**
+     * @description The specification code of the service in Alibaba Cloud Marketplace.
+     *
+     * @example cmjj00xxxx
+     *
      * @var string
      */
     public $specificationCode;
 
     /**
+     * @description The name of the specification package.
+     *
+     * @example Pay-as-you-go
+     *
      * @var string
      */
     public $specificationName;
 
     /**
+     * @description The template name.
+     *
+     * @example Template 1
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The trial policy. Valid values:
+     *
+     *   Trial: Trials are supported.
+     *   NotTrial: Trials are not supported.
+     *
+     * @example NotTrial
+     *
      * @var string
      */
     public $trialType;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityMappings extends Model
 {
     /**
+     * @description The ID of the billable item.
+     *
+     * @example cmgjxxxxxxxx-NetworkOut-2
+     *
      * @var string
      */
     public $entityIds;
 
     /**
+     * @description The name of the specification package.
+     *
+     * @example Pay-as-you-go Package
+     *
      * @var string
      */
     public $specificationName;
 
     /**
+     * @description The template name.
+     *
+     * @example Template 1
+     *
      * @var string
      */
     public $templateName;

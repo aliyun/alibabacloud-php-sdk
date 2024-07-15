@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class specifications extends Model
 {
     /**
+     * @description The commodity code.
+     *
+     * @example cmjj00xxxx
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The specification name.
+     *
+     * @example specifications1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The subscription duration. Unit: week or year.
+     *
      * @var string[]
      */
     public $times;

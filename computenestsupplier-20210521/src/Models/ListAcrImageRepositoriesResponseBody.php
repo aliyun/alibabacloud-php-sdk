@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAcrImageRepositoriesResponseBody extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class ListAcrImageRepositoriesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token.
+     *
      * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -24,11 +28,15 @@ class ListAcrImageRepositoriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The images.
+     *
      * @var repositories[]
      */
     public $repositories;
 
     /**
+     * @description The request ID.
+     *
      * @example C4A145D8-6F6C-532A-9001-9730CDA27578
      *
      * @var string
@@ -36,6 +44,8 @@ class ListAcrImageRepositoriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 4
      *
      * @var int

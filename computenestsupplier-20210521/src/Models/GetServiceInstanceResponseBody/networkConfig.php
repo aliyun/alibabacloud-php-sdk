@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class networkConfig extends Model
 {
     /**
+     * @description The ID of the endpoint for the private connection.
+     *
+     * >  This parameter is discontinued.
      * @example ep-m5ei37240541816b****
      *
      * @var string
@@ -18,6 +21,9 @@ class networkConfig extends Model
     public $endpointId;
 
     /**
+     * @description The ID of the endpoint service for the private connection.
+     *
+     * >  This parameter is discontinued.
      * @example epsrv-5ei07324541816bxxxx
      *
      * @var string
@@ -25,11 +31,15 @@ class networkConfig extends Model
     public $endpointServiceId;
 
     /**
+     * @description The information about private connections.
+     *
      * @var privateVpcConnections[]
      */
     public $privateVpcConnections;
 
     /**
+     * @description The information about the reverse private connection.
+     *
      * @var reversePrivateVpcConnections[]
      */
     public $reversePrivateVpcConnections;

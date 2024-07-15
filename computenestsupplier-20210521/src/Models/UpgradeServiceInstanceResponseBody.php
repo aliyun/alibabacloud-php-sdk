@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F224E002-AB0E-5FD9-A87E-54AEE56F6CAE
      *
      * @var string
@@ -16,6 +18,8 @@ class UpgradeServiceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-5cbae874da0e47xxxxxx
      *
      * @var string
@@ -23,6 +27,17 @@ class UpgradeServiceInstanceResponseBody extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The deployment state of the service instance. Valid values:
+     *
+     *   Created
+     *   Deploying
+     *   DeployedFailed
+     *   Deployed
+     *   Upgrading
+     *   Deleting
+     *   Deleted
+     *   DeletedFailed
+     *
      * @example Created
      *
      * @var string
@@ -30,6 +45,8 @@ class UpgradeServiceInstanceResponseBody extends Model
     public $status;
 
     /**
+     * @description The parameters required for the upgrade.
+     *
      * @var string[]
      */
     public $upgradeRequiredParameters;

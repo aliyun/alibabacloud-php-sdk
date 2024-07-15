@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactRepositoryCredentialsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the deployment package. Valid values:
      *
+     *   File: Object Storage Service (OSS) object.
+     *   AcrImage: container image.
+     *
+     * This parameter is required.
      * @example File
      *
      * @var string
@@ -18,6 +22,8 @@ class GetArtifactRepositoryCredentialsRequest extends Model
     public $artifactType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

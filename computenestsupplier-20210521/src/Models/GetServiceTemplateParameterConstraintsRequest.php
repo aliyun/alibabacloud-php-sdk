@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceTemplateParameterConstraintsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -17,8 +19,9 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region in which the service instance is deployed.
      *
+     * This parameter is required.
      * @example cn-huhehaote
      *
      * @var string
@@ -26,6 +29,11 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $deployRegionId;
 
     /**
+     * @description Specifies whether to enable the private connection feature. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -33,13 +41,16 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $enablePrivateVpcConnection;
 
     /**
+     * @description The parameters in the template.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,8 +58,9 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-1c11f365190c44xxxxxx
      *
      * @var string
@@ -56,6 +68,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $serviceId;
 
     /**
+     * @description The ID of the service instance.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
@@ -63,6 +77,8 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The service version.
+     *
      * @example draft
      *
      * @var string
@@ -70,7 +86,10 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
     public $serviceVersion;
 
     /**
-     * @description This parameter is required.
+     * @description The template name.
+     *
+     * This parameter is required.
+     * @example 模板1
      *
      * @var string
      */

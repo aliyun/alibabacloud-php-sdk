@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteArtifactRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the artifact.
      *
+     * This parameter is required.
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class DeleteArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @description The version of the artifact.
+     *
      * @example 2
      *
      * @var string

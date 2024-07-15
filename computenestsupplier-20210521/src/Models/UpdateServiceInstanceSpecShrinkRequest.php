@@ -32,6 +32,8 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
     /**
      * @description The name of the configuration update operation.
      *
+     * @example package modify
+     *
      * @var string
      */
     public $operationName;
@@ -47,6 +49,8 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
 
     /**
      * @description The name of the specification package.
+     *
+     * @example package one
      *
      * @var string
      */

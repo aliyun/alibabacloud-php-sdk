@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class artifactProperty extends Model
 {
     /**
+     * @description The commodity code of the service in Alibaba Cloud Marketplace.
+     *
+     * >  This parameter is available only if the deployment package is an image.
      * @example cmjj00xxxx
      *
      * @var string
@@ -16,6 +19,9 @@ class artifactProperty extends Model
     public $commodityCode;
 
     /**
+     * @description The commodity version of the service in Alibaba Cloud Marketplace.
+     *
+     * >  This parameter is available only if the deployment package is an image.
      * @example V1.0
      *
      * @var string
@@ -23,6 +29,8 @@ class artifactProperty extends Model
     public $commodityVersion;
 
     /**
+     * @description The script metadata.
+     *
      * @example {\\"WorkDir\\":\\"/root\\",\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"echo hello\\"}
      *
      * @var string
@@ -30,6 +38,9 @@ class artifactProperty extends Model
     public $fileScriptMetadata;
 
     /**
+     * @description The image ID.
+     *
+     * >  This parameter is available only if the deployment package is an image.
      * @example m-0xij191j9cuev6xxxxxx
      *
      * @var string
@@ -37,6 +48,9 @@ class artifactProperty extends Model
     public $imageId;
 
     /**
+     * @description The region ID.
+     *
+     * >  This parameter is available only if the deployment package is an image.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,16 +58,29 @@ class artifactProperty extends Model
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example crr-d8o1nponyc2t1gcg
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example wordpress
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The script content.
+     *
+     * >  This parameter is available only if the deployment package is a script.
      * @example {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
      *
      * @var string
@@ -61,11 +88,18 @@ class artifactProperty extends Model
     public $scriptMetadata;
 
     /**
+     * @description The version tag of the image repository.
+     *
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example v1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The object URL of the deployment package.
+     *
      * @example https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
      *
      * @var string

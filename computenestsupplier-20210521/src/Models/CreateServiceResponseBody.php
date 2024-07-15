@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The status of the service.
+     *
      * @example Created
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateServiceResponseBody extends Model
     public $status;
 
     /**
+     * @description The service version.
+     *
      * @example draft
      *
      * @var string

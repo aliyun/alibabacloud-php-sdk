@@ -47,6 +47,8 @@ class ReleaseArtifactResponseBody extends Model
     /**
      * @description The description of the artifact.
      *
+     * @example Description
+     *
      * @var string
      */
     public $description;
@@ -87,6 +89,8 @@ class ReleaseArtifactResponseBody extends Model
 
     /**
      * @description The version name of the artifact.
+     *
+     * @example V1.0
      *
      * @var string
      */

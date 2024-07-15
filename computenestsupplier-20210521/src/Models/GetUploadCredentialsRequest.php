@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetUploadCredentialsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The file name to upload.
+     *
+     * This parameter is required.
+     * @example template.yaml
      *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description Specifies whether the file is publicly accessible. Valid values: **public** or **private**. The default value is **private**.
+     *
+     * @example public
+     *
      * @var string
      */
     public $visibility;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateArtifactResponseBody extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateArtifactResponseBody extends Model
     public $artifactId;
 
     /**
+     * @description The properties of the deployment object.
+     *
      * @example {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateArtifactResponseBody extends Model
     public $artifactProperty;
 
     /**
+     * @description The type of the deployment package.
+     *
      * @example EcsImage
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateArtifactResponseBody extends Model
     public $artifactType;
 
     /**
+     * @description The version of the deployment package.
+     *
      * @example 2
      *
      * @var string
@@ -37,11 +45,17 @@ class CreateArtifactResponseBody extends Model
     public $artifactVersion;
 
     /**
+     * @description The description of the deployment package.
+     *
+     * @example Test artifact
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the deployment package was modified.
+     *
      * @example 2022-11-11T12:00:00Z
      *
      * @var string
@@ -49,6 +63,8 @@ class CreateArtifactResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description The latest version of the deployment package.
+     *
      * @example 1
      *
      * @var int
@@ -56,11 +72,17 @@ class CreateArtifactResponseBody extends Model
     public $maxVersion;
 
     /**
+     * @description The name of the deployment package.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example B1A0198B-F316-1B72-B8DD-28B6F6D6XXXX
      *
      * @var string
@@ -68,6 +90,8 @@ class CreateArtifactResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the deployment package. Valid values:
+     *
      * @example Created
      *
      * @var string
@@ -75,6 +99,8 @@ class CreateArtifactResponseBody extends Model
     public $status;
 
     /**
+     * @description The ID of the region that supports the deployment package.
+     *
      * @example [
      * ]
      * @var string
@@ -82,6 +108,8 @@ class CreateArtifactResponseBody extends Model
     public $supportRegionIds;
 
     /**
+     * @description The name of the deployment package.
+     *
      * @example v1
      *
      * @var string
