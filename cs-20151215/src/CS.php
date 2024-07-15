@@ -19,6 +19,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckControlPlaneLogEnableResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CleanClusterUserPermissionsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CleanClusterUserPermissionsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterDiagnosisRequest;
@@ -148,11 +153,15 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonRequest;
@@ -796,6 +805,120 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->checkServiceRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 清理某个用户在某个集群的证书以及权限
+     *  *
+     * @param string                             $ClusterId
+     * @param string                             $Uid
+     * @param CleanClusterUserPermissionsRequest $request   CleanClusterUserPermissionsRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CleanClusterUserPermissionsResponse CleanClusterUserPermissionsResponse
+     */
+    public function cleanClusterUserPermissionsWithOptions($ClusterId, $Uid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CleanClusterUserPermissions',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/cluster/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user/' . OpenApiUtilClient::getEncodeParam($Uid) . '/permissions',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CleanClusterUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 清理某个用户在某个集群的证书以及权限
+     *  *
+     * @param string                             $ClusterId
+     * @param string                             $Uid
+     * @param CleanClusterUserPermissionsRequest $request   CleanClusterUserPermissionsRequest
+     *
+     * @return CleanClusterUserPermissionsResponse CleanClusterUserPermissionsResponse
+     */
+    public function cleanClusterUserPermissions($ClusterId, $Uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cleanClusterUserPermissionsWithOptions($ClusterId, $Uid, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 清除某个用户的证书以及相关RBAC权限
+     *  *
+     * @param string                      $Uid
+     * @param CleanUserPermissionsRequest $tmpReq  CleanUserPermissionsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CleanUserPermissionsResponse CleanUserPermissionsResponse
+     */
+    public function cleanUserPermissionsWithOptions($Uid, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CleanUserPermissionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clusterIds)) {
+            $request->clusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterIdsShrink)) {
+            $query['ClusterIds'] = $request->clusterIdsShrink;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CleanUserPermissions',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/permissions',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CleanUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 清除某个用户的证书以及相关RBAC权限
+     *  *
+     * @param string                      $Uid
+     * @param CleanUserPermissionsRequest $request CleanUserPermissionsRequest
+     *
+     * @return CleanUserPermissionsResponse CleanUserPermissionsResponse
+     */
+    public function cleanUserPermissions($Uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cleanUserPermissionsWithOptions($Uid, $request, $headers, $runtime);
     }
 
     /**
@@ -5324,6 +5447,61 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+     *  *
+     * @param string                             $ClusterId
+     * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListClusterKubeconfigStatesResponse ListClusterKubeconfigStatesResponse
+     */
+    public function listClusterKubeconfigStatesWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterKubeconfigStates',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/kubeconfig/states',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClusterKubeconfigStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+     *  *
+     * @param string                             $ClusterId
+     * @param ListClusterKubeconfigStatesRequest $request   ListClusterKubeconfigStatesRequest
+     *
+     * @return ListClusterKubeconfigStatesResponse ListClusterKubeconfigStatesResponse
+     */
+    public function listClusterKubeconfigStates($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listClusterKubeconfigStatesWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取自动运维执行计划列表
      *  *
      * @param ListOperationPlansRequest $request ListOperationPlansRequest
@@ -5444,6 +5622,61 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询单用户所有集群的证书状态
+     *  *
+     * @param string                          $Uid
+     * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserKubeConfigStatesResponse ListUserKubeConfigStatesResponse
+     */
+    public function listUserKubeConfigStatesWithOptions($Uid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserKubeConfigStates',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/kubeconfig/states',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserKubeConfigStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询单用户所有集群的证书状态
+     *  *
+     * @param string                          $Uid
+     * @param ListUserKubeConfigStatesRequest $request ListUserKubeConfigStatesRequest
+     *
+     * @return ListUserKubeConfigStatesResponse ListUserKubeConfigStatesResponse
+     */
+    public function listUserKubeConfigStates($Uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserKubeConfigStatesWithOptions($Uid, $request, $headers, $runtime);
     }
 
     /**
