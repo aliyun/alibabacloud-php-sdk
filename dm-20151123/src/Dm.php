@@ -1416,6 +1416,9 @@ class Dm extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -1445,6 +1448,9 @@ class Dm extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagName)) {
+            $query['TagName'] = $request->tagName;
         }
         if (!Utils::isUnset($request->total)) {
             $query['Total'] = $request->total;

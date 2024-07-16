@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTrackListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountName;
+
+    /**
      * @description This parameter is required.
      *
      * @example 2019-09-29
@@ -73,8 +78,14 @@ class GetTrackListRequest extends Model
     /**
      * @var string
      */
+    public $tagName;
+
+    /**
+     * @var string
+     */
     public $total;
     protected $_name = [
+        'accountName'          => 'AccountName',
         'endTime'              => 'EndTime',
         'offset'               => 'Offset',
         'offsetCreateTime'     => 'OffsetCreateTime',
@@ -85,6 +96,7 @@ class GetTrackListRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
+        'tagName'              => 'TagName',
         'total'                => 'Total',
     ];
 
@@ -95,6 +107,9 @@ class GetTrackListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -125,6 +140,9 @@ class GetTrackListRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -140,6 +158,9 @@ class GetTrackListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -169,6 +190,9 @@ class GetTrackListRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
