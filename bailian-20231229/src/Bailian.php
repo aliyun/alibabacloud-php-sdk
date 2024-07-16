@@ -13,9 +13,20 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveShrinkRequest;
@@ -290,6 +301,118 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 删除Index
+     *  *
+     * @param string             $WorkspaceId
+     * @param DeleteIndexRequest $request     DeleteIndexRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIndexResponse DeleteIndexResponse
+     */
+    public function deleteIndexWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIndex',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Index
+     *  *
+     * @param string             $WorkspaceId
+     * @param DeleteIndexRequest $request     DeleteIndexRequest
+     *
+     * @return DeleteIndexResponse DeleteIndexResponse
+     */
+    public function deleteIndex($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除index doc
+     *  *
+     * @param string                     $WorkspaceId
+     * @param DeleteIndexDocumentRequest $tmpReq      DeleteIndexDocumentRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIndexDocumentResponse DeleteIndexDocumentResponse
+     */
+    public function deleteIndexDocumentWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteIndexDocumentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documentIds)) {
+            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->documentIdsShrink)) {
+            $query['DocumentIds'] = $request->documentIdsShrink;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIndexDocument',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete_index_document',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除index doc
+     *  *
+     * @param string                     $WorkspaceId
+     * @param DeleteIndexDocumentRequest $request     DeleteIndexDocumentRequest
+     *
+     * @return DeleteIndexDocumentResponse DeleteIndexDocumentResponse
+     */
+    public function deleteIndexDocument($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIndexDocumentWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取文档基本信息，包括文档名称、类型、状态等。
      *  *
      * @param string         $WorkspaceId
@@ -388,6 +511,192 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Chunk
+     *  *
+     * @param string            $WorkspaceId
+     * @param ListChunksRequest $request     ListChunksRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListChunksResponse ListChunksResponse
+     */
+    public function listChunksWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fields)) {
+            $body['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->filed)) {
+            $body['Filed'] = $request->filed;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $body['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChunks',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_chunks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Chunk
+     *  *
+     * @param string            $WorkspaceId
+     * @param ListChunksRequest $request     ListChunksRequest
+     *
+     * @return ListChunksResponse ListChunksResponse
+     */
+    public function listChunks($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChunksWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询Index文件
+     *  *
+     * @param string                    $WorkspaceId
+     * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListIndexDocumentsResponse ListIndexDocumentsResponse
+     */
+    public function listIndexDocumentsWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->documentName)) {
+            $query['DocumentName'] = $request->documentName;
+        }
+        if (!Utils::isUnset($request->documentStatus)) {
+            $query['DocumentStatus'] = $request->documentStatus;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIndexDocuments',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_index_documents',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Index文件
+     *  *
+     * @param string                    $WorkspaceId
+     * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
+     *
+     * @return ListIndexDocumentsResponse ListIndexDocumentsResponse
+     */
+    public function listIndexDocuments($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIndexDocumentsWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询pipeline
+     *  *
+     * @param string             $WorkspaceId
+     * @param ListIndicesRequest $request     ListIndicesRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListIndicesResponse ListIndicesResponse
+     */
+    public function listIndicesWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->indexName)) {
+            $query['IndexName'] = $request->indexName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIndices',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_indices',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询pipeline
+     *  *
+     * @param string             $WorkspaceId
+     * @param ListIndicesRequest $request     ListIndicesRequest
+     *
+     * @return ListIndicesResponse ListIndicesResponse
+     */
+    public function listIndices($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIndicesWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
