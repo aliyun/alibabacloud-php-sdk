@@ -14,6 +14,8 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
@@ -34,6 +36,8 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startTime;

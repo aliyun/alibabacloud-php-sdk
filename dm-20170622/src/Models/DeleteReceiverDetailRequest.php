@@ -19,6 +19,8 @@ class DeleteReceiverDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $receiverId;

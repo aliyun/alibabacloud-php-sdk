@@ -44,11 +44,15 @@ class ModifyTemplateRequest extends Model
     public $smsType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;

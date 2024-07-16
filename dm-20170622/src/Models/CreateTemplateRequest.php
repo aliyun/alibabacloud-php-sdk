@@ -44,6 +44,8 @@ class CreateTemplateRequest extends Model
     public $smsType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;

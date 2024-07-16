@@ -31,6 +31,8 @@ class CreateTagRequest extends Model
     public $tagDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

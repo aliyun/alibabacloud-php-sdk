@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMailAddressRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountName;
@@ -34,6 +36,8 @@ class CreateMailAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sendtype;

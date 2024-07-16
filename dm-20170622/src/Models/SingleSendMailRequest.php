@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SingleSendMailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $addressType;
@@ -49,6 +53,8 @@ class SingleSendMailRequest extends Model
     public $replyAddressAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $replyToAddress;
@@ -64,6 +70,8 @@ class SingleSendMailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subject;
@@ -79,6 +87,8 @@ class SingleSendMailRequest extends Model
     public $textBody;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $toAddress;

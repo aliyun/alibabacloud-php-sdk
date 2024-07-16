@@ -29,6 +29,8 @@ class DeleteTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $templateId;

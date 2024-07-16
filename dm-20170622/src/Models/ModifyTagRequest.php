@@ -31,6 +31,8 @@ class ModifyTagRequest extends Model
     public $tagDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -38,6 +40,8 @@ class ModifyTagRequest extends Model
     public $tagId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

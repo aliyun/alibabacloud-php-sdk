@@ -19,11 +19,15 @@ class CreateReceiverRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $receiversAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $receiversName;
