@@ -23,6 +23,8 @@ class GrantNetLinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11111111111
      *
      * @var int
@@ -30,6 +32,8 @@ class GrantNetLinkRequest extends Model
     public $grantAliUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cciot-xxxx
      *
      * @var string
@@ -37,6 +41,8 @@ class GrantNetLinkRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

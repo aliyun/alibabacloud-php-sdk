@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBatchOperateCardsTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example boct-xxxx
      *
      * @var string
@@ -49,8 +51,6 @@ class UpdateBatchOperateCardsTaskRequest extends Model
     public $iccids;
 
     /**
-     * @example cciot-cn-hangzhou/127859184306****\/***.csv
-     *
      * @var string
      */
     public $iccidsOssFilePath;

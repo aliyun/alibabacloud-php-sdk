@@ -30,6 +30,8 @@ class CreateBatchOperateCardsTaskRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CurrentMonth
      *
      * @var string
@@ -56,6 +58,8 @@ class CreateBatchOperateCardsTaskRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BreakNetwork
      *
      * @var string
@@ -70,6 +74,8 @@ class CreateBatchOperateCardsTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

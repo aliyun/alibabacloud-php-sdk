@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAuthorizationRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ar5g-xxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class DeleteAuthorizationRuleRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

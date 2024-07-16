@@ -23,6 +23,8 @@ class DetachVpcFromNetLinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cciot-xxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class DetachVpcFromNetLinkRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

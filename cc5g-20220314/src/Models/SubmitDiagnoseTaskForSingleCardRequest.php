@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDiagnoseTaskForSingleCardRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1662307201200
      *
      * @var int
@@ -23,6 +25,8 @@ class SubmitDiagnoseTaskForSingleCardRequest extends Model
     public $destination;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1662307201200
      *
      * @var int
@@ -30,6 +34,8 @@ class SubmitDiagnoseTaskForSingleCardRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +50,8 @@ class SubmitDiagnoseTaskForSingleCardRequest extends Model
     public $resourceUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 89860477102170127555
      *
      * @var string
@@ -51,6 +59,8 @@ class SubmitDiagnoseTaskForSingleCardRequest extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

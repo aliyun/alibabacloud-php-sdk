@@ -87,6 +87,8 @@ class ListGroupAuthorizationRulesRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5gg-****
      *
      * @var string

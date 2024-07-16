@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netLinks extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example zjalyjs01s.5gjs.njiot
      *
      * @var string
@@ -16,6 +18,8 @@ class netLinks extends Model
     public $APN;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +27,15 @@ class netLinks extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $vSwitchs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-xxx
      *
      * @var string

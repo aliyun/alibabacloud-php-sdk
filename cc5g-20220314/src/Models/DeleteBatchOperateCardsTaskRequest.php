@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBatchOperateCardsTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example boct-xxx
      *
      * @var string

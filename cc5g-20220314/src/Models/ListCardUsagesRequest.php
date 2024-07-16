@@ -14,6 +14,8 @@ class ListCardUsagesRequest extends Model
     public $iccids;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

@@ -44,6 +44,8 @@ class AddDNSAuthorizationRuleRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0.0.0.0
      *
      * @var string
@@ -51,6 +53,8 @@ class AddDNSAuthorizationRuleRequest extends Model
     public $sourceDNSIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

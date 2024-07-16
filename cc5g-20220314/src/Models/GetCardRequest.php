@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCardRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11111111111
      *
      * @var string

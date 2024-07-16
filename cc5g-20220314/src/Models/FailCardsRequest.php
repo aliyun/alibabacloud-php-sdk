@@ -23,6 +23,8 @@ class FailCardsRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FailCards
      *
      * @var string[]

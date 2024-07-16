@@ -23,6 +23,8 @@ class SwitchWirelessCloudConnectorToBusinessRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

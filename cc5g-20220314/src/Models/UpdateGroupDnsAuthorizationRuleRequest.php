@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupDnsAuthorizationRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ar5gg-xxxx
      *
      * @var string
@@ -58,6 +60,8 @@ class UpdateGroupDnsAuthorizationRuleRequest extends Model
     public $sourceDNSIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5gg-****
      *
      * @var string

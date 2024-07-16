@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIoTCloudConnectorBackhaulRouteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cciot-xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class ListIoTCloudConnectorBackhaulRouteRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class ListIoTCloudConnectorBackhaulRouteRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

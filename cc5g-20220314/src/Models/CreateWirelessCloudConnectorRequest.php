@@ -38,6 +38,8 @@ class CreateWirelessCloudConnectorRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example unicom
      *
      * @var string
@@ -52,11 +54,15 @@ class CreateWirelessCloudConnectorRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var netLinks[]
      */
     public $netLinks;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

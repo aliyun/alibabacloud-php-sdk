@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCardLockReasonRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example *********11111
      *
      * @var string

@@ -23,6 +23,8 @@ class CreateGroupAuthorizationRuleRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 106.14.175.4
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateGroupAuthorizationRuleRequest extends Model
     public $destinationPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Cidr
      *
      * @var string
@@ -58,6 +62,8 @@ class CreateGroupAuthorizationRuleRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Permit
      *
      * @var string
@@ -79,6 +85,8 @@ class CreateGroupAuthorizationRuleRequest extends Model
     public $sourceCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5gg-****
      *
      * @var string

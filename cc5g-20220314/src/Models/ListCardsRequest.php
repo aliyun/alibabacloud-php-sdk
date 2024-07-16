@@ -82,6 +82,8 @@ class ListCardsRequest extends Model
     public $statuses;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

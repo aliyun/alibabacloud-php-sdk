@@ -23,6 +23,8 @@ class AttachVpcToNetLinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cciot-xxxx
      *
      * @var string
@@ -30,6 +32,8 @@ class AttachVpcToNetLinkRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,11 +41,15 @@ class AttachVpcToNetLinkRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-bp1etmgc4vooo5ahbkzou
      *
      * @var string
@@ -49,6 +57,8 @@ class AttachVpcToNetLinkRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

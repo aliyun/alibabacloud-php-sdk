@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDNSAuthorizationRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ar5g-xxxx
      *
      * @var string
@@ -58,6 +60,8 @@ class UpdateDNSAuthorizationRuleRequest extends Model
     public $sourceDNSIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

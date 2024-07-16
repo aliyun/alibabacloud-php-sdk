@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCardDayUsagesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $iccids;
@@ -21,6 +23,8 @@ class ListCardDayUsagesRequest extends Model
     public $latestMonthNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

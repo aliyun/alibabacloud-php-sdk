@@ -16,6 +16,8 @@ class GetWirelessCloudConnectorRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

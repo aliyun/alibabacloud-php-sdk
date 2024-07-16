@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardLockReasonRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardLockReasonResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInfomationRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInfomationResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInformationRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInformationResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetDiagnoseResultForSingleCardRequest;
@@ -54,6 +56,10 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GrantNetLinkRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GrantNetLinkResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\InnerLimitRateCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\InnerLimitRateCardsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\InnerStopCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\InnerStopCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAPNsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAPNsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesRequest;
@@ -166,10 +172,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddDNSAuthorizationRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 添加5G高速上云服务实例的DNS授权规则
+     *  *
+     * @param AddDNSAuthorizationRuleRequest $request AddDNSAuthorizationRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDNSAuthorizationRuleResponse
+     * @return AddDNSAuthorizationRuleResponse AddDNSAuthorizationRuleResponse
      */
     public function addDNSAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -215,9 +223,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddDNSAuthorizationRuleRequest $request
+     * @summary 添加5G高速上云服务实例的DNS授权规则
+     *  *
+     * @param AddDNSAuthorizationRuleRequest $request AddDNSAuthorizationRuleRequest
      *
-     * @return AddDNSAuthorizationRuleResponse
+     * @return AddDNSAuthorizationRuleResponse AddDNSAuthorizationRuleResponse
      */
     public function addDNSAuthorizationRule($request)
     {
@@ -227,10 +237,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddGroupDnsAuthorizationRuleRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 添加5G高速上云服务实例组的DNS授权规则
+     *  *
+     * @param AddGroupDnsAuthorizationRuleRequest $request AddGroupDnsAuthorizationRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGroupDnsAuthorizationRuleResponse
+     * @return AddGroupDnsAuthorizationRuleResponse AddGroupDnsAuthorizationRuleResponse
      */
     public function addGroupDnsAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -276,9 +288,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddGroupDnsAuthorizationRuleRequest $request
+     * @summary 添加5G高速上云服务实例组的DNS授权规则
+     *  *
+     * @param AddGroupDnsAuthorizationRuleRequest $request AddGroupDnsAuthorizationRuleRequest
      *
-     * @return AddGroupDnsAuthorizationRuleResponse
+     * @return AddGroupDnsAuthorizationRuleResponse AddGroupDnsAuthorizationRuleResponse
      */
     public function addGroupDnsAuthorizationRule($request)
     {
@@ -288,10 +302,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddWirelessCloudConnectorToGroupRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 添加5G高速上云服务实例到组
+     *  *
+     * @param AddWirelessCloudConnectorToGroupRequest $request AddWirelessCloudConnectorToGroupRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddWirelessCloudConnectorToGroupResponse
+     * @return AddWirelessCloudConnectorToGroupResponse AddWirelessCloudConnectorToGroupResponse
      */
     public function addWirelessCloudConnectorToGroupWithOptions($request, $runtime)
     {
@@ -331,9 +347,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AddWirelessCloudConnectorToGroupRequest $request
+     * @summary 添加5G高速上云服务实例到组
+     *  *
+     * @param AddWirelessCloudConnectorToGroupRequest $request AddWirelessCloudConnectorToGroupRequest
      *
-     * @return AddWirelessCloudConnectorToGroupResponse
+     * @return AddWirelessCloudConnectorToGroupResponse AddWirelessCloudConnectorToGroupResponse
      */
     public function addWirelessCloudConnectorToGroup($request)
     {
@@ -343,10 +361,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AttachVpcToNetLinkRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 创建5G高速上云服务实例下的网络连接
+     *  *
+     * @param AttachVpcToNetLinkRequest $request AttachVpcToNetLinkRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachVpcToNetLinkResponse
+     * @return AttachVpcToNetLinkResponse AttachVpcToNetLinkResponse
      */
     public function attachVpcToNetLinkWithOptions($request, $runtime)
     {
@@ -392,9 +412,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param AttachVpcToNetLinkRequest $request
+     * @summary 创建5G高速上云服务实例下的网络连接
+     *  *
+     * @param AttachVpcToNetLinkRequest $request AttachVpcToNetLinkRequest
      *
-     * @return AttachVpcToNetLinkResponse
+     * @return AttachVpcToNetLinkResponse AttachVpcToNetLinkResponse
      */
     public function attachVpcToNetLink($request)
     {
@@ -404,10 +426,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthorizationRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 创建5G高速上云服务实例的授权规则
+     *  *
+     * @param CreateAuthorizationRuleRequest $request CreateAuthorizationRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAuthorizationRuleResponse
+     * @return CreateAuthorizationRuleResponse CreateAuthorizationRuleResponse
      */
     public function createAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -465,9 +489,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthorizationRuleRequest $request
+     * @summary 创建5G高速上云服务实例的授权规则
+     *  *
+     * @param CreateAuthorizationRuleRequest $request CreateAuthorizationRuleRequest
      *
-     * @return CreateAuthorizationRuleResponse
+     * @return CreateAuthorizationRuleResponse CreateAuthorizationRuleResponse
      */
     public function createAuthorizationRule($request)
     {
@@ -477,10 +503,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchOperateCardsTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建批量操作卡任务
+     *  *
+     * @param CreateBatchOperateCardsTaskRequest $request CreateBatchOperateCardsTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBatchOperateCardsTaskResponse
+     * @return CreateBatchOperateCardsTaskResponse CreateBatchOperateCardsTaskResponse
      */
     public function createBatchOperateCardsTaskWithOptions($request, $runtime)
     {
@@ -538,9 +566,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchOperateCardsTaskRequest $request
+     * @summary 创建批量操作卡任务
+     *  *
+     * @param CreateBatchOperateCardsTaskRequest $request CreateBatchOperateCardsTaskRequest
      *
-     * @return CreateBatchOperateCardsTaskResponse
+     * @return CreateBatchOperateCardsTaskResponse CreateBatchOperateCardsTaskResponse
      */
     public function createBatchOperateCardsTask($request)
     {
@@ -550,10 +580,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupAuthorizationRuleRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 创建5G高速上云服务实例组的授权规则
+     *  *
+     * @param CreateGroupAuthorizationRuleRequest $request CreateGroupAuthorizationRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupAuthorizationRuleResponse
+     * @return CreateGroupAuthorizationRuleResponse CreateGroupAuthorizationRuleResponse
      */
     public function createGroupAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -611,9 +643,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupAuthorizationRuleRequest $request
+     * @summary 创建5G高速上云服务实例组的授权规则
+     *  *
+     * @param CreateGroupAuthorizationRuleRequest $request CreateGroupAuthorizationRuleRequest
      *
-     * @return CreateGroupAuthorizationRuleResponse
+     * @return CreateGroupAuthorizationRuleResponse CreateGroupAuthorizationRuleResponse
      */
     public function createGroupAuthorizationRule($request)
     {
@@ -623,10 +657,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 下发iotcc实例的回程路由
+     *  *
+     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request CreateIoTCloudConnectorBackhaulRouteRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIoTCloudConnectorBackhaulRouteResponse
+     * @return CreateIoTCloudConnectorBackhaulRouteResponse CreateIoTCloudConnectorBackhaulRouteResponse
      */
     public function createIoTCloudConnectorBackhaulRouteWithOptions($request, $runtime)
     {
@@ -663,9 +699,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request
+     * @summary 下发iotcc实例的回程路由
+     *  *
+     * @param CreateIoTCloudConnectorBackhaulRouteRequest $request CreateIoTCloudConnectorBackhaulRouteRequest
      *
-     * @return CreateIoTCloudConnectorBackhaulRouteResponse
+     * @return CreateIoTCloudConnectorBackhaulRouteResponse CreateIoTCloudConnectorBackhaulRouteResponse
      */
     public function createIoTCloudConnectorBackhaulRoute($request)
     {
@@ -675,10 +713,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateWirelessCloudConnectorRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 创建5G高速上云服务实例
+     *  *
+     * @param CreateWirelessCloudConnectorRequest $request CreateWirelessCloudConnectorRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWirelessCloudConnectorResponse
+     * @return CreateWirelessCloudConnectorResponse CreateWirelessCloudConnectorResponse
      */
     public function createWirelessCloudConnectorWithOptions($request, $runtime)
     {
@@ -730,9 +770,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateWirelessCloudConnectorRequest $request
+     * @summary 创建5G高速上云服务实例
+     *  *
+     * @param CreateWirelessCloudConnectorRequest $request CreateWirelessCloudConnectorRequest
      *
-     * @return CreateWirelessCloudConnectorResponse
+     * @return CreateWirelessCloudConnectorResponse CreateWirelessCloudConnectorResponse
      */
     public function createWirelessCloudConnector($request)
     {
@@ -742,10 +784,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateWirelessCloudConnectorGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 创建5G高速上云服务实例组
+     *  *
+     * @param CreateWirelessCloudConnectorGroupRequest $request CreateWirelessCloudConnectorGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWirelessCloudConnectorGroupResponse
+     * @return CreateWirelessCloudConnectorGroupResponse CreateWirelessCloudConnectorGroupResponse
      */
     public function createWirelessCloudConnectorGroupWithOptions($request, $runtime)
     {
@@ -785,9 +829,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param CreateWirelessCloudConnectorGroupRequest $request
+     * @summary 创建5G高速上云服务实例组
+     *  *
+     * @param CreateWirelessCloudConnectorGroupRequest $request CreateWirelessCloudConnectorGroupRequest
      *
-     * @return CreateWirelessCloudConnectorGroupResponse
+     * @return CreateWirelessCloudConnectorGroupResponse CreateWirelessCloudConnectorGroupResponse
      */
     public function createWirelessCloudConnectorGroup($request)
     {
@@ -797,10 +843,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteAuthorizationRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除5G高速上云服务实例的授权规则
+     *  *
+     * @param DeleteAuthorizationRuleRequest $request DeleteAuthorizationRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAuthorizationRuleResponse
+     * @return DeleteAuthorizationRuleResponse DeleteAuthorizationRuleResponse
      */
     public function deleteAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -837,9 +885,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteAuthorizationRuleRequest $request
+     * @summary 删除5G高速上云服务实例的授权规则
+     *  *
+     * @param DeleteAuthorizationRuleRequest $request DeleteAuthorizationRuleRequest
      *
-     * @return DeleteAuthorizationRuleResponse
+     * @return DeleteAuthorizationRuleResponse DeleteAuthorizationRuleResponse
      */
     public function deleteAuthorizationRule($request)
     {
@@ -849,10 +899,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteBatchOperateCardsTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 删除批量操作卡任务
+     *  *
+     * @param DeleteBatchOperateCardsTaskRequest $request DeleteBatchOperateCardsTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBatchOperateCardsTaskResponse
+     * @return DeleteBatchOperateCardsTaskResponse DeleteBatchOperateCardsTaskResponse
      */
     public function deleteBatchOperateCardsTaskWithOptions($request, $runtime)
     {
@@ -889,9 +941,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteBatchOperateCardsTaskRequest $request
+     * @summary 删除批量操作卡任务
+     *  *
+     * @param DeleteBatchOperateCardsTaskRequest $request DeleteBatchOperateCardsTaskRequest
      *
-     * @return DeleteBatchOperateCardsTaskResponse
+     * @return DeleteBatchOperateCardsTaskResponse DeleteBatchOperateCardsTaskResponse
      */
     public function deleteBatchOperateCardsTask($request)
     {
@@ -901,10 +955,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupAuthorizationRuleRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 删除5G高速上云服务实例组的授权规则
+     *  *
+     * @param DeleteGroupAuthorizationRuleRequest $request DeleteGroupAuthorizationRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupAuthorizationRuleResponse
+     * @return DeleteGroupAuthorizationRuleResponse DeleteGroupAuthorizationRuleResponse
      */
     public function deleteGroupAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -941,9 +997,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupAuthorizationRuleRequest $request
+     * @summary 删除5G高速上云服务实例组的授权规则
+     *  *
+     * @param DeleteGroupAuthorizationRuleRequest $request DeleteGroupAuthorizationRuleRequest
      *
-     * @return DeleteGroupAuthorizationRuleResponse
+     * @return DeleteGroupAuthorizationRuleResponse DeleteGroupAuthorizationRuleResponse
      */
     public function deleteGroupAuthorizationRule($request)
     {
@@ -953,10 +1011,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteIoTCloudConnectorBackhaulRouteRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 删除iotcc实例的回程路由
+     *  *
+     * @param DeleteIoTCloudConnectorBackhaulRouteRequest $request DeleteIoTCloudConnectorBackhaulRouteRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIoTCloudConnectorBackhaulRouteResponse
+     * @return DeleteIoTCloudConnectorBackhaulRouteResponse DeleteIoTCloudConnectorBackhaulRouteResponse
      */
     public function deleteIoTCloudConnectorBackhaulRouteWithOptions($request, $runtime)
     {
@@ -993,9 +1053,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteIoTCloudConnectorBackhaulRouteRequest $request
+     * @summary 删除iotcc实例的回程路由
+     *  *
+     * @param DeleteIoTCloudConnectorBackhaulRouteRequest $request DeleteIoTCloudConnectorBackhaulRouteRequest
      *
-     * @return DeleteIoTCloudConnectorBackhaulRouteResponse
+     * @return DeleteIoTCloudConnectorBackhaulRouteResponse DeleteIoTCloudConnectorBackhaulRouteResponse
      */
     public function deleteIoTCloudConnectorBackhaulRoute($request)
     {
@@ -1005,10 +1067,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteWirelessCloudConnectorRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 删除5G高速上云服务实例
+     *  *
+     * @param DeleteWirelessCloudConnectorRequest $request DeleteWirelessCloudConnectorRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWirelessCloudConnectorResponse
+     * @return DeleteWirelessCloudConnectorResponse DeleteWirelessCloudConnectorResponse
      */
     public function deleteWirelessCloudConnectorWithOptions($request, $runtime)
     {
@@ -1042,9 +1106,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteWirelessCloudConnectorRequest $request
+     * @summary 删除5G高速上云服务实例
+     *  *
+     * @param DeleteWirelessCloudConnectorRequest $request DeleteWirelessCloudConnectorRequest
      *
-     * @return DeleteWirelessCloudConnectorResponse
+     * @return DeleteWirelessCloudConnectorResponse DeleteWirelessCloudConnectorResponse
      */
     public function deleteWirelessCloudConnector($request)
     {
@@ -1054,10 +1120,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteWirelessCloudConnectorGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 删除5G高速上云服务实例分组
+     *  *
+     * @param DeleteWirelessCloudConnectorGroupRequest $request DeleteWirelessCloudConnectorGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWirelessCloudConnectorGroupResponse
+     * @return DeleteWirelessCloudConnectorGroupResponse DeleteWirelessCloudConnectorGroupResponse
      */
     public function deleteWirelessCloudConnectorGroupWithOptions($request, $runtime)
     {
@@ -1091,9 +1159,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DeleteWirelessCloudConnectorGroupRequest $request
+     * @summary 删除5G高速上云服务实例分组
+     *  *
+     * @param DeleteWirelessCloudConnectorGroupRequest $request DeleteWirelessCloudConnectorGroupRequest
      *
-     * @return DeleteWirelessCloudConnectorGroupResponse
+     * @return DeleteWirelessCloudConnectorGroupResponse DeleteWirelessCloudConnectorGroupResponse
      */
     public function deleteWirelessCloudConnectorGroup($request)
     {
@@ -1103,10 +1173,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DetachVpcFromNetLinkRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 解除5G高速上云服务实例下的网络连接和VPC的绑定
+     *  *
+     * @param DetachVpcFromNetLinkRequest $request DetachVpcFromNetLinkRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachVpcFromNetLinkResponse
+     * @return DetachVpcFromNetLinkResponse DetachVpcFromNetLinkResponse
      */
     public function detachVpcFromNetLinkWithOptions($request, $runtime)
     {
@@ -1143,9 +1215,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param DetachVpcFromNetLinkRequest $request
+     * @summary 解除5G高速上云服务实例下的网络连接和VPC的绑定
+     *  *
+     * @param DetachVpcFromNetLinkRequest $request DetachVpcFromNetLinkRequest
      *
-     * @return DetachVpcFromNetLinkResponse
+     * @return DetachVpcFromNetLinkResponse DetachVpcFromNetLinkResponse
      */
     public function detachVpcFromNetLink($request)
     {
@@ -1155,10 +1229,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param FailCardsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 卡注销接口
+     *  *
+     * @param FailCardsRequest $request FailCardsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return FailCardsResponse
+     * @return FailCardsResponse FailCardsResponse
      */
     public function failCardsWithOptions($request, $runtime)
     {
@@ -1195,9 +1271,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param FailCardsRequest $request
+     * @summary 卡注销接口
+     *  *
+     * @param FailCardsRequest $request FailCardsRequest
      *
-     * @return FailCardsResponse
+     * @return FailCardsResponse FailCardsResponse
      */
     public function failCards($request)
     {
@@ -1207,10 +1285,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCardRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary 查询5G高速上云服务实例的详细连接信息
+     *  *
+     * @param GetCardRequest $request GetCardRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCardResponse
+     * @return GetCardResponse GetCardResponse
      */
     public function getCardWithOptions($request, $runtime)
     {
@@ -1235,9 +1315,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCardRequest $request
+     * @summary 查询5G高速上云服务实例的详细连接信息
+     *  *
+     * @param GetCardRequest $request GetCardRequest
      *
-     * @return GetCardResponse
+     * @return GetCardResponse GetCardResponse
      */
     public function getCard($request)
     {
@@ -1247,10 +1329,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCardLockReasonRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询卡锁定停机的原因
+     *  *
+     * @param GetCardLockReasonRequest $request GetCardLockReasonRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCardLockReasonResponse
+     * @return GetCardLockReasonResponse GetCardLockReasonResponse
      */
     public function getCardLockReasonWithOptions($request, $runtime)
     {
@@ -1275,9 +1359,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCardLockReasonRequest $request
+     * @summary 查询卡锁定停机的原因
+     *  *
+     * @param GetCardLockReasonRequest $request GetCardLockReasonRequest
      *
-     * @return GetCardLockReasonResponse
+     * @return GetCardLockReasonResponse GetCardLockReasonResponse
      */
     public function getCardLockReason($request)
     {
@@ -1287,10 +1373,52 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCreateCustomerInformationRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetCreateCustomerInfomationRequest $request GetCreateCustomerInfomationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCreateCustomerInformationResponse
+     * @return GetCreateCustomerInfomationResponse GetCreateCustomerInfomationResponse
+     */
+    public function getCreateCustomerInfomationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreateCustomerInfomation',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCreateCustomerInfomationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCreateCustomerInfomationRequest $request GetCreateCustomerInfomationRequest
+     *
+     * @return GetCreateCustomerInfomationResponse GetCreateCustomerInfomationResponse
+     */
+    public function getCreateCustomerInfomation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreateCustomerInfomationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取录入客户资料的相关信息
+     *  *
+     * @param GetCreateCustomerInformationRequest $request GetCreateCustomerInformationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCreateCustomerInformationResponse GetCreateCustomerInformationResponse
      */
     public function getCreateCustomerInformationWithOptions($request, $runtime)
     {
@@ -1315,9 +1443,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetCreateCustomerInformationRequest $request
+     * @summary 获取录入客户资料的相关信息
+     *  *
+     * @param GetCreateCustomerInformationRequest $request GetCreateCustomerInformationRequest
      *
-     * @return GetCreateCustomerInformationResponse
+     * @return GetCreateCustomerInformationResponse GetCreateCustomerInformationResponse
      */
     public function getCreateCustomerInformation($request)
     {
@@ -1327,10 +1457,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnoseResultForSingleCardRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 查询单卡诊断结果
+     *  *
+     * @param GetDiagnoseResultForSingleCardRequest $request GetDiagnoseResultForSingleCardRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDiagnoseResultForSingleCardResponse
+     * @return GetDiagnoseResultForSingleCardResponse GetDiagnoseResultForSingleCardResponse
      */
     public function getDiagnoseResultForSingleCardWithOptions($request, $runtime)
     {
@@ -1361,9 +1493,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnoseResultForSingleCardRequest $request
+     * @summary 查询单卡诊断结果
+     *  *
+     * @param GetDiagnoseResultForSingleCardRequest $request GetDiagnoseResultForSingleCardRequest
      *
-     * @return GetDiagnoseResultForSingleCardResponse
+     * @return GetDiagnoseResultForSingleCardResponse GetDiagnoseResultForSingleCardResponse
      */
     public function getDiagnoseResultForSingleCard($request)
     {
@@ -1373,10 +1507,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetWirelessCloudConnectorRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询5G高速上云服务实例详情
+     *  *
+     * @param GetWirelessCloudConnectorRequest $request GetWirelessCloudConnectorRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWirelessCloudConnectorResponse
+     * @return GetWirelessCloudConnectorResponse GetWirelessCloudConnectorResponse
      */
     public function getWirelessCloudConnectorWithOptions($request, $runtime)
     {
@@ -1401,9 +1537,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GetWirelessCloudConnectorRequest $request
+     * @summary 查询5G高速上云服务实例详情
+     *  *
+     * @param GetWirelessCloudConnectorRequest $request GetWirelessCloudConnectorRequest
      *
-     * @return GetWirelessCloudConnectorResponse
+     * @return GetWirelessCloudConnectorResponse GetWirelessCloudConnectorResponse
      */
     public function getWirelessCloudConnector($request)
     {
@@ -1413,10 +1551,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GrantNetLinkRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 分享授权网络连接
+     *  *
+     * @param GrantNetLinkRequest $request GrantNetLinkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantNetLinkResponse
+     * @return GrantNetLinkResponse GrantNetLinkResponse
      */
     public function grantNetLinkWithOptions($request, $runtime)
     {
@@ -1456,9 +1596,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param GrantNetLinkRequest $request
+     * @summary 分享授权网络连接
+     *  *
+     * @param GrantNetLinkRequest $request GrantNetLinkRequest
      *
-     * @return GrantNetLinkResponse
+     * @return GrantNetLinkResponse GrantNetLinkResponse
      */
     public function grantNetLink($request)
     {
@@ -1468,10 +1610,128 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListAPNsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param InnerLimitRateCardsRequest $request InnerLimitRateCardsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAPNsResponse
+     * @return InnerLimitRateCardsResponse InnerLimitRateCardsResponse
+     */
+    public function innerLimitRateCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->iccids)) {
+            $query['Iccids'] = $request->iccids;
+        }
+        if (!Utils::isUnset($request->innerApi)) {
+            $query['InnerApi'] = $request->innerApi;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $query['Task'] = $request->task;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InnerLimitRateCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InnerLimitRateCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InnerLimitRateCardsRequest $request InnerLimitRateCardsRequest
+     *
+     * @return InnerLimitRateCardsResponse InnerLimitRateCardsResponse
+     */
+    public function innerLimitRateCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->innerLimitRateCardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InnerStopCardsRequest $request InnerStopCardsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InnerStopCardsResponse InnerStopCardsResponse
+     */
+    public function innerStopCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->iccids)) {
+            $query['Iccids'] = $request->iccids;
+        }
+        if (!Utils::isUnset($request->innerApi)) {
+            $query['InnerApi'] = $request->innerApi;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $query['Task'] = $request->task;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InnerStopCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InnerStopCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InnerStopCardsRequest $request InnerStopCardsRequest
+     *
+     * @return InnerStopCardsResponse InnerStopCardsResponse
+     */
+    public function innerStopCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->innerStopCardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询5G高速上云服务支持的APN列表
+     *  *
+     * @param ListAPNsRequest $request ListAPNsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAPNsResponse ListAPNsResponse
      */
     public function listAPNsWithOptions($request, $runtime)
     {
@@ -1496,9 +1756,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListAPNsRequest $request
+     * @summary 查询5G高速上云服务支持的APN列表
+     *  *
+     * @param ListAPNsRequest $request ListAPNsRequest
      *
-     * @return ListAPNsResponse
+     * @return ListAPNsResponse ListAPNsResponse
      */
     public function listAPNs($request)
     {
@@ -1508,10 +1770,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListAuthorizationRulesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询5G高速上云服务实例的授权规则列表
+     *  *
+     * @param ListAuthorizationRulesRequest $request ListAuthorizationRulesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthorizationRulesResponse
+     * @return ListAuthorizationRulesResponse ListAuthorizationRulesResponse
      */
     public function listAuthorizationRulesWithOptions($request, $runtime)
     {
@@ -1536,9 +1800,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListAuthorizationRulesRequest $request
+     * @summary 查询5G高速上云服务实例的授权规则列表
+     *  *
+     * @param ListAuthorizationRulesRequest $request ListAuthorizationRulesRequest
      *
-     * @return ListAuthorizationRulesResponse
+     * @return ListAuthorizationRulesResponse ListAuthorizationRulesResponse
      */
     public function listAuthorizationRules($request)
     {
@@ -1548,10 +1814,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListBatchOperateCardsTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询批量操作卡任务列表
+     *  *
+     * @param ListBatchOperateCardsTasksRequest $request ListBatchOperateCardsTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBatchOperateCardsTasksResponse
+     * @return ListBatchOperateCardsTasksResponse ListBatchOperateCardsTasksResponse
      */
     public function listBatchOperateCardsTasksWithOptions($request, $runtime)
     {
@@ -1576,9 +1844,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListBatchOperateCardsTasksRequest $request
+     * @summary 查询批量操作卡任务列表
+     *  *
+     * @param ListBatchOperateCardsTasksRequest $request ListBatchOperateCardsTasksRequest
      *
-     * @return ListBatchOperateCardsTasksResponse
+     * @return ListBatchOperateCardsTasksResponse ListBatchOperateCardsTasksResponse
      */
     public function listBatchOperateCardsTasks($request)
     {
@@ -1588,10 +1858,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardAreaLimitSupportAreaRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 查询5G高速上云服务物联网卡区域解锁支持区域
+     *  *
+     * @param ListCardAreaLimitSupportAreaRequest $request ListCardAreaLimitSupportAreaRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCardAreaLimitSupportAreaResponse
+     * @return ListCardAreaLimitSupportAreaResponse ListCardAreaLimitSupportAreaResponse
      */
     public function listCardAreaLimitSupportAreaWithOptions($request, $runtime)
     {
@@ -1616,9 +1888,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardAreaLimitSupportAreaRequest $request
+     * @summary 查询5G高速上云服务物联网卡区域解锁支持区域
+     *  *
+     * @param ListCardAreaLimitSupportAreaRequest $request ListCardAreaLimitSupportAreaRequest
      *
-     * @return ListCardAreaLimitSupportAreaResponse
+     * @return ListCardAreaLimitSupportAreaResponse ListCardAreaLimitSupportAreaResponse
      */
     public function listCardAreaLimitSupportArea($request)
     {
@@ -1628,10 +1902,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardDayUsagesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询5G高速上云服务实例的卡单日流量信息列表
+     *  *
+     * @param ListCardDayUsagesRequest $request ListCardDayUsagesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCardDayUsagesResponse
+     * @return ListCardDayUsagesResponse ListCardDayUsagesResponse
      */
     public function listCardDayUsagesWithOptions($request, $runtime)
     {
@@ -1656,9 +1932,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardDayUsagesRequest $request
+     * @summary 查询5G高速上云服务实例的卡单日流量信息列表
+     *  *
+     * @param ListCardDayUsagesRequest $request ListCardDayUsagesRequest
      *
-     * @return ListCardDayUsagesResponse
+     * @return ListCardDayUsagesResponse ListCardDayUsagesResponse
      */
     public function listCardDayUsages($request)
     {
@@ -1668,10 +1946,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardUsagesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询5G高速上云服务实例的流量信息列表
+     *  *
+     * @param ListCardUsagesRequest $request ListCardUsagesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCardUsagesResponse
+     * @return ListCardUsagesResponse ListCardUsagesResponse
      */
     public function listCardUsagesWithOptions($request, $runtime)
     {
@@ -1696,9 +1976,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardUsagesRequest $request
+     * @summary 查询5G高速上云服务实例的流量信息列表
+     *  *
+     * @param ListCardUsagesRequest $request ListCardUsagesRequest
      *
-     * @return ListCardUsagesResponse
+     * @return ListCardUsagesResponse ListCardUsagesResponse
      */
     public function listCardUsages($request)
     {
@@ -1708,10 +1990,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询5G高速上云服务实例的连接列表
+     *  *
+     * @param ListCardsRequest $request ListCardsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCardsResponse
+     * @return ListCardsResponse ListCardsResponse
      */
     public function listCardsWithOptions($request, $runtime)
     {
@@ -1736,9 +2020,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListCardsRequest $request
+     * @summary 查询5G高速上云服务实例的连接列表
+     *  *
+     * @param ListCardsRequest $request ListCardsRequest
      *
-     * @return ListCardsResponse
+     * @return ListCardsResponse ListCardsResponse
      */
     public function listCards($request)
     {
@@ -1748,10 +2034,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListDataPackagesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询5G高速上云服务实例下的带宽包列表
+     *  *
+     * @param ListDataPackagesRequest $request ListDataPackagesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataPackagesResponse
+     * @return ListDataPackagesResponse ListDataPackagesResponse
      */
     public function listDataPackagesWithOptions($request, $runtime)
     {
@@ -1776,9 +2064,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListDataPackagesRequest $request
+     * @summary 查询5G高速上云服务实例下的带宽包列表
+     *  *
+     * @param ListDataPackagesRequest $request ListDataPackagesRequest
      *
-     * @return ListDataPackagesResponse
+     * @return ListDataPackagesResponse ListDataPackagesResponse
      */
     public function listDataPackages($request)
     {
@@ -1788,10 +2078,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnoseInfoForSingleCardRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询单卡诊断信息列表
+     *  *
+     * @param ListDiagnoseInfoForSingleCardRequest $request ListDiagnoseInfoForSingleCardRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDiagnoseInfoForSingleCardResponse
+     * @return ListDiagnoseInfoForSingleCardResponse ListDiagnoseInfoForSingleCardResponse
      */
     public function listDiagnoseInfoForSingleCardWithOptions($request, $runtime)
     {
@@ -1837,9 +2129,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListDiagnoseInfoForSingleCardRequest $request
+     * @summary 查询单卡诊断信息列表
+     *  *
+     * @param ListDiagnoseInfoForSingleCardRequest $request ListDiagnoseInfoForSingleCardRequest
      *
-     * @return ListDiagnoseInfoForSingleCardResponse
+     * @return ListDiagnoseInfoForSingleCardResponse ListDiagnoseInfoForSingleCardResponse
      */
     public function listDiagnoseInfoForSingleCard($request)
     {
@@ -1849,10 +2143,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListGroupAuthorizationRulesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询5G高速上云服务实例组的授权规则列表
+     *  *
+     * @param ListGroupAuthorizationRulesRequest $request ListGroupAuthorizationRulesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupAuthorizationRulesResponse
+     * @return ListGroupAuthorizationRulesResponse ListGroupAuthorizationRulesResponse
      */
     public function listGroupAuthorizationRulesWithOptions($request, $runtime)
     {
@@ -1877,9 +2173,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListGroupAuthorizationRulesRequest $request
+     * @summary 查询5G高速上云服务实例组的授权规则列表
+     *  *
+     * @param ListGroupAuthorizationRulesRequest $request ListGroupAuthorizationRulesRequest
      *
-     * @return ListGroupAuthorizationRulesResponse
+     * @return ListGroupAuthorizationRulesResponse ListGroupAuthorizationRulesResponse
      */
     public function listGroupAuthorizationRules($request)
     {
@@ -1889,10 +2187,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListIoTCloudConnectorBackhaulRouteRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 查询iotcc实例回程路由
+     *  *
+     * @param ListIoTCloudConnectorBackhaulRouteRequest $request ListIoTCloudConnectorBackhaulRouteRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIoTCloudConnectorBackhaulRouteResponse
+     * @return ListIoTCloudConnectorBackhaulRouteResponse ListIoTCloudConnectorBackhaulRouteResponse
      */
     public function listIoTCloudConnectorBackhaulRouteWithOptions($request, $runtime)
     {
@@ -1917,9 +2217,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListIoTCloudConnectorBackhaulRouteRequest $request
+     * @summary 查询iotcc实例回程路由
+     *  *
+     * @param ListIoTCloudConnectorBackhaulRouteRequest $request ListIoTCloudConnectorBackhaulRouteRequest
      *
-     * @return ListIoTCloudConnectorBackhaulRouteResponse
+     * @return ListIoTCloudConnectorBackhaulRouteResponse ListIoTCloudConnectorBackhaulRouteResponse
      */
     public function listIoTCloudConnectorBackhaulRoute($request)
     {
@@ -1929,10 +2231,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListOrdersRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 查询5G高速上云服务实例下的订单列表
+     *  *
+     * @param ListOrdersRequest $request ListOrdersRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrdersResponse
+     * @return ListOrdersResponse ListOrdersResponse
      */
     public function listOrdersWithOptions($request, $runtime)
     {
@@ -1957,9 +2261,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListOrdersRequest $request
+     * @summary 查询5G高速上云服务实例下的订单列表
+     *  *
+     * @param ListOrdersRequest $request ListOrdersRequest
      *
-     * @return ListOrdersResponse
+     * @return ListOrdersResponse ListOrdersResponse
      */
     public function listOrders($request)
     {
@@ -1969,10 +2275,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询5G高速上云服务支持的REGION
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
@@ -1997,9 +2305,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
+     * @summary 查询5G高速上云服务支持的REGION
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -2009,10 +2319,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListWirelessCloudConnectorGroupsRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 查询5G高速上云服务实例分组列表
+     *  *
+     * @param ListWirelessCloudConnectorGroupsRequest $request ListWirelessCloudConnectorGroupsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWirelessCloudConnectorGroupsResponse
+     * @return ListWirelessCloudConnectorGroupsResponse ListWirelessCloudConnectorGroupsResponse
      */
     public function listWirelessCloudConnectorGroupsWithOptions($request, $runtime)
     {
@@ -2037,9 +2349,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListWirelessCloudConnectorGroupsRequest $request
+     * @summary 查询5G高速上云服务实例分组列表
+     *  *
+     * @param ListWirelessCloudConnectorGroupsRequest $request ListWirelessCloudConnectorGroupsRequest
      *
-     * @return ListWirelessCloudConnectorGroupsResponse
+     * @return ListWirelessCloudConnectorGroupsResponse ListWirelessCloudConnectorGroupsResponse
      */
     public function listWirelessCloudConnectorGroups($request)
     {
@@ -2049,10 +2363,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListWirelessCloudConnectorsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询5G高速上云服务实例列表
+     *  *
+     * @param ListWirelessCloudConnectorsRequest $request ListWirelessCloudConnectorsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWirelessCloudConnectorsResponse
+     * @return ListWirelessCloudConnectorsResponse ListWirelessCloudConnectorsResponse
      */
     public function listWirelessCloudConnectorsWithOptions($request, $runtime)
     {
@@ -2077,9 +2393,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListWirelessCloudConnectorsRequest $request
+     * @summary 查询5G高速上云服务实例列表
+     *  *
+     * @param ListWirelessCloudConnectorsRequest $request ListWirelessCloudConnectorsRequest
      *
-     * @return ListWirelessCloudConnectorsResponse
+     * @return ListWirelessCloudConnectorsResponse ListWirelessCloudConnectorsResponse
      */
     public function listWirelessCloudConnectors($request)
     {
@@ -2089,10 +2407,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListZonesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询5G高速上云服务支持的可用区
+     *  *
+     * @param ListZonesRequest $request ListZonesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListZonesResponse
+     * @return ListZonesResponse ListZonesResponse
      */
     public function listZonesWithOptions($request, $runtime)
     {
@@ -2117,9 +2437,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ListZonesRequest $request
+     * @summary 查询5G高速上云服务支持的可用区
+     *  *
+     * @param ListZonesRequest $request ListZonesRequest
      *
-     * @return ListZonesResponse
+     * @return ListZonesResponse ListZonesResponse
      */
     public function listZones($request)
     {
@@ -2129,10 +2451,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param LockCardsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 运营商侧卡停机
+     *  *
+     * @param LockCardsRequest $request LockCardsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockCardsResponse
+     * @return LockCardsResponse LockCardsResponse
      */
     public function lockCardsWithOptions($request, $runtime)
     {
@@ -2169,9 +2493,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param LockCardsRequest $request
+     * @summary 运营商侧卡停机
+     *  *
+     * @param LockCardsRequest $request LockCardsRequest
      *
-     * @return LockCardsResponse
+     * @return LockCardsResponse LockCardsResponse
      */
     public function lockCards($request)
     {
@@ -2181,10 +2507,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ModifyWirelessCloudConnectorFeatureRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 修改5G高速上云服务实例属性
+     *  *
+     * @param ModifyWirelessCloudConnectorFeatureRequest $request ModifyWirelessCloudConnectorFeatureRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWirelessCloudConnectorFeatureResponse
+     * @return ModifyWirelessCloudConnectorFeatureResponse ModifyWirelessCloudConnectorFeatureResponse
      */
     public function modifyWirelessCloudConnectorFeatureWithOptions($request, $runtime)
     {
@@ -2224,9 +2552,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ModifyWirelessCloudConnectorFeatureRequest $request
+     * @summary 修改5G高速上云服务实例属性
+     *  *
+     * @param ModifyWirelessCloudConnectorFeatureRequest $request ModifyWirelessCloudConnectorFeatureRequest
      *
-     * @return ModifyWirelessCloudConnectorFeatureResponse
+     * @return ModifyWirelessCloudConnectorFeatureResponse ModifyWirelessCloudConnectorFeatureResponse
      */
     public function modifyWirelessCloudConnectorFeature($request)
     {
@@ -2236,10 +2566,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param OpenCc5gServiceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 开通5G高速上云服务
+     *  *
+     * @param OpenCc5gServiceRequest $request OpenCc5gServiceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenCc5gServiceResponse
+     * @return OpenCc5gServiceResponse OpenCc5gServiceResponse
      */
     public function openCc5gServiceWithOptions($request, $runtime)
     {
@@ -2267,9 +2599,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param OpenCc5gServiceRequest $request
+     * @summary 开通5G高速上云服务
+     *  *
+     * @param OpenCc5gServiceRequest $request OpenCc5gServiceRequest
      *
-     * @return OpenCc5gServiceResponse
+     * @return OpenCc5gServiceResponse OpenCc5gServiceResponse
      */
     public function openCc5gService($request)
     {
@@ -2279,10 +2613,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RebindCardsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 物联网卡换绑解锁操作
+     *  *
+     * @param RebindCardsRequest $request RebindCardsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebindCardsResponse
+     * @return RebindCardsResponse RebindCardsResponse
      */
     public function rebindCardsWithOptions($request, $runtime)
     {
@@ -2319,9 +2655,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RebindCardsRequest $request
+     * @summary 物联网卡换绑解锁操作
+     *  *
+     * @param RebindCardsRequest $request RebindCardsRequest
      *
-     * @return RebindCardsResponse
+     * @return RebindCardsResponse RebindCardsResponse
      */
     public function rebindCards($request)
     {
@@ -2331,10 +2669,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RemoveWirelessCloudConnectorFromGroupRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 从组里移除5G高速上云服务实例
+     *  *
+     * @param RemoveWirelessCloudConnectorFromGroupRequest $request RemoveWirelessCloudConnectorFromGroupRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveWirelessCloudConnectorFromGroupResponse
+     * @return RemoveWirelessCloudConnectorFromGroupResponse RemoveWirelessCloudConnectorFromGroupResponse
      */
     public function removeWirelessCloudConnectorFromGroupWithOptions($request, $runtime)
     {
@@ -2374,9 +2714,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RemoveWirelessCloudConnectorFromGroupRequest $request
+     * @summary 从组里移除5G高速上云服务实例
+     *  *
+     * @param RemoveWirelessCloudConnectorFromGroupRequest $request RemoveWirelessCloudConnectorFromGroupRequest
      *
-     * @return RemoveWirelessCloudConnectorFromGroupResponse
+     * @return RemoveWirelessCloudConnectorFromGroupResponse RemoveWirelessCloudConnectorFromGroupResponse
      */
     public function removeWirelessCloudConnectorFromGroup($request)
     {
@@ -2386,10 +2728,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ResetAreaLimitCardsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 重置单卡区域限制
+     *  *
+     * @param ResetAreaLimitCardsRequest $request ResetAreaLimitCardsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAreaLimitCardsResponse
+     * @return ResetAreaLimitCardsResponse ResetAreaLimitCardsResponse
      */
     public function resetAreaLimitCardsWithOptions($request, $runtime)
     {
@@ -2429,9 +2773,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ResetAreaLimitCardsRequest $request
+     * @summary 重置单卡区域限制
+     *  *
+     * @param ResetAreaLimitCardsRequest $request ResetAreaLimitCardsRequest
      *
-     * @return ResetAreaLimitCardsResponse
+     * @return ResetAreaLimitCardsResponse ResetAreaLimitCardsResponse
      */
     public function resetAreaLimitCards($request)
     {
@@ -2441,10 +2787,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ResumeCardsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 激活单卡运营商侧卡状态恢复
+     *  *
+     * @param ResumeCardsRequest $request ResumeCardsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeCardsResponse
+     * @return ResumeCardsResponse ResumeCardsResponse
      */
     public function resumeCardsWithOptions($request, $runtime)
     {
@@ -2481,9 +2829,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param ResumeCardsRequest $request
+     * @summary 激活单卡运营商侧卡状态恢复
+     *  *
+     * @param ResumeCardsRequest $request ResumeCardsRequest
      *
-     * @return ResumeCardsResponse
+     * @return ResumeCardsResponse ResumeCardsResponse
      */
     public function resumeCards($request)
     {
@@ -2493,10 +2843,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RevokeNetLinkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 撤销分享授权网络连接
+     *  *
+     * @param RevokeNetLinkRequest $request RevokeNetLinkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeNetLinkResponse
+     * @return RevokeNetLinkResponse RevokeNetLinkResponse
      */
     public function revokeNetLinkWithOptions($request, $runtime)
     {
@@ -2533,9 +2885,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param RevokeNetLinkRequest $request
+     * @summary 撤销分享授权网络连接
+     *  *
+     * @param RevokeNetLinkRequest $request RevokeNetLinkRequest
      *
-     * @return RevokeNetLinkResponse
+     * @return RevokeNetLinkResponse RevokeNetLinkResponse
      */
     public function revokeNetLink($request)
     {
@@ -2545,10 +2899,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param StopCardsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 运营商侧卡停机
+     *  *
+     * @param StopCardsRequest $request StopCardsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopCardsResponse
+     * @return StopCardsResponse StopCardsResponse
      */
     public function stopCardsWithOptions($request, $runtime)
     {
@@ -2585,9 +2941,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param StopCardsRequest $request
+     * @summary 运营商侧卡停机
+     *  *
+     * @param StopCardsRequest $request StopCardsRequest
      *
-     * @return StopCardsResponse
+     * @return StopCardsResponse StopCardsResponse
      */
     public function stopCards($request)
     {
@@ -2597,10 +2955,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param SubmitDiagnoseTaskForSingleCardRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 开启cciot单卡一键诊断
+     *  *
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request SubmitDiagnoseTaskForSingleCardRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDiagnoseTaskForSingleCardResponse
+     * @return SubmitDiagnoseTaskForSingleCardResponse SubmitDiagnoseTaskForSingleCardResponse
      */
     public function submitDiagnoseTaskForSingleCardWithOptions($request, $runtime)
     {
@@ -2646,9 +3006,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param SubmitDiagnoseTaskForSingleCardRequest $request
+     * @summary 开启cciot单卡一键诊断
+     *  *
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request SubmitDiagnoseTaskForSingleCardRequest
      *
-     * @return SubmitDiagnoseTaskForSingleCardResponse
+     * @return SubmitDiagnoseTaskForSingleCardResponse SubmitDiagnoseTaskForSingleCardResponse
      */
     public function submitDiagnoseTaskForSingleCard($request)
     {
@@ -2658,10 +3020,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param SwitchWirelessCloudConnectorToBusinessRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 切换cc5g实例商业类型到商业版
+     *  *
+     * @param SwitchWirelessCloudConnectorToBusinessRequest $request SwitchWirelessCloudConnectorToBusinessRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchWirelessCloudConnectorToBusinessResponse
+     * @return SwitchWirelessCloudConnectorToBusinessResponse SwitchWirelessCloudConnectorToBusinessResponse
      */
     public function switchWirelessCloudConnectorToBusinessWithOptions($request, $runtime)
     {
@@ -2695,9 +3059,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param SwitchWirelessCloudConnectorToBusinessRequest $request
+     * @summary 切换cc5g实例商业类型到商业版
+     *  *
+     * @param SwitchWirelessCloudConnectorToBusinessRequest $request SwitchWirelessCloudConnectorToBusinessRequest
      *
-     * @return SwitchWirelessCloudConnectorToBusinessResponse
+     * @return SwitchWirelessCloudConnectorToBusinessResponse SwitchWirelessCloudConnectorToBusinessResponse
      */
     public function switchWirelessCloudConnectorToBusiness($request)
     {
@@ -2707,10 +3073,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UnlockCardsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 批量解锁卡
+     *  *
+     * @param UnlockCardsRequest $request UnlockCardsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockCardsResponse
+     * @return UnlockCardsResponse UnlockCardsResponse
      */
     public function unlockCardsWithOptions($request, $runtime)
     {
@@ -2747,9 +3115,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UnlockCardsRequest $request
+     * @summary 批量解锁卡
+     *  *
+     * @param UnlockCardsRequest $request UnlockCardsRequest
      *
-     * @return UnlockCardsResponse
+     * @return UnlockCardsResponse UnlockCardsResponse
      */
     public function unlockCards($request)
     {
@@ -2759,10 +3129,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthorizationRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新5G高速上云服务实例的授权规则
+     *  *
+     * @param UpdateAuthorizationRuleRequest $request UpdateAuthorizationRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAuthorizationRuleResponse
+     * @return UpdateAuthorizationRuleResponse UpdateAuthorizationRuleResponse
      */
     public function updateAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -2820,9 +3192,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthorizationRuleRequest $request
+     * @summary 更新5G高速上云服务实例的授权规则
+     *  *
+     * @param UpdateAuthorizationRuleRequest $request UpdateAuthorizationRuleRequest
      *
-     * @return UpdateAuthorizationRuleResponse
+     * @return UpdateAuthorizationRuleResponse UpdateAuthorizationRuleResponse
      */
     public function updateAuthorizationRule($request)
     {
@@ -2832,10 +3206,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateBatchOperateCardsTaskRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 修改批量操作卡任务
+     *  *
+     * @param UpdateBatchOperateCardsTaskRequest $request UpdateBatchOperateCardsTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBatchOperateCardsTaskResponse
+     * @return UpdateBatchOperateCardsTaskResponse UpdateBatchOperateCardsTaskResponse
      */
     public function updateBatchOperateCardsTaskWithOptions($request, $runtime)
     {
@@ -2896,9 +3272,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateBatchOperateCardsTaskRequest $request
+     * @summary 修改批量操作卡任务
+     *  *
+     * @param UpdateBatchOperateCardsTaskRequest $request UpdateBatchOperateCardsTaskRequest
      *
-     * @return UpdateBatchOperateCardsTaskResponse
+     * @return UpdateBatchOperateCardsTaskResponse UpdateBatchOperateCardsTaskResponse
      */
     public function updateBatchOperateCardsTask($request)
     {
@@ -2908,10 +3286,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateCardRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 修改5G高速上云服务实例的连接描述和名称信息
+     *  *
+     * @param UpdateCardRequest $request UpdateCardRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCardResponse
+     * @return UpdateCardResponse UpdateCardResponse
      */
     public function updateCardWithOptions($request, $runtime)
     {
@@ -2954,9 +3334,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateCardRequest $request
+     * @summary 修改5G高速上云服务实例的连接描述和名称信息
+     *  *
+     * @param UpdateCardRequest $request UpdateCardRequest
      *
-     * @return UpdateCardResponse
+     * @return UpdateCardResponse UpdateCardResponse
      */
     public function updateCard($request)
     {
@@ -2966,10 +3348,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateDNSAuthorizationRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新5G高速上云服务实例的DNS授权规则
+     *  *
+     * @param UpdateDNSAuthorizationRuleRequest $request UpdateDNSAuthorizationRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDNSAuthorizationRuleResponse
+     * @return UpdateDNSAuthorizationRuleResponse UpdateDNSAuthorizationRuleResponse
      */
     public function updateDNSAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -3018,9 +3402,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateDNSAuthorizationRuleRequest $request
+     * @summary 更新5G高速上云服务实例的DNS授权规则
+     *  *
+     * @param UpdateDNSAuthorizationRuleRequest $request UpdateDNSAuthorizationRuleRequest
      *
-     * @return UpdateDNSAuthorizationRuleResponse
+     * @return UpdateDNSAuthorizationRuleResponse UpdateDNSAuthorizationRuleResponse
      */
     public function updateDNSAuthorizationRule($request)
     {
@@ -3030,10 +3416,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupAuthorizationRuleRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新5G高速上云服务实例组的授权规则
+     *  *
+     * @param UpdateGroupAuthorizationRuleRequest $request UpdateGroupAuthorizationRuleRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupAuthorizationRuleResponse
+     * @return UpdateGroupAuthorizationRuleResponse UpdateGroupAuthorizationRuleResponse
      */
     public function updateGroupAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -3091,9 +3479,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupAuthorizationRuleRequest $request
+     * @summary 更新5G高速上云服务实例组的授权规则
+     *  *
+     * @param UpdateGroupAuthorizationRuleRequest $request UpdateGroupAuthorizationRuleRequest
      *
-     * @return UpdateGroupAuthorizationRuleResponse
+     * @return UpdateGroupAuthorizationRuleResponse UpdateGroupAuthorizationRuleResponse
      */
     public function updateGroupAuthorizationRule($request)
     {
@@ -3103,10 +3493,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupDnsAuthorizationRuleRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 更新5G高速上云服务实例组的DNS授权规则
+     *  *
+     * @param UpdateGroupDnsAuthorizationRuleRequest $request UpdateGroupDnsAuthorizationRuleRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupDnsAuthorizationRuleResponse
+     * @return UpdateGroupDnsAuthorizationRuleResponse UpdateGroupDnsAuthorizationRuleResponse
      */
     public function updateGroupDnsAuthorizationRuleWithOptions($request, $runtime)
     {
@@ -3155,9 +3547,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupDnsAuthorizationRuleRequest $request
+     * @summary 更新5G高速上云服务实例组的DNS授权规则
+     *  *
+     * @param UpdateGroupDnsAuthorizationRuleRequest $request UpdateGroupDnsAuthorizationRuleRequest
      *
-     * @return UpdateGroupDnsAuthorizationRuleResponse
+     * @return UpdateGroupDnsAuthorizationRuleResponse UpdateGroupDnsAuthorizationRuleResponse
      */
     public function updateGroupDnsAuthorizationRule($request)
     {
@@ -3167,10 +3561,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateWirelessCloudConnectorRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 修改5G高速上云服务实例
+     *  *
+     * @param UpdateWirelessCloudConnectorRequest $request UpdateWirelessCloudConnectorRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWirelessCloudConnectorResponse
+     * @return UpdateWirelessCloudConnectorResponse UpdateWirelessCloudConnectorResponse
      */
     public function updateWirelessCloudConnectorWithOptions($request, $runtime)
     {
@@ -3210,9 +3606,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateWirelessCloudConnectorRequest $request
+     * @summary 修改5G高速上云服务实例
+     *  *
+     * @param UpdateWirelessCloudConnectorRequest $request UpdateWirelessCloudConnectorRequest
      *
-     * @return UpdateWirelessCloudConnectorResponse
+     * @return UpdateWirelessCloudConnectorResponse UpdateWirelessCloudConnectorResponse
      */
     public function updateWirelessCloudConnector($request)
     {
@@ -3222,10 +3620,12 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateWirelessCloudConnectorGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 修改5G高速上云服务实例分组
+     *  *
+     * @param UpdateWirelessCloudConnectorGroupRequest $request UpdateWirelessCloudConnectorGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWirelessCloudConnectorGroupResponse
+     * @return UpdateWirelessCloudConnectorGroupResponse UpdateWirelessCloudConnectorGroupResponse
      */
     public function updateWirelessCloudConnectorGroupWithOptions($request, $runtime)
     {
@@ -3265,9 +3665,11 @@ class CC5G extends OpenApiClient
     }
 
     /**
-     * @param UpdateWirelessCloudConnectorGroupRequest $request
+     * @summary 修改5G高速上云服务实例分组
+     *  *
+     * @param UpdateWirelessCloudConnectorGroupRequest $request UpdateWirelessCloudConnectorGroupRequest
      *
-     * @return UpdateWirelessCloudConnectorGroupResponse
+     * @return UpdateWirelessCloudConnectorGroupResponse UpdateWirelessCloudConnectorGroupResponse
      */
     public function updateWirelessCloudConnectorGroup($request)
     {

@@ -37,6 +37,8 @@ class ListAPNsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

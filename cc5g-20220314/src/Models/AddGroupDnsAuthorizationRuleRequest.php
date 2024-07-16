@@ -44,6 +44,8 @@ class AddGroupDnsAuthorizationRuleRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 114.114.114.114
      *
      * @var string
@@ -51,6 +53,8 @@ class AddGroupDnsAuthorizationRuleRequest extends Model
     public $sourceDNSIp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5gg-****
      *
      * @var string

@@ -30,6 +30,8 @@ class CreateIoTCloudConnectorBackhaulRouteRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

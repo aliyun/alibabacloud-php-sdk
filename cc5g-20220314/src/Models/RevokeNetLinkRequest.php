@@ -23,6 +23,8 @@ class RevokeNetLinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example iotcc-ua6xy4vpmi24y114ws
      *
      * @var string
@@ -30,6 +32,8 @@ class RevokeNetLinkRequest extends Model
     public $netLinkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

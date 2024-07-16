@@ -23,11 +23,15 @@ class ResetAreaLimitCardsRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $iccids;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $province;

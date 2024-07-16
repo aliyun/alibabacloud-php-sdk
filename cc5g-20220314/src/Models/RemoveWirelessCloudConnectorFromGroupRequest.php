@@ -23,6 +23,8 @@ class RemoveWirelessCloudConnectorFromGroupRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +32,8 @@ class RemoveWirelessCloudConnectorFromGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5gg-****
      *
      * @var string
@@ -37,6 +41,8 @@ class RemoveWirelessCloudConnectorFromGroupRequest extends Model
     public $wirelessCloudConnectorGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $wirelessCloudConnectorIds;

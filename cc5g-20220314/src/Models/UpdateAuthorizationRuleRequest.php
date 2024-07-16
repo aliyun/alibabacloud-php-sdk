@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAuthorizationRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ar5g-xxxx
      *
      * @var string
@@ -79,6 +81,8 @@ class UpdateAuthorizationRuleRequest extends Model
     public $sourceCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

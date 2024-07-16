@@ -51,6 +51,8 @@ class ListDiagnoseInfoForSingleCardRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string

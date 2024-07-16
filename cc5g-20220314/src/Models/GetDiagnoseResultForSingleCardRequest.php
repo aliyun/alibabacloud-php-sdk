@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDiagnoseResultForSingleCardRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example diagnoseTask-bp2qhwdp2n9x6zkvq****
      *
      * @var string

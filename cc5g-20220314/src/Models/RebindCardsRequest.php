@@ -23,6 +23,8 @@ class RebindCardsRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $iccids;

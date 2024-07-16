@@ -44,6 +44,8 @@ class UpdateCardRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc5g-xxxx
      *
      * @var string
