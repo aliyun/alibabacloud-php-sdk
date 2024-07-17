@@ -21,6 +21,11 @@ class SplitTrafficControlTargetRequest extends Model
     /**
      * @var int[]
      */
+    public $setPoints;
+
+    /**
+     * @var int[]
+     */
     public $setValues;
 
     /**
@@ -30,6 +35,7 @@ class SplitTrafficControlTargetRequest extends Model
     protected $_name = [
         'environment' => 'Environment',
         'instanceId'  => 'InstanceId',
+        'setPoints'   => 'SetPoints',
         'setValues'   => 'SetValues',
         'timePoints'  => 'TimePoints',
     ];
@@ -46,6 +52,9 @@ class SplitTrafficControlTargetRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->setPoints) {
+            $res['SetPoints'] = $this->setPoints;
         }
         if (null !== $this->setValues) {
             $res['SetValues'] = $this->setValues;
@@ -70,6 +79,11 @@ class SplitTrafficControlTargetRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SetPoints'])) {
+            if (!empty($map['SetPoints'])) {
+                $model->setPoints = $map['SetPoints'];
+            }
         }
         if (isset($map['SetValues'])) {
             if (!empty($map['SetValues'])) {

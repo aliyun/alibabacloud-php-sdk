@@ -11,6 +11,11 @@ class splitParts extends Model
     /**
      * @var int[]
      */
+    public $setPoints;
+
+    /**
+     * @var int[]
+     */
     public $setValues;
 
     /**
@@ -18,6 +23,7 @@ class splitParts extends Model
      */
     public $timePoints;
     protected $_name = [
+        'setPoints'  => 'SetPoints',
         'setValues'  => 'SetValues',
         'timePoints' => 'TimePoints',
     ];
@@ -29,6 +35,9 @@ class splitParts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->setPoints) {
+            $res['SetPoints'] = $this->setPoints;
+        }
         if (null !== $this->setValues) {
             $res['SetValues'] = $this->setValues;
         }
@@ -47,6 +56,11 @@ class splitParts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SetPoints'])) {
+            if (!empty($map['SetPoints'])) {
+                $model->setPoints = $map['SetPoints'];
+            }
+        }
         if (isset($map['SetValues'])) {
             if (!empty($map['SetValues'])) {
                 $model->setValues = $map['SetValues'];

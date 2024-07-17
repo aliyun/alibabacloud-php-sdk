@@ -6063,6 +6063,9 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->setPoints)) {
+            $body['SetPoints'] = $request->setPoints;
+        }
         if (!Utils::isUnset($request->setValues)) {
             $body['SetValues'] = $request->setValues;
         }
