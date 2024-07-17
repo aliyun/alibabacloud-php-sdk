@@ -12,21 +12,21 @@ use AlibabaCloud\Tea\Model;
 class dataNodes extends Model
 {
     /**
-     * @description The configuration status list.
+     * @description The configuration status.
      *
      * @var configStatusList[]
      */
     public $configStatusList;
 
     /**
-     * @description The dataStatusList.
+     * @description The data of the Searcher worker.
      *
      * @var dataStatusList[]
      */
     public $dataStatusList;
 
     /**
-     * @description The service status.
+     * @description The service status of the QRS worker.
      *
      * @var serviceStatus
      */

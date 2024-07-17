@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description generationId
+     * @description The ID of the full index version.
      *
      * @example 1708674867
      *

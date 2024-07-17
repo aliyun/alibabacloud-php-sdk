@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description The name of the directory for the index.
+     * @description The full path of the file.
      *
      * @example " "
      *
@@ -18,7 +18,7 @@ class files extends Model
     public $fullPathName;
 
     /**
-     * @description Indicates whether a directory exists.
+     * @description Indicates whether the file is a directory.
      *
      * @example True
      *
@@ -27,7 +27,7 @@ class files extends Model
     public $isDir;
 
     /**
-     * @description Indicates whether it is a template.
+     * @description Indicates whether the file is a template.
      *
      * @example True
      *
@@ -36,7 +36,7 @@ class files extends Model
     public $isTemplate;
 
     /**
-     * @description The name of the file.
+     * @description The file name.
      *
      * @example ha-cn-7mz2iv7sq01_qrs
      *

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description The information about the advanced configuration.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The directory name.
+     *
+     * @example /clusters
+     *
      * @var string
      */
     public $dirName;
 
     /**
+     * @description The file name.
+     *
+     * @example vector_question_schema.json
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+     *
+     * @example UPDATE
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @description The path of the Object Storage Service (OSS) object.
+     *
+     * @example oss://opensearch/test.json
+     *
      * @var string
      */
     public $ossPath;
 
     /**
+     * @description The path of the parent directory.
+     *
+     * @example /
+     *
      * @var string
      */
     public $parentFullPath;

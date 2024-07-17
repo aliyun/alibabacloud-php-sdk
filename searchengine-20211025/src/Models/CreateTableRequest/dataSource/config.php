@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The AccessKey ID of the MaxCompute data source.
+     *
      * @example ak
      *
      * @var string
@@ -16,6 +18,8 @@ class config extends Model
     public $accessKey;
 
     /**
+     * @description The AccessKey secret of the MaxCompute data source.
+     *
      * @example as
      *
      * @var string
@@ -23,7 +27,7 @@ class config extends Model
     public $accessSecret;
 
     /**
-     * @description oss bucket
+     * @description The OSS bucket.
      *
      * @example antsys-flytest-ci
      *
@@ -32,6 +36,8 @@ class config extends Model
     public $bucket;
 
     /**
+     * @description The endpoint of the MaxCompute data source.
+     *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
@@ -39,6 +45,8 @@ class config extends Model
     public $endpoint;
 
     /**
+     * @description The Object Storage Service (OSS) path.
+     *
      * @example oss://opensearch
      *
      * @var string
@@ -46,6 +54,8 @@ class config extends Model
     public $ossPath;
 
     /**
+     * @description The partition in the MaxCompute table. This parameter is required if type is set to odps.
+     *
      * @example ds=20220713
      *
      * @var string
@@ -53,6 +63,8 @@ class config extends Model
     public $partition;
 
     /**
+     * @description The name of the MaxCompute project that is used as the data source.
+     *
      * @example project_20210220122847_3218
      *
      * @var string
@@ -60,6 +72,8 @@ class config extends Model
     public $project;
 
     /**
+     * @description The name of the MaxCompute table that is used as the data source.
+     *
      * @example test56
      *
      * @var string

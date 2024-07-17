@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigDirRequest extends Model
 {
     /**
-     * @description The name of the directory
+     * @description The directory name.
      *
      * @example /clusters
      *
@@ -18,7 +18,7 @@ class CreateConfigDirRequest extends Model
     public $dirName;
 
     /**
-     * @description Parent file path
+     * @description The path of the parent directory.
      *
      * @example /
      *

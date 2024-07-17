@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class advanceParams extends Model
 {
     /**
+     * @description The index building parameters.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class advanceParams extends Model
     public $buildIndexParams;
 
     /**
+     * @description The threshold for linear building.
+     *
      * @example 5000
      *
      * @var string
@@ -23,6 +27,8 @@ class advanceParams extends Model
     public $linearBuildThreshold;
 
     /**
+     * @description The minimum number of retrieved candidate sets.
+     *
      * @example 20000
      *
      * @var string
@@ -30,6 +36,8 @@ class advanceParams extends Model
     public $minScanDocCnt;
 
     /**
+     * @description The index retrieval parameters.
+     *
      * @example {}
      *
      * @var string

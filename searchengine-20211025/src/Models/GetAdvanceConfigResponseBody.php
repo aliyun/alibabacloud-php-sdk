@@ -19,7 +19,7 @@ class GetAdvanceConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description The result.
      *
      * @var result
      */

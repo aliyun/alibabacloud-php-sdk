@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataNode extends Model
 {
     /**
-     * @description The number of data nodes
+     * @description The number of Searcher workers.
      *
      * @example 2
      *
@@ -18,6 +18,10 @@ class dataNode extends Model
     public $number;
 
     /**
+     * @description The number of shards.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $partition;

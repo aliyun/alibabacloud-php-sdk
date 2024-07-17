@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAdvanceConfigRequest extends Model
 {
     /**
+     * @description The content of the advanced configuration that is returned.
+     *
      * @example ""
      *
      * @var string
@@ -17,6 +19,8 @@ class ModifyAdvanceConfigRequest extends Model
     public $content;
 
     /**
+     * @description The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
+     *
      * @example FILE
      *
      * @var string
@@ -24,16 +28,24 @@ class ModifyAdvanceConfigRequest extends Model
     public $contentType;
 
     /**
+     * @description The description of the advanced configuration.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The files.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description The name of the advanced configuration.
+     *
      * @example ha-cn-zvp2qr1sk01_qrs
      *
      * @var string
@@ -41,6 +53,8 @@ class ModifyAdvanceConfigRequest extends Model
     public $name;
 
     /**
+     * @description The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+     *
      * @example used
      *
      * @var string
@@ -48,6 +62,8 @@ class ModifyAdvanceConfigRequest extends Model
     public $status;
 
     /**
+     * @description The time when the advanced configuration was updated.
+     *
      * @example 2024-02-27T07:50:55Z
      *
      * @var int

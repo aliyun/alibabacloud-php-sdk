@@ -18,7 +18,7 @@ class GetNodeConfigRequest extends Model
     public $clusterName;
 
     /**
-     * @description The name of the cluster.
+     * @description The node name.
      *
      * @example ha-cn-30174dhoz53_qrs
      *
@@ -27,7 +27,12 @@ class GetNodeConfigRequest extends Model
     public $name;
 
     /**
-     * @description The type of the node. Valid values: qrs, search, index, and cluster. qrs indicates a query node, search indicates a data node, index indicates an index node, and cluster indicates a cluster node.
+     * @description The node type. Valid values:
+     *
+     *   qrs: Query Result Searcher (QRS) worker
+     *   search: Search worker
+     *   index: index
+     *   cluster: cluster
      *
      * @example index
      *

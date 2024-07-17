@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dataProcessConfig extends Model
 {
     /**
+     * @description The destination field.
+     *
      * @example source_image_vector
      *
      * @var string
@@ -17,6 +19,8 @@ class dataProcessConfig extends Model
     public $dstField;
 
     /**
+     * @description The method used to process the field. Valid values: copy and vectorize. A value of copy specifies that the value of the source field is copied to the destination field. A value of vectorize specifies that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+     *
      * @example vectorize
      *
      * @var string
@@ -24,11 +28,15 @@ class dataProcessConfig extends Model
     public $operator;
 
     /**
+     * @description The information about the model.
+     *
      * @var params
      */
     public $params;
 
     /**
+     * @description The source field.
+     *
      * @example source_image
      *
      * @var string

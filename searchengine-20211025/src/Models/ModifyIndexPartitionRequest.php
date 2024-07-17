@@ -19,7 +19,7 @@ class ModifyIndexPartitionRequest extends Model
     public $dataSourceName;
 
     /**
-     * @description The name of the data center.
+     * @description The data center.
      *
      * @example pre_domain_1
      *
@@ -28,7 +28,7 @@ class ModifyIndexPartitionRequest extends Model
     public $domainName;
 
     /**
-     * @description The primary key of generation.
+     * @description The primary key.
      *
      * @example 1633293829
      *
@@ -37,7 +37,7 @@ class ModifyIndexPartitionRequest extends Model
     public $generation;
 
     /**
-     * @description The information about shards of the index.
+     * @description The index information.
      *
      * @var indexInfos[]
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The file content.
+     *
      * @example $dictContent
      *
      * @var string
@@ -17,6 +19,8 @@ class config extends Model
     public $content;
 
     /**
+     * @description The variables.
+     *
      * @var ConfigValueFilesConfigVariablesValue[]
      */
     public $variables;

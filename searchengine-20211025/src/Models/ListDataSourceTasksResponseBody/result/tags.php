@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The content of the tag.
+     * @description The tag content.
      *
      * @example succeed in handling request
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $msg;
 
     /**
-     * @description The level of the tag.
+     * @description The tag level.
      *
      * @example ""
      *

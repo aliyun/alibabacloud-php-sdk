@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class primaryKey extends Model
 {
     /**
-     * @description Indicates whether it has the primary key property. **true** indicates that it has the primary key property, and **false** indicates that it does not have the primary key property.
+     * @description Indicates whether the field has the primary key attribute. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class primaryKey extends Model
     public $hasPrimaryKeyAttribute;
 
     /**
-     * @description Indicates whether it is the primary key. Valid values: true and false. **true** indicates that it is the primary key, and **false** indicates that it is not the primary key.
+     * @description Indicates whether the field is the primary key. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class primaryKey extends Model
     public $isPrimaryKey;
 
     /**
-     * @description Indicates whether data is sorted based on the primary key. Valid values: true and false. **true** indicates that data is sorted based on the primary key, and **false** indicates that data is not sorted based on the primary key.
+     * @description Indicates whether the field can be sorted. Valid values: **true** and **false**.
      *
      * @example false
      *

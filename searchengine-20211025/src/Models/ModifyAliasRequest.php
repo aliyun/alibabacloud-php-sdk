@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAliasRequest extends Model
 {
     /**
+     * @description alias name
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAliasRequest extends Model
     public $alias;
 
     /**
+     * @description index name
+     *
      * @example index
      *
      * @var string

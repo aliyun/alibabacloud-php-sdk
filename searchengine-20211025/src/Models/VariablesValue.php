@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class VariablesValue extends Model
 {
     /**
-     * @description Specifies whether the variable cannot be modified.
+     * @description Specifies whether the variable is not allowed to be modified.
      *
      * @example false
      *
@@ -28,7 +28,7 @@ class VariablesValue extends Model
     public $isModify;
 
     /**
-     * @description The value of the variable.
+     * @description The variable value.
      *
      * @example ""
      *
@@ -37,7 +37,7 @@ class VariablesValue extends Model
     public $value;
 
     /**
-     * @description The description about the variable.
+     * @description The description of the variable.
      *
      * @example ""
      *
@@ -46,7 +46,7 @@ class VariablesValue extends Model
     public $description;
 
     /**
-     * @description The value of the template.
+     * @description The template value of the variable.
      *
      * @example ""
      *
@@ -55,10 +55,10 @@ class VariablesValue extends Model
     public $templateValue;
 
     /**
-     * @description The type of the variable. Valid values:
+     * @description The variable type. Valid values:
      *
-     *   NORMAL: a normal variable
-     *   FUNCTION: a function variable
+     *   NORMAL: common variable
+     *   FUNCTION: function variable
      *
      * @example NORMAL
      *
@@ -67,7 +67,7 @@ class VariablesValue extends Model
     public $type;
 
     /**
-     * @description The function variable.
+     * @description The function variables.
      *
      * @var funcValue
      */

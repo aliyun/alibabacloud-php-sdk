@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPostQueryResultRequest extends Model
 {
     /**
+     * @description The instance endpoint.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPostQueryResultRequest extends Model
     public $address;
 
     /**
+     * @description The request body.
+     *
      * @example {}
      *
      * @var mixed[]
@@ -23,6 +27,8 @@ class ListPostQueryResultRequest extends Model
     public $body;
 
     /**
+     * @description The query type. Valid values: sql: SQL query. ha3: Havenask query.
+     *
      * @example ha3
      *
      * @var string

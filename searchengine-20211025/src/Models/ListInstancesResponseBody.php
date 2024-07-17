@@ -19,7 +19,7 @@ class ListInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result returned
+     * @description The results returned.
      *
      * @var result[]
      */

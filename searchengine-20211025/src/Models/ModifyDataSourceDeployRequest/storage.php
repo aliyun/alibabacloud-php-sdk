@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class storage extends Model
 {
     /**
-     * @description AK
+     * @description The AccessKey ID of the MaxCompute data source.
      *
      * @example ak
      *
@@ -18,7 +18,7 @@ class storage extends Model
     public $accessKey;
 
     /**
-     * @description AS
+     * @description The AccessKey secret of the MaxCompute data source.
      *
      * @example as
      *
@@ -27,6 +27,8 @@ class storage extends Model
     public $accessSecret;
 
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example test-bucket
      *
      * @var string
@@ -34,6 +36,8 @@ class storage extends Model
     public $bucket;
 
     /**
+     * @description The endpoint of the MaxCompute data source.
+     *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
@@ -41,6 +45,8 @@ class storage extends Model
     public $endpoint;
 
     /**
+     * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+     *
      * @example dp-dev
      *
      * @var string
@@ -48,6 +54,8 @@ class storage extends Model
     public $namespace;
 
     /**
+     * @description The Object Storage Service (OSS) path.
+     *
      * @example /opensearch
      *
      * @var string
@@ -55,6 +63,8 @@ class storage extends Model
     public $ossPath;
 
     /**
+     * @description The partition in the MaxCompute table.
+     *
      * @example ds=20220713
      *
      * @var string
@@ -62,6 +72,8 @@ class storage extends Model
     public $partition;
 
     /**
+     * @description The file path in the Apsara File Storage for HDFS file system.
+     *
      * @example /ude_jobs/iflow_offline_data_access
      *
      * @var string
@@ -69,6 +81,8 @@ class storage extends Model
     public $path;
 
     /**
+     * @description The name of the MaxCompute project that is used as the data source.
+     *
      * @example kubenest
      *
      * @var string
@@ -76,6 +90,8 @@ class storage extends Model
     public $project;
 
     /**
+     * @description The name of the MaxCompute table that is used as the data source.
+     *
      * @example item
      *
      * @var string

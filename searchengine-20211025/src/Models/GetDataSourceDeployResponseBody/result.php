@@ -25,16 +25,22 @@ class result extends Model
     public $extend;
 
     /**
+     * @description The parameters of the process.
+     *
      * @var processor
      */
     public $processor;
 
     /**
+     * @description The information about the data source.
+     *
      * @var storage
      */
     public $storage;
 
     /**
+     * @description The information about the incremental data source Swift.
+     *
      * @var swift
      */
     public $swift;

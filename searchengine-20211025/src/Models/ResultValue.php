@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResultValue extends Model
 {
     /**
+     * @description Indicates whether all pushes are suspended.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class ResultValue extends Model
     public $pauseAll;
 
     /**
+     * @description Indicates whether the push is suspended for the new full index version.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class ResultValue extends Model
     public $pauseIndex;
 
     /**
+     * @description Indicates whether the push is suspended for the incremental indexes.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class ResultValue extends Model
     public $pauseIndexBatch;
 
     /**
+     * @description Indicates whether the push is suspended for the configuration.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class ResultValue extends Model
     public $pauseBiz;
 
     /**
+     * @description Indicates whether the push is suspended for the real-time incremental indexes.
+     *
      * @example true
      *
      * @var bool

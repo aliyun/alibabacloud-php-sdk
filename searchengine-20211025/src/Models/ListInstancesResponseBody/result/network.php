@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @description The access point of the gateway
+     * @var string
+     */
+    public $allow;
+
+    /**
+     * @description The instance endpoint.
      *
      * @example ""
      *
@@ -18,7 +23,12 @@ class network extends Model
     public $endpoint;
 
     /**
-     * @description The ID of the virtual switch
+     * @var string
+     */
+    public $publicEndpoint;
+
+    /**
+     * @description The vSwitch ID.
      *
      * @example vsw-bp11ldcf59q2nbwkqgj6z
      *
@@ -27,7 +37,7 @@ class network extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the Virtual Private Cloud (VPC) network
+     * @description The ID of the virtual private cloud (VPC) in which the instance is deployed.
      *
      * @example vpc-wz9axk41d9vffoc79x0oe
      *
@@ -35,9 +45,11 @@ class network extends Model
      */
     public $vpcId;
     protected $_name = [
-        'endpoint'  => 'endpoint',
-        'vSwitchId' => 'vSwitchId',
-        'vpcId'     => 'vpcId',
+        'allow'          => 'allow',
+        'endpoint'       => 'endpoint',
+        'publicEndpoint' => 'publicEndpoint',
+        'vSwitchId'      => 'vSwitchId',
+        'vpcId'          => 'vpcId',
     ];
 
     public function validate()
@@ -47,8 +59,14 @@ class network extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allow) {
+            $res['allow'] = $this->allow;
+        }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->publicEndpoint) {
+            $res['publicEndpoint'] = $this->publicEndpoint;
         }
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
@@ -68,8 +86,14 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allow'])) {
+            $model->allow = $map['allow'];
+        }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
+        }
+        if (isset($map['publicEndpoint'])) {
+            $model->publicEndpoint = $map['publicEndpoint'];
         }
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];

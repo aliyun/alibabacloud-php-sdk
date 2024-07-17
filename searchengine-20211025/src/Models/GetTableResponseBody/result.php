@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configurations about field processing.
+     *
      * @var dataProcessConfig[]
      */
     public $dataProcessConfig;
@@ -29,6 +31,8 @@ class result extends Model
     public $dataSource;
 
     /**
+     * @description The field. The value is a key-value pair in which the key indicates the field name and value indicates the field type.
+     *
      * @var string[]
      */
     public $fieldSchema;
@@ -62,11 +66,17 @@ class result extends Model
     public $rawSchema;
 
     /**
+     * @description The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+     *
+     * @example IN_USE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The index schema.
+     *
      * @var vectorIndex[]
      */
     public $vectorIndex;

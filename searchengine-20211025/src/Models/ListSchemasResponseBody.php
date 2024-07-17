@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSchemasResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example FE03180A-0E29-5474-8A86-33F0683294A4
      *
@@ -18,7 +18,7 @@ class ListSchemasResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Object
+     * @description The result.
      *
      * @example {}
      *

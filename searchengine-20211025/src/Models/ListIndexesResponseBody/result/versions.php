@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
-     * @description The description.
+     * @description The description of the index version.
      *
      * @example close alarm, by 3.9.2 hotfix workflow
      *
@@ -19,14 +19,14 @@ class versions extends Model
     public $desc;
 
     /**
-     * @description The list of file names.
+     * @description The files.
      *
      * @var files[]
      */
     public $files;
 
     /**
-     * @description The name of the version.
+     * @description The name of the index version.
      *
      * @example ha-cn-7pp2ngv4s02_qrs
      *
@@ -35,7 +35,15 @@ class versions extends Model
     public $name;
 
     /**
-     * @description The state of the version. Valid values: drafting, used, unused and trash. drafting indicates that the version is a draft, used indicates that the version is used online, unused indicates that the version is not used, and trash indicates that the version is being deleted.
+     * @description The status of the index version. Valid values:
+     *
+     *   NEW: The index version is created.
+     *   PUBLISH: The index version is normal.
+     *   IN_USE: The index version is in use.
+     *   NOT_USE: The index version is not used.
+     *   STOP_USE: The index version is being stopped.
+     *   RESTORE_USE: The index version is being restored.
+     *   FAIL: The index version failed to be created.
      *
      * @example 2
      *
@@ -44,7 +52,7 @@ class versions extends Model
     public $status;
 
     /**
-     * @description The time when the version was updated.
+     * @description The time when the index version was updated.
      *
      * @example " "
      *
@@ -53,7 +61,7 @@ class versions extends Model
     public $updateTime;
 
     /**
-     * @description The ID of the version. The value of this parameter is null for the edit version.
+     * @description The ID of the index version. If the index version is modified, the returned value is null.
      *
      * @example 1
      *

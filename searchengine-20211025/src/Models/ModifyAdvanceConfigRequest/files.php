@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description The full path of the file.
+     *
      * @example /cluster.json
      *
      * @var string
@@ -16,6 +18,8 @@ class files extends Model
     public $fullPathName;
 
     /**
+     * @description Specifies whether the file is a directory.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class files extends Model
     public $isDir;
 
     /**
+     * @description Specifies whether the file is a template.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class files extends Model
     public $isTemplate;
 
     /**
+     * @description The node name.
+     *
      * @example general
      *
      * @var string

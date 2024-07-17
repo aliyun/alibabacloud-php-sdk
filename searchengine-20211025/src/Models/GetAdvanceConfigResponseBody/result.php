@@ -10,7 +10,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The content of the configuration that is returned.
+     * @description The content of the advanced configuration that is returned.
+     *
+     * @example {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
      *
      * @var string
      */
@@ -19,12 +21,14 @@ class result extends Model
     /**
      * @description The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
      *
+     * @example FILE
+     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description The description.
+     * @description The description of the advanced configuration.
      *
      * @example close alarm, chiji id 37080
      *
@@ -33,14 +37,14 @@ class result extends Model
     public $desc;
 
     /**
-     * @description The information about files.
+     * @description The files.
      *
      * @var files[]
      */
     public $files;
 
     /**
-     * @description The name.
+     * @description The name of the advanced configuration.
      *
      * @example ha-cn-0ju2s170b03_qrs
      *
@@ -49,7 +53,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The status.
+     * @description The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
      *
      * @example 0,1,3,6,8
      *
@@ -58,7 +62,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The update time.
+     * @description The time when the advanced configuration was updated.
      *
      * @example ""
      *

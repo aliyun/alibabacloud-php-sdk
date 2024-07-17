@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexRequest extends Model
 {
     /**
-     * @description The data source
+     * @description The data source.
      *
      * This parameter is required.
      * @example ha-cn-pl32rf0js04_test
@@ -19,6 +19,10 @@ class DeleteIndexRequest extends Model
     public $dataSource;
 
     /**
+     * @description Specifies whether to delete the data source.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteDataSource;

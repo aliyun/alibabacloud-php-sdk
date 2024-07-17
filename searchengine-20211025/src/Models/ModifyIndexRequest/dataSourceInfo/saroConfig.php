@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class saroConfig extends Model
 {
     /**
+     * @description The namespace to which the SARO data source belongs.
+     *
      * @example flink-test-fjx-default
      *
      * @var string
@@ -16,6 +18,8 @@ class saroConfig extends Model
     public $namespace;
 
     /**
+     * @description The name of the SARO table.
+     *
      * @example device_event_shy_summary_
      *
      * @var string

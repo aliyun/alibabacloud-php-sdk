@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+     *
      * @example IN_USE
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $indexStatus;
 
     /**
+     * @description The index name.
+     *
      * @example es_test_1b
      *
      * @var string
@@ -23,6 +27,10 @@ class result extends Model
     public $name;
 
     /**
+     * @description The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+     *
+     * @example IN_USE
+     *
      * @var string
      */
     public $status;

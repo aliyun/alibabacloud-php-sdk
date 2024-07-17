@@ -10,27 +10,51 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description *   The type of the advanced configuration. Valid values: -ONLINE: online configuration
+     *   \\-ONLINE_CAVA: online Cava configuration
+     *   \\-ONLINE_PLUGIN: online plug-in configuration
+     *   \\-ONLINE_QUERY: query configuration
+     *   \\-OFFLINE_DICT: offline dictionary configuration
+     *   \\-OFFLINE_TABLE: offline table configuration
+     *   \\-OFFLINE_COMMON: offline configuration
+     *   \\-OFFLINE_PLUGIN: offline plug-in configuration
+     *   \\-OFFLINE_INDEX: index configuration
+     *
+     * @example ONLINE
+     *
      * @var string
      */
     public $advanceConfigType;
 
     /**
+     * @description The content of the advanced configuration that is returned.
+     *
+     * @example {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
+     *
+     * @example FILE
+     *
      * @var string
      */
     public $contentType;
 
     /**
+     * @description The Alibaba Cloud account ID of the user who created the advanced configuration.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description The description.
+     * @description The description of the advanced configuration.
      *
      * @example test
      *
@@ -39,7 +63,7 @@ class result extends Model
     public $desc;
 
     /**
-     * @description The list of file names.
+     * @description The files.
      *
      * @var files[]
      */
@@ -55,7 +79,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The state of the advanced configuration. Valid values: drafting, used, unused, and trash. drafting indicates that the advanced configuration is a draft. used indicates that the advanced configuration is in use. unused indicates that the advanced configuration is unused. trash indicates that the advanced configuration is being deleted.
+     * @description The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
      *
      * @example drafting
      *
@@ -64,7 +88,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The update time.
+     * @description The time when the advanced configuration was updated.
      *
      * @example 1631070464000
      *

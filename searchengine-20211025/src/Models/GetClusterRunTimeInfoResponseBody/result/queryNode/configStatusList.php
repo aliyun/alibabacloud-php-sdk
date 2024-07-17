@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configStatusList extends Model
 {
     /**
-     * @description The time when the cluster was updated.
+     * @description The time when the configuration was last updated.
      *
      * @example " "
      *
@@ -18,7 +18,7 @@ class configStatusList extends Model
     public $configUpdateTime;
 
     /**
-     * @description The progress.
+     * @description The process progress of QRS workers in the cluster. Unit: percentage.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class configStatusList extends Model
     public $donePercent;
 
     /**
-     * @description The number of nodes that are configured.
+     * @description The number of processed QRS workers in the cluster.
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class configStatusList extends Model
     public $doneSize;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example ha-cn-zvp2qr1sk01_qrs
      *
@@ -45,7 +45,7 @@ class configStatusList extends Model
     public $name;
 
     /**
-     * @description The total number of nodes that you specify when you create the cluster.
+     * @description The total number of QRS workers in the cluster.
      *
      * @example 6
      *

@@ -36,6 +36,10 @@ class files extends Model
     public $isTemplate;
 
     /**
+     * @description The file name.
+     *
+     * @example qrs.json
+     *
      * @var string
      */
     public $name;

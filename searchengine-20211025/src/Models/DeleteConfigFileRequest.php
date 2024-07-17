@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteConfigFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The file name.
      *
+     * This parameter is required.
      * @example /schemas/automobile_vector_schema.json
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteConfigFileRequest extends Model
     public $fileName;
 
     /**
-     * @description This parameter is required.
+     * @description The path of the parent directory.
      *
+     * This parameter is required.
      * @example /
      *
      * @var string

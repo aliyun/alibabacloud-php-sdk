@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class swift extends Model
 {
     /**
-     * @description topic
+     * @description The topic.
      *
      * @example ha-cn-0ju2rps6c08_api
      *

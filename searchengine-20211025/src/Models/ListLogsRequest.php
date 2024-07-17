@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLogsRequest extends Model
 {
     /**
+     * @description The end tim. The value is a timestamp in seconds.
+     *
      * @example 1710432000
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of entries per num. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLogsRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class ListLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query statement
+     *
      * @example status: 200 AND totalTime > 0.01
      *
      * @var string
@@ -37,6 +45,8 @@ class ListLogsRequest extends Model
     public $query;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
      * @example 1706340600
      *
      * @var string
@@ -44,6 +54,8 @@ class ListLogsRequest extends Model
     public $startTime;
 
     /**
+     * @description -push   -select
+     *
      * @example push
      *
      * @var string

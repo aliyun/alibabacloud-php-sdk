@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTablesRequest extends Model
 {
     /**
+     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+     *
      * @example true
      *
      * @var bool

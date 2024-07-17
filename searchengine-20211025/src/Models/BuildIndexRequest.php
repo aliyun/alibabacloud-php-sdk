@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BuildIndexRequest extends Model
 {
     /**
-     * @description The reindexing mode.
+     * @description The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
      *
      * @example indexRecover
      *
@@ -45,7 +45,7 @@ class BuildIndexRequest extends Model
     public $dataTimeSec;
 
     /**
-     * @description The data center in which the data source resides.
+     * @description The data center in which the data source is deployed.
      *
      * @example test
      *
@@ -63,7 +63,7 @@ class BuildIndexRequest extends Model
     public $generation;
 
     /**
-     * @description The data partition. This parameter is required if dataSourceType is set to odps.
+     * @description The partition in the MaxCompute table. This parameter is required if type is set to odps.
      *
      * @example 20201010
      *

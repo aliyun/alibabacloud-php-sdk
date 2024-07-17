@@ -25,14 +25,16 @@ class result extends Model
     public $indexes;
 
     /**
-     * @description The time when an index for full data was last built
+     * @description The time when the full data of the data source was last queried.
+     *
+     * @example 1718787219
      *
      * @var int
      */
     public $lastFulTime;
 
     /**
-     * @description The name of the data source
+     * @description The name of the data source.
      *
      * @example my_index
      *
@@ -41,7 +43,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The state of the data source
+     * @description The status of the data source. Valid values: new: The data source is being created. publish: The data source is in the normal state. trash: The data source is being deleted.
      *
      * @example NEW
      *

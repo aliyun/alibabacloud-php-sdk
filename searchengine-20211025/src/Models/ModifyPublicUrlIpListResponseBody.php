@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPublicUrlIpListResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example E45380E8-994A-5402-9806-F114B3295FCF
      *
@@ -18,7 +18,7 @@ class ModifyPublicUrlIpListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result.
      *
      * @example {}
      *

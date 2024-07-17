@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RecoverIndexRequest extends Model
 {
     /**
-     * @description The ID of the index deployed in offline mode.
+     * @description The deployment ID of the data source.
      *
      * @example 277
      *
@@ -18,7 +18,7 @@ class RecoverIndexRequest extends Model
     public $buildDeployId;
 
     /**
-     * @description The name of the data source
+     * @description The name of the data source.
      *
      * @example ha-cn-pl32rf0js04_odps_first
      *
@@ -27,7 +27,7 @@ class RecoverIndexRequest extends Model
     public $dataSourceName;
 
     /**
-     * @description The primary key of generation.
+     * @description The ID of the full index version.
      *
      * @example 1653018575
      *
@@ -36,7 +36,7 @@ class RecoverIndexRequest extends Model
     public $generation;
 
     /**
-     * @description The name of the index
+     * @description The index name.
      *
      * @example main_index
      *

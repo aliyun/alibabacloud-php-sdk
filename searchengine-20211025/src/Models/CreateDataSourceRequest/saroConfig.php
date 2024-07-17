@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class saroConfig extends Model
 {
     /**
+     * @description The namespace of the SARO data source.
+     *
+     * @example igraph-cn-x0r3e3abe02
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the SARO table.
+     *
+     * @example index_hdfs
+     *
      * @var string
      */
     public $tableName;

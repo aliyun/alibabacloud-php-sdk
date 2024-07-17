@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSchemasRequest extends Model
 {
     /**
-     * @description AK
+     * @description The AccessKey ID of the MaxCompute data source.
      *
      * @example ak
      *
@@ -18,7 +18,7 @@ class ListSchemasRequest extends Model
     public $accessKey;
 
     /**
-     * @description AS
+     * @description The AccessKey secret of the MaxCompute data source.
      *
      * @example as
      *
@@ -27,7 +27,7 @@ class ListSchemasRequest extends Model
     public $accessSecret;
 
     /**
-     * @description odps endpoint
+     * @description The endpoint of the MaxCompute data source.
      *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
@@ -36,6 +36,8 @@ class ListSchemasRequest extends Model
     public $endpoint;
 
     /**
+     * @description The namespace of the SARO data source.
+     *
      * @example igraph-cn-tl32wnrhi04
      *
      * @var string
@@ -43,6 +45,8 @@ class ListSchemasRequest extends Model
     public $namespace;
 
     /**
+     * @description The shard name.
+     *
      * @example dt=20230520
      *
      * @var string
@@ -50,6 +54,8 @@ class ListSchemasRequest extends Model
     public $partition;
 
     /**
+     * @description The name of the MaxCompute project that is used as the data source.
+     *
      * @example start-flask-v3-obcc
      *
      * @var string
@@ -57,6 +63,8 @@ class ListSchemasRequest extends Model
     public $project;
 
     /**
+     * @description The name of the MaxCompute table that is used as the data source.
+     *
      * @example item
      *
      * @var string
@@ -64,7 +72,7 @@ class ListSchemasRequest extends Model
     public $table;
 
     /**
-     * @description odps, swift, saro, oss, unKnow
+     * @description The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
      *
      * This parameter is required.
      * @example odps

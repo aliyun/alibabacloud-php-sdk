@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The description of the cluster
+     * @description The description of the cluster.
      *
      * @example ha3_test
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $description;
 
     /**
-     * @description The ID of the cluster
+     * @description The cluster ID.
      *
      * @example 25030
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The name of the cluster
+     * @description The cluster name.
      *
      * @example my_index
      *

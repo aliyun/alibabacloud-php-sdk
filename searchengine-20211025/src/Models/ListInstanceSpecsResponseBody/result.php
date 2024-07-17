@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description None
+     * @description The number of CPU cores.
      *
      * @example 1
      *
@@ -18,14 +18,16 @@ class result extends Model
     public $cpu;
 
     /**
-     * @description 单数据节点存储空间最大值
+     * @description The maximum storage space of a Searcher worker.
+     *
+     * @example 600
      *
      * @var int
      */
     public $maxDisk;
 
     /**
-     * @description Unit: GB
+     * @description The memory. Unit: GB.
      *
      * @example 4
      *
@@ -34,7 +36,9 @@ class result extends Model
     public $mem;
 
     /**
-     * @description 单数据节点存储空间最小值
+     * @description The minimum storage space of a Searcher worker.
+     *
+     * @example 100
      *
      * @var int
      */

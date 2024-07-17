@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configuration information.
+     *
      * @var mixed[][]
      */
     public $config;
@@ -25,6 +27,10 @@ class result extends Model
     public $configUpdateTime;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2024-05-21 16:05:26
+     *
      * @var string
      */
     public $createTime;
@@ -41,6 +47,8 @@ class result extends Model
     /**
      * @description The effective dictionary configuration version.
      *
+     * @example ha-cn-pl32rf0****_offline_adv_v1
+     *
      * @var string
      */
     public $currentOfflineDictConfigVersion;
@@ -56,6 +64,8 @@ class result extends Model
 
     /**
      * @description The effective query configuration version.
+     *
+     * @example ha-cn-pl32rf0****_offline_adv_v1
      *
      * @var string
      */
@@ -89,6 +99,8 @@ class result extends Model
     /**
      * @description The latest dictionary configuration version.
      *
+     * @example ha-cn-pl32rf0****_offline_adv_v1
+     *
      * @var string
      */
     public $latestOfflineDictConfigVersion;
@@ -104,6 +116,8 @@ class result extends Model
 
     /**
      * @description The latest query configuration version.
+     *
+     * @example ha-cn-pl32rf0****_offline_adv_v1
      *
      * @var string
      */
@@ -126,7 +140,7 @@ class result extends Model
     public $queryNode;
 
     /**
-     * @description The status of the cluster. Valid values: running: The cluster is running. starting: The cluster is being started. stopping: The cluster is being stopped. stopped: The cluster is stopped.
+     * @description The cluster status. Valid values: running: The cluster is running. starting: The cluster is being started. stopping: The cluster is being stopped. stopped: The cluster is stopped.
      *
      * @example "starting"
      *

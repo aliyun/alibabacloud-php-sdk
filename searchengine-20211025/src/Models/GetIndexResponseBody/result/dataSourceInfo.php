@@ -13,6 +13,8 @@ class dataSourceInfo extends Model
     /**
      * @description Indicates whether the automatic full indexing feature is enabled.
      *
+     * @example true
+     *
      * @var bool
      */
     public $autoBuildIndex;
@@ -25,7 +27,9 @@ class dataSourceInfo extends Model
     public $config;
 
     /**
-     * @description The offline deployment name of the data source.
+     * @description The data center in which the data source is deployed.
+     *
+     * @example vpc_hz_domain_1
      *
      * @var string
      */
@@ -34,11 +38,17 @@ class dataSourceInfo extends Model
     /**
      * @description The name of the data source.
      *
+     * @example ha-cn-pl32rf0****_test_api
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of full indexes that can be concurrently processed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $processParallelNum;
@@ -46,12 +56,14 @@ class dataSourceInfo extends Model
     /**
      * @description The number of resources used for data update.
      *
+     * @example 2
+     *
      * @var int
      */
     public $processPartitionCount;
 
     /**
-     * @description The configuration of SARO data sources.
+     * @description The configurations of the SARO data source.
      *
      * @var saroConfig
      */
@@ -59,6 +71,8 @@ class dataSourceInfo extends Model
 
     /**
      * @description The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+     *
+     * @example odps
      *
      * @var string
      */

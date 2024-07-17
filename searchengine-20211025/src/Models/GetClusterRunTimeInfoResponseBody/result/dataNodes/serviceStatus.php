@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serviceStatus extends Model
 {
     /**
-     * @description The overall progress.
+     * @description The process progress of QRS workers in the cluster. Unit: percentage.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class serviceStatus extends Model
     public $donePercent;
 
     /**
-     * @description The number of nodes being processed in the cluster.
+     * @description The number of processed QRS workers in the cluster.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class serviceStatus extends Model
     public $doneSize;
 
     /**
-     * @description The name.
+     * @description The name of the QRS worker.
      *
      * @example ha-cn-0ju2s170b03_qrs
      *
@@ -36,7 +36,7 @@ class serviceStatus extends Model
     public $name;
 
     /**
-     * @description The total number of nodes in the cluster.
+     * @description The total number of QRS workers in the cluster.
      *
      * @example 100
      *

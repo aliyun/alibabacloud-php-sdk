@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReindexRequest extends Model
 {
     /**
+     * @description The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
+     *
      * @example 1640867288
      *
      * @var int
@@ -16,6 +18,8 @@ class ReindexRequest extends Model
     public $dataTimeSec;
 
     /**
+     * @description oss data path
+     *
      * @example oss://opensearch
      *
      * @var string
@@ -23,6 +27,8 @@ class ReindexRequest extends Model
     public $ossDataPath;
 
     /**
+     * @description The partition in the MaxCompute table. This parameter is required if type is set to odps.
+     *
      * @example ds=20220713
      *
      * @var string

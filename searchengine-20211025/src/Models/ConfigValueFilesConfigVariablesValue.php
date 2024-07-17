@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ConfigValueFilesConfigVariablesValue extends Model
 {
     /**
+     * @description The description of the variable.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether the variable is not allowed to be modified.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +27,8 @@ class ConfigValueFilesConfigVariablesValue extends Model
     public $disableModify;
 
     /**
+     * @description Specifies whether the variable is modified.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +36,8 @@ class ConfigValueFilesConfigVariablesValue extends Model
     public $isModify;
 
     /**
+     * @description The variable type. Valid values: NORMAL: common variable. FUNCTION: function variable.
+     *
      * @example NORMAL
      *
      * @var string
@@ -35,6 +45,8 @@ class ConfigValueFilesConfigVariablesValue extends Model
     public $type;
 
     /**
+     * @description The variable value.
+     *
      * @example test
      *
      * @var string

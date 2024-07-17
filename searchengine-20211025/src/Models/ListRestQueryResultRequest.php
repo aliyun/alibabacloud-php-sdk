@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRestQueryResultRequest extends Model
 {
     /**
+     * @description The instance endpoint.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListRestQueryResultRequest extends Model
     public $address;
 
     /**
+     * @description The name of the index table.
+     *
      * @example main_index
      *
      * @var string
@@ -23,6 +27,8 @@ class ListRestQueryResultRequest extends Model
     public $indexName;
 
     /**
+     * @description The rest query statement.
+     *
      * @example query%3Drelation_id%3A%221151274675_2%22%26%26cluster%3Dgeneral%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson
      *
      * @var mixed[]

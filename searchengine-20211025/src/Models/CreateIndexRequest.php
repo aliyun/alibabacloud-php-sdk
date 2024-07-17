@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexRequest extends Model
 {
     /**
+     * @description The maximum number of full indexes that can be concurrently built.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $buildParallelNum;
 
     /**
-     * @description The content of the index.
+     * @description The index schema.
      *
      * @example {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
      *
@@ -24,7 +28,7 @@ class CreateIndexRequest extends Model
     public $content;
 
     /**
-     * @description Optional. The data source, which can be MaxCompute, Message Service (MNS), Realtime Compute for Apache Flink, or StreamCompute.
+     * @description The name of the data source.
      *
      * @example test1
      *
@@ -33,14 +37,14 @@ class CreateIndexRequest extends Model
     public $dataSource;
 
     /**
-     * @description The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
+     * @description The information about the data source. This parameter is required for an OpenSearch Vector Search Edition instance of the new version.
      *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The data center in which the data source resides.
+     * @description The data center in which the data source is deployed.
      *
      * @example vpc_hz_domain_1
      *
@@ -49,7 +53,7 @@ class CreateIndexRequest extends Model
     public $domain;
 
     /**
-     * @description The extended configurations of the field. Keys such as vector and embedding are included. Vector indicates the vector field. Embedding indicates the field that requires embedding.
+     * @description The extended content of the field configuration. key specifies the vector field and the field that requires embedding.
      *
      * @example {
      * }
@@ -58,12 +62,16 @@ class CreateIndexRequest extends Model
     public $extend;
 
     /**
+     * @description The maximum number of full indexes that can be concurrently merged.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $mergeParallelNum;
 
     /**
-     * @description The name of the index.
+     * @description The index name.
      *
      * @example ha-cn-zvp2qr1sk01_qrs
      *
@@ -72,7 +80,7 @@ class CreateIndexRequest extends Model
     public $name;
 
     /**
-     * @description The data partition.
+     * @description The number of data shards.
      *
      * @example 20211202
      *
@@ -81,6 +89,11 @@ class CreateIndexRequest extends Model
     public $partition;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

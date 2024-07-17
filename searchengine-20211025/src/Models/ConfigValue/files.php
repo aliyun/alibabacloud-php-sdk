@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+     *
      * @example UPDATE
      *
      * @var string
@@ -17,6 +19,8 @@ class files extends Model
     public $operateType;
 
     /**
+     * @description The path of the parent directory.
+     *
      * @example /
      *
      * @var string
@@ -24,16 +28,24 @@ class files extends Model
     public $parentFullPath;
 
     /**
+     * @description The file name.
+     *
+     * @example /intervene_dict/中文-通用分析器.dict
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The configuration to be modified.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The directory name.
+     *
      * @example /test
      *
      * @var string

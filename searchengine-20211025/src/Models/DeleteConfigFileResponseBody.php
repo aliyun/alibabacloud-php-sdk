@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteConfigFileResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example 10D5E615-69F7-5F49-B850-00169ADE513C
      *
@@ -18,7 +18,7 @@ class DeleteConfigFileResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result.
      *
      * @example {}
      *

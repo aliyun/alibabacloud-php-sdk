@@ -19,7 +19,7 @@ class ListAdvanceConfigDirResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The file list in the advanced configuration directory.
+     * @description The advanced configuration files.
      *
      * @var result[]
      */

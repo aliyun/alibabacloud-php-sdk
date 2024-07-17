@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigFileRequest extends Model
 {
     /**
+     * @description The name of the directory.
+     *
      * @example /schemas/device_event_xt_schema.json
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateConfigFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The Object Storage Service (OSS) URL of the file.
+     *
      * @example oss://xxx/xxxx/xxx
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateConfigFileRequest extends Model
     public $ossPath;
 
     /**
+     * @description The path of the parent directory.
+     *
      * @example /
      *
      * @var string

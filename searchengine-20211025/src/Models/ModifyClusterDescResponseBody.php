@@ -18,7 +18,7 @@ class ModifyClusterDescResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result.
      *
      * @example {}
      *

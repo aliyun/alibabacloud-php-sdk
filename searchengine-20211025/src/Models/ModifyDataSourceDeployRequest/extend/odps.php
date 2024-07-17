@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class odps extends Model
 {
     /**
+     * @description The partitions in the MaxCompute table.
+     *
      * @var string[]
      */
     public $partitions;

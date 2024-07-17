@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example 4FB0325E-8C37-5525-96AC-0333523170A3
      *
@@ -19,7 +19,7 @@ class ListIndexesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The index list.
+     * @description The details of indexes.
      *
      * @var result[]
      */

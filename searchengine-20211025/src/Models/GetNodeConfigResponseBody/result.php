@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description Indicates whether the expression is the default one.
+     * @description Indicates whether the index is effective online.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class result extends Model
     public $minServicePercent;
 
     /**
-     * @description Indicates whether the node is associated with the cluster.
+     * @description Indicates whether the cluster is mounted.
      *
      * @example true
      *

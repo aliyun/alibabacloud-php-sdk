@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAliasRequest extends Model
 {
     /**
+     * @description alias name
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAliasRequest extends Model
     public $alias;
 
     /**
+     * @description index name
+     *
      * @example index
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAliasRequest extends Model
     public $index;
 
     /**
+     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+     *
      * @example true
      *
      * @var bool

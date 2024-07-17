@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The file content.
+     *
+     * @example {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The variables.
+     *
      * @var FilesConfigVariablesValue[]
      */
     public $variables;

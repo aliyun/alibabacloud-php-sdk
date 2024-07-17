@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description buildDeployId
+     * @description The ID of the offline deployment.
      *
      * @example 122
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $buildDeployId;
 
     /**
-     * @description The time to start index building.
+     * @description The timestamp that was generated when the index building was started.
      *
      * @example 1626143673
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $createTime;
 
     /**
-     * @description The directory where the index file created by using the dump table is saved.
+     * @description The path of the dumped index in the Apsara File Storage for HDFS file system.
      *
      * @example ""
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $dataDumpRoot;
 
     /**
-     * @description The primary key of the generation.
+     * @description The ID of the full index version.
      *
      * @example 1626143930
      *
@@ -45,14 +45,14 @@ class result extends Model
     public $generation;
 
     /**
-     * @description Key indicates the name of the index. value indicates the number of shards.
+     * @description The shards of the index version. The value is a key-value pair in which the key indicates the index name and the value indicates the number of shards. The number of value shards.
      *
      * @var int[]
      */
     public $partition;
 
     /**
-     * @description The status.
+     * @description The status of the index version.
      *
      * @example STOPPED
      *
@@ -61,7 +61,7 @@ class result extends Model
     public $status;
 
     /**
-     * @description The timestamp when the offline indexing was initiated.
+     * @description The start timestamp from which incremental data is retrieved.
      *
      * @example 1626143673
      *

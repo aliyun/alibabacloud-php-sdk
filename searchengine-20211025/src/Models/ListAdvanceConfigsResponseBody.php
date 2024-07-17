@@ -19,7 +19,7 @@ class ListAdvanceConfigsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of advanced configurations.
+     * @description The advanced configurations.
      *
      * @var result[]
      */

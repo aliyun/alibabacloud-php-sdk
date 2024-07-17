@@ -19,7 +19,7 @@ class ListTablesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description List
+     * @description The result.
      *
      * @var result[]
      */

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PublishAdvanceConfigRequest extends Model
 {
     /**
+     * @description The description of the advanced configuration.
+     *
+     * @example Custom configuration
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The files.
+     *
      * @var files[]
      */
     public $files;

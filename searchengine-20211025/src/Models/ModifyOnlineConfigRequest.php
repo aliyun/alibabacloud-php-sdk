@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyOnlineConfigRequest extends Model
 {
     /**
-     * @description ashortdescriptionofstruct
+     * @description The request body.
      *
      * @var string[]
      */

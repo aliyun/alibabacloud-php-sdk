@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The AccessKey ID of the MaxCompute data source.
+     *
      * @example L***p
      *
      * @var string
@@ -16,6 +18,8 @@ class config extends Model
     public $accessKey;
 
     /**
+     * @description The AccessKey secret of the MaxCompute data source.
+     *
      * @example 5**9a6
      *
      * @var string
@@ -23,6 +27,8 @@ class config extends Model
     public $accessSecret;
 
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example test-bucket
      *
      * @var string
@@ -30,6 +36,8 @@ class config extends Model
     public $bucket;
 
     /**
+     * @description The endpoint of the MaxCompute data source.
+     *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
@@ -37,6 +45,8 @@ class config extends Model
     public $endpoint;
 
     /**
+     * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+     *
      * @example test-namespace
      *
      * @var string
@@ -44,6 +54,8 @@ class config extends Model
     public $namespace;
 
     /**
+     * @description The Object Storage Service (OSS) path.
+     *
      * @example /opensearch/oss.json
      *
      * @var string
@@ -51,6 +63,8 @@ class config extends Model
     public $ossPath;
 
     /**
+     * @description The partition in the MaxCompute table. Example: ds=20180102.
+     *
      * @example ds=20230114
      *
      * @var string
@@ -58,6 +72,8 @@ class config extends Model
     public $partition;
 
     /**
+     * @description The file path in the Apsara File Storage for HDFS file system.
+     *
      * @example test-hdfs-path
      *
      * @var string
@@ -65,6 +81,8 @@ class config extends Model
     public $path;
 
     /**
+     * @description The name of the MaxCompute project that is used as the data source.
+     *
      * @example bbt_algo_pai
      *
      * @var string
@@ -72,6 +90,8 @@ class config extends Model
     public $project;
 
     /**
+     * @description The name of the MaxCompute table that is used as the data source.
+     *
      * @example item
      *
      * @var string

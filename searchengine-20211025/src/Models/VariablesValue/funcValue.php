@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class funcValue extends Model
 {
     /**
-     * @description The class name.
+     * @description The class name of the function variable.
      *
      * @example ""
      *
@@ -18,7 +18,7 @@ class funcValue extends Model
     public $funcClassName;
 
     /**
-     * @description The template of the variable.
+     * @description The template of the function variable.
      *
      * @example ""
      *

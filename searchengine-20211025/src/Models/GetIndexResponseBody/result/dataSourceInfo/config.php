@@ -9,60 +9,90 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The AccessKey ID of the MaxCompute data source.
+     *
+     * @example L***p
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description The AccessKey secret of the MaxCompute data source.
+     *
+     * @example 5**9a6
+     *
      * @var string
      */
     public $accessSecret;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example ha3test-oss
+     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description A parameter related to MaxCompute.
+     * @description The endpoint of the MaxCompute data source.
+     *
+     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description A parameter related to SARO.
+     * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+     *
+     * @example TEST_dump_demo_sj_na61hunbu2_share_holo
      *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description A parameter related to OSS.
+     * @description The Object Storage Service (OSS) path.
+     *
+     * @example /test_opensearch/sift_oss_test.data
      *
      * @var string
      */
     public $ossPath;
 
     /**
+     * @description The partition in the MaxCompute table. Example: ds=20180102.
+     *
+     * @example ds=20220713
+     *
      * @var string
      */
     public $partition;
 
     /**
-     * @description A parameter related to Apsara File Storage for HDFS.
+     * @description The file path in the Apsara File Storage for HDFS file system.
+     *
+     * @example http://test_opensearch/sift_oss_test.data
      *
      * @var string
      */
     public $path;
 
     /**
+     * @description The name of the MaxCompute project that is used as the data source.
+     *
+     * @example tisplus_dev
+     *
      * @var string
      */
     public $project;
 
     /**
-     * @description A parameter related to SARO and MaxCompute.
+     * @description The name of the MaxCompute table that is used as the data source.
+     *
+     * @example dump_odps_demo
      *
      * @var string
      */

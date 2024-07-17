@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description schema JSON
+     * @description The index schema, which is a JSON string.
      *
      * @example {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
      *
@@ -20,7 +20,7 @@ class result extends Model
     public $content;
 
     /**
-     * @description The data source.
+     * @description The name of the data source.
      *
      * @example ha-cn-7mz2kvu2c01_table4
      *
@@ -29,23 +29,23 @@ class result extends Model
     public $dataSource;
 
     /**
-     * @description 数据源相关信息
+     * @description The information about the data source.
      *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description 备注
+     * @description The description.
      *
-     * @example 备注
+     * @example Description
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the data center where the data source is deployed.
+     * @description The deployment name of the index.
      *
      * @example test
      *
@@ -54,7 +54,7 @@ class result extends Model
     public $domain;
 
     /**
-     * @description 全量切换时间
+     * @description The time when full data in the index was last updated.
      *
      * @example 2023-07-05 10:40:38
      *
@@ -63,7 +63,7 @@ class result extends Model
     public $fullUpdateTime;
 
     /**
-     * @description 全量版本  即：索引版本
+     * @description The full version of the index.
      *
      * @example 1688523414
      *
@@ -72,7 +72,7 @@ class result extends Model
     public $fullVersion;
 
     /**
-     * @description 增量更新时间
+     * @description The time when incremental data in the index was last updated.
      *
      * @example 2023-07-05 10:58:33
      *
@@ -81,7 +81,7 @@ class result extends Model
     public $incUpdateTime;
 
     /**
-     * @description 索引大小
+     * @description The index size.
      *
      * @example 4689
      *
@@ -90,7 +90,7 @@ class result extends Model
     public $indexSize;
 
     /**
-     * @description NEW, PUBLISH
+     * @description The index ststus. Valid values: NEW and PUBLISH.
      *
      * @example " "
      *
@@ -99,7 +99,7 @@ class result extends Model
     public $indexStatus;
 
     /**
-     * @description The name of the index.
+     * @description The index name.
      *
      * @example general
      *
@@ -108,7 +108,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description 数据分片
+     * @description The number of shards.
      *
      * @example 2
      *
@@ -117,7 +117,7 @@ class result extends Model
     public $partition;
 
     /**
-     * @description The list of version information.
+     * @description The index versions.
      *
      * @var versions[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPasswordRequest extends Model
 {
     /**
-     * @description The password
+     * @description The password.
      *
      * @example ******************************
      *
@@ -18,7 +18,7 @@ class ModifyPasswordRequest extends Model
     public $password;
 
     /**
-     * @description The username
+     * @description The username.
      *
      * @example "username"
      *

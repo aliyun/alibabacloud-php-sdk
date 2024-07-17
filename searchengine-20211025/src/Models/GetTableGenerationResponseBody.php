@@ -19,6 +19,8 @@ class GetTableGenerationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result returned.
+     *
      * @var result
      */
     public $result;

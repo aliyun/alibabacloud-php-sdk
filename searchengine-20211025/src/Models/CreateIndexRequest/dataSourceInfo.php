@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dataSourceInfo extends Model
 {
     /**
-     * @description Specifies whether to enable the automatic full indexing feature.
+     * @description Specifies whether to enable automatic full indexing.
      *
      * @example true
      *
@@ -27,6 +27,8 @@ class dataSourceInfo extends Model
     public $config;
 
     /**
+     * @description The start timestamp from which incremental data is retrieved.
+     *
      * @example 1709715164
      *
      * @var int
@@ -34,7 +36,7 @@ class dataSourceInfo extends Model
     public $dataTimeSec;
 
     /**
-     * @description The data center where the data source is deployed.
+     * @description The data center in which the data source is deployed.
      *
      * @example vpc_hz_domain_1
      *
@@ -43,7 +45,7 @@ class dataSourceInfo extends Model
     public $domain;
 
     /**
-     * @description The name of the index.
+     * @description The name of the data source.
      *
      * @example ha-cn-35t3n1yuj0d_index_1
      *
@@ -52,6 +54,10 @@ class dataSourceInfo extends Model
     public $name;
 
     /**
+     * @description The maximum number of full indexes that can be concurrently processed.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $processParallelNum;
@@ -66,12 +72,19 @@ class dataSourceInfo extends Model
     public $processPartitionCount;
 
     /**
+     * @description The configurations of the SARO data source.
+     *
      * @var saroConfig
      */
     public $saroConfig;
 
     /**
-     * @description The type of the data source. Valid values: odps, swift, saro, and oss.
+     * @description The type of the data source. Valid values:
+     *
+     *   odps
+     *   swift
+     *   saro
+     *   oss
      *
      * @example odps
      *

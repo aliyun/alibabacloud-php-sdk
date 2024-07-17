@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class tableMetas extends Model
 {
     /**
+     * @description The ID of the offline deployment.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $buildDeployId;
 
     /**
+     * @description The name of the data center.
+     *
+     * @example hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example ha-cn-pl32rf0****_test_api
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The deployment ID of the table.
+     *
+     * @example 2177
+     *
      * @var int
      */
     public $tableDeployId;
 
     /**
+     * @description The tag.
+     *
+     * @example ha-cn-pl32rf0****_test_api_hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The type of the data source.
+     *
+     * @example odps
+     *
      * @var string
      */
     public $type;

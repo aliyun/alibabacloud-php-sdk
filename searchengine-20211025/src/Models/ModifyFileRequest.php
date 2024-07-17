@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyFileRequest extends Model
 {
     /**
-     * @description The content of the file.
+     * @description The file content.
      *
      * @example ""
      *
@@ -18,7 +18,7 @@ class ModifyFileRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required when index building for full data in a MaxCompute data source is triggered.
+     * @description The number of shards.
      *
      * @example ds=20220713
      *

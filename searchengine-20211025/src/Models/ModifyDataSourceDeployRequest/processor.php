@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class processor extends Model
 {
     /**
+     * @description The startup parameters of the process.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class processor extends Model
     public $args;
 
     /**
+     * @description The resource information.
+     *
      * @example {}
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BodyValue extends Model
 {
     /**
+     * @description Specifies whether to suspend all pushes.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class BodyValue extends Model
     public $pauseAll;
 
     /**
+     * @description Specifies whether to suspend the push for the new full index version.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class BodyValue extends Model
     public $pauseIndex;
 
     /**
+     * @description Specifies whether to suspend the push for the incremental indexes.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class BodyValue extends Model
     public $pauseIndexBatch;
 
     /**
+     * @description Specifies whether to suspend the push for the configuration.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class BodyValue extends Model
     public $pauseBiz;
 
     /**
+     * @description Specifies whether to suspend the push for the real-time incremental indexes.
+     *
      * @example true
      *
      * @var bool

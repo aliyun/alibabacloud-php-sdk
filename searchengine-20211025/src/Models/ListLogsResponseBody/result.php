@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The result.
+     *
      * @var mixed[]
      */
     public $result;
 
     /**
+     * @description The total number of entries returned
+     *
      * @example 5
      *
      * @var int

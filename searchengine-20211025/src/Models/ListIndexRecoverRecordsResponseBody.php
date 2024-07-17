@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListIndexRecoverRecordsResponseBody extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The time when the index version was published.
+     *
      * @example 2024-06-07 16:43:00
      *
      * @var string
@@ -21,7 +27,7 @@ class ListIndexRecoverRecordsResponseBody extends Model
     public $finishedTime;
 
     /**
-     * @description generationId
+     * @description The ID of the full index version.
      *
      * @example 1708674867
      *

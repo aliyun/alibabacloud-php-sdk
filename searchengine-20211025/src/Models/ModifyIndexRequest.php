@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIndexRequest extends Model
 {
     /**
+     * @description The maximum number of full indexes that can be concurrently built.
+     *
      * @example 2
      *
      * @var int
@@ -17,11 +19,15 @@ class ModifyIndexRequest extends Model
     public $buildParallelNum;
 
     /**
+     * @description The cluster information.
+     *
      * @var mixed[][]
      */
     public $cluster;
 
     /**
+     * @description The name of the configuration file.
+     *
      * @example ha-cn-35t3r02iq03@ha-cn-35t3r02iq03_test_api@hz_pre_vpc_domain_1@test_api@index_config_v1
      *
      * @var string
@@ -29,11 +35,15 @@ class ModifyIndexRequest extends Model
     public $clusterConfigName;
 
     /**
+     * @description The information about the offline configuration.
+     *
      * @var ConfigValue[]
      */
     public $config;
 
     /**
+     * @description The file content.
+     *
      * @example {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
      *
      * @var string
@@ -41,6 +51,8 @@ class ModifyIndexRequest extends Model
     public $content;
 
     /**
+     * @description The name of the data source.
+     *
      * @example ha-cn-35t3n1yuj0d_index_1
      *
      * @var string
@@ -48,16 +60,24 @@ class ModifyIndexRequest extends Model
     public $dataSource;
 
     /**
+     * @description The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
+     *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
+     * @description The description of the data source.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the data center in which the data source is deployed.
+     *
      * @example vpc_hz_domain_1
      *
      * @var string
@@ -65,6 +85,8 @@ class ModifyIndexRequest extends Model
     public $domain;
 
     /**
+     * @description The maximum number of full indexes that can be concurrently merged.
+     *
      * @example 2
      *
      * @var int
@@ -72,6 +94,8 @@ class ModifyIndexRequest extends Model
     public $mergeParallelNum;
 
     /**
+     * @description The number of shards.
+     *
      * @example 2
      *
      * @var int
@@ -79,6 +103,8 @@ class ModifyIndexRequest extends Model
     public $partition;
 
     /**
+     * @description The push mode of the configuration. By default, only the configuration is pushed.
+     *
      * @example PUSH_ONLY
      *
      * @var string
@@ -86,6 +112,13 @@ class ModifyIndexRequest extends Model
     public $pushMode;
 
     /**
+     * @description Specifies whether to check the validity of input parameters. Default value: false.
+     *
+     * Valid values:
+     *
+     *   **true**: checks only the validity of input parameters.
+     *   **false**: checks the validity of input parameters and creates an attribution configuration.
+     *
      * @example true
      *
      * @var bool

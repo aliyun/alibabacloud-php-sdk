@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVectorQueryResultRequest extends Model
 {
     /**
+     * @description The instance endpoint.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -16,6 +18,8 @@ class ListVectorQueryResultRequest extends Model
     public $address;
 
     /**
+     * @description The request body.
+     *
      * @example {}
      *
      * @var mixed[]
@@ -23,6 +27,8 @@ class ListVectorQueryResultRequest extends Model
     public $body;
 
     /**
+     * @description The query type. Valid values: vector, primary_key, and vector_text.
+     *
      * @example primary_key
      *
      * @var string
@@ -30,6 +36,8 @@ class ListVectorQueryResultRequest extends Model
     public $queryType;
 
     /**
+     * @description The vector query type. Valid values: vector, image, and text.
+     *
      * @example image
      *
      * @var string

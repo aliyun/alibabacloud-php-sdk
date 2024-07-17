@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcFieldConfig extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class srcFieldConfig extends Model
     public $ossBucket;
 
     /**
+     * @description The OSS endpoint.
+     *
      * @example oss-cn-hangzhou-internal.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,8 @@ class srcFieldConfig extends Model
     public $ossEndpoint;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example uid
      *
      * @var string

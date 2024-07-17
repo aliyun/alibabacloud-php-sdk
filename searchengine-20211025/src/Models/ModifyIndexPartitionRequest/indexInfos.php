@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class indexInfos extends Model
 {
     /**
-     * @description The name of the index.
+     * @description The index name.
      *
      * @example atest2
      *
@@ -18,7 +18,7 @@ class indexInfos extends Model
     public $indexName;
 
     /**
-     * @description The number of concurrency. The default value is 1.
+     * @description The concurrency. Default value: 1.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class indexInfos extends Model
     public $parallelNum;
 
     /**
-     * @description The number of shards of the index.
+     * @description The number of shards.
      *
      * @example 3
      *

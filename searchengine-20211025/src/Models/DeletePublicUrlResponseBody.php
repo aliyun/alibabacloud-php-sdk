@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePublicUrlResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example F43E8AB4-419C-5F4C-90D6-615590DFAA3C
      *
@@ -18,7 +18,7 @@ class DeletePublicUrlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result.
      *
      * @example {}
      *

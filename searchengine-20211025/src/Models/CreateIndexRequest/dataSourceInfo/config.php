@@ -27,7 +27,7 @@ class config extends Model
     public $accessSecret;
 
     /**
-     * @description oss bucket
+     * @description The name of the OSS bucket.
      *
      * @example test-bucket
      *
@@ -45,6 +45,8 @@ class config extends Model
     public $endpoint;
 
     /**
+     * @description The namespace name.
+     *
      * @example test-namespace
      *
      * @var string
@@ -52,6 +54,8 @@ class config extends Model
     public $namespace;
 
     /**
+     * @description The path of the OSS object.
+     *
      * @example /opensearch/oss.json
      *
      * @var string
@@ -59,7 +63,7 @@ class config extends Model
     public $ossPath;
 
     /**
-     * @description The data partition. This parameter is required if type is set to odps.
+     * @description The partition in the MaxCompute table. This parameter is required if type is set to odps.
      *
      * @example ds=20230114
      *
@@ -68,6 +72,8 @@ class config extends Model
     public $partition;
 
     /**
+     * @description The path of the Apsara File Storage for HDFS data source.
+     *
      * @example test-hdfs-path
      *
      * @var string
@@ -84,7 +90,7 @@ class config extends Model
     public $project;
 
     /**
-     * @description The name of the table.
+     * @description The table name.
      *
      * @example bbt_rec_swing_u2i2i_score_be_v1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The specification code, which must be consistent with the values of the corresponding module parameters.
+     * @description The code of the specification, which must be consistent with the value that you specify on the buy page.
      *
      * @example 200
      *
@@ -18,6 +18,8 @@ class components extends Model
     public $code;
 
     /**
+     * @description The value of the specification.
+     *
      * @example ""
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListIndexesRequest extends Model
 {
     /**
-     * @description 是否为新版本控制台页面
+     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
      *
      * @example true
      *

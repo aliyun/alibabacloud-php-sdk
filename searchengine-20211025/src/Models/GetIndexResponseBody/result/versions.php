@@ -26,7 +26,7 @@ class versions extends Model
     public $files;
 
     /**
-     * @description The name of the version.
+     * @description The version name.
      *
      * @example ha-cn-7pp2ngv4s02_qrs
      *
@@ -35,7 +35,15 @@ class versions extends Model
     public $name;
 
     /**
-     * @description The status of the version.
+     * @description The status of the index version. Valid values:
+     *
+     *   NEW: The index version is created.
+     *   PUBLISH: The index version is normal.
+     *   IN_USE: The index version is in use.
+     *   NOT_USE: The index version is not used.
+     *   STOP_USE: The index version is being stopped.
+     *   RESTORE_USE: The index version is being restored.
+     *   FAIL: The index version failed to be created.
      *
      * @example 2
      *
@@ -44,7 +52,7 @@ class versions extends Model
     public $status;
 
     /**
-     * @description The last time when the version was updated.
+     * @description The time when the index version was updated.
      *
      * @example " "
      *
@@ -53,7 +61,7 @@ class versions extends Model
     public $updateTime;
 
     /**
-     * @description The ID of the version.
+     * @description The version ID.
      *
      * @example 1
      *

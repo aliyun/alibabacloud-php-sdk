@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description alias name
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $alias;
 
     /**
+     * @description index name
+     *
      * @example index
      *
      * @var string

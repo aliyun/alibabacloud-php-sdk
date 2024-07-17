@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configStatusList extends Model
 {
     /**
-     * @description The time when the cluster was updated.
+     * @description The time when the configuration was last updated.
      *
      * @example ""
      *
@@ -18,7 +18,7 @@ class configStatusList extends Model
     public $configUpdateTime;
 
     /**
-     * @description The overall progress.
+     * @description The configuration progress. Unit: percentage.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class configStatusList extends Model
     public $donePercent;
 
     /**
-     * @description The number of nodes that are configured.
+     * @description The number of processed Searcher workers in the cluster.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class configStatusList extends Model
     public $doneSize;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example test_0704
      *
@@ -45,7 +45,7 @@ class configStatusList extends Model
     public $name;
 
     /**
-     * @description The total number of nodes that you specify when you create the cluster.
+     * @description The total number of Searcher workers in the cluster.
      *
      * @example 0
      *

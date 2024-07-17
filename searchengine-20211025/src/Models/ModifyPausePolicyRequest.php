@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPausePolicyRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var BodyValue[]
      */
     public $body;

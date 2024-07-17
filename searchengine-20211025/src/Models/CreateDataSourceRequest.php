@@ -11,31 +11,51 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically rebuild the index.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoBuildIndex;
 
     /**
+     * @description The configuration information.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The data center in which the data source is deployed.
+     *
+     * @example vpc_hz_domain_1
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example ha-cn-pl32rf0****_test_api
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The configurations of the SARO data source.
+     *
      * @var saroConfig
      */
     public $saroConfig;
 
     /**
+     * @description The type of the data source. Valid values: odps, oss, and swift.
+     *
+     * @example odps
+     *
      * @var string
      */
     public $type;

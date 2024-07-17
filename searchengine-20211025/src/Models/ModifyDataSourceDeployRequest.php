@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataSourceDeployRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the automatic full indexing feature.
+     *
      * @example true
      *
      * @var bool
@@ -20,26 +22,36 @@ class ModifyDataSourceDeployRequest extends Model
     public $autoBuildIndex;
 
     /**
+     * @description The extended information.
+     *
      * @var extend
      */
     public $extend;
 
     /**
+     * @description The parameters of the process.
+     *
      * @var processor
      */
     public $processor;
 
     /**
+     * @description The information about the data source.
+     *
      * @var storage
      */
     public $storage;
 
     /**
+     * @description The information about the incremental data source Swift.
+     *
      * @var swift
      */
     public $swift;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -47,7 +59,7 @@ class ModifyDataSourceDeployRequest extends Model
     public $dryRun;
 
     /**
-     * @description generationId
+     * @description The ID of the full index version.
      *
      * @example 1708674867
      *

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configuration information.
+     *
      * @var mixed[][]
      */
     public $config;
@@ -25,6 +27,10 @@ class result extends Model
     public $configUpdateTime;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2024-05-21 16:05:26
+     *
      * @var string
      */
     public $createTime;
@@ -48,7 +54,7 @@ class result extends Model
     public $currentOnlineConfigVersion;
 
     /**
-     * @description The specifications of the data node.
+     * @description The specifications of Searcher workers.
      *
      * @var dataNode
      */
@@ -82,7 +88,7 @@ class result extends Model
     public $latestOnlineConfigVersion;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example general
      *
@@ -91,7 +97,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The specifications of the query node.
+     * @description The specifications of Query Result Searcher (QRS) workers.
      *
      * @var queryNode
      */

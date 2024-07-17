@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class indexVersions extends Model
 {
     /**
-     * @description The ID of the index deployed in offline mode
+     * @description The ID of the offline deployment.
      *
      * @example " "
      *
@@ -18,12 +18,16 @@ class indexVersions extends Model
     public $buildDeployId;
 
     /**
+     * @description The current online version number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentVersion;
 
     /**
-     * @description The name of the index table
+     * @description The name of the index table.
      *
      * @example table4
      *
@@ -32,7 +36,7 @@ class indexVersions extends Model
     public $indexName;
 
     /**
-     * @description The version of the index
+     * @description The index versions.
      *
      * @var int[]
      */

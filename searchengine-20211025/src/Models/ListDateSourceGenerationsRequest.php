@@ -19,9 +19,9 @@ class ListDateSourceGenerationsRequest extends Model
     public $domainName;
 
     /**
-     * @description The valid state of the data source. Valid values: true and false. The default value of this parameter is true.
+     * @description Specifies the index versions to be returned. Valid values:
      *
-     * 2.  false indicates that all generations are returned.
+     * 2.  false: returns all index versions.
      * @example true
      *
      * @var bool

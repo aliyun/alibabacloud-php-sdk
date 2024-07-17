@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class indexMetas extends Model
 {
     /**
+     * @description The name of the data center.
+     *
+     * @example hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The index name.
+     *
+     * @example test_api
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The deployment ID of the table.
+     *
+     * @example 2409
+     *
      * @var int
      */
     public $tableDeployId;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example ha-cn-pl32rf0****_test_api
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The tag.
+     *
+     * @example test_api_hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The name of the QRS worker.
+     *
+     * @example ha-cn-pl32rf0****_qrs
+     *
      * @var string
      */
     public $zoneName;

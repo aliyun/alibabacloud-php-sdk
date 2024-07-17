@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class queryNode extends Model
 {
     /**
-     * @description The number of nodes to query
+     * @description The number of QRS workers.
      *
      * @example 2
      *

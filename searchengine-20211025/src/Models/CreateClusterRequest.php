@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The remarks of the query node
+     * @description Specifies whether to enable automatic connection.
      *
      * @example true
      *
@@ -20,14 +20,14 @@ class CreateClusterRequest extends Model
     public $autoLoad;
 
     /**
-     * @description The description of the data node
+     * @description The details of the Searcher workers.
      *
      * @var dataNode
      */
     public $dataNode;
 
     /**
-     * @description The description of the cluster
+     * @description The description of the cluster.
      *
      * @example "ha-tets"
      *
@@ -36,7 +36,7 @@ class CreateClusterRequest extends Model
     public $description;
 
     /**
-     * @description The name of the node
+     * @description The cluster name.
      *
      * @example ha-cn-zvp2qr1sk01_qrs
      *
@@ -45,7 +45,7 @@ class CreateClusterRequest extends Model
     public $name;
 
     /**
-     * @description The description of the query node
+     * @description The details of the Query Result Searcher (QRS) workers.
      *
      * @var queryNode
      */

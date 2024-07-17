@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description Indicates whether the index properties are added. Valid values: true and false. **true** indicates that the index properties are added, and **false** indicates that the index properties are not added.
+     * @description Indicates whether the field has the index attribute. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -19,7 +19,7 @@ class result extends Model
     public $addIndex;
 
     /**
-     * @description Indicates whether it is an attribute field. Valid values: true and false. **true** indicates that it is an attribute field, and **false** indicates that it is not an attribute field.
+     * @description Indicates whether the field is an attribute field. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $attribute;
 
     /**
-     * @description Indicates whether it is a custom field. Valid values: true and false. **true** indicates that it is a custom field, and **false** indicates that it is not a custom field.
+     * @description Indicates whether the field is a custom field. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -37,7 +37,7 @@ class result extends Model
     public $custom;
 
     /**
-     * @description The name of the field.
+     * @description The field name.
      *
      * @example test
      *
@@ -46,14 +46,14 @@ class result extends Model
     public $name;
 
     /**
-     * @description The primary key.
+     * @description The primary key field.
      *
      * @var primaryKey
      */
     public $primaryKey;
 
     /**
-     * @description Indicates whether the information can be displayed. Valid values: true and false. **true** indicates that the information can be displayed, and **false** indicates that the information cannot be displayed.
+     * @description Indicates whether the field can be displayed. Valid values: **true** and **false**.
      *
      * @example false
      *
@@ -62,7 +62,7 @@ class result extends Model
     public $summary;
 
     /**
-     * @description The type of the field.
+     * @description The field type.
      *
      * @example STRING
      *

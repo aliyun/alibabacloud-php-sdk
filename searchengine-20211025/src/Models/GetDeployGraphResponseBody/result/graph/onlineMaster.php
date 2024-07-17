@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class onlineMaster extends Model
 {
     /**
+     * @description The name of the data center.
+     *
+     * @example hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The resource ID.
+     *
+     * @example 5377
+     *
      * @var string
      */
     public $hippoId;
 
     /**
+     * @description The ID of the data center.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the online cluster.
+     *
+     * @example ha-cn-pl32rf0****_hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $name;

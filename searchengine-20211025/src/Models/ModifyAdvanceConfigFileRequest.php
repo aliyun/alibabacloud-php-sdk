@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAdvanceConfigFileRequest extends Model
 {
     /**
-     * @description The content of the file.
+     * @description The file content.
      *
      * @example "ha3"
      *
@@ -18,7 +18,7 @@ class ModifyAdvanceConfigFileRequest extends Model
     public $content;
 
     /**
-     * @description The variable.
+     * @description The variables.
      *
      * @var VariablesValue[]
      */

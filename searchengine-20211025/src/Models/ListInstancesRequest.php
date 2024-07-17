@@ -19,7 +19,7 @@ class ListInstancesRequest extends Model
     public $description;
 
     /**
-     * @description The Instance type, vector (vector index version),engine (recall engine version)
+     * @description The instance type. Valid values: vector: OpenSearch Vector Search Edition instance. engine: OpenSearch Retrieval Engine Edition instance.
      *
      * @example vector
      *
@@ -28,7 +28,7 @@ class ListInstancesRequest extends Model
     public $edition;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example ha-cn-83570439y0n
      *
@@ -64,7 +64,7 @@ class ListInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tag dictionary.
+     * @description The tags of the instance.
      *
      * @var tags[]
      */

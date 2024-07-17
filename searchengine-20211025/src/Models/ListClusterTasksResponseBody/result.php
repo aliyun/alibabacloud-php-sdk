@@ -20,7 +20,7 @@ class result extends Model
     public $extraAttribute;
 
     /**
-     * @description The field3 field that is passed through when you create a state machine.
+     * @description The field3 field that was passed when the FSM was created.
      *
      * @example " "
      *
@@ -29,7 +29,7 @@ class result extends Model
     public $field3;
 
     /**
-     * @description fsmId
+     * @description The ID of the finite state machine (FSM).
      *
      * @example tisplus_opensearch@datasource_flow_fsm@1865410598556969-ha-cn-zvp2ljiwe01_api2@bj_vpc_domain_1@null@MANUAL-ha-cn-zvp2ljiwe01_api2@1649729867698@028315
      *
@@ -38,7 +38,7 @@ class result extends Model
     public $fsmId;
 
     /**
-     * @description Indicates whether the change is a data source task change or a cluster task change.
+     * @description The change group type.
      *
      * @example " "
      *
@@ -47,7 +47,7 @@ class result extends Model
     public $groupType;
 
     /**
-     * @description The task name on the card.
+     * @description The card name.
      *
      * @example ha-cn-pl32rf0js04_qrs
      *
@@ -56,7 +56,7 @@ class result extends Model
     public $name;
 
     /**
-     * @description The overall status of FSM.
+     * @description The FSM status.
      *
      * @example onlyPublished
      *
@@ -65,21 +65,21 @@ class result extends Model
     public $status;
 
     /**
-     * @description The status tag of the progress bar chart.
+     * @description The tags of the progress bar.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The information about the task.
+     * @description The task information.
      *
      * @var taskNodes[]
      */
     public $taskNodes;
 
     /**
-     * @description The timestamp of the task on the card.
+     * @description The timestamp of the card.
      *
      * @example 1657610520
      *
@@ -88,7 +88,7 @@ class result extends Model
     public $time;
 
     /**
-     * @description The type of the task on the card.
+     * @description The card type.
      *
      * @example qrs
      *
@@ -97,7 +97,7 @@ class result extends Model
     public $type;
 
     /**
-     * @description The user who triggered the FSM process.
+     * @description The user who triggered the generation of the FSM process.
      *
      * @example " "
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class saroConfig extends Model
 {
     /**
-     * @description saro数据源的namespace
+     * @description The namespace of the SARO data source.
      *
      * @example TEST_dump_demo_sj_na61hunbu2_share_holo
      *
@@ -18,7 +18,7 @@ class saroConfig extends Model
     public $namespace;
 
     /**
-     * @description saro数据表名称
+     * @description The name of the SARO table.
      *
      * @example dump_odps_demo
      *

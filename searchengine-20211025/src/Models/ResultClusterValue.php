@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResultClusterValue extends Model
 {
     /**
+     * @description The maximum number of full indexes that can be concurrently built.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $buildParallelNum;
 
     /**
+     * @description The maximum number of full indexes that can be concurrently merged.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $mergeParallelNum;

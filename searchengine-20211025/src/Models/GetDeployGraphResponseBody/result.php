@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The deployment information.
+     *
      * @var graph
      */
     public $graph;

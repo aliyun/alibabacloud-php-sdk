@@ -19,7 +19,7 @@ class GetNodeConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configurations of the node.
+     * @description The result set.
      *
      * @var result
      */

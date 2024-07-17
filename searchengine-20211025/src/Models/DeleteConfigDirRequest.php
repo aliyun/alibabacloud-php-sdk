@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteConfigDirRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The directory name.
      *
+     * This parameter is required.
      * @example /clusters
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteConfigDirRequest extends Model
     public $dirName;
 
     /**
-     * @description This parameter is required.
+     * @description The path of the parent directory.
      *
+     * This parameter is required.
      * @example /
      *
      * @var string

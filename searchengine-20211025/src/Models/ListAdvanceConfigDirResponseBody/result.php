@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The name of the absolute path.
+     * @description The absolute path in which the file is stored.
      *
      * @example "/path/wpd/nae"
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $fullPathName;
 
     /**
-     * @description Indicates whether it is a directory. Valid values: true and false. true indicates that it is a directory, and false indicates that it is not a directory.
+     * @description Indicates whether the file is a directory. Valid values: true and false.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $isDir;
 
     /**
-     * @description Indicates whether it is a template. Valid values: **true** and **false**. true indicates that it is a template, and false indicates that it is not a template.
+     * @description Indicates whether the file is a template. Valid values: **true** and **false**.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $isTemplate;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example file_name_1
      *

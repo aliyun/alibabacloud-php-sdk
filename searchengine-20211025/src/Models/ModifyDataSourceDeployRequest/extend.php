@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class extend extends Model
 {
     /**
+     * @description The information about the Apsara File Storage for HDFS data source.
+     *
      * @var hdfs
      */
     public $hdfs;
 
     /**
+     * @description The information about the MaxCompute data source.
+     *
      * @var odps
      */
     public $odps;
 
     /**
+     * @description The information about the OSS data source.
+     *
      * @var oss
      */
     public $oss;
 
     /**
+     * @description The information about the SARO data source. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+     *
      * @var saro
      */
     public $saro;

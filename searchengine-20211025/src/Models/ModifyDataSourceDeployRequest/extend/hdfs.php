@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hdfs extends Model
 {
     /**
+     * @description The path of the Apsara File Storage for HDFS data source.
+     *
      * @example ymsh-service/src/main/java/cn/ymsh/util/jd
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAdvanceConfigResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example 2AE63638-5420-56DC-BF59-37D8174039A0
      *
@@ -18,7 +18,7 @@ class ModifyAdvanceConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Map
+     * @description The result.
      *
      * @example {}
      *

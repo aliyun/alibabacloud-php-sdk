@@ -9,22 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ListAdvanceConfigsRequest extends Model
 {
     /**
+     * @description The name of the data source.
+     *
+     * @example ha-cn-pl32rf0****_test_api
+     *
      * @var string
      */
     public $dataSourceName;
 
     /**
+     * @description The index name.
+     *
+     * @example test_api
+     *
      * @var string
      */
     public $indexName;
 
     /**
+     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $newMode;
 
     /**
-     * @description The type of the advanced configurations. Valid values: online and offline. - online The default value is offline.
+     * @description The type of advanced configurations that you want to query. Valid values: - online -offline (default)
      *
      * @example online
      *

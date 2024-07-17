@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The billing method
+     * @description The billing method.
      *
      * @example PrePaid
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The product code
+     * @description The commodity code of the instance.
      *
      * @example ha3-code
      *
@@ -63,7 +63,7 @@ class result extends Model
     public $inDebt;
 
     /**
-     * @description The ID of the resource
+     * @description The instance ID.
      *
      * @example ha-cn-0ju2s170b03
      *
@@ -81,7 +81,7 @@ class result extends Model
     public $lockMode;
 
     /**
-     * @description The ID of the resource group
+     * @description The ID of the resource group.
      *
      * @example rg-aeky6hthboewpuy
      *
@@ -90,7 +90,7 @@ class result extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the instance
+     * @description The instance status.
      *
      * @example Running
      *

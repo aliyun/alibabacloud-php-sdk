@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTableRequest extends Model
 {
     /**
+     * @description The configurations about field processing.
+     *
      * @var dataProcessConfig[]
      */
     public $dataProcessConfig;
 
     /**
+     * @description The number of resources used for data update.
+     *
      * @example 1
      *
      * @var int
@@ -24,16 +28,22 @@ class CreateTableRequest extends Model
     public $dataProcessorCount;
 
     /**
+     * @description The configurations of the data source.
+     *
      * @var dataSource
      */
     public $dataSource;
 
     /**
+     * @description The fields.
+     *
      * @var string[]
      */
     public $fieldSchema;
 
     /**
+     * @description The index name.
+     *
      * @example index_1
      *
      * @var string
@@ -41,6 +51,8 @@ class CreateTableRequest extends Model
     public $name;
 
     /**
+     * @description The number of data shards.
+     *
      * @example 1
      *
      * @var int
@@ -48,6 +60,8 @@ class CreateTableRequest extends Model
     public $partitionCount;
 
     /**
+     * @description The primary key field.
+     *
      * @example id
      *
      * @var string
@@ -55,6 +69,8 @@ class CreateTableRequest extends Model
     public $primaryKey;
 
     /**
+     * @description The instance schema. If this parameter is specified, the parameters about the index are not required.
+     *
      * @example {}
      *
      * @var string
@@ -62,11 +78,18 @@ class CreateTableRequest extends Model
     public $rawSchema;
 
     /**
+     * @description The index schema.
+     *
      * @var vectorIndex[]
      */
     public $vectorIndex;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

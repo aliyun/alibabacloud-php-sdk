@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ConfigValue extends Model
 {
     /**
+     * @description The description of the offline configuration.
+     *
+     * @example test
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The files to be modified.
+     *
      * @var files[]
      */
     public $files;

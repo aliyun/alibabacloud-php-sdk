@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIndexOnlineStrategyRequest extends Model
 {
     /**
+     * @description The index change rate.
+     *
      * @example 20
      *
      * @var int

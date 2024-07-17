@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class saro extends Model
 {
     /**
+     * @description The path of the SARO data source.
+     *
      * @example /
      *
      * @var string
@@ -16,6 +18,8 @@ class saro extends Model
     public $path;
 
     /**
+     * @description The version number of the SARO data source.
+     *
      * @example 1
      *
      * @var string

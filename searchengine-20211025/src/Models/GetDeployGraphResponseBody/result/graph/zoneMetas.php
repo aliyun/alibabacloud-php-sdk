@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class zoneMetas extends Model
 {
     /**
+     * @description The name of the data center.
+     *
+     * @example hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $domainInfo;
 
     /**
+     * @description The name of the Query Result Searcher (QRS) worker.
+     *
+     * @example ha-cn-pl32rf0****_qrs
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the service that is used to manage the relationships between online clusters and indexes.
+     *
+     * @example ha-cn-pl32rf0****_hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $suezAdminName;
 
     /**
+     * @description The tag.
+     *
+     * @example ha-cn-pl32rf0****_qrs_hz_pre_vpc_domain_1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The node type.
+     *
+     * @example qrs
+     *
      * @var string
      */
     public $type;

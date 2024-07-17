@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyIndexResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example 93A9E542-8CF8-5BA6-99AB-94C0FE520429
      *
@@ -18,7 +18,7 @@ class ModifyIndexResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Object
+     * @description The result.
      *
      * @example {}
      *

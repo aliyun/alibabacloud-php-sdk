@@ -12,28 +12,38 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The cluster information.
+     *
      * @var ResultClusterValue[]
      */
     public $cluster;
 
     /**
+     * @description The configuration information.
+     *
      * @var mixed[][]
      */
     public $config;
 
     /**
+     * @description The configuration that takes effect next time.
+     *
      * @var mixed[][]
      */
     public $configWhenBuild;
 
     /**
-     * @description The content of the index.
+     * @description The file content.
+     *
+     * @example {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
      *
      * @var string
      */
     public $content;
 
     /**
+     * @description The name of the data source.
+     *
      * @example ha-cn-tl32nd2nq01_00
      *
      * @var string
@@ -48,33 +58,45 @@ class result extends Model
     public $dataSourceInfo;
 
     /**
-     * @description The remarks.
+     * @description The description of the index version.
+     *
+     * @example test index
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The deployment name of the index.
+     *
+     * @example sz_vpc_domain_1
+     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The last time when full data in the index was updated.
+     * @description The time when full data in the index was last updated.
+     *
+     * @example 2024-06-20 08:52:54
      *
      * @var string
      */
     public $fullUpdateTime;
 
     /**
-     * @description The version of the data.
+     * @description The data version.
+     *
+     * @example 1688523414
      *
      * @var int
      */
     public $fullVersion;
 
     /**
-     * @description The last time when incremental data in the index was updated.
+     * @description The time when incremental data in the index was last updated.
+     *
+     * @example 2024-06-20 08:52:54
      *
      * @var string
      */
@@ -83,18 +105,32 @@ class result extends Model
     /**
      * @description The index size.
      *
+     * @example 4689
+     *
      * @var int
      */
     public $indexSize;
 
     /**
-     * @description The status of the index. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, and RESTORE_USE. After a Retrieval Engine Edition instance is created, it enters the IN_USE state.
+     * @description The status of the index version. Valid values:
+     *
+     *   NEW: The index version is created.
+     *   PUBLISH: The index version is normal.
+     *   IN_USE: The index version is in use.
+     *   NOT_USE: The index version is not used.
+     *   STOP_USE: The index version is being stopped.
+     *   RESTORE_USE: The index version is being restored.
+     *   FAIL: The index version failed to be created.
+     *
+     * @example IN_USE
      *
      * @var string
      */
     public $indexStatus;
 
     /**
+     * @description The index name.
+     *
      * @example general
      *
      * @var string
@@ -103,6 +139,8 @@ class result extends Model
 
     /**
      * @description The number of shards.
+     *
+     * @example 2
      *
      * @var int
      */

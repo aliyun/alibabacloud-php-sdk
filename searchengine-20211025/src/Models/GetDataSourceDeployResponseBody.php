@@ -19,7 +19,7 @@ class GetDataSourceDeployResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Deploy
+     * @description The result.
      *
      * @var result
      */

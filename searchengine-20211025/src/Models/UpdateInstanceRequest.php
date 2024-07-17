@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @description A list of instance-related specifications.
+     * @description The information about the instance specification.
      *
      * @var components[]
      */
@@ -26,7 +26,7 @@ class UpdateInstanceRequest extends Model
     public $description;
 
     /**
-     * @description Valid values: UPGRADE and DOWNGRADE. UPGRADE indicates to upgrade the instance specifications. DOWNGRADE indicates to downgrade the instance specifications.
+     * @description The type of the order. Valid values: UPGRADE and DOWNGRADE. UPGRADE upgrades the instance specifications. DOWNGRADE: downgrades the instance specifications.
      *
      * @example ""
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTasksRequest extends Model
 {
     /**
+     * @description The timestamp that indicates the end of the time range to query.
+     *
      * @example 1690423741577
      *
      * @var int
@@ -16,6 +18,8 @@ class ListTasksRequest extends Model
     public $end;
 
     /**
+     * @description The timestamp that indicates the beginning of the time range to query.
+     *
      * @example 1687238865434
      *
      * @var int

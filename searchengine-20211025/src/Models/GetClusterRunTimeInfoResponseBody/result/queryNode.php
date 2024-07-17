@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class queryNode extends Model
 {
     /**
-     * @description The dataStatusList.
+     * @description The configuration status.
      *
      * @var configStatusList[]
      */
     public $configStatusList;
 
     /**
-     * @description The service status.
+     * @description The service status of the QRS worker.
      *
      * @var serviceStatus
      */

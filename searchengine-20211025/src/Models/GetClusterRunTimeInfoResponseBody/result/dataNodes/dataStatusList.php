@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class dataStatusList extends Model
 {
     /**
-     * @description The information about advanced configurations.
+     * @description The information about the advanced configuration.
      *
      * @var advanceConfigInfo
      */
     public $advanceConfigInfo;
 
     /**
-     * @description The name of the worker that failed because of a deployment failure.
+     * @description The name of the worker that failed due to a deployment failure.
      *
      * @var string[]
      */
@@ -34,7 +34,7 @@ class dataStatusList extends Model
     public $docSize;
 
     /**
-     * @description The overall progress.
+     * @description The configuration progress. Unit: percentage.
      *
      * @example 100
      *
@@ -43,7 +43,7 @@ class dataStatusList extends Model
     public $donePercent;
 
     /**
-     * @description The number of nodes that are configured.
+     * @description The number of processed QRS workers in the cluster.
      *
      * @example 100
      *
@@ -61,7 +61,7 @@ class dataStatusList extends Model
     public $errorMsg;
 
     /**
-     * @description The time when the full data was updated.
+     * @description The time when full data in the index was last updated.
      *
      * @example " "
      *
@@ -70,7 +70,7 @@ class dataStatusList extends Model
     public $fullUpdateTime;
 
     /**
-     * @description The full version.
+     * @description The time when the full index version was generated.
      *
      * @example 123423
      *
@@ -79,7 +79,7 @@ class dataStatusList extends Model
     public $fullVersion;
 
     /**
-     * @description The time when the incremental data was updated.
+     * @description The time when incremental data in the index was last updated.
      *
      * @example ""
      *
@@ -88,7 +88,7 @@ class dataStatusList extends Model
     public $incUpdateTime;
 
     /**
-     * @description The incremental version.
+     * @description The time when the incremental index version was generated.
      *
      * @example 123423
      *
@@ -97,14 +97,14 @@ class dataStatusList extends Model
     public $incVersion;
 
     /**
-     * @description The configuration information of the index.
+     * @description The information about the index configuration.
      *
      * @var indexConfigInfo
      */
     public $indexConfigInfo;
 
     /**
-     * @description The size of the index.
+     * @description The index size.
      *
      * @example 100
      *
@@ -113,21 +113,21 @@ class dataStatusList extends Model
     public $indexSize;
 
     /**
-     * @description The name of the worker that failed because of insufficient disk space.
+     * @description The name of the worker that failed due to insufficient disks.
      *
      * @var string[]
      */
     public $lackDiskWorker;
 
     /**
-     * @description The name of the worker that failed because of insufficient memory.
+     * @description The name of the worker that failed due to insufficient memory.
      *
      * @var string[]
      */
     public $lackMemWorker;
 
     /**
-     * @description The name of the node.
+     * @description The name of the QRS worker.
      *
      * @example ha-cn-c4d2rq7nt04_qrs
      *
@@ -136,7 +136,7 @@ class dataStatusList extends Model
     public $name;
 
     /**
-     * @description The total number of nodes that you specify when you create the cluster.
+     * @description The total number of QRS workers in the cluster.
      *
      * @example 1
      *

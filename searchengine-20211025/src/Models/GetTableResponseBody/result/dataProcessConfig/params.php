@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class params extends Model
 {
     /**
+     * @description The source of the data to be vectorized.
+     *
      * @var srcFieldConfig
      */
     public $srcFieldConfig;
 
     /**
+     * @description The data type.
+     *
      * @example image
      *
      * @var string
@@ -22,6 +26,8 @@ class params extends Model
     public $vectorModal;
 
     /**
+     * @description The vectorization model.
+     *
      * @example clip
      *
      * @var string

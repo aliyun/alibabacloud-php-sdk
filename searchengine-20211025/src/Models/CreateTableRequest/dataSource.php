@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description Specifies whether to automatically rebuild the index.
+     *
      * @example true
      *
      * @var bool
@@ -17,11 +19,15 @@ class dataSource extends Model
     public $autoBuildIndex;
 
     /**
+     * @description The configurations of the data source.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The start timestamp from which incremental data is retrieved.
+     *
      * @example 1715160176
      *
      * @var int
@@ -29,6 +35,8 @@ class dataSource extends Model
     public $dataTimeSec;
 
     /**
+     * @description The data source type. Valid values: odps, swift, and oss.
+     *
      * @example odps
      *
      * @var string

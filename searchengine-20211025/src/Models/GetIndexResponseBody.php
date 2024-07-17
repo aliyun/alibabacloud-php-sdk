@@ -19,7 +19,7 @@ class GetIndexResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the index.
+     * @description The index information.
      *
      * @var result
      */

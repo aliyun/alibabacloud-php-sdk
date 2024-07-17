@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PushDocumentsRequest extends Model
 {
     /**
+     * @description The request body.
+     *
      * @var mixed[]
      */
     public $body;
 
     /**
+     * @description The primary key field.
+     *
      * @example id
      *
      * @var string

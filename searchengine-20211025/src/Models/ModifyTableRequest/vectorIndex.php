@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class vectorIndex extends Model
 {
     /**
+     * @description The configurations of the index schema.
+     *
      * @var advanceParams
      */
     public $advanceParams;
 
     /**
+     * @description The dimension of the vector.
+     *
      * @example 128
      *
      * @var string
@@ -22,6 +26,8 @@ class vectorIndex extends Model
     public $dimension;
 
     /**
+     * @description The distance type.
+     *
      * @example SquaredEuclidean
      *
      * @var string
@@ -29,6 +35,8 @@ class vectorIndex extends Model
     public $distanceType;
 
     /**
+     * @description The name of the index schema.
+     *
      * @example test_api
      *
      * @var string
@@ -36,6 +44,8 @@ class vectorIndex extends Model
     public $indexName;
 
     /**
+     * @description The namespace field.
+     *
      * @example namespace
      *
      * @var string
@@ -43,6 +53,8 @@ class vectorIndex extends Model
     public $namespace;
 
     /**
+     * @description The field that stores the indexes of the elements in sparse vectors.
+     *
      * @example sparse_indices
      *
      * @var string
@@ -50,6 +62,8 @@ class vectorIndex extends Model
     public $sparseIndexField;
 
     /**
+     * @description The field that stores the elements in sparse vectors.
+     *
      * @example sparse_values
      *
      * @var string
@@ -57,6 +71,8 @@ class vectorIndex extends Model
     public $sparseValueField;
 
     /**
+     * @description The vector field.
+     *
      * @example source_image_vector
      *
      * @var string
@@ -64,6 +80,8 @@ class vectorIndex extends Model
     public $vectorField;
 
     /**
+     * @description The vector retrieval algorithm.
+     *
      * @example Qc
      *
      * @var string

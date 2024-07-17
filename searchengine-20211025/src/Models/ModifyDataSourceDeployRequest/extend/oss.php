@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class oss extends Model
 {
     /**
+     * @description The path of the OSS data source.
+     *
      * @example oss://test
      *
      * @var string

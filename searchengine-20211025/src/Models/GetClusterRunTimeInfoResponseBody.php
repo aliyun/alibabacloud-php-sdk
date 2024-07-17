@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetClusterRunTimeInfoResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example E45380E8-994A-5402-9806-F114B3295FCF
      *
@@ -19,7 +19,7 @@ class GetClusterRunTimeInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result set.
+     * @description The result.
      *
      * @var result[]
      */

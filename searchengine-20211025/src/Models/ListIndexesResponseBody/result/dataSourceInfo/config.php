@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @description odps数据源ak
+     * @description The AccessKey ID of the MaxCompute data source.
      *
      * @example root
      *
@@ -18,7 +18,7 @@ class config extends Model
     public $accessKey;
 
     /**
-     * @description odps数据源ak secret
+     * @description The AccessKey secret of the MaxCompute data source.
      *
      * @example root123
      *
@@ -27,7 +27,7 @@ class config extends Model
     public $accessSecret;
 
     /**
-     * @description oss命名空间
+     * @description The OSS bucket.
      *
      * @example ha3test-oss
      *
@@ -36,7 +36,7 @@ class config extends Model
     public $bucket;
 
     /**
-     * @description odps相关
+     * @description The endpoint of the MaxCompute data source.
      *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
@@ -45,7 +45,7 @@ class config extends Model
     public $endpoint;
 
     /**
-     * @description saro相关
+     * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
      *
      * @example TEST_dump_demo_sj_na61hunbu2_share_holo
      *
@@ -54,7 +54,7 @@ class config extends Model
     public $namespace;
 
     /**
-     * @description oss数据源相关
+     * @description The Object Storage Service (OSS) path.
      *
      * @example /test_opensearch/sift_oss_test.data
      *
@@ -63,7 +63,7 @@ class config extends Model
     public $ossPath;
 
     /**
-     * @description 数据分片
+     * @description The shard name.
      *
      * @example ds=12345
      *
@@ -72,7 +72,7 @@ class config extends Model
     public $partition;
 
     /**
-     * @description hdfs相关
+     * @description The file path in the Apsara File Storage for HDFS file system.
      *
      * @example http://test_opensearch/sift_oss_test.data
      *
@@ -81,7 +81,7 @@ class config extends Model
     public $path;
 
     /**
-     * @description odps数据源项目名称
+     * @description The name of the MaxCompute project that is used as the data source.
      *
      * @example tisplus_dev
      *
@@ -90,7 +90,7 @@ class config extends Model
     public $project;
 
     /**
-     * @description saro、odps相关
+     * @description The name of the MaxCompute table that is used as the data source.
      *
      * @example dump_odps_demo
      *

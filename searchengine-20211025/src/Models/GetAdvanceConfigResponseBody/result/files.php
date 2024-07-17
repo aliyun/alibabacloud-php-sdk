@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description The name of the file path.
+     * @description The file path.
      *
      * @example ""
      *
@@ -18,7 +18,7 @@ class files extends Model
     public $fullPathName;
 
     /**
-     * @description Indicates whether it is a directory.
+     * @description Indicates whether the file is a directory.
      *
      * @example True
      *
@@ -27,7 +27,7 @@ class files extends Model
     public $isDir;
 
     /**
-     * @description Indicates whether it is a template.
+     * @description Indicates whether the file is a container.
      *
      * @example True
      *
@@ -36,7 +36,7 @@ class files extends Model
     public $isTemplate;
 
     /**
-     * @description The name.
+     * @description The file name.
      *
      * @example ha-cn-2r42ostoc01_qrs
      *

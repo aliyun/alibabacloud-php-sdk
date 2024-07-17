@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterOfflineConfigRequest extends Model
 {
     /**
-     * @description The mode of reindexing. Valid values: api and indexRecover. api indicates to push incremental data to a data source by calling the API operations. indexRecover indicates that the data source is restored from the index.
+     * @description The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
      *
      * @example indexRecover
      *
@@ -34,7 +34,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $dataSourceName;
 
     /**
-     * @description The type of the data source. Valid values: odps, swift, saro, and unKnow.
+     * @description The type of the data source. Valid values: odps: MaxCompute. swift: Swift. unKnow: unknown type.
      *
      * @example maxComputer
      *
@@ -52,7 +52,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $dataTimeSec;
 
     /**
-     * @description The domain where the data source is deployed.
+     * @description The data center in which the data source is deployed.
      *
      * @example vpc_hz_domain_1
      *
@@ -61,7 +61,7 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $domain;
 
     /**
-     * @description The data restoration version.
+     * @description The ID of the full index version.
      *
      * @example 160142641
      *
@@ -79,6 +79,10 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $partition;
 
     /**
+     * @description The push mode of the configuration. By default, only the configuration is pushed.
+     *
+     * @example PUSH_ONLY
+     *
      * @var string
      */
     public $pushMode;

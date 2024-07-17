@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataNode extends Model
 {
     /**
-     * @description The name of the node.
+     * @description The name of the Searcher worker.
      *
      * @example test
      *

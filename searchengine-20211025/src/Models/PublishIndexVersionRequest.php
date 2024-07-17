@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PublishIndexVersionRequest extends Model
 {
     /**
-     * @description The query result
+     * @description The request body.
      *
      * @example {}
      *

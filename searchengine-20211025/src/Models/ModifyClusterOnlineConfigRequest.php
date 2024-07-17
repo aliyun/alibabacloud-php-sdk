@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterOnlineConfigRequest extends Model
 {
     /**
-     * @description The information about the cluster
+     * @description The cluster information.
      *
      * @var string[]
      */
     public $clusters;
 
     /**
-     * @description 配置信息
+     * @description The configuration information.
      *
      * @var int[]
      */

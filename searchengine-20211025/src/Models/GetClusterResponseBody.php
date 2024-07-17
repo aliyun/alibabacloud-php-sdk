@@ -19,7 +19,7 @@ class GetClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of the cluster details.
+     * @description The clusters.
      *
      * @var result
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 022F36C7-9FB4-5D67-BEBC-3D14B0984463
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $requestId;
 
     /**
+     * @description The result
+     *
      * @var string[]
      */
     public $result;
