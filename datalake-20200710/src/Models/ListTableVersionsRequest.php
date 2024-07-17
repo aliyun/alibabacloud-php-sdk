@@ -23,7 +23,7 @@ class ListTableVersionsRequest extends Model
     public $databaseName;
 
     /**
-     * @example \"\"
+     * @example \\"\\"
      *
      * @var string
      */

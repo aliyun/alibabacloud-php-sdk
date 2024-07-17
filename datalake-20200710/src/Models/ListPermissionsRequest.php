@@ -56,6 +56,8 @@ class ListPermissionsRequest extends Model
     public $principal;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hive
      *
      * @var string

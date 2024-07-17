@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RevokeRolesFromUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $roleNames;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Principal
      */
     public $user;

@@ -11,6 +11,7 @@ class UpdateCatalogRequest extends Model
     /**
      * @description cataloginput
      *
+     * This parameter is required.
      * @var CatalogInput
      */
     public $catalogInput;

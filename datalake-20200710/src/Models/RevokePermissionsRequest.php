@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokePermissionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $accesses;
@@ -28,16 +30,22 @@ class RevokePermissionsRequest extends Model
     public $delegateAccesses;
 
     /**
+     * @description This parameter is required.
+     *
      * @var MetaResource
      */
     public $metaResource;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Principal
      */
     public $principal;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hive
      *
      * @var string

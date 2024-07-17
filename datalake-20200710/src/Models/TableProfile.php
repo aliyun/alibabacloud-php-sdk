@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class TableProfile extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNumMonthly;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNumWeekly;
 
     /**
+     * @example 2023-08-14 10:44:13
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example OSS_HDFS
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example test_db
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $fileCnt;
 
     /**
+     * @example 31
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPartitioned;
@@ -59,16 +77,22 @@ class TableProfile extends Model
     public $lastAccessNumTime;
 
     /**
+     * @example 2023-08-22 12:14:42
+     *
      * @var string
      */
     public $lastAccessTime;
 
     /**
+     * @example 2023-08-16 18:02:24
+     *
      * @var string
      */
     public $lastDdlTime;
 
     /**
+     * @example 2023-08-16 18:02:25
+     *
      * @var string
      */
     public $lastModifyTime;
@@ -79,41 +103,57 @@ class TableProfile extends Model
     public $latestAccessNumDate;
 
     /**
+     * @example 2023-08-30 19:16:10
+     *
      * @var string
      */
     public $latestDate;
 
     /**
+     * @example oss://mybucket.cn-hangzhou.oss-dls.aliyuncs.com/test_db/test_tbl/
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $objectAccessNum;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $objectAccessNumMonthly;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $objectAccessNumWeekly;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $objectCnt;
 
     /**
+     * @example 31
+     *
      * @var int
      */
     public $objectSize;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $partitionCnt;
@@ -124,6 +164,8 @@ class TableProfile extends Model
     public $recordCnt;
 
     /**
+     * @example test_tbl
+     *
      * @var string
      */
     public $tableName;

@@ -30,7 +30,7 @@ class ListFunctionNamesRequest extends Model
     public $functionNamePattern;
 
     /**
-     * @example \"\"
+     * @example \\"\\"
      *
      * @var string
      */

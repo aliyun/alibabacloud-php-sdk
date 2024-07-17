@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopMigrationWorkflowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example M-6DCF5D8EF92E2195
      *
      * @var string

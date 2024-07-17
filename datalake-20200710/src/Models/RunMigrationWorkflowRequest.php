@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunMigrationWorkflowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example M-EDD8BF959BB97345
      *
      * @var string

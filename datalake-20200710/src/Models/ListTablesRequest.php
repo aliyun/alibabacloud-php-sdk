@@ -23,7 +23,7 @@ class ListTablesRequest extends Model
     public $databaseName;
 
     /**
-     * @example \"\"
+     * @example \\"\\"
      *
      * @var string
      */

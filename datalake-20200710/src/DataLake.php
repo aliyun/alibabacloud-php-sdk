@@ -79,6 +79,8 @@ use AlibabaCloud\SDK\DataLake\V20200710\Models\GetCatalogRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetCatalogSettingsRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetCatalogSettingsResponse;
+use AlibabaCloud\SDK\DataLake\V20200710\Models\GetDatabaseProfileRequest;
+use AlibabaCloud\SDK\DataLake\V20200710\Models\GetDatabaseProfileResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\GetFunctionRequest;
@@ -128,6 +130,9 @@ use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionNamesResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsByExprResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsByFilterRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsByFilterResponse;
+use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsProfileRequest;
+use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsProfileResponse;
+use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsProfileShrinkRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPartitionsResponse;
 use AlibabaCloud\SDK\DataLake\V20200710\Models\ListPermissionsRequest;
@@ -291,11 +296,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param AbortLockRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary abort lock context with the lockid
+     *  *
+     * @param AbortLockRequest $request AbortLockRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbortLockResponse
+     * @return AbortLockResponse AbortLockResponse
      */
     public function abortLockWithOptions($request, $headers, $runtime)
     {
@@ -324,9 +331,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param AbortLockRequest $request
+     * @summary abort lock context with the lockid
+     *  *
+     * @param AbortLockRequest $request AbortLockRequest
      *
-     * @return AbortLockResponse
+     * @return AbortLockResponse AbortLockResponse
      */
     public function abortLock($request)
     {
@@ -337,11 +346,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchCreatePartitionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 批量创建分区
+     *  *
+     * @param BatchCreatePartitionsRequest $request BatchCreatePartitionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchCreatePartitionsResponse
+     * @return BatchCreatePartitionsResponse BatchCreatePartitionsResponse
      */
     public function batchCreatePartitionsWithOptions($request, $headers, $runtime)
     {
@@ -385,9 +396,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchCreatePartitionsRequest $request
+     * @summary 批量创建分区
+     *  *
+     * @param BatchCreatePartitionsRequest $request BatchCreatePartitionsRequest
      *
-     * @return BatchCreatePartitionsResponse
+     * @return BatchCreatePartitionsResponse BatchCreatePartitionsResponse
      */
     public function batchCreatePartitions($request)
     {
@@ -398,11 +411,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchCreateTablesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 批量创建表
+     *  *
+     * @param BatchCreateTablesRequest $request BatchCreateTablesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchCreateTablesResponse
+     * @return BatchCreateTablesResponse BatchCreateTablesResponse
      */
     public function batchCreateTablesWithOptions($request, $headers, $runtime)
     {
@@ -440,9 +455,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchCreateTablesRequest $request
+     * @summary 批量创建表
+     *  *
+     * @param BatchCreateTablesRequest $request BatchCreateTablesRequest
      *
-     * @return BatchCreateTablesResponse
+     * @return BatchCreateTablesResponse BatchCreateTablesResponse
      */
     public function batchCreateTables($request)
     {
@@ -453,11 +470,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeletePartitionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary batch delete partitions
+     *  *
+     * @param BatchDeletePartitionsRequest $request BatchDeletePartitionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeletePartitionsResponse
+     * @return BatchDeletePartitionsResponse BatchDeletePartitionsResponse
      */
     public function batchDeletePartitionsWithOptions($request, $headers, $runtime)
     {
@@ -498,9 +517,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeletePartitionsRequest $request
+     * @summary batch delete partitions
+     *  *
+     * @param BatchDeletePartitionsRequest $request BatchDeletePartitionsRequest
      *
-     * @return BatchDeletePartitionsResponse
+     * @return BatchDeletePartitionsResponse BatchDeletePartitionsResponse
      */
     public function batchDeletePartitions($request)
     {
@@ -511,11 +532,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteTableVersionsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary BatchDeleteTableVersions
+     *  *
+     * @param BatchDeleteTableVersionsRequest $request BatchDeleteTableVersionsRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteTableVersionsResponse
+     * @return BatchDeleteTableVersionsResponse BatchDeleteTableVersionsResponse
      */
     public function batchDeleteTableVersionsWithOptions($request, $headers, $runtime)
     {
@@ -553,9 +576,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteTableVersionsRequest $request
+     * @summary BatchDeleteTableVersions
+     *  *
+     * @param BatchDeleteTableVersionsRequest $request BatchDeleteTableVersionsRequest
      *
-     * @return BatchDeleteTableVersionsResponse
+     * @return BatchDeleteTableVersionsResponse BatchDeleteTableVersionsResponse
      */
     public function batchDeleteTableVersions($request)
     {
@@ -566,11 +591,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteTablesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary BatchDeleteTables
+     *  *
+     * @param BatchDeleteTablesRequest $request BatchDeleteTablesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteTablesResponse
+     * @return BatchDeleteTablesResponse BatchDeleteTablesResponse
      */
     public function batchDeleteTablesWithOptions($request, $headers, $runtime)
     {
@@ -608,9 +635,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteTablesRequest $request
+     * @summary BatchDeleteTables
+     *  *
+     * @param BatchDeleteTablesRequest $request BatchDeleteTablesRequest
      *
-     * @return BatchDeleteTablesResponse
+     * @return BatchDeleteTablesResponse BatchDeleteTablesResponse
      */
     public function batchDeleteTables($request)
     {
@@ -621,11 +650,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetPartitionColumnStatisticsRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @summary Batch Get Partition Column Statistics
+     *  *
+     * @param BatchGetPartitionColumnStatisticsRequest $request BatchGetPartitionColumnStatisticsRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetPartitionColumnStatisticsResponse
+     * @return BatchGetPartitionColumnStatisticsResponse BatchGetPartitionColumnStatisticsResponse
      */
     public function batchGetPartitionColumnStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -666,9 +697,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetPartitionColumnStatisticsRequest $request
+     * @summary Batch Get Partition Column Statistics
+     *  *
+     * @param BatchGetPartitionColumnStatisticsRequest $request BatchGetPartitionColumnStatisticsRequest
      *
-     * @return BatchGetPartitionColumnStatisticsResponse
+     * @return BatchGetPartitionColumnStatisticsResponse BatchGetPartitionColumnStatisticsResponse
      */
     public function batchGetPartitionColumnStatistics($request)
     {
@@ -679,11 +712,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetPartitionsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary batch get partitions
+     *  *
+     * @param BatchGetPartitionsRequest $request BatchGetPartitionsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetPartitionsResponse
+     * @return BatchGetPartitionsResponse BatchGetPartitionsResponse
      */
     public function batchGetPartitionsWithOptions($request, $headers, $runtime)
     {
@@ -724,9 +759,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetPartitionsRequest $request
+     * @summary batch get partitions
+     *  *
+     * @param BatchGetPartitionsRequest $request BatchGetPartitionsRequest
      *
-     * @return BatchGetPartitionsResponse
+     * @return BatchGetPartitionsResponse BatchGetPartitionsResponse
      */
     public function batchGetPartitions($request)
     {
@@ -737,11 +774,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetTablesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary batch get tables
+     *  *
+     * @param BatchGetTablesRequest $request BatchGetTablesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetTablesResponse
+     * @return BatchGetTablesResponse BatchGetTablesResponse
      */
     public function batchGetTablesWithOptions($request, $headers, $runtime)
     {
@@ -776,9 +815,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGetTablesRequest $request
+     * @summary batch get tables
+     *  *
+     * @param BatchGetTablesRequest $request BatchGetTablesRequest
      *
-     * @return BatchGetTablesResponse
+     * @return BatchGetTablesResponse BatchGetTablesResponse
      */
     public function batchGetTables($request)
     {
@@ -789,11 +830,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGrantPermissionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 批量授权
+     *  *
+     * @param BatchGrantPermissionsRequest $request BatchGrantPermissionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGrantPermissionsResponse
+     * @return BatchGrantPermissionsResponse BatchGrantPermissionsResponse
      */
     public function batchGrantPermissionsWithOptions($request, $headers, $runtime)
     {
@@ -828,9 +871,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchGrantPermissionsRequest $request
+     * @summary 批量授权
+     *  *
+     * @param BatchGrantPermissionsRequest $request BatchGrantPermissionsRequest
      *
-     * @return BatchGrantPermissionsResponse
+     * @return BatchGrantPermissionsResponse BatchGrantPermissionsResponse
      */
     public function batchGrantPermissions($request)
     {
@@ -841,11 +886,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchRevokePermissionsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 批量取消授权
+     *  *
+     * @param BatchRevokePermissionsRequest $request BatchRevokePermissionsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchRevokePermissionsResponse
+     * @return BatchRevokePermissionsResponse BatchRevokePermissionsResponse
      */
     public function batchRevokePermissionsWithOptions($request, $headers, $runtime)
     {
@@ -880,9 +927,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchRevokePermissionsRequest $request
+     * @summary 批量取消授权
+     *  *
+     * @param BatchRevokePermissionsRequest $request BatchRevokePermissionsRequest
      *
-     * @return BatchRevokePermissionsResponse
+     * @return BatchRevokePermissionsResponse BatchRevokePermissionsResponse
      */
     public function batchRevokePermissions($request)
     {
@@ -893,11 +942,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdatePartitionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary batch update partitions
+     *  *
+     * @param BatchUpdatePartitionsRequest $request BatchUpdatePartitionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdatePartitionsResponse
+     * @return BatchUpdatePartitionsResponse BatchUpdatePartitionsResponse
      */
     public function batchUpdatePartitionsWithOptions($request, $headers, $runtime)
     {
@@ -935,9 +986,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdatePartitionsRequest $request
+     * @summary batch update partitions
+     *  *
+     * @param BatchUpdatePartitionsRequest $request BatchUpdatePartitionsRequest
      *
-     * @return BatchUpdatePartitionsResponse
+     * @return BatchUpdatePartitionsResponse BatchUpdatePartitionsResponse
      */
     public function batchUpdatePartitions($request)
     {
@@ -948,11 +1001,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateTablesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 批量更新表
+     *  *
+     * @param BatchUpdateTablesRequest $request BatchUpdateTablesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateTablesResponse
+     * @return BatchUpdateTablesResponse BatchUpdateTablesResponse
      */
     public function batchUpdateTablesWithOptions($request, $headers, $runtime)
     {
@@ -990,9 +1045,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateTablesRequest $request
+     * @summary 批量更新表
+     *  *
+     * @param BatchUpdateTablesRequest $request BatchUpdateTablesRequest
      *
-     * @return BatchUpdateTablesResponse
+     * @return BatchUpdateTablesResponse BatchUpdateTablesResponse
      */
     public function batchUpdateTables($request)
     {
@@ -1003,11 +1060,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CancelQueryRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 取消查询任务
+     *  *
+     * @param CancelQueryRequest $request CancelQueryRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelQueryResponse
+     * @return CancelQueryResponse CancelQueryResponse
      */
     public function cancelQueryWithOptions($request, $headers, $runtime)
     {
@@ -1036,9 +1095,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CancelQueryRequest $request
+     * @summary 取消查询任务
+     *  *
+     * @param CancelQueryRequest $request CancelQueryRequest
      *
-     * @return CancelQueryResponse
+     * @return CancelQueryResponse CancelQueryResponse
      */
     public function cancelQuery($request)
     {
@@ -1049,11 +1110,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CheckPermissionsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Check permissions
+     *  *
+     * @param CheckPermissionsRequest $request CheckPermissionsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckPermissionsResponse
+     * @return CheckPermissionsResponse CheckPermissionsResponse
      */
     public function checkPermissionsWithOptions($request, $headers, $runtime)
     {
@@ -1078,9 +1141,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CheckPermissionsRequest $request
+     * @summary Check permissions
+     *  *
+     * @param CheckPermissionsRequest $request CheckPermissionsRequest
      *
-     * @return CheckPermissionsResponse
+     * @return CheckPermissionsResponse CheckPermissionsResponse
      */
     public function checkPermissions($request)
     {
@@ -1091,11 +1156,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateCatalogRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建数据湖Catalog
+     *  *
+     * @param CreateCatalogRequest $request CreateCatalogRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCatalogResponse
+     * @return CreateCatalogResponse CreateCatalogResponse
      */
     public function createCatalogWithOptions($request, $headers, $runtime)
     {
@@ -1124,9 +1191,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateCatalogRequest $request
+     * @summary 创建数据湖Catalog
+     *  *
+     * @param CreateCatalogRequest $request CreateCatalogRequest
      *
-     * @return CreateCatalogResponse
+     * @return CreateCatalogResponse CreateCatalogResponse
      */
     public function createCatalog($request)
     {
@@ -1137,11 +1206,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary create database
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabaseWithOptions($request, $headers, $runtime)
     {
@@ -1173,9 +1244,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
+     * @summary create database
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabase($request)
     {
@@ -1186,11 +1259,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateFunctionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Create function
+     *  *
+     * @param CreateFunctionRequest $request CreateFunctionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFunctionResponse
+     * @return CreateFunctionResponse CreateFunctionResponse
      */
     public function createFunctionWithOptions($request, $headers, $runtime)
     {
@@ -1225,9 +1300,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateFunctionRequest $request
+     * @summary Create function
+     *  *
+     * @param CreateFunctionRequest $request CreateFunctionRequest
      *
-     * @return CreateFunctionResponse
+     * @return CreateFunctionResponse CreateFunctionResponse
      */
     public function createFunction($request)
     {
@@ -1238,11 +1315,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateLockRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary create lock
+     *  *
+     * @param CreateLockRequest $request CreateLockRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLockResponse
+     * @return CreateLockResponse CreateLockResponse
      */
     public function createLockWithOptions($request, $headers, $runtime)
     {
@@ -1271,9 +1350,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateLockRequest $request
+     * @summary create lock
+     *  *
+     * @param CreateLockRequest $request CreateLockRequest
      *
-     * @return CreateLockResponse
+     * @return CreateLockResponse CreateLockResponse
      */
     public function createLock($request)
     {
@@ -1284,11 +1365,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreatePartitionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Create Partition
+     *  *
+     * @param CreatePartitionRequest $request CreatePartitionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePartitionResponse
+     * @return CreatePartitionResponse CreatePartitionResponse
      */
     public function createPartitionWithOptions($request, $headers, $runtime)
     {
@@ -1332,9 +1415,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreatePartitionRequest $request
+     * @summary Create Partition
+     *  *
+     * @param CreatePartitionRequest $request CreatePartitionRequest
      *
-     * @return CreatePartitionResponse
+     * @return CreatePartitionResponse CreatePartitionResponse
      */
     public function createPartition($request)
     {
@@ -1345,11 +1430,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 创建数据糊角色
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRoleWithOptions($request, $headers, $runtime)
     {
@@ -1374,9 +1461,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateRoleRequest $request
+     * @summary 创建数据糊角色
+     *  *
+     * @param CreateRoleRequest $request CreateRoleRequest
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRole($request)
     {
@@ -1387,11 +1476,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Create tables
+     *  *
+     * @param CreateTableRequest $request CreateTableRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTableWithOptions($request, $headers, $runtime)
     {
@@ -1426,9 +1517,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param CreateTableRequest $request
+     * @summary Create tables
+     *  *
+     * @param CreateTableRequest $request CreateTableRequest
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTable($request)
     {
@@ -1439,11 +1532,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteCatalogRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Delete Catalog by catalogId
+     *  *
+     * @param DeleteCatalogRequest $request DeleteCatalogRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCatalogResponse
+     * @return DeleteCatalogResponse DeleteCatalogResponse
      */
     public function deleteCatalogWithOptions($request, $headers, $runtime)
     {
@@ -1475,9 +1570,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteCatalogRequest $request
+     * @summary Delete Catalog by catalogId
+     *  *
+     * @param DeleteCatalogRequest $request DeleteCatalogRequest
      *
-     * @return DeleteCatalogResponse
+     * @return DeleteCatalogResponse DeleteCatalogResponse
      */
     public function deleteCatalog($request)
     {
@@ -1488,11 +1585,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Delete database by catalogId and database name
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabaseWithOptions($request, $headers, $runtime)
     {
@@ -1530,9 +1629,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
+     * @summary Delete database by catalogId and database name
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabase($request)
     {
@@ -1543,11 +1644,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteFunctionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Delete function
+     *  *
+     * @param DeleteFunctionRequest $request DeleteFunctionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFunctionResponse
+     * @return DeleteFunctionResponse DeleteFunctionResponse
      */
     public function deleteFunctionWithOptions($request, $headers, $runtime)
     {
@@ -1582,9 +1685,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteFunctionRequest $request
+     * @summary Delete function
+     *  *
+     * @param DeleteFunctionRequest $request DeleteFunctionRequest
      *
-     * @return DeleteFunctionResponse
+     * @return DeleteFunctionResponse DeleteFunctionResponse
      */
     public function deleteFunction($request)
     {
@@ -1595,11 +1700,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeletePartitionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary delete partition
+     *  *
+     * @param DeletePartitionRequest $request DeletePartitionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePartitionResponse
+     * @return DeletePartitionResponse DeletePartitionResponse
      */
     public function deletePartitionWithOptions($request, $headers, $runtime)
     {
@@ -1640,9 +1747,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeletePartitionRequest $request
+     * @summary delete partition
+     *  *
+     * @param DeletePartitionRequest $request DeletePartitionRequest
      *
-     * @return DeletePartitionResponse
+     * @return DeletePartitionResponse DeletePartitionResponse
      */
     public function deletePartition($request)
     {
@@ -1653,11 +1762,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeletePartitionColumnStatisticsRequest $tmpReq
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary DeletePartitionColumnStatistics
+     *  *
+     * @param DeletePartitionColumnStatisticsRequest $tmpReq  DeletePartitionColumnStatisticsRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePartitionColumnStatisticsResponse
+     * @return DeletePartitionColumnStatisticsResponse DeletePartitionColumnStatisticsResponse
      */
     public function deletePartitionColumnStatisticsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1706,9 +1817,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeletePartitionColumnStatisticsRequest $request
+     * @summary DeletePartitionColumnStatistics
+     *  *
+     * @param DeletePartitionColumnStatisticsRequest $request DeletePartitionColumnStatisticsRequest
      *
-     * @return DeletePartitionColumnStatisticsResponse
+     * @return DeletePartitionColumnStatisticsResponse DeletePartitionColumnStatisticsResponse
      */
     public function deletePartitionColumnStatistics($request)
     {
@@ -1719,11 +1832,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 删除角色
+     *  *
+     * @param DeleteRoleRequest $request DeleteRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRoleWithOptions($request, $headers, $runtime)
     {
@@ -1752,9 +1867,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request
+     * @summary 删除角色
+     *  *
+     * @param DeleteRoleRequest $request DeleteRoleRequest
      *
-     * @return DeleteRoleResponse
+     * @return DeleteRoleResponse DeleteRoleResponse
      */
     public function deleteRole($request)
     {
@@ -1765,11 +1882,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary delete table
+     *  *
+     * @param DeleteTableRequest $request DeleteTableRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTableWithOptions($request, $headers, $runtime)
     {
@@ -1804,9 +1923,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableRequest $request
+     * @summary delete table
+     *  *
+     * @param DeleteTableRequest $request DeleteTableRequest
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTable($request)
     {
@@ -1817,11 +1938,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableColumnStatisticsRequest $tmpReq
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary DeleteTableColumnStatistics
+     *  *
+     * @param DeleteTableColumnStatisticsRequest $tmpReq  DeleteTableColumnStatisticsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableColumnStatisticsResponse
+     * @return DeleteTableColumnStatisticsResponse DeleteTableColumnStatisticsResponse
      */
     public function deleteTableColumnStatisticsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1864,9 +1987,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableColumnStatisticsRequest $request
+     * @summary DeleteTableColumnStatistics
+     *  *
+     * @param DeleteTableColumnStatisticsRequest $request DeleteTableColumnStatisticsRequest
      *
-     * @return DeleteTableColumnStatisticsResponse
+     * @return DeleteTableColumnStatisticsResponse DeleteTableColumnStatisticsResponse
      */
     public function deleteTableColumnStatistics($request)
     {
@@ -1877,11 +2002,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableVersionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary delete table version
+     *  *
+     * @param DeleteTableVersionRequest $request DeleteTableVersionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableVersionResponse
+     * @return DeleteTableVersionResponse DeleteTableVersionResponse
      */
     public function deleteTableVersionWithOptions($request, $headers, $runtime)
     {
@@ -1919,9 +2046,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableVersionRequest $request
+     * @summary delete table version
+     *  *
+     * @param DeleteTableVersionRequest $request DeleteTableVersionRequest
      *
-     * @return DeleteTableVersionResponse
+     * @return DeleteTableVersionResponse DeleteTableVersionResponse
      */
     public function deleteTableVersion($request)
     {
@@ -1932,11 +2061,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeregisterLocationRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 取消注册Location
+     *  *
+     * @param DeregisterLocationRequest $request DeregisterLocationRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeregisterLocationResponse
+     * @return DeregisterLocationResponse DeregisterLocationResponse
      */
     public function deregisterLocationWithOptions($request, $headers, $runtime)
     {
@@ -1965,9 +2096,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param DeregisterLocationRequest $request
+     * @summary 取消注册Location
+     *  *
+     * @param DeregisterLocationRequest $request DeregisterLocationRequest
      *
-     * @return DeregisterLocationResponse
+     * @return DeregisterLocationResponse DeregisterLocationResponse
      */
     public function deregisterLocation($request)
     {
@@ -1978,10 +2111,10 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -2004,7 +2137,7 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2015,11 +2148,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskStatusRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary GetAsyncTaskStatus
+     *  *
+     * @param GetAsyncTaskStatusRequest $request GetAsyncTaskStatusRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncTaskStatusResponse
+     * @return GetAsyncTaskStatusResponse GetAsyncTaskStatusResponse
      */
     public function getAsyncTaskStatusWithOptions($request, $headers, $runtime)
     {
@@ -2051,9 +2186,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncTaskStatusRequest $request
+     * @summary GetAsyncTaskStatus
+     *  *
+     * @param GetAsyncTaskStatusRequest $request GetAsyncTaskStatusRequest
      *
-     * @return GetAsyncTaskStatusResponse
+     * @return GetAsyncTaskStatusResponse GetAsyncTaskStatusResponse
      */
     public function getAsyncTaskStatus($request)
     {
@@ -2064,11 +2201,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetCatalogRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 获取Catalog
+     *  *
+     * @param GetCatalogRequest $request GetCatalogRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogResponse
+     * @return GetCatalogResponse GetCatalogResponse
      */
     public function getCatalogWithOptions($request, $headers, $runtime)
     {
@@ -2097,9 +2236,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetCatalogRequest $request
+     * @summary 获取Catalog
+     *  *
+     * @param GetCatalogRequest $request GetCatalogRequest
      *
-     * @return GetCatalogResponse
+     * @return GetCatalogResponse GetCatalogResponse
      */
     public function getCatalog($request)
     {
@@ -2110,11 +2251,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetCatalogSettingsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取数据湖配置
+     *  *
+     * @param GetCatalogSettingsRequest $request GetCatalogSettingsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCatalogSettingsResponse
+     * @return GetCatalogSettingsResponse GetCatalogSettingsResponse
      */
     public function getCatalogSettingsWithOptions($request, $headers, $runtime)
     {
@@ -2143,9 +2286,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetCatalogSettingsRequest $request
+     * @summary 获取数据湖配置
+     *  *
+     * @param GetCatalogSettingsRequest $request GetCatalogSettingsRequest
      *
-     * @return GetCatalogSettingsResponse
+     * @return GetCatalogSettingsResponse GetCatalogSettingsResponse
      */
     public function getCatalogSettings($request)
     {
@@ -2156,11 +2301,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Get Database
+     *  *
+     * @param GetDatabaseRequest $request GetDatabaseRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDatabaseResponse
+     * @return GetDatabaseResponse GetDatabaseResponse
      */
     public function getDatabaseWithOptions($request, $headers, $runtime)
     {
@@ -2192,9 +2339,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseRequest $request
+     * @summary Get Database
+     *  *
+     * @param GetDatabaseRequest $request GetDatabaseRequest
      *
-     * @return GetDatabaseResponse
+     * @return GetDatabaseResponse GetDatabaseResponse
      */
     public function getDatabase($request)
     {
@@ -2205,11 +2354,66 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetFunctionRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 获取库数据概览信息
+     *  *
+     * @param GetDatabaseProfileRequest $request GetDatabaseProfileRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionResponse
+     * @return GetDatabaseProfileResponse GetDatabaseProfileResponse
+     */
+    public function getDatabaseProfileWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatabaseProfile',
+            'version'     => '2020-07-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/webapi/metastorehouse/catalog/database/databaseprofile',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatabaseProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取库数据概览信息
+     *  *
+     * @param GetDatabaseProfileRequest $request GetDatabaseProfileRequest
+     *
+     * @return GetDatabaseProfileResponse GetDatabaseProfileResponse
+     */
+    public function getDatabaseProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatabaseProfileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Get Function
+     *  *
+     * @param GetFunctionRequest $request GetFunctionRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetFunctionResponse GetFunctionResponse
      */
     public function getFunctionWithOptions($request, $headers, $runtime)
     {
@@ -2244,9 +2448,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetFunctionRequest $request
+     * @summary Get Function
+     *  *
+     * @param GetFunctionRequest $request GetFunctionRequest
      *
-     * @return GetFunctionResponse
+     * @return GetFunctionResponse GetFunctionResponse
      */
     public function getFunction($request)
     {
@@ -2257,11 +2463,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetLifecycleRuleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 获取生命周期规则
+     *  *
+     * @param GetLifecycleRuleRequest $request GetLifecycleRuleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLifecycleRuleResponse
+     * @return GetLifecycleRuleResponse GetLifecycleRuleResponse
      */
     public function getLifecycleRuleWithOptions($request, $headers, $runtime)
     {
@@ -2293,9 +2501,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetLifecycleRuleRequest $request
+     * @summary 获取生命周期规则
+     *  *
+     * @param GetLifecycleRuleRequest $request GetLifecycleRuleRequest
      *
-     * @return GetLifecycleRuleResponse
+     * @return GetLifecycleRuleResponse GetLifecycleRuleResponse
      */
     public function getLifecycleRule($request)
     {
@@ -2306,11 +2516,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetLockRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary get lock status
+     *  *
+     * @param GetLockRequest $request GetLockRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLockResponse
+     * @return GetLockResponse GetLockResponse
      */
     public function getLockWithOptions($request, $headers, $runtime)
     {
@@ -2339,9 +2551,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetLockRequest $request
+     * @summary get lock status
+     *  *
+     * @param GetLockRequest $request GetLockRequest
      *
-     * @return GetLockResponse
+     * @return GetLockResponse GetLockResponse
      */
     public function getLock($request)
     {
@@ -2352,11 +2566,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetPartitionRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary get partition
+     *  *
+     * @param GetPartitionRequest $request GetPartitionRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPartitionResponse
+     * @return GetPartitionResponse GetPartitionResponse
      */
     public function getPartitionWithOptions($request, $headers, $runtime)
     {
@@ -2394,9 +2610,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetPartitionRequest $request
+     * @summary get partition
+     *  *
+     * @param GetPartitionRequest $request GetPartitionRequest
      *
-     * @return GetPartitionResponse
+     * @return GetPartitionResponse GetPartitionResponse
      */
     public function getPartition($request)
     {
@@ -2407,11 +2625,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetPartitionColumnStatisticsRequest $tmpReq
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary Batch Get Partition Column Statistics
+     *  *
+     * @param GetPartitionColumnStatisticsRequest $tmpReq  GetPartitionColumnStatisticsRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPartitionColumnStatisticsResponse
+     * @return GetPartitionColumnStatisticsResponse GetPartitionColumnStatisticsResponse
      */
     public function getPartitionColumnStatisticsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2460,9 +2680,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetPartitionColumnStatisticsRequest $request
+     * @summary Batch Get Partition Column Statistics
+     *  *
+     * @param GetPartitionColumnStatisticsRequest $request GetPartitionColumnStatisticsRequest
      *
-     * @return GetPartitionColumnStatisticsResponse
+     * @return GetPartitionColumnStatisticsResponse GetPartitionColumnStatisticsResponse
      */
     public function getPartitionColumnStatistics($request)
     {
@@ -2473,11 +2695,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetQueryResultRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取查询结果
+     *  *
+     * @param GetQueryResultRequest $request GetQueryResultRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQueryResultResponse
+     * @return GetQueryResultResponse GetQueryResultResponse
      */
     public function getQueryResultWithOptions($request, $headers, $runtime)
     {
@@ -2512,9 +2736,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetQueryResultRequest $request
+     * @summary 获取查询结果
+     *  *
+     * @param GetQueryResultRequest $request GetQueryResultRequest
      *
-     * @return GetQueryResultResponse
+     * @return GetQueryResultResponse GetQueryResultResponse
      */
     public function getQueryResult($request)
     {
@@ -2525,11 +2751,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetRegionStatusRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetRegionStatusRequest $request GetRegionStatusRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRegionStatusResponse
+     * @return GetRegionStatusResponse GetRegionStatusResponse
      */
     public function getRegionStatusWithOptions($request, $headers, $runtime)
     {
@@ -2558,9 +2784,9 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetRegionStatusRequest $request
+     * @param GetRegionStatusRequest $request GetRegionStatusRequest
      *
-     * @return GetRegionStatusResponse
+     * @return GetRegionStatusResponse GetRegionStatusResponse
      */
     public function getRegionStatus($request)
     {
@@ -2571,11 +2797,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetRoleRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary GetRole
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRoleWithOptions($request, $headers, $runtime)
     {
@@ -2604,9 +2832,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetRoleRequest $request
+     * @summary GetRole
+     *  *
+     * @param GetRoleRequest $request GetRoleRequest
      *
-     * @return GetRoleResponse
+     * @return GetRoleResponse GetRoleResponse
      */
     public function getRole($request)
     {
@@ -2617,11 +2847,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetServiceStatusRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetServiceStatusRequest $request GetServiceStatusRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceStatusResponse
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatusWithOptions($request, $headers, $runtime)
     {
@@ -2650,9 +2880,9 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetServiceStatusRequest $request
+     * @param GetServiceStatusRequest $request GetServiceStatusRequest
      *
-     * @return GetServiceStatusResponse
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatus($request)
     {
@@ -2663,11 +2893,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Get table
+     *  *
+     * @param GetTableRequest $request GetTableRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableResponse
+     * @return GetTableResponse GetTableResponse
      */
     public function getTableWithOptions($request, $headers, $runtime)
     {
@@ -2702,9 +2934,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableRequest $request
+     * @summary Get table
+     *  *
+     * @param GetTableRequest $request GetTableRequest
      *
-     * @return GetTableResponse
+     * @return GetTableResponse GetTableResponse
      */
     public function getTable($request)
     {
@@ -2715,11 +2949,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableColumnStatisticsRequest $tmpReq
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary An example of API
+     *  *
+     * @param GetTableColumnStatisticsRequest $tmpReq  GetTableColumnStatisticsRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableColumnStatisticsResponse
+     * @return GetTableColumnStatisticsResponse GetTableColumnStatisticsResponse
      */
     public function getTableColumnStatisticsWithOptions($tmpReq, $headers, $runtime)
     {
@@ -2762,9 +2998,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableColumnStatisticsRequest $request
+     * @summary An example of API
+     *  *
+     * @param GetTableColumnStatisticsRequest $request GetTableColumnStatisticsRequest
      *
-     * @return GetTableColumnStatisticsResponse
+     * @return GetTableColumnStatisticsResponse GetTableColumnStatisticsResponse
      */
     public function getTableColumnStatistics($request)
     {
@@ -2775,11 +3013,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableProfileRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取表数据概况信息
+     *  *
+     * @param GetTableProfileRequest $request GetTableProfileRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableProfileResponse
+     * @return GetTableProfileResponse GetTableProfileResponse
      */
     public function getTableProfileWithOptions($request, $headers, $runtime)
     {
@@ -2814,9 +3054,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableProfileRequest $request
+     * @summary 获取表数据概况信息
+     *  *
+     * @param GetTableProfileRequest $request GetTableProfileRequest
      *
-     * @return GetTableProfileResponse
+     * @return GetTableProfileResponse GetTableProfileResponse
      */
     public function getTableProfile($request)
     {
@@ -2827,11 +3069,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableVersionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Get table version
+     *  *
+     * @param GetTableVersionRequest $request GetTableVersionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableVersionResponse
+     * @return GetTableVersionResponse GetTableVersionResponse
      */
     public function getTableVersionWithOptions($request, $headers, $runtime)
     {
@@ -2869,9 +3113,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GetTableVersionRequest $request
+     * @summary Get table version
+     *  *
+     * @param GetTableVersionRequest $request GetTableVersionRequest
      *
-     * @return GetTableVersionResponse
+     * @return GetTableVersionResponse GetTableVersionResponse
      */
     public function getTableVersion($request)
     {
@@ -2882,11 +3128,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantPermissionsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 赋予Principal资源的权限
+     *  *
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantPermissionsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
     public function grantPermissionsWithOptions($request, $headers, $runtime)
     {
@@ -2930,9 +3178,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantPermissionsRequest $request
+     * @summary 赋予Principal资源的权限
+     *  *
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
      *
-     * @return GrantPermissionsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
     public function grantPermissions($request)
     {
@@ -2943,11 +3193,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantRoleToUsersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Grant 单个角色给一个或多个用户
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantRoleToUsersResponse
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
      */
     public function grantRoleToUsersWithOptions($request, $headers, $runtime)
     {
@@ -2979,9 +3231,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantRoleToUsersRequest $request
+     * @summary Grant 单个角色给一个或多个用户
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
      *
-     * @return GrantRoleToUsersResponse
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
      */
     public function grantRoleToUsers($request)
     {
@@ -2992,11 +3246,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantRolesToUserRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Grant 一个或多个角色给一个用户
+     *  *
+     * @param GrantRolesToUserRequest $request GrantRolesToUserRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantRolesToUserResponse
+     * @return GrantRolesToUserResponse GrantRolesToUserResponse
      */
     public function grantRolesToUserWithOptions($request, $headers, $runtime)
     {
@@ -3028,9 +3284,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param GrantRolesToUserRequest $request
+     * @summary Grant 一个或多个角色给一个用户
+     *  *
+     * @param GrantRolesToUserRequest $request GrantRolesToUserRequest
      *
-     * @return GrantRolesToUserResponse
+     * @return GrantRolesToUserResponse GrantRolesToUserResponse
      */
     public function grantRolesToUser($request)
     {
@@ -3041,11 +3299,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListCatalogsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary ListCatalogs
+     *  *
+     * @param ListCatalogsRequest $request ListCatalogsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCatalogsResponse
+     * @return ListCatalogsResponse ListCatalogsResponse
      */
     public function listCatalogsWithOptions($request, $headers, $runtime)
     {
@@ -3080,9 +3340,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListCatalogsRequest $request
+     * @summary ListCatalogs
+     *  *
+     * @param ListCatalogsRequest $request ListCatalogsRequest
      *
-     * @return ListCatalogsResponse
+     * @return ListCatalogsResponse ListCatalogsResponse
      */
     public function listCatalogs($request)
     {
@@ -3093,11 +3355,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Get Databases List
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabasesWithOptions($request, $headers, $runtime)
     {
@@ -3135,9 +3399,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesRequest $request
+     * @summary Get Databases List
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
      *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabases($request)
     {
@@ -3148,11 +3414,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionNamesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary list function names
+     *  *
+     * @param ListFunctionNamesRequest $request ListFunctionNamesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionNamesResponse
+     * @return ListFunctionNamesResponse ListFunctionNamesResponse
      */
     public function listFunctionNamesWithOptions($request, $headers, $runtime)
     {
@@ -3193,9 +3461,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionNamesRequest $request
+     * @summary list function names
+     *  *
+     * @param ListFunctionNamesRequest $request ListFunctionNamesRequest
      *
-     * @return ListFunctionNamesResponse
+     * @return ListFunctionNamesResponse ListFunctionNamesResponse
      */
     public function listFunctionNames($request)
     {
@@ -3206,11 +3476,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary list functions
+     *  *
+     * @param ListFunctionsRequest $request ListFunctionsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctionsWithOptions($request, $headers, $runtime)
     {
@@ -3251,9 +3523,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListFunctionsRequest $request
+     * @summary list functions
+     *  *
+     * @param ListFunctionsRequest $request ListFunctionsRequest
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctions($request)
     {
@@ -3264,11 +3538,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionNamesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary partition names
+     *  *
+     * @param ListPartitionNamesRequest $request ListPartitionNamesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPartitionNamesResponse
+     * @return ListPartitionNamesResponse ListPartitionNamesResponse
      */
     public function listPartitionNamesWithOptions($request, $headers, $runtime)
     {
@@ -3312,9 +3588,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionNamesRequest $request
+     * @summary partition names
+     *  *
+     * @param ListPartitionNamesRequest $request ListPartitionNamesRequest
      *
-     * @return ListPartitionNamesResponse
+     * @return ListPartitionNamesResponse ListPartitionNamesResponse
      */
     public function listPartitionNames($request)
     {
@@ -3325,11 +3603,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary list partitions
+     *  *
+     * @param ListPartitionsRequest $request ListPartitionsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPartitionsResponse
+     * @return ListPartitionsResponse ListPartitionsResponse
      */
     public function listPartitionsWithOptions($request, $headers, $runtime)
     {
@@ -3376,9 +3656,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionsRequest $request
+     * @summary list partitions
+     *  *
+     * @param ListPartitionsRequest $request ListPartitionsRequest
      *
-     * @return ListPartitionsResponse
+     * @return ListPartitionsResponse ListPartitionsResponse
      */
     public function listPartitions($request)
     {
@@ -3389,10 +3671,10 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPartitionsByExprResponse
+     * @return ListPartitionsByExprResponse ListPartitionsByExprResponse
      */
     public function listPartitionsByExprWithOptions($headers, $runtime)
     {
@@ -3415,7 +3697,7 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @return ListPartitionsByExprResponse
+     * @return ListPartitionsByExprResponse ListPartitionsByExprResponse
      */
     public function listPartitionsByExpr()
     {
@@ -3426,11 +3708,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionsByFilterRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary list partitions by filter
+     *  *
+     * @param ListPartitionsByFilterRequest $request ListPartitionsByFilterRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPartitionsByFilterResponse
+     * @return ListPartitionsByFilterResponse ListPartitionsByFilterResponse
      */
     public function listPartitionsByFilterWithOptions($request, $headers, $runtime)
     {
@@ -3477,9 +3761,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPartitionsByFilterRequest $request
+     * @summary list partitions by filter
+     *  *
+     * @param ListPartitionsByFilterRequest $request ListPartitionsByFilterRequest
      *
-     * @return ListPartitionsByFilterResponse
+     * @return ListPartitionsByFilterResponse ListPartitionsByFilterResponse
      */
     public function listPartitionsByFilter($request)
     {
@@ -3490,11 +3776,83 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取分区数据概况信息
+     *  *
+     * @param ListPartitionsProfileRequest $tmpReq  ListPartitionsProfileRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionsResponse
+     * @return ListPartitionsProfileResponse ListPartitionsProfileResponse
+     */
+    public function listPartitionsProfileWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListPartitionsProfileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionNames)) {
+            $request->partitionNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionNames, 'PartitionNames', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
+        }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->partitionNamesShrink)) {
+            $query['PartitionNames'] = $request->partitionNamesShrink;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPartitionsProfile',
+            'version'     => '2020-07-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/webapi/metastorehouse/catalog/database/tableprofile/partitionprofile/listPartitionsProfile',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPartitionsProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取分区数据概况信息
+     *  *
+     * @param ListPartitionsProfileRequest $request ListPartitionsProfileRequest
+     *
+     * @return ListPartitionsProfileResponse ListPartitionsProfileResponse
+     */
+    public function listPartitionsProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPartitionsProfileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取指定资源或指定Principal的权限信息
+     *  *
+     * @param ListPermissionsRequest $request ListPermissionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissionsWithOptions($request, $headers, $runtime)
     {
@@ -3544,9 +3902,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionsRequest $request
+     * @summary 获取指定资源或指定Principal的权限信息
+     *  *
+     * @param ListPermissionsRequest $request ListPermissionsRequest
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissions($request)
     {
@@ -3557,11 +3917,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListRoleUsersRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询用户角色列表
+     *  *
+     * @param ListRoleUsersRequest $request ListRoleUsersRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRoleUsersResponse
+     * @return ListRoleUsersResponse ListRoleUsersResponse
      */
     public function listRoleUsersWithOptions($request, $headers, $runtime)
     {
@@ -3599,9 +3961,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListRoleUsersRequest $request
+     * @summary 查询用户角色列表
+     *  *
+     * @param ListRoleUsersRequest $request ListRoleUsersRequest
      *
-     * @return ListRoleUsersResponse
+     * @return ListRoleUsersResponse ListRoleUsersResponse
      */
     public function listRoleUsers($request)
     {
@@ -3612,11 +3976,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary ListRoles
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRolesWithOptions($request, $headers, $runtime)
     {
@@ -3651,9 +4017,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
+     * @summary ListRoles
+     *  *
+     * @param ListRolesRequest $request ListRolesRequest
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRoles($request)
     {
@@ -3664,11 +4032,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTableNamesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary list table names
+     *  *
+     * @param ListTableNamesRequest $request ListTableNamesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTableNamesResponse
+     * @return ListTableNamesResponse ListTableNamesResponse
      */
     public function listTableNamesWithOptions($request, $headers, $runtime)
     {
@@ -3712,9 +4082,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTableNamesRequest $request
+     * @summary list table names
+     *  *
+     * @param ListTableNamesRequest $request ListTableNamesRequest
      *
-     * @return ListTableNamesResponse
+     * @return ListTableNamesResponse ListTableNamesResponse
      */
     public function listTableNames($request)
     {
@@ -3725,11 +4097,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTableVersionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary List table versions
+     *  *
+     * @param ListTableVersionsRequest $request ListTableVersionsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTableVersionsResponse
+     * @return ListTableVersionsResponse ListTableVersionsResponse
      */
     public function listTableVersionsWithOptions($request, $headers, $runtime)
     {
@@ -3770,9 +4144,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTableVersionsRequest $request
+     * @summary List table versions
+     *  *
+     * @param ListTableVersionsRequest $request ListTableVersionsRequest
      *
-     * @return ListTableVersionsResponse
+     * @return ListTableVersionsResponse ListTableVersionsResponse
      */
     public function listTableVersions($request)
     {
@@ -3783,11 +4159,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTablesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary list tables
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($request, $headers, $runtime)
     {
@@ -3831,9 +4209,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListTablesRequest $request
+     * @summary list tables
+     *  *
+     * @param ListTablesRequest $request ListTablesRequest
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($request)
     {
@@ -3844,11 +4224,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListUserRolesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询用户角色列表
+     *  *
+     * @param ListUserRolesRequest $request ListUserRolesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserRolesResponse
+     * @return ListUserRolesResponse ListUserRolesResponse
      */
     public function listUserRolesWithOptions($request, $headers, $runtime)
     {
@@ -3886,9 +4268,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param ListUserRolesRequest $request
+     * @summary 查询用户角色列表
+     *  *
+     * @param ListUserRolesRequest $request ListUserRolesRequest
      *
-     * @return ListUserRolesResponse
+     * @return ListUserRolesResponse ListUserRolesResponse
      */
     public function listUserRoles($request)
     {
@@ -3899,11 +4283,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RefreshLockRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary refresh to keep the lock alive
+     *  *
+     * @param RefreshLockRequest $request RefreshLockRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshLockResponse
+     * @return RefreshLockResponse RefreshLockResponse
      */
     public function refreshLockWithOptions($request, $headers, $runtime)
     {
@@ -3932,9 +4318,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RefreshLockRequest $request
+     * @summary refresh to keep the lock alive
+     *  *
+     * @param RefreshLockRequest $request RefreshLockRequest
      *
-     * @return RefreshLockResponse
+     * @return RefreshLockResponse RefreshLockResponse
      */
     public function refreshLock($request)
     {
@@ -3945,11 +4333,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RegisterLocationRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 注册Location
+     *  *
+     * @param RegisterLocationRequest $request RegisterLocationRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterLocationResponse
+     * @return RegisterLocationResponse RegisterLocationResponse
      */
     public function registerLocationWithOptions($request, $headers, $runtime)
     {
@@ -3987,9 +4377,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RegisterLocationRequest $request
+     * @summary 注册Location
+     *  *
+     * @param RegisterLocationRequest $request RegisterLocationRequest
      *
-     * @return RegisterLocationResponse
+     * @return RegisterLocationResponse RegisterLocationResponse
      */
     public function registerLocation($request)
     {
@@ -4000,11 +4392,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RenamePartitionRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary rename partition
+     *  *
+     * @param RenamePartitionRequest $request RenamePartitionRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenamePartitionResponse
+     * @return RenamePartitionResponse RenamePartitionResponse
      */
     public function renamePartitionWithOptions($request, $headers, $runtime)
     {
@@ -4045,9 +4439,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RenamePartitionRequest $request
+     * @summary rename partition
+     *  *
+     * @param RenamePartitionRequest $request RenamePartitionRequest
      *
-     * @return RenamePartitionResponse
+     * @return RenamePartitionResponse RenamePartitionResponse
      */
     public function renamePartition($request)
     {
@@ -4058,11 +4454,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RenameTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary rename table
+     *  *
+     * @param RenameTableRequest $request RenameTableRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenameTableResponse
+     * @return RenameTableResponse RenameTableResponse
      */
     public function renameTableWithOptions($request, $headers, $runtime)
     {
@@ -4103,9 +4501,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RenameTableRequest $request
+     * @summary rename table
+     *  *
+     * @param RenameTableRequest $request RenameTableRequest
      *
-     * @return RenameTableResponse
+     * @return RenameTableResponse RenameTableResponse
      */
     public function renameTable($request)
     {
@@ -4116,11 +4516,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokePermissionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 取消Principal资源的权限
+     *  *
+     * @param RevokePermissionsRequest $request RevokePermissionsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokePermissionsResponse
+     * @return RevokePermissionsResponse RevokePermissionsResponse
      */
     public function revokePermissionsWithOptions($request, $headers, $runtime)
     {
@@ -4164,9 +4566,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokePermissionsRequest $request
+     * @summary 取消Principal资源的权限
+     *  *
+     * @param RevokePermissionsRequest $request RevokePermissionsRequest
      *
-     * @return RevokePermissionsResponse
+     * @return RevokePermissionsResponse RevokePermissionsResponse
      */
     public function revokePermissions($request)
     {
@@ -4177,11 +4581,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokeRoleFromUsersRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 批量将该角色从这些用户中revoke
+     *  *
+     * @param RevokeRoleFromUsersRequest $request RevokeRoleFromUsersRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeRoleFromUsersResponse
+     * @return RevokeRoleFromUsersResponse RevokeRoleFromUsersResponse
      */
     public function revokeRoleFromUsersWithOptions($request, $headers, $runtime)
     {
@@ -4213,9 +4619,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokeRoleFromUsersRequest $request
+     * @summary 批量将该角色从这些用户中revoke
+     *  *
+     * @param RevokeRoleFromUsersRequest $request RevokeRoleFromUsersRequest
      *
-     * @return RevokeRoleFromUsersResponse
+     * @return RevokeRoleFromUsersResponse RevokeRoleFromUsersResponse
      */
     public function revokeRoleFromUsers($request)
     {
@@ -4226,11 +4634,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokeRolesFromUserRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 批量Revoke该用户的角色
+     *  *
+     * @param RevokeRolesFromUserRequest $request RevokeRolesFromUserRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeRolesFromUserResponse
+     * @return RevokeRolesFromUserResponse RevokeRolesFromUserResponse
      */
     public function revokeRolesFromUserWithOptions($request, $headers, $runtime)
     {
@@ -4262,9 +4672,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RevokeRolesFromUserRequest $request
+     * @summary 批量Revoke该用户的角色
+     *  *
+     * @param RevokeRolesFromUserRequest $request RevokeRolesFromUserRequest
      *
-     * @return RevokeRolesFromUserResponse
+     * @return RevokeRolesFromUserResponse RevokeRolesFromUserResponse
      */
     public function revokeRolesFromUser($request)
     {
@@ -4275,11 +4687,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RunMigrationWorkflowRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 运行元数据迁移任务
+     *  *
+     * @param RunMigrationWorkflowRequest $request RunMigrationWorkflowRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunMigrationWorkflowResponse
+     * @return RunMigrationWorkflowResponse RunMigrationWorkflowResponse
      */
     public function runMigrationWorkflowWithOptions($request, $headers, $runtime)
     {
@@ -4308,9 +4722,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param RunMigrationWorkflowRequest $request
+     * @summary 运行元数据迁移任务
+     *  *
+     * @param RunMigrationWorkflowRequest $request RunMigrationWorkflowRequest
      *
-     * @return RunMigrationWorkflowResponse
+     * @return RunMigrationWorkflowResponse RunMigrationWorkflowResponse
      */
     public function runMigrationWorkflow($request)
     {
@@ -4321,11 +4737,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SearchRequest  $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary DLF 元数据search
+     *  *
+     * @param SearchRequest  $request SearchRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchResponse
+     * @return SearchResponse SearchResponse
      */
     public function searchWithOptions($request, $headers, $runtime)
     {
@@ -4369,9 +4787,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SearchRequest $request
+     * @summary DLF 元数据search
+     *  *
+     * @param SearchRequest $request SearchRequest
      *
-     * @return SearchResponse
+     * @return SearchResponse SearchResponse
      */
     public function search($request)
     {
@@ -4382,11 +4802,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SearchAcrossCatalogRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary DLF 跨Catalog检索元数据
+     *  *
+     * @param SearchAcrossCatalogRequest $request SearchAcrossCatalogRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAcrossCatalogResponse
+     * @return SearchAcrossCatalogResponse SearchAcrossCatalogResponse
      */
     public function searchAcrossCatalogWithOptions($request, $headers, $runtime)
     {
@@ -4430,9 +4852,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SearchAcrossCatalogRequest $request
+     * @summary DLF 跨Catalog检索元数据
+     *  *
+     * @param SearchAcrossCatalogRequest $request SearchAcrossCatalogRequest
      *
-     * @return SearchAcrossCatalogResponse
+     * @return SearchAcrossCatalogResponse SearchAcrossCatalogResponse
      */
     public function searchAcrossCatalog($request)
     {
@@ -4443,11 +4867,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param StopMigrationWorkflowRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 停止元数据迁移任务
+     *  *
+     * @param StopMigrationWorkflowRequest $request StopMigrationWorkflowRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopMigrationWorkflowResponse
+     * @return StopMigrationWorkflowResponse StopMigrationWorkflowResponse
      */
     public function stopMigrationWorkflowWithOptions($request, $headers, $runtime)
     {
@@ -4476,9 +4902,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param StopMigrationWorkflowRequest $request
+     * @summary 停止元数据迁移任务
+     *  *
+     * @param StopMigrationWorkflowRequest $request StopMigrationWorkflowRequest
      *
-     * @return StopMigrationWorkflowResponse
+     * @return StopMigrationWorkflowResponse StopMigrationWorkflowResponse
      */
     public function stopMigrationWorkflow($request)
     {
@@ -4489,11 +4917,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SubmitQueryRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param SubmitQueryRequest $request SubmitQueryRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitQueryResponse
+     * @return SubmitQueryResponse SubmitQueryResponse
      */
     public function submitQueryWithOptions($request, $headers, $runtime)
     {
@@ -4528,9 +4956,9 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param SubmitQueryRequest $request
+     * @param SubmitQueryRequest $request SubmitQueryRequest
      *
-     * @return SubmitQueryResponse
+     * @return SubmitQueryResponse SubmitQueryResponse
      */
     public function submitQuery($request)
     {
@@ -4541,11 +4969,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UnLockRequest  $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary unlock
+     *  *
+     * @param UnLockRequest  $request UnLockRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnLockResponse
+     * @return UnLockResponse UnLockResponse
      */
     public function unLockWithOptions($request, $headers, $runtime)
     {
@@ -4574,9 +5004,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UnLockRequest $request
+     * @summary unlock
+     *  *
+     * @param UnLockRequest $request UnLockRequest
      *
-     * @return UnLockResponse
+     * @return UnLockResponse UnLockResponse
      */
     public function unLock($request)
     {
@@ -4587,11 +5019,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateCatalogRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 更新数据湖Catalog
+     *  *
+     * @param UpdateCatalogRequest $request UpdateCatalogRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCatalogResponse
+     * @return UpdateCatalogResponse UpdateCatalogResponse
      */
     public function updateCatalogWithOptions($request, $headers, $runtime)
     {
@@ -4620,9 +5054,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateCatalogRequest $request
+     * @summary 更新数据湖Catalog
+     *  *
+     * @param UpdateCatalogRequest $request UpdateCatalogRequest
      *
-     * @return UpdateCatalogResponse
+     * @return UpdateCatalogResponse UpdateCatalogResponse
      */
     public function updateCatalog($request)
     {
@@ -4633,11 +5069,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateCatalogSettingsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 获取数据湖配置
+     *  *
+     * @param UpdateCatalogSettingsRequest $request UpdateCatalogSettingsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCatalogSettingsResponse
+     * @return UpdateCatalogSettingsResponse UpdateCatalogSettingsResponse
      */
     public function updateCatalogSettingsWithOptions($request, $headers, $runtime)
     {
@@ -4669,9 +5107,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateCatalogSettingsRequest $request
+     * @summary 获取数据湖配置
+     *  *
+     * @param UpdateCatalogSettingsRequest $request UpdateCatalogSettingsRequest
      *
-     * @return UpdateCatalogSettingsResponse
+     * @return UpdateCatalogSettingsResponse UpdateCatalogSettingsResponse
      */
     public function updateCatalogSettings($request)
     {
@@ -4682,11 +5122,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateDatabaseRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Update database
+     *  *
+     * @param UpdateDatabaseRequest $request UpdateDatabaseRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDatabaseResponse
+     * @return UpdateDatabaseResponse UpdateDatabaseResponse
      */
     public function updateDatabaseWithOptions($request, $headers, $runtime)
     {
@@ -4721,9 +5163,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateDatabaseRequest $request
+     * @summary Update database
+     *  *
+     * @param UpdateDatabaseRequest $request UpdateDatabaseRequest
      *
-     * @return UpdateDatabaseResponse
+     * @return UpdateDatabaseResponse UpdateDatabaseResponse
      */
     public function updateDatabase($request)
     {
@@ -4734,11 +5178,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateFunctionRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary update function
+     *  *
+     * @param UpdateFunctionRequest $request UpdateFunctionRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFunctionResponse
+     * @return UpdateFunctionResponse UpdateFunctionResponse
      */
     public function updateFunctionWithOptions($request, $headers, $runtime)
     {
@@ -4776,9 +5222,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateFunctionRequest $request
+     * @summary update function
+     *  *
+     * @param UpdateFunctionRequest $request UpdateFunctionRequest
      *
-     * @return UpdateFunctionResponse
+     * @return UpdateFunctionResponse UpdateFunctionResponse
      */
     public function updateFunction($request)
     {
@@ -4789,11 +5237,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdatePartitionColumnStatisticsRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary update partition columnstatistics
+     *  *
+     * @param UpdatePartitionColumnStatisticsRequest $request UpdatePartitionColumnStatisticsRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePartitionColumnStatisticsResponse
+     * @return UpdatePartitionColumnStatisticsResponse UpdatePartitionColumnStatisticsResponse
      */
     public function updatePartitionColumnStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -4818,9 +5268,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdatePartitionColumnStatisticsRequest $request
+     * @summary update partition columnstatistics
+     *  *
+     * @param UpdatePartitionColumnStatisticsRequest $request UpdatePartitionColumnStatisticsRequest
      *
-     * @return UpdatePartitionColumnStatisticsResponse
+     * @return UpdatePartitionColumnStatisticsResponse UpdatePartitionColumnStatisticsResponse
      */
     public function updatePartitionColumnStatistics($request)
     {
@@ -4831,11 +5283,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdatePermissionsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 赋予Principal资源的权限
+     *  *
+     * @param UpdatePermissionsRequest $request UpdatePermissionsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePermissionsResponse
+     * @return UpdatePermissionsResponse UpdatePermissionsResponse
      */
     public function updatePermissionsWithOptions($request, $headers, $runtime)
     {
@@ -4879,9 +5333,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdatePermissionsRequest $request
+     * @summary 赋予Principal资源的权限
+     *  *
+     * @param UpdatePermissionsRequest $request UpdatePermissionsRequest
      *
-     * @return UpdatePermissionsResponse
+     * @return UpdatePermissionsResponse UpdatePermissionsResponse
      */
     public function updatePermissions($request)
     {
@@ -4892,11 +5348,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRegisteredLocationRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 修改Location
+     *  *
+     * @param UpdateRegisteredLocationRequest $request UpdateRegisteredLocationRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRegisteredLocationResponse
+     * @return UpdateRegisteredLocationResponse UpdateRegisteredLocationResponse
      */
     public function updateRegisteredLocationWithOptions($request, $headers, $runtime)
     {
@@ -4931,9 +5389,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRegisteredLocationRequest $request
+     * @summary 修改Location
+     *  *
+     * @param UpdateRegisteredLocationRequest $request UpdateRegisteredLocationRequest
      *
-     * @return UpdateRegisteredLocationResponse
+     * @return UpdateRegisteredLocationResponse UpdateRegisteredLocationResponse
      */
     public function updateRegisteredLocation($request)
     {
@@ -4944,11 +5404,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 更新角色
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $headers, $runtime)
     {
@@ -4980,9 +5442,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
+     * @summary 更新角色
+     *  *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRole($request)
     {
@@ -4993,11 +5457,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleUsersRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 更新Role中的Users
+     *  *
+     * @param UpdateRoleUsersRequest $request UpdateRoleUsersRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRoleUsersResponse
+     * @return UpdateRoleUsersResponse UpdateRoleUsersResponse
      */
     public function updateRoleUsersWithOptions($request, $headers, $runtime)
     {
@@ -5029,9 +5495,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleUsersRequest $request
+     * @summary 更新Role中的Users
+     *  *
+     * @param UpdateRoleUsersRequest $request UpdateRoleUsersRequest
      *
-     * @return UpdateRoleUsersResponse
+     * @return UpdateRoleUsersResponse UpdateRoleUsersResponse
      */
     public function updateRoleUsers($request)
     {
@@ -5042,11 +5510,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary update table
+     *  *
+     * @param UpdateTableRequest $request UpdateTableRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableResponse
+     * @return UpdateTableResponse UpdateTableResponse
      */
     public function updateTableWithOptions($request, $headers, $runtime)
     {
@@ -5093,9 +5563,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableRequest $request
+     * @summary update table
+     *  *
+     * @param UpdateTableRequest $request UpdateTableRequest
      *
-     * @return UpdateTableResponse
+     * @return UpdateTableResponse UpdateTableResponse
      */
     public function updateTable($request)
     {
@@ -5106,11 +5578,13 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableColumnStatisticsRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary update table columnstatistics
+     *  *
+     * @param UpdateTableColumnStatisticsRequest $request UpdateTableColumnStatisticsRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableColumnStatisticsResponse
+     * @return UpdateTableColumnStatisticsResponse UpdateTableColumnStatisticsResponse
      */
     public function updateTableColumnStatisticsWithOptions($request, $headers, $runtime)
     {
@@ -5135,9 +5609,11 @@ class DataLake extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableColumnStatisticsRequest $request
+     * @summary update table columnstatistics
+     *  *
+     * @param UpdateTableColumnStatisticsRequest $request UpdateTableColumnStatisticsRequest
      *
-     * @return UpdateTableColumnStatisticsResponse
+     * @return UpdateTableColumnStatisticsResponse UpdateTableColumnStatisticsResponse
      */
     public function updateTableColumnStatistics($request)
     {

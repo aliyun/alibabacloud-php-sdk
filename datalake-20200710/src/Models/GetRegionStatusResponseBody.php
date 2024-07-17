@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetRegionStatusResponseBody extends Model
 {
     /**
-     * @example {\"RegionId\": \"cn-shanghai\", \"RegionStatus\": \"SERVICE_INVALID\", \"AccountStatus\": \"\", \"IsDlfServiceOpen\": False}
+     * @example {\\"RegionId\\": \\"cn-shanghai\\", \\"RegionStatus\\": \\"SERVICE_INVALID\\", \\"AccountStatus\\": \\"\\", \\"IsDlfServiceOpen\\": False}
      *
      * @var data
      */

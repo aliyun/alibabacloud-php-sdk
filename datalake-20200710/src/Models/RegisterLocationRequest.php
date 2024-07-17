@@ -16,6 +16,8 @@ class RegisterLocationRequest extends Model
     public $inventoryCollectEnabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://mybucket/
      *
      * @var string
@@ -30,6 +32,8 @@ class RegisterLocationRequest extends Model
     public $ossLogCollectEnabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AliyunDLFWorkFlowDefaultRole
      *
      * @var string

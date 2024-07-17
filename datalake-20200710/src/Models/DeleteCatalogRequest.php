@@ -11,6 +11,7 @@ class DeleteCatalogRequest extends Model
     /**
      * @description CatalogId
      *
+     * This parameter is required.
      * @example catalog_test
      *
      * @var string

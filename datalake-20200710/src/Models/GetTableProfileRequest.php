@@ -20,6 +20,7 @@ class GetTableProfileRequest extends Model
     /**
      * @description DatabaseName
      *
+     * This parameter is required.
      * @example exp_table
      *
      * @var string
@@ -29,6 +30,7 @@ class GetTableProfileRequest extends Model
     /**
      * @description TableName
      *
+     * This parameter is required.
      * @example admin_user
      *
      * @var string

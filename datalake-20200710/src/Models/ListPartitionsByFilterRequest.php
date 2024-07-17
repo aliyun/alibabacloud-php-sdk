@@ -37,7 +37,7 @@ class ListPartitionsByFilterRequest extends Model
     public $isShareSd;
 
     /**
-     * @example \"\"
+     * @example \\"\\"
      *
      * @var string
      */

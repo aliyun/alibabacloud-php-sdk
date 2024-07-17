@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class PartitionProfile extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNumMonthly;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessNumWeekly;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $archiveStatus;
 
     /**
+     * @example 2023-08-16 18:02:22
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example OSS_HDFS
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example test_db
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fileCnt;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $fileSize;
@@ -59,51 +77,71 @@ class PartitionProfile extends Model
     public $lastAccessNumTime;
 
     /**
+     * @example 2023-08-22 12:14:42
+     *
      * @var string
      */
     public $lastAccessTime;
 
     /**
+     * @example 2023-08-16 18:02:25
+     *
      * @var string
      */
     public $lastModifyTime;
 
     /**
+     * @example oss://mybucket.cn-hangzhou.oss-dls.aliyuncs.com/test_tb/test_tbl/year=2023/month=1
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $objectAccessNum;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $objectAccessNumMonthly;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $objectAccessNumWeekly;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $objectCnt;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $objectSize;
 
     /**
+     * @example year=2023/month=1
+     *
      * @var string
      */
     public $partitionName;
 
     /**
+     * @example test_tbl
+     *
      * @var string
      */
     public $tableName;

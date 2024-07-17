@@ -16,6 +16,8 @@ class UpdateRegisteredLocationRequest extends Model
     public $inventoryCollectEnabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LOC-AB8FBC17F95A4AF5
      *
      * @var string

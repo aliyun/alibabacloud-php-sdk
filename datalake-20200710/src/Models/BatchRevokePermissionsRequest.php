@@ -23,6 +23,8 @@ class BatchRevokePermissionsRequest extends Model
     public $grantRevokeEntries;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Hive
      *
      * @var string
