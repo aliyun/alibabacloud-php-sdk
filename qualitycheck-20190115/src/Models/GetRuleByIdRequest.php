@@ -16,6 +16,8 @@ class GetRuleByIdRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 53
      *
      * @var int

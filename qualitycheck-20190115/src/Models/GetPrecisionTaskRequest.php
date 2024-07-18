@@ -16,6 +16,8 @@ class GetPrecisionTaskRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "{"taskId":"593A04C0-E6E9-4CDC-8C9****"}"
      *
      * @var string

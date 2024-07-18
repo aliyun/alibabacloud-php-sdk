@@ -16,7 +16,7 @@ class ruleNameInfo extends Model
     public $rid;
 
     /**
-     * @example x\"x\"x
+     * @example x\\"x\\"x
      *
      * @var string
      */

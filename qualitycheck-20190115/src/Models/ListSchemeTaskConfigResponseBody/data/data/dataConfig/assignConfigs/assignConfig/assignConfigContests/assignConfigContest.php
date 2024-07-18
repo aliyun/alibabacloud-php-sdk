@@ -36,7 +36,7 @@ class assignConfigContest extends Model
     public $symbol;
 
     /**
-     * @example {\"start\":\"2022-09-01 00:00:00\",\"end\":\"2022-09-30 00:00:00\"}
+     * @example {\\"start\\":\\"2022-09-01 00:00:00\\",\\"end\\":\\"2022-09-30 00:00:00\\"}
      *
      * @var string
      */

@@ -16,6 +16,8 @@ class DeleteCustomizationConfigRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"modelId":"2412"}
      *
      * @var string

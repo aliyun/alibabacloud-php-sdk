@@ -16,6 +16,8 @@ class UpdateWarningConfigRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"ridList":[18130],"configName":"0310","channels":[{"type":1,"url":"https://sca.console.aliyun.com/#/warningConfig"}],"configId":29}
      *
      * @var string

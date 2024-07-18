@@ -16,6 +16,8 @@ class DeleteDataSetRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"setId":"234"}
      *
      * @var string

@@ -16,6 +16,8 @@ class DeletePrecisionTaskRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "{"taskId": "7C1DEF5F-2C18-4D36-99C6*******"}"
      *
      * @var string

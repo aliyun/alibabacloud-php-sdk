@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\manualScoreInfoList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewHistoryList;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\reviewTypeIdList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -68,6 +69,11 @@ class data extends Model
     public $reviewHistoryList;
 
     /**
+     * @var reviewTypeIdList
+     */
+    public $reviewTypeIdList;
+
+    /**
      * @example 1
      *
      * @var int
@@ -97,6 +103,7 @@ class data extends Model
         'hitRuleReviewInfoList' => 'HitRuleReviewInfoList',
         'manualScoreInfoList'   => 'ManualScoreInfoList',
         'reviewHistoryList'     => 'ReviewHistoryList',
+        'reviewTypeIdList'      => 'ReviewTypeIdList',
         'status'                => 'Status',
         'totalScore'            => 'TotalScore',
         'vid'                   => 'Vid',
@@ -135,6 +142,9 @@ class data extends Model
         }
         if (null !== $this->reviewHistoryList) {
             $res['ReviewHistoryList'] = null !== $this->reviewHistoryList ? $this->reviewHistoryList->toMap() : null;
+        }
+        if (null !== $this->reviewTypeIdList) {
+            $res['ReviewTypeIdList'] = null !== $this->reviewTypeIdList ? $this->reviewTypeIdList->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -183,6 +193,9 @@ class data extends Model
         }
         if (isset($map['ReviewHistoryList'])) {
             $model->reviewHistoryList = reviewHistoryList::fromMap($map['ReviewHistoryList']);
+        }
+        if (isset($map['ReviewTypeIdList'])) {
+            $model->reviewTypeIdList = reviewTypeIdList::fromMap($map['ReviewTypeIdList']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

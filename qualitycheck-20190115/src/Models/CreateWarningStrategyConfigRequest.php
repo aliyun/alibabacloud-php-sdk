@@ -14,6 +14,8 @@ class CreateWarningStrategyConfigRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jsonStr;

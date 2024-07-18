@@ -16,6 +16,8 @@ class UploadDataV4Request extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string

@@ -16,6 +16,8 @@ class ListUsersRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"pageNumber":1,"pageSize":10}
      *
      * @var string

@@ -16,6 +16,8 @@ class UpdateRuleV4Request extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jsonStrForRule;

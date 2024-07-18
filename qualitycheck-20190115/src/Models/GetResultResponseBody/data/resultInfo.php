@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\re
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\recording;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewTypeIdList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\schemeIdList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\schemeNameList;
 use AlibabaCloud\Tea\Model;
@@ -90,6 +92,11 @@ class resultInfo extends Model
     public $resolver;
 
     /**
+     * @var reviewHistoryList
+     */
+    public $reviewHistoryList;
+
+    /**
      * @example 0
      *
      * @var int
@@ -123,6 +130,11 @@ class resultInfo extends Model
      * @var int
      */
     public $reviewType;
+
+    /**
+     * @var reviewTypeIdList
+     */
+    public $reviewTypeIdList;
 
     /**
      * @example xxx
@@ -169,30 +181,32 @@ class resultInfo extends Model
      */
     public $taskName;
     protected $_name = [
-        'agent'          => 'Agent',
-        'asrResult'      => 'AsrResult',
-        'assignmentTime' => 'AssignmentTime',
-        'comments'       => 'Comments',
-        'createTime'     => 'CreateTime',
-        'createTimeLong' => 'CreateTimeLong',
-        'errorMessage'   => 'ErrorMessage',
-        'hitResult'      => 'HitResult',
-        'hitScore'       => 'HitScore',
-        'lastDataId'     => 'LastDataId',
-        'recording'      => 'Recording',
-        'resolver'       => 'Resolver',
-        'reviewResult'   => 'ReviewResult',
-        'reviewStatus'   => 'ReviewStatus',
-        'reviewTime'     => 'ReviewTime',
-        'reviewTimeLong' => 'ReviewTimeLong',
-        'reviewType'     => 'ReviewType',
-        'reviewer'       => 'Reviewer',
-        'schemeIdList'   => 'SchemeIdList',
-        'schemeNameList' => 'SchemeNameList',
-        'score'          => 'Score',
-        'status'         => 'Status',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
+        'agent'             => 'Agent',
+        'asrResult'         => 'AsrResult',
+        'assignmentTime'    => 'AssignmentTime',
+        'comments'          => 'Comments',
+        'createTime'        => 'CreateTime',
+        'createTimeLong'    => 'CreateTimeLong',
+        'errorMessage'      => 'ErrorMessage',
+        'hitResult'         => 'HitResult',
+        'hitScore'          => 'HitScore',
+        'lastDataId'        => 'LastDataId',
+        'recording'         => 'Recording',
+        'resolver'          => 'Resolver',
+        'reviewHistoryList' => 'ReviewHistoryList',
+        'reviewResult'      => 'ReviewResult',
+        'reviewStatus'      => 'ReviewStatus',
+        'reviewTime'        => 'ReviewTime',
+        'reviewTimeLong'    => 'ReviewTimeLong',
+        'reviewType'        => 'ReviewType',
+        'reviewTypeIdList'  => 'ReviewTypeIdList',
+        'reviewer'          => 'Reviewer',
+        'schemeIdList'      => 'SchemeIdList',
+        'schemeNameList'    => 'SchemeNameList',
+        'score'             => 'Score',
+        'status'            => 'Status',
+        'taskId'            => 'TaskId',
+        'taskName'          => 'TaskName',
     ];
 
     public function validate()
@@ -238,6 +252,9 @@ class resultInfo extends Model
         if (null !== $this->resolver) {
             $res['Resolver'] = $this->resolver;
         }
+        if (null !== $this->reviewHistoryList) {
+            $res['ReviewHistoryList'] = null !== $this->reviewHistoryList ? $this->reviewHistoryList->toMap() : null;
+        }
         if (null !== $this->reviewResult) {
             $res['ReviewResult'] = $this->reviewResult;
         }
@@ -252,6 +269,9 @@ class resultInfo extends Model
         }
         if (null !== $this->reviewType) {
             $res['ReviewType'] = $this->reviewType;
+        }
+        if (null !== $this->reviewTypeIdList) {
+            $res['ReviewTypeIdList'] = null !== $this->reviewTypeIdList ? $this->reviewTypeIdList->toMap() : null;
         }
         if (null !== $this->reviewer) {
             $res['Reviewer'] = $this->reviewer;
@@ -322,6 +342,9 @@ class resultInfo extends Model
         if (isset($map['Resolver'])) {
             $model->resolver = $map['Resolver'];
         }
+        if (isset($map['ReviewHistoryList'])) {
+            $model->reviewHistoryList = reviewHistoryList::fromMap($map['ReviewHistoryList']);
+        }
         if (isset($map['ReviewResult'])) {
             $model->reviewResult = $map['ReviewResult'];
         }
@@ -336,6 +359,9 @@ class resultInfo extends Model
         }
         if (isset($map['ReviewType'])) {
             $model->reviewType = $map['ReviewType'];
+        }
+        if (isset($map['ReviewTypeIdList'])) {
+            $model->reviewTypeIdList = reviewTypeIdList::fromMap($map['ReviewTypeIdList']);
         }
         if (isset($map['Reviewer'])) {
             $model->reviewer = $map['Reviewer'];

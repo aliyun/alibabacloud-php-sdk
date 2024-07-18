@@ -16,6 +16,8 @@ class ListPrecisionTaskRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "{"pageSize":10,"pageNumber":1}"
      *
      * @var string

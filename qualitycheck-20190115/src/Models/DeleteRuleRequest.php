@@ -30,6 +30,8 @@ class DeleteRuleRequest extends Model
     public $isSchemeData;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

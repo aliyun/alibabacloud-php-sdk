@@ -16,6 +16,8 @@ class UpdateQualityCheckDataRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"taskId":"xxx"}
      *
      * @var string

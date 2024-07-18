@@ -16,6 +16,8 @@ class SubmitPrecisionTaskRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "{"name":"test","dataSetId":1865}"
      *
      * @var string

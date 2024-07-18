@@ -16,6 +16,8 @@ class DeleteWarningConfigRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"configId": "31"}
      *
      * @var string

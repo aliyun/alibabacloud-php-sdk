@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Response;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerBySessionGroupRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerBySessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerRequest;
@@ -64,26 +62,18 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSubScoreForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSubScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteUserRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelThesaurusForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelThesaurusForApiResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\EditThesaurusForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\EditThesaurusForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetBusinessCategoryListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetBusinessCategoryListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetCustomizationConfigListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetCustomizationConfigListResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetHitResultRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetHitResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskRequest;
@@ -106,16 +96,12 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Response;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4StrRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4StrResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintRequest;
@@ -128,16 +114,12 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRolesRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRolesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesV4Request;
@@ -156,8 +138,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningStrategyConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningStrategyConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionRequest;
@@ -204,8 +184,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataReq
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTaskAssignRuleResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserConfigRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateWarningConfigRequest;
@@ -266,10 +244,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddBusinessCategoryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param AddBusinessCategoryRequest $request AddBusinessCategoryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddBusinessCategoryResponse
+     * @return AddBusinessCategoryResponse AddBusinessCategoryResponse
      */
     public function addBusinessCategoryWithOptions($request, $runtime)
     {
@@ -300,9 +278,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddBusinessCategoryRequest $request
+     * @param AddBusinessCategoryRequest $request AddBusinessCategoryRequest
      *
-     * @return AddBusinessCategoryResponse
+     * @return AddBusinessCategoryResponse AddBusinessCategoryResponse
      */
     public function addBusinessCategory($request)
     {
@@ -312,10 +290,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleCategoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param AddRuleCategoryRequest $request AddRuleCategoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRuleCategoryResponse
+     * @return AddRuleCategoryResponse AddRuleCategoryResponse
      */
     public function addRuleCategoryWithOptions($request, $runtime)
     {
@@ -346,9 +324,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleCategoryRequest $request
+     * @param AddRuleCategoryRequest $request AddRuleCategoryRequest
      *
-     * @return AddRuleCategoryResponse
+     * @return AddRuleCategoryResponse AddRuleCategoryResponse
      */
     public function addRuleCategory($request)
     {
@@ -358,10 +336,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleV4Request $request
-     * @param RuntimeOptions   $runtime
+     * @summary V4创建规则
+     *  *
+     * @param AddRuleV4Request $request AddRuleV4Request
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRuleV4Response
+     * @return AddRuleV4Response AddRuleV4Response
      */
     public function addRuleV4WithOptions($request, $runtime)
     {
@@ -397,9 +377,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleV4Request $request
+     * @summary V4创建规则
+     *  *
+     * @param AddRuleV4Request $request AddRuleV4Request
      *
-     * @return AddRuleV4Response
+     * @return AddRuleV4Response AddRuleV4Response
      */
     public function addRuleV4($request)
     {
@@ -409,56 +391,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddThesaurusForApiRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param AssignReviewerRequest $request AssignReviewerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddThesaurusForApiResponse
-     */
-    public function addThesaurusForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddThesaurusForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddThesaurusForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddThesaurusForApiRequest $request
-     *
-     * @return AddThesaurusForApiResponse
-     */
-    public function addThesaurusForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addThesaurusForApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssignReviewerRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AssignReviewerResponse
+     * @return AssignReviewerResponse AssignReviewerResponse
      */
     public function assignReviewerWithOptions($request, $runtime)
     {
@@ -489,9 +425,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AssignReviewerRequest $request
+     * @param AssignReviewerRequest $request AssignReviewerRequest
      *
-     * @return AssignReviewerResponse
+     * @return AssignReviewerResponse AssignReviewerResponse
      */
     public function assignReviewer($request)
     {
@@ -501,10 +437,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AssignReviewerBySessionGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 会话组批量分配
+     *  *
+     * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssignReviewerBySessionGroupResponse
+     * @return AssignReviewerBySessionGroupResponse AssignReviewerBySessionGroupResponse
      */
     public function assignReviewerBySessionGroupWithOptions($request, $runtime)
     {
@@ -535,9 +473,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AssignReviewerBySessionGroupRequest $request
+     * @summary 会话组批量分配
+     *  *
+     * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
      *
-     * @return AssignReviewerBySessionGroupResponse
+     * @return AssignReviewerBySessionGroupResponse AssignReviewerBySessionGroupResponse
      */
     public function assignReviewerBySessionGroup($request)
     {
@@ -547,10 +487,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param BatchSubmitReviewInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 批量复核
+     *  *
+     * @param BatchSubmitReviewInfoRequest $request BatchSubmitReviewInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSubmitReviewInfoResponse
+     * @return BatchSubmitReviewInfoResponse BatchSubmitReviewInfoResponse
      */
     public function batchSubmitReviewInfoWithOptions($request, $runtime)
     {
@@ -581,9 +523,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param BatchSubmitReviewInfoRequest $request
+     * @summary 批量复核
+     *  *
+     * @param BatchSubmitReviewInfoRequest $request BatchSubmitReviewInfoRequest
      *
-     * @return BatchSubmitReviewInfoResponse
+     * @return BatchSubmitReviewInfoResponse BatchSubmitReviewInfoResponse
      */
     public function batchSubmitReviewInfo($request)
     {
@@ -593,10 +537,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateAsrVocabRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateAsrVocabRequest $request CreateAsrVocabRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAsrVocabResponse
+     * @return CreateAsrVocabResponse CreateAsrVocabResponse
      */
     public function createAsrVocabWithOptions($request, $runtime)
     {
@@ -627,9 +571,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateAsrVocabRequest $request
+     * @param CreateAsrVocabRequest $request CreateAsrVocabRequest
      *
-     * @return CreateAsrVocabResponse
+     * @return CreateAsrVocabResponse CreateAsrVocabResponse
      */
     public function createAsrVocab($request)
     {
@@ -639,10 +583,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateCheckTypeToSchemeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 创建质检方案中的质检维度
+     *  *
+     * @param CreateCheckTypeToSchemeRequest $request CreateCheckTypeToSchemeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCheckTypeToSchemeResponse
+     * @return CreateCheckTypeToSchemeResponse CreateCheckTypeToSchemeResponse
      */
     public function createCheckTypeToSchemeWithOptions($request, $runtime)
     {
@@ -673,9 +619,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateCheckTypeToSchemeRequest $request
+     * @summary 创建质检方案中的质检维度
+     *  *
+     * @param CreateCheckTypeToSchemeRequest $request CreateCheckTypeToSchemeRequest
      *
-     * @return CreateCheckTypeToSchemeResponse
+     * @return CreateCheckTypeToSchemeResponse CreateCheckTypeToSchemeResponse
      */
     public function createCheckTypeToScheme($request)
     {
@@ -685,10 +633,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityCheckSchemeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 新增质检方案
+     *  *
+     * @param CreateQualityCheckSchemeRequest $request CreateQualityCheckSchemeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityCheckSchemeResponse
+     * @return CreateQualityCheckSchemeResponse CreateQualityCheckSchemeResponse
      */
     public function createQualityCheckSchemeWithOptions($request, $runtime)
     {
@@ -719,9 +669,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityCheckSchemeRequest $request
+     * @summary 新增质检方案
+     *  *
+     * @param CreateQualityCheckSchemeRequest $request CreateQualityCheckSchemeRequest
      *
-     * @return CreateQualityCheckSchemeResponse
+     * @return CreateQualityCheckSchemeResponse CreateQualityCheckSchemeResponse
      */
     public function createQualityCheckScheme($request)
     {
@@ -731,10 +683,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateSchemeTaskConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 新建质检任务
+     *  *
+     * @param CreateSchemeTaskConfigRequest $request CreateSchemeTaskConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSchemeTaskConfigResponse
+     * @return CreateSchemeTaskConfigResponse CreateSchemeTaskConfigResponse
      */
     public function createSchemeTaskConfigWithOptions($request, $runtime)
     {
@@ -765,9 +719,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateSchemeTaskConfigRequest $request
+     * @summary 新建质检任务
+     *  *
+     * @param CreateSchemeTaskConfigRequest $request CreateSchemeTaskConfigRequest
      *
-     * @return CreateSchemeTaskConfigResponse
+     * @return CreateSchemeTaskConfigResponse CreateSchemeTaskConfigResponse
      */
     public function createSchemeTaskConfig($request)
     {
@@ -777,10 +733,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateSkillGroupConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateSkillGroupConfigRequest $request CreateSkillGroupConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSkillGroupConfigResponse
+     * @return CreateSkillGroupConfigResponse CreateSkillGroupConfigResponse
      */
     public function createSkillGroupConfigWithOptions($request, $runtime)
     {
@@ -811,9 +767,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateSkillGroupConfigRequest $request
+     * @param CreateSkillGroupConfigRequest $request CreateSkillGroupConfigRequest
      *
-     * @return CreateSkillGroupConfigResponse
+     * @return CreateSkillGroupConfigResponse CreateSkillGroupConfigResponse
      */
     public function createSkillGroupConfig($request)
     {
@@ -823,10 +779,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskAssignRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateTaskAssignRuleRequest $request CreateTaskAssignRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskAssignRuleResponse
+     * @return CreateTaskAssignRuleResponse CreateTaskAssignRuleResponse
      */
     public function createTaskAssignRuleWithOptions($request, $runtime)
     {
@@ -857,9 +813,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskAssignRuleRequest $request
+     * @param CreateTaskAssignRuleRequest $request CreateTaskAssignRuleRequest
      *
-     * @return CreateTaskAssignRuleResponse
+     * @return CreateTaskAssignRuleResponse CreateTaskAssignRuleResponse
      */
     public function createTaskAssignRule($request)
     {
@@ -869,8 +825,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateUser is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateUserRequest $request CreateUserRequest
@@ -907,8 +863,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateUser is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateUserRequest $request CreateUserRequest
@@ -923,10 +879,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateWarningConfigRequest $request CreateWarningConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWarningConfigResponse
+     * @return CreateWarningConfigResponse CreateWarningConfigResponse
      */
     public function createWarningConfigWithOptions($request, $runtime)
     {
@@ -957,9 +913,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningConfigRequest $request
+     * @param CreateWarningConfigRequest $request CreateWarningConfigRequest
      *
-     * @return CreateWarningConfigResponse
+     * @return CreateWarningConfigResponse CreateWarningConfigResponse
      */
     public function createWarningConfig($request)
     {
@@ -969,10 +925,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningStrategyConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary  预警策略-新增
+     *  *
+     * @param CreateWarningStrategyConfigRequest $request CreateWarningStrategyConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWarningStrategyConfigResponse
+     * @return CreateWarningStrategyConfigResponse CreateWarningStrategyConfigResponse
      */
     public function createWarningStrategyConfigWithOptions($request, $runtime)
     {
@@ -1003,9 +961,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningStrategyConfigRequest $request
+     * @summary  预警策略-新增
+     *  *
+     * @param CreateWarningStrategyConfigRequest $request CreateWarningStrategyConfigRequest
      *
-     * @return CreateWarningStrategyConfigResponse
+     * @return CreateWarningStrategyConfigResponse CreateWarningStrategyConfigResponse
      */
     public function createWarningStrategyConfig($request)
     {
@@ -1015,10 +975,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DelRuleCategoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DelRuleCategoryRequest $request DelRuleCategoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DelRuleCategoryResponse
+     * @return DelRuleCategoryResponse DelRuleCategoryResponse
      */
     public function delRuleCategoryWithOptions($request, $runtime)
     {
@@ -1049,9 +1009,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DelRuleCategoryRequest $request
+     * @param DelRuleCategoryRequest $request DelRuleCategoryRequest
      *
-     * @return DelRuleCategoryResponse
+     * @return DelRuleCategoryResponse DelRuleCategoryResponse
      */
     public function delRuleCategory($request)
     {
@@ -1061,56 +1021,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DelThesaurusForApiRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteAsrVocabRequest $request DeleteAsrVocabRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DelThesaurusForApiResponse
-     */
-    public function delThesaurusForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DelThesaurusForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DelThesaurusForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DelThesaurusForApiRequest $request
-     *
-     * @return DelThesaurusForApiResponse
-     */
-    public function delThesaurusForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->delThesaurusForApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAsrVocabRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteAsrVocabResponse
+     * @return DeleteAsrVocabResponse DeleteAsrVocabResponse
      */
     public function deleteAsrVocabWithOptions($request, $runtime)
     {
@@ -1141,9 +1055,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteAsrVocabRequest $request
+     * @param DeleteAsrVocabRequest $request DeleteAsrVocabRequest
      *
-     * @return DeleteAsrVocabResponse
+     * @return DeleteAsrVocabResponse DeleteAsrVocabResponse
      */
     public function deleteAsrVocab($request)
     {
@@ -1153,10 +1067,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessCategoryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteBusinessCategoryRequest $request DeleteBusinessCategoryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBusinessCategoryResponse
+     * @return DeleteBusinessCategoryResponse DeleteBusinessCategoryResponse
      */
     public function deleteBusinessCategoryWithOptions($request, $runtime)
     {
@@ -1187,9 +1101,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessCategoryRequest $request
+     * @param DeleteBusinessCategoryRequest $request DeleteBusinessCategoryRequest
      *
-     * @return DeleteBusinessCategoryResponse
+     * @return DeleteBusinessCategoryResponse DeleteBusinessCategoryResponse
      */
     public function deleteBusinessCategory($request)
     {
@@ -1199,10 +1113,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizationConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DeleteCustomizationConfigRequest $request DeleteCustomizationConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomizationConfigResponse
+     * @return DeleteCustomizationConfigResponse DeleteCustomizationConfigResponse
      */
     public function deleteCustomizationConfigWithOptions($request, $runtime)
     {
@@ -1233,9 +1147,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizationConfigRequest $request
+     * @param DeleteCustomizationConfigRequest $request DeleteCustomizationConfigRequest
      *
-     * @return DeleteCustomizationConfigResponse
+     * @return DeleteCustomizationConfigResponse DeleteCustomizationConfigResponse
      */
     public function deleteCustomizationConfig($request)
     {
@@ -1245,10 +1159,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSetRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteDataSetRequest $request DeleteDataSetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSetResponse
+     * @return DeleteDataSetResponse DeleteDataSetResponse
      */
     public function deleteDataSetWithOptions($request, $runtime)
     {
@@ -1279,9 +1193,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSetRequest $request
+     * @param DeleteDataSetRequest $request DeleteDataSetRequest
      *
-     * @return DeleteDataSetResponse
+     * @return DeleteDataSetResponse DeleteDataSetResponse
      */
     public function deleteDataSet($request)
     {
@@ -1291,10 +1205,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeletePrecisionTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeletePrecisionTaskRequest $request DeletePrecisionTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrecisionTaskResponse
+     * @return DeletePrecisionTaskResponse DeletePrecisionTaskResponse
      */
     public function deletePrecisionTaskWithOptions($request, $runtime)
     {
@@ -1325,9 +1239,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeletePrecisionTaskRequest $request
+     * @param DeletePrecisionTaskRequest $request DeletePrecisionTaskRequest
      *
-     * @return DeletePrecisionTaskResponse
+     * @return DeletePrecisionTaskResponse DeletePrecisionTaskResponse
      */
     public function deletePrecisionTask($request)
     {
@@ -1337,10 +1251,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityCheckSchemeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除质检方案
+     *  *
+     * @param DeleteQualityCheckSchemeRequest $request DeleteQualityCheckSchemeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQualityCheckSchemeResponse
+     * @return DeleteQualityCheckSchemeResponse DeleteQualityCheckSchemeResponse
      */
     public function deleteQualityCheckSchemeWithOptions($request, $runtime)
     {
@@ -1371,9 +1287,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityCheckSchemeRequest $request
+     * @summary 删除质检方案
+     *  *
+     * @param DeleteQualityCheckSchemeRequest $request DeleteQualityCheckSchemeRequest
      *
-     * @return DeleteQualityCheckSchemeResponse
+     * @return DeleteQualityCheckSchemeResponse DeleteQualityCheckSchemeResponse
      */
     public function deleteQualityCheckScheme($request)
     {
@@ -1383,10 +1301,16 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
+     *  *
+     * @summary 删除规则
+     *  *
+     * Deprecated
      *
-     * @return DeleteRuleResponse
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
@@ -1425,9 +1349,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
+     * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
+     *  *
+     * @summary 删除规则
+     *  *
+     * Deprecated
      *
-     * @return DeleteRuleResponse
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     *
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -1437,10 +1367,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleV4Request $request
-     * @param RuntimeOptions      $runtime
+     * @summary V4删除规则
+     *  *
+     * @param DeleteRuleV4Request $request DeleteRuleV4Request
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleV4Response
+     * @return DeleteRuleV4Response DeleteRuleV4Response
      */
     public function deleteRuleV4WithOptions($request, $runtime)
     {
@@ -1476,9 +1408,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleV4Request $request
+     * @summary V4删除规则
+     *  *
+     * @param DeleteRuleV4Request $request DeleteRuleV4Request
      *
-     * @return DeleteRuleV4Response
+     * @return DeleteRuleV4Response DeleteRuleV4Response
      */
     public function deleteRuleV4($request)
     {
@@ -1488,10 +1422,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSchemeTaskConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除质检任务
+     *  *
+     * @param DeleteSchemeTaskConfigRequest $request DeleteSchemeTaskConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSchemeTaskConfigResponse
+     * @return DeleteSchemeTaskConfigResponse DeleteSchemeTaskConfigResponse
      */
     public function deleteSchemeTaskConfigWithOptions($request, $runtime)
     {
@@ -1522,9 +1458,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSchemeTaskConfigRequest $request
+     * @summary 删除质检任务
+     *  *
+     * @param DeleteSchemeTaskConfigRequest $request DeleteSchemeTaskConfigRequest
      *
-     * @return DeleteSchemeTaskConfigResponse
+     * @return DeleteSchemeTaskConfigResponse DeleteSchemeTaskConfigResponse
      */
     public function deleteSchemeTaskConfig($request)
     {
@@ -1534,10 +1472,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteScoreForApiRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated OpenAPI DeleteScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return DeleteScoreForApiResponse
+     * @param DeleteScoreForApiRequest $request DeleteScoreForApiRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteScoreForApiResponse DeleteScoreForApiResponse
      */
     public function deleteScoreForApiWithOptions($request, $runtime)
     {
@@ -1568,9 +1510,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteScoreForApiRequest $request
+     * @deprecated OpenAPI DeleteScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return DeleteScoreForApiResponse
+     * @param DeleteScoreForApiRequest $request DeleteScoreForApiRequest
+     *
+     * @return DeleteScoreForApiResponse DeleteScoreForApiResponse
      */
     public function deleteScoreForApi($request)
     {
@@ -1580,10 +1526,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSkillGroupConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteSkillGroupConfigRequest $request DeleteSkillGroupConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSkillGroupConfigResponse
+     * @return DeleteSkillGroupConfigResponse DeleteSkillGroupConfigResponse
      */
     public function deleteSkillGroupConfigWithOptions($request, $runtime)
     {
@@ -1614,9 +1560,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSkillGroupConfigRequest $request
+     * @param DeleteSkillGroupConfigRequest $request DeleteSkillGroupConfigRequest
      *
-     * @return DeleteSkillGroupConfigResponse
+     * @return DeleteSkillGroupConfigResponse DeleteSkillGroupConfigResponse
      */
     public function deleteSkillGroupConfig($request)
     {
@@ -1626,10 +1572,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubScoreForApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return DeleteSubScoreForApiResponse
+     * @param DeleteSubScoreForApiRequest $request DeleteSubScoreForApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSubScoreForApiResponse DeleteSubScoreForApiResponse
      */
     public function deleteSubScoreForApiWithOptions($request, $runtime)
     {
@@ -1660,9 +1610,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubScoreForApiRequest $request
+     * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return DeleteSubScoreForApiResponse
+     * @param DeleteSubScoreForApiRequest $request DeleteSubScoreForApiRequest
+     *
+     * @return DeleteSubScoreForApiResponse DeleteSubScoreForApiResponse
      */
     public function deleteSubScoreForApi($request)
     {
@@ -1672,10 +1626,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteTaskAssignRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteTaskAssignRuleRequest $request DeleteTaskAssignRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTaskAssignRuleResponse
+     * @return DeleteTaskAssignRuleResponse DeleteTaskAssignRuleResponse
      */
     public function deleteTaskAssignRuleWithOptions($request, $runtime)
     {
@@ -1706,9 +1660,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteTaskAssignRuleRequest $request
+     * @param DeleteTaskAssignRuleRequest $request DeleteTaskAssignRuleRequest
      *
-     * @return DeleteTaskAssignRuleResponse
+     * @return DeleteTaskAssignRuleResponse DeleteTaskAssignRuleResponse
      */
     public function deleteTaskAssignRule($request)
     {
@@ -1718,64 +1672,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @param DeleteWarningConfigRequest $request DeleteWarningConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteUserResponse DeleteUserResponse
-     */
-    public function deleteUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     *
-     * @return DeleteUserResponse DeleteUserResponse
-     */
-    public function deleteUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteWarningConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteWarningConfigResponse
+     * @return DeleteWarningConfigResponse DeleteWarningConfigResponse
      */
     public function deleteWarningConfigWithOptions($request, $runtime)
     {
@@ -1806,9 +1706,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteWarningConfigRequest $request
+     * @param DeleteWarningConfigRequest $request DeleteWarningConfigRequest
      *
-     * @return DeleteWarningConfigResponse
+     * @return DeleteWarningConfigResponse DeleteWarningConfigResponse
      */
     public function deleteWarningConfig($request)
     {
@@ -1818,10 +1718,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteWarningStrategyConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary  预警策略-删除
+     *  *
+     * @param DeleteWarningStrategyConfigRequest $request DeleteWarningStrategyConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWarningStrategyConfigResponse
+     * @return DeleteWarningStrategyConfigResponse DeleteWarningStrategyConfigResponse
      */
     public function deleteWarningStrategyConfigWithOptions($request, $runtime)
     {
@@ -1852,9 +1754,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteWarningStrategyConfigRequest $request
+     * @summary  预警策略-删除
+     *  *
+     * @param DeleteWarningStrategyConfigRequest $request DeleteWarningStrategyConfigRequest
      *
-     * @return DeleteWarningStrategyConfigResponse
+     * @return DeleteWarningStrategyConfigResponse DeleteWarningStrategyConfigResponse
      */
     public function deleteWarningStrategyConfig($request)
     {
@@ -1864,56 +1768,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param EditThesaurusForApiRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetAsrVocabRequest $request GetAsrVocabRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditThesaurusForApiResponse
-     */
-    public function editThesaurusForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EditThesaurusForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return EditThesaurusForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EditThesaurusForApiRequest $request
-     *
-     * @return EditThesaurusForApiResponse
-     */
-    public function editThesaurusForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->editThesaurusForApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAsrVocabRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetAsrVocabResponse
+     * @return GetAsrVocabResponse GetAsrVocabResponse
      */
     public function getAsrVocabWithOptions($request, $runtime)
     {
@@ -1944,9 +1802,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetAsrVocabRequest $request
+     * @param GetAsrVocabRequest $request GetAsrVocabRequest
      *
-     * @return GetAsrVocabResponse
+     * @return GetAsrVocabResponse GetAsrVocabResponse
      */
     public function getAsrVocab($request)
     {
@@ -1956,10 +1814,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessCategoryListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param GetBusinessCategoryListRequest $request GetBusinessCategoryListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBusinessCategoryListResponse
+     * @return GetBusinessCategoryListResponse GetBusinessCategoryListResponse
      */
     public function getBusinessCategoryListWithOptions($request, $runtime)
     {
@@ -1990,9 +1848,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessCategoryListRequest $request
+     * @param GetBusinessCategoryListRequest $request GetBusinessCategoryListRequest
      *
-     * @return GetBusinessCategoryListResponse
+     * @return GetBusinessCategoryListResponse GetBusinessCategoryListResponse
      */
     public function getBusinessCategoryList($request)
     {
@@ -2002,10 +1860,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizationConfigListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary GetCustomizationConfigList HSF_HTTP
+     *  *
+     * @param GetCustomizationConfigListRequest $request GetCustomizationConfigListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomizationConfigListResponse
+     * @return GetCustomizationConfigListResponse GetCustomizationConfigListResponse
      */
     public function getCustomizationConfigListWithOptions($request, $runtime)
     {
@@ -2036,9 +1896,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizationConfigListRequest $request
+     * @summary GetCustomizationConfigList HSF_HTTP
+     *  *
+     * @param GetCustomizationConfigListRequest $request GetCustomizationConfigListRequest
      *
-     * @return GetCustomizationConfigListResponse
+     * @return GetCustomizationConfigListResponse GetCustomizationConfigListResponse
      */
     public function getCustomizationConfigList($request)
     {
@@ -2048,56 +1910,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetHitResultRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetNextResultToVerifyRequest $request GetNextResultToVerifyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHitResultResponse
-     */
-    public function getHitResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetHitResult',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetHitResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetHitResultRequest $request
-     *
-     * @return GetHitResultResponse
-     */
-    public function getHitResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHitResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetNextResultToVerifyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetNextResultToVerifyResponse
+     * @return GetNextResultToVerifyResponse GetNextResultToVerifyResponse
      */
     public function getNextResultToVerifyWithOptions($request, $runtime)
     {
@@ -2128,9 +1944,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetNextResultToVerifyRequest $request
+     * @param GetNextResultToVerifyRequest $request GetNextResultToVerifyRequest
      *
-     * @return GetNextResultToVerifyResponse
+     * @return GetNextResultToVerifyResponse GetNextResultToVerifyResponse
      */
     public function getNextResultToVerify($request)
     {
@@ -2140,10 +1956,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetPrecisionTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetPrecisionTaskRequest $request GetPrecisionTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrecisionTaskResponse
+     * @return GetPrecisionTaskResponse GetPrecisionTaskResponse
      */
     public function getPrecisionTaskWithOptions($request, $runtime)
     {
@@ -2174,9 +1990,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetPrecisionTaskRequest $request
+     * @param GetPrecisionTaskRequest $request GetPrecisionTaskRequest
      *
-     * @return GetPrecisionTaskResponse
+     * @return GetPrecisionTaskResponse GetPrecisionTaskResponse
      */
     public function getPrecisionTask($request)
     {
@@ -2186,10 +2002,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetQualityCheckSchemeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取质检方案
+     *  *
+     * @param GetQualityCheckSchemeRequest $request GetQualityCheckSchemeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQualityCheckSchemeResponse
+     * @return GetQualityCheckSchemeResponse GetQualityCheckSchemeResponse
      */
     public function getQualityCheckSchemeWithOptions($request, $runtime)
     {
@@ -2220,9 +2038,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetQualityCheckSchemeRequest $request
+     * @summary 获取质检方案
+     *  *
+     * @param GetQualityCheckSchemeRequest $request GetQualityCheckSchemeRequest
      *
-     * @return GetQualityCheckSchemeResponse
+     * @return GetQualityCheckSchemeResponse GetQualityCheckSchemeResponse
      */
     public function getQualityCheckScheme($request)
     {
@@ -2232,10 +2052,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param GetResultRequest $request GetResultRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResultResponse
+     * @return GetResultResponse GetResultResponse
      */
     public function getResultWithOptions($request, $runtime)
     {
@@ -2266,9 +2086,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultRequest $request
+     * @param GetResultRequest $request GetResultRequest
      *
-     * @return GetResultResponse
+     * @return GetResultResponse GetResultResponse
      */
     public function getResult($request)
     {
@@ -2278,10 +2098,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultToReviewRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetResultToReviewRequest $request GetResultToReviewRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResultToReviewResponse
+     * @return GetResultToReviewResponse GetResultToReviewResponse
      */
     public function getResultToReviewWithOptions($request, $runtime)
     {
@@ -2312,9 +2132,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultToReviewRequest $request
+     * @param GetResultToReviewRequest $request GetResultToReviewRequest
      *
-     * @return GetResultToReviewResponse
+     * @return GetResultToReviewResponse GetResultToReviewResponse
      */
     public function getResultToReview($request)
     {
@@ -2324,10 +2144,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
-     * @param RuntimeOptions $runtime
+     * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return GetRuleResponse
+     * @param GetRuleRequest $request GetRuleRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
@@ -2358,9 +2182,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
+     * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return GetRuleResponse
+     * @param GetRuleRequest $request GetRuleRequest
+     *
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRule($request)
     {
@@ -2370,10 +2198,16 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleByIdRequest $request
-     * @param RuntimeOptions     $runtime
+     * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
+     *  *
+     * @summary 获取规则
+     *  *
+     * Deprecated
      *
-     * @return GetRuleByIdResponse
+     * @param GetRuleByIdRequest $request GetRuleByIdRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRuleByIdResponse GetRuleByIdResponse
      */
     public function getRuleByIdWithOptions($request, $runtime)
     {
@@ -2406,9 +2240,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleByIdRequest $request
+     * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
+     *  *
+     * @summary 获取规则
+     *  *
+     * Deprecated
      *
-     * @return GetRuleByIdResponse
+     * @param GetRuleByIdRequest $request GetRuleByIdRequest
+     *
+     * @return GetRuleByIdResponse GetRuleByIdResponse
      */
     public function getRuleById($request)
     {
@@ -2418,10 +2258,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleCategoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetRuleCategoryRequest $request GetRuleCategoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRuleCategoryResponse
+     * @return GetRuleCategoryResponse GetRuleCategoryResponse
      */
     public function getRuleCategoryWithOptions($request, $runtime)
     {
@@ -2452,9 +2292,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleCategoryRequest $request
+     * @param GetRuleCategoryRequest $request GetRuleCategoryRequest
      *
-     * @return GetRuleCategoryResponse
+     * @return GetRuleCategoryResponse GetRuleCategoryResponse
      */
     public function getRuleCategory($request)
     {
@@ -2464,10 +2304,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleDetailRequest $request
-     * @param RuntimeOptions       $runtime
+     * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return GetRuleDetailResponse
+     * @param GetRuleDetailRequest $request GetRuleDetailRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRuleDetailResponse GetRuleDetailResponse
      */
     public function getRuleDetailWithOptions($request, $runtime)
     {
@@ -2498,9 +2342,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleDetailRequest $request
+     * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return GetRuleDetailResponse
+     * @param GetRuleDetailRequest $request GetRuleDetailRequest
+     *
+     * @return GetRuleDetailResponse GetRuleDetailResponse
      */
     public function getRuleDetail($request)
     {
@@ -2510,10 +2358,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleV4Request $request
-     * @param RuntimeOptions   $runtime
+     * @summary V4获取规则
+     *  *
+     * @param GetRuleV4Request $request GetRuleV4Request
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRuleV4Response
+     * @return GetRuleV4Response GetRuleV4Response
      */
     public function getRuleV4WithOptions($request, $runtime)
     {
@@ -2541,9 +2391,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleV4Request $request
+     * @summary V4获取规则
+     *  *
+     * @param GetRuleV4Request $request GetRuleV4Request
      *
-     * @return GetRuleV4Response
+     * @return GetRuleV4Response GetRuleV4Response
      */
     public function getRuleV4($request)
     {
@@ -2553,64 +2405,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *   *
-     * Deprecated
+     * @summary 获得规则列表
+     *  *
+     * @param GetRulesCountListRequest $request GetRulesCountListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetRuleV4StrRequest $request GetRuleV4StrRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetRuleV4StrResponse GetRuleV4StrResponse
-     */
-    public function getRuleV4StrWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->isSchemeData)) {
-            $body['IsSchemeData'] = $request->isSchemeData;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRuleV4Str',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRuleV4StrResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *   *
-     * Deprecated
-     *
-     * @param GetRuleV4StrRequest $request GetRuleV4StrRequest
-     *
-     * @return GetRuleV4StrResponse GetRuleV4StrResponse
-     */
-    public function getRuleV4Str($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRuleV4StrWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRulesCountListRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetRulesCountListResponse
+     * @return GetRulesCountListResponse GetRulesCountListResponse
      */
     public function getRulesCountListWithOptions($request, $runtime)
     {
@@ -2715,9 +2515,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRulesCountListRequest $request
+     * @summary 获得规则列表
+     *  *
+     * @param GetRulesCountListRequest $request GetRulesCountListRequest
      *
-     * @return GetRulesCountListResponse
+     * @return GetRulesCountListResponse GetRulesCountListResponse
      */
     public function getRulesCountList($request)
     {
@@ -2727,10 +2529,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetScoreInfoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @deprecated OpenAPI GetScoreInfo is deprecated
+     *  *
+     * Deprecated
      *
-     * @return GetScoreInfoResponse
+     * @param GetScoreInfoRequest $request GetScoreInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetScoreInfoResponse GetScoreInfoResponse
      */
     public function getScoreInfoWithOptions($request, $runtime)
     {
@@ -2761,9 +2567,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetScoreInfoRequest $request
+     * @deprecated OpenAPI GetScoreInfo is deprecated
+     *  *
+     * Deprecated
      *
-     * @return GetScoreInfoResponse
+     * @param GetScoreInfoRequest $request GetScoreInfoRequest
+     *
+     * @return GetScoreInfoResponse GetScoreInfoResponse
      */
     public function getScoreInfo($request)
     {
@@ -2773,10 +2583,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetSkillGroupConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetSkillGroupConfigRequest $request GetSkillGroupConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSkillGroupConfigResponse
+     * @return GetSkillGroupConfigResponse GetSkillGroupConfigResponse
      */
     public function getSkillGroupConfigWithOptions($request, $runtime)
     {
@@ -2807,9 +2617,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetSkillGroupConfigRequest $request
+     * @param GetSkillGroupConfigRequest $request GetSkillGroupConfigRequest
      *
-     * @return GetSkillGroupConfigResponse
+     * @return GetSkillGroupConfigResponse GetSkillGroupConfigResponse
      */
     public function getSkillGroupConfig($request)
     {
@@ -2819,10 +2629,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetSyncResultRequest $request
-     * @param RuntimeOptions       $runtime
+     * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
+     *  *
+     * Deprecated
      *
-     * @return GetSyncResultResponse
+     * @param GetSyncResultRequest $request GetSyncResultRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSyncResultResponse GetSyncResultResponse
      */
     public function getSyncResultWithOptions($request, $runtime)
     {
@@ -2853,9 +2667,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetSyncResultRequest $request
+     * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
+     *  *
+     * Deprecated
      *
-     * @return GetSyncResultResponse
+     * @param GetSyncResultRequest $request GetSyncResultRequest
+     *
+     * @return GetSyncResultResponse GetSyncResultResponse
      */
     public function getSyncResult($request)
     {
@@ -2865,56 +2683,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetThesaurusBySynonymForApiRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 预警策略-详情
+     *  *
+     * @param GetWarningStrategyConfigRequest $request GetWarningStrategyConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetThesaurusBySynonymForApiResponse
-     */
-    public function getThesaurusBySynonymForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThesaurusBySynonymForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetThesaurusBySynonymForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetThesaurusBySynonymForApiRequest $request
-     *
-     * @return GetThesaurusBySynonymForApiResponse
-     */
-    public function getThesaurusBySynonymForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getThesaurusBySynonymForApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWarningStrategyConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetWarningStrategyConfigResponse
+     * @return GetWarningStrategyConfigResponse GetWarningStrategyConfigResponse
      */
     public function getWarningStrategyConfigWithOptions($request, $runtime)
     {
@@ -2945,9 +2719,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetWarningStrategyConfigRequest $request
+     * @summary 预警策略-详情
+     *  *
+     * @param GetWarningStrategyConfigRequest $request GetWarningStrategyConfigRequest
      *
-     * @return GetWarningStrategyConfigResponse
+     * @return GetWarningStrategyConfigResponse GetWarningStrategyConfigResponse
      */
     public function getWarningStrategyConfig($request)
     {
@@ -2957,10 +2733,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param HandleComplaintRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param HandleComplaintRequest $request HandleComplaintRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return HandleComplaintResponse
+     * @return HandleComplaintResponse HandleComplaintResponse
      */
     public function handleComplaintWithOptions($request, $runtime)
     {
@@ -2991,9 +2767,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param HandleComplaintRequest $request
+     * @param HandleComplaintRequest $request HandleComplaintRequest
      *
-     * @return HandleComplaintResponse
+     * @return HandleComplaintResponse HandleComplaintResponse
      */
     public function handleComplaint($request)
     {
@@ -3003,10 +2779,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InsertScoreForApiRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated OpenAPI InsertScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return InsertScoreForApiResponse
+     * @param InsertScoreForApiRequest $request InsertScoreForApiRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InsertScoreForApiResponse InsertScoreForApiResponse
      */
     public function insertScoreForApiWithOptions($request, $runtime)
     {
@@ -3037,9 +2817,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InsertScoreForApiRequest $request
+     * @deprecated OpenAPI InsertScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return InsertScoreForApiResponse
+     * @param InsertScoreForApiRequest $request InsertScoreForApiRequest
+     *
+     * @return InsertScoreForApiResponse InsertScoreForApiResponse
      */
     public function insertScoreForApi($request)
     {
@@ -3049,10 +2833,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InsertSubScoreForApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated OpenAPI InsertSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return InsertSubScoreForApiResponse
+     * @param InsertSubScoreForApiRequest $request InsertSubScoreForApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InsertSubScoreForApiResponse InsertSubScoreForApiResponse
      */
     public function insertSubScoreForApiWithOptions($request, $runtime)
     {
@@ -3083,9 +2871,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InsertSubScoreForApiRequest $request
+     * @deprecated OpenAPI InsertSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return InsertSubScoreForApiResponse
+     * @param InsertSubScoreForApiRequest $request InsertSubScoreForApiRequest
+     *
+     * @return InsertSubScoreForApiResponse InsertSubScoreForApiResponse
      */
     public function insertSubScoreForApi($request)
     {
@@ -3095,10 +2887,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InvalidRuleRequest $request
-     * @param RuntimeOptions     $runtime
+     * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return InvalidRuleResponse
+     * @param InvalidRuleRequest $request InvalidRuleRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InvalidRuleResponse InvalidRuleResponse
      */
     public function invalidRuleWithOptions($request, $runtime)
     {
@@ -3129,9 +2925,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param InvalidRuleRequest $request
+     * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return InvalidRuleResponse
+     * @param InvalidRuleRequest $request InvalidRuleRequest
+     *
+     * @return InvalidRuleResponse InvalidRuleResponse
      */
     public function invalidRule($request)
     {
@@ -3141,10 +2941,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListAsrVocabRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ListAsrVocabRequest $request ListAsrVocabRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAsrVocabResponse
+     * @return ListAsrVocabResponse ListAsrVocabResponse
      */
     public function listAsrVocabWithOptions($request, $runtime)
     {
@@ -3175,9 +2975,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListAsrVocabRequest $request
+     * @param ListAsrVocabRequest $request ListAsrVocabRequest
      *
-     * @return ListAsrVocabResponse
+     * @return ListAsrVocabResponse ListAsrVocabResponse
      */
     public function listAsrVocab($request)
     {
@@ -3187,61 +2987,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @summary 获取数据集列表
+     *  *
+     * @param ListDataSetRequest $request ListDataSetRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param ListBusinessSpacesRequest $request ListBusinessSpacesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListBusinessSpacesResponse ListBusinessSpacesResponse
-     */
-    public function listBusinessSpacesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListBusinessSpaces',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListBusinessSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param ListBusinessSpacesRequest $request ListBusinessSpacesRequest
-     *
-     * @return ListBusinessSpacesResponse ListBusinessSpacesResponse
-     */
-    public function listBusinessSpaces($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBusinessSpacesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDataSetRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListDataSetResponse
+     * @return ListDataSetResponse ListDataSetResponse
      */
     public function listDataSetWithOptions($request, $runtime)
     {
@@ -3272,9 +3023,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListDataSetRequest $request
+     * @summary 获取数据集列表
+     *  *
+     * @param ListDataSetRequest $request ListDataSetRequest
      *
-     * @return ListDataSetResponse
+     * @return ListDataSetResponse ListDataSetResponse
      */
     public function listDataSet($request)
     {
@@ -3284,10 +3037,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListPrecisionTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListPrecisionTaskRequest $request ListPrecisionTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrecisionTaskResponse
+     * @return ListPrecisionTaskResponse ListPrecisionTaskResponse
      */
     public function listPrecisionTaskWithOptions($request, $runtime)
     {
@@ -3318,9 +3071,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListPrecisionTaskRequest $request
+     * @param ListPrecisionTaskRequest $request ListPrecisionTaskRequest
      *
-     * @return ListPrecisionTaskResponse
+     * @return ListPrecisionTaskResponse ListPrecisionTaskResponse
      */
     public function listPrecisionTask($request)
     {
@@ -3330,10 +3083,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListQualityCheckSchemeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 质检方案列表
+     *  *
+     * @param ListQualityCheckSchemeRequest $request ListQualityCheckSchemeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQualityCheckSchemeResponse
+     * @return ListQualityCheckSchemeResponse ListQualityCheckSchemeResponse
      */
     public function listQualityCheckSchemeWithOptions($request, $runtime)
     {
@@ -3364,9 +3119,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListQualityCheckSchemeRequest $request
+     * @summary 质检方案列表
+     *  *
+     * @param ListQualityCheckSchemeRequest $request ListQualityCheckSchemeRequest
      *
-     * @return ListQualityCheckSchemeResponse
+     * @return ListQualityCheckSchemeResponse ListQualityCheckSchemeResponse
      */
     public function listQualityCheckScheme($request)
     {
@@ -3376,56 +3133,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return ListRolesResponse
-     */
-    public function listRolesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListRoles',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListRolesRequest $request
+     * @param ListRulesRequest $request ListRulesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRolesResponse
-     */
-    public function listRoles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRolesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRulesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListRulesResponse
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRulesWithOptions($request, $runtime)
     {
@@ -3456,9 +3171,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListRulesRequest $request
+     * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return ListRulesResponse
+     * @param ListRulesRequest $request ListRulesRequest
+     *
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRules($request)
     {
@@ -3468,10 +3187,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListRulesV4Request $request
-     * @param RuntimeOptions     $runtime
+     * @summary V4获得规则列表
+     *  *
+     * @param ListRulesV4Request $request ListRulesV4Request
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRulesV4Response
+     * @return ListRulesV4Response ListRulesV4Response
      */
     public function listRulesV4WithOptions($request, $runtime)
     {
@@ -3576,9 +3297,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListRulesV4Request $request
+     * @summary V4获得规则列表
+     *  *
+     * @param ListRulesV4Request $request ListRulesV4Request
      *
-     * @return ListRulesV4Response
+     * @return ListRulesV4Response ListRulesV4Response
      */
     public function listRulesV4($request)
     {
@@ -3588,10 +3311,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSchemeTaskConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取质检任务列表
+     *  *
+     * @param ListSchemeTaskConfigRequest $request ListSchemeTaskConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSchemeTaskConfigResponse
+     * @return ListSchemeTaskConfigResponse ListSchemeTaskConfigResponse
      */
     public function listSchemeTaskConfigWithOptions($request, $runtime)
     {
@@ -3622,9 +3347,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSchemeTaskConfigRequest $request
+     * @summary 获取质检任务列表
+     *  *
+     * @param ListSchemeTaskConfigRequest $request ListSchemeTaskConfigRequest
      *
-     * @return ListSchemeTaskConfigResponse
+     * @return ListSchemeTaskConfigResponse ListSchemeTaskConfigResponse
      */
     public function listSchemeTaskConfig($request)
     {
@@ -3634,10 +3361,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSessionGroupRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取会话组列表
+     *  *
+     * @param ListSessionGroupRequest $request ListSessionGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSessionGroupResponse
+     * @return ListSessionGroupResponse ListSessionGroupResponse
      */
     public function listSessionGroupWithOptions($request, $runtime)
     {
@@ -3668,9 +3397,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSessionGroupRequest $request
+     * @summary 获取会话组列表
+     *  *
+     * @param ListSessionGroupRequest $request ListSessionGroupRequest
      *
-     * @return ListSessionGroupResponse
+     * @return ListSessionGroupResponse ListSessionGroupResponse
      */
     public function listSessionGroup($request)
     {
@@ -3680,10 +3411,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListSkillGroupConfigRequest $request ListSkillGroupConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSkillGroupConfigResponse
+     * @return ListSkillGroupConfigResponse ListSkillGroupConfigResponse
      */
     public function listSkillGroupConfigWithOptions($request, $runtime)
     {
@@ -3714,9 +3445,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupConfigRequest $request
+     * @param ListSkillGroupConfigRequest $request ListSkillGroupConfigRequest
      *
-     * @return ListSkillGroupConfigResponse
+     * @return ListSkillGroupConfigResponse ListSkillGroupConfigResponse
      */
     public function listSkillGroupConfig($request)
     {
@@ -3726,10 +3457,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListTaskAssignRulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListTaskAssignRulesRequest $request ListTaskAssignRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTaskAssignRulesResponse
+     * @return ListTaskAssignRulesResponse ListTaskAssignRulesResponse
      */
     public function listTaskAssignRulesWithOptions($request, $runtime)
     {
@@ -3760,9 +3491,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListTaskAssignRulesRequest $request
+     * @param ListTaskAssignRulesRequest $request ListTaskAssignRulesRequest
      *
-     * @return ListTaskAssignRulesResponse
+     * @return ListTaskAssignRulesResponse ListTaskAssignRulesResponse
      */
     public function listTaskAssignRules($request)
     {
@@ -3772,10 +3503,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -3806,9 +3537,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -3818,10 +3549,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListWarningConfigRequest $request ListWarningConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWarningConfigResponse
+     * @return ListWarningConfigResponse ListWarningConfigResponse
      */
     public function listWarningConfigWithOptions($request, $runtime)
     {
@@ -3852,9 +3583,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningConfigRequest $request
+     * @param ListWarningConfigRequest $request ListWarningConfigRequest
      *
-     * @return ListWarningConfigResponse
+     * @return ListWarningConfigResponse ListWarningConfigResponse
      */
     public function listWarningConfig($request)
     {
@@ -3864,10 +3595,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningStrategyConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary  预警策略-列表
+     *  *
+     * @param ListWarningStrategyConfigRequest $request ListWarningStrategyConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWarningStrategyConfigResponse
+     * @return ListWarningStrategyConfigResponse ListWarningStrategyConfigResponse
      */
     public function listWarningStrategyConfigWithOptions($request, $runtime)
     {
@@ -3898,9 +3631,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningStrategyConfigRequest $request
+     * @summary  预警策略-列表
+     *  *
+     * @param ListWarningStrategyConfigRequest $request ListWarningStrategyConfigRequest
      *
-     * @return ListWarningStrategyConfigResponse
+     * @return ListWarningStrategyConfigResponse ListWarningStrategyConfigResponse
      */
     public function listWarningStrategyConfig($request)
     {
@@ -3910,56 +3645,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param RestartAsrTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 批量回收
+     *  *
+     * @param RevertAssignedSessionRequest $request RevertAssignedSessionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartAsrTaskResponse
-     */
-    public function restartAsrTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartAsrTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RestartAsrTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RestartAsrTaskRequest $request
-     *
-     * @return RestartAsrTaskResponse
-     */
-    public function restartAsrTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restartAsrTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RevertAssignedSessionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RevertAssignedSessionResponse
+     * @return RevertAssignedSessionResponse RevertAssignedSessionResponse
      */
     public function revertAssignedSessionWithOptions($request, $runtime)
     {
@@ -3990,9 +3681,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param RevertAssignedSessionRequest $request
+     * @summary 批量回收
+     *  *
+     * @param RevertAssignedSessionRequest $request RevertAssignedSessionRequest
      *
-     * @return RevertAssignedSessionResponse
+     * @return RevertAssignedSessionResponse RevertAssignedSessionResponse
      */
     public function revertAssignedSession($request)
     {
@@ -4002,10 +3695,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param RevertAssignedSessionGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 会话组批量回收
+     *  *
+     * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevertAssignedSessionGroupResponse
+     * @return RevertAssignedSessionGroupResponse RevertAssignedSessionGroupResponse
      */
     public function revertAssignedSessionGroupWithOptions($request, $runtime)
     {
@@ -4036,9 +3731,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param RevertAssignedSessionGroupRequest $request
+     * @summary 会话组批量回收
+     *  *
+     * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
      *
-     * @return RevertAssignedSessionGroupResponse
+     * @return RevertAssignedSessionGroupResponse RevertAssignedSessionGroupResponse
      */
     public function revertAssignedSessionGroup($request)
     {
@@ -4048,10 +3745,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SaveConfigDataSetRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveConfigDataSetResponse
+     * @return SaveConfigDataSetResponse SaveConfigDataSetResponse
      */
     public function saveConfigDataSetWithOptions($request, $runtime)
     {
@@ -4082,9 +3779,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SaveConfigDataSetRequest $request
+     * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
      *
-     * @return SaveConfigDataSetResponse
+     * @return SaveConfigDataSetResponse SaveConfigDataSetResponse
      */
     public function saveConfigDataSet($request)
     {
@@ -4094,10 +3791,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitComplaintRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param SubmitComplaintRequest $request SubmitComplaintRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitComplaintResponse
+     * @return SubmitComplaintResponse SubmitComplaintResponse
      */
     public function submitComplaintWithOptions($request, $runtime)
     {
@@ -4128,9 +3825,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitComplaintRequest $request
+     * @param SubmitComplaintRequest $request SubmitComplaintRequest
      *
-     * @return SubmitComplaintResponse
+     * @return SubmitComplaintResponse SubmitComplaintResponse
      */
     public function submitComplaint($request)
     {
@@ -4140,10 +3837,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitPrecisionTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param SubmitPrecisionTaskRequest $request SubmitPrecisionTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitPrecisionTaskResponse
+     * @return SubmitPrecisionTaskResponse SubmitPrecisionTaskResponse
      */
     public function submitPrecisionTaskWithOptions($request, $runtime)
     {
@@ -4174,9 +3871,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitPrecisionTaskRequest $request
+     * @param SubmitPrecisionTaskRequest $request SubmitPrecisionTaskRequest
      *
-     * @return SubmitPrecisionTaskResponse
+     * @return SubmitPrecisionTaskResponse SubmitPrecisionTaskResponse
      */
     public function submitPrecisionTask($request)
     {
@@ -4186,10 +3883,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitQualityCheckTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param SubmitQualityCheckTaskRequest $request SubmitQualityCheckTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitQualityCheckTaskResponse
+     * @return SubmitQualityCheckTaskResponse SubmitQualityCheckTaskResponse
      */
     public function submitQualityCheckTaskWithOptions($request, $runtime)
     {
@@ -4220,9 +3917,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitQualityCheckTaskRequest $request
+     * @param SubmitQualityCheckTaskRequest $request SubmitQualityCheckTaskRequest
      *
-     * @return SubmitQualityCheckTaskResponse
+     * @return SubmitQualityCheckTaskResponse SubmitQualityCheckTaskResponse
      */
     public function submitQualityCheckTask($request)
     {
@@ -4232,10 +3929,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitReviewInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SubmitReviewInfoRequest $request SubmitReviewInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitReviewInfoResponse
+     * @return SubmitReviewInfoResponse SubmitReviewInfoResponse
      */
     public function submitReviewInfoWithOptions($request, $runtime)
     {
@@ -4266,9 +3963,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitReviewInfoRequest $request
+     * @param SubmitReviewInfoRequest $request SubmitReviewInfoRequest
      *
-     * @return SubmitReviewInfoResponse
+     * @return SubmitReviewInfoResponse SubmitReviewInfoResponse
      */
     public function submitReviewInfo($request)
     {
@@ -4278,10 +3975,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SyncQualityCheckRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SyncQualityCheckRequest $request SyncQualityCheckRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncQualityCheckResponse
+     * @return SyncQualityCheckResponse SyncQualityCheckResponse
      */
     public function syncQualityCheckWithOptions($request, $runtime)
     {
@@ -4312,9 +4009,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SyncQualityCheckRequest $request
+     * @param SyncQualityCheckRequest $request SyncQualityCheckRequest
      *
-     * @return SyncQualityCheckResponse
+     * @return SyncQualityCheckResponse SyncQualityCheckResponse
      */
     public function syncQualityCheck($request)
     {
@@ -4324,10 +4021,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param TestRuleV4Request $request
-     * @param RuntimeOptions    $runtime
+     * @summary 测试规则
+     *  *
+     * @param TestRuleV4Request $request TestRuleV4Request
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return TestRuleV4Response
+     * @return TestRuleV4Response TestRuleV4Response
      */
     public function testRuleV4WithOptions($request, $runtime)
     {
@@ -4358,9 +4057,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param TestRuleV4Request $request
+     * @summary 测试规则
+     *  *
+     * @param TestRuleV4Request $request TestRuleV4Request
      *
-     * @return TestRuleV4Response
+     * @return TestRuleV4Response TestRuleV4Response
      */
     public function testRuleV4($request)
     {
@@ -4370,10 +4071,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateAsrVocabRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UpdateAsrVocabRequest $request UpdateAsrVocabRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAsrVocabResponse
+     * @return UpdateAsrVocabResponse UpdateAsrVocabResponse
      */
     public function updateAsrVocabWithOptions($request, $runtime)
     {
@@ -4404,9 +4105,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateAsrVocabRequest $request
+     * @param UpdateAsrVocabRequest $request UpdateAsrVocabRequest
      *
-     * @return UpdateAsrVocabResponse
+     * @return UpdateAsrVocabResponse UpdateAsrVocabResponse
      */
     public function updateAsrVocab($request)
     {
@@ -4416,10 +4117,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateCheckTypeToSchemeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新质检方案中的质检维度
+     *  *
+     * @param UpdateCheckTypeToSchemeRequest $request UpdateCheckTypeToSchemeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCheckTypeToSchemeResponse
+     * @return UpdateCheckTypeToSchemeResponse UpdateCheckTypeToSchemeResponse
      */
     public function updateCheckTypeToSchemeWithOptions($request, $runtime)
     {
@@ -4450,9 +4153,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateCheckTypeToSchemeRequest $request
+     * @summary 更新质检方案中的质检维度
+     *  *
+     * @param UpdateCheckTypeToSchemeRequest $request UpdateCheckTypeToSchemeRequest
      *
-     * @return UpdateCheckTypeToSchemeResponse
+     * @return UpdateCheckTypeToSchemeResponse UpdateCheckTypeToSchemeResponse
      */
     public function updateCheckTypeToScheme($request)
     {
@@ -4462,10 +4167,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityCheckDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 更新会话随录数据
+     *  *
+     * @param UpdateQualityCheckDataRequest $request UpdateQualityCheckDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQualityCheckDataResponse
+     * @return UpdateQualityCheckDataResponse UpdateQualityCheckDataResponse
      */
     public function updateQualityCheckDataWithOptions($request, $runtime)
     {
@@ -4496,9 +4203,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityCheckDataRequest $request
+     * @summary 更新会话随录数据
+     *  *
+     * @param UpdateQualityCheckDataRequest $request UpdateQualityCheckDataRequest
      *
-     * @return UpdateQualityCheckDataResponse
+     * @return UpdateQualityCheckDataResponse UpdateQualityCheckDataResponse
      */
     public function updateQualityCheckData($request)
     {
@@ -4508,10 +4217,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityCheckSchemeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 更新质检方案
+     *  *
+     * @param UpdateQualityCheckSchemeRequest $request UpdateQualityCheckSchemeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQualityCheckSchemeResponse
+     * @return UpdateQualityCheckSchemeResponse UpdateQualityCheckSchemeResponse
      */
     public function updateQualityCheckSchemeWithOptions($request, $runtime)
     {
@@ -4542,9 +4253,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityCheckSchemeRequest $request
+     * @summary 更新质检方案
+     *  *
+     * @param UpdateQualityCheckSchemeRequest $request UpdateQualityCheckSchemeRequest
      *
-     * @return UpdateQualityCheckSchemeResponse
+     * @return UpdateQualityCheckSchemeResponse UpdateQualityCheckSchemeResponse
      */
     public function updateQualityCheckScheme($request)
     {
@@ -4554,10 +4267,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return UpdateRuleResponse
+     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateRuleResponse UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
@@ -4588,9 +4305,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleRequest $request
+     * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+     *  *
+     * Deprecated
      *
-     * @return UpdateRuleResponse
+     * @param UpdateRuleRequest $request UpdateRuleRequest
+     *
+     * @return UpdateRuleResponse UpdateRuleResponse
      */
     public function updateRule($request)
     {
@@ -4600,10 +4321,16 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleByIdRequest $request
-     * @param RuntimeOptions        $runtime
+     * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
+     *  *
+     * @summary 更新规则
+     *  *
+     * Deprecated
      *
-     * @return UpdateRuleByIdResponse
+     * @param UpdateRuleByIdRequest $request UpdateRuleByIdRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateRuleByIdResponse UpdateRuleByIdResponse
      */
     public function updateRuleByIdWithOptions($request, $runtime)
     {
@@ -4645,9 +4372,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleByIdRequest $request
+     * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
+     *  *
+     * @summary 更新规则
+     *  *
+     * Deprecated
      *
-     * @return UpdateRuleByIdResponse
+     * @param UpdateRuleByIdRequest $request UpdateRuleByIdRequest
+     *
+     * @return UpdateRuleByIdResponse UpdateRuleByIdResponse
      */
     public function updateRuleById($request)
     {
@@ -4657,10 +4390,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleToSchemeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 更新质检方案的规则
+     *  *
+     * @param UpdateRuleToSchemeRequest $request UpdateRuleToSchemeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleToSchemeResponse
+     * @return UpdateRuleToSchemeResponse UpdateRuleToSchemeResponse
      */
     public function updateRuleToSchemeWithOptions($request, $runtime)
     {
@@ -4691,9 +4426,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleToSchemeRequest $request
+     * @summary 更新质检方案的规则
+     *  *
+     * @param UpdateRuleToSchemeRequest $request UpdateRuleToSchemeRequest
      *
-     * @return UpdateRuleToSchemeResponse
+     * @return UpdateRuleToSchemeResponse UpdateRuleToSchemeResponse
      */
     public function updateRuleToScheme($request)
     {
@@ -4703,10 +4440,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleV4Request $request
-     * @param RuntimeOptions      $runtime
+     * @summary V4更新规则
+     *  *
+     * @param UpdateRuleV4Request $request UpdateRuleV4Request
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleV4Response
+     * @return UpdateRuleV4Response UpdateRuleV4Response
      */
     public function updateRuleV4WithOptions($request, $runtime)
     {
@@ -4742,9 +4481,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleV4Request $request
+     * @summary V4更新规则
+     *  *
+     * @param UpdateRuleV4Request $request UpdateRuleV4Request
      *
-     * @return UpdateRuleV4Response
+     * @return UpdateRuleV4Response UpdateRuleV4Response
      */
     public function updateRuleV4($request)
     {
@@ -4754,10 +4495,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSchemeTaskConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建质检任务
+     *  *
+     * @param UpdateSchemeTaskConfigRequest $request UpdateSchemeTaskConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSchemeTaskConfigResponse
+     * @return UpdateSchemeTaskConfigResponse UpdateSchemeTaskConfigResponse
      */
     public function updateSchemeTaskConfigWithOptions($request, $runtime)
     {
@@ -4788,9 +4531,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSchemeTaskConfigRequest $request
+     * @summary 创建质检任务
+     *  *
+     * @param UpdateSchemeTaskConfigRequest $request UpdateSchemeTaskConfigRequest
      *
-     * @return UpdateSchemeTaskConfigResponse
+     * @return UpdateSchemeTaskConfigResponse UpdateSchemeTaskConfigResponse
      */
     public function updateSchemeTaskConfig($request)
     {
@@ -4800,10 +4545,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateScoreForApiRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated OpenAPI UpdateScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return UpdateScoreForApiResponse
+     * @param UpdateScoreForApiRequest $request UpdateScoreForApiRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateScoreForApiResponse UpdateScoreForApiResponse
      */
     public function updateScoreForApiWithOptions($request, $runtime)
     {
@@ -4834,9 +4583,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateScoreForApiRequest $request
+     * @deprecated OpenAPI UpdateScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return UpdateScoreForApiResponse
+     * @param UpdateScoreForApiRequest $request UpdateScoreForApiRequest
+     *
+     * @return UpdateScoreForApiResponse UpdateScoreForApiResponse
      */
     public function updateScoreForApi($request)
     {
@@ -4846,10 +4599,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSkillGroupConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param UpdateSkillGroupConfigRequest $request UpdateSkillGroupConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSkillGroupConfigResponse
+     * @return UpdateSkillGroupConfigResponse UpdateSkillGroupConfigResponse
      */
     public function updateSkillGroupConfigWithOptions($request, $runtime)
     {
@@ -4880,9 +4633,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSkillGroupConfigRequest $request
+     * @param UpdateSkillGroupConfigRequest $request UpdateSkillGroupConfigRequest
      *
-     * @return UpdateSkillGroupConfigResponse
+     * @return UpdateSkillGroupConfigResponse UpdateSkillGroupConfigResponse
      */
     public function updateSkillGroupConfig($request)
     {
@@ -4892,10 +4645,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubScoreForApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return UpdateSubScoreForApiResponse
+     * @param UpdateSubScoreForApiRequest $request UpdateSubScoreForApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSubScoreForApiResponse UpdateSubScoreForApiResponse
      */
     public function updateSubScoreForApiWithOptions($request, $runtime)
     {
@@ -4926,9 +4683,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSubScoreForApiRequest $request
+     * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
+     *  *
+     * Deprecated
      *
-     * @return UpdateSubScoreForApiResponse
+     * @param UpdateSubScoreForApiRequest $request UpdateSubScoreForApiRequest
+     *
+     * @return UpdateSubScoreForApiResponse UpdateSubScoreForApiResponse
      */
     public function updateSubScoreForApi($request)
     {
@@ -4938,10 +4699,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncQualityCheckDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateSyncQualityCheckDataRequest $request UpdateSyncQualityCheckDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSyncQualityCheckDataResponse
+     * @return UpdateSyncQualityCheckDataResponse UpdateSyncQualityCheckDataResponse
      */
     public function updateSyncQualityCheckDataWithOptions($request, $runtime)
     {
@@ -4972,9 +4733,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncQualityCheckDataRequest $request
+     * @param UpdateSyncQualityCheckDataRequest $request UpdateSyncQualityCheckDataRequest
      *
-     * @return UpdateSyncQualityCheckDataResponse
+     * @return UpdateSyncQualityCheckDataResponse UpdateSyncQualityCheckDataResponse
      */
     public function updateSyncQualityCheckData($request)
     {
@@ -4984,10 +4745,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskAssignRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateTaskAssignRuleRequest $request UpdateTaskAssignRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskAssignRuleResponse
+     * @return UpdateTaskAssignRuleResponse UpdateTaskAssignRuleResponse
      */
     public function updateTaskAssignRuleWithOptions($request, $runtime)
     {
@@ -5018,9 +4779,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskAssignRuleRequest $request
+     * @param UpdateTaskAssignRuleRequest $request UpdateTaskAssignRuleRequest
      *
-     * @return UpdateTaskAssignRuleResponse
+     * @return UpdateTaskAssignRuleResponse UpdateTaskAssignRuleResponse
      */
     public function updateTaskAssignRule($request)
     {
@@ -5030,10 +4791,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
@@ -5064,9 +4825,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -5076,56 +4837,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateWarningConfigRequest $request UpdateWarningConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserConfigResponse
-     */
-    public function updateUserConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateUserConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateUserConfigRequest $request
-     *
-     * @return UpdateUserConfigResponse
-     */
-    public function updateUserConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateUserConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateWarningConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateWarningConfigResponse
+     * @return UpdateWarningConfigResponse UpdateWarningConfigResponse
      */
     public function updateWarningConfigWithOptions($request, $runtime)
     {
@@ -5156,9 +4871,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateWarningConfigRequest $request
+     * @param UpdateWarningConfigRequest $request UpdateWarningConfigRequest
      *
-     * @return UpdateWarningConfigResponse
+     * @return UpdateWarningConfigResponse UpdateWarningConfigResponse
      */
     public function updateWarningConfig($request)
     {
@@ -5168,10 +4883,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateWarningStrategyConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary  预警策略-更新
+     *  *
+     * @param UpdateWarningStrategyConfigRequest $request UpdateWarningStrategyConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWarningStrategyConfigResponse
+     * @return UpdateWarningStrategyConfigResponse UpdateWarningStrategyConfigResponse
      */
     public function updateWarningStrategyConfigWithOptions($request, $runtime)
     {
@@ -5202,9 +4919,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateWarningStrategyConfigRequest $request
+     * @summary  预警策略-更新
+     *  *
+     * @param UpdateWarningStrategyConfigRequest $request UpdateWarningStrategyConfigRequest
      *
-     * @return UpdateWarningStrategyConfigResponse
+     * @return UpdateWarningStrategyConfigResponse UpdateWarningStrategyConfigResponse
      */
     public function updateWarningStrategyConfig($request)
     {
@@ -5214,10 +4933,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadAudioDataRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UploadAudioDataRequest $request UploadAudioDataRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadAudioDataResponse
+     * @return UploadAudioDataResponse UploadAudioDataResponse
      */
     public function uploadAudioDataWithOptions($request, $runtime)
     {
@@ -5248,9 +4967,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadAudioDataRequest $request
+     * @param UploadAudioDataRequest $request UploadAudioDataRequest
      *
-     * @return UploadAudioDataResponse
+     * @return UploadAudioDataResponse UploadAudioDataResponse
      */
     public function uploadAudioData($request)
     {
@@ -5260,8 +4979,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
-     *   *
+     * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
+     *  *
+     * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     *  *
      * Deprecated
      *
      * @param UploadDataRequest $request UploadDataRequest
@@ -5298,8 +5019,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
-     *   *
+     * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
+     *  *
+     * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     *  *
      * Deprecated
      *
      * @param UploadDataRequest $request UploadDataRequest
@@ -5314,10 +5037,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataSyncRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary http_hsf
+     *  *
+     * @param UploadDataSyncRequest $request UploadDataSyncRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadDataSyncResponse
+     * @return UploadDataSyncResponse UploadDataSyncResponse
      */
     public function uploadDataSyncWithOptions($request, $runtime)
     {
@@ -5348,9 +5073,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataSyncRequest $request
+     * @summary http_hsf
+     *  *
+     * @param UploadDataSyncRequest $request UploadDataSyncRequest
      *
-     * @return UploadDataSyncResponse
+     * @return UploadDataSyncResponse UploadDataSyncResponse
      */
     public function uploadDataSync($request)
     {
@@ -5360,10 +5087,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataV4Request $request
-     * @param RuntimeOptions      $runtime
+     * @summary UploadDataV4
+     *  *
+     * @param UploadDataV4Request $request UploadDataV4Request
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadDataV4Response
+     * @return UploadDataV4Response UploadDataV4Response
      */
     public function uploadDataV4WithOptions($request, $runtime)
     {
@@ -5394,9 +5123,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataV4Request $request
+     * @summary UploadDataV4
+     *  *
+     * @param UploadDataV4Request $request UploadDataV4Request
      *
-     * @return UploadDataV4Response
+     * @return UploadDataV4Response UploadDataV4Response
      */
     public function uploadDataV4($request)
     {
@@ -5406,10 +5137,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param UploadRuleRequest $request UploadRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadRuleResponse
+     * @return UploadRuleResponse UploadRuleResponse
      */
     public function uploadRuleWithOptions($request, $runtime)
     {
@@ -5440,9 +5171,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadRuleRequest $request
+     * @param UploadRuleRequest $request UploadRuleRequest
      *
-     * @return UploadRuleResponse
+     * @return UploadRuleResponse UploadRuleResponse
      */
     public function uploadRule($request)
     {
@@ -5452,10 +5183,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifyFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param VerifyFileRequest $request VerifyFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyFileResponse
+     * @return VerifyFileResponse VerifyFileResponse
      */
     public function verifyFileWithOptions($request, $runtime)
     {
@@ -5486,9 +5217,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifyFileRequest $request
+     * @param VerifyFileRequest $request VerifyFileRequest
      *
-     * @return VerifyFileResponse
+     * @return VerifyFileResponse VerifyFileResponse
      */
     public function verifyFile($request)
     {
@@ -5498,10 +5229,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifySentenceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param VerifySentenceRequest $request VerifySentenceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifySentenceResponse
+     * @return VerifySentenceResponse VerifySentenceResponse
      */
     public function verifySentenceWithOptions($request, $runtime)
     {
@@ -5532,9 +5263,9 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifySentenceRequest $request
+     * @param VerifySentenceRequest $request VerifySentenceRequest
      *
-     * @return VerifySentenceResponse
+     * @return VerifySentenceResponse VerifySentenceResponse
      */
     public function verifySentence($request)
     {

@@ -16,6 +16,8 @@ class InvalidRuleRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"ruleIds":[3,4]}
      *
      * @var string

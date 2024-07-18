@@ -16,6 +16,8 @@ class ListSkillGroupConfigRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"pageNumber":1,"pageSize": 1}
      *
      * @var string

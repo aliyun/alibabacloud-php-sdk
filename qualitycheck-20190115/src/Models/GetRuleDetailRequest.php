@@ -16,6 +16,8 @@ class GetRuleDetailRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"ruleIds":"123"}
      *
      * @var string

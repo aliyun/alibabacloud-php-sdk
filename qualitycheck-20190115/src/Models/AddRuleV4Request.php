@@ -23,6 +23,8 @@ class AddRuleV4Request extends Model
     public $isCopy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jsonStrForRule;

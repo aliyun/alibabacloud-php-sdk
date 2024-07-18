@@ -23,6 +23,8 @@ class UpdateRuleByIdRequest extends Model
     public $isCopy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {}
      *
      * @var string

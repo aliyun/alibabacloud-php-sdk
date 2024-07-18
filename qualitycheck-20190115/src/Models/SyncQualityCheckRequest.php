@@ -16,6 +16,8 @@ class SyncQualityCheckRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"tid":"20200823-234234","dialogue":"{}"}
      *
      * @var string

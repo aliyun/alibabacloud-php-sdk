@@ -14,6 +14,8 @@ class GetBusinessCategoryListRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ""
      *
      * @var string

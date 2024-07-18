@@ -16,6 +16,8 @@ class UploadAudioDataRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {“callList”:“xxxxx”}
      *
      * @var string

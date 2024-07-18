@@ -16,6 +16,8 @@ class TestRuleV4Request extends Model
     public $isSchemeData;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $testJson;

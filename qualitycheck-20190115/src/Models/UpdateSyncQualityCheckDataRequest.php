@@ -16,6 +16,8 @@ class UpdateSyncQualityCheckDataRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"tid":"xxx"}
      *
      * @var string

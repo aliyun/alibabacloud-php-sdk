@@ -16,6 +16,8 @@ class UploadDataSyncRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"tickets":xxx}
      *
      * @var string

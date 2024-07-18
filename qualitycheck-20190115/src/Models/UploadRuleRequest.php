@@ -16,6 +16,8 @@ class UploadRuleRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {“conditions”:“xxxxx”,"rules":"xxxx"}
      *
      * @var string

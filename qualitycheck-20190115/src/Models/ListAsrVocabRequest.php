@@ -16,6 +16,8 @@ class ListAsrVocabRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"pageSize":1}
      *
      * @var string

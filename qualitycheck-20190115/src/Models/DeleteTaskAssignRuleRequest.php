@@ -16,6 +16,8 @@ class DeleteTaskAssignRuleRequest extends Model
     public $baseMeAgentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"ruleId": 24}
      *
      * @var string
