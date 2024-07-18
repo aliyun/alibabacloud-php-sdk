@@ -70,6 +70,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberResponse;
@@ -876,6 +881,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateUserAvatarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateUserAvatarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateUserAvatarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateUserAvatarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateVideoConferenceSettingHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateVideoConferenceSettingRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateVideoConferenceSettingResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateVideoConferenceSettingShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateVideoConferenceSettingShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersResponse;
@@ -1946,6 +1956,76 @@ class Aliding extends OpenApiClient
         $headers = new CancelScheduleConferenceHeaders([]);
 
         return $this->cancelScheduleConferenceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 校验阿里员工
+     *  *
+     * @param CheckAlibabaStaffRequest $tmpReq    CheckAlibabaStaffRequest
+     * @param CheckAlibabaStaffHeaders $tmpHeader CheckAlibabaStaffHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CheckAlibabaStaffResponse CheckAlibabaStaffResponse
+     */
+    public function checkAlibabaStaffWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CheckAlibabaStaffShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CheckAlibabaStaffShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckAlibabaStaff',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/checkAlibabaStaff',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckAlibabaStaffResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 校验阿里员工
+     *  *
+     * @param CheckAlibabaStaffRequest $request CheckAlibabaStaffRequest
+     *
+     * @return CheckAlibabaStaffResponse CheckAlibabaStaffResponse
+     */
+    public function checkAlibabaStaff($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CheckAlibabaStaffHeaders([]);
+
+        return $this->checkAlibabaStaffWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15450,6 +15530,94 @@ class Aliding extends OpenApiClient
         $headers = new UpdateUserAvatarHeaders([]);
 
         return $this->updateUserAvatarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 设置正在进行中的视频会议属性
+     *  *
+     * @param UpdateVideoConferenceSettingRequest $tmpReq    UpdateVideoConferenceSettingRequest
+     * @param UpdateVideoConferenceSettingHeaders $tmpHeader UpdateVideoConferenceSettingHeaders
+     * @param RuntimeOptions                      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return UpdateVideoConferenceSettingResponse UpdateVideoConferenceSettingResponse
+     */
+    public function updateVideoConferenceSettingWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateVideoConferenceSettingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UpdateVideoConferenceSettingShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->allowUnmuteSelf)) {
+            $body['AllowUnmuteSelf'] = $request->allowUnmuteSelf;
+        }
+        if (!Utils::isUnset($request->autoTransferHost)) {
+            $body['AutoTransferHost'] = $request->autoTransferHost;
+        }
+        if (!Utils::isUnset($request->forbiddenShareScreen)) {
+            $body['ForbiddenShareScreen'] = $request->forbiddenShareScreen;
+        }
+        if (!Utils::isUnset($request->lockConference)) {
+            $body['LockConference'] = $request->lockConference;
+        }
+        if (!Utils::isUnset($request->muteAll)) {
+            $body['MuteAll'] = $request->muteAll;
+        }
+        if (!Utils::isUnset($request->onlyInternalEmployeesJoin)) {
+            $body['OnlyInternalEmployeesJoin'] = $request->onlyInternalEmployeesJoin;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['conferenceId'] = $request->conferenceId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVideoConferenceSetting',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/updateVideoConferenceSetting',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateVideoConferenceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置正在进行中的视频会议属性
+     *  *
+     * @param UpdateVideoConferenceSettingRequest $request UpdateVideoConferenceSettingRequest
+     *
+     * @return UpdateVideoConferenceSettingResponse UpdateVideoConferenceSettingResponse
+     */
+    public function updateVideoConferenceSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateVideoConferenceSettingHeaders([]);
+
+        return $this->updateVideoConferenceSettingWithOptions($request, $headers, $runtime);
     }
 
     /**
