@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N. The key must be 1 to 128 characters in length.
+     * @description The key of tag N. The key must be 1 to 64 characters in length.
      *
      * Valid values of N: 1 to 20.
      *
      *   If you specify only `Tag.N.Key`, all instances that have the tag key added are returned.
-     *   If you specify only `Tag.N.Value`, the `InvalidParameter.TagValue` error is returned.
+     *   If you specify only `Tag.N.Value`, the `InvalidParameter.TagValue` error message is returned.
      *   If you specify multiple tag key-value pairs at a time, the instances that match all the specified tag key-value pairs are returned.
      *
      * @example TestKey

@@ -55,16 +55,22 @@ class status extends Model
     public $adbpgDiskUsagePercent;
 
     /**
+     * @description The total amount of cold data storage.
+     *
      * @var adbpgInstanceColdDataGb
      */
     public $adbpgInstanceColdDataGb;
 
     /**
+     * @description The total amount of hot data storage.
+     *
      * @var adbpgInstanceHotDataGb
      */
     public $adbpgInstanceHotDataGb;
 
     /**
+     * @description The total amount of data storage of the instance.
+     *
      * @var adbpgInstanceTotalDataGb
      */
     public $adbpgInstanceTotalDataGb;

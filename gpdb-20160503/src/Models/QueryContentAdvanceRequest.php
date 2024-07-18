@@ -33,11 +33,15 @@ class QueryContentAdvanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @example test.jpg
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example https://xx/myImage.jpg
+     *
      * @var Stream
      */
     public $fileUrlObject;
@@ -50,21 +54,51 @@ class QueryContentAdvanceRequest extends Model
     public $filter;
 
     /**
+     * @description The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+     *
+     * Valid values:
+     *
+     *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
+     *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
+     *   Cascaded: This algorithm performs first full-text search and then vector search.
+     *
+     * @example RRF
+     *
      * @var string
      */
     public $hybridSearch;
 
     /**
+     * @description The parameters of the two-way retrieval algorithm. The following parameters are supported:
+     *
+     *   When HybridSearch is set to RRF, the scores are calculated by using the `1/(k+rank_i)` formula. The constant k is a positive integer that is greater than 1.
+     *
+     * }
+     *
+     *   When HybridSearch is set to Weight, the scores are calculated by using the `alpha * vector_score + (1-alpha) * text_score` formula. The alpha parameter specifies the proportion of the vector search score and the full-text search score and ranges from 0 to 1. A value of 0 specifies full-text search and a value of 1 specifies vector search.
+     *
+     * }
      * @var mixed[][]
      */
     public $hybridSearchArgs;
 
     /**
+     * @var bool
+     */
+    public $includeFileUrl;
+
+    /**
+     * @description The metadata fields to be returned. Separate multiple fields with commas (,). This parameter is empty by default.
+     *
+     * @example title,page
+     *
      * @var string
      */
     public $includeMetadataFields;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeVector;
@@ -77,6 +111,9 @@ class QueryContentAdvanceRequest extends Model
     public $metrics;
 
     /**
+     * @description The name of the namespace. Default value: public.
+     *
+     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -98,6 +135,14 @@ class QueryContentAdvanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The recall window. If you specify this parameter, the context of the search result is returned. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
+     *
+     * >
+     *
+     *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces and you may fail to obtain the context.
+     *
+     *   The context of the search result is retrieved based on the recall window after the search result is reranked.
+     *
      * @var int[]
      */
     public $recallWindow;
@@ -112,6 +157,8 @@ class QueryContentAdvanceRequest extends Model
     public $regionId;
 
     /**
+     * @example 2
+     *
      * @var float
      */
     public $rerankFactor;
@@ -124,6 +171,8 @@ class QueryContentAdvanceRequest extends Model
     public $topK;
 
     /**
+     * @description Specifies whether to use full-text search to implement two-way retrieval. The default value is false, which specifies that only vector search is used.
+     *
      * @example true
      *
      * @var bool
@@ -138,6 +187,7 @@ class QueryContentAdvanceRequest extends Model
         'filter'                => 'Filter',
         'hybridSearch'          => 'HybridSearch',
         'hybridSearchArgs'      => 'HybridSearchArgs',
+        'includeFileUrl'        => 'IncludeFileUrl',
         'includeMetadataFields' => 'IncludeMetadataFields',
         'includeVector'         => 'IncludeVector',
         'metrics'               => 'Metrics',
@@ -181,6 +231,9 @@ class QueryContentAdvanceRequest extends Model
         }
         if (null !== $this->hybridSearchArgs) {
             $res['HybridSearchArgs'] = $this->hybridSearchArgs;
+        }
+        if (null !== $this->includeFileUrl) {
+            $res['IncludeFileUrl'] = $this->includeFileUrl;
         }
         if (null !== $this->includeMetadataFields) {
             $res['IncludeMetadataFields'] = $this->includeMetadataFields;
@@ -250,6 +303,9 @@ class QueryContentAdvanceRequest extends Model
         }
         if (isset($map['HybridSearchArgs'])) {
             $model->hybridSearchArgs = $map['HybridSearchArgs'];
+        }
+        if (isset($map['IncludeFileUrl'])) {
+            $model->includeFileUrl = $map['IncludeFileUrl'];
         }
         if (isset($map['IncludeMetadataFields'])) {
             $model->includeMetadataFields = $map['IncludeMetadataFields'];

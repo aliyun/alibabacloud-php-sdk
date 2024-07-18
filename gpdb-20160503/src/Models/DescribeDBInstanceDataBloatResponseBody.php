@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDataBloatResponseBody extends Model
 {
     /**
-     * @description Details of data bloat.
+     * @description The queried data bloat.
      *
      * @var items[]
      */

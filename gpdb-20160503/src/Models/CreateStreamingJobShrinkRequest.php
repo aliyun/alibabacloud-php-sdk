@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingJobShrinkRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test-account
      *
      * @var string
@@ -16,6 +18,13 @@ class CreateStreamingJobShrinkRequest extends Model
     public $account;
 
     /**
+     * @description The delivery guarantee setting.
+     *
+     * Valid values:
+     *
+     *   ATLEAST
+     *   EXACTLY
+     *
      * @example ATLEAST / EXACTLY
      *
      * @var string
@@ -23,8 +32,9 @@ class CreateStreamingJobShrinkRequest extends Model
     public $consistency;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -32,8 +42,9 @@ class CreateStreamingJobShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -41,11 +52,15 @@ class CreateStreamingJobShrinkRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description The destination fields.
+     *
      * @var string
      */
     public $destColumnsShrink;
 
     /**
+     * @description The name of the destination database.
+     *
      * @example dest-db
      *
      * @var string
@@ -53,11 +68,15 @@ class CreateStreamingJobShrinkRequest extends Model
     public $destDatabase;
 
     /**
+     * @example dest-schema
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description The name of the destination table.
+     *
      * @example dest-table
      *
      * @var string
@@ -65,6 +84,10 @@ class CreateStreamingJobShrinkRequest extends Model
     public $destTable;
 
     /**
+     * @description The number of allowed error rows. Write failures occur when Kafka data does not match the destination table in AnalyticDB for PostgreSQL. If the specified value is exceeded, the job fails.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $errorLimitCount;
@@ -84,11 +107,17 @@ class CreateStreamingJobShrinkRequest extends Model
     public $groupName;
 
     /**
+     * @description The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+     *
+     * @example DATABASE: adbpgss_test
+     * group.id: testgroup
      * @var string
      */
     public $jobConfig;
 
     /**
+     * @description The description of the job.
+     *
      * @example test-job
      *
      * @var string
@@ -96,8 +125,9 @@ class CreateStreamingJobShrinkRequest extends Model
     public $jobDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the job.
      *
+     * This parameter is required.
      * @example test-job
      *
      * @var string
@@ -105,11 +135,16 @@ class CreateStreamingJobShrinkRequest extends Model
     public $jobName;
 
     /**
+     * @description The update condition columns that are used to join the source data and the destination table. Typically, the columns are all the primary key columns of the destination table. If the values of all columns specified by this parameter in different rows are the same, the rows are considered duplicates.
+     *
      * @var string
      */
     public $matchColumnsShrink;
 
     /**
+     * @description The configuration mode. Valid values:
+     *
+     * 2.  professional: In professional mode, you can submit a YAML configuration file.
      * @example basic / professional
      *
      * @var string
@@ -117,6 +152,8 @@ class CreateStreamingJobShrinkRequest extends Model
     public $mode;
 
     /**
+     * @description The password of the database account.
+     *
      * @example pwd123
      *
      * @var string
@@ -124,16 +161,26 @@ class CreateStreamingJobShrinkRequest extends Model
     public $password;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The source fields.
+     *
      * @var string
      */
     public $srcColumnsShrink;
 
     /**
+     * @description Specifies whether to test the real-time job. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -141,11 +188,21 @@ class CreateStreamingJobShrinkRequest extends Model
     public $tryRun;
 
     /**
+     * @description The columns to be updated if a row of data meets the update condition. Typically, the columns are all non-primary key columns of the destination table. When the columns specified by the MatchColumns parameter are used as conditions to join the source data and the destination table, data in columns of the UpdateColumns type is updated if data is matched.
+     *
      * @var string
      */
     public $updateColumnsShrink;
 
     /**
+     * @description The write mode.
+     *
+     * Valid values:
+     *
+     *   insert
+     *   update
+     *   merge
+     *
      * @example insert/update/merge
      *
      * @var string

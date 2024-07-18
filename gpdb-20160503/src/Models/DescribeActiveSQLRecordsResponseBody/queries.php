@@ -95,8 +95,8 @@ class queries extends Model
     /**
      * @description The status of the asynchronous request. Valid values:
      *
-     *   **RUNNING**
-     *   **BLOCK**
+     *   **running**
+     *   **block**
      *
      * @example running
      *

@@ -2035,7 +2035,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建外部数据源配置
+     * @summary Creates the configurations for an external data source.
      *  *
      * @param CreateStreamingJobRequest $tmpReq  CreateStreamingJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2145,7 +2145,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建外部数据源配置
+     * @summary Creates the configurations for an external data source.
      *  *
      * @param CreateStreamingJobRequest $request CreateStreamingJobRequest
      *
@@ -2732,7 +2732,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除外部数据服务
+     * @summary Deletes an external data service.
      *  *
      * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2771,7 +2771,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除外部数据服务
+     * @summary Deletes an external data service.
      *  *
      * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
      *
@@ -5302,7 +5302,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取外部数据服务详情
+     * @summary Queries the information about an external data service.
      *  *
      * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5341,7 +5341,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取外部数据服务详情
+     * @summary Queries the information about an external data service.
      *  *
      * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
      *
@@ -7723,11 +7723,17 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->namespacePassword)) {
             $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -9732,7 +9738,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询
+     * @summary Retrieves vector data and metadata from a document collection by using natural statements.
      *  *
      * @param QueryContentRequest $tmpReq  QueryContentRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -9774,6 +9780,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->hybridSearchArgsShrink)) {
             $query['HybridSearchArgs'] = $request->hybridSearchArgsShrink;
+        }
+        if (!Utils::isUnset($request->includeFileUrl)) {
+            $query['IncludeFileUrl'] = $request->includeFileUrl;
         }
         if (!Utils::isUnset($request->includeMetadataFields)) {
             $query['IncludeMetadataFields'] = $request->includeMetadataFields;
@@ -9827,7 +9836,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询
+     * @summary Retrieves vector data and metadata from a document collection by using natural statements.
      *  *
      * @param QueryContentRequest $request QueryContentRequest
      *

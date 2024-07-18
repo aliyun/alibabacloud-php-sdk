@@ -30,6 +30,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The description of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -44,6 +46,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The name of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -51,6 +55,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The specifications of the service. Unit: compute units (CUs).
+     *
      * @example 2
      *
      * @var string

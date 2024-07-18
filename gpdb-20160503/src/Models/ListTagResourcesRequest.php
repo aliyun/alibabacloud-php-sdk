@@ -71,8 +71,9 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The queried tags.
+     * @description The tags that are added to instances.
      *
+     * >  You must specify at least one of the ResourceId and Tag parameters.
      * @var tag[]
      */
     public $tag;

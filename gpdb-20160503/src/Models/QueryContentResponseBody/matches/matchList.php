@@ -22,6 +22,8 @@ class matchList extends Model
     public $fileName;
 
     /**
+     * @example https://xxx-cn-beijing.aliyuncs.com/image/test.png
+     *
      * @var string
      */
     public $fileURL;
@@ -46,6 +48,8 @@ class matchList extends Model
     public $metadata;
 
     /**
+     * @example 6.2345
+     *
      * @var float
      */
     public $rerankScore;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class planList extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example gp-bp12ga6v69h86****
      *
@@ -36,9 +36,14 @@ class planList extends Model
     public $planDesc;
 
     /**
-     * @description The end time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The end time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * >  This parameter is returned only for periodically executed plans.
+     * >
+     *
+     *   This parameter is returned only for the plans that are periodically executed.
+     *
+     *   If you did not specify the end time when you created the plan, this parameter is not returned.
+     *
      * @example 2023-04-17T23:00Z
      *
      * @var string
@@ -46,7 +51,7 @@ class planList extends Model
     public $planEndDate;
 
     /**
-     * @description The ID of the plan.
+     * @description The plan ID.
      *
      * @example 1234
      *
@@ -76,9 +81,14 @@ class planList extends Model
     public $planScheduleType;
 
     /**
-     * @description The start time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The start time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * >  This parameter is returned only for periodically executed plans.
+     * >
+     *
+     *   This parameter is returned only for the plans that are periodically executed.
+     *
+     *   If you did not specify the start time when you created the plan, the current time is returned.
+     *
      * @example 2022-04-17T23:00Z
      *
      * @var string
@@ -86,12 +96,12 @@ class planList extends Model
     public $planStartDate;
 
     /**
-     * @description The state of the plan. Valid values:
+     * @description The status of the plan. Valid values:
      *
-     *   **active**: The plan is running.
-     *   **cancel**: The plan is canceled.
-     *   **deleted**: The plan is deleted.
-     *   **finished**: The plan execution is complete.
+     *   **active**
+     *   **cancel**
+     *   **deleted**
+     *   **finished**
      *
      * @example active
      *

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class usage extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $embeddingEntries;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $embeddingTokens;

@@ -14,16 +14,22 @@ class windowMatch extends Model
     public $content;
 
     /**
+     * @example my_doc.txt
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example doca-2345
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example {"page_pos": 2}
+     *
      * @var string
      */
     public $loaderMetadata;

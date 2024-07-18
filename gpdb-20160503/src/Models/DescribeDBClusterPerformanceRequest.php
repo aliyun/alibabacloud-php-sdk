@@ -68,6 +68,10 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $nodes;
 
     /**
+     * @description The name of the resource group.
+     *
+     * @example testgroup
+     *
      * @var string
      */
     public $resourceGroupName;

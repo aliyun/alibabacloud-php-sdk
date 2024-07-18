@@ -20,7 +20,7 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The instance ID.
+     * @description The queried plans.
      *
      * @var items
      */

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class adbpgInstanceHotDataGb extends Model
 {
     /**
+     * @description The total amount of hot data storage. Unit: GB.
+     *
+     * @example 4.1
+     *
      * @var float
      */
     public $value;

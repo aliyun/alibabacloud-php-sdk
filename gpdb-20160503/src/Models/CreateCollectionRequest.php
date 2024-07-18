@@ -99,6 +99,15 @@ class CreateCollectionRequest extends Model
     /**
      * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
+     * >
+     *
+     *   For information about the supported data types, see [Data types](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/data-types-1/?spm=a2c4g.11186623.0.0.43e567a1C35QRD).
+     *
+     *   The money data type is not supported.
+     *
+     **
+     *
+     **Warning**
      * This parameter is required.
      * @example {"title":"text","content":"text","response":"int"}
      *

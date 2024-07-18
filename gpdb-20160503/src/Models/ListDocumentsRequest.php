@@ -28,6 +28,11 @@ class ListDocumentsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
@@ -48,6 +53,11 @@ class ListDocumentsRequest extends Model
     public $namespacePassword;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -64,8 +74,10 @@ class ListDocumentsRequest extends Model
     protected $_name = [
         'collection'        => 'Collection',
         'DBInstanceId'      => 'DBInstanceId',
+        'maxResults'        => 'MaxResults',
         'namespace'         => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
+        'nextToken'         => 'NextToken',
         'ownerId'           => 'OwnerId',
         'regionId'          => 'RegionId',
     ];
@@ -83,11 +95,17 @@ class ListDocumentsRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->namespacePassword) {
             $res['NamespacePassword'] = $this->namespacePassword;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -113,11 +131,17 @@ class ListDocumentsRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
         if (isset($map['NamespacePassword'])) {
             $model->namespacePassword = $map['NamespacePassword'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

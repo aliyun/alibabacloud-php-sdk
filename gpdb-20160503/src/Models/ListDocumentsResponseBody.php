@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var items
      */
     public $items;
@@ -20,6 +25,11 @@ class ListDocumentsResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -40,8 +50,10 @@ class ListDocumentsResponseBody extends Model
      */
     public $status;
     protected $_name = [
+        'count'     => 'Count',
         'items'     => 'Items',
         'message'   => 'Message',
+        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'status'    => 'Status',
     ];
@@ -53,11 +65,17 @@ class ListDocumentsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,11 +95,17 @@ class ListDocumentsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

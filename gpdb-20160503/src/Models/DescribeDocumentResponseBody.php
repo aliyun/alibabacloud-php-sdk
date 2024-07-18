@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocumentResponseBody extends Model
 {
     /**
+     * @example http://oss.xxx/music_chunk.jsonl
+     *
      * @var string
      */
     public $chunkFileUrl;
@@ -63,6 +65,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileSize;
 
     /**
+     * @example http://oss.xxx/music.txt
+     *
      * @var string
      */
     public $fileUrl;
@@ -82,6 +86,8 @@ class DescribeDocumentResponseBody extends Model
     public $message;
 
     /**
+     * @example http://oss.xxx/music_plain_chunk.txt
+     *
      * @var string
      */
     public $plainChunkFileUrl;

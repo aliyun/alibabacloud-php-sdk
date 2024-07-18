@@ -24,7 +24,7 @@ class DescribeDBInstancePlansRequest extends Model
     public $ownerId;
 
     /**
-     * @description The time used to filter plans. If you specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format, the plans created before this time are returned. The time must be in UTC. If you do not specify this parameter, all plans are returned.
+     * @description The time that is used to filter plans. If you specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format, the plans that are created before this time are returned. The time must be in UTC. If you do not specify this parameter, all plans are returned.
      *
      * @example 2022-04-17T23:00Z
      *
@@ -68,6 +68,7 @@ class DescribeDBInstancePlansRequest extends Model
      *
      *   **PauseResume**: pauses and resumes an instance.
      *   **Resize**: scales an instance.
+     *   **ModifySpec**: changes compute node specifications.
      *
      * @example PauseResume
      *

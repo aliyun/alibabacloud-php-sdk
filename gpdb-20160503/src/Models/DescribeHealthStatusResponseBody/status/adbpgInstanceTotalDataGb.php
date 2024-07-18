@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class adbpgInstanceTotalDataGb extends Model
 {
     /**
+     * @description The total amount of data storage of the instance. Unit: GB.
+     *
+     * @example 4.1
+     *
      * @var float
      */
     public $value;
