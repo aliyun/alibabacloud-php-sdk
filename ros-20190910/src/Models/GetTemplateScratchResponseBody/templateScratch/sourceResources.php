@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceResources extends Model
 {
     /**
+     * @description The related resource type filters.
+     *
      * @var string[]
      */
     public $relatedResourceTypeFilter;

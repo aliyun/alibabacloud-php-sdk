@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class templateScratch extends Model
 {
     /**
-     * @description The time at which the scenario was created.
+     * @description The time at which the resource scenario was created.
      *
      * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-22T01:49:22
@@ -25,16 +25,16 @@ class templateScratch extends Model
     public $createTime;
 
     /**
-     * @description The description of the scenario.
+     * @description The description of the resource scenario.
      *
-     * @example The description of the scenario.
+     * @example The description of the resource scenario.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The status code of the scenario that fails to be created.
+     * @description The status code of the resource scenario that fails to be created.
      *
      * > This parameter is returned only if you set Status to GENERATE_FAILED.
      * @example InvalidZoneId
@@ -57,7 +57,7 @@ class templateScratch extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The preference parameters of the scenario.
+     * @description The preference parameters of the resource scenario.
      *
      * @var preferenceParameters[]
      */
@@ -101,18 +101,18 @@ class templateScratch extends Model
     public $stackProvision;
 
     /**
-     * @description The stacks that are associated with the scenario.
+     * @description The stacks that are associated with the resource scenario.
      *
      * @var stacks[]
      */
     public $stacks;
 
     /**
-     * @description The state of the scenario. Valid values:
+     * @description The state of the resource scenario. Valid values:
      *
-     *   GENERATE_IN_PROGRESS: The scenario is being created.
-     *   GENERATE_COMPLETE: The scenario is created.
-     *   GENERATE_FAILED: The scenario fails to be created.
+     *   GENERATE_IN_PROGRESS: The resource scenario is being created.
+     *   GENERATE_COMPLETE: The resource scenario is created.
+     *   GENERATE_FAILED: The resource scenario fails to be created.
      *
      * @example GENERATE_COMPLETE
      *
@@ -121,7 +121,7 @@ class templateScratch extends Model
     public $status;
 
     /**
-     * @description The reason why the scenario fails to be created.
+     * @description The reason why the resource scenario fails to be created.
      *
      * > This parameter is returned only if you set Status to GENERATE_FAILED.
      * @example Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
@@ -131,14 +131,14 @@ class templateScratch extends Model
     public $statusReason;
 
     /**
-     * @description The scenario data.
+     * @description The resource scenario data.
      *
      * @var mixed[]
      */
     public $templateScratchData;
 
     /**
-     * @description The ID of the scenario.
+     * @description The ID of the resource scenario.
      *
      * @example ts-7f7a704cf71c49a6****
      *
@@ -147,7 +147,7 @@ class templateScratch extends Model
     public $templateScratchId;
 
     /**
-     * @description The type of the scenario. Valid values:
+     * @description The type of the resource scenario. Valid values:
      *
      *   ResourceImport: resource management
      *   ArchitectureReplication: resource replication
@@ -159,7 +159,7 @@ class templateScratch extends Model
     public $templateScratchType;
 
     /**
-     * @description The time at which the scenario was updated.
+     * @description The time at which the resource scenario was updated.
      *
      * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-22T01:49:23

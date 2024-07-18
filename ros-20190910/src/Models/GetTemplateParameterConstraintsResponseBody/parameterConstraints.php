@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsR
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\notSupportResources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\originalConstraints;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\queryErrors;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\queryTimeoutDetails;
 use AlibabaCloud\Tea\Model;
 
 class parameterConstraints extends Model
@@ -95,6 +96,11 @@ class parameterConstraints extends Model
     public $queryErrors;
 
     /**
+     * @var queryTimeoutDetails[]
+     */
+    public $queryTimeoutDetails;
+
+    /**
      * @description The data type of the parameter.
      *
      * @example String
@@ -113,6 +119,7 @@ class parameterConstraints extends Model
         'originalConstraints'                => 'OriginalConstraints',
         'parameterKey'                       => 'ParameterKey',
         'queryErrors'                        => 'QueryErrors',
+        'queryTimeoutDetails'                => 'QueryTimeoutDetails',
         'type'                               => 'Type',
     ];
 
@@ -168,6 +175,15 @@ class parameterConstraints extends Model
                 $n = 0;
                 foreach ($this->queryErrors as $item) {
                     $res['QueryErrors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->queryTimeoutDetails) {
+            $res['QueryTimeoutDetails'] = [];
+            if (null !== $this->queryTimeoutDetails && \is_array($this->queryTimeoutDetails)) {
+                $n = 0;
+                foreach ($this->queryTimeoutDetails as $item) {
+                    $res['QueryTimeoutDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -239,6 +255,15 @@ class parameterConstraints extends Model
                 $n                  = 0;
                 foreach ($map['QueryErrors'] as $item) {
                     $model->queryErrors[$n++] = null !== $item ? queryErrors::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['QueryTimeoutDetails'])) {
+            if (!empty($map['QueryTimeoutDetails'])) {
+                $model->queryTimeoutDetails = [];
+                $n                          = 0;
+                foreach ($map['QueryTimeoutDetails'] as $item) {
+                    $model->queryTimeoutDetails[$n++] = null !== $item ? queryTimeoutDetails::fromMap($item) : $item;
                 }
             }
         }

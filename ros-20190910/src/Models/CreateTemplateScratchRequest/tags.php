@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key of the scenario.
+     * @description The tag key of the resource scenario.
      *
      * This parameter is required.
      * @example usage
@@ -19,7 +19,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value of the scenario.
+     * @description The tag value of the resource scenario.
      *
      * @example test
      *

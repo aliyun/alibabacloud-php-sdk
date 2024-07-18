@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class sourceResources extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID of the resource.
+     *
+     * >
+     *
+     *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
+     *
+     *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
      *
      * @example cn-beijing
      *
@@ -18,12 +24,14 @@ class sourceResources extends Model
     public $regionId;
 
     /**
+     * @description The related resource type filters.
+     *
      * @var string[]
      */
     public $relatedResourceTypeFilter;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * This parameter is required.
      * @example vpc-bp1m6fww66xbntjyc****
@@ -33,7 +41,7 @@ class sourceResources extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * This parameter is required.
      * @example ALIYUN::ECS::VPC

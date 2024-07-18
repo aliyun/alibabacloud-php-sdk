@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateScratchRequest extends Model
 {
     /**
-     * @description The region ID of the scenario.
+     * @description The region ID of the resource scenario.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -34,7 +34,7 @@ class GetTemplateScratchRequest extends Model
     public $showDataOption;
 
     /**
-     * @description The ID of the scenario.
+     * @description The ID of the resource scenario.
      *
      * @example ts-7f7a704cf71c49a6****
      *

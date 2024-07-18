@@ -18,7 +18,7 @@ class CreateTemplateScratchResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the scenario.
+     * @description The ID of the resource scenario.
      *
      * @example ts-7f7a704cf71c49a6****
      *

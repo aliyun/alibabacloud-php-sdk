@@ -20,7 +20,7 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the scenario.
+     * @description The description of the resource scenario.
      *
      * @example Replicate a VPC.
      *
@@ -55,14 +55,14 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The preference parameters of the scenario.
+     * @description The preference parameters of the resource scenario.
      *
      * @var string
      */
     public $preferenceParametersShrink;
 
     /**
-     * @description The region ID of the scenario.
+     * @description The region ID of the resource scenario.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -90,6 +90,7 @@ class CreateTemplateScratchShrinkRequest extends Model
     /**
      * @description The source resources.
      *
+     * If you set TemplateScratchType to ArchitectureDetection, you can specify up to 20 source resources. In other cases, you can specify up to 200 source resources.
      * @var string
      */
     public $sourceResourcesShrink;
@@ -102,18 +103,21 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $sourceTagShrink;
 
     /**
-     * @description The tags of the scenario.
+     * @description The tags of the resource scenario.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The type of the scenario. Valid values:
+     * @description The type of the resource scenario. Valid values:
      *
-     *   ResourceImport: resource management
      *   ArchitectureReplication: resource replication
+     *   ArchitectureDetection: resource detection
+     *   ResourceImport: resource management
      *   ResourceMigration: resource migration
+     *
+     * >  The valid values of the ParameterKey and ParameterValue request parameters vary based on the value of TemplateScratchType. For more information, see the "**Additional information about request parameters**" section of this topic.
      *
      * This parameter is required.
      * @example ArchitectureReplication
