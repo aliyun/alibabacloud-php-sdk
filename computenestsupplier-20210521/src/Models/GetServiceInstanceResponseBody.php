@@ -130,6 +130,11 @@ class GetServiceInstanceResponseBody extends Model
     public $operationEndTime;
 
     /**
+     * @var string
+     */
+    public $operationExtraInfo;
+
+    /**
      * @description The beginning of the time range during which hosted O\\&M is implemented.
      *
      * @example 2021-12-29T06:48:56Z
@@ -354,6 +359,7 @@ class GetServiceInstanceResponseBody extends Model
         'networkConfig'             => 'NetworkConfig',
         'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
         'operationEndTime'          => 'OperationEndTime',
+        'operationExtraInfo'        => 'OperationExtraInfo',
         'operationStartTime'        => 'OperationStartTime',
         'outputs'                   => 'Outputs',
         'parameters'                => 'Parameters',
@@ -419,6 +425,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (null !== $this->operationEndTime) {
             $res['OperationEndTime'] = $this->operationEndTime;
+        }
+        if (null !== $this->operationExtraInfo) {
+            $res['OperationExtraInfo'] = $this->operationExtraInfo;
         }
         if (null !== $this->operationStartTime) {
             $res['OperationStartTime'] = $this->operationStartTime;
@@ -536,6 +545,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (isset($map['OperationEndTime'])) {
             $model->operationEndTime = $map['OperationEndTime'];
+        }
+        if (isset($map['OperationExtraInfo'])) {
+            $model->operationExtraInfo = $map['OperationExtraInfo'];
         }
         if (isset($map['OperationStartTime'])) {
             $model->operationStartTime = $map['OperationStartTime'];

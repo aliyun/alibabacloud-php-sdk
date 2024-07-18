@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class licenseData extends Model
 {
     /**
+     * @description The Custom Data
+     *
+     * @example {"Test"}
+     *
      * @var string
      */
     public $customData;

@@ -19,6 +19,8 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @description The License Data
+     *
      * @var string
      */
     public $licenseDataShrink;

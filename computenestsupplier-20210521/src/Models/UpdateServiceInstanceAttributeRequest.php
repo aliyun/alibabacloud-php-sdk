@@ -20,6 +20,8 @@ class UpdateServiceInstanceAttributeRequest extends Model
     public $endTime;
 
     /**
+     * @description The License Data
+     *
      * @var licenseData
      */
     public $licenseData;
