@@ -1,3 +1,7 @@
+2024-07-18 Version: 2.24.0
+- Support API ListCallDetailRecordsV2.
+
+
 2024-07-06 Version: 2.23.0
 - Support API FinishTicketTask.
 

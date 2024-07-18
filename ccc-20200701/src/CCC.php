@@ -232,6 +232,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2Request;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2Response;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsRequest;
@@ -6404,6 +6406,118 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCallDetailRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCallDetailRecordsV2Request $request ListCallDetailRecordsV2Request
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCallDetailRecordsV2Response ListCallDetailRecordsV2Response
+     */
+    public function listCallDetailRecordsV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessChannelTypeList)) {
+            $query['AccessChannelTypeList'] = $request->accessChannelTypeList;
+        }
+        if (!Utils::isUnset($request->agentId)) {
+            $query['AgentId'] = $request->agentId;
+        }
+        if (!Utils::isUnset($request->broker)) {
+            $query['Broker'] = $request->broker;
+        }
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->callingNumber)) {
+            $query['CallingNumber'] = $request->callingNumber;
+        }
+        if (!Utils::isUnset($request->contactDispositionList)) {
+            $query['ContactDispositionList'] = $request->contactDispositionList;
+        }
+        if (!Utils::isUnset($request->contactIdList)) {
+            $query['ContactIdList'] = $request->contactIdList;
+        }
+        if (!Utils::isUnset($request->contactTypeList)) {
+            $query['ContactTypeList'] = $request->contactTypeList;
+        }
+        if (!Utils::isUnset($request->earlyMediaStateList)) {
+            $query['EarlyMediaStateList'] = $request->earlyMediaStateList;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->firstAgentId)) {
+            $query['FirstAgentId'] = $request->firstAgentId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        if (!Utils::isUnset($request->orderByField)) {
+            $query['OrderByField'] = $request->orderByField;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->satisfactionDescriptionList)) {
+            $query['SatisfactionDescriptionList'] = $request->satisfactionDescriptionList;
+        }
+        if (!Utils::isUnset($request->satisfactionRateList)) {
+            $query['SatisfactionRateList'] = $request->satisfactionRateList;
+        }
+        if (!Utils::isUnset($request->satisfactionSurveyChannel)) {
+            $query['SatisfactionSurveyChannel'] = $request->satisfactionSurveyChannel;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $query['SearchPattern'] = $request->searchPattern;
+        }
+        if (!Utils::isUnset($request->skillGroupIdList)) {
+            $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallDetailRecordsV2',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCallDetailRecordsV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCallDetailRecordsV2Request $request ListCallDetailRecordsV2Request
+     *
+     * @return ListCallDetailRecordsV2Response ListCallDetailRecordsV2Response
+     */
+    public function listCallDetailRecordsV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallDetailRecordsV2WithOptions($request, $runtime);
     }
 
     /**
