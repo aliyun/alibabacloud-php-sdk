@@ -19,6 +19,11 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $parentDomainName;
+
+    /**
      * @description The hostname.
      *
      * @example aliyunRetrieval
@@ -46,10 +51,11 @@ class GetTxtRecordForVerifyResponseBody extends Model
      */
     public $value;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'RR'         => 'RR',
-        'requestId'  => 'RequestId',
-        'value'      => 'Value',
+        'domainName'       => 'DomainName',
+        'parentDomainName' => 'ParentDomainName',
+        'RR'               => 'RR',
+        'requestId'        => 'RequestId',
+        'value'            => 'Value',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class GetTxtRecordForVerifyResponseBody extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->parentDomainName) {
+            $res['ParentDomainName'] = $this->parentDomainName;
         }
         if (null !== $this->RR) {
             $res['RR'] = $this->RR;
@@ -85,6 +94,9 @@ class GetTxtRecordForVerifyResponseBody extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['ParentDomainName'])) {
+            $model->parentDomainName = $map['ParentDomainName'];
         }
         if (isset($map['RR'])) {
             $model->RR = $map['RR'];

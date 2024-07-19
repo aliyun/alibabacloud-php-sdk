@@ -31,13 +31,19 @@ class userInfo extends Model
     /**
      * @var string
      */
+    public $statisticSwitchStatus;
+
+    /**
+     * @var string
+     */
     public $stoppedService;
     protected $_name = [
-        'availableService' => 'AvailableService',
-        'pdnsId'           => 'PdnsId',
-        'serviceType'      => 'ServiceType',
-        'state'            => 'State',
-        'stoppedService'   => 'StoppedService',
+        'availableService'      => 'AvailableService',
+        'pdnsId'                => 'PdnsId',
+        'serviceType'           => 'ServiceType',
+        'state'                 => 'State',
+        'statisticSwitchStatus' => 'StatisticSwitchStatus',
+        'stoppedService'        => 'StoppedService',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class userInfo extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->statisticSwitchStatus) {
+            $res['StatisticSwitchStatus'] = $this->statisticSwitchStatus;
         }
         if (null !== $this->stoppedService) {
             $res['StoppedService'] = $this->stoppedService;
@@ -85,6 +94,9 @@ class userInfo extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['StatisticSwitchStatus'])) {
+            $model->statisticSwitchStatus = $map['StatisticSwitchStatus'];
         }
         if (isset($map['StoppedService'])) {
             $model->stoppedService = $map['StoppedService'];
